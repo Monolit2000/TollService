@@ -1,0 +1,7 @@
+services:
+  tollservice.api:
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ASPNETCORE_HTTP_PORTS=5012
+    ports:
+      - "5012:5012"

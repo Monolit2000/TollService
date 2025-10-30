@@ -1,0 +1,21 @@
+services:
+  tollservice.api:
+    image: ${DOCKER_REGISTRY-}tollserviceapi
+    build:
+      context: .
+      dockerfile: src/TollService.Api/Dockerfile
+
+  db:
+    image: postgis/postgis:16-3.4
+    container_name: tolls-postgres
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_DB=tolls
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+
+volumes:
+  postgres-data:
