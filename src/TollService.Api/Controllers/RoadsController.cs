@@ -36,20 +36,6 @@ public class RoadsController : ControllerBase
     public async Task<IActionResult> GetTolls(Guid roadId, CancellationToken ct) 
         => Ok(await _mediator.Send(new GetTollsByRoadQuery(roadId), ct));
 
-    [HttpPost("import/texas")]
-    public async Task<IActionResult> ImportTexas(CancellationToken ct) 
-    { 
-        await _importService.ImportTexasAsync(ct); 
-        return Ok("Imported"); 
-    }
-
-    [HttpPost("import/la")]
-    public async Task<IActionResult> ImportLosAngeles(CancellationToken ct) 
-    { 
-        await _importService.ImportLosAngelesTollRoadsAsync(ct); 
-        return Ok("Imported LA toll roads"); 
-    }
-
     [HttpPost("import/state/{stateCode}")]
     public async Task<IActionResult> ImportState(string stateCode, CancellationToken ct)
     {

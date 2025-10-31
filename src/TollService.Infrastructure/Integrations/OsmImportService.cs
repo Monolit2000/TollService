@@ -57,16 +57,6 @@ public class OsmImportService
         _parserService = parserService;
     }
 
-    public async Task ImportTexasAsync(CancellationToken ct = default)
-    {
-        await ImportStateAsync("TX", ct);
-    }
-
-    public async Task ImportLosAngelesTollRoadsAsync(CancellationToken ct = default)
-    {
-        await ImportStateAsync("CA", ct);
-    }
-
     public async Task ImportStateAsync(string stateCode, CancellationToken ct = default)
     {
         if (!StateBounds.TryGetValue(stateCode.ToUpperInvariant(), out var bounds))
