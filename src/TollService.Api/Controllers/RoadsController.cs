@@ -65,6 +65,13 @@ public class RoadsController : ControllerBase
     [HttpGet("{roadId}/length")]
     public async Task<IActionResult> GetRoadLength(Guid roadId, CancellationToken ct)
         => Ok(await _mediator.Send(new GetRoadLengthQuery(roadId), ct));
+
+    [HttpGet("stats/by-state/{state}")]
+    public async Task<IActionResult> GetTotalRoadDistanceByState(string state, CancellationToken ct)
+    {
+        var totalLength = await _mediator.Send(new GetTotalRoadDistanceByStateQuery(state), ct);
+        return Ok(new { State = state, TotalLengthKm = totalLength });
+    }
 }
 
 

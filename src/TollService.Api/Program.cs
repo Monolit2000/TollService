@@ -4,6 +4,7 @@ using TollService.Application.Mappings;
 using TollService.Application.Common.Interfaces;
 using TollService.Infrastructure.Integrations;
 using TollService.Infrastructure.Persistence;
+using TollService.Infrastructure.Services;
 using TollService.Api.Extensions;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -32,6 +33,7 @@ builder.Services.AddAutoMapper(typeof(MappingProfile).Assembly);
 builder.Services.AddHttpClient<OsmClient>();
 builder.Services.AddScoped<OsmRoadParserService>();
 builder.Services.AddScoped<OsmImportService>();
+builder.Services.AddScoped<ISpatialQueryService, SpatialQueryService>();
 
 var app = builder.Build();
 

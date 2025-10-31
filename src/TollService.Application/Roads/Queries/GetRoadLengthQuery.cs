@@ -1,6 +1,5 @@
 using MediatR;
-using Microsoft.EntityFrameworkCore;
-using TollService.Infrastructure.Persistence;
+using TollService.Application.Common.Interfaces;
 
 namespace TollService.Application.Roads.Queries;
 
@@ -8,30 +7,16 @@ public record GetRoadLengthQuery(Guid RoadId) : IRequest<double?>;
 
 public class GetRoadLengthQueryHandler : IRequestHandler<GetRoadLengthQuery, double?>
 {
-    private readonly TollDbContext _context;
+    private readonly ISpatialQueryService _spatialQueryService;
 
-    public GetRoadLengthQueryHandler(TollDbContext context)
+    public GetRoadLengthQueryHandler(ISpatialQueryService spatialQueryService)
     {
-        _context = context;
+        _spatialQueryService = spatialQueryService;
     }
 
     public async Task<double?> Handle(GetRoadLengthQuery request, CancellationToken ct)
     {
-        // Используем raw SQL для точного вычисления длины через PostGIS
-        // ST_LengthSpheroid вычисляет геодезическое расстояние в метрах для WGS84
-        var length = await _context.Database
-            .SqlQuery<double?>($"""
-                SELECT ST_LengthSpheroid(
-                    geometry::geometry,
-                    'SPHEROID[""WGS 84"",6378137,298.257223563]'::spheroid
-                ) / 1000.0 as LengthKm
-                FROM "Roads"
-                WHERE "Id" = {request.RoadId}::uuid
-                AND geometry IS NOT NULL
-                """)
-            .FirstOrDefaultAsync(ct);
-
-        return length;
+        return await _spatialQueryService.GetRoadLengthAsync(request.RoadId, ct);
     }
 }
 
