@@ -23,12 +23,15 @@ public class OsmRoadParserService
             // tags
             string name = string.Empty;
             string highwayType = string.Empty;
+            string refCode = string.Empty;
             if (el.TryGetProperty("tags", out var tags) && tags.ValueKind == JsonValueKind.Object)
             {
                 if (tags.TryGetProperty("name", out var nameProp) && nameProp.ValueKind == JsonValueKind.String)
                     name = nameProp.GetString() ?? string.Empty;
                 if (tags.TryGetProperty("highway", out var hwProp) && hwProp.ValueKind == JsonValueKind.String)
                     highwayType = hwProp.GetString() ?? string.Empty;
+                if (tags.TryGetProperty("ref", out var refProp) && refProp.ValueKind == JsonValueKind.String)
+                    refCode = refProp.GetString() ?? string.Empty;
             }
 
             // geometry -> LineString
@@ -55,6 +58,7 @@ public class OsmRoadParserService
                 HighwayType = highwayType,
                 IsToll = true,
                 State = stateCode,
+                Ref = string.IsNullOrWhiteSpace(refCode) ? null : refCode,
                 Geometry = line
             };
 
