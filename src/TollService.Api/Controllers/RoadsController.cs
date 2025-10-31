@@ -49,6 +49,22 @@ public class RoadsController : ControllerBase
         await _importService.ImportLosAngelesTollRoadsAsync(ct); 
         return Ok("Imported LA toll roads"); 
     }
+
+    [HttpGet("near")]
+    public async Task<IActionResult> GetRoadsNearPoint([FromQuery] double lat, [FromQuery] double lon, [FromQuery] double radius, CancellationToken ct)
+        => Ok(await _mediator.Send(new GetRoadsNearPointQuery(lat, lon, radius), ct));
+
+    [HttpGet("{roadId}/tolls/on-road")]
+    public async Task<IActionResult> GetTollsOnRoad(Guid roadId, CancellationToken ct)
+        => Ok(await _mediator.Send(new GetTollsOnRoadQuery(roadId), ct));
+
+    [HttpGet("{roadId}/distance")]
+    public async Task<IActionResult> GetRoadDistance(Guid roadId, [FromQuery] double lat, [FromQuery] double lon, CancellationToken ct)
+        => Ok(await _mediator.Send(new GetRoadDistanceQuery(roadId, lat, lon), ct));
+
+    [HttpGet("{roadId}/length")]
+    public async Task<IActionResult> GetRoadLength(Guid roadId, CancellationToken ct)
+        => Ok(await _mediator.Send(new GetRoadLengthQuery(roadId), ct));
 }
 
 
