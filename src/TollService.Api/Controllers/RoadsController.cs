@@ -50,6 +50,20 @@ public class RoadsController : ControllerBase
         return Ok("Imported LA toll roads"); 
     }
 
+    [HttpPost("import/state/{stateCode}")]
+    public async Task<IActionResult> ImportState(string stateCode, CancellationToken ct)
+    {
+        await _importService.ImportStateAsync(stateCode, ct);
+        return Ok($"Imported toll roads for {stateCode}");
+    }
+
+    [HttpPost("import/all-states")]
+    public async Task<IActionResult> ImportAllStates(CancellationToken ct)
+    {
+        await _importService.ImportAllStatesAsync(ct);
+        return Ok("Imported toll roads for all states");
+    }
+
     [HttpGet("near")]
     public async Task<IActionResult> GetRoadsNearPoint([FromQuery] double lat, [FromQuery] double lon, [FromQuery] double radius, CancellationToken ct)
         => Ok(await _mediator.Send(new GetRoadsNearPointQuery(lat, lon, radius), ct));
