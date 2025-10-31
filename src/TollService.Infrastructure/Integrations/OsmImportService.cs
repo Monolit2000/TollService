@@ -8,7 +8,6 @@ public class OsmImportService
     private readonly TollDbContext _context;
     private readonly OsmRoadParserService _parserService;
 
-    // BBOX координаты для основных штатов США с платными дорогами (south, west, north, east)
     private static readonly Dictionary<string, (double south, double west, double north, double east)> StateBounds = new()
     {
         { "TX", (25.8, -106.6, 36.5, -93.5) },      // Texas
@@ -94,8 +93,6 @@ public class OsmImportService
             }
             catch (Exception ex)
             {
-                // Логируем ошибку, но продолжаем импорт других штатов
-                // В реальном приложении здесь должен быть логгер
                 Console.WriteLine($"Failed to import {stateCode}: {ex.Message}");
             }
         }
