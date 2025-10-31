@@ -19,9 +19,8 @@ public class GetRoadNamesByStateQueryHandler : IRequestHandler<GetRoadNamesBySta
     {
         return await _context.Roads
             .Where(r => r.State == request.State && !string.IsNullOrEmpty(r.Ref))
-            .Select(r => r.Ref)
+            .Select(r => $"{r.Ref} {r.Name}")
             .Distinct()
-            .OrderBy(n => n)
             .ToListAsync(ct);
     }
 }
