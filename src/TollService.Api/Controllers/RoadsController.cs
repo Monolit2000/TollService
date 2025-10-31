@@ -20,27 +20,35 @@ public class RoadsController : ControllerBase
     }
 
     [HttpPost]
-    public async Task<IActionResult> AddRoad(AddRoadCommand command) => Ok(await _mediator.Send(command));
+    public async Task<IActionResult> AddRoad(AddRoadCommand command, CancellationToken ct) => Ok(await _mediator.Send(command, ct));
 
     [HttpGet("{id}")]
-    public async Task<IActionResult> GetRoad(Guid id) => Ok(await _mediator.Send(new GetRoadByIdQuery(id)));
+    public async Task<IActionResult> GetRoad(Guid id, CancellationToken ct) => Ok(await _mediator.Send(new GetRoadByIdQuery(id), ct));
 
     [HttpPost("{roadId}/tolls")]
-    public async Task<IActionResult> AddToll(Guid roadId, AddTollCommand command)
+    public async Task<IActionResult> AddToll(Guid roadId, AddTollCommand command, CancellationToken ct)
     {
         command = command with { RoadId = roadId };
-        return Ok(await _mediator.Send(command));
+        return Ok(await _mediator.Send(command, ct));
     }
 
     [HttpGet("{roadId}/tolls")]
-    public async Task<IActionResult> GetTolls(Guid roadId) 
-        => Ok(await _mediator.Send(new GetTollsByRoadQuery(roadId)));
+    public async Task<IActionResult> GetTolls(Guid roadId, CancellationToken ct) 
+        => Ok(await _mediator.Send(new GetTollsByRoadQuery(roadId), ct));
 
     [HttpPost("import/texas")]
-    public async Task<IActionResult> ImportTexas() { await _importService.ImportTexasAsync(); return Ok("Imported"); }
+    public async Task<IActionResult> ImportTexas(CancellationToken ct) 
+    { 
+        await _importService.ImportTexasAsync(ct); 
+        return Ok("Imported"); 
+    }
 
     [HttpPost("import/la")]
-    public async Task<IActionResult> ImportLosAngeles() { await _importService.ImportLosAngelesTollRoadsAsync(); return Ok("Imported LA toll roads"); }
+    public async Task<IActionResult> ImportLosAngeles(CancellationToken ct) 
+    { 
+        await _importService.ImportLosAngelesTollRoadsAsync(ct); 
+        return Ok("Imported LA toll roads"); 
+    }
 }
 
 

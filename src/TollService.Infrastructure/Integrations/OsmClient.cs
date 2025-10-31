@@ -42,6 +42,12 @@ out geom tags;";
         var json = await response.Content.ReadAsStringAsync(ct);
         return JsonDocument.Parse(json);
     }
+
+    public async Task<JsonDocument> GetTollRoadWaysForTexasAsync(CancellationToken ct = default)
+    {
+        // Texas BBOX: approximately 25.8,-106.6,36.5,-93.5
+        return await GetTollRoadWaysAsync(25.8, -106.6, 36.5, -93.5, ct);
+    }
 }
 
 
