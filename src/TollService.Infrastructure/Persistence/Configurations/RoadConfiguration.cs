@@ -11,6 +11,7 @@ public class RoadConfiguration : IEntityTypeConfiguration<Road>
         builder.HasKey(x => x.Id);
         builder.Property(x => x.Name).HasMaxLength(256);
         builder.Property(x => x.HighwayType).HasMaxLength(64);
+        builder.Property(x => x.State).IsRequired(false);
         builder.Property(x => x.Geometry).HasColumnType("geometry(LineString,4326)");
         builder.HasIndex(x => x.Geometry).HasMethod("GIST");
         builder.HasMany(x => x.Tolls).WithOne(t => t.Road).HasForeignKey(t => t.RoadId);

@@ -38,6 +38,9 @@ public class RoadsController : ControllerBase
 
     [HttpPost("import/texas")]
     public async Task<IActionResult> ImportTexas() { await _importService.ImportTexasAsync(); return Ok("Imported"); }
+
+    [HttpPost("import/la")]
+    public async Task<IActionResult> ImportLosAngeles() { await _importService.ImportLosAngelesTollRoadsAsync(); return Ok("Imported LA toll roads"); }
 }
 
 

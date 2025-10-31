@@ -1,15 +1,15 @@
 using Microsoft.EntityFrameworkCore;
-using NetTopologySuite.Geometries;
+using TollService.Application.Common.Interfaces;
 using TollService.Domain;
 
 namespace TollService.Infrastructure.Persistence;
 
-public class TollDbContext : DbContext
+public class TollDbContext : DbContext, ITollDbContext
 {
     public TollDbContext(DbContextOptions<TollDbContext> options) : base(options) { }
 
-    public DbSet<Road> Roads => Set<Road>();
-    public DbSet<Toll> Tolls => Set<Toll>();
+    public DbSet<Road> Roads { get; set; }
+    public DbSet<Toll> Tolls { get; set; }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {

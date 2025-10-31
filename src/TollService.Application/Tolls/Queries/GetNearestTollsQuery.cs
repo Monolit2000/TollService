@@ -2,8 +2,8 @@ using AutoMapper;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
 using NetTopologySuite.Geometries;
+using TollService.Application.Common.Interfaces;
 using TollService.Contracts;
-using TollService.Infrastructure.Persistence;
 
 namespace TollService.Application.Tolls.Queries;
 
@@ -11,10 +11,10 @@ public record GetNearestTollsQuery(double Latitude, double Longitude, double Rad
 
 public class GetNearestTollsQueryHandler : IRequestHandler<GetNearestTollsQuery, List<TollDto>>
 {
-    private readonly TollDbContext _context;
+    private readonly ITollDbContext _context;
     private readonly IMapper _mapper;
 
-    public GetNearestTollsQueryHandler(TollDbContext context, IMapper mapper)
+    public GetNearestTollsQueryHandler(ITollDbContext context, IMapper mapper)
     {
         _context = context;
         _mapper = mapper;

@@ -29,6 +29,19 @@ public class OsmClient
         var json = await response.Content.ReadAsStringAsync(ct);
         return JsonDocument.Parse(json);
     }
+
+    public async Task<JsonDocument> GetTollRoadWaysAsync(double south, double west, double north, double east, CancellationToken ct = default)
+    {
+        string query = $@"[out:json][timeout:600];
+way[""toll""=""yes""][""highway""~""motorway|trunk""]({south},{west},{north},{east});
+out geom tags;";
+
+        var url = $"https://overpass-api.de/api/interpreter?data={Uri.EscapeDataString(query)}";
+        using var response = await _httpClient.GetAsync(url, ct);
+        response.EnsureSuccessStatusCode();
+        var json = await response.Content.ReadAsStringAsync(ct);
+        return JsonDocument.Parse(json);
+    }
 }
 
 

@@ -2,7 +2,7 @@ using AutoMapper;
 using MediatR;
 using TollService.Contracts;
 using TollService.Domain;
-using TollService.Infrastructure.Persistence;
+using TollService.Application.Common.Interfaces;
 
 namespace TollService.Application.Roads.Commands;
 
@@ -10,10 +10,10 @@ public record AddRoadCommand(string Name, string HighwayType, bool IsToll) : IRe
 
 public class AddRoadCommandHandler : IRequestHandler<AddRoadCommand, RoadDto>
 {
-    private readonly TollDbContext _context;
+    private readonly ITollDbContext _context;
     private readonly IMapper _mapper;
 
-    public AddRoadCommandHandler(TollDbContext context, IMapper mapper)
+    public AddRoadCommandHandler(ITollDbContext context, IMapper mapper)
     {
         _context = context;
         _mapper = mapper;

@@ -1,5 +1,6 @@
 services:
   tollservice.api:
+    container_name: tollservice-api
     image: ${DOCKER_REGISTRY-}tollserviceapi
     build:
       context: .
@@ -13,7 +14,7 @@ services:
       - POSTGRES_PASSWORD=postgres
       - POSTGRES_DB=tolls
     ports:
-      - "5432:5432"
+      - "5436:5432"
     volumes:
       - postgres-data:/var/lib/postgresql/data
 

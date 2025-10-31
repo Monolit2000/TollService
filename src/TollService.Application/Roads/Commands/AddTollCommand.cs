@@ -3,7 +3,7 @@ using MediatR;
 using NetTopologySuite.Geometries;
 using TollService.Contracts;
 using TollService.Domain;
-using TollService.Infrastructure.Persistence;
+using TollService.Application.Common.Interfaces;
 
 namespace TollService.Application.Roads.Commands;
 
@@ -11,10 +11,10 @@ public record AddTollCommand(Guid RoadId, string Name, decimal Price, double Lat
 
 public class AddTollCommandHandler : IRequestHandler<AddTollCommand, TollDto>
 {
-    private readonly TollDbContext _context;
+    private readonly ITollDbContext _context;
     private readonly IMapper _mapper;
 
-    public AddTollCommandHandler(TollDbContext context, IMapper mapper)
+    public AddTollCommandHandler(ITollDbContext context, IMapper mapper)
     {
         _context = context;
         _mapper = mapper;

@@ -1,8 +1,10 @@
 using MediatR;
 using Microsoft.EntityFrameworkCore;
 using TollService.Application.Mappings;
+using TollService.Application.Common.Interfaces;
 using TollService.Infrastructure.Integrations;
 using TollService.Infrastructure.Persistence;
+using TollService.Api.Extensions;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -12,10 +14,18 @@ builder.Services.AddSwaggerGen();
 
 var connectionString = builder.Configuration.GetConnectionString("Default")
     ?? Environment.GetEnvironmentVariable("ConnectionStrings__Default")
-    ?? "Host=localhost;Port=5432;Database=tolls;Username=postgres;Password=postgres";
+    ?? "Host=db;Port=5432;Database=tolls;Username=postgres;Password=postgres";
 
 builder.Services.AddDbContext<TollDbContext>(options =>
-    options.UseNpgsql(connectionString, npgsql => npgsql.UseNetTopologySuite()));
+    options.UseNpgsql(connectionString, npgsql =>
+    {
+        npgsql.UseNetTopologySuite();
+        npgsql.EnableRetryOnFailure(
+            maxRetryCount: 5,
+            maxRetryDelay: TimeSpan.FromSeconds(5),
+            errorCodesToAdd: null);
+    }));
+builder.Services.AddScoped<ITollDbContext>(sp => sp.GetRequiredService<TollDbContext>());
 
 builder.Services.AddMediatR(typeof(MappingProfile).Assembly);
 builder.Services.AddAutoMapper(typeof(MappingProfile).Assembly);
@@ -37,5 +47,8 @@ app.MapGet("/", context =>
 });
 
 app.MapControllers();
+
+// Apply EF Core migrations on startup
+app.ApplyTollMigrations();
 
 app.Run();

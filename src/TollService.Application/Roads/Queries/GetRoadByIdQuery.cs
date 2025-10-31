@@ -2,7 +2,7 @@ using AutoMapper;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
 using TollService.Contracts;
-using TollService.Infrastructure.Persistence;
+using TollService.Application.Common.Interfaces;
 
 namespace TollService.Application.Roads.Queries;
 
@@ -10,10 +10,10 @@ public record GetRoadByIdQuery(Guid Id) : IRequest<RoadDto?>;
 
 public class GetRoadByIdQueryHandler : IRequestHandler<GetRoadByIdQuery, RoadDto?>
 {
-    private readonly TollDbContext _context;
+    private readonly ITollDbContext _context;
     private readonly IMapper _mapper;
 
-    public GetRoadByIdQueryHandler(TollDbContext context, IMapper mapper)
+    public GetRoadByIdQueryHandler(ITollDbContext context, IMapper mapper)
     {
         _context = context;
         _mapper = mapper;

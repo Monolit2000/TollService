@@ -16,7 +16,6 @@
   <ItemGroup>
     <ProjectReference Include="..\TollService.Domain\TollService.Domain.csproj" />
     <ProjectReference Include="..\TollService.Contracts\TollService.Contracts.csproj" />
-    <ProjectReference Include="..\TollService.Infrastructure\TollService.Infrastructure.csproj" />
   </ItemGroup>
 
 </Project>
