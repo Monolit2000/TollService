@@ -1,3 +1,4 @@
+using Microsoft.EntityFrameworkCore;
 using TollService.Infrastructure.Persistence;
 
 namespace TollService.Infrastructure.Integrations;
@@ -7,6 +8,7 @@ public class OsmImportService
     private readonly OsmClient _osmClient;
     private readonly TollDbContext _context;
     private readonly OsmRoadParserService _parserService;
+    private readonly OsmTollParserService _tollParserService;
 
     private static readonly Dictionary<string, (double south, double west, double north, double east)> StateBounds = new()
     {
@@ -50,11 +52,12 @@ public class OsmImportService
         { "NM", (31.3, -109.0, 37.0, -103.0) },    // New Mexico
     };
 
-    public OsmImportService(OsmClient osmClient, TollDbContext context, OsmRoadParserService parserService)
+    public OsmImportService(OsmClient osmClient, TollDbContext context, OsmRoadParserService parserService, OsmTollParserService tollParserService)
     {
         _osmClient = osmClient;
         _context = context;
         _parserService = parserService;
+        _tollParserService = tollParserService;
     }
 
     public async Task ImportStateAsync(string stateCode, CancellationToken ct = default)
@@ -84,6 +87,47 @@ public class OsmImportService
             catch (Exception ex)
             {
                 Console.WriteLine($"Failed to import {stateCode}: {ex.Message}");
+            }
+        }
+    }
+
+    public async Task ImportTollsForStateAsync(string stateCode, CancellationToken ct = default)
+    {
+        if (!StateBounds.TryGetValue(stateCode.ToUpperInvariant(), out var bounds))
+        {
+            throw new ArgumentException($"State code '{stateCode}' is not supported or not found in bounds dictionary.", nameof(stateCode));
+        }
+
+        // Get existing roads for this state with WayId
+        var existingRoads = await _context.Roads
+            .Where(r => r.State == stateCode.ToUpperInvariant() && r.WayId.HasValue)
+            .ToListAsync(ct);
+
+        if (existingRoads.Count == 0)
+        {
+            return; // No roads found, cannot import tolls
+        }
+
+        using var doc = await _osmClient.GetTollPointsAsync(bounds.south, bounds.west, bounds.north, bounds.east, ct);
+        var tollsToAdd = _tollParserService.ParseTollPointsFromJson(doc, stateCode.ToUpperInvariant(), existingRoads);
+
+        if (tollsToAdd.Count == 0) return;
+
+        await _context.Tolls.AddRangeAsync(tollsToAdd, ct);
+        await _context.SaveChangesAsync(ct);
+    }
+
+    public async Task ImportTollsForAllStatesAsync(CancellationToken ct = default)
+    {
+        foreach (var stateCode in StateBounds.Keys)
+        {
+            try
+            {
+                await ImportTollsForStateAsync(stateCode, ct);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Failed to import tolls for {stateCode}: {ex.Message}");
             }
         }
     }

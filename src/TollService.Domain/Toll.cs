@@ -10,6 +10,7 @@ public class Toll
     public Point? Location { get; set; }
     public Guid RoadId { get; set; }
     public Road? Road { get; set; }
+    public long? NodeId { get; set; }
 }
 
 

@@ -32,6 +32,7 @@ builder.Services.AddMediatR(typeof(MappingProfile).Assembly);
 builder.Services.AddAutoMapper(typeof(MappingProfile).Assembly);
 builder.Services.AddHttpClient<OsmClient>();
 builder.Services.AddScoped<OsmRoadParserService>();
+builder.Services.AddScoped<OsmTollParserService>();
 builder.Services.AddScoped<OsmImportService>();
 builder.Services.AddScoped<ISpatialQueryService, SpatialQueryService>();
 
