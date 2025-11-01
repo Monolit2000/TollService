@@ -35,6 +35,7 @@ builder.Services.AddScoped<OsmRoadParserService>();
 builder.Services.AddScoped<OsmTollParserService>();
 builder.Services.AddScoped<OsmImportService>();
 builder.Services.AddScoped<ISpatialQueryService, SpatialQueryService>();
+builder.Services.AddScoped<RoadRefService>();
 
 var app = builder.Build();
 

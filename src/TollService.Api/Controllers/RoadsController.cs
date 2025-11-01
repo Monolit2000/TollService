@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using TollService.Application.Roads.Commands;
 using TollService.Application.Roads.Queries;
 using TollService.Infrastructure.Integrations;
+using TollService.Infrastructure.Services;
 
 namespace TollService.Api.Controllers;
 
@@ -12,11 +13,13 @@ public class RoadsController : ControllerBase
 {
     private readonly IMediator _mediator;
     private readonly OsmImportService _importService;
+    private readonly RoadRefService _roadRefService;
 
-    public RoadsController(IMediator mediator, OsmImportService importService)
+    public RoadsController(IMediator mediator, OsmImportService importService, RoadRefService roadRefService)
     {
         _mediator = mediator;
         _importService = importService;
+        _roadRefService = roadRefService;
     }
 
     [HttpPost]
@@ -76,6 +79,13 @@ public class RoadsController : ControllerBase
     [HttpGet("names/by-state/{state}")]
     public async Task<IActionResult> GetRoadNamesByState(string state, CancellationToken ct)
         => Ok(await _mediator.Send(new GetRoadNamesByStateQuery(state), ct));
+
+    [HttpPost("fill-missing-refs")]
+    public async Task<IActionResult> FillMissingRefs(CancellationToken ct)
+    {
+        var updatedCount = await _roadRefService.FillMissingRefsAsync(ct);
+        return Ok(new { UpdatedCount = updatedCount, Message = $"Updated {updatedCount} roads with missing Ref values" });
+    }
 }
 
 
