@@ -13,6 +13,7 @@ public class RoadConfiguration : IEntityTypeConfiguration<Road>
         builder.Property(x => x.HighwayType).HasMaxLength(64);
         builder.Property(x => x.State).IsRequired(false);
         builder.Property(x => x.Ref).HasMaxLength(64).IsRequired(false);
+        builder.Property(x => x.WayId).IsRequired(false);
         builder.Property(x => x.Geometry).HasColumnType("geometry(LineString,4326)");
         builder.HasIndex(x => x.Geometry).HasMethod("GIST");
         builder.HasMany(x => x.Tolls).WithOne(t => t.Road).HasForeignKey(t => t.RoadId);

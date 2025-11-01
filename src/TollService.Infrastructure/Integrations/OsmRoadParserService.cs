@@ -20,6 +20,13 @@ public class OsmRoadParserService
         {
             if (!el.TryGetProperty("type", out var typeProp) || typeProp.GetString() != "way") continue;
 
+            // Extract WayId from OSM element id
+            long? wayId = null;
+            if (el.TryGetProperty("id", out var idProp) && idProp.ValueKind == JsonValueKind.Number)
+            {
+                wayId = idProp.GetInt64();
+            }
+
             // tags
             string name = string.Empty;
             string highwayType = string.Empty;
@@ -59,6 +66,7 @@ public class OsmRoadParserService
                 IsToll = true,
                 State = stateCode,
                 Ref = string.IsNullOrWhiteSpace(refCode) ? null : refCode,
+                WayId = wayId,
                 Geometry = line
             };
 

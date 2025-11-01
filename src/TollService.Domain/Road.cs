@@ -10,6 +10,7 @@ public class Road
     public bool IsToll { get; set; }
     public string State { get; set; } 
     public string Ref { get; set; }
+    public long? WayId { get; set; }
     public LineString? Geometry { get; set; }
     public List<Toll> Tolls { get; set; } = new();
 }
