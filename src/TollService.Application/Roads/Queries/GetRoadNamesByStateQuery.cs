@@ -6,15 +6,9 @@ namespace TollService.Application.Roads.Queries;
 
 public record GetRoadNamesByStateQuery(string State) : IRequest<List<string>>;
 
-public class GetRoadNamesByStateQueryHandler : IRequestHandler<GetRoadNamesByStateQuery, List<string>>
+public class GetRoadNamesByStateQueryHandler(
+    ITollDbContext _context) : IRequestHandler<GetRoadNamesByStateQuery, List<string>>
 {
-    private readonly ITollDbContext _context;
-
-    public GetRoadNamesByStateQueryHandler(ITollDbContext context)
-    {
-        _context = context;
-    }
-
     public async Task<List<string>> Handle(GetRoadNamesByStateQuery request, CancellationToken ct)
     {
         return await _context.Roads

@@ -9,17 +9,10 @@ namespace TollService.Application.Roads.Commands;
 
 public record AddTollCommand(Guid RoadId, string Name, decimal Price, double Latitude, double Longitude) : IRequest<TollDto>;
 
-public class AddTollCommandHandler : IRequestHandler<AddTollCommand, TollDto>
+public class AddTollCommandHandler(
+    IMapper _mapper,
+    ITollDbContext _context) : IRequestHandler<AddTollCommand, TollDto>
 {
-    private readonly ITollDbContext _context;
-    private readonly IMapper _mapper;
-
-    public AddTollCommandHandler(ITollDbContext context, IMapper mapper)
-    {
-        _context = context;
-        _mapper = mapper;
-    }
-
     public async Task<TollDto> Handle(AddTollCommand request, CancellationToken ct)
     {
         var toll = new Toll

@@ -7,15 +7,9 @@ namespace TollService.Application.Roads.Queries;
 
 public record GetRoadDistanceQuery(Guid RoadId, double Latitude, double Longitude) : IRequest<double?>;
 
-public class GetRoadDistanceQueryHandler : IRequestHandler<GetRoadDistanceQuery, double?>
+public class GetRoadDistanceQueryHandler(
+    ITollDbContext _context) : IRequestHandler<GetRoadDistanceQuery, double?>
 {
-    private readonly ITollDbContext _context;
-
-    public GetRoadDistanceQueryHandler(ITollDbContext context)
-    {
-        _context = context;
-    }
-
     public async Task<double?> Handle(GetRoadDistanceQuery request, CancellationToken ct)
     {
         var road = await _context.Roads

@@ -9,17 +9,10 @@ namespace TollService.Application.Roads.Queries;
 
 public record GetRoadsNearPointQuery(double Latitude, double Longitude, double RadiusMeters) : IRequest<List<RoadDto>>;
 
-public class GetRoadsNearPointQueryHandler : IRequestHandler<GetRoadsNearPointQuery, List<RoadDto>>
+public class GetRoadsNearPointQueryHandler(
+    IMapper _mapper,
+    ITollDbContext _context) : IRequestHandler<GetRoadsNearPointQuery, List<RoadDto>>
 {
-    private readonly ITollDbContext _context;
-    private readonly IMapper _mapper;
-
-    public GetRoadsNearPointQueryHandler(ITollDbContext context, IMapper mapper)
-    {
-        _context = context;
-        _mapper = mapper;
-    }
-
     public async Task<List<RoadDto>> Handle(GetRoadsNearPointQuery request, CancellationToken ct)
     {
         var point = new Point(request.Longitude, request.Latitude) { SRID = 4326 };

@@ -8,17 +8,10 @@ namespace TollService.Application.Roads.Queries;
 
 public record GetTollsOnRoadQuery(Guid RoadId) : IRequest<List<TollDto>>;
 
-public class GetTollsOnRoadQueryHandler : IRequestHandler<GetTollsOnRoadQuery, List<TollDto>>
+public class GetTollsOnRoadQueryHandler(
+    IMapper _mapper,
+    ITollDbContext _context) : IRequestHandler<GetTollsOnRoadQuery, List<TollDto>>
 {
-    private readonly ITollDbContext _context;
-    private readonly IMapper _mapper;
-
-    public GetTollsOnRoadQueryHandler(ITollDbContext context, IMapper mapper)
-    {
-        _context = context;
-        _mapper = mapper;
-    }
-
     public async Task<List<TollDto>> Handle(GetTollsOnRoadQuery request, CancellationToken ct)
     {
         var road = await _context.Roads

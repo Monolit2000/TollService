@@ -8,17 +8,10 @@ namespace TollService.Application.Roads.Commands;
 
 public record AddRoadCommand(string Name, string HighwayType, bool IsToll) : IRequest<RoadDto>;
 
-public class AddRoadCommandHandler : IRequestHandler<AddRoadCommand, RoadDto>
+public class AddRoadCommandHandler(
+    IMapper _mapper,
+    ITollDbContext _context) : IRequestHandler<AddRoadCommand, RoadDto>
 {
-    private readonly ITollDbContext _context;
-    private readonly IMapper _mapper;
-
-    public AddRoadCommandHandler(ITollDbContext context, IMapper mapper)
-    {
-        _context = context;
-        _mapper = mapper;
-    }
-
     public async Task<RoadDto> Handle(AddRoadCommand request, CancellationToken ct)
     {
         var road = new Road
