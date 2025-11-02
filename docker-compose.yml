@@ -1,7 +1,7 @@
 services:
   tollservice.api:
     container_name: tollservice-api
-    image: ${DOCKER_REGISTRY-}tollserviceapi
+    image: futondoker/tollserviceapi:v1
     build:
       context: .
       dockerfile: src/TollService.Api/Dockerfile
