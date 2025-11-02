@@ -86,6 +86,15 @@ public class RoadsController : ControllerBase
         var updatedCount = await _roadRefService.FillMissingRefsAsync(ct);
         return Ok(new { UpdatedCount = updatedCount, Message = $"Updated {updatedCount} roads with missing Ref values" });
     }
+
+    [HttpGet("by-bounding-box")]
+    public async Task<IActionResult> GetRoadsByBoundingBox(
+        [FromQuery] double minLat, 
+        [FromQuery] double minLon, 
+        [FromQuery] double maxLat, 
+        [FromQuery] double maxLon, 
+        CancellationToken ct)
+        => Ok(await _mediator.Send(new GetRoadsByBoundingBoxQuery(minLat, minLon, maxLat, maxLon), ct));
 }
 
 
