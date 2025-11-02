@@ -17,45 +17,55 @@ public class RoadRefService
 
     public async Task<int> FillMissingRefsAsync(CancellationToken ct = default)
     {
-        // Получаем все дороги без Ref, но с геометрией
-        var roadsWithoutRef = await _context.Roads
+        int iter = 0;
+        bool flag = true;
+        while (flag)
+        {
+            // Получаем все дороги без Ref, но с геометрией
+            var roadsWithoutRef = await _context.Roads
             .Where(r => r.Ref == null && r.Geometry != null)
             .ToListAsync(ct);
 
-        if (roadsWithoutRef.Count == 0)
-            return 0;
+            if (roadsWithoutRef.Count == 0)
+                return 0;
+            int batchSize = 100; // Обрабатываем по батчам для оптимизации
 
-        int updatedCount = 0;
-        int batchSize = 100; // Обрабатываем по батчам для оптимизации
-
-        for (int i = 0; i < roadsWithoutRef.Count; i += batchSize)
-        {
-            var batch = roadsWithoutRef.Skip(i).Take(batchSize).ToList();
-            int batchUpdated = 0;
-            
-            foreach (var roadWithoutRef in batch)
+            int updatedCount = 0;
+            for (int i = 0; i < roadsWithoutRef.Count; i += batchSize)
             {
-                if (roadWithoutRef.Geometry == null)
-                    continue;
+                var batch = roadsWithoutRef.Skip(i).Take(batchSize).ToList();
+                int batchUpdated = 0;
 
-                var bestMatch = await FindBestRefMatchAsync(roadWithoutRef, ct);
-                
-                if (bestMatch != null)
+                foreach (var roadWithoutRef in batch)
                 {
-                    roadWithoutRef.Ref = bestMatch.Ref;
-                    batchUpdated++;
-                    updatedCount++;
+                    if (roadWithoutRef.Geometry == null)
+                        continue;
+
+                    var bestMatch = await FindBestRefMatchAsync(roadWithoutRef, ct);
+
+                    if (bestMatch != null)
+                    {
+                        roadWithoutRef.Ref = bestMatch.Ref;
+                        roadWithoutRef.Name = bestMatch.Name;
+                        batchUpdated++;
+                        updatedCount++;
+                        iter++;
+                    }
+                }
+
+                // Сохраняем изменения после каждого батча, если были обновления
+                if (batchUpdated > 0)
+                {
+                    await _context.SaveChangesAsync(ct);
                 }
             }
+            if (updatedCount == 0)
+                flag = false;
 
-            // Сохраняем изменения после каждого батча, если были обновления
-            if (batchUpdated > 0)
-            {
-                await _context.SaveChangesAsync(ct);
-            }
+            updatedCount = 0;
         }
 
-        return updatedCount;
+        return iter;
     }
 
     private async Task<Road?> FindBestRefMatchAsync(Road roadWithoutRef, CancellationToken ct)
@@ -67,6 +77,7 @@ public class RoadRefService
         var endPoint = roadWithoutRef.Geometry.EndPoint;
 
         // Используем PostGIS для поиска ближайших дорог с Ref
+        // Сравниваем оба конца дороги без Ref с линией дорог с Ref
         var startLon = startPoint.X;
         var startLat = startPoint.Y;
         var endLon = endPoint.X;
@@ -82,8 +93,7 @@ public class RoadRefService
                 SELECT 
                     r."Id",
                     r."Ref",
-                    ST_StartPoint(r."Geometry") AS start_pt,
-                    ST_EndPoint(r."Geometry") AS end_pt
+                    r."Geometry"
                 FROM "Roads" r
                 WHERE r."Ref" IS NOT NULL 
                     AND r."Geometry" IS NOT NULL
@@ -94,19 +104,11 @@ public class RoadRefService
                     cr."Ref",
                     LEAST(
                         ST_DistanceSpheroid(
-                            tp.start_pt, cr.start_pt,
+                            tp.start_pt, cr."Geometry",
                             'SPHEROID["WGS 84",6378137,298.257223563]'::spheroid
                         ),
                         ST_DistanceSpheroid(
-                            tp.start_pt, cr.end_pt,
-                            'SPHEROID["WGS 84",6378137,298.257223563]'::spheroid
-                        ),
-                        ST_DistanceSpheroid(
-                            tp.end_pt, cr.start_pt,
-                            'SPHEROID["WGS 84",6378137,298.257223563]'::spheroid
-                        ),
-                        ST_DistanceSpheroid(
-                            tp.end_pt, cr.end_pt,
+                            tp.end_pt, cr."Geometry",
                             'SPHEROID["WGS 84",6378137,298.257223563]'::spheroid
                         )
                     ) AS min_distance
