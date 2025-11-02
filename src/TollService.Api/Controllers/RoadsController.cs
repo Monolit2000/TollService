@@ -2,6 +2,7 @@ using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using TollService.Application.Roads.Commands;
 using TollService.Application.Roads.Queries;
+using TollService.Contracts;
 using TollService.Infrastructure.Integrations;
 using TollService.Infrastructure.Services;
 
@@ -87,6 +88,7 @@ public class RoadsController : ControllerBase
         return Ok(new { UpdatedCount = updatedCount, Message = $"Updated {updatedCount} roads with missing Ref values" });
     }
 
+    [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(List<RoadWithGeometryDto>))]
     [HttpGet("by-bounding-box")]
     public async Task<IActionResult> GetRoadsByBoundingBox(
         [FromQuery] double minLat, 

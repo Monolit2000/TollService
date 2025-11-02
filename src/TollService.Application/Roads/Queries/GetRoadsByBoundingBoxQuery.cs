@@ -17,14 +17,13 @@ public class GetRoadsByBoundingBoxQueryHandler(
 {
     public async Task<List<RoadWithGeometryDto>> Handle(GetRoadsByBoundingBoxQuery request, CancellationToken ct)
     {
-        // Создаем bounding box как полигон (прямоугольник)
         var boundingBox = new Polygon(new LinearRing(new[]
         {
             new Coordinate(request.MinLongitude, request.MinLatitude),
             new Coordinate(request.MaxLongitude, request.MinLatitude),
             new Coordinate(request.MaxLongitude, request.MaxLatitude),
             new Coordinate(request.MinLongitude, request.MaxLatitude),
-            new Coordinate(request.MinLongitude, request.MinLatitude) // закрываем полигон
+            new Coordinate(request.MinLongitude, request.MinLatitude) 
         })) { SRID = 4326 };
 
         var roads = await _context.Roads
@@ -34,6 +33,7 @@ public class GetRoadsByBoundingBoxQueryHandler(
         return roads.Select(road => new RoadWithGeometryDto(
             road.Id,
             road.Name,
+            road.Ref,
             road.HighwayType,
             road.IsToll,
             road.Geometry?.Coordinates.Select(c => new PointDto(c.Y, c.X)).ToList() ?? new List<PointDto>()

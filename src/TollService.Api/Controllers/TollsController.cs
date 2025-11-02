@@ -2,6 +2,7 @@ using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using TollService.Application.Roads.Queries;
 using TollService.Application.Tolls.Queries;
+using TollService.Contracts;
 using TollService.Infrastructure.Integrations;
 
 namespace TollService.Api.Controllers;
@@ -40,6 +41,7 @@ public class TollsController : ControllerBase
         return Ok("Imported toll points for all states");
     }
 
+    [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(List<TollDto>))]
     [HttpGet("by-bounding-box")]
     public async Task<IActionResult> GetTollsByBoundingBox(
     [FromQuery] double minLat,
