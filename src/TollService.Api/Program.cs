@@ -37,7 +37,20 @@ builder.Services.AddScoped<OsmImportService>();
 builder.Services.AddScoped<ISpatialQueryService, SpatialQueryService>();
 builder.Services.AddScoped<RoadRefService>();
 
+// Configure CORS to allow all
+builder.Services.AddCors(options =>
+{
+    options.AddDefaultPolicy(policy =>
+    {
+        policy.AllowAnyOrigin()
+              .AllowAnyMethod()
+              .AllowAnyHeader();
+    });
+});
+
 var app = builder.Build();
+
+app.UseCors();
 
 if (app.Environment.IsDevelopment())
 {
