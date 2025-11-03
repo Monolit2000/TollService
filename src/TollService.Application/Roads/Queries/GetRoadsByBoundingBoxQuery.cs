@@ -1,10 +1,10 @@
 using MediatR;
-using Microsoft.EntityFrameworkCore;
+using TollService.Domain;
+using TollService.Contracts;
 using NetTopologySuite.Geometries;
+using Microsoft.EntityFrameworkCore;
 using NetTopologySuite.Operation.Linemerge;
 using TollService.Application.Common.Interfaces;
-using TollService.Contracts;
-using TollService.Domain;
 
 namespace TollService.Application.Roads.Queries;
 

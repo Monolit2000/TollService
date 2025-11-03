@@ -12,8 +12,4 @@ public record RoadWithGeometryDto(
 
 public record PointDto(double Latitude, double Longitude);
 
-public record TollDto(Guid Id, string Name, decimal Price, double Latitude, double Longitude, Guid RoadId);
-
-
-
-
+public record TollDto(Guid Id, string Name, long NodeId, decimal Price, double Latitude, double Longitude, Guid RoadId);

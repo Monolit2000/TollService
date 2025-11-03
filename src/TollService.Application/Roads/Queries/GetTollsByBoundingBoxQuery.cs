@@ -36,3 +36,4 @@ public class GetTollsByBoundingBoxQueryHandler(
         return _mapper.Map<List<TollDto>>(tolls);
     }
 }
+

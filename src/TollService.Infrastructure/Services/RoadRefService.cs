@@ -9,6 +9,7 @@ public class RoadRefService
 {
     private readonly TollDbContext _context;
     private const double MaxDistanceMeters = 1; // Максимальное расстояние для сопоставления в метрах
+    private const double MetersPerDegree = 111320.0; // Приблизительное значение метров в
 
     public RoadRefService(TollDbContext context)
     {
@@ -135,6 +136,50 @@ public class RoadRefService
         return await _context.Roads
             .FirstOrDefaultAsync(r => r.Id == result.Id, ct);
     }
+
+    #region MemoryBasedMatching 
+
+    private Road? FindBestRefMatchInMemory(Road roadWithoutRef, List<Road> roadsWithRef)
+    {
+        if (roadWithoutRef.Geometry == null)
+            return null;
+
+        var startPoint = roadWithoutRef.Geometry.StartPoint;
+        var endPoint = roadWithoutRef.Geometry.EndPoint;
+
+        Road? bestMatch = null;
+        double bestDistance = double.MaxValue;
+
+        // Ищем лучшее совпадение среди дорог с Ref
+        foreach (var candidateRoad in roadsWithRef)
+        {
+            if (candidateRoad.Geometry == null)
+                continue;
+
+            // Вычисляем минимальное расстояние от обоих концов до линии кандидата
+            var startDistance = CalculateDistanceInMeters(startPoint, candidateRoad.Geometry);
+            var endDistance = CalculateDistanceInMeters(endPoint, candidateRoad.Geometry);
+            var minDistance = Math.Min(startDistance, endDistance);
+
+            if (minDistance <= MaxDistanceMeters && minDistance < bestDistance)
+            {
+                bestDistance = minDistance;
+                bestMatch = candidateRoad;
+            }
+        }
+
+        return bestMatch;
+    }
+
+    private double CalculateDistanceInMeters(Point point, LineString lineString)
+    {
+        // Используем метод Distance из NetTopologySuite, который возвращает расстояние в градусах
+        // и конвертируем в метры
+        var distanceDegrees = lineString.Distance(point);
+        return distanceDegrees * MetersPerDegree;
+    }
+
+    #endregion
 
     private class RoadMatchResult
     {
