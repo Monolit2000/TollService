@@ -1,5 +1,6 @@
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
+using TollService.Application.Roads.Commands;
 using TollService.Application.Roads.Queries;
 using TollService.Application.Tolls.Queries;
 using TollService.Contracts;
@@ -50,6 +51,19 @@ public class TollsController : ControllerBase
     [FromQuery] double maxLon,
     CancellationToken ct)
     => Ok(await _mediator.Send(new GetTollsByBoundingBoxQuery(minLat, minLon, maxLat, maxLon), ct));
+
+    [HttpDelete("{id}")]
+    [ProducesResponseType(StatusCodes.Status200OK)]
+    [ProducesResponseType(StatusCodes.Status404NotFound)]
+    public async Task<IActionResult> DeleteToll(Guid id, CancellationToken ct)
+    {
+        var result = await _mediator.Send(new DeleteTollCommand(id), ct);
+        if (!result)
+        {
+            return NotFound();
+        }
+        return Ok();
+    }
 }
 
 

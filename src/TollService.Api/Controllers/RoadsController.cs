@@ -41,6 +41,17 @@ public class RoadsController : ControllerBase
         return Ok(await _mediator.Send(command, ct));
     }
 
+    [HttpDelete("tolls/{id}")]
+    public async Task<IActionResult> DeleteToll(Guid id, CancellationToken ct)
+    {
+        var result = await _mediator.Send(new DeleteTollCommand(id), ct);
+        if (!result)
+        {
+            return NotFound($"Toll with id {id} not found");
+        }
+        return NoContent();
+    }
+
     [HttpGet("{roadId}/tolls")]
     public async Task<IActionResult> GetTolls(Guid roadId, CancellationToken ct) 
         => Ok(await _mediator.Send(new GetTollsByRoadQuery(roadId), ct));
