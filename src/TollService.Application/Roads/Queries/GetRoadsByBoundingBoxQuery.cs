@@ -36,24 +36,28 @@ public class GetRoadsByBoundingBoxQueryHandler(
             .ToListAsync(ct);
 
         var merged = roads;
-        List<(LineString Geometry, string Name, string Ref, string HighwayType, bool IsToll)> lastMerged;
-        do
-        {
-            lastMerged = MergeConnectedRoads(merged);
-            // превращаем результат обратно в Road, чтобы можно было повторно объединить
-            merged = lastMerged.Select(m => new Road
-            {
-                Id = Guid.NewGuid(),
-                Name = m.Name,
-                Ref = m.Ref,
-                HighwayType = m.HighwayType,
-                IsToll = m.IsToll,
-                Geometry = m.Geometry
-            }).ToList();
-        }
-        while (lastMerged.Count < merged.Count); // продолжаем, пока происходит объединение
 
-        return merged.Select(m => new RoadWithGeometryDto(
+        
+
+
+        //List<(LineString Geometry, string Name, string Ref, string HighwayType, bool IsToll)> lastMerged;
+        //do
+        //{
+            //lastMerged = MergeConnectedRoads(merged);
+            // превращаем результат обратно в Road, чтобы можно было повторно объединить
+           //var roadsDto = merged = merged.Select(m => new Road
+           // {
+           //     Id = Guid.NewGuid(),
+           //     Name = m.Name,
+           //     Ref = m.Ref,
+           //     HighwayType = m.HighwayType,
+           //     IsToll = m.IsToll,
+           //     Geometry = m.Geometry
+           // }).ToList();
+        //}
+        //while (lastMerged.Count < merged.Count); // продолжаем, пока происходит объединение
+
+        return roads.Select(m => new RoadWithGeometryDto(
             Guid.NewGuid(),
             m.Name,
             m.Ref,

@@ -108,8 +108,8 @@ public class OsmTollParserService
 
                 road = existingRoads.FirstOrDefault(r => r.Geometry != null && r.Geometry.IsWithinDistance(location, 1));
 
-                if(road == null) 
-                    continue;
+                //if (road == null) 
+                    //continue;
             }
 
             // Extract toll point data
@@ -134,7 +134,7 @@ public class OsmTollParserService
                 Name = string.IsNullOrWhiteSpace(name) ? $"Toll Point {nodeId}" : name,
                 Price = price,
                 Location = location,
-                RoadId = road.Id,
+                RoadId = road == null ? null : road.Id,
                 NodeId = nodeId
             };
 

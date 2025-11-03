@@ -29,10 +29,15 @@ public class RoadsController : ControllerBase
     [HttpGet("{id}")]
     public async Task<IActionResult> GetRoad(Guid id, CancellationToken ct) => Ok(await _mediator.Send(new GetRoadByIdQuery(id), ct));
 
-    [HttpPost("{roadId}/tolls")]
+    //[HttpPost("{roadId}/tolls")]
+    //public async Task<IActionResult> AddToll(Guid roadId, AddTollCommand command, CancellationToken ct)
+    //{
+    //    return Ok(await _mediator.Send(command, ct));
+    //}
+
+    [HttpPost("addToll")]
     public async Task<IActionResult> AddToll(Guid roadId, AddTollCommand command, CancellationToken ct)
     {
-        command = command with { RoadId = roadId };
         return Ok(await _mediator.Send(command, ct));
     }
 

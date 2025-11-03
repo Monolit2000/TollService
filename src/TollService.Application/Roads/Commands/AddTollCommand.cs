@@ -7,7 +7,7 @@ using TollService.Application.Common.Interfaces;
 
 namespace TollService.Application.Roads.Commands;
 
-public record AddTollCommand(Guid RoadId, string Name, decimal Price, double Latitude, double Longitude) : IRequest<TollDto>;
+public record AddTollCommand( string? Name, string? Key, decimal Price, double Latitude, double Longitude) : IRequest<TollDto>;
 
 public class AddTollCommandHandler(
     IMapper _mapper,
@@ -20,7 +20,6 @@ public class AddTollCommandHandler(
             Id = Guid.NewGuid(),
             Name = request.Name,
             Price = request.Price,
-            RoadId = request.RoadId,
             Location = new Point(request.Longitude, request.Latitude) { SRID = 4326 }
         };
 

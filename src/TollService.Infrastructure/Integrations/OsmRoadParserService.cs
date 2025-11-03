@@ -18,7 +18,8 @@ public class OsmRoadParserService
 
         foreach (var el in elements.EnumerateArray())
         {
-            if (!el.TryGetProperty("type", out var typeProp) || typeProp.GetString() != "way") continue;
+            if (!el.TryGetProperty("type", out var typeProp) || typeProp.GetString() != "way") 
+                continue;
 
             // Extract WayId from OSM element id
             long? wayId = null;

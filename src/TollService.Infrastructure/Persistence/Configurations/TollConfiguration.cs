@@ -14,6 +14,8 @@ public class TollConfiguration : IEntityTypeConfiguration<Toll>
         builder.Property(x => x.Location).HasColumnType("geometry(Point,4326)");
         builder.Property(x => x.NodeId).IsRequired(false);
         builder.HasIndex(x => x.Location).HasMethod("GIST");
+        builder.Property(x => x.Key).IsRequired(false);
+        builder.Property(x => x.Comment).IsRequired(false);
     }
 }
 
