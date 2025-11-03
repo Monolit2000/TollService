@@ -10,25 +10,25 @@ on:
 
 
 jobs:
-  build-and-push:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
-      - name: Login to Docker Hub
-        uses: docker/login-action@v3
-        with:
-          username: ${{ secrets.DOCKERHUB_USERNAME }}
-          password: ${{ secrets.DOCKERHUB_TOKEN }}
+  # build-and-push:
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - name: Checkout code
+  #       uses: actions/checkout@v4
+  #     - name: Login to Docker Hub
+  #       uses: docker/login-action@v3
+  #       with:
+  #         username: ${{ secrets.DOCKERHUB_USERNAME }}
+  #         password: ${{ secrets.DOCKERHUB_TOKEN }}
 
-      - name: Build and Push images
-        run: |
-          docker compose build --no-cache
-          docker compose push
+  #     - name: Build and Push images
+  #       run: |
+  #         docker compose build --no-cache
+  #         docker compose push
 
   deploy:
     runs-on: ubuntu-latest
-    needs: build-and-push
+    # needs: build-and-push
 
     steps:
       - name: Checkout code
@@ -51,8 +51,8 @@ jobs:
             touch ~/.ssh/known_hosts
             chmod 644 ~/.ssh/known_hosts
             ls -l ~/.ssh/
-            echo "${{ secrets.EC2_SSH_TEST_PRIVATE_KEY }}" > ~/.ssh/id_ed25519
-            chmod 600 ~/.ssh/id_ed25519
+            echo "${{ secrets.EC2_SSH_TEST_PRIVATE_KEY }}" > ~/.ssh/id_ed25519T
+            chmod 600 ~/.ssh/id_ed25519T
             echo "Scanning host: ${{ secrets.EC2_TEST_HOST }}"
             ssh-keyscan -t rsa ${{ secrets.EC2_TEST_HOST }} >> ~/.ssh/known_hosts || true
             cat ~/.ssh/known_hosts
@@ -61,7 +61,7 @@ jobs:
         env:
           SAMSARA_API_TOKEN: ${{ secrets.SAMSARA_API_TOKEN }}
         run: |
-          ssh -o StrictHostKeyChecking=no -i ~/.ssh/id_ed25519 ec2-user@${{ secrets.EC2_TEST_HOST}} '
+          ssh -o StrictHostKeyChecking=no -i ~/.ssh/id_ed25519T ec2-user@${{ secrets.EC2_TEST_HOST}} '
           
             mkdir -p /home/ec2-user/TollService &&
             cd /home/ec2-user/TollService &&
@@ -86,4 +86,4 @@ jobs:
       - name: Clean up SSH key
         if: always()
         run: |
-          rm -f ~/.ssh/id_ed25519
+          rm -f ~/.ssh/id_ed25519T
