@@ -97,6 +97,23 @@ public class RoadsController : ControllerBase
         [FromQuery] double maxLon, 
         CancellationToken ct)
         => Ok(await _mediator.Send(new GetRoadsByBoundingBoxQuery(minLat, minLon, maxLat, maxLon), ct));
+
+
+
+    [HttpPost("asdasdsa-asdasd-asdasdasdsadasd")]
+    public async Task<IActionResult> asdasdasdsaddasdasdasd(CancellationToken ct)
+    {
+        var updatedCount = await _roadRefService.FillMissingRefsAsync(ct);
+        return Ok(new { UpdatedCount = updatedCount, Message = $"Updated {updatedCount} roads with missing Ref values" });
+    }
+
+
+    [HttpPost("NEW-NEW-asdasdasdsadasdNEWNEWNEWNEWNEWNEW")]
+    public async Task<IActionResult> asdasdsda(CancellationToken ct)
+    {
+        var updatedCount = await _roadRefService.FillMissingRefsAsync(ct);
+        return Ok(new { UpdatedCount = updatedCount, Message = $"Updated {updatedCount} roads with missing Ref values" });
+    }
 }
 
 
