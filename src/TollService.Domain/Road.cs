@@ -13,6 +13,7 @@ public class Road
     public long? WayId { get; set; }
     public LineString? Geometry { get; set; }
     public List<Toll> Tolls { get; set; } = new();
+
 }
 
 

@@ -81,7 +81,21 @@ public class OsmImportService
         if (roadsToAdd.Count == 0) return;
 
         await using var context = await _contextFactory.CreateDbContextAsync(ct);
-        await context.Roads.AddRangeAsync(roadsToAdd, ct);
+        
+        // Get existing WayIds to avoid duplicates
+        var existingWayIds = await context.Roads
+            .Where(r => r.WayId.HasValue)
+            .Select(r => r.WayId!.Value)
+            .ToHashSetAsync(ct);
+
+        // Filter out roads that already exist by WayId
+        var uniqueRoadsToAdd = roadsToAdd
+            .Where(r => !r.WayId.HasValue || !existingWayIds.Contains(r.WayId.Value))
+            .ToList();
+
+        if (uniqueRoadsToAdd.Count == 0) return;
+
+        await context.Roads.AddRangeAsync(uniqueRoadsToAdd, ct);
         await context.SaveChangesAsync(ct);
     }
 
@@ -123,7 +137,20 @@ public class OsmImportService
 
         if (tollsToAdd.Count == 0) return;
 
-        await context.Tolls.AddRangeAsync(tollsToAdd, ct);
+        // Get existing NodeIds to avoid duplicates
+        var existingNodeIds = await context.Tolls
+            .Where(t => t.NodeId.HasValue)
+            .Select(t => t.NodeId!.Value)
+            .ToHashSetAsync(ct);
+
+        // Filter out tolls that already exist by NodeId
+        var uniqueTollsToAdd = tollsToAdd
+            .Where(t => !t.NodeId.HasValue || !existingNodeIds.Contains(t.NodeId.Value))
+            .ToList();
+
+        if (uniqueTollsToAdd.Count == 0) return;
+
+        await context.Tolls.AddRangeAsync(uniqueTollsToAdd, ct);
         await context.SaveChangesAsync(ct);
     }
 
@@ -159,7 +186,20 @@ public class OsmImportService
 
         if (roadsToAdd.Count == 0) return;
 
-        await _context.Roads.AddRangeAsync(roadsToAdd, ct);
+        // Get existing WayIds to avoid duplicates
+        var existingWayIds = await _context.Roads
+            .Where(r => r.WayId.HasValue)
+            .Select(r => r.WayId!.Value)
+            .ToHashSetAsync(ct);
+
+        // Filter out roads that already exist by WayId
+        var uniqueRoadsToAdd = roadsToAdd
+            .Where(r => !r.WayId.HasValue || !existingWayIds.Contains(r.WayId.Value))
+            .ToList();
+
+        if (uniqueRoadsToAdd.Count == 0) return;
+
+        await _context.Roads.AddRangeAsync(uniqueRoadsToAdd, ct);
         await _context.SaveChangesAsync(ct);
     }
 
@@ -200,7 +240,20 @@ public class OsmImportService
 
         if (tollsToAdd.Count == 0) return;
 
-        await _context.Tolls.AddRangeAsync(tollsToAdd, ct);
+        // Get existing NodeIds to avoid duplicates
+        var existingNodeIds = await _context.Tolls
+            .Where(t => t.NodeId.HasValue)
+            .Select(t => t.NodeId!.Value)
+            .ToHashSetAsync(ct);
+
+        // Filter out tolls that already exist by NodeId
+        var uniqueTollsToAdd = tollsToAdd
+            .Where(t => !t.NodeId.HasValue || !existingNodeIds.Contains(t.NodeId.Value))
+            .ToList();
+
+        if (uniqueTollsToAdd.Count == 0) return;
+
+        await _context.Tolls.AddRangeAsync(uniqueTollsToAdd, ct);
         await _context.SaveChangesAsync(ct);
     }
 
