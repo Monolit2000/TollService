@@ -13,6 +13,7 @@ public class Toll
     public long? NodeId { get; set; }
     public string? Key { get; set; }
     public string? Comment { get; set; }    
+    public bool isDynamic { get; set; } = false;
 }
 
 
