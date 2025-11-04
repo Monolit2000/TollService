@@ -1,4 +1,5 @@
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Internal;
 using TollService.Infrastructure.Persistence;
 
 namespace TollService.Infrastructure.Integrations;
@@ -9,6 +10,7 @@ public class OsmImportService
     private readonly TollDbContext _context;
     private readonly OsmRoadParserService _parserService;
     private readonly OsmTollParserService _tollParserService;
+    private readonly IDbContextFactory<TollDbContext> _contextFactory;
 
     private static readonly Dictionary<string, (double south, double west, double north, double east)> StateBounds = new()
     {
@@ -52,13 +54,98 @@ public class OsmImportService
         { "NM", (31.3, -109.0, 37.0, -103.0) },    // New Mexico
     };
 
-    public OsmImportService(OsmClient osmClient, TollDbContext context, OsmRoadParserService parserService, OsmTollParserService tollParserService)
+    public OsmImportService(
+        OsmClient osmClient,
+        TollDbContext context, 
+        OsmRoadParserService parserService, 
+        OsmTollParserService tollParserService, 
+        IDbContextFactory<TollDbContext> contextFactory)
     {
         _osmClient = osmClient;
         _context = context;
         _parserService = parserService;
         _tollParserService = tollParserService;
+        _contextFactory = contextFactory;
     }
+
+    #region Parallel
+
+    public async Task ImportStateAsyncForParallel(string stateCode, CancellationToken ct = default)
+    {
+        if (!StateBounds.TryGetValue(stateCode.ToUpperInvariant(), out var bounds))
+            throw new ArgumentException($"State code '{stateCode}' not found.", nameof(stateCode));
+
+        using var doc = await _osmClient.GetTollRoadWaysAsync(bounds.south, bounds.west, bounds.north, bounds.east, ct);
+        var roadsToAdd = _parserService.ParseTollRoadsFromJson(doc, stateCode.ToUpperInvariant());
+
+        if (roadsToAdd.Count == 0) return;
+
+        await using var context = await _contextFactory.CreateDbContextAsync(ct);
+        await context.Roads.AddRangeAsync(roadsToAdd, ct);
+        await context.SaveChangesAsync(ct);
+    }
+
+    public async Task ImportAllStatesAsyncParallel(CancellationToken ct = default)
+    {
+        var tasks = StateBounds.Keys.Select(async stateCode =>
+        {
+            try
+            {
+                await ImportStateAsync(stateCode, ct);
+                Console.WriteLine($"Imported roads for {stateCode}");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Failed to import roads for {stateCode}: {ex.Message}");
+            }
+        });
+
+        await Task.WhenAll(tasks);
+    }
+
+
+
+
+    public async Task ImportTollsForStateAsyncForParallel(string stateCode, CancellationToken ct = default)
+    {
+        if (!StateBounds.TryGetValue(stateCode.ToUpperInvariant(), out var bounds))
+            throw new ArgumentException($"State code '{stateCode}' not found.", nameof(stateCode));
+
+        await using var context = await _contextFactory.CreateDbContextAsync(ct);
+        var existingRoads = await context.Roads
+            .Where(r => r.State == stateCode.ToUpperInvariant() && r.WayId.HasValue)
+            .ToListAsync(ct);
+
+        if (existingRoads.Count == 0) return;
+
+        using var doc = await _osmClient.GetTollPointsAsync(bounds.south, bounds.west, bounds.north, bounds.east, ct);
+        var tollsToAdd = _tollParserService.ParseTollPointsFromJson(doc, stateCode.ToUpperInvariant(), existingRoads);
+
+        if (tollsToAdd.Count == 0) return;
+
+        await context.Tolls.AddRangeAsync(tollsToAdd, ct);
+        await context.SaveChangesAsync(ct);
+    }
+
+    public async Task ImportTollsForAllStatesAsyncParallel(CancellationToken ct = default)
+    {
+        var tasks = StateBounds.Keys.Select(async stateCode =>
+        {
+            try
+            {
+                await ImportTollsForStateAsync(stateCode, ct);
+                Console.WriteLine($"Imported tolls for {stateCode}");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Failed to import tolls for {stateCode}: {ex.Message}");
+            }
+        });
+
+        await Task.WhenAll(tasks);
+    }
+
+    #endregion
 
     public async Task ImportStateAsync(string stateCode, CancellationToken ct = default)
     {
