@@ -35,6 +35,12 @@ public class TollsController : ControllerBase
         return Ok($"Imported toll points for {stateCode}");
     }
 
+    [HttpPost("add")]
+    public async Task<IActionResult> AddToll(Guid roadId, AddTollCommand command, CancellationToken ct)
+    {
+        return Ok(await _mediator.Send(command, ct));
+    }
+
     [HttpPost("import/all-states")]
     public async Task<IActionResult> ImportAllStates(CancellationToken ct)
     {

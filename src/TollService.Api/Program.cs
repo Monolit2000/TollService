@@ -42,7 +42,14 @@ builder.Services.AddCors(options =>
 {
     options.AddDefaultPolicy(policy =>
     {
-        policy.WithOrigins("http://localhost:3000")
+        policy.WithOrigins("http://localhost:3000",
+            "https://4uscorp-web-git-feature-drag-white-rainy-76s-projects.vercel.app",
+            "https://4uscorp-web-git-develop-white-rainy-76s-projects.vercel.app",
+            "https://4uscorp-web.vercel.app",
+            "4uscorp-web.vercel.app",
+            "www.4uscorp-web.vercel.app",
+            "https://www.4uscorp-web.vercel.app",
+            "https://4uscorp-web.vercel.app/")
               .AllowAnyMethod()
               .AllowAnyHeader()
               .AllowCredentials();
