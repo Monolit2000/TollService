@@ -11,7 +11,9 @@ public class MappingProfile : Profile
         CreateMap<Road, RoadDto>();
         CreateMap<Toll, TollDto>()
             .ForCtorParam("Latitude", opt => opt.MapFrom(src => src.Location != null ? src.Location.Y : 0))
-            .ForCtorParam("Longitude", opt => opt.MapFrom(src => src.Location != null ? src.Location.X : 0));
+            .ForCtorParam("Longitude", opt => opt.MapFrom(src => src.Location != null ? src.Location.X : 0))
+            .ForCtorParam("NodeId", opt => opt.MapFrom(src => src.NodeId ?? 0))
+            .ForCtorParam("RoadId", opt => opt.MapFrom(src => src.RoadId ?? Guid.Empty));
     }
 }
 

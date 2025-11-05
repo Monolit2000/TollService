@@ -41,6 +41,19 @@ public class TollsController : ControllerBase
         return Ok(await _mediator.Send(command, ct));
     }
 
+    [HttpPut("{id}")]
+    [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(TollDto))]
+    [ProducesResponseType(StatusCodes.Status404NotFound)]
+    public async Task<IActionResult> UpdateToll(Guid id, UpdateTollCommand command, CancellationToken ct)
+    {
+        var result = await _mediator.Send(command with { Id = id }, ct);
+        if (result == null)
+        {
+            return NotFound($"Toll with id {id} not found");
+        }
+        return Ok(result);
+    }
+
     [HttpPost("import/all-states")]
     public async Task<IActionResult> ImportAllStates(CancellationToken ct)
     {
