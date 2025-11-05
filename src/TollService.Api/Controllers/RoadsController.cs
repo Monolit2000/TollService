@@ -70,6 +70,13 @@ public class RoadsController : ControllerBase
         return Ok("Imported toll roads for all states");
     }
 
+    [HttpPost("import/all-states-parallel")]
+    public async Task<IActionResult> ImportAllStatesParallel(CancellationToken ct)
+    {
+        await _importService.ImportAllStatesAsyncParallel(ct);
+        return Ok("Imported toll roads for all states (parallel)");
+    }
+
     [HttpGet("near")]
     public async Task<IActionResult> GetRoadsNearPoint([FromQuery] double lat, [FromQuery] double lon, [FromQuery] double radius, CancellationToken ct)
         => Ok(await _mediator.Send(new GetRoadsNearPointQuery(lat, lon, radius), ct));

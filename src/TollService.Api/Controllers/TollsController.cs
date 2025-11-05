@@ -48,6 +48,13 @@ public class TollsController : ControllerBase
         return Ok("Imported toll points for all states");
     }
 
+    [HttpPost("import/all-states-parallel")]
+    public async Task<IActionResult> ImportAllStatesParallel(CancellationToken ct)
+    {
+        await _importService.ImportTollsForAllStatesAsyncParallel(ct);
+        return Ok("Imported toll points for all states (parallel)");
+    }
+
     [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(List<TollDto>))]
     [HttpGet("by-bounding-box")]
     public async Task<IActionResult> GetTollsByBoundingBox(
