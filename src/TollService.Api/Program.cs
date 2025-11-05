@@ -26,6 +26,8 @@ builder.Services.AddDbContext<TollDbContext>(options =>
             maxRetryDelay: TimeSpan.FromSeconds(5),
             errorCodesToAdd: null);
     }));
+
+
 builder.Services.AddScoped<ITollDbContext>(sp => sp.GetRequiredService<TollDbContext>());
 
 builder.Services.AddMediatR(typeof(MappingProfile).Assembly);

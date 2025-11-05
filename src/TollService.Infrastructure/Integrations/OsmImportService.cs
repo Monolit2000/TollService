@@ -1,5 +1,5 @@
 using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Internal;
+using Microsoft.Extensions.DependencyInjection;
 using TollService.Infrastructure.Persistence;
 
 namespace TollService.Infrastructure.Integrations;
@@ -10,7 +10,7 @@ public class OsmImportService
     private readonly TollDbContext _context;
     private readonly OsmRoadParserService _parserService;
     private readonly OsmTollParserService _tollParserService;
-    private readonly IDbContextFactory<TollDbContext> _contextFactory;
+    private readonly IServiceScopeFactory _scopeFactory;
 
     private static readonly Dictionary<string, (double south, double west, double north, double east)> StateBounds = new()
     {
@@ -59,13 +59,13 @@ public class OsmImportService
         TollDbContext context, 
         OsmRoadParserService parserService, 
         OsmTollParserService tollParserService, 
-        IDbContextFactory<TollDbContext> contextFactory)
+        IServiceScopeFactory scopeFactory)
     {
         _osmClient = osmClient;
         _context = context;
         _parserService = parserService;
         _tollParserService = tollParserService;
-        _contextFactory = contextFactory;
+        _scopeFactory = scopeFactory;
     }
 
     #region Parallel
@@ -80,7 +80,8 @@ public class OsmImportService
 
         if (roadsToAdd.Count == 0) return;
 
-        await using var context = await _contextFactory.CreateDbContextAsync(ct);
+        await using var scope = _scopeFactory.CreateAsyncScope();
+        var context = scope.ServiceProvider.GetRequiredService<TollDbContext>();
         
         // Get existing WayIds to avoid duplicates
         var existingWayIds = await context.Roads
@@ -101,20 +102,28 @@ public class OsmImportService
 
     public async Task ImportAllStatesAsyncParallel(CancellationToken ct = default)
     {
-        var tasks = StateBounds.Keys.Select(async stateCode =>
+        try
         {
-            try
+            var tasks = StateBounds.Keys.Select(async stateCode =>
             {
-                await ImportStateAsync(stateCode, ct);
-                Console.WriteLine($"Imported roads for {stateCode}");
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine($"Failed to import roads for {stateCode}: {ex.Message}");
-            }
-        });
+                try
+                {
+                    await ImportStateAsyncForParallel(stateCode, ct);
+                    Console.WriteLine($"Imported roads for {stateCode}");
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine($"Failed to import roads for {stateCode}: {ex.Message}");
+                }
+            });
 
-        await Task.WhenAll(tasks);
+            await Task.WhenAll(tasks);
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine($"Critical error in ImportAllStatesAsyncParallel: {ex.Message}");
+            throw;
+        }
     }
 
 
@@ -125,7 +134,9 @@ public class OsmImportService
         if (!StateBounds.TryGetValue(stateCode.ToUpperInvariant(), out var bounds))
             throw new ArgumentException($"State code '{stateCode}' not found.", nameof(stateCode));
 
-        await using var context = await _contextFactory.CreateDbContextAsync(ct);
+        await using var scope = _scopeFactory.CreateAsyncScope();
+        var context = scope.ServiceProvider.GetRequiredService<TollDbContext>();
+        
         var existingRoads = await context.Roads
             .Where(r => r.State == stateCode.ToUpperInvariant() && r.WayId.HasValue)
             .ToListAsync(ct);
@@ -156,20 +167,28 @@ public class OsmImportService
 
     public async Task ImportTollsForAllStatesAsyncParallel(CancellationToken ct = default)
     {
-        var tasks = StateBounds.Keys.Select(async stateCode =>
+        try
         {
-            try
+            var tasks = StateBounds.Keys.Select(async stateCode =>
             {
-                await ImportTollsForStateAsync(stateCode, ct);
-                Console.WriteLine($"Imported tolls for {stateCode}");
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine($"Failed to import tolls for {stateCode}: {ex.Message}");
-            }
-        });
+                try
+                {
+                    await ImportTollsForStateAsyncForParallel(stateCode, ct);
+                    Console.WriteLine($"Imported tolls for {stateCode}");
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine($"Failed to import tolls for {stateCode}: {ex.Message}");
+                }
+            });
 
-        await Task.WhenAll(tasks);
+            await Task.WhenAll(tasks);
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine($"Critical error in ImportTollsForAllStatesAsyncParallel: {ex.Message}");
+            throw;
+        }
     }
 
     #endregion
