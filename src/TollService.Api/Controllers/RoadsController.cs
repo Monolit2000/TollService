@@ -29,6 +29,17 @@ public class RoadsController : ControllerBase
     [HttpGet("{id}")]
     public async Task<IActionResult> GetRoad(Guid id, CancellationToken ct) => Ok(await _mediator.Send(new GetRoadByIdQuery(id), ct));
 
+    [HttpPut("{id}/update")]
+    public async Task<IActionResult> EditRoad(Guid id, UpdateRoadCommand command, CancellationToken ct)
+    {
+        var result = await _mediator.Send(command with { Id = id }, ct);
+        if (result == null)
+        {
+            return NotFound($"Road with id {id} not found");
+        }
+        return Ok(result);
+    }
+
     //[HttpPost("{roadId}/tolls")]
     //public async Task<IActionResult> AddToll(Guid roadId, AddTollCommand command, CancellationToken ct)
     //{
