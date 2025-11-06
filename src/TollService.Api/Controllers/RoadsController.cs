@@ -23,7 +23,7 @@ public class RoadsController : ControllerBase
         _roadRefService = roadRefService;
     }
 
-    [HttpPost]
+    [HttpPost("addRoad")]
     public async Task<IActionResult> AddRoad(AddRoadCommand command, CancellationToken ct) => Ok(await _mediator.Send(command, ct));
 
     [HttpGet("{id}")]
