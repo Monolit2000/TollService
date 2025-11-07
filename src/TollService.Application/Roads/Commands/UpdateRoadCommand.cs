@@ -15,7 +15,7 @@ public record UpdateRoadCommand(
     string? State = null,
     string? Ref = null,
     long? WayId = null,
-    List<(double Latitude, double Longitude)>? Coordinates = null) : IRequest<RoadDto?>;
+    List<PointDto>? Coordinates = null) : IRequest<RoadDto?>;
 
 public class UpdateRoadCommandHandler(
     IMapper _mapper,

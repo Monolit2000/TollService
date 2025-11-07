@@ -7,7 +7,7 @@ using TollService.Application.Common.Interfaces;
 
 namespace TollService.Application.Roads.Commands;
 
-public record AddRoadCommand(string Name, string HighwayType, bool IsToll, List<(double Latitude, double Longitude)>? Coordinates = null) : IRequest<RoadDto>;
+public record AddRoadCommand(string Name, string HighwayType, bool IsToll, List<PointDto>? Coordinates = null) : IRequest<RoadDto>;
 
 public class AddRoadCommandHandler(
     IMapper _mapper,
