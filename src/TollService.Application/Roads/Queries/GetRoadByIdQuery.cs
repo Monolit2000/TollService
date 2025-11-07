@@ -12,14 +12,22 @@ public class GetRoadByIdQueryHandler(
 {
     public async Task<RoadWithGeometryDto?> Handle(GetRoadByIdQuery request, CancellationToken ct)
     {
-        var road = await _context.Roads.AsNoTracking().FirstOrDefaultAsync(r => r.Id == request.Id, ct);
+        var road = await _context.Roads
+            .AsNoTracking()
+            .FirstOrDefaultAsync(r => r.Id == request.Id, ct);
         
         if (road == null)
             return null;
 
-        var coordinates = road.Geometry != null
-            ? road.Geometry.Coordinates.Select(c => new PointDto(c.Y, c.X)).ToList()
-            : new List<PointDto>();
+        var coordinates = new List<PointDto>();
+        
+        if (road.Geometry != null && road.Geometry.Coordinates != null && road.Geometry.Coordinates.Length > 0)
+        {
+            coordinates = road.Geometry.Coordinates
+                .Where(c => c != null)
+                .Select(c => new PointDto(c.Y, c.X))
+                .ToList();
+        }
 
         return new RoadWithGeometryDto(
             road.Id,
