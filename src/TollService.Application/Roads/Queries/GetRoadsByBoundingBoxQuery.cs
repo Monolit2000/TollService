@@ -58,7 +58,7 @@ public class GetRoadsByBoundingBoxQueryHandler(
         //while (lastMerged.Count < merged.Count); // продолжаем, пока происходит объединение
 
         return roads.Select(m => new RoadWithGeometryDto(
-            Guid.NewGuid(),
+            m.Id,
             m.Name,
             m.Ref,
             m.HighwayType,
