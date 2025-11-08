@@ -5,7 +5,7 @@ using NetTopologySuite.Geometries;
 using TollService.Application.Common.Interfaces;
 using TollService.Contracts;
 
-namespace TollService.Application.Roads.Queries;
+namespace TollService.Application.Tolls.Queries;
 
 public record GetTollsByBoundingBoxQuery(
     double MinLatitude, 
@@ -19,14 +19,13 @@ public class GetTollsByBoundingBoxQueryHandler(
 {
     public async Task<List<TollDto>> Handle(GetTollsByBoundingBoxQuery request, CancellationToken ct)
     {
-        // Создаем bounding box как полигон (прямоугольник)
         var boundingBox = new Polygon(new LinearRing(new[]
         {
             new Coordinate(request.MinLongitude, request.MinLatitude),
             new Coordinate(request.MaxLongitude, request.MinLatitude),
             new Coordinate(request.MaxLongitude, request.MaxLatitude),
             new Coordinate(request.MinLongitude, request.MaxLatitude),
-            new Coordinate(request.MinLongitude, request.MinLatitude) // закрываем полигон
+            new Coordinate(request.MinLongitude, request.MinLatitude) 
         })) { SRID = 4326 };
 
         var tolls = await _context.Tolls

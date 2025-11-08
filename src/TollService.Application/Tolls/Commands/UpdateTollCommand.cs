@@ -5,7 +5,7 @@ using NetTopologySuite.Geometries;
 using TollService.Application.Common.Interfaces;
 using TollService.Contracts;
 
-namespace TollService.Application.Roads.Commands;
+namespace TollService.Application.Tolls.Commands;
 
 public record UpdateTollCommand(
     Guid Id,

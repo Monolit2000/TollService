@@ -5,7 +5,7 @@ using TollService.Contracts;
 using TollService.Domain;
 using TollService.Application.Common.Interfaces;
 
-namespace TollService.Application.Roads.Commands;
+namespace TollService.Application.Tolls.Commands;
 
 public record AddTollCommand( string? Name, string? Key, decimal Price, double Latitude, double Longitude, string? Comment = null, bool IsDynamic = false) : IRequest<TollDto>;
 

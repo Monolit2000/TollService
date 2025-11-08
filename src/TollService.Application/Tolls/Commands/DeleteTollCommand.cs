@@ -2,7 +2,7 @@ using MediatR;
 using Microsoft.EntityFrameworkCore;
 using TollService.Application.Common.Interfaces;
 
-namespace TollService.Application.Roads.Commands;
+namespace TollService.Application.Tolls.Commands;
 
 public record DeleteTollCommand(Guid Id) : IRequest<bool>;
 

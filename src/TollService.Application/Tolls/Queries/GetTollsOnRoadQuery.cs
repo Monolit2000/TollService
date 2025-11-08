@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore;
 using TollService.Application.Common.Interfaces;
 using TollService.Contracts;
 
-namespace TollService.Application.Roads.Queries;
+namespace TollService.Application.Tolls.Queries;
 
 public record GetTollsOnRoadQuery(Guid RoadId) : IRequest<List<TollDto>>;
 
@@ -20,7 +20,6 @@ public class GetTollsOnRoadQueryHandler(
         if (road == null || road.Geometry == null)
             return new List<TollDto>();
 
-        // Находим все платные пункты, которые находятся на этой дороге (в пределах 100 метров)
         var tolls = await _context.Tolls
             .Where(t => t.Location != null && 
                        t.Location.IsWithinDistance(road.Geometry, 100))

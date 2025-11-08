@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore;
 using TollService.Contracts;
 using TollService.Application.Common.Interfaces;
 
-namespace TollService.Application.Roads.Queries;
+namespace TollService.Application.Tolls.Queries;
 
 public record GetTollsByRoadQuery(Guid RoadId) : IRequest<List<TollDto>>;
 

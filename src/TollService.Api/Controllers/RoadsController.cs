@@ -1,10 +1,12 @@
 using MediatR;
-using Microsoft.AspNetCore.Mvc;
-using TollService.Application.Roads.Commands;
-using TollService.Application.Roads.Queries;
 using TollService.Contracts;
-using TollService.Infrastructure.Integrations;
+using Microsoft.AspNetCore.Mvc;
 using TollService.Infrastructure.Services;
+using TollService.Application.Roads.Queries;
+using TollService.Application.Tolls.Queries;
+using TollService.Application.Roads.Commands;
+using TollService.Application.Tolls.Commands;
+using TollService.Infrastructure.Integrations;
 
 namespace TollService.Api.Controllers;
 
