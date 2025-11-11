@@ -101,6 +101,36 @@ public class TollsController : ControllerBase
         return Ok(result);
     }
 
+    [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(List<TollWithRouteSectionDto>))]
+    [HttpPost("along-polyline-sections")]
+    public async Task<IActionResult> GetTollsAlongPolylineSections(
+        [FromBody] List<PolylineSectionRequestDto> sections,
+        CancellationToken ct)
+    {
+        if (sections == null || sections.Count == 0)
+        {
+            return BadRequest("Sections list cannot be empty");
+        }
+
+        foreach (var section in sections)
+        {
+            if (section.Coordinates == null || section.Coordinates.Count < 2)
+            {
+                return BadRequest("Each section must contain at least 2 coordinates");
+            }
+
+            if (section.Coordinates.Any(c => c == null || c.Count < 2))
+            {
+                return BadRequest("Each coordinate must contain at least 2 values [longitude, latitude]");
+            }
+        }
+
+        var result = await _mediator.Send(
+            new GetTollsAlongPolylineSectionsQuery(sections), 
+            ct);
+        return Ok(result);
+    }
+
     [HttpDelete("{id}")]
     [ProducesResponseType(StatusCodes.Status200OK)]
     [ProducesResponseType(StatusCodes.Status404NotFound)]
