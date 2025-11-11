@@ -78,6 +78,29 @@ public class TollsController : ControllerBase
     CancellationToken ct)
     => Ok(await _mediator.Send(new GetTollsByBoundingBoxQuery(minLat, minLon, maxLat, maxLon), ct));
 
+    [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(List<TollDto>))]
+    [HttpPost("along-polyline")]
+    public async Task<IActionResult> GetTollsAlongPolyline(
+        [FromBody] PolylineRequestDto request,
+        CancellationToken ct)
+    {
+        if (request.Coordinates == null || request.Coordinates.Count < 2)
+        {
+            return BadRequest("Polyline must contain at least 2 coordinates");
+        }
+
+        if (request.Coordinates.Any(c => c == null || c.Count < 2))
+        {
+            return BadRequest("Each coordinate must contain at least 2 values [longitude, latitude]");
+        }
+
+        var distanceMeters = request.DistanceMeters ?? 1;
+        var result = await _mediator.Send(
+            new GetTollsAlongPolylineQuery(request.Coordinates, distanceMeters), 
+            ct);
+        return Ok(result);
+    }
+
     [HttpDelete("{id}")]
     [ProducesResponseType(StatusCodes.Status200OK)]
     [ProducesResponseType(StatusCodes.Status404NotFound)]
