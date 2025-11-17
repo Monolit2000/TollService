@@ -146,21 +146,29 @@ public class RoadsController : ControllerBase
         => Ok(await _mediator.Send(new GetRoadsByBoundingBoxQuery(minLat, minLon, maxLat, maxLon), ct));
 
 
-
-    [HttpPost("asdasdsa-asdasd-asdasdasdsadasd")]
-    public async Task<IActionResult> asdasdasdsaddasdasdasd(CancellationToken ct)
+    [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(List<RoadWithGeometryDto>))]
+    [ProducesResponseType(StatusCodes.Status400BadRequest)]
+    [HttpPost("intersecting-polyline")]
+    public async Task<IActionResult> GetRoadsIntersectingPolyline(
+    [FromBody] PolylineRequestDto request,
+    CancellationToken ct)
     {
-        var updatedCount = await _roadRefService.FillMissingRefsAsync(ct);
-        return Ok(new { UpdatedCount = updatedCount, Message = $"Updated {updatedCount} roads with missing Ref values" });
+        if (request.Coordinates == null || request.Coordinates.Count < 2)
+        {
+            return BadRequest("Polyline must contain at least 2 coordinates");
+        }
+
+        if (request.Coordinates.Any(c => c == null || c.Count < 2))
+        {
+            return BadRequest("Each coordinate must contain at least 2 values [longitude, latitude]");
+        }
+
+        var result = await _mediator.Send(
+            new GetRoadsIntersectingPolylineQuery(request.Coordinates),
+            ct);
+        return Ok(result);
     }
 
-
-    [HttpPost("NEW-NEW-asdasdasdsadasdNEWNEWNEWNEWNEWNEW")]
-    public async Task<IActionResult> asdasdsda(CancellationToken ct)
-    {
-        var updatedCount = await _roadRefService.FillMissingRefsAsync(ct);
-        return Ok(new { UpdatedCount = updatedCount, Message = $"Updated {updatedCount} roads with missing Ref values" });
-    }
 }
 
 
