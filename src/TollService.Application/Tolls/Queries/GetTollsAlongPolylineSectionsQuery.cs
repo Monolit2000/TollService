@@ -36,7 +36,7 @@ public class GetTollsAlongPolylineSectionsQueryHandler(
             }
 
             var polyline = new LineString(coordinates) { SRID = 4326 };
-            var distanceMeters = section.DistanceMeters ?? 1;
+            var distanceMeters = 0.001;
 
             var tolls = await _context.Tolls
                 .Where(t => t.Location != null && 
