@@ -21,7 +21,7 @@ public class GetRoadsIntersectingPolylineQueryHandler(
 
         var coordinates = request.Coordinates
             .Where(c => c != null && c.Count >= 2)
-            .Select(c => new Coordinate(c[0], c[1])) 
+            .Select(c => new Coordinate(c[1], c[0])) 
             .ToArray();
 
         if (coordinates.Length < 2)
