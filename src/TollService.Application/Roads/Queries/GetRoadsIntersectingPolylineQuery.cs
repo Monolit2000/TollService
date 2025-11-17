@@ -19,11 +19,9 @@ public class GetRoadsIntersectingPolylineQueryHandler(
             return new List<RoadWithGeometryDto>();
         }
 
-        // Создаем LineString из координат
-        // Ожидаемый формат: [[longitude, latitude], [longitude, latitude], ...]
         var coordinates = request.Coordinates
             .Where(c => c != null && c.Count >= 2)
-            .Select(c => new Coordinate(c[0], c[1])) // [0] = longitude, [1] = latitude
+            .Select(c => new Coordinate(c[0], c[1])) 
             .ToArray();
 
         if (coordinates.Length < 2)
@@ -33,9 +31,25 @@ public class GetRoadsIntersectingPolylineQueryHandler(
 
         var polyline = new LineString(coordinates) { SRID = 4326 };
 
-        // Ищем все дороги, которые пересекаются с полилайном
+        var minLongitude = coordinates.Min(c => c.X);
+        var maxLongitude = coordinates.Max(c => c.X);
+        var minLatitude = coordinates.Min(c => c.Y);
+        var maxLatitude = coordinates.Max(c => c.Y);
+
+        var boundingBox = new Polygon(new LinearRing(new[]
+        {
+            new Coordinate(minLongitude, minLatitude),
+            new Coordinate(maxLongitude, minLatitude),
+            new Coordinate(maxLongitude, maxLatitude),
+            new Coordinate(minLongitude, maxLatitude),
+            new Coordinate(minLongitude, minLatitude)
+        }))
+        { SRID = 4326 };
+
         var roads = await _context.Roads
-            .Where(r => r.Geometry != null && r.Geometry.Intersects(polyline))
+            .Where(r => r.Geometry != null &&
+                   r.Geometry.Intersects(boundingBox) &&
+                   r.Geometry.Intersects(polyline))
             .ToListAsync(ct);
 
         return roads.Select(r => new RoadWithGeometryDto(
@@ -53,3 +67,4 @@ public class GetRoadsIntersectingPolylineQueryHandler(
         )).ToList();
     }
 }
+
