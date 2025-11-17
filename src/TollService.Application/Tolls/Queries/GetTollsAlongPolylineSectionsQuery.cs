@@ -36,11 +36,13 @@ public class GetTollsAlongPolylineSectionsQueryHandler(
             }
 
             var polyline = new LineString(coordinates) { SRID = 4326 };
-            var distanceMeters = 0.001;
+
+            var meters = 2.0;
+            var degrees = meters / 111_320.0; // ~0.0000449 градусов
 
             var tolls = await _context.Tolls
-                .Where(t => t.Location != null && 
-                           t.Location.IsWithinDistance(polyline, distanceMeters))
+                .Where(t => t.Location != null &&
+                           t.Location.IsWithinDistance(polyline, degrees))
                 .ToListAsync(ct);
 
             // Маппим в TollWithRouteSectionDto с добавлением RouteSection
