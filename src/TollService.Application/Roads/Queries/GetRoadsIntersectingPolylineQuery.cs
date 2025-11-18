@@ -1,10 +1,8 @@
-﻿using System.Collections.Generic;
-using MediatR;
+﻿using MediatR;
 using TollService.Contracts;
 using NetTopologySuite.Geometries;
 using Microsoft.EntityFrameworkCore;
 using TollService.Application.Common.Interfaces;
-using TollService.Domain;
 
 namespace TollService.Application.Roads.Queries;
 
@@ -14,8 +12,6 @@ public record GetRoadsIntersectingPolylineQuery(
 public class GetRoadsIntersectingPolylineQueryHandler(
     ITollDbContext _context) : IRequestHandler<GetRoadsIntersectingPolylineQuery, List<RoadWithGeometryDto>>
 {
-    private const double EndpointIntersectionToleranceMeters = 1.0;
-
     public async Task<List<RoadWithGeometryDto>> Handle(GetRoadsIntersectingPolylineQuery request, CancellationToken ct)
     {
         if (request.Coordinates == null || request.Coordinates.Count < 2)
@@ -23,11 +19,9 @@ public class GetRoadsIntersectingPolylineQueryHandler(
             return new List<RoadWithGeometryDto>();
         }
 
-        // Создаем LineString из координат
-        // Ожидаемый формат: [[longitude, latitude], [longitude, latitude], ...]
         var coordinates = request.Coordinates
             .Where(c => c != null && c.Count >= 2)
-            .Select(c => new Coordinate(c[1], c[0])) // [0] = longitude, [1] = latitude
+            .Select(c => new Coordinate(c[1], c[0])) 
             .ToArray();
 
         if (coordinates.Length < 2)
@@ -37,13 +31,11 @@ public class GetRoadsIntersectingPolylineQueryHandler(
 
         var polyline = new LineString(coordinates) { SRID = 4326 };
 
-        // Вычисляем bounding box полилайна для предварительной фильтрации
         var minLongitude = coordinates.Min(c => c.X);
         var maxLongitude = coordinates.Max(c => c.X);
         var minLatitude = coordinates.Min(c => c.Y);
         var maxLatitude = coordinates.Max(c => c.Y);
 
-        // Создаем bounding box для фильтрации
         var boundingBox = new Polygon(new LinearRing(new[]
         {
             new Coordinate(minLongitude, minLatitude),
@@ -54,26 +46,13 @@ public class GetRoadsIntersectingPolylineQueryHandler(
         }))
         { SRID = 4326 };
 
-        // Сначала фильтруем дороги по bounding box, затем проверяем пересечение с полилайном
-        var candidateRoads = await _context.Roads
-            .AsNoTracking()
+        var roads = await _context.Roads
             .Where(r => r.Geometry != null &&
-                        r.Geometry.Intersects(boundingBox))
+                   r.Geometry.Intersects(boundingBox) &&
+                   r.Geometry.Intersects(polyline))
             .ToListAsync(ct);
 
-        var roadsIntersectingPolyline = candidateRoads
-            .Where(r => r.Geometry != null && r.Geometry.Intersects(polyline))
-            .ToList();
-
-        if (roadsIntersectingPolyline.Count == 0)
-        {
-            return new List<RoadWithGeometryDto>();
-        }
-
-        var relatedRoads = ExpandRoadIntersections(roadsIntersectingPolyline, candidateRoads);
-
-        return relatedRoads
-            .Select(r => new RoadWithGeometryDto(
+        return roads.Select(r => new RoadWithGeometryDto(
             r.Id,
             r.Name,
             r.Ref,
@@ -85,96 +64,7 @@ public class GetRoadsIntersectingPolylineQueryHandler(
                     .Select(c => new PointDto(c.Y, c.X))
                     .ToList()
                 : new List<PointDto>()
-        ))
-        .ToList();
+        )).ToList();
     }
-
-    private static List<Road> ExpandRoadIntersections(List<Road> seedRoads, List<Road> candidates)
-    {
-        var result = new Dictionary<Guid, Road>();
-        var queue = new Queue<Road>();
-
-        foreach (var road in seedRoads)
-        {
-            if (road.Geometry == null)
-            {
-                continue;
-            }
-
-            if (result.TryAdd(road.Id, road))
-            {
-                queue.Enqueue(road);
-            }
-        }
-
-        while (queue.Count > 0)
-        {
-            var current = queue.Dequeue();
-
-            foreach (var candidate in candidates)
-            {
-                if (candidate.Geometry == null)
-                {
-                    continue;
-                }
-
-                if (result.ContainsKey(candidate.Id))
-                {
-                    continue;
-                }
-
-                if (LinesTouchAtEndpoints(current.Geometry!, candidate.Geometry))
-                {
-                    result.Add(candidate.Id, candidate);
-                    queue.Enqueue(candidate);
-                }
-            }
-        }
-
-        return result.Values.ToList();
-    }
-
-    private static bool LinesTouchAtEndpoints(LineString first, LineString second)
-    {
-        var toleranceDegrees = MetersToDegrees(EndpointIntersectionToleranceMeters);
-
-        var firstEndpoints = new[] { first.StartPoint, first.EndPoint };
-        var secondEndpoints = new[] { second.StartPoint, second.EndPoint };
-
-        foreach (var firstEndpoint in firstEndpoints)
-        {
-            // Endpoint-to-endpoint touch
-            if (secondEndpoints.Any(secondEndpoint => PointsTouch(firstEndpoint, secondEndpoint, toleranceDegrees)))
-            {
-                return true;
-            }
-
-            // Endpoint-to-segment touch
-            if (PointOnLine(firstEndpoint, second, toleranceDegrees))
-            {
-                return true;
-            }
-        }
-
-        foreach (var secondEndpoint in secondEndpoints)
-        {
-            if (PointOnLine(secondEndpoint, first, toleranceDegrees))
-            {
-                return true;
-            }
-        }
-
-        return false;
-    }
-
-    private static bool PointsTouch(Point a, Point b, double toleranceDegrees) =>
-        a.Distance(b) <= toleranceDegrees;
-
-    private static bool PointOnLine(Point point, LineString line, double toleranceDegrees) =>
-        line.Distance(point) <= toleranceDegrees;
-
-    private static double MetersToDegrees(double meters) =>
-        meters / 111_320.0; // ≈ meters per degree at equator
 }
-
 
