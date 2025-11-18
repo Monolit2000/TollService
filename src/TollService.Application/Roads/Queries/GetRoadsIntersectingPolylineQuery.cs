@@ -46,25 +46,53 @@ public class GetRoadsIntersectingPolylineQueryHandler(
         }))
         { SRID = 4326 };
 
-        var roads = await _context.Roads
+        // 2. Находим дороги, пересекающие полилинию (с предварительной фильтрацией по bbox)
+        var intersectingRoads = await _context.Roads
             .Where(r => r.Geometry != null &&
-                   r.Geometry.Intersects(boundingBox) &&
-                   r.Geometry.Intersects(polyline))
+                        r.Geometry.Intersects(boundingBox) &&
+                        r.Geometry.Intersects(polyline))
             .ToListAsync(ct);
 
-        return roads.Select(r => new RoadWithGeometryDto(
+        if (!intersectingRoads.Any())
+            return new List<RoadWithGeometryDto>();
+
+        // 3. Собираем все Ref и Name из найденных дорог (игнорируем null/пустые)
+        var refs = intersectingRoads
+            .Where(r => !string.IsNullOrWhiteSpace(r.Ref))
+            .Select(r => r.Ref!.Trim())
+            .Distinct()
+            .ToList();
+
+        var names = intersectingRoads
+            .Where(r => !string.IsNullOrWhiteSpace(r.Name))
+            .Select(r => r.Name!.Trim())
+            .Distinct()
+            .ToList();
+
+        // 4. Ищем дополнительные дороги по тем же Ref/Name + в том же bbox
+        var additionalRoads = await _context.Roads
+            .Where(r => r.Geometry != null &&
+                        r.Geometry.Intersects(boundingBox) &&
+                        (refs.Contains(r.Ref!) || names.Contains(r.Name!)))
+            .ToListAsync(ct);
+
+        // 5. Объединяем, исключаем дубли по WayId (предполагается, что поле называется WayId)
+        var allRoads = intersectingRoads
+            .Concat(additionalRoads)
+            .GroupBy(r => r.WayId)           // <-- здесь твой уникальный идентификатор OSM-объекта
+            .Select(g => g.First())          // берём только одну запись на WayId
+            .ToList();
+
+        // 6. Маппинг в DTO
+        return allRoads.Select(r => new RoadWithGeometryDto(
             r.Id,
             r.Name,
             r.Ref,
             r.HighwayType,
             r.IsToll,
-            r.Geometry != null && r.Geometry.Coordinates != null && r.Geometry.Coordinates.Length > 0
-                ? r.Geometry.Coordinates
-                    .Where(c => c != null)
-                    .Select(c => new PointDto(c.Y, c.X))
-                    .ToList()
-                : new List<PointDto>()
+            r.Geometry?.Coordinates?
+                .Select(c => new PointDto(c.Y, c.X))
+                .ToList() ?? new List<PointDto>()
         )).ToList();
     }
 }
-
