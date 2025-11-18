@@ -1,4 +1,5 @@
-﻿using MediatR;
+﻿using System.Collections.Generic;
+using MediatR;
 using TollService.Contracts;
 using NetTopologySuite.Geometries;
 using Microsoft.EntityFrameworkCore;
@@ -13,6 +14,8 @@ public record GetRoadsIntersectingPolylineQuery(
 public class GetRoadsIntersectingPolylineQueryHandler(
     ITollDbContext _context) : IRequestHandler<GetRoadsIntersectingPolylineQuery, List<RoadWithGeometryDto>>
 {
+    private const double EndpointIntersectionToleranceMeters = 1.0;
+
     public async Task<List<RoadWithGeometryDto>> Handle(GetRoadsIntersectingPolylineQuery request, CancellationToken ct)
     {
         if (request.Coordinates == null || request.Coordinates.Count < 2)
@@ -120,7 +123,7 @@ public class GetRoadsIntersectingPolylineQueryHandler(
                     continue;
                 }
 
-                if (current.Geometry!.Intersects(candidate.Geometry))
+                if (LinesTouchAtEndpoints(current.Geometry!, candidate.Geometry))
                 {
                     result.Add(candidate.Id, candidate);
                     queue.Enqueue(candidate);
@@ -130,5 +133,48 @@ public class GetRoadsIntersectingPolylineQueryHandler(
 
         return result.Values.ToList();
     }
+
+    private static bool LinesTouchAtEndpoints(LineString first, LineString second)
+    {
+        var toleranceDegrees = MetersToDegrees(EndpointIntersectionToleranceMeters);
+
+        var firstEndpoints = new[] { first.StartPoint, first.EndPoint };
+        var secondEndpoints = new[] { second.StartPoint, second.EndPoint };
+
+        foreach (var firstEndpoint in firstEndpoints)
+        {
+            // Endpoint-to-endpoint touch
+            if (secondEndpoints.Any(secondEndpoint => PointsTouch(firstEndpoint, secondEndpoint, toleranceDegrees)))
+            {
+                return true;
+            }
+
+            // Endpoint-to-segment touch
+            if (PointOnLine(firstEndpoint, second, toleranceDegrees))
+            {
+                return true;
+            }
+        }
+
+        foreach (var secondEndpoint in secondEndpoints)
+        {
+            if (PointOnLine(secondEndpoint, first, toleranceDegrees))
+            {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
+    private static bool PointsTouch(Point a, Point b, double toleranceDegrees) =>
+        a.Distance(b) <= toleranceDegrees;
+
+    private static bool PointOnLine(Point point, LineString line, double toleranceDegrees) =>
+        line.Distance(point) <= toleranceDegrees;
+
+    private static double MetersToDegrees(double meters) =>
+        meters / 111_320.0; // ≈ meters per degree at equator
 }
+
 
