@@ -58,7 +58,11 @@ public class GetTollsAlongPolylineSectionsQueryHandler(
                 t.Key,
                 t.Comment,
                 t.IsDynamic,
-                section.RouteSection
+                section.RouteSection,
+                t.IPassOvernight,
+                t.IPass,
+                t.PayOnlineOvernight,
+                t.PayOnline
             )).ToList();
 
             allTolls.AddRange(tollsWithSection);

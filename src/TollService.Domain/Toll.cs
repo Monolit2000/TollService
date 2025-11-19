@@ -14,6 +14,18 @@ public class Toll
     public string? Key { get; set; }
     public string? Comment { get; set; }    
     public bool isDynamic { get; set; } = false;
+
+    #region price 
+
+    public double IPassOvernight { get; set; }
+
+    public double IPass { get; set; }
+
+    public double PayOnlineOvernight { get; set; }
+
+    public double PayOnline { get; set; }
+
+    #endregion
 }
 
 
