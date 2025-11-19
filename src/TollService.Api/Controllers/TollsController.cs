@@ -1,6 +1,7 @@
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using TollService.Application.Roads.Queries;
+using TollService.Application.TollPriceParser;
 using TollService.Application.Tolls.Commands;
 using TollService.Application.Tolls.Queries;
 using TollService.Contracts;
@@ -142,6 +143,17 @@ public class TollsController : ControllerBase
             return NotFound();
         }
         return Ok();
+    }
+
+    [HttpPost("parse-prices")]
+    [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(ParseTollPricesResult))]
+    public async Task<IActionResult> ParseTollPrices(
+        [FromQuery] string? url = null,
+        CancellationToken ct = default)
+    {
+        var command = new ParseTollPricesCommand(url ?? "https://agency.illinoistollway.com/toll-rates");
+        var result = await _mediator.Send(command, ct);
+        return Ok(result);
     }
 }
 
