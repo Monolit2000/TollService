@@ -16,7 +16,11 @@ public record UpdateTollCommand(
     Guid? RoadId = null,
     string? Key = null,
     string? Comment = null,
-    bool? IsDynamic = null) : IRequest<TollDto?>;
+    bool? IsDynamic = null,
+    double? IPassOvernight = null,
+    double? IPass = null,
+    double? PayOnlineOvernight = null,
+    double? PayOnline = null) : IRequest<TollDto?>;
 
 public class UpdateTollCommandHandler(
     IMapper _mapper,
@@ -49,6 +53,18 @@ public class UpdateTollCommandHandler(
 
         if (request.IsDynamic.HasValue)
             toll.isDynamic = request.IsDynamic.Value;
+
+        if (request.IPassOvernight.HasValue)
+            toll.IPassOvernight = request.IPassOvernight.Value;
+
+        if (request.IPass.HasValue)
+            toll.IPass = request.IPass.Value;
+
+        if (request.PayOnlineOvernight.HasValue)
+            toll.PayOnlineOvernight = request.PayOnlineOvernight.Value;
+
+        if (request.PayOnline.HasValue)
+            toll.PayOnline = request.PayOnline.Value;
 
         await _context.SaveChangesAsync(ct);
 

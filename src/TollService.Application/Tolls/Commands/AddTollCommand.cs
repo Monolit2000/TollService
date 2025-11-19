@@ -7,7 +7,18 @@ using TollService.Application.Common.Interfaces;
 
 namespace TollService.Application.Tolls.Commands;
 
-public record AddTollCommand( string? Name, string? Key, decimal Price, double Latitude, double Longitude, string? Comment = null, bool IsDynamic = false) : IRequest<TollDto>;
+public record AddTollCommand(
+    string? Name, 
+    string? Key, 
+    decimal Price, 
+    double Latitude, 
+    double Longitude, 
+    string? Comment = null, 
+    bool IsDynamic = false,
+    double IPassOvernight = 0,
+    double IPass = 0,
+    double PayOnlineOvernight = 0,
+    double PayOnline = 0) : IRequest<TollDto>;
 
 public class AddTollCommandHandler(
     IMapper _mapper,
@@ -23,7 +34,11 @@ public class AddTollCommandHandler(
             Key = request.Key,
             Comment = request.Comment,
             isDynamic = request.IsDynamic,
-            Location = new Point(request.Longitude, request.Latitude) { SRID = 4326 }
+            Location = new Point(request.Longitude, request.Latitude) { SRID = 4326 },
+            IPassOvernight = request.IPassOvernight,
+            IPass = request.IPass,
+            PayOnlineOvernight = request.PayOnlineOvernight,
+            PayOnline = request.PayOnline
         };
 
         _context.Tolls.Add(toll);
