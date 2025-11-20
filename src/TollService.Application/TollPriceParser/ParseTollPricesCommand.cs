@@ -55,6 +55,9 @@ public class ParseTollPricesCommandHandler(
                     plazaName.Equals("Pay Online", StringComparison.OrdinalIgnoreCase))
                     continue;
                 
+                // Извлекаем номер плазы
+                var plazaNumber = ParsePlazaNumber(cells[1]);
+                
                 // Извлекаем цены
                 // Структура таблицы:
                 // [0] - Toll Plaza Name
@@ -75,8 +78,7 @@ public class ParseTollPricesCommandHandler(
 
                 // Ищем соответствие в БД
                 var tolls = await _context.Tolls
-                    .Where(t => t.Name != null &&
-                                EF.Functions.Like(t.Name, $"%{plazaName}%"))  // case-insensitive by default in most DBs
+                    .Where(t => t.Number == plazaNumber)  // case-insensitive by default in most DBs
                     .ToListAsync(ct);
 
                 if (tolls.Count == 0)
@@ -93,6 +95,7 @@ public class ParseTollPricesCommandHandler(
                     toll.IPassOvernight = largeOvernight; // Large Overnight для грузовиков
                     toll.PayOnlineOvernight = largeDaytime; // Large Daytime для грузовиков
                     toll.Key = plazaName;
+                    toll.Number = plazaNumber;
                     updatedCount++;
                 }
             }
@@ -129,6 +132,22 @@ public class ParseTollPricesCommandHandler(
             System.Globalization.CultureInfo.InvariantCulture, out var price))
         {
             return price;
+        }
+        
+        return 0;
+    }
+    
+    private static int ParsePlazaNumber(HtmlAgilityPack.HtmlNode? cell)
+    {
+        if (cell == null) return 0;
+        
+        var text = cell.InnerText?.Trim() ?? string.Empty;
+        
+        // Извлекаем числовую часть (например, "5A" -> "5", "300" -> "300")
+        var match = System.Text.RegularExpressions.Regex.Match(text, @"\d+");
+        if (match.Success && int.TryParse(match.Value, out var number))
+        {
+            return number;
         }
         
         return 0;

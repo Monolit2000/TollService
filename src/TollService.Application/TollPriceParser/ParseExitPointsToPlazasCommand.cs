@@ -4,6 +4,7 @@ using MediatR;
 using Microsoft.EntityFrameworkCore;
 using NetTopologySuite.Geometries;
 using TollService.Application.Common.Interfaces;
+using TollService.Domain;
 
 namespace TollService.Application.TollPriceParser;
 
@@ -21,13 +22,14 @@ public class ParseExitPointsToPlazasCommandHandler(
     ITollDbContext _context,
     IHttpClientFactory _httpClientFactory) : IRequestHandler<ParseExitPointsToPlazasCommand, ParseExitPointsToPlazasResult>
 {
-    private const double ToleranceMeters = 2; // Допустимое расстояние для сопоставления (3 метра)
-    
     public async Task<ParseExitPointsToPlazasResult> Handle(ParseExitPointsToPlazasCommand request, CancellationToken ct)
     {
         var errors = new List<string>();
         int processedExitPoints = 0;
         int updatedTolls = 0;
+        
+        // Сохраняем созданные Toll для последующей группировки и удаления дубликатов
+        var createdTolls = new List<Toll>();
         
         var httpClient = _httpClientFactory.CreateClient();
         httpClient.Timeout = TimeSpan.FromMinutes(10);
@@ -96,33 +98,28 @@ public class ParseExitPointsToPlazasCommandHandler(
                         if (plazaLat == 0 || plazaLon == 0)
                             continue;
                         
-                        // Ищем ближайший Toll по координатам
+                        // Парсим номер плазы (может содержать буквы, например "5A")
+                        var plazaNumber = ParsePlazaNumber(result.Attributes.Plaza_Num);
+                        
+                        // Создаем новую плазу
                         var plazaPoint = new Point(plazaLon, plazaLat) { SRID = 4326 };
                         
-                        var nearestToll = await _context.Tolls
-                            .Where(t => t.Location != null)
-                            .OrderBy(t => t.Location!.Distance(plazaPoint))
-                            .FirstOrDefaultAsync(ct);
-                        
-                        if (nearestToll != null && nearestToll.Location != null)
+                        var newToll = new Toll
                         {
-                            // Проверяем, что расстояние не превышает допустимое
-                            var distanceDegrees = nearestToll.Location.Distance(plazaPoint);
-                            var distanceMeters = distanceDegrees * 111320; // Конвертируем градусы в метры (приблизительно)
-                            
-                            if (distanceMeters <= ToleranceMeters)
-                            {
-                                nearestToll.Name = result.Attributes.Plaza_Name;
-                                nearestToll.Number = result.Attributes.Plaza_Num;
-                                updatedTolls++;
-                            }
-                        }
+                            Id = Guid.NewGuid(),
+                            Name = result.Attributes.Plaza_Name,
+                            Number = plazaNumber,
+                            Location = plazaPoint,
+                            Key = result.Attributes.Plaza_Name,
+                            Price = 0,
+                            isDynamic = false
+                        };
+                        
+                        // Сохраняем в список для последующей группировки
+                        createdTolls.Add(newToll);
                     }
                     
                     processedExitPoints++;
-                    
-                    // Сохраняем изменения после каждого exit point
-                    await _context.SaveChangesAsync(ct);
                 }
                 catch (Exception ex)
                 {
@@ -135,6 +132,23 @@ public class ParseExitPointsToPlazasCommandHandler(
         {
             errors.Add($"Ошибка при получении exit points: {ex.Message}");
         }
+        
+        // Группируем по координатам и оставляем только уникальные
+        // Округляем координаты до 6 знаков после запятой для группировки (~0.1 метра точности)
+        var uniqueTolls = createdTolls
+            .GroupBy(t => t.Location)
+            .Select(g => g.First())
+            .ToList();
+        
+        // Добавляем уникальные Toll в контекст
+        foreach (var toll in uniqueTolls)
+        {
+            _context.Tolls.Add(toll);
+            updatedTolls++;
+        }
+        
+        // Сохраняем все изменения один раз
+        await _context.SaveChangesAsync(ct);
         
         return new ParseExitPointsToPlazasResult(processedExitPoints, updatedTolls, errors);
     }
@@ -157,6 +171,21 @@ public class ParseExitPointsToPlazasCommandHandler(
         var url = $"{baseUrl}?f=json&tolerance=15&returnGeometry=true&returnFieldName=false&returnUnformattedValues=false&imageDisplay=1181,1271,96&geometry={geometryEncoded}&geometryType=esriGeometryPoint&sr=3857&mapExtent={mapExtent}&layers=visible:13";
         
         return url;
+    }
+    
+    private static int ParsePlazaNumber(string? plazaNum)
+    {
+        if (string.IsNullOrWhiteSpace(plazaNum))
+            return 0;
+        
+        // Извлекаем числовую часть (например, "5A" -> "5", "300" -> "300")
+        var match = System.Text.RegularExpressions.Regex.Match(plazaNum, @"\d+");
+        if (match.Success && int.TryParse(match.Value, out var number))
+        {
+            return number;
+        }
+        
+        return 0;
     }
 }
 
