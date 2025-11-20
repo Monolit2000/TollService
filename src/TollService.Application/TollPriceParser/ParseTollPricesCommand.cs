@@ -1,6 +1,7 @@
 using MediatR;
 using Microsoft.EntityFrameworkCore;
 using TollService.Application.Common.Interfaces;
+using TollService.Domain;
 
 namespace TollService.Application.TollPriceParser;
 
@@ -91,6 +92,7 @@ public class ParseTollPricesCommandHandler(
                     toll.PayOnline = payOnline;
                     toll.IPassOvernight = largeOvernight; // Large Overnight для грузовиков
                     toll.PayOnlineOvernight = largeDaytime; // Large Daytime для грузовиков
+                    toll.Key = plazaName;
                     updatedCount++;
                 }
             }
@@ -106,6 +108,10 @@ public class ParseTollPricesCommandHandler(
         var text = cell.InnerText?.Trim() ?? string.Empty;
         // Убираем HTML теги и лишние пробелы
         text = System.Text.RegularExpressions.Regex.Replace(text, @"\s+", " ");
+        // Убираем скобки и всё, что внутри них
+        //text = System.Text.RegularExpressions.Regex.Replace(text, @"\s*\([^)]*\)", "");
+        // Убираем дефисы и запятые
+        //text = text.Replace("-", "").Replace(",", "");
         // Убираем звездочку в конце (если есть)
         text = text.TrimEnd('*');
         return text.Trim();

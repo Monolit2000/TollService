@@ -15,6 +15,8 @@ public class Toll
     public string? Comment { get; set; }    
     public bool isDynamic { get; set; } = false;
 
+    public int Number { get; set; }
+
     #region price 
 
     public double IPassOvernight { get; set; }

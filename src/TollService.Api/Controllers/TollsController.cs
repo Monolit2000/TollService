@@ -155,6 +155,32 @@ public class TollsController : ControllerBase
         var result = await _mediator.Send(command, ct);
         return Ok(result);
     }
+
+    [HttpPost("parse-plaza-names")]
+    [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(ParsePlazaNamesResult))]
+    public async Task<IActionResult> ParsePlazaNames(
+        [FromQuery] string? arcGisUrl = null,
+        CancellationToken ct = default)
+    {
+        var command = new ParsePlazaNamesFromArcGisCommand(
+            arcGisUrl ?? "https://gis.illinoisvirtualtollway.com/arcgis/rest/services/IVT/IllinoisVirtualTollway/MapServer/13/query");
+        var result = await _mediator.Send(command, ct);
+        return Ok(result);
+    }
+
+    [HttpPost("parse-exit-points-to-plazas")]
+    [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(ParseExitPointsToPlazasResult))]
+    public async Task<IActionResult> ParseExitPointsToPlazas(
+        [FromQuery] string? queryUrl = null,
+        [FromQuery] string? identifyUrl = null,
+        CancellationToken ct = default)
+    {
+        var command = new ParseExitPointsToPlazasCommand(
+            queryUrl ?? "https://gis.illinoisvirtualtollway.com/arcgis/rest/services/IVT/IllinoisVirtualTollway/MapServer/18/query",
+            identifyUrl ?? "https://gis.illinoisvirtualtollway.com/arcgis/rest/services/IVT/IllinoisVirtualTollway/MapServer/identify");
+        var result = await _mediator.Send(command, ct);
+        return Ok(result);
+    }
 }
 
 
