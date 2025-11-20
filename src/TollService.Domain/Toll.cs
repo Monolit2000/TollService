@@ -15,7 +15,14 @@ public class Toll
     public string? Comment { get; set; }    
     public bool isDynamic { get; set; } = false;
 
+    //public List<Toll> TollsGoTo { get; set; }
+
     public int Number { get; set; }
+
+    #region calculate 
+    public Guid? StateCalculatorId { get; set; }
+
+    #endregion
 
     #region price 
 

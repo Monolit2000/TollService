@@ -34,7 +34,9 @@ public record TollWithRouteSectionDto(
     double IPassOvernight,
     double IPass,
     double PayOnlineOvernight,
-    double PayOnline);
+    double PayOnline,
+    double Distance = 0,
+    double OrderId = 0);
 
 public record TollDto(
     Guid Id, 

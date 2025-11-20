@@ -45,7 +45,7 @@ public class GetTollsAlongPolylineSectionsQueryHandler(
                            t.Location.IsWithinDistance(polyline, degrees))
                 .ToListAsync(ct);
 
-            // Маппим в TollWithRouteSectionDto с добавлением RouteSection
+            // Маппим в TollDto с добавлением RouteSection
             var tollDtos = _mapper.Map<List<TollDto>>(tolls);
             var tollsWithSection = tollDtos.Select(t => new TollWithRouteSectionDto(
                 t.Id,
