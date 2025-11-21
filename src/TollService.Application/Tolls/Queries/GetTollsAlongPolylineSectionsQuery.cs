@@ -43,7 +43,7 @@ public class GetTollsAlongPolylineSectionsQueryHandler(
 
             var polyline = new LineString(coordinates) { SRID = 4326 };
 
-            var meters = 100.0;
+            var meters = 50.0;
             var degrees = meters / MetersPerDegree; // ~0.0000449 градусов
 
             var tolls = await _context.Tolls
