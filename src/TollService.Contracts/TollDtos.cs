@@ -19,24 +19,26 @@ public record PolylineSectionRequestDto(
     double? DistanceMeters = 1, 
     string? RouteSection = null);
 
-public record TollWithRouteSectionDto(
-    Guid Id, 
-    string Name, 
-    long NodeId, 
-    decimal Price, 
-    double Latitude, 
-    double Longitude, 
-    Guid RoadId, 
-    string? Key, 
-    string? Comment, 
-    bool IsDynamic, 
-    string? RouteSection,
-    double IPassOvernight,
-    double IPass,
-    double PayOnlineOvernight,
-    double PayOnline,
-    double Distance = 0,
-    double OrderId = 0);
+public class TollWithRouteSectionDto
+{
+    public Guid Id { get; set; }
+    public string Name { get; set; } = string.Empty;
+    public long NodeId { get; set; }
+    public decimal Price { get; set; }
+    public double Latitude { get; set; }
+    public double Longitude { get; set; }
+    public Guid RoadId { get; set; }
+    public string? Key { get; set; }
+    public string? Comment { get; set; }
+    public bool IsDynamic { get; set; }
+    public string? RouteSection { get; set; }
+    public double IPassOvernight { get; set; }
+    public double IPass { get; set; }
+    public double PayOnlineOvernight { get; set; }
+    public double PayOnline { get; set; }
+    public double Distance { get; set; } = 0;
+    public double OrderId { get; set; } = 0;
+}
 
 public record TollDto(
     Guid Id, 

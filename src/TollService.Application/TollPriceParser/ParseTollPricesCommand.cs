@@ -1,5 +1,7 @@
 using MediatR;
 using Microsoft.EntityFrameworkCore;
+using System.Collections.Generic;
+using System.Linq;
 using System.Text.RegularExpressions;
 using TollService.Application.Common.Interfaces;
 using TollService.Domain;
@@ -67,11 +69,15 @@ public class ParseTollPricesCommandHandler(
             var tolls = await _context.Tolls
                 .Where(t => /*t.Number == interchange.Milepost || */
                            //(t.Key != null && t.Key.Equals(interchange.Name, StringComparison.OrdinalIgnoreCase)) ||
-                           (t.Name != null && t.Name.Contains(interchange.Name, StringComparison.OrdinalIgnoreCase)))
+                           (t.Name != null && t.Name == interchange.Name))
+                           //(t.Name != null && EF.Functions.Like(t.Name, $"%{interchange.Name}%")))
                 .ToListAsync(ct);
             
             Toll? toll = null;
             
+            if(tolls.Count < 0)
+                Console.WriteLine(interchange.Name);
+
             if (tolls.Count > 0)
             {
                 // Обрабатываем все найденные tolls
@@ -128,9 +134,9 @@ public class ParseTollPricesCommandHandler(
             if (existingPrice != null)
             {
                 // Обновляем существующую запись
-                existingPrice.Online = priceEntry.Price; // tollindex 3 = upt (online)
-                existingPrice.IPass = priceEntry.Price;
-                existingPrice.Cash = priceEntry.Price;
+                existingPrice.Online = priceEntry.Unpaid; // tollindex 3 = upt (online)
+                existingPrice.IPass = priceEntry.EZpass; // tollindex 2 = ezpass
+                existingPrice.Cash = priceEntry.Unpaid;
             }
             else
             {
@@ -141,9 +147,9 @@ public class ParseTollPricesCommandHandler(
                     StateCalculatorId = ohioCalculator.Id,
                     FromId = fromToll.Id,
                     ToId = toToll.Id,
-                    Online = priceEntry.Price,
-                    IPass = priceEntry.Price,
-                    Cash = priceEntry.Price
+                    Online = priceEntry.Unpaid,
+                    IPass = priceEntry.EZpass,
+                    Cash = priceEntry.Unpaid
                 };
                 _context.CalculatePrices.Add(calculatePrice);
             }
@@ -186,15 +192,13 @@ public class ParseTollPricesCommandHandler(
     
     private List<TollPriceEntry> ParseTollPrices(string jsContent)
     {
-        var prices = new List<TollPriceEntry>();
+        var pricesDict = new Dictionary<(int entrance, int exit), TollPriceEntry>();
         
-        // Ищем паттерн: tolls[entrance][exit][5][3] = price;
-        // Где classindex = 5 и tollindex = 3
-        // Поддерживаем возможные пробелы и точки с запятой
-        var pattern = @"tolls\[(\d+)\]\[(\d+)\]\[5\]\[3\]\s*=\s*([\d.]+)\s*;?";
-        var matches = Regex.Matches(jsContent, pattern);
+        // Парсим индекс 3 (Unpaid)
+        var patternUnpaid = @"tolls\[(\d+)\]\[(\d+)\]\[5\]\[3\]\s*=\s*([\d.]+)\s*;?";
+        var matchesUnpaid = Regex.Matches(jsContent, patternUnpaid);
         
-        foreach (Match match in matches)
+        foreach (Match match in matchesUnpaid)
         {
             if (match.Groups.Count >= 4)
             {
@@ -203,17 +207,48 @@ public class ParseTollPricesCommandHandler(
                     double.TryParse(match.Groups[3].Value, System.Globalization.NumberStyles.Any,
                         System.Globalization.CultureInfo.InvariantCulture, out var price))
                 {
-                    prices.Add(new TollPriceEntry
+                    var key = (entrance, exit);
+                    if (!pricesDict.ContainsKey(key))
                     {
-                        EntranceMilepost = entrance,
-                        ExitMilepost = exit,
-                        Price = price
-                    });
+                        pricesDict[key] = new TollPriceEntry
+                        {
+                            EntranceMilepost = entrance,
+                            ExitMilepost = exit
+                        };
+                    }
+                    pricesDict[key].Unpaid = price;
                 }
             }
         }
         
-        return prices;
+        // Парсим индекс 2 (EZpass)
+        var patternEZpass = @"tolls\[(\d+)\]\[(\d+)\]\[5\]\[2\]\s*=\s*([\d.]+)\s*;?";
+        var matchesEZpass = Regex.Matches(jsContent, patternEZpass);
+        
+        foreach (Match match in matchesEZpass)
+        {
+            if (match.Groups.Count >= 4)
+            {
+                if (int.TryParse(match.Groups[1].Value, out var entrance) &&
+                    int.TryParse(match.Groups[2].Value, out var exit) &&
+                    double.TryParse(match.Groups[3].Value, System.Globalization.NumberStyles.Any,
+                        System.Globalization.CultureInfo.InvariantCulture, out var price))
+                {
+                    var key = (entrance, exit);
+                    if (!pricesDict.ContainsKey(key))
+                    {
+                        pricesDict[key] = new TollPriceEntry
+                        {
+                            EntranceMilepost = entrance,
+                            ExitMilepost = exit
+                        };
+                    }
+                    pricesDict[key].EZpass = price;
+                }
+            }
+        }
+        
+        return pricesDict.Values.ToList();
     }
     
     private async Task<ParseTollPricesResult> ParseIllinoisTollway(string url, CancellationToken ct)
@@ -365,6 +400,7 @@ internal class TollPriceEntry
 {
     public int EntranceMilepost { get; set; }
     public int ExitMilepost { get; set; }
-    public double Price { get; set; }
+    public double Unpaid { get; set; } //inex 3
+    public double EZpass { get; set; } //index 2
 }
 

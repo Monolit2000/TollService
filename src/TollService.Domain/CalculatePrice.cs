@@ -19,9 +19,9 @@ namespace TollService.Domain
         public Guid ToId { get; set; }
         public Toll To { get; set; }
 
-        public double Online { get; set; }
-        public double IPass { get; set; }
-        public double Cash { get; set; }
+        public double Online { get; set; } = 0;
+        public double IPass { get; set; } = 0;
+        public double Cash { get; set; } = 0;
 
     }
 }

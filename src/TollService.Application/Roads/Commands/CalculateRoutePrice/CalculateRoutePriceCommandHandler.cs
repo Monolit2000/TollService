@@ -9,12 +9,12 @@ using TollService.Domain;
 namespace TollService.Application.Roads.Commands.CalculateRoutePrice
 {
 
-    public record CalculateRoutePriceCommand(List<TollWithRouteSectionDto> Tolls) : IRequest<RouteTollCost>;
+    public record CalculateRoutePriceCommand(List<TollWithRouteSectionDto> Tolls) : IRequest<List<TollPriceDto>>;
 
     public class CalculateRoutePriceCommandHandler(
-        ITollDbContext tollDbContext) : IRequestHandler<CalculateRoutePriceCommand, RouteTollCost>
+        ITollDbContext tollDbContext) : IRequestHandler<CalculateRoutePriceCommand, List<TollPriceDto>>
     {
-        public async Task<RouteTollCost> Handle(CalculateRoutePriceCommand request, CancellationToken cancellationToken)
+        public async Task<List<TollPriceDto>> Handle(CalculateRoutePriceCommand request, CancellationToken cancellationToken)
         {
             List<TollInfo> tollInfos = [];
             List<TollPriceDto> tollPriceDtos = [];
@@ -60,19 +60,24 @@ namespace TollService.Application.Roads.Commands.CalculateRoutePrice
                         p => p.FromId == From.Id && p.ToId == To.Id);
 
                     if(price == null)
-                        tollPriceFromToDtos.Add(new TollPriceFromToDto { From = From, To = To});
+                        tollPriceDtos.Add(new TollPriceDto() { Toll = To });
 
-                    tollPriceFromToDtos.Add(new TollPriceFromToDto {From = From, To = To, Price = price.IPass});
+                    tollPriceDtos.Add(new TollPriceDto { Toll = To, PayOnline = price.Cash, IPass = price.IPass});
                 }
 
                 var toll = tollInfo.Toll;
                 usedTolls.Add(tollInfo);
-                tollPriceDtos.Add(new TollPriceDto { Toll = toll, Price = toll.IPassOvernight });
+                tollPriceDtos.Add(new TollPriceDto { Toll = toll,
+                    IPassOvernight = toll.IPassOvernight,
+                    IPass = toll.IPass,
+                    PayOnlineOvernight = toll.PayOnlineOvernight,
+                    PayOnline = toll.PayOnline,
+                });
             }
 
-            var routeTollCost = new RouteTollCost { TollPriceDtos = tollPriceDtos, TollPriceFromToDtos = tollPriceFromToDtos };
+            //var routeTollCost = new RouteTollCost { TollPriceDtos = tollPriceDtos, TollPriceFromToDtos = tollPriceFromToDtos };
 
-            return routeTollCost;
+            return tollPriceDtos;
         }
     }
 
@@ -98,13 +103,21 @@ namespace TollService.Application.Roads.Commands.CalculateRoutePrice
     public class TollPriceDto
     {
         public Toll Toll { get; set; }
-        public double Price { get; set; }
+        public double IPassOvernight { get; set; }
+
+        public double IPass { get; set; }
+
+        public double PayOnlineOvernight { get; set; }
+
+        public double PayOnline { get; set; }
     }
 
     public class TollPriceFromToDto
     {
         public Toll From { get; set; }
         public Toll To { get; set; }
-        public double Price { get; set; } = 0;
+        public double IPrice { get; set; } = 0;
+        public double Cash { get; set; } = 0;
+
     }
 }
