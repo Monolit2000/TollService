@@ -207,6 +207,18 @@ public class TollsController : ControllerBase
             return BadRequest($"Invalid JSON format: {ex.Message}");
         }
     }
+
+    [HttpPost("parse-pa-turnpike-interchanges")]
+    [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(int))]
+    public async Task<IActionResult> ParsePaTurnpikeInterchanges(
+        [FromQuery] string? url = null,
+        CancellationToken ct = default)
+    {
+        var command = new ParsePaTurnpikeInterchangesCommand(
+            url ?? "https://www.paturnpike.com/toll-calculator");
+        var result = await _mediator.Send(command, ct);
+        return Ok(result);
+    }
 }
 
 
