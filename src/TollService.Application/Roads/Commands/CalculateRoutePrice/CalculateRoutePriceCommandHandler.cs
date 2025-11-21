@@ -44,7 +44,7 @@ namespace TollService.Application.Roads.Commands.CalculateRoutePrice
                     var tollInfoTo = tollInfos.Where(
                         t => t.TollDto.Distance > tollInfo.TollDto.Distance &&
                         t.Toll.Id != tollInfo.TollDto.Id &&
-                        t.Toll.Number != tollInfo.Toll.Number &&
+                        t.Toll.Name != tollInfo.Toll.Name &&
                         !usedTolls.Contains(t) &&
                         t.Toll.Id != tollInfo.Toll.Id &&
                         t.Toll.StateCalculatorId == tollInfo.Toll.StateCalculatorId).FirstOrDefault();
@@ -52,8 +52,8 @@ namespace TollService.Application.Roads.Commands.CalculateRoutePrice
                     if (tollInfoTo == null)
                         continue;
 
-                    usedTolls.Add(tollInfo);
-                    usedTolls.Add(tollInfoTo);
+                    //usedTolls.Add(tollInfo);
+                    //usedTolls.Add(tollInfoTo);
 
                     var From = tollInfo.Toll;
                     var To = tollInfoTo.Toll;
