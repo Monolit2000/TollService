@@ -219,6 +219,27 @@ public class TollsController : ControllerBase
         var result = await _mediator.Send(command, ct);
         return Ok(result);
     }
+
+    [HttpPost("parse-pa-turnpike-prices")]
+    [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(ParseTollPricesResult))]
+    [ProducesResponseType(StatusCodes.Status400BadRequest)]
+    public async Task<IActionResult> ParsePaTurnpikePrices(
+        [FromQuery] string? tollType = null,
+        [FromQuery] string? roadwayKey = null,
+        [FromQuery] string? entryInterchangeKey = null,
+        [FromQuery] string? effectiveDateKey = null,
+        [FromQuery] string? baseUrl = null,
+        CancellationToken ct = default)
+    {
+        var command = new ParsePaTurnpikePricesCommand(
+            TollType: tollType,
+            RoadwayKey: roadwayKey,
+            EntryInterchangeKey: entryInterchangeKey,
+            EffectiveDateKey: effectiveDateKey,
+            BaseUrl: baseUrl ?? "https://www.paturnpike.com/toll-schedule-v2/get-toll-schedule");
+        var result = await _mediator.Send(command, ct);
+        return Ok(result);
+    }
 }
 
 
