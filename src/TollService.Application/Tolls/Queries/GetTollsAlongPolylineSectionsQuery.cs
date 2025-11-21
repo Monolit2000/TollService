@@ -84,27 +84,26 @@ public class GetTollsAlongPolylineSectionsQueryHandler(
                 };
             }).ToList();
 
+            // Рассчитываем цены для этой секции
+            var tollWithPrice = await sender.Send(new CalculateRoutePriceCommand(tollsWithSection));
+
+            // Обновляем цены для tolls этой секции
+            foreach (var toll in tollsWithSection)
+            {
+                var pricedToll = tollWithPrice.FirstOrDefault(t => t.Toll.Id == toll.Id);
+                if (pricedToll == null)
+                    continue;
+
+                toll.IPass = pricedToll.IPass;
+                toll.PayOnline = pricedToll.PayOnline;
+                toll.IPassOvernight = pricedToll.IPassOvernight;
+                toll.PayOnlineOvernight = pricedToll.PayOnlineOvernight;
+            }
+
             allTolls.AddRange(tollsWithSection);
         }
 
-        var tollWithPrice = await sender.Send(new CalculateRoutePriceCommand(allTolls));
-
-        List<TollWithRouteSectionDto> tollsWitPrice = new List<TollWithRouteSectionDto>();
-
-        foreach (var toll in allTolls)
-        {
-            var pricedToll = tollWithPrice.FirstOrDefault(t => t.Toll.Id == toll.Id);
-            if (pricedToll == null)
-                continue;
-
-            toll.IPass = pricedToll.IPass;
-            toll.PayOnline = pricedToll.PayOnline;
-            toll.IPassOvernight = pricedToll.PayOnline;
-            toll.PayOnlineOvernight = pricedToll.PayOnlineOvernight;
-            tollsWitPrice.Add(toll);
-        }
-
-        return tollsWitPrice;
+        return allTolls;
     }
 
     /// <summary>
