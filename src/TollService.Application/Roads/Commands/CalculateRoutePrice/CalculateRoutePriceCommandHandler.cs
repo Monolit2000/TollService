@@ -43,6 +43,8 @@ namespace TollService.Application.Roads.Commands.CalculateRoutePrice
                 {
                     var tollInfoTo = tollInfos.Where(
                         t => t.TollDto.Distance > tollInfo.TollDto.Distance &&
+                        t.Toll.Id != tollInfo.TollDto.Id &&
+                        t.Toll.Number != tollInfo.Toll.Number &&
                         !usedTolls.Contains(t) &&
                         t.Toll.Id != tollInfo.Toll.Id &&
                         t.Toll.StateCalculatorId == tollInfo.Toll.StateCalculatorId).FirstOrDefault();
@@ -65,17 +67,21 @@ namespace TollService.Application.Roads.Commands.CalculateRoutePrice
                         continue;
                     }
 
-                    tollPriceDtos.Add(new TollPriceDto { Toll = To, PayOnline = price.Cash, IPass = price.IPass});
+                    tollPriceDtos.Add(new TollPriceDto { Toll = To, PayOnline = price.Cash, IPass = price.IPass });
                 }
-
-                var toll = tollInfo.Toll;
-                usedTolls.Add(tollInfo);
-                tollPriceDtos.Add(new TollPriceDto { Toll = toll,
-                    IPassOvernight = toll.IPassOvernight,
-                    IPass = toll.IPass,
-                    PayOnlineOvernight = toll.PayOnlineOvernight,
-                    PayOnline = toll.PayOnline,
-                });
+                else
+                {
+                    var toll = tollInfo.Toll;
+                    usedTolls.Add(tollInfo);
+                    tollPriceDtos.Add(new TollPriceDto
+                    {
+                        Toll = toll,
+                        IPassOvernight = toll.IPassOvernight,
+                        IPass = toll.IPass,
+                        PayOnlineOvernight = toll.PayOnlineOvernight,
+                        PayOnline = toll.PayOnline,
+                    });
+                }
             }
 
             //var routeTollCost = new RouteTollCost { TollPriceDtos = tollPriceDtos, TollPriceFromToDtos = tollPriceFromToDtos };
