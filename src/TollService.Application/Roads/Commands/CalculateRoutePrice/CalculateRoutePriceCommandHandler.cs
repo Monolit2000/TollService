@@ -59,8 +59,11 @@ namespace TollService.Application.Roads.Commands.CalculateRoutePrice
                     var price = await tollDbContext.CalculatePrices.FirstOrDefaultAsync(
                         p => p.FromId == From.Id && p.ToId == To.Id);
 
-                    if(price == null)
+                    if (price == null)
+                    {
                         tollPriceDtos.Add(new TollPriceDto() { Toll = To });
+                        continue;
+                    }
 
                     tollPriceDtos.Add(new TollPriceDto { Toll = To, PayOnline = price.Cash, IPass = price.IPass});
                 }

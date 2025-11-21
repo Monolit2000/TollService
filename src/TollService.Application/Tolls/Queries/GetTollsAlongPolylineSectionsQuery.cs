@@ -94,6 +94,9 @@ public class GetTollsAlongPolylineSectionsQueryHandler(
         foreach (var toll in allTolls)
         {
             var pricedToll = tollWithPrice.FirstOrDefault(t => t.Toll.Id == toll.Id);
+            if (pricedToll == null)
+                continue;
+
             toll.IPass = pricedToll.IPass;
             toll.PayOnline = pricedToll.PayOnline;
             toll.IPassOvernight = pricedToll.PayOnline;
