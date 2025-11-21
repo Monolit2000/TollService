@@ -46,13 +46,14 @@ namespace TollService.Application.Roads.Commands.CalculateRoutePrice
 
                 if (tollInfo.Toll.StateCalculatorId != null)
                 {
-                    // Ищем следующую toll с тем же StateCalculatorId, которая еще не использована
+                    // Ищем самую дальнюю toll с тем же StateCalculatorId, которая еще не использована
                     var tollInfoTo = tollInfos
                         .Where(t => t.TollDto.Distance > tollInfo.TollDto.Distance &&
                                    t.Toll.StateCalculatorId == tollInfo.Toll.StateCalculatorId &&
                                    t.Toll.Name != null &&
                                    !usedNames.Contains(t.Toll.Name) &&
                                    t.Toll.Name != tollInfo.Toll.Name)
+                        .OrderByDescending(t => t.TollDto.Distance)
                         .FirstOrDefault();
 
                     if (tollInfoTo == null)
@@ -65,8 +66,8 @@ namespace TollService.Application.Roads.Commands.CalculateRoutePrice
                     var price = allCalculatePrices.FirstOrDefault(p =>
                         p.From != null && p.From.Name != null && 
                         p.To != null && p.To.Name != null &&
-                        p.From.Name.Equals(fromName, StringComparison.OrdinalIgnoreCase) &&
-                        p.To.Name.Equals(toName, StringComparison.OrdinalIgnoreCase) &&
+                        p.From.Name == fromName &&
+                        p.To.Name == toName &&
                         p.StateCalculatorId == tollInfo.Toll.StateCalculatorId);
 
                     if (price == null)
@@ -74,7 +75,7 @@ namespace TollService.Application.Roads.Commands.CalculateRoutePrice
                         // Если цена не найдена, добавляем To и исключаем оба имени
                         tollPriceDtos.Add(new TollPriceDto { Toll = tollInfoTo.Toll });
                         if (fromName != null) usedNames.Add(fromName);
-                        if (toName != null) usedNames.Add(toName);
+                        //if (toName != null) usedNames.Add(toName);
                         continue;
                     }
 
@@ -104,8 +105,8 @@ namespace TollService.Application.Roads.Commands.CalculateRoutePrice
                     });
 
                     // Исключаем имя из дальнейшей обработки
-                    if (toll.Name != null)
-                        usedNames.Add(toll.Name);
+                    //if (toll.Name != null)
+                        //usedNames.Add(toll.Name);
                 }
             }
 

@@ -66,7 +66,7 @@ public class ParseIndianaTollPricesCommandHandler(
         foreach (var priceEntry in priceEntries)
         {
             // Находим toll для entry (точка входа)
-            var fromToll = await FindOrCacheToll(priceEntry.Entry, tollCache, ct);
+            var fromToll = await FindOrCacheToll(priceEntry.Entry, tollCache, indianaCalculator.Id, ct);
             if (fromToll == null)
             {
                 notFoundPlazas.Add($"Entry: {priceEntry.Entry}");
@@ -74,7 +74,7 @@ public class ParseIndianaTollPricesCommandHandler(
             }
 
             // Находим toll для exit (точка выхода)
-            var toToll = await FindOrCacheToll(priceEntry.Exit, tollCache, ct);
+            var toToll = await FindOrCacheToll(priceEntry.Exit, tollCache, indianaCalculator.Id, ct);
             if (toToll == null)
             {
                 notFoundPlazas.Add($"Exit: {priceEntry.Exit}");
@@ -124,12 +124,17 @@ public class ParseIndianaTollPricesCommandHandler(
     }
 
     /// <summary>
-    /// Находит Toll по имени, используя кэш для оптимизации
+    /// Находит Toll по имени, используя кэш для оптимизации, и устанавливает StateCalculatorId
     /// </summary>
-    private async Task<Toll?> FindOrCacheToll(string name, Dictionary<string, Toll?> cache, CancellationToken ct)
+    private async Task<Toll?> FindOrCacheToll(string name, Dictionary<string, Toll?> cache, Guid stateCalculatorId, CancellationToken ct)
     {
         if (cache.TryGetValue(name, out var cachedToll))
         {
+            // Если toll уже найден, но StateCalculatorId не установлен, обновляем его
+            if (cachedToll != null && cachedToll.StateCalculatorId != stateCalculatorId)
+            {
+                cachedToll.StateCalculatorId = stateCalculatorId;
+            }
             return cachedToll;
         }
 
@@ -151,6 +156,12 @@ public class ParseIndianaTollPricesCommandHandler(
         //        .FirstOrDefaultAsync(t => (t.Name != null && EF.Functions.ILike(t.Name, $"%{name}%")) ||
         //                                 (t.Key != null && EF.Functions.ILike(t.Key, $"%{name}%")), ct);
         //}
+
+        // Если toll найден, устанавливаем StateCalculatorId
+        if (toll != null)
+        {
+            toll.StateCalculatorId = stateCalculatorId;
+        }
 
         cache[name] = toll;
         return toll;
