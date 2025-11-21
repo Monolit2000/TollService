@@ -55,3 +55,9 @@ public record TollDto(
     double IPass = 0,
     double PayOnlineOvernight = 0,
     double PayOnline = 0);
+
+public record IndianaTollPriceRequestDto(
+    string entry,
+    string exit,
+    string cash_rate,
+    string avi_rate);

@@ -181,6 +181,32 @@ public class TollsController : ControllerBase
         var result = await _mediator.Send(command, ct);
         return Ok(result);
     }
+
+    [HttpPost("parse-indiana-prices")]
+    [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(ParseTollPricesResult))]
+    [ProducesResponseType(StatusCodes.Status400BadRequest)]
+    public async Task<IActionResult> ParseIndianaTollPrices(
+        [FromBody] List<IndianaTollPriceRequestDto> request,
+        CancellationToken ct = default)
+    {
+        if (request == null || request.Count == 0)
+        {
+            return BadRequest("Request body cannot be empty");
+        }
+
+        try
+        {
+            // Сериализуем в JSON строку для команды
+            var jsonContent = System.Text.Json.JsonSerializer.Serialize(request);
+            var command = new ParseIndianaTollPricesCommand(jsonContent);
+            var result = await _mediator.Send(command, ct);
+            return Ok(result);
+        }
+        catch (System.Text.Json.JsonException ex)
+        {
+            return BadRequest($"Invalid JSON format: {ex.Message}");
+        }
+    }
 }
 
 

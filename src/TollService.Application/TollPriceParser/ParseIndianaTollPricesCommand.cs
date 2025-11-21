@@ -1,6 +1,7 @@
 using MediatR;
 using Microsoft.EntityFrameworkCore;
 using System.Text.Json;
+using System.Text.Json.Serialization;
 using TollService.Application.Common.Interfaces;
 using TollService.Domain;
 
@@ -10,10 +11,10 @@ public record ParseIndianaTollPricesCommand(string JsonContent)
     : IRequest<ParseTollPricesResult>;
 
 public record IndianaTollPriceEntry(
-    string Entry,
-    string Exit,
-    string CashRate,
-    string AviRate);
+    [property: JsonPropertyName("entry")] string Entry,
+    [property: JsonPropertyName("exit")] string Exit,
+    [property: JsonPropertyName("cash_rate")] string CashRate,
+    [property: JsonPropertyName("avi_rate")] string AviRate);
 
 public class ParseIndianaTollPricesCommandHandler(
     ITollDbContext _context) : IRequestHandler<ParseIndianaTollPricesCommand, ParseTollPricesResult>
@@ -23,11 +24,15 @@ public class ParseIndianaTollPricesCommandHandler(
         var notFoundPlazas = new List<string>();
         int updatedCount = 0;
 
-        // Парсим JSON
+        // Парсим JSON с настройками для snake_case
         List<IndianaTollPriceEntry>? priceEntries;
         try
         {
-            priceEntries = JsonSerializer.Deserialize<List<IndianaTollPriceEntry>>(request.JsonContent);
+            var options = new JsonSerializerOptions
+            {
+                PropertyNameCaseInsensitive = true
+            };
+            priceEntries = JsonSerializer.Deserialize<List<IndianaTollPriceEntry>>(request.JsonContent, options);
             if (priceEntries == null || priceEntries.Count == 0)
             {
                 return new ParseTollPricesResult(0, new List<string> { "JSON пуст или невалиден" });
@@ -130,7 +135,7 @@ public class ParseIndianaTollPricesCommandHandler(
 
         // Ищем точное совпадение по имени (регистронезависимо)
         var toll = await _context.Tolls
-            .FirstOrDefaultAsync(t => t.Name != null && EF.Functions.ILike(t.Name, name), ct);
+            .FirstOrDefaultAsync(t => t.Name != null && t.Name == name, ct);
 
         //// Если не найдено, пробуем поиск по Key
         //if (toll == null)
