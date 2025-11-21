@@ -15,7 +15,7 @@ builder.Services.AddSwaggerGen();
 
 var connectionString = builder.Configuration.GetConnectionString("Default")
     ?? Environment.GetEnvironmentVariable("ConnectionStrings__Default")
-    ?? "Host=50.18.42.186;Port=5436;Database=tolls;Username=postgres;Password=postgres";
+    ?? "Host=db;Port=5432;Database=tolls;Username=postgres;Password=postgres";
 
 builder.Services.AddDbContext<TollDbContext>(options =>
     options.UseNpgsql(connectionString, npgsql =>
