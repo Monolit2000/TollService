@@ -1,7 +1,5 @@
 ﻿using MediatR;
 using Microsoft.EntityFrameworkCore;
-using System.Dynamic;
-using System.Linq;
 using TollService.Application.Common.Interfaces;
 using TollService.Contracts;
 using TollService.Domain;
@@ -18,61 +16,84 @@ namespace TollService.Application.Roads.Commands.CalculateRoutePrice
         {
             List<TollInfo> tollInfos = [];
             List<TollPriceDto> tollPriceDtos = [];
-            List<TollPriceFromToDto> tollPriceFromToDtos = [];
 
             var tollsDtos = request.Tolls.OrderBy(t => t.Distance).ToList();
-            var dbTolls = await tollDbContext.Tolls.Where(t => tollsDtos.Select(tt => tt.Id).Contains(t.Id)).ToListAsync();
+            var dbTolls = await tollDbContext.Tolls
+                .Where(t => tollsDtos.Select(tt => tt.Id).Contains(t.Id))
+                .ToListAsync(cancellationToken);
 
             foreach(var tollDto in tollsDtos)
             {
                 var toll = dbTolls.First(t => t.Id == tollDto.Id);
-
                 var tollInfo = new TollInfo(tollDto, toll);
-
                 tollInfos.Add(tollInfo);
             }
 
-            List<TollInfo> usedTolls = [];
+            // Загружаем все CalculatePrices с включенными From и To для поиска по Name
+            var allCalculatePrices = await tollDbContext.CalculatePrices
+                .Include(p => p.From)
+                .Include(p => p.To)
+                .ToListAsync(cancellationToken);
+
+            // Множество использованных имен для исключения
+            var usedNames = new HashSet<string>(StringComparer.OrdinalIgnoreCase);
 
             foreach (var tollInfo in tollInfos)
             {
-                if (usedTolls.Contains(tollInfo))
+                // Пропускаем, если имя уже использовано
+                if (tollInfo.Toll.Name != null && usedNames.Contains(tollInfo.Toll.Name))
                     continue;
 
                 if (tollInfo.Toll.StateCalculatorId != null)
                 {
-                    var tollInfoTo = tollInfos.Where(
-                        t => t.TollDto.Distance > tollInfo.TollDto.Distance &&
-                        t.Toll.Id != tollInfo.TollDto.Id &&
-                        t.Toll.Name != tollInfo.Toll.Name &&
-                        !usedTolls.Contains(t) &&
-                        t.Toll.Id != tollInfo.Toll.Id &&
-                        t.Toll.StateCalculatorId == tollInfo.Toll.StateCalculatorId).FirstOrDefault();
+                    // Ищем следующую toll с тем же StateCalculatorId, которая еще не использована
+                    var tollInfoTo = tollInfos
+                        .Where(t => t.TollDto.Distance > tollInfo.TollDto.Distance &&
+                                   t.Toll.StateCalculatorId == tollInfo.Toll.StateCalculatorId &&
+                                   t.Toll.Name != null &&
+                                   !usedNames.Contains(t.Toll.Name) &&
+                                   t.Toll.Name != tollInfo.Toll.Name)
+                        .FirstOrDefault();
 
                     if (tollInfoTo == null)
                         continue;
 
-                    //usedTolls.Add(tollInfo);
-                    //usedTolls.Add(tollInfoTo);
+                    var fromName = tollInfo.Toll.Name;
+                    var toName = tollInfoTo.Toll.Name;
 
-                    var From = tollInfo.Toll;
-                    var To = tollInfoTo.Toll;
-
-                    var price = await tollDbContext.CalculatePrices.FirstOrDefaultAsync(
-                        p => p.FromId == From.Id && p.ToId == To.Id);
+                    // Ищем цену по Name вместо Id
+                    var price = allCalculatePrices.FirstOrDefault(p =>
+                        p.From != null && p.From.Name != null && 
+                        p.To != null && p.To.Name != null &&
+                        p.From.Name.Equals(fromName, StringComparison.OrdinalIgnoreCase) &&
+                        p.To.Name.Equals(toName, StringComparison.OrdinalIgnoreCase) &&
+                        p.StateCalculatorId == tollInfo.Toll.StateCalculatorId);
 
                     if (price == null)
                     {
-                        tollPriceDtos.Add(new TollPriceDto() { Toll = To });
+                        // Если цена не найдена, добавляем To и исключаем оба имени
+                        tollPriceDtos.Add(new TollPriceDto { Toll = tollInfoTo.Toll });
+                        if (fromName != null) usedNames.Add(fromName);
+                        if (toName != null) usedNames.Add(toName);
                         continue;
                     }
 
-                    tollPriceDtos.Add(new TollPriceDto { Toll = To, PayOnline = price.Cash, IPass = price.IPass });
+                    // Добавляем цену и исключаем оба имени
+                    tollPriceDtos.Add(new TollPriceDto 
+                    { 
+                        Toll = tollInfoTo.Toll, 
+                        PayOnline = price.Cash, 
+                        IPass = price.IPass 
+                    });
+
+                    // Исключаем все tolls с такими же именами
+                    if (fromName != null) usedNames.Add(fromName);
+                    if (toName != null) usedNames.Add(toName);
                 }
                 else
                 {
+                    // Для tolls без StateCalculatorId используем прямые цены
                     var toll = tollInfo.Toll;
-                    usedTolls.Add(tollInfo);
                     tollPriceDtos.Add(new TollPriceDto
                     {
                         Toll = toll,
@@ -81,10 +102,12 @@ namespace TollService.Application.Roads.Commands.CalculateRoutePrice
                         PayOnlineOvernight = toll.PayOnlineOvernight,
                         PayOnline = toll.PayOnline,
                     });
+
+                    // Исключаем имя из дальнейшей обработки
+                    if (toll.Name != null)
+                        usedNames.Add(toll.Name);
                 }
             }
-
-            //var routeTollCost = new RouteTollCost { TollPriceDtos = tollPriceDtos, TollPriceFromToDtos = tollPriceFromToDtos };
 
             return tollPriceDtos;
         }
