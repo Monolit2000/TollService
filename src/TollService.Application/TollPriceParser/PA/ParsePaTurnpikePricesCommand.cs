@@ -76,8 +76,8 @@ public class ParsePaTurnpikePricesCommandHandler(
                 var queryParams = new List<string>();
                 //if (!string.IsNullOrWhiteSpace(request.TollType))
                     queryParams.Add($"tollType={Uri.EscapeDataString(payType)}");
-                //if (!string.IsNullOrWhiteSpace(request.RoadwayKey))
-                    queryParams.Add($"roadwayKey={Uri.EscapeDataString("76")}");
+                if (!string.IsNullOrWhiteSpace(request.RoadwayKey))
+                    queryParams.Add($"roadwayKey={Uri.EscapeDataString(request.RoadwayKey)}");
                 //if (!string.IsNullOrWhiteSpace(request.EntryInterchangeKey))
                 queryParams.Add($"entryInterchangeKey={Uri.EscapeDataString(paToll.PaPlazaKay.ToString())}");
                 //if (!string.IsNullOrWhiteSpace(request.EffectiveDateKey))
