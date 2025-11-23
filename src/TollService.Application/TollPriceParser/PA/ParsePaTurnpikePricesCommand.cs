@@ -149,7 +149,7 @@ public class ParsePaTurnpikePricesCommandHandler(
 
                 // Находим entry toll по EntryInterchangeKey (если указан)
                 Toll? fromToll = null;
-                fromToll = await FindTollByNumberInBounds(request.EntryInterchangeKey, paBoundingBox, paCalculator.Id, ct);
+                fromToll = await FindFromTollByNumberInBounds(paToll.PaPlazaKay, paBoundingBox, paCalculator.Id, ct);
                 if (fromToll == null)
                 {
                     notFoundPlazas.Add($"Entry Interchange Key: {request.EntryInterchangeKey}");
@@ -242,6 +242,23 @@ public class ParsePaTurnpikePricesCommandHandler(
         var toll = await _context.Tolls
             .FirstOrDefaultAsync(t =>
                 t.Number == number &&
+                t.Location != null &&
+                boundingBox.Contains(t.Location), ct);
+
+        // Если toll найден, устанавливаем StateCalculatorId
+        if (toll != null)
+        {
+            toll.StateCalculatorId = stateCalculatorId;
+        }
+
+        return toll;
+    }
+
+    private async Task<Toll?> FindFromTollByNumberInBounds(int number, Polygon boundingBox, Guid stateCalculatorId, CancellationToken ct)
+    {
+        var toll = await _context.Tolls
+            .FirstOrDefaultAsync(t =>
+                t.PaPlazaKay == number &&
                 t.Location != null &&
                 boundingBox.Contains(t.Location), ct);
 

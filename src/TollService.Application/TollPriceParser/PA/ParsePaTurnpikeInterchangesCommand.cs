@@ -96,6 +96,7 @@ public class ParsePaTurnpikeInterchangesCommandHandler(
                 
                     //matchingToll.Name = cleanedTitle;
                 matchingToll.Number = targetNumber;
+                matchingToll.Key = cleanedTitle;
                 matchingToll.PaPlazaKay = interchange.PlazaKey ?? 0;
                 changed = true;
                 
