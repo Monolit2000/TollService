@@ -209,10 +209,18 @@ public class ParseExitPointsToPlazasCommandHandler(
         double radiusMeters,
         CancellationToken ct)
     {
+        // Константа для преобразования метров в градусы
+        // Приблизительно 111320 метров на градус на экваторе
+        // Для более точного расчета можно учитывать широту, но для небольших радиусов это достаточно точно
+        const double MetersPerDegree = 111_320.0;
+        
         var point = new Point(longitude, latitude) { SRID = 4326 };
         
+        // Преобразуем метры в градусы
+        var radiusDegrees = radiusMeters / MetersPerDegree;
+        
         var tolls = await context.Tolls
-            .Where(t => t.Location != null && t.Location.IsWithinDistance(point, radiusMeters))
+            .Where(t => t.Location != null && t.Location.IsWithinDistance(point, radiusDegrees))
             .OrderBy(t => t.Location!.Distance(point))
             .ToListAsync(ct);
         
