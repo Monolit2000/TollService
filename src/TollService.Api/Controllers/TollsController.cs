@@ -2,6 +2,8 @@ using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using TollService.Application.Roads.Queries;
 using TollService.Application.TollPriceParser;
+using TollService.Application.TollPriceParser.IN;
+using TollService.Application.TollPriceParser.OH;
 using TollService.Application.TollPriceParser.PA;
 using TollService.Application.Tolls.Commands;
 using TollService.Application.Tolls.Queries;
@@ -240,6 +242,55 @@ public class TollsController : ControllerBase
             BaseUrl: baseUrl ?? "https://www.paturnpike.com/toll-schedule-v2/get-toll-schedule");
         var result = await _mediator.Send(command, ct);
         return Ok(result);
+    }
+
+    [HttpPost("parse-indiana-tolls")]
+    [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(ParseIndianaTollsResult))]
+    [ProducesResponseType(StatusCodes.Status400BadRequest)]
+    public async Task<IActionResult> ParseIndianaTolls(
+        [FromBody] List<IndianaTollRequestDto>? request,
+        CancellationToken ct = default)
+    {
+        if (request == null || request.Count == 0)
+        {
+            return BadRequest("Request body cannot be empty");
+        }
+
+        try
+        {
+            // Сериализуем в JSON строку для команды
+            var command = new ParseIndianaTollsCommand(request);
+            var result = await _mediator.Send(command, ct);
+            return Ok(result);
+        }
+        catch (System.Text.Json.JsonException ex)
+        {
+            return BadRequest($"Invalid JSON format: {ex.Message}");
+        }
+    }
+
+    [HttpPost("parse-ohio-tolls")]
+    [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(ParseOhioTollsResult))]
+    [ProducesResponseType(StatusCodes.Status400BadRequest)]
+    public async Task<IActionResult> ParseOhioTolls(
+        [FromBody] List<OhioTollRequestDto>? request,
+        CancellationToken ct = default)
+    {
+        if (request == null || request.Count == 0)
+        {
+            return BadRequest("Request body cannot be empty");
+        }
+
+        try
+        {
+            var command = new ParseOhioTollsCommand(request);
+            var result = await _mediator.Send(command, ct);
+            return Ok(result);
+        }
+        catch (System.Text.Json.JsonException ex)
+        {
+            return BadRequest($"Invalid JSON format: {ex.Message}");
+        }
     }
 }
 

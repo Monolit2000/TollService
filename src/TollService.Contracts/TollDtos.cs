@@ -61,3 +61,19 @@ public record IndianaTollPriceRequestDto(
     string exit,
     string cash_rate,
     string avi_rate);
+
+public record IndianaTollRequestDto(
+    string name,
+    string toll,
+    string ramps,
+    int mile,
+    double lat,
+    double lng,
+    string direction,
+    string barrier_number,
+    string system);
+
+public record OhioTollRequestDto(
+    string name,
+    double lat,
+    double lng);

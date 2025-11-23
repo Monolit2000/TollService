@@ -53,78 +53,71 @@ public class ParsePaTurnpikeInterchangesCommandHandler(
 
         foreach (var interchange in interchanges)
         {
-            var matchingTolls = await FindClosestTollAsync(context,
+            var matchingToll = await FindClosestTollAsync(context,
                 interchange.Latitude!.Value,
                 interchange.Longitude!.Value,
                 ct);
 
-            if (!matchingTolls.Any())
-                continue;
+            var extractedNumber = ExtractLeadingNumber(interchange.Title);
 
-            foreach (var matchingToll in matchingTolls)
+            var cleanedTitle = NormalizeTitle(interchange.Title ?? interchange.Name);
+            //var hasOrderedNumber = interchange.OrderedNumber.HasValue;
+            var orderedNumber = interchange.OrderedNumber.ToString();
+            var plazaKey = interchange.PlazaKey.ToString();
+            var ptcExternalIdentifier = interchange.ptcExternalIdentifier;
+            var targetNumber = ptcExternalIdentifier?.TrimEnd('0').TrimEnd('.'); /*?? orderedNumber;*/
+
+            if (matchingToll == null)
             {
-
-                var extractedNumber = ExtractLeadingNumber(interchange.Title);
-
-                var cleanedTitle = NormalizeTitle(interchange.Title ?? interchange.Name);
-                //var hasOrderedNumber = interchange.OrderedNumber.HasValue;
-                var orderedNumber = interchange.OrderedNumber.ToString();
-                var plazaKey = interchange.PlazaKey.ToString();
-                var ptcExternalIdentifier = interchange.ptcExternalIdentifier;
-                var targetNumber = ptcExternalIdentifier?.TrimEnd('0').TrimEnd('.'); /*?? orderedNumber;*/
-
-                if (matchingToll == null)
+                // Create a new Toll
+                var newToll = new Toll
                 {
-                    // Create a new Toll
-                    var newToll = new Toll
-                    {
-                        Id = Guid.NewGuid(),
-                        Name = cleanedTitle,
-                        Number = targetNumber,
-                        Location = new Point(interchange.Longitude!.Value, interchange.Latitude!.Value) { SRID = 4326 },
-                        Price = 0,
-                        Key = extractedNumber,
-                        isDynamic = false,
-                        PaPlazaKay = interchange.PlazaKey ?? 0
+                    Id = Guid.NewGuid(),
+                    Name = cleanedTitle,
+                    Number = targetNumber,
+                    Location = new Point(interchange.Longitude!.Value, interchange.Latitude!.Value) { SRID = 4326 },
+                    Price = 0,
+                    Key = extractedNumber,
+                    isDynamic = false,
+                    PaPlazaKay = interchange.PlazaKey ?? 0
 
-                    };
+                };
 
-                    context.Tolls.Add(newToll);
-                    updatedCount++;
-                }
-                else
-                {
-                    // Update existing Toll
-                    var changed = false;
+                context.Tolls.Add(newToll);
+                updatedCount++;
+            }
+            else
+            {
+                // Update existing Toll
+                var changed = false;
 
-                    //if (!string.IsNullOrWhiteSpace(cleanedTitle) &&
-                    //    !string.Equals(matchingToll.Name, cleanedTitle, StringComparison.Ordinal))
-
+                //if (!string.IsNullOrWhiteSpace(cleanedTitle) &&
+                //    !string.Equals(matchingToll.Name, cleanedTitle, StringComparison.Ordinal))
+                
                     matchingToll.Name = cleanedTitle;
                     matchingToll.Number = targetNumber;
                     matchingToll.Key = cleanedTitle;
-                    matchingToll.PaPlazaKay = interchange.PlazaKey ?? 0;
                     changed = true;
+                
 
+                //if (targetNumber != null && matchingToll.Number != targetNumber)
+                //{
+                //    matchingToll.Number = orderedNumber;
+                //    changed = true;
+                //}
 
-                    //if (targetNumber != null && matchingToll.Number != targetNumber)
-                    //{
-                    //    matchingToll.Number = orderedNumber;
-                    //    changed = true;
-                    //}
-
-                    if (changed)
-                    {
-                        updatedCount++;
-                    }
+                if (changed)
+                {
+                    updatedCount++;
                 }
             }
-
-            if (updatedCount > 0)
-            {
-                await context.SaveChangesAsync(ct);
-            }
         }
+
+        if (updatedCount > 0)
+        {
+            await context.SaveChangesAsync(ct);
+        }
+
         return updatedCount;
     }
 
@@ -245,7 +238,7 @@ public class ParsePaTurnpikeInterchangesCommandHandler(
         return null;
     }
 
-    private static async Task<List<Toll>> FindClosestTollAsync(
+    private static async Task<Toll?> FindClosestTollAsync(
         ITollDbContext context,
         double latitude,
         double longitude,
@@ -258,14 +251,15 @@ public class ParsePaTurnpikeInterchangesCommandHandler(
             var toll = await context.Tolls
                 .Where(t => t.Location != null && t.Location.IsWithinDistance(point, radius))
                 .OrderBy(t => t.Location!.Distance(point))
-                .ToListAsync(ct);
+                .FirstOrDefaultAsync(ct);
 
-           
+            if (toll != null)
+            {
                 return toll;
-            
+            }
         }
 
-        return new List<Toll>();
+        return null;
     }
 
     private static string NormalizeTitle(string? title)
