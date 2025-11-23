@@ -1,3 +1,6 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 using System.Text.Json;
 using MediatR;
@@ -27,9 +30,6 @@ public class ParseExitPointsToPlazasCommandHandler(
         var errors = new List<string>();
         int processedExitPoints = 0;
         int updatedTolls = 0;
-        
-        // Сохраняем созданные Toll для последующей группировки и удаления дубликатов
-        var createdTolls = new List<Toll>();
         
         var httpClient = _httpClientFactory.CreateClient();
         httpClient.Timeout = TimeSpan.FromMinutes(10);
@@ -98,25 +98,65 @@ public class ParseExitPointsToPlazasCommandHandler(
                         if (plazaLat == 0 || plazaLon == 0)
                             continue;
                         
-                        // Парсим номер плазы (может содержать буквы, например "5A")
-                        var plazaNumber = ParsePlazaNumber(result.Attributes.Plaza_Num);
+                        // Номер плазы (может содержать буквы, например "5A")
+                        var plazaNumber = result.Attributes.Plaza_Num ?? string.Empty;
                         
-                        // Создаем новую плазу
+                        // Создаем точку плазы
                         var plazaPoint = new Point(plazaLon, plazaLat) { SRID = 4326 };
                         
-                        var newToll = new Toll
-                        {
-                            Id = Guid.NewGuid(),
-                            Name = result.Attributes.Plaza_Name,
-                            Number = plazaNumber.ToString(),
-                            Location = plazaPoint,
-                            Key = result.Attributes.Plaza_Name,
-                            Price = 0,
-                            isDynamic = false
-                        };
+                        // Ищем все существующие Toll в радиусе 15 метров
+                        var existingTolls = await FindTollsInRadiusAsync(_context, plazaLat, plazaLon, 20, ct);
                         
-                        // Сохраняем в список для последующей группировки
-                        createdTolls.Add(newToll);
+                        if (existingTolls.Count > 0)
+                        {
+                            // Обновляем все найденные Toll
+                            foreach (var existingToll in existingTolls)
+                            {
+                                var changed = false;
+                                
+                                if (!string.IsNullOrWhiteSpace(result.Attributes.Plaza_Name) &&
+                                    !string.Equals(existingToll.Name, result.Attributes.Plaza_Name, StringComparison.Ordinal))
+                                {
+                                    existingToll.Name = result.Attributes.Plaza_Name;
+                                    changed = true;
+                                }
+                                
+                                if (!string.IsNullOrWhiteSpace(plazaNumber) &&
+                                    existingToll.Number != plazaNumber)
+                                {
+                                    existingToll.Number = plazaNumber;
+                                    changed = true;
+                                }
+                                
+                                if (existingToll.Key != result.Attributes.Plaza_Name)
+                                {
+                                    existingToll.Key = result.Attributes.Plaza_Name;
+                                    changed = true;
+                                }
+                                
+                                if (changed)
+                                {
+                                    updatedTolls++;
+                                }
+                            }
+                        }
+                        else
+                        {
+                            // Создаем новый Toll
+                            var newToll = new Toll
+                            {
+                                Id = Guid.NewGuid(),
+                                Name = result.Attributes.Plaza_Name,
+                                Number = plazaNumber,
+                                Location = plazaPoint,
+                                Key = result.Attributes.Plaza_Name,
+                                Price = 0,
+                                isDynamic = false
+                            };
+                            
+                            _context.Tolls.Add(newToll);
+                            updatedTolls++;
+                        }
                     }
                     
                     processedExitPoints++;
@@ -133,22 +173,11 @@ public class ParseExitPointsToPlazasCommandHandler(
             errors.Add($"Ошибка при получении exit points: {ex.Message}");
         }
         
-        // Группируем по координатам и оставляем только уникальные
-        // Округляем координаты до 6 знаков после запятой для группировки (~0.1 метра точности)
-        var uniqueTolls = createdTolls
-            .GroupBy(t => t.Location)
-            .Select(g => g.First())
-            .ToList();
-        
-        // Добавляем уникальные Toll в контекст
-        foreach (var toll in uniqueTolls)
-        {
-            _context.Tolls.Add(toll);
-            updatedTolls++;
-        }
-        
         // Сохраняем все изменения один раз
-        await _context.SaveChangesAsync(ct);
+        if (updatedTolls > 0)
+        {
+            await _context.SaveChangesAsync(ct);
+        }
         
         return new ParseExitPointsToPlazasResult(processedExitPoints, updatedTolls, errors);
     }
@@ -173,19 +202,21 @@ public class ParseExitPointsToPlazasCommandHandler(
         return url;
     }
     
-    private static int ParsePlazaNumber(string? plazaNum)
+    private static async Task<List<Toll>> FindTollsInRadiusAsync(
+        ITollDbContext context,
+        double latitude,
+        double longitude,
+        double radiusMeters,
+        CancellationToken ct)
     {
-        if (string.IsNullOrWhiteSpace(plazaNum))
-            return 0;
+        var point = new Point(longitude, latitude) { SRID = 4326 };
         
-        // Извлекаем числовую часть (например, "5A" -> "5", "300" -> "300")
-        var match = System.Text.RegularExpressions.Regex.Match(plazaNum, @"\d+");
-        if (match.Success && int.TryParse(match.Value, out var number))
-        {
-            return number;
-        }
+        var tolls = await context.Tolls
+            .Where(t => t.Location != null && t.Location.IsWithinDistance(point, radiusMeters))
+            .OrderBy(t => t.Location!.Distance(point))
+            .ToListAsync(ct);
         
-        return 0;
+        return tolls;
     }
 }
 
