@@ -108,7 +108,7 @@ public class ParseExitPointsToPlazasCommandHandler(
                         {
                             Id = Guid.NewGuid(),
                             Name = result.Attributes.Plaza_Name,
-                            Number = plazaNumber,
+                            Number = plazaNumber.ToString(),
                             Location = plazaPoint,
                             Key = result.Attributes.Plaza_Name,
                             Price = 0,

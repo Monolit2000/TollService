@@ -21,7 +21,7 @@ public class ParsePlazaNamesFromArcGisCommandHandler(
     ITollDbContext _context,
     IHttpClientFactory _httpClientFactory) : IRequestHandler<ParsePlazaNamesFromArcGisCommand, ParsePlazaNamesResult>
 {
-    private const double ToleranceMeters = 3; // Допустимое расстояние для сопоставления (100 метров)
+    private const double ToleranceMeters = 10; // Допустимое расстояние для сопоставления (100 метров)
     
     private const int BatchSize = 500; // Размер батча дорог
     
@@ -121,7 +121,7 @@ public class ParsePlazaNamesFromArcGisCommandHandler(
                         
                         if (distanceMeters <= ToleranceMeters)
                         {
-                            nearestToll.Name = feature.Attributes.Plaza_Name;
+                            //nearestToll.Name = feature.Attributes.Plaza_Name;
                             updatedTolls++;
                         }
                     }
@@ -130,7 +130,7 @@ public class ParsePlazaNamesFromArcGisCommandHandler(
                 processedRoads += batch.Length;
                 
                 // Сохраняем изменения после каждого батча
-                await _context.SaveChangesAsync(ct);
+                //await _context.SaveChangesAsync(ct);
             }
             catch (Exception ex)
             {

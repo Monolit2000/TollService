@@ -10,7 +10,7 @@ using NetTopologySuite.Geometries;
 using TollService.Application.Common.Interfaces;
 using TollService.Domain;
 
-namespace TollService.Application.TollPriceParser;
+namespace TollService.Application.TollPriceParser.PA;
 
 public record ParsePaTurnpikeInterchangesCommand(
     string Url = "https://www.paturnpike.com/toll-calculator") : IRequest<int>;
@@ -57,39 +57,59 @@ public class ParsePaTurnpikeInterchangesCommandHandler(
                 interchange.Latitude!.Value,
                 interchange.Longitude!.Value,
                 ct);
-            if (matchingToll == null)
-            {
-                continue;
-            }
+
+            var extractedNumber = ExtractLeadingNumber(interchange.Title);
 
             var cleanedTitle = NormalizeTitle(interchange.Title ?? interchange.Name);
-            var hasOrderedNumber = interchange.OrderedNumber.HasValue;
-            var orderedNumber = hasOrderedNumber
-                ? Convert.ToInt32(Math.Round(interchange.OrderedNumber.Value))
-                : (int?)null;
-            var plazaKey = interchange.PlazaKey;
+            //var hasOrderedNumber = interchange.OrderedNumber.HasValue;
+            var orderedNumber = interchange.OrderedNumber.ToString();
+            var plazaKey = interchange.PlazaKey.ToString();
+            var ptcExternalIdentifier = interchange.ptcExternalIdentifier;
+            var targetNumber = ptcExternalIdentifier?.TrimEnd('0').TrimEnd('.'); /*?? orderedNumber;*/
 
-            var targetNumber = plazaKey; /*?? orderedNumber;*/
-
-            var changed = false;
-
-            if (!string.IsNullOrWhiteSpace(cleanedTitle) &&
-                !string.Equals(matchingToll.Name, cleanedTitle, StringComparison.Ordinal))
+            if (matchingToll == null)
             {
-                //matchingToll.Name = cleanedTitle;
-                matchingToll.Number = targetNumber.HasValue ? targetNumber.Value : 0;
-                changed = true;
-            }
+                // Create a new Toll
+                var newToll = new Toll
+                {
+                    Id = Guid.NewGuid(),
+                    Name = cleanedTitle,
+                    Number = targetNumber,
+                    Location = new Point(interchange.Longitude!.Value, interchange.Latitude!.Value) { SRID = 4326 },
+                    Price = 0,
+                    Key = extractedNumber,
+                    isDynamic = false,
+                    PaPlazaKay = interchange.PlazaKey ?? 0
 
-            if (targetNumber.HasValue && matchingToll.Number != targetNumber.Value)
-            {
-                matchingToll.Number = targetNumber.Value;
-                changed = true;
-            }
+                };
 
-            if (changed)
-            {
+                context.Tolls.Add(newToll);
                 updatedCount++;
+            }
+            else
+            {
+                // Update existing Toll
+                var changed = false;
+
+                //if (!string.IsNullOrWhiteSpace(cleanedTitle) &&
+                //    !string.Equals(matchingToll.Name, cleanedTitle, StringComparison.Ordinal))
+                
+                    //matchingToll.Name = cleanedTitle;
+                matchingToll.Number = targetNumber;
+                matchingToll.PaPlazaKay = interchange.PlazaKey ?? 0;
+                changed = true;
+                
+
+                //if (targetNumber != null && matchingToll.Number != targetNumber)
+                //{
+                //    matchingToll.Number = orderedNumber;
+                //    changed = true;
+                //}
+
+                if (changed)
+                {
+                    updatedCount++;
+                }
             }
         }
 
@@ -206,6 +226,18 @@ public class ParsePaTurnpikeInterchangesCommandHandler(
         }
     }
 
+    private static string? ExtractLeadingNumber(string? title)
+    {
+        if (string.IsNullOrWhiteSpace(title))
+            return null;
+
+        var match = Regex.Match(title, @"^\s*(\d+)\s*-");
+        if (match.Success)
+            return match.Groups[1].Value;
+
+        return null;
+    }
+
     private static async Task<Toll?> FindClosestTollAsync(
         ITollDbContext context,
         double latitude,
@@ -265,6 +297,8 @@ public class ParsePaTurnpikeInterchangesCommandHandler(
         public double? Latitude { get; set; }
         public double? Longitude { get; set; }
         public double? OrderedNumber { get; set; }
+
+        public string? ptcExternalIdentifier { get; set; }
         public int? PlazaKey { get; set; }
     }
 
@@ -276,6 +310,8 @@ public class ParsePaTurnpikeInterchangesCommandHandler(
         public double? Latitude { get; set; }
         public double? Longitude { get; set; }
         public double? OrderedNumber { get; set; }
+
+        public string? ptcExternalIdentifier { get; set; }
         public int? PlazaKey { get; set; }
 
         public InterchangeDto ToInterchange() => new()
@@ -286,7 +322,8 @@ public class ParsePaTurnpikeInterchangesCommandHandler(
             Latitude = Latitude,
             Longitude = Longitude,
             OrderedNumber = OrderedNumber,
-            PlazaKey = PlazaKey
+            PlazaKey = PlazaKey,
+            ptcExternalIdentifier = ptcExternalIdentifier
         };
     }
 }

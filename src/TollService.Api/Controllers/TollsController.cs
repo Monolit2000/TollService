@@ -2,6 +2,7 @@ using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using TollService.Application.Roads.Queries;
 using TollService.Application.TollPriceParser;
+using TollService.Application.TollPriceParser.PA;
 using TollService.Application.Tolls.Commands;
 using TollService.Application.Tolls.Queries;
 using TollService.Contracts;

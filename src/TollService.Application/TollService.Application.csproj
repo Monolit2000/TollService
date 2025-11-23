@@ -20,5 +20,9 @@
     <ProjectReference Include="..\TollService.Contracts\TollService.Contracts.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="TollPriceParser\IL\" />
+  </ItemGroup>
+
 
 </Project>

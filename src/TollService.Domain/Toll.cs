@@ -17,7 +17,7 @@ public class Toll
 
     //public List<Toll> TollsGoTo { get; set; }
 
-    public int Number { get; set; }
+    public string? Number { get; set; }
 
     #region calculate 
     public Guid? StateCalculatorId { get; set; }
@@ -34,6 +34,7 @@ public class Toll
 
     public double PayOnline { get; set; }
 
+    public int PaPlazaKay { get; set; }
     #endregion
 }
 

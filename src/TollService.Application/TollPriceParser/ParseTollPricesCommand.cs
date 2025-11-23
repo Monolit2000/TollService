@@ -28,7 +28,7 @@ public class ParseTollPricesCommandHandler(
         }
         
         // Оригинальный парсер для Illinois Tollway
-        return await ParseIllinoisTollway(request.Url, ct);
+        return await ParseIllinoisTollway("https://agency.illinoistollway.com/toll-rates", ct);
     }
     
     private async Task<ParseTollPricesResult> ParseOhioTurnpikeJs(string url, CancellationToken ct)
@@ -84,7 +84,7 @@ public class ParseTollPricesCommandHandler(
                 foreach (var existingToll in tolls)
                 {
                     // Обновляем информацию о развязке для каждого toll
-                    existingToll.Number = interchange.Milepost;
+                    existingToll.Number = interchange.Milepost.ToString();
                     existingToll.Key = interchange.Name;
                     //if (string.IsNullOrWhiteSpace(existingToll.Name))
                     //{
@@ -291,7 +291,7 @@ public class ParseTollPricesCommandHandler(
                     continue;
                 
                 // Извлекаем номер плазы
-                var plazaNumber = ParsePlazaNumber(cells[1]);
+                var plazaNumber = ParsePlazaNumber(cells[1]).ToString();
                 
                 // Извлекаем цены
                 // Структура таблицы:
@@ -311,9 +311,16 @@ public class ParseTollPricesCommandHandler(
                 var largeOvernight = ParsePrice(cells.Count > 9 ? cells[9] : null); // Overnight Large
                 var largeDaytime = ParsePrice(cells.Count > 6 ? cells[6] : null); // Daytime Large
 
+                var cleanedPlazaName = plazaName
+    .Replace("*&nbsp;&nbsp;", "", StringComparison.OrdinalIgnoreCase)
+    .Replace("&nbsp", "", StringComparison.OrdinalIgnoreCase)
+    .Replace("&nbs", "", StringComparison.OrdinalIgnoreCase)
+    .Replace("*", "")
+    .Trim();
+
                 // Ищем соответствие в БД
                 var tolls = await _context.Tolls
-                    .Where(t => t.Number == plazaNumber)  // case-insensitive by default in most DBs
+                    .Where(t => t.Key == cleanedPlazaName)  // case-insensitive by default in most DBs
                     .ToListAsync(ct);
 
                 if (tolls.Count == 0)
@@ -325,10 +332,10 @@ public class ParseTollPricesCommandHandler(
                 // Обновляем найденные записи
                 foreach (var toll in tolls)
                 {
-                    toll.IPass = iPass;
-                    toll.PayOnline = payOnline;
-                    toll.IPassOvernight = largeOvernight; // Large Overnight для грузовиков
-                    toll.PayOnlineOvernight = largeDaytime; // Large Daytime для грузовиков
+                    toll.IPass = 0;
+                    toll.PayOnline = largeDaytime;
+                    toll.IPassOvernight = 0; // Large Overnight для грузовиков
+                    toll.PayOnlineOvernight = largeOvernight; // Large Daytime для грузовиков
                     toll.Key = plazaName;
                     toll.Number = plazaNumber;
                     updatedCount++;
