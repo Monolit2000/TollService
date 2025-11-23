@@ -105,7 +105,7 @@ public class ParseExitPointsToPlazasCommandHandler(
                         var plazaPoint = new Point(plazaLon, plazaLat) { SRID = 4326 };
                         
                         // Ищем все существующие Toll в радиусе 15 метров
-                        var existingTolls = await FindTollsInRadiusAsync(_context, plazaLat, plazaLon, 20, ct);
+                        var existingTolls = await FindTollsInRadiusAsync(_context, plazaLat, plazaLon, 50, ct);
                         
                         if (existingTolls.Count > 0)
                         {
@@ -140,23 +140,23 @@ public class ParseExitPointsToPlazasCommandHandler(
                                 }
                             }
                         }
-                        else
-                        {
-                            // Создаем новый Toll
-                            var newToll = new Toll
-                            {
-                                Id = Guid.NewGuid(),
-                                Name = result.Attributes.Plaza_Name,
-                                Number = plazaNumber,
-                                Location = plazaPoint,
-                                Key = result.Attributes.Plaza_Name,
-                                Price = 0,
-                                isDynamic = false
-                            };
+                        //else
+                        //{
+                        //    // Создаем новый Toll
+                        //    var newToll = new Toll
+                        //    {
+                        //        Id = Guid.NewGuid(),
+                        //        Name = result.Attributes.Plaza_Name,
+                        //        Number = plazaNumber,
+                        //        Location = plazaPoint,
+                        //        Key = result.Attributes.Plaza_Name,
+                        //        Price = 0,
+                        //        isDynamic = false
+                        //    };
                             
-                            _context.Tolls.Add(newToll);
-                            updatedTolls++;
-                        }
+                        //    _context.Tolls.Add(newToll);
+                        //    updatedTolls++;
+                        //}
                     }
                     
                     processedExitPoints++;
