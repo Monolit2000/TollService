@@ -77,3 +77,35 @@ public record OhioTollRequestDto(
     string name,
     double lat,
     double lng);
+
+public record KansasTollRequestDto(
+    object? value,
+    KansasPositionDto? position,
+    string? title);
+
+public record KansasPositionDto(
+    double lat,
+    double lng);
+
+public record KansasVehicleClassDto(
+    int Axles,
+    string Name);
+
+public record KansasPlazaDto(
+    int Value,
+    string Name);
+
+public record KansasCtsRateDto(
+    int ZoneCode,
+    int Class,
+    decimal TransponderRate);
+
+public record KansasSampleResultDto(
+    decimal TBR,
+    decimal IBR);
+
+public record KansasCalculatorRequestDto(
+    List<KansasVehicleClassDto> VehicleClasses,
+    List<KansasPlazaDto> Plazas,
+    List<KansasCtsRateDto> CtsRates,
+    KansasSampleResultDto? SampleResult);

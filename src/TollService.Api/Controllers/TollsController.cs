@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using TollService.Application.Roads.Queries;
 using TollService.Application.TollPriceParser;
 using TollService.Application.TollPriceParser.IN;
+using TollService.Application.TollPriceParser.KS;
 using TollService.Application.TollPriceParser.OH;
 using TollService.Application.TollPriceParser.PA;
 using TollService.Application.Tolls.Commands;
@@ -290,6 +291,108 @@ public class TollsController : ControllerBase
         catch (System.Text.Json.JsonException ex)
         {
             return BadRequest($"Invalid JSON format: {ex.Message}");
+        }
+    }
+
+    [HttpPost("parse-kansas-tolls")]
+    [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(ParseKansasTollsResult))]
+    [ProducesResponseType(StatusCodes.Status400BadRequest)]
+    public async Task<IActionResult> ParseKansasTolls(
+        [FromBody] List<KansasTollRequestDto>? request,
+        CancellationToken ct = default)
+    {
+        if (request == null || request.Count == 0)
+        {
+            return BadRequest("Request body cannot be empty");
+        }
+
+        try
+        {
+            var command = new ParseKansasTollsCommand(request);
+            var result = await _mediator.Send(command, ct);
+            return Ok(result);
+        }
+        catch (System.Text.Json.JsonException ex)
+        {
+            return BadRequest($"Invalid JSON format: {ex.Message}. Please ensure all property names are in quotes (e.g., \"group\" instead of group)");
+        }
+        catch (Exception ex)
+        {
+            return BadRequest($"Error processing request: {ex.Message}");
+        }
+    }
+
+    [HttpPost("parse-kansas-tolls-raw")]
+    [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(ParseKansasTollsResult))]
+    [ProducesResponseType(StatusCodes.Status400BadRequest)]
+    public async Task<IActionResult> ParseKansasTollsRaw(CancellationToken ct = default)
+    {
+        try
+        {
+            using var reader = new System.IO.StreamReader(Request.Body);
+            var jsonContent = await reader.ReadToEndAsync(ct);
+
+            if (string.IsNullOrWhiteSpace(jsonContent))
+            {
+                return BadRequest("Request body cannot be empty");
+            }
+
+            var options = new System.Text.Json.JsonSerializerOptions
+            {
+                PropertyNameCaseInsensitive = true,
+                AllowTrailingCommas = true
+            };
+
+            var request = System.Text.Json.JsonSerializer.Deserialize<List<KansasTollRequestDto>>(jsonContent, options);
+            
+            if (request == null || request.Count == 0)
+            {
+                return BadRequest("No valid toll data found in JSON");
+            }
+
+            var command = new ParseKansasTollsCommand(request);
+            var result = await _mediator.Send(command, ct);
+            return Ok(result);
+        }
+        catch (System.Text.Json.JsonException ex)
+        {
+            return BadRequest($"Invalid JSON format: {ex.Message}. Please ensure:\n" +
+                "1. All property names are in double quotes (e.g., \"group\" not group)\n" +
+                "2. All string values are in double quotes\n" +
+                "3. Arrays use square brackets: [\"eo\", \"oo\"] not [eo, oo]\n" +
+                $"Error details: {ex.Message}");
+        }
+        catch (Exception ex)
+        {
+            return BadRequest($"Error processing request: {ex.Message}");
+        }
+    }
+
+    [HttpPost("create-kansas-calculator")]
+    [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(CreateKansasStateCalculatorResult))]
+    [ProducesResponseType(StatusCodes.Status400BadRequest)]
+    public async Task<IActionResult> CreateKansasCalculator(
+        [FromBody] KansasCalculatorRequestDto request,
+        CancellationToken ct = default)
+    {
+        if (request == null)
+        {
+            return BadRequest("Request body cannot be null");
+        }
+
+        try
+        {
+            var command = new CreateKansasStateCalculatorCommand(request);
+            var result = await _mediator.Send(command, ct);
+            return Ok(result);
+        }
+        catch (System.Text.Json.JsonException ex)
+        {
+            return BadRequest($"Invalid JSON format: {ex.Message}");
+        }
+        catch (Exception ex)
+        {
+            return BadRequest($"Error processing request: {ex.Message}");
         }
     }
 }

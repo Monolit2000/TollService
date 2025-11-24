@@ -38,10 +38,15 @@ namespace TollService.Application.Roads.Commands.CalculateRoutePrice
             // Множество использованных имен для исключения
             var usedNames = new HashSet<string>(StringComparer.OrdinalIgnoreCase);
 
+            double lastDistance = 0;
+
             foreach (var tollInfo in tollInfos)
             {
                 // Пропускаем, если имя уже использовано
                 if (tollInfo.Toll.Name != null && usedNames.Contains(tollInfo.Toll.Name))
+                    continue;
+
+                if(tollInfo.TollDto.Distance < lastDistance)
                     continue;
 
                 if (tollInfo.Toll.StateCalculatorId != null)
@@ -90,6 +95,8 @@ namespace TollService.Application.Roads.Commands.CalculateRoutePrice
                     // Исключаем все tolls с такими же именами
                     if (fromName != null) usedNames.Add(fromName);
                     if (toName != null) usedNames.Add(toName);
+
+                    lastDistance = tollInfoTo.TollDto.Distance;
                 }
                 else
                 {
