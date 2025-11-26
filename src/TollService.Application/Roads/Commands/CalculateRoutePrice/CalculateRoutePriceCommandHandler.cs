@@ -1,33 +1,27 @@
 ﻿using MediatR;
 using Microsoft.EntityFrameworkCore;
 using TollService.Application.Common.Interfaces;
+using TollService.Application.Roads.Calculate;
 using TollService.Contracts;
 using TollService.Domain;
 
 namespace TollService.Application.Roads.Commands.CalculateRoutePrice
 {
-
     public record CalculateRoutePriceCommand(List<TollWithRouteSectionDto> Tolls) : IRequest<List<TollPriceDto>>;
 
     public class CalculateRoutePriceCommandHandler(
-        ITollDbContext tollDbContext) : IRequestHandler<CalculateRoutePriceCommand, List<TollPriceDto>>
+        ITollDbContext tollDbContext,
+        RoadCalculator roadCalculator) : IRequestHandler<CalculateRoutePriceCommand, List<TollPriceDto>>
     {
         public async Task<List<TollPriceDto>> Handle(CalculateRoutePriceCommand request, CancellationToken cancellationToken)
         {
-            List<TollInfo> tollInfos = [];
-            List<TollPriceDto> tollPriceDtos = [];
+            roadCalculator ??= new RoadCalculator();
 
-            var tollsDtos = request.Tolls.OrderBy(t => t.Distance).ToList();
+            var tollsDtos = request.Tolls;
+
             var dbTolls = await tollDbContext.Tolls
                 .Where(t => tollsDtos.Select(tt => tt.Id).Contains(t.Id))
                 .ToListAsync(cancellationToken);
-
-            foreach(var tollDto in tollsDtos)
-            {
-                var toll = dbTolls.First(t => t.Id == tollDto.Id);
-                var tollInfo = new TollInfo(tollDto, toll);
-                tollInfos.Add(tollInfo);
-            }
 
             // Загружаем все CalculatePrices с включенными From и To для поиска по Name
             var allCalculatePrices = await tollDbContext.CalculatePrices
@@ -35,89 +29,7 @@ namespace TollService.Application.Roads.Commands.CalculateRoutePrice
                 .Include(p => p.To)
                 .ToListAsync(cancellationToken);
 
-            // Множество использованных имен для исключения
-            var usedNames = new HashSet<string>(StringComparer.OrdinalIgnoreCase);
-
-            double lastDistance = 0;
-
-            foreach (var tollInfo in tollInfos)
-            {
-                // Пропускаем, если имя уже использовано
-                if (tollInfo.Toll.Name != null && usedNames.Contains(tollInfo.Toll.Name))
-                    continue;
-
-                if(tollInfo.TollDto.Distance < lastDistance)
-                    continue;
-
-                if (tollInfo.Toll.StateCalculatorId != null)
-                {
-                    // Ищем самую дальнюю toll с тем же StateCalculatorId, которая еще не использована
-                    var tollInfoTo = tollInfos
-                        .Where(t => t.TollDto.Distance > tollInfo.TollDto.Distance &&
-                                   t.Toll.StateCalculatorId == tollInfo.Toll.StateCalculatorId &&
-                                   t.Toll.Name != null &&
-                                   !usedNames.Contains(t.Toll.Name) &&
-                                   t.Toll.Name != tollInfo.Toll.Name)
-                        .OrderByDescending(t => t.TollDto.Distance)
-                        .FirstOrDefault();
-
-                    if (tollInfoTo == null)
-                        continue;
-
-                    var fromName = tollInfo.Toll.Name;
-                    var toName = tollInfoTo.Toll.Name;
-
-                    // Ищем цену по Name вместо Id
-                    var price = allCalculatePrices.FirstOrDefault(p =>
-                        p.From != null && p.From.Name != null && 
-                        p.To != null && p.To.Name != null &&
-                        p.From.Name == fromName &&
-                        p.To.Name == toName &&
-                        p.StateCalculatorId == tollInfo.Toll.StateCalculatorId);
-
-                    if (price == null)
-                    {
-                        // Если цена не найдена, добавляем To и исключаем оба имени
-                        tollPriceDtos.Add(new TollPriceDto { Toll = tollInfoTo.Toll });
-                        if (fromName != null) usedNames.Add(fromName);
-                        //if (toName != null) usedNames.Add(toName);
-                        continue;
-                    }
-
-                    // Добавляем цену и исключаем оба имени
-                    tollPriceDtos.Add(new TollPriceDto 
-                    { 
-                        Toll = tollInfoTo.Toll, 
-                        PayOnline = price.Cash, 
-                        IPass = price.IPass 
-                    });
-
-                    // Исключаем все tolls с такими же именами
-                    if (fromName != null) usedNames.Add(fromName);
-                    if (toName != null) usedNames.Add(toName);
-
-                    lastDistance = tollInfoTo.TollDto.Distance;
-                }
-                else
-                {
-                    // Для tolls без StateCalculatorId используем прямые цены
-                    var toll = tollInfo.Toll;
-                    tollPriceDtos.Add(new TollPriceDto
-                    {
-                        Toll = toll,
-                        IPassOvernight = toll.IPassOvernight,
-                        IPass = toll.IPass,
-                        PayOnlineOvernight = toll.PayOnlineOvernight,
-                        PayOnline = toll.PayOnline,
-                    });
-
-                    // Исключаем имя из дальнейшей обработки
-                    //if (toll.Name != null)
-                        //usedNames.Add(toll.Name);
-                }
-            }
-
-            return tollPriceDtos;
+            return roadCalculator.CalculateRoutePrices(tollsDtos, dbTolls, allCalculatePrices);
         }
     }
 
