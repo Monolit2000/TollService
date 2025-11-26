@@ -10,12 +10,11 @@ namespace TollService.Application.Roads.Commands.CalculateRoutePrice
     public record CalculateRoutePriceCommand(List<TollWithRouteSectionDto> Tolls) : IRequest<List<TollPriceDto>>;
 
     public class CalculateRoutePriceCommandHandler(
-        ITollDbContext tollDbContext,
-        RoadCalculator roadCalculator) : IRequestHandler<CalculateRoutePriceCommand, List<TollPriceDto>>
+        ITollDbContext tollDbContext) : IRequestHandler<CalculateRoutePriceCommand, List<TollPriceDto>>
     {
         public async Task<List<TollPriceDto>> Handle(CalculateRoutePriceCommand request, CancellationToken cancellationToken)
         {
-            roadCalculator ??= new RoadCalculator();
+            var roadCalculator = new RoadCalculator();
 
             var tollsDtos = request.Tolls;
 
