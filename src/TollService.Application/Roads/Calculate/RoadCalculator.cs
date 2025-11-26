@@ -45,38 +45,59 @@ public class RoadCalculator
 
             if (tollInfo.Toll.StateCalculatorId != null)
             {
-                // Ищем самую дальнюю toll с тем же StateCalculatorId, которая еще не использована
-                var tollInfoTo = tollInfos
+                var fromName = tollInfo.Toll.Name;
+                var stateCalculatorId = tollInfo.Toll.StateCalculatorId;
+
+                // Ищем самую дальнюю toll с тем же StateCalculatorId,
+                // для которой существует price (price != null)
+                var tollInfoToWithPrice = tollInfos
                     .Where(t => t.TollDto.Distance > tollInfo.TollDto.Distance &&
-                                t.Toll.StateCalculatorId == tollInfo.Toll.StateCalculatorId &&
+                                t.Toll.StateCalculatorId == stateCalculatorId &&
                                 t.Toll.Name != null &&
                                 !usedNames.Contains(t.Toll.Name) &&
                                 t.Toll.Name != tollInfo.Toll.Name)
-                    .OrderByDescending(t => t.TollDto.Distance)
+                    .Select(t => new
+                    {
+                        TollInfoTo = t,
+                        Price = allCalculatePrices.FirstOrDefault(p =>
+                            p.From != null && p.From.Name != null &&
+                            p.To != null && p.To.Name != null &&
+                            p.From.Name == fromName &&
+                            p.To.Name == t.Toll.Name &&
+                            p.StateCalculatorId == stateCalculatorId)
+                    })
+                    .Where(x => x.Price != null)
+                    .OrderByDescending(x => x.TollInfoTo.TollDto.Distance)
                     .FirstOrDefault();
 
-                if (tollInfoTo == null)
-                    continue;
-
-                var fromName = tollInfo.Toll.Name;
-                var toName = tollInfoTo.Toll.Name;
-
-                // Ищем цену по Name вместо Id
-                var price = allCalculatePrices.FirstOrDefault(p =>
-                    p.From != null && p.From.Name != null &&
-                    p.To != null && p.To.Name != null &&
-                    p.From.Name == fromName &&
-                    p.To.Name == toName &&
-                    p.StateCalculatorId == tollInfo.Toll.StateCalculatorId);
-
-                if (price == null)
+                // Если ни для одного To нет price, ведём себя как раньше:
+                // просто выбираем самую дальнюю toll и добавляем её без цены
+                if (tollInfoToWithPrice == null)
                 {
-                    // Если цена не найдена, добавляем To и исключаем оба имени
-                    tollPriceDtos.Add(new TollPriceDto { Toll = tollInfoTo.Toll });
+                    var tollInfoToFallback = tollInfos
+                        .Where(t => t.TollDto.Distance > tollInfo.TollDto.Distance &&
+                                    t.Toll.StateCalculatorId == stateCalculatorId &&
+                                    t.Toll.Name != null &&
+                                    !usedNames.Contains(t.Toll.Name) &&
+                                    t.Toll.Name != tollInfo.Toll.Name)
+                        .OrderByDescending(t => t.TollDto.Distance)
+                        .FirstOrDefault();
+
+                    if (tollInfoToFallback == null)
+                        continue;
+
+                    var toNameFallback = tollInfoToFallback.Toll.Name;
+
+                    // Если цена не найдена, добавляем To и исключаем fromName
+                    tollPriceDtos.Add(new TollPriceDto { Toll = tollInfoToFallback.Toll });
                     if (fromName != null) usedNames.Add(fromName);
-                    //if (toName != null) usedNames.Add(toName);
+                    //if (toNameFallback != null) usedNames.Add(toNameFallback);
                     continue;
                 }
+
+                var tollInfoTo = tollInfoToWithPrice.TollInfoTo;
+                var price = tollInfoToWithPrice.Price!;
+                var toName = tollInfoTo.Toll.Name;
 
                 // Добавляем цену и исключаем оба имени
                 tollPriceDtos.Add(new TollPriceDto
