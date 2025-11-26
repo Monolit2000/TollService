@@ -5,7 +5,7 @@ using System.Text.Json.Serialization;
 using TollService.Application.Common.Interfaces;
 using TollService.Domain;
 
-namespace TollService.Application.TollPriceParser;
+namespace TollService.Application.TollPriceParser.IN;
 
 public record ParseIndianaTollPricesCommand(string JsonContent) 
     : IRequest<ParseTollPricesResult>;

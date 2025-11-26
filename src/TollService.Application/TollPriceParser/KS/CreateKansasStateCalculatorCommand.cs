@@ -1,5 +1,6 @@
 using MediatR;
 using Microsoft.EntityFrameworkCore;
+using System.Runtime.CompilerServices;
 using TollService.Application.Common.Interfaces;
 using TollService.Contracts;
 using TollService.Domain;
@@ -164,6 +165,9 @@ public class CreateKansasStateCalculatorCommandHandler(
         KansasVehicleClassDto vehicleClass,
         List<KansasCtsRateDto> allRates)
     {
+        if (vehicleClass.Axles != 5)
+            return new KansasTollResult(0m, 0m);
+
         // 1. Проверка на наличие всех данных
         if (entry == null || exit == null || vehicleClass == null)
         {
