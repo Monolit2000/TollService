@@ -1,8 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace TollService.Domain
 {
@@ -23,5 +20,22 @@ namespace TollService.Domain
         public double IPass { get; set; } = 0;
         public double Cash { get; set; } = 0;
 
+        /// <summary>
+        /// Дополнительные цены/тарифы для этого расчёта.
+        /// Пока это просто навигационное свойство без явной конфигурации.
+        /// </summary>
+        public List<TollPrice> TollPrices { get; set; } = [];
+
+        public void AddTollPrice(TollPrice tollPrice)
+        {
+            if (tollPrice != null)
+                TollPrices.Add(tollPrice);
+        }
+
+        public void AddTollPrices(List<TollPrice> tollPrices)
+        {
+            if (tollPrices.Any())
+                TollPrices.AddRange(tollPrices);
+        }
     }
 }
