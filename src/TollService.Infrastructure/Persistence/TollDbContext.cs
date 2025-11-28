@@ -12,6 +12,7 @@ public class TollDbContext : DbContext, ITollDbContext
     public DbSet<Toll> Tolls { get; set; }
     public DbSet<StateCalculator> StateCalculators { get; set; }
     public DbSet<CalculatePrice> CalculatePrices { get; set; }
+    public DbSet<TollPrice> TollPrices { get; set; }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {

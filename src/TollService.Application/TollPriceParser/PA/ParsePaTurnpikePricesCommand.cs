@@ -139,12 +139,12 @@ public class ParsePaTurnpikePricesCommandHandler(
                 // Создаем bounding box для Пенсильвании
                 var paBoundingBox = new Polygon(new LinearRing(new[]
                 {
-            new Coordinate(PaMinLongitude, PaMinLatitude),
-            new Coordinate(PaMaxLongitude, PaMinLatitude),
-            new Coordinate(PaMaxLongitude, PaMaxLatitude),
-            new Coordinate(PaMinLongitude, PaMaxLatitude),
-            new Coordinate(PaMinLongitude, PaMinLatitude)
-        }))
+                    new Coordinate(PaMinLongitude, PaMinLatitude),
+                    new Coordinate(PaMaxLongitude, PaMinLatitude),
+                    new Coordinate(PaMaxLongitude, PaMaxLatitude),
+                    new Coordinate(PaMinLongitude, PaMaxLatitude),
+                    new Coordinate(PaMinLongitude, PaMinLatitude)
+                }))
                 { SRID = 4326 };
 
                 // Находим entry toll по EntryInterchangeKey (если указан)

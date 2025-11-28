@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using NetTopologySuite.Geometries;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
@@ -12,9 +13,11 @@ using TollService.Infrastructure.Persistence;
 namespace TollService.Infrastructure.Migrations
 {
     [DbContext(typeof(TollDbContext))]
-    partial class TollDbContextModelSnapshot : ModelSnapshot
+    [Migration("20251128205359_Add_TollPrice")]
+    partial class Add_TollPrice
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -191,9 +194,6 @@ namespace TollService.Infrastructure.Migrations
 
                     b.Property<double>("Amount")
                         .HasColumnType("double precision");
-
-                    b.Property<DateTime?>("DateTimeOfDay")
-                        .HasColumnType("timestamp with time zone");
 
                     b.Property<string>("Description")
                         .HasMaxLength(512)

@@ -36,6 +36,20 @@ public class Toll
 
     public int PaPlazaKay { get; set; }
     #endregion
+    public List<TollPrice> TollPrices { get; set; } = [];
+
+
+    public void AddTollPrice(TollPrice tollPrice)
+    {
+        if(tollPrice != null)
+            TollPrices.Add(tollPrice);
+    }
+
+    public void AddTollPrices(List<TollPrice> tollPrices)
+    {
+        if (tollPrices.Any())
+            TollPrices.AddRange(tollPrices);
+    }
 }
 
 
