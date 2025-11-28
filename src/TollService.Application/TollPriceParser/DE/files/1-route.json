@@ -1,0 +1,1147 @@
+{
+  "state": "Delaware",
+  "road": "SR-1 Turnpike",
+  "vehicle_class": "5-Axle Truck",
+  "time_period": "Weekday",
+  "routes": [
+    {
+      "direction": "Northbound",
+      "entry": 93,
+      "exit": 104,
+      "ez_pass": 5.5,
+      "cash": 6.5
+    },
+    {
+      "direction": "Northbound",
+      "entry": 93,
+      "exit": 114,
+      "ez_pass": 5.5,
+      "cash": 6.5
+    },
+    {
+      "direction": "Northbound",
+      "entry": 93,
+      "exit": 136,
+      "ez_pass": 5.5,
+      "cash": 6.5
+    },
+    {
+      "direction": "Northbound",
+      "entry": 93,
+      "exit": 142,
+      "ez_pass": 9.25,
+      "cash": 10.25
+    },
+    {
+      "direction": "Northbound",
+      "entry": 93,
+      "exit": 152,
+      "ez_pass": 11.0,
+      "cash": 13.0
+    },
+    {
+      "direction": "Northbound",
+      "entry": 93,
+      "exit": 156,
+      "ez_pass": 11.0,
+      "cash": 13.0
+    },
+    {
+      "direction": "Northbound",
+      "entry": 93,
+      "exit": 160,
+      "ez_pass": 11.0,
+      "cash": 13.0
+    },
+    {
+      "direction": "Northbound",
+      "entry": 93,
+      "exit": 162,
+      "ez_pass": 11.0,
+      "cash": 13.0
+    },
+    {
+      "direction": "Northbound",
+      "entry": 93,
+      "exit": 164,
+      "ez_pass": 11.0,
+      "cash": 13.0
+    },
+    {
+      "direction": "Northbound",
+      "entry": 93,
+      "exit": 165,
+      "ez_pass": 11.0,
+      "cash": 13.0
+    },
+
+    {
+      "direction": "Northbound",
+      "entry": 95,
+      "exit": 104,
+      "ez_pass": 5.5,
+      "cash": 6.5
+    },
+    {
+      "direction": "Northbound",
+      "entry": 95,
+      "exit": 114,
+      "ez_pass": 5.5,
+      "cash": 6.5
+    },
+    {
+      "direction": "Northbound",
+      "entry": 95,
+      "exit": 136,
+      "ez_pass": 5.5,
+      "cash": 6.5
+    },
+    {
+      "direction": "Northbound",
+      "entry": 95,
+      "exit": 142,
+      "ez_pass": 9.25,
+      "cash": 10.25
+    },
+    {
+      "direction": "Northbound",
+      "entry": 95,
+      "exit": 152,
+      "ez_pass": 11.0,
+      "cash": 13.0
+    },
+    {
+      "direction": "Northbound",
+      "entry": 95,
+      "exit": 156,
+      "ez_pass": 11.0,
+      "cash": 13.0
+    },
+    {
+      "direction": "Northbound",
+      "entry": 95,
+      "exit": 160,
+      "ez_pass": 11.0,
+      "cash": 13.0
+    },
+    {
+      "direction": "Northbound",
+      "entry": 95,
+      "exit": 162,
+      "ez_pass": 11.0,
+      "cash": 13.0
+    },
+    {
+      "direction": "Northbound",
+      "entry": 95,
+      "exit": 164,
+      "ez_pass": 11.0,
+      "cash": 13.0
+    },
+    {
+      "direction": "Northbound",
+      "entry": 95,
+      "exit": 165,
+      "ez_pass": 11.0,
+      "cash": 13.0
+    },
+
+    {
+      "direction": "Northbound",
+      "entry": 97,
+      "exit": 104,
+      "ez_pass": 5.5,
+      "cash": 6.5
+    },
+    {
+      "direction": "Northbound",
+      "entry": 97,
+      "exit": 114,
+      "ez_pass": 5.5,
+      "cash": 6.5
+    },
+    {
+      "direction": "Northbound",
+      "entry": 97,
+      "exit": 136,
+      "ez_pass": 5.5,
+      "cash": 6.5
+    },
+    {
+      "direction": "Northbound",
+      "entry": 97,
+      "exit": 142,
+      "ez_pass": 9.25,
+      "cash": 10.25
+    },
+    {
+      "direction": "Northbound",
+      "entry": 97,
+      "exit": 152,
+      "ez_pass": 11.0,
+      "cash": 13.0
+    },
+    {
+      "direction": "Northbound",
+      "entry": 97,
+      "exit": 156,
+      "ez_pass": 11.0,
+      "cash": 13.0
+    },
+    {
+      "direction": "Northbound",
+      "entry": 97,
+      "exit": 160,
+      "ez_pass": 11.0,
+      "cash": 13.0
+    },
+    {
+      "direction": "Northbound",
+      "entry": 97,
+      "exit": 162,
+      "ez_pass": 11.0,
+      "cash": 13.0
+    },
+    {
+      "direction": "Northbound",
+      "entry": 97,
+      "exit": 164,
+      "ez_pass": 11.0,
+      "cash": 13.0
+    },
+    {
+      "direction": "Northbound",
+      "entry": 97,
+      "exit": 165,
+      "ez_pass": 11.0,
+      "cash": 13.0
+    },
+
+    {
+      "direction": "Northbound",
+      "entry": 98,
+      "exit": 104,
+      "ez_pass": 5.5,
+      "cash": 6.5
+    },
+    {
+      "direction": "Northbound",
+      "entry": 98,
+      "exit": 114,
+      "ez_pass": 5.5,
+      "cash": 6.5
+    },
+    {
+      "direction": "Northbound",
+      "entry": 98,
+      "exit": 136,
+      "ez_pass": 5.5,
+      "cash": 6.5
+    },
+    {
+      "direction": "Northbound",
+      "entry": 98,
+      "exit": 142,
+      "ez_pass": 9.25,
+      "cash": 10.25
+    },
+    {
+      "direction": "Northbound",
+      "entry": 98,
+      "exit": 152,
+      "ez_pass": 11.0,
+      "cash": 13.0
+    },
+    {
+      "direction": "Northbound",
+      "entry": 98,
+      "exit": 156,
+      "ez_pass": 11.0,
+      "cash": 13.0
+    },
+    {
+      "direction": "Northbound",
+      "entry": 98,
+      "exit": 160,
+      "ez_pass": 11.0,
+      "cash": 13.0
+    },
+    {
+      "direction": "Northbound",
+      "entry": 98,
+      "exit": 162,
+      "ez_pass": 11.0,
+      "cash": 13.0
+    },
+    {
+      "direction": "Northbound",
+      "entry": 98,
+      "exit": 164,
+      "ez_pass": 11.0,
+      "cash": 13.0
+    },
+    {
+      "direction": "Northbound",
+      "entry": 98,
+      "exit": 165,
+      "ez_pass": 11.0,
+      "cash": 13.0
+    },
+
+    {
+      "direction": "Northbound",
+      "entry": 104,
+      "exit": 114,
+      "ez_pass": 3.75,
+      "cash": 3.75
+    },
+    {
+      "direction": "Northbound",
+      "entry": 104,
+      "exit": 136,
+      "ez_pass": 3.75,
+      "cash": 3.75
+    },
+    {
+      "direction": "Northbound",
+      "entry": 104,
+      "exit": 142,
+      "ez_pass": 7.5,
+      "cash": 7.5
+    },
+    {
+      "direction": "Northbound",
+      "entry": 104,
+      "exit": 152,
+      "ez_pass": 9.25,
+      "cash": 10.25
+    },
+    {
+      "direction": "Northbound",
+      "entry": 104,
+      "exit": 156,
+      "ez_pass": 9.25,
+      "cash": 10.25
+    },
+    {
+      "direction": "Northbound",
+      "entry": 104,
+      "exit": 160,
+      "ez_pass": 9.25,
+      "cash": 10.25
+    },
+    {
+      "direction": "Northbound",
+      "entry": 104,
+      "exit": 162,
+      "ez_pass": 9.25,
+      "cash": 10.25
+    },
+    {
+      "direction": "Northbound",
+      "entry": 104,
+      "exit": 164,
+      "ez_pass": 9.25,
+      "cash": 10.25
+    },
+    {
+      "direction": "Northbound",
+      "entry": 104,
+      "exit": 165,
+      "ez_pass": 9.25,
+      "cash": 10.25
+    },
+
+    {
+      "direction": "Northbound",
+      "entry": 114,
+      "exit": 136,
+      "ez_pass": 2.5,
+      "cash": 2.5
+    },
+    {
+      "direction": "Northbound",
+      "entry": 114,
+      "exit": 142,
+      "ez_pass": 6.25,
+      "cash": 6.25
+    },
+    {
+      "direction": "Northbound",
+      "entry": 114,
+      "exit": 152,
+      "ez_pass": 8.0,
+      "cash": 9.0
+    },
+    {
+      "direction": "Northbound",
+      "entry": 114,
+      "exit": 156,
+      "ez_pass": 8.0,
+      "cash": 9.0
+    },
+    {
+      "direction": "Northbound",
+      "entry": 114,
+      "exit": 160,
+      "ez_pass": 8.0,
+      "cash": 9.0
+    },
+    {
+      "direction": "Northbound",
+      "entry": 114,
+      "exit": 162,
+      "ez_pass": 8.0,
+      "cash": 9.0
+    },
+    {
+      "direction": "Northbound",
+      "entry": 114,
+      "exit": 164,
+      "ez_pass": 8.0,
+      "cash": 9.0
+    },
+    {
+      "direction": "Northbound",
+      "entry": 114,
+      "exit": 165,
+      "ez_pass": 8.0,
+      "cash": 9.0
+    },
+
+    {
+      "direction": "Northbound",
+      "entry": 119,
+      "exit": 142,
+      "ez_pass": 3.75,
+      "cash": 3.75
+    },
+    {
+      "direction": "Northbound",
+      "entry": 119,
+      "exit": 152,
+      "ez_pass": 5.5,
+      "cash": 6.5
+    },
+    {
+      "direction": "Northbound",
+      "entry": 119,
+      "exit": 156,
+      "ez_pass": 5.5,
+      "cash": 6.5
+    },
+    {
+      "direction": "Northbound",
+      "entry": 119,
+      "exit": 160,
+      "ez_pass": 5.5,
+      "cash": 6.5
+    },
+    {
+      "direction": "Northbound",
+      "entry": 119,
+      "exit": 162,
+      "ez_pass": 5.5,
+      "cash": 6.5
+    },
+    {
+      "direction": "Northbound",
+      "entry": 119,
+      "exit": 164,
+      "ez_pass": 5.5,
+      "cash": 6.5
+    },
+    {
+      "direction": "Northbound",
+      "entry": 119,
+      "exit": 165,
+      "ez_pass": 5.5,
+      "cash": 6.5
+    },
+
+    {
+      "direction": "Northbound",
+      "entry": 136,
+      "exit": 142,
+      "ez_pass": 3.75,
+      "cash": 3.75
+    },
+    {
+      "direction": "Northbound",
+      "entry": 136,
+      "exit": 152,
+      "ez_pass": 5.5,
+      "cash": 6.5
+    },
+    {
+      "direction": "Northbound",
+      "entry": 136,
+      "exit": 156,
+      "ez_pass": 5.5,
+      "cash": 6.5
+    },
+    {
+      "direction": "Northbound",
+      "entry": 136,
+      "exit": 160,
+      "ez_pass": 5.5,
+      "cash": 6.5
+    },
+    {
+      "direction": "Northbound",
+      "entry": 136,
+      "exit": 162,
+      "ez_pass": 5.5,
+      "cash": 6.5
+    },
+    {
+      "direction": "Northbound",
+      "entry": 136,
+      "exit": 164,
+      "ez_pass": 5.5,
+      "cash": 6.5
+    },
+    {
+      "direction": "Northbound",
+      "entry": 136,
+      "exit": 165,
+      "ez_pass": 5.5,
+      "cash": 6.5
+    },
+
+    {
+      "direction": "Northbound",
+      "entry": 142,
+      "exit": 152,
+      "ez_pass": 5.5,
+      "cash": 6.5
+    },
+    {
+      "direction": "Northbound",
+      "entry": 142,
+      "exit": 156,
+      "ez_pass": 5.5,
+      "cash": 6.5
+    },
+    {
+      "direction": "Northbound",
+      "entry": 142,
+      "exit": 160,
+      "ez_pass": 5.5,
+      "cash": 6.5
+    },
+    {
+      "direction": "Northbound",
+      "entry": 142,
+      "exit": 162,
+      "ez_pass": 5.5,
+      "cash": 6.5
+    },
+    {
+      "direction": "Northbound",
+      "entry": 142,
+      "exit": 164,
+      "ez_pass": 5.5,
+      "cash": 6.5
+    },
+    {
+      "direction": "Northbound",
+      "entry": 142,
+      "exit": 165,
+      "ez_pass": 5.5,
+      "cash": 6.5
+    },
+
+    {
+      "direction": "Southbound",
+      "entry": 165,
+      "exit": 142,
+      "ez_pass": 5.5,
+      "cash": 6.5
+    },
+    {
+      "direction": "Southbound",
+      "entry": 165,
+      "exit": 136,
+      "ez_pass": 5.5,
+      "cash": 6.5
+    },
+    {
+      "direction": "Southbound",
+      "entry": 165,
+      "exit": 119,
+      "ez_pass": 5.5,
+      "cash": 6.5
+    },
+    {
+      "direction": "Southbound",
+      "entry": 165,
+      "exit": 114,
+      "ez_pass": 8.0,
+      "cash": 9.0
+    },
+    {
+      "direction": "Southbound",
+      "entry": 165,
+      "exit": 104,
+      "ez_pass": 9.25,
+      "cash": 10.25
+    },
+    {
+      "direction": "Southbound",
+      "entry": 165,
+      "exit": 98,
+      "ez_pass": 11.0,
+      "cash": 13.0
+    },
+    {
+      "direction": "Southbound",
+      "entry": 165,
+      "exit": 97,
+      "ez_pass": 11.0,
+      "cash": 13.0
+    },
+    {
+      "direction": "Southbound",
+      "entry": 165,
+      "exit": 95,
+      "ez_pass": 11.0,
+      "cash": 13.0
+    },
+    {
+      "direction": "Southbound",
+      "entry": 165,
+      "exit": 93,
+      "ez_pass": 11.0,
+      "cash": 13.0
+    },
+
+    {
+      "direction": "Southbound",
+      "entry": 164,
+      "exit": 142,
+      "ez_pass": 5.5,
+      "cash": 6.5
+    },
+    {
+      "direction": "Southbound",
+      "entry": 164,
+      "exit": 136,
+      "ez_pass": 5.5,
+      "cash": 6.5
+    },
+    {
+      "direction": "Southbound",
+      "entry": 164,
+      "exit": 119,
+      "ez_pass": 5.5,
+      "cash": 6.5
+    },
+    {
+      "direction": "Southbound",
+      "entry": 164,
+      "exit": 114,
+      "ez_pass": 8.0,
+      "cash": 9.0
+    },
+    {
+      "direction": "Southbound",
+      "entry": 164,
+      "exit": 104,
+      "ez_pass": 9.25,
+      "cash": 10.25
+    },
+    {
+      "direction": "Southbound",
+      "entry": 164,
+      "exit": 98,
+      "ez_pass": 11.0,
+      "cash": 13.0
+    },
+    {
+      "direction": "Southbound",
+      "entry": 164,
+      "exit": 97,
+      "ez_pass": 11.0,
+      "cash": 13.0
+    },
+    {
+      "direction": "Southbound",
+      "entry": 164,
+      "exit": 95,
+      "ez_pass": 11.0,
+      "cash": 13.0
+    },
+    {
+      "direction": "Southbound",
+      "entry": 164,
+      "exit": 93,
+      "ez_pass": 11.0,
+      "cash": 13.0
+    },
+
+    {
+      "direction": "Southbound",
+      "entry": 162,
+      "exit": 142,
+      "ez_pass": 5.5,
+      "cash": 6.5
+    },
+    {
+      "direction": "Southbound",
+      "entry": 162,
+      "exit": 136,
+      "ez_pass": 5.5,
+      "cash": 6.5
+    },
+    {
+      "direction": "Southbound",
+      "entry": 162,
+      "exit": 119,
+      "ez_pass": 5.5,
+      "cash": 6.5
+    },
+    {
+      "direction": "Southbound",
+      "entry": 162,
+      "exit": 114,
+      "ez_pass": 8.0,
+      "cash": 9.0
+    },
+    {
+      "direction": "Southbound",
+      "entry": 162,
+      "exit": 104,
+      "ez_pass": 9.25,
+      "cash": 10.25
+    },
+    {
+      "direction": "Southbound",
+      "entry": 162,
+      "exit": 98,
+      "ez_pass": 11.0,
+      "cash": 13.0
+    },
+    {
+      "direction": "Southbound",
+      "entry": 162,
+      "exit": 97,
+      "ez_pass": 11.0,
+      "cash": 13.0
+    },
+    {
+      "direction": "Southbound",
+      "entry": 162,
+      "exit": 95,
+      "ez_pass": 11.0,
+      "cash": 13.0
+    },
+    {
+      "direction": "Southbound",
+      "entry": 162,
+      "exit": 93,
+      "ez_pass": 11.0,
+      "cash": 13.0
+    },
+
+    {
+      "direction": "Southbound",
+      "entry": 160,
+      "exit": 142,
+      "ez_pass": 5.5,
+      "cash": 6.5
+    },
+    {
+      "direction": "Southbound",
+      "entry": 160,
+      "exit": 136,
+      "ez_pass": 5.5,
+      "cash": 6.5
+    },
+    {
+      "direction": "Southbound",
+      "entry": 160,
+      "exit": 119,
+      "ez_pass": 5.5,
+      "cash": 6.5
+    },
+    {
+      "direction": "Southbound",
+      "entry": 160,
+      "exit": 114,
+      "ez_pass": 8.0,
+      "cash": 9.0
+    },
+    {
+      "direction": "Southbound",
+      "entry": 160,
+      "exit": 104,
+      "ez_pass": 9.25,
+      "cash": 10.25
+    },
+    {
+      "direction": "Southbound",
+      "entry": 160,
+      "exit": 98,
+      "ez_pass": 11.0,
+      "cash": 13.0
+    },
+    {
+      "direction": "Southbound",
+      "entry": 160,
+      "exit": 97,
+      "ez_pass": 11.0,
+      "cash": 13.0
+    },
+    {
+      "direction": "Southbound",
+      "entry": 160,
+      "exit": 95,
+      "ez_pass": 11.0,
+      "cash": 13.0
+    },
+    {
+      "direction": "Southbound",
+      "entry": 160,
+      "exit": 93,
+      "ez_pass": 11.0,
+      "cash": 13.0
+    },
+
+    {
+      "direction": "Southbound",
+      "entry": 156,
+      "exit": 142,
+      "ez_pass": 5.5,
+      "cash": 6.5
+    },
+    {
+      "direction": "Southbound",
+      "entry": 156,
+      "exit": 136,
+      "ez_pass": 5.5,
+      "cash": 6.5
+    },
+    {
+      "direction": "Southbound",
+      "entry": 156,
+      "exit": 119,
+      "ez_pass": 5.5,
+      "cash": 6.5
+    },
+    {
+      "direction": "Southbound",
+      "entry": 156,
+      "exit": 114,
+      "ez_pass": 8.0,
+      "cash": 9.0
+    },
+    {
+      "direction": "Southbound",
+      "entry": 156,
+      "exit": 104,
+      "ez_pass": 9.25,
+      "cash": 10.25
+    },
+    {
+      "direction": "Southbound",
+      "entry": 156,
+      "exit": 98,
+      "ez_pass": 11.0,
+      "cash": 13.0
+    },
+    {
+      "direction": "Southbound",
+      "entry": 156,
+      "exit": 97,
+      "ez_pass": 11.0,
+      "cash": 13.0
+    },
+    {
+      "direction": "Southbound",
+      "entry": 156,
+      "exit": 95,
+      "ez_pass": 11.0,
+      "cash": 13.0
+    },
+    {
+      "direction": "Southbound",
+      "entry": 156,
+      "exit": 93,
+      "ez_pass": 11.0,
+      "cash": 13.0
+    },
+
+    {
+      "direction": "Southbound",
+      "entry": 152,
+      "exit": 142,
+      "ez_pass": 5.5,
+      "cash": 6.5
+    },
+    {
+      "direction": "Southbound",
+      "entry": 152,
+      "exit": 136,
+      "ez_pass": 5.5,
+      "cash": 6.5
+    },
+    {
+      "direction": "Southbound",
+      "entry": 152,
+      "exit": 119,
+      "ez_pass": 5.5,
+      "cash": 6.5
+    },
+    {
+      "direction": "Southbound",
+      "entry": 152,
+      "exit": 114,
+      "ez_pass": 8.0,
+      "cash": 9.0
+    },
+    {
+      "direction": "Southbound",
+      "entry": 152,
+      "exit": 104,
+      "ez_pass": 9.25,
+      "cash": 10.25
+    },
+    {
+      "direction": "Southbound",
+      "entry": 152,
+      "exit": 98,
+      "ez_pass": 11.0,
+      "cash": 13.0
+    },
+    {
+      "direction": "Southbound",
+      "entry": 152,
+      "exit": 97,
+      "ez_pass": 11.0,
+      "cash": 13.0
+    },
+    {
+      "direction": "Southbound",
+      "entry": 152,
+      "exit": 95,
+      "ez_pass": 11.0,
+      "cash": 13.0
+    },
+    {
+      "direction": "Southbound",
+      "entry": 152,
+      "exit": 93,
+      "ez_pass": 11.0,
+      "cash": 13.0
+    },
+
+    {
+      "direction": "Southbound",
+      "entry": 142,
+      "exit": 136,
+      "ez_pass": 3.75,
+      "cash": 3.75
+    },
+    {
+      "direction": "Southbound",
+      "entry": 142,
+      "exit": 119,
+      "ez_pass": 3.75,
+      "cash": 3.75
+    },
+    {
+      "direction": "Southbound",
+      "entry": 142,
+      "exit": 114,
+      "ez_pass": 6.25,
+      "cash": 6.25
+    },
+    {
+      "direction": "Southbound",
+      "entry": 142,
+      "exit": 104,
+      "ez_pass": 7.5,
+      "cash": 7.5
+    },
+    {
+      "direction": "Southbound",
+      "entry": 142,
+      "exit": 98,
+      "ez_pass": 9.25,
+      "cash": 10.25
+    },
+    {
+      "direction": "Southbound",
+      "entry": 142,
+      "exit": 97,
+      "ez_pass": 9.25,
+      "cash": 10.25
+    },
+    {
+      "direction": "Southbound",
+      "entry": 142,
+      "exit": 95,
+      "ez_pass": 9.25,
+      "cash": 10.25
+    },
+    {
+      "direction": "Southbound",
+      "entry": 142,
+      "exit": 93,
+      "ez_pass": 9.25,
+      "cash": 10.25
+    },
+
+    {
+      "direction": "Southbound",
+      "entry": 136,
+      "exit": 114,
+      "ez_pass": 2.5,
+      "cash": 2.5
+    },
+    {
+      "direction": "Southbound",
+      "entry": 136,
+      "exit": 104,
+      "ez_pass": 3.75,
+      "cash": 3.75
+    },
+    {
+      "direction": "Southbound",
+      "entry": 136,
+      "exit": 98,
+      "ez_pass": 5.5,
+      "cash": 6.5
+    },
+    {
+      "direction": "Southbound",
+      "entry": 136,
+      "exit": 97,
+      "ez_pass": 5.5,
+      "cash": 6.5
+    },
+    {
+      "direction": "Southbound",
+      "entry": 136,
+      "exit": 95,
+      "ez_pass": 5.5,
+      "cash": 6.5
+    },
+    {
+      "direction": "Southbound",
+      "entry": 136,
+      "exit": 93,
+      "ez_pass": 5.5,
+      "cash": 6.5
+    },
+
+    {
+      "direction": "Southbound",
+      "entry": 119,
+      "exit": 114,
+      "ez_pass": 2.5,
+      "cash": 2.5
+    },
+    {
+      "direction": "Southbound",
+      "entry": 119,
+      "exit": 104,
+      "ez_pass": 3.75,
+      "cash": 3.75
+    },
+    {
+      "direction": "Southbound",
+      "entry": 119,
+      "exit": 98,
+      "ez_pass": 5.5,
+      "cash": 6.5
+    },
+    {
+      "direction": "Southbound",
+      "entry": 119,
+      "exit": 97,
+      "ez_pass": 5.5,
+      "cash": 6.5
+    },
+    {
+      "direction": "Southbound",
+      "entry": 119,
+      "exit": 95,
+      "ez_pass": 5.5,
+      "cash": 6.5
+    },
+    {
+      "direction": "Southbound",
+      "entry": 119,
+      "exit": 93,
+      "ez_pass": 5.5,
+      "cash": 6.5
+    },
+
+    {
+      "direction": "Southbound",
+      "entry": 114,
+      "exit": 104,
+      "ez_pass": 3.75,
+      "cash": 3.75
+    },
+    {
+      "direction": "Southbound",
+      "entry": 114,
+      "exit": 98,
+      "ez_pass": 5.5,
+      "cash": 6.5
+    },
+    {
+      "direction": "Southbound",
+      "entry": 114,
+      "exit": 97,
+      "ez_pass": 5.5,
+      "cash": 6.5
+    },
+    {
+      "direction": "Southbound",
+      "entry": 114,
+      "exit": 95,
+      "ez_pass": 5.5,
+      "cash": 6.5
+    },
+    {
+      "direction": "Southbound",
+      "entry": 114,
+      "exit": 93,
+      "ez_pass": 5.5,
+      "cash": 6.5
+    },
+
+    {
+      "direction": "Southbound",
+      "entry": 104,
+      "exit": 98,
+      "ez_pass": 5.5,
+      "cash": 6.5
+    },
+    {
+      "direction": "Southbound",
+      "entry": 104,
+      "exit": 97,
+      "ez_pass": 5.5,
+      "cash": 6.5
+    },
+    {
+      "direction": "Southbound",
+      "entry": 104,
+      "exit": 95,
+      "ez_pass": 5.5,
+      "cash": 6.5
+    },
+    {
+      "direction": "Southbound",
+      "entry": 104,
+      "exit": 93,
+      "ez_pass": 5.5,
+      "cash": 6.5
+    }
+  ]
+}

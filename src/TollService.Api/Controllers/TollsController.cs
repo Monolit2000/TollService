@@ -1,9 +1,12 @@
 using MediatR;
+using System.Text.Json;
 using Microsoft.AspNetCore.Mvc;
 using TollService.Application.Roads.Queries;
 using TollService.Application.TollPriceParser;
+using TollService.Application.TollPriceParser.DE;
 using TollService.Application.TollPriceParser.IN;
 using TollService.Application.TollPriceParser.KS;
+using TollService.Application.TollPriceParser.NJ;
 using TollService.Application.TollPriceParser.OH;
 using TollService.Application.TollPriceParser.PA;
 using TollService.Application.Tolls.Commands;
@@ -210,6 +213,126 @@ public class TollsController : ControllerBase
         {
             return BadRequest($"Invalid JSON format: {ex.Message}");
         }
+    }
+
+    [HttpPost("parse-delaware-prices")]
+    [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(ParseDelawareTollPricesResult))]
+    [ProducesResponseType(StatusCodes.Status400BadRequest)]
+    public async Task<IActionResult> ParseDelawareTollPrices(
+        [FromBody] object payload,
+        CancellationToken ct = default)
+    {
+        if (payload == null)
+        {
+            return BadRequest("Payload cannot be null");
+        }
+
+        var json = payload switch
+        {
+            JsonElement element => element.GetRawText(),
+            string str => str,
+            _ => System.Text.Json.JsonSerializer.Serialize(payload)
+        };
+
+        var command = new ParseDelawareTollPricesCommand(json);
+        var result = await _mediator.Send(command, ct);
+        return Ok(result);
+    }
+
+    [HttpPost("link-new-jersey-tolls")]
+    [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(LinkNewJerseyTollsResult))]
+    [ProducesResponseType(StatusCodes.Status400BadRequest)]
+    public async Task<IActionResult> LinkNewJerseyTolls(
+        [FromBody] object payload,
+        CancellationToken ct = default)
+    {
+        if (payload == null)
+        {
+            return BadRequest("Payload cannot be null");
+        }
+
+        var json = payload switch
+        {
+            JsonElement element => element.GetRawText(),
+            string str => str,
+            _ => System.Text.Json.JsonSerializer.Serialize(payload)
+        };
+
+        var command = new LinkNewJerseyTollsCommand(json);
+        var result = await _mediator.Send(command, ct);
+        return Ok(result);
+    }
+
+    [HttpPost("link-parkway-prices")]
+    [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(LinkParkwayPricesResult))]
+    [ProducesResponseType(StatusCodes.Status400BadRequest)]
+    public async Task<IActionResult> LinkParkwayPrices(
+        [FromBody] object payload,
+        CancellationToken ct = default)
+    {
+        if (payload == null)
+        {
+            return BadRequest("Payload cannot be null");
+        }
+
+        var json = payload switch
+        {
+            JsonElement element => element.GetRawText(),
+            string str => str,
+            _ => System.Text.Json.JsonSerializer.Serialize(payload)
+        };
+
+        var command = new LinkParkwayPricesCommand(json);
+        var result = await _mediator.Send(command, ct);
+        return Ok(result);
+    }
+
+    [HttpPost("link-atlantic-expressway-prices")]
+    [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(LinkAtlanticExpresswayPricesResult))]
+    [ProducesResponseType(StatusCodes.Status400BadRequest)]
+    public async Task<IActionResult> LinkAtlanticExpresswayPrices(
+        [FromBody] object payload,
+        CancellationToken ct = default)
+    {
+        if (payload == null)
+        {
+            return BadRequest("Payload cannot be null");
+        }
+
+        var json = payload switch
+        {
+            JsonElement element => element.GetRawText(),
+            string str => str,
+            _ => System.Text.Json.JsonSerializer.Serialize(payload)
+        };
+
+        var command = new LinkAtlanticExpresswayPricesCommand(json);
+        var result = await _mediator.Send(command, ct);
+        return Ok(result);
+    }
+
+    [HttpPost("parse-new-jersey-prices")]
+    [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(ParseNewJerseyTollPricesResult))]
+    [ProducesResponseType(StatusCodes.Status400BadRequest)]
+    public async Task<IActionResult> ParseNewJerseyTollPrices(
+        [FromBody] object payload,
+        CancellationToken ct = default)
+    {
+        if (payload == null)
+        {
+            return BadRequest("Payload cannot be null");
+        }
+
+        var json = payload switch
+        {
+            JsonElement element => element.GetRawText(),
+            string str => str,
+            _ => System.Text.Json.JsonSerializer.Serialize(payload)
+        };
+
+        var command = new ParseNewJerseyTollPricesCommand(json);
+        var result = await _mediator.Send(command, ct);
+        return Ok(result);
     }
 
     [HttpPost("parse-pa-turnpike-interchanges")]
