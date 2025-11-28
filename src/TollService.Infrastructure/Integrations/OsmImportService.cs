@@ -52,6 +52,7 @@ public class OsmImportService
         { "CO", (36.9, -109.0, 41.0, -102.0) },    // Colorado
         { "AZ", (31.3, -114.8, 37.0, -109.0) },    // Arizona
         { "NM", (31.3, -109.0, 37.0, -103.0) },    // New Mexico
+        { "ME", (42.9, -71.5, 47.5, -66.9) }  // Maine
     };
 
     public OsmImportService(
