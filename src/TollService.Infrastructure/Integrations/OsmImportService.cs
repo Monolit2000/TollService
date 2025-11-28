@@ -250,10 +250,10 @@ public class OsmImportService
             .Where(r => r.State == stateCode.ToUpperInvariant() && r.WayId.HasValue)
             .ToListAsync(ct);
 
-        if (existingRoads.Count == 0)
-        {
-            return; // No roads found, cannot import tolls
-        }
+        //if (existingRoads.Count == 0)
+        //{
+        //    return; // No roads found, cannot import tolls
+        //}
 
         using var doc = await _osmClient.GetTollPointsAsync(bounds.south, bounds.west, bounds.north, bounds.east, ct);
         var tollsToAdd = _tollParserService.ParseTollPointsFromJson(doc, stateCode.ToUpperInvariant(), existingRoads);
