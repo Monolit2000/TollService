@@ -1,0 +1,383 @@
+{
+  "road_name": "Garden State Parkway",
+  "year": "2025",
+  "vehicle_class": "Class 5",
+  "axles": 5,
+  "description": "5-Axle Vehicle or Vehicle/Trailer Combination",
+  "toll_plazas": [
+    {
+      "name": "Pascack Valley",
+      "type": "Main Line Barrier",
+      "milepost": 166.1,
+      "directions": "Both",
+      "rates": {
+        "cash": 10.85,
+        "ez_pass_peak": 10.74,
+        "ez_pass_off_peak_truck": null
+      }
+    },
+    {
+      "name": "Bergen NB",
+      "type": "Main Line Barrier",
+      "milepost": 160.5,
+      "directions": "NB",
+      "rates": {
+        "cash": 10.85,
+        "ez_pass_peak": 10.74,
+        "ez_pass_off_peak_truck": null
+      }
+    },
+    {
+      "name": "Paramus",
+      "type": "Ramp Plaza",
+      "milepost": 164.6,
+      "directions": "NX, SE",
+      "rates": {
+        "cash": 3.95,
+        "ez_pass_peak": 3.8,
+        "ez_pass_off_peak_truck": null
+      }
+    },
+    {
+      "name": "Saddle Brook NB",
+      "type": "Ramp Plaza",
+      "milepost": 160.3,
+      "directions": "NX",
+      "rates": {
+        "cash": 10.85,
+        "ez_pass_peak": 10.74,
+        "ez_pass_off_peak_truck": null
+      }
+    },
+    {
+      "name": "Clifton",
+      "type": "Ramp Plaza",
+      "milepost": 156.1,
+      "directions": "NE, SX",
+      "rates": {
+        "cash": 3.95,
+        "ez_pass_peak": 3.8,
+        "ez_pass_off_peak_truck": null
+      }
+    },
+    {
+      "name": "Passaic",
+      "type": "Ramp Plaza",
+      "milepost": 154.5,
+      "directions": "NE, SX",
+      "rates": {
+        "cash": 3.95,
+        "ez_pass_peak": 3.8,
+        "ez_pass_off_peak_truck": null
+      }
+    },
+    {
+      "name": "Watchung",
+      "type": "Ramp Plaza",
+      "milepost": 152.6,
+      "directions": "NE, SX",
+      "rates": {
+        "cash": 5.45,
+        "ez_pass_peak": 5.37,
+        "ez_pass_off_peak_truck": null
+      }
+    },
+    {
+      "name": "Essex SB",
+      "type": "Main Line Barrier",
+      "milepost": 150.7,
+      "directions": "SB",
+      "rates": {
+        "cash": 10.85,
+        "ez_pass_peak": 10.74,
+        "ez_pass_off_peak_truck": null
+      }
+    },
+    {
+      "name": "Bloomfield",
+      "type": "Ramp Plaza",
+      "milepost": 148.9,
+      "directions": "NX, SE",
+      "rates": {
+        "cash": 3.95,
+        "ez_pass_peak": 3.8,
+        "ez_pass_off_peak_truck": null
+      }
+    },
+    {
+      "name": "East Orange",
+      "type": "Ramp Plaza",
+      "milepost": 147.1,
+      "directions": "SE",
+      "rates": {
+        "cash": 7.85,
+        "ez_pass_peak": 7.59,
+        "ez_pass_off_peak_truck": null
+      }
+    },
+    {
+      "name": "Irvington",
+      "type": "Ramp Plaza",
+      "milepost": 146.1,
+      "directions": "NX, SE",
+      "rates": {
+        "cash": 3.95,
+        "ez_pass_peak": 3.8,
+        "ez_pass_off_peak_truck": null
+      }
+    },
+    {
+      "name": "Union NB",
+      "type": "Main Line Barrier",
+      "milepost": 142.7,
+      "directions": "NB",
+      "rates": {
+        "cash": 10.85,
+        "ez_pass_peak": 10.74,
+        "ez_pass_off_peak_truck": null
+      }
+    },
+    {
+      "name": "Union Ramp NB",
+      "type": "Ramp Plaza",
+      "milepost": 142.8,
+      "directions": "NE",
+      "rates": {
+        "cash": 10.85,
+        "ez_pass_peak": 10.74,
+        "ez_pass_off_peak_truck": null
+      }
+    },
+    {
+      "name": "Raritan SB",
+      "type": "Main Line Barrier",
+      "milepost": 125.4,
+      "directions": "SB",
+      "rates": {
+        "cash": 10.85,
+        "ez_pass_peak": 10.74,
+        "ez_pass_off_peak_truck": null
+      }
+    },
+    {
+      "name": "Sayreville (EZP Only)",
+      "type": "Ramp Plaza",
+      "milepost": 125.0,
+      "directions": "SX",
+      "rates": {
+        "cash": 10.85,
+        "ez_pass_peak": 10.74,
+        "ez_pass_off_peak_truck": null
+      }
+    },
+    {
+      "name": "Matawan",
+      "type": "Ramp Plaza",
+      "milepost": 117.1,
+      "directions": "SX",
+      "rates": {
+        "cash": 3.95,
+        "ez_pass_peak": 3.8,
+        "ez_pass_off_peak_truck": null
+      }
+    },
+    {
+      "name": "Keyport",
+      "type": "Ramp Plaza",
+      "milepost": 118.6,
+      "directions": "NE, SX",
+      "rates": {
+        "cash": 3.95,
+        "ez_pass_peak": 3.8,
+        "ez_pass_off_peak_truck": null
+      }
+    },
+    {
+      "name": "Holmdel",
+      "type": "Ramp Plaza",
+      "milepost": 113.6,
+      "directions": "NE, SX",
+      "rates": {
+        "cash": 3.95,
+        "ez_pass_peak": 3.8,
+        "ez_pass_off_peak_truck": null
+      }
+    },
+    {
+      "name": "Red Bank",
+      "type": "Ramp Plaza",
+      "milepost": 110.3,
+      "directions": "NE, SX",
+      "rates": {
+        "cash": 3.95,
+        "ez_pass_peak": 3.8,
+        "ez_pass_off_peak_truck": null
+      }
+    },
+    {
+      "name": "Eatontown NB",
+      "type": "Ramp Plaza",
+      "milepost": 106.5,
+      "directions": "NE",
+      "rates": {
+        "cash": 10.85,
+        "ez_pass_peak": 10.74,
+        "ez_pass_off_peak_truck": null
+      }
+    },
+    {
+      "name": "Asbury Park NB",
+      "type": "Main Line Barrier",
+      "milepost": 104.0,
+      "directions": "NB",
+      "rates": {
+        "cash": 10.85,
+        "ez_pass_peak": 10.74,
+        "ez_pass_off_peak_truck": 10.2
+      }
+    },
+    {
+      "name": "Belmar/Wall",
+      "type": "Ramp Plaza",
+      "milepost": 98.0,
+      "directions": "NE, SX",
+      "rates": {
+        "cash": 3.95,
+        "ez_pass_peak": 3.8,
+        "ez_pass_off_peak_truck": 3.61
+      }
+    },
+    {
+      "name": "Brick",
+      "type": "Ramp Plaza",
+      "milepost": 93.0,
+      "directions": "NE, SX",
+      "rates": {
+        "cash": 3.95,
+        "ez_pass_peak": 3.8,
+        "ez_pass_off_peak_truck": 3.61
+      }
+    },
+    {
+      "name": "Lakewood",
+      "type": "Ramp Plaza",
+      "milepost": 90.1,
+      "directions": "NE, SX",
+      "rates": {
+        "cash": 3.95,
+        "ez_pass_peak": 3.8,
+        "ez_pass_off_peak_truck": 3.61
+      }
+    },
+    {
+      "name": "Toms River",
+      "type": "Main Line Barrier",
+      "milepost": 84.7,
+      "directions": "Both",
+      "rates": {
+        "cash": 5.45,
+        "ez_pass_peak": 5.37,
+        "ez_pass_off_peak_truck": 5.1
+      }
+    },
+    {
+      "name": "Berkeley",
+      "type": "Ramp Plaza",
+      "milepost": 77.9,
+      "directions": "NE, SX",
+      "rates": {
+        "cash": 3.95,
+        "ez_pass_peak": 3.8,
+        "ez_pass_off_peak_truck": 3.61
+      }
+    },
+    {
+      "name": "Forked River",
+      "type": "Ramp Plaza",
+      "milepost": 75.3,
+      "directions": "NE, SX",
+      "rates": {
+        "cash": 3.95,
+        "ez_pass_peak": 3.8,
+        "ez_pass_off_peak_truck": 3.61
+      }
+    },
+    {
+      "name": "Waretown",
+      "type": "Ramp Plaza",
+      "milepost": 70.4,
+      "directions": "NE, SX",
+      "rates": {
+        "cash": 5.45,
+        "ez_pass_peak": 5.37,
+        "ez_pass_off_peak_truck": 5.1
+      }
+    },
+    {
+      "name": "Barnegat SB",
+      "type": "Main Line Barrier",
+      "milepost": 68.9,
+      "directions": "SB",
+      "rates": {
+        "cash": 10.85,
+        "ez_pass_peak": 10.74,
+        "ez_pass_off_peak_truck": 10.2
+      }
+    },
+    {
+      "name": "New Gretna NB",
+      "type": "Main Line Barrier",
+      "milepost": 53.5,
+      "directions": "NB",
+      "rates": {
+        "cash": 10.85,
+        "ez_pass_peak": 10.74,
+        "ez_pass_off_peak_truck": 10.2
+      }
+    },
+    {
+      "name": "Somers Point SB",
+      "type": "Ramp Plaza",
+      "milepost": 30.2,
+      "directions": "SX",
+      "rates": {
+        "cash": 10.85,
+        "ez_pass_peak": 10.74,
+        "ez_pass_off_peak_truck": 10.2
+      }
+    },
+    {
+      "name": "Great Egg SB",
+      "type": "Main Line Barrier",
+      "milepost": 28.8,
+      "directions": "SB",
+      "rates": {
+        "cash": 10.85,
+        "ez_pass_peak": 10.74,
+        "ez_pass_off_peak_truck": 10.2
+      }
+    },
+    {
+      "name": "Cape May NB",
+      "type": "Main Line Barrier",
+      "milepost": 19.4,
+      "directions": "NB",
+      "rates": {
+        "cash": 10.85,
+        "ez_pass_peak": 10.74,
+        "ez_pass_off_peak_truck": 10.2
+      }
+    },
+    {
+      "name": "Wildwood",
+      "type": "Ramp Plaza",
+      "milepost": 3.8,
+      "directions": "NE, SE",
+      "rates": {
+        "cash": 3.95,
+        "ez_pass_peak": 3.8,
+        "ez_pass_off_peak_truck": 3.61
+      }
+    }
+  ]
+}

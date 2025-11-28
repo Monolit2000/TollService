@@ -1,0 +1,164 @@
+[
+  {
+    "id": "01",
+    "name": "DELAWARE MEMORIAL BRIDGE",
+    "lat": 39.6856,
+    "lng": -75.448
+  },
+  {
+    "id": "02",
+    "name": "US 322, SWEDESBORO, CHESTER",
+    "lat": 39.755375,
+    "lng": -75.276993
+  },
+  {
+    "id": "03",
+    "name": "NJ 168, WOODBURY, SOUTH CAMDEN",
+    "lat": 39.861573,
+    "lng": -75.07476
+  },
+  {
+    "id": "04",
+    "name": "NJ 73, CAMDEN, PHILADELPHIA",
+    "lat": 39.931077,
+    "lng": -74.955597
+  },
+  {
+    "id": "05",
+    "name": "BURLINGTON, MT. HOLLY",
+    "lat": 40.024899,
+    "lng": -74.823097
+  },
+  {
+    "id": "06",
+    "name": "PENNSYLVANIA TURNPIKE",
+    "lat": 40.0961,
+    "lng": -74.730698
+  },
+  {
+    "id": "07",
+    "name": "US 206, BORDENTOWN, TRENTON",
+    "lat": 40.126598,
+    "lng": -74.697403
+  },
+  {
+    "id": "07A",
+    "name": "I-195, TRENTON, HAMILTON",
+    "lat": 40.193401,
+    "lng": -74.601997
+  },
+  {
+    "id": "08",
+    "name": "NJ 33, HIGHTSTOWN, FREEHOLD",
+    "lat": 40.264702,
+    "lng": -74.510902
+  },
+  {
+    "id": "08A",
+    "name": "CRANBURY, JAMESBURG",
+    "lat": 40.3484,
+    "lng": -74.4739
+  },
+  {
+    "id": "09",
+    "name": "NJ 18, NEW BRUNSWICK",
+    "lat": 40.4767,
+    "lng": -74.406097
+  },
+  {
+    "id": "10",
+    "name": "I-287, METUCHEN, PERTH AMBOY",
+    "lat": 40.5256,
+    "lng": -74.3423
+  },
+  {
+    "id": "11",
+    "name": "GARDEN STATE PARKWAY",
+    "lat": 40.542,
+    "lng": -74.301201
+  },
+  {
+    "id": "12",
+    "name": "CARTERET, RAHWAY",
+    "lat": 40.594501,
+    "lng": -74.234596
+  },
+  {
+    "id": "13",
+    "name": "I-278, ELIZABETH, STATEN ISLAND",
+    "lat": 40.641499,
+    "lng": -74.205704
+  },
+  {
+    "id": "13A",
+    "name": "NEWARK AIRPORT, ELIZABETH SEAPORT",
+    "lat": 40.665401,
+    "lng": -74.181801
+  },
+  {
+    "id": "14",
+    "name": "NEWARK AIRPORT, I-78, US 1 AND 9",
+    "lat": 40.70834,
+    "lng": -74.156392
+  },
+  {
+    "id": "14A",
+    "name": "HUDSON CITY EXT, BAYONNE",
+    "lat": 40.6861,
+    "lng": -74.096497
+  },
+  {
+    "id": "14B",
+    "name": "JERSEY CITY, LIBERTY ST. PARK",
+    "lat": 40.701,
+    "lng": -74.068703
+  },
+  {
+    "id": "14C",
+    "name": "HOLLAND TUNNEL",
+    "lat": 40.729698,
+    "lng": -74.036003
+  },
+  {
+    "id": "15E",
+    "name": "US 1 AND 9, NEWARK, JERSEY CITY",
+    "lat": 40.728699,
+    "lng": -74.1287
+  },
+  {
+    "id": "15W",
+    "name": "I-280, NEWARK, HARRISON",
+    "lat": 40.7551,
+    "lng": -74.117798
+  },
+  {
+    "id": "15X",
+    "name": "SECAUCUS TRANSFER STATION, SECAUCUS",
+    "lat": 40.7616,
+    "lng": -74.077003
+  },
+  {
+    "id": "16E",
+    "name": "NJ 3, LINCOLN TUNNEL, SECAUCUS",
+    "lat": 40.776402,
+    "lng": -74.0578
+  },
+  {
+    "id": "16W",
+    "name": "NJ 3, SPORTSPLEX, EAST RUTHERFORD",
+    "lat": 40.800701,
+    "lng": -74.0746
+  },
+  {
+    "id": "18E",
+    "name": "GWB, US 46, I-80, RIDGEFIELD PARK",
+    "lat": 40.7782,
+    "lng": -74.0576
+  },
+  {
+    "id": "18W",
+    "name": "GWB, US 46, I-80, RIDGEFIELD PARK",
+    "lat": 40.8115,
+    "lng": -74.06
+  }
+]

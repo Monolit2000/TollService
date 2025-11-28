@@ -1,0 +1,79 @@
+{
+  "state": "New Jersey",
+  "road": "Atlantic City Expressway (ACE)",
+  "vehicle_class_id": 5,
+  "description": "Five Axle Truck",
+  "total_checked": 10,
+  "toll_rates": [
+    {
+      "plaza_name": "Pleasantville",
+      "entry_name": "Pleasantville Toll Plaza",
+      "classification": "Five Axle",
+      "cash": 6.05,
+      "ez_pass_frequent_user": 5.45
+    },
+    {
+      "plaza_name": "Egg Harbor",
+      "entry_name": "Egg Harbor Toll Plaza",
+      "classification": "Five Axle",
+      "cash": 17.55,
+      "ez_pass_frequent_user": 15.8
+    },
+    {
+      "plaza_name": "Route 9 (Exit 5)",
+      "entry_name": "Route 9 Ramp Toll",
+      "classification": "Truck/Bus/Limo",
+      "cash": 1.45,
+      "ez_pass_frequent_user": 1.45
+    },
+    {
+      "plaza_name": "Pomona (Exit 9)",
+      "entry_name": "Pomona Ramp Toll",
+      "classification": "Truck/Bus/Limo",
+      "cash": 1.45,
+      "ez_pass_frequent_user": 1.45
+    },
+    {
+      "plaza_name": "Mays Landing (Exit 12)",
+      "entry_name": "Mays Landing Ramp Toll",
+      "classification": "Truck/Bus/Limo",
+      "cash": 1.45,
+      "ez_pass_frequent_user": 1.45
+    },
+    {
+      "plaza_name": "Route 50 (Exit 17)",
+      "entry_name": "Route 50 Ramp Toll",
+      "classification": "Five Axle",
+      "cash": 17.55,
+      "ez_pass_frequent_user": 15.8
+    },
+    {
+      "plaza_name": "Hammonton (Exit 28)",
+      "entry_name": "Hammonton Ramp Toll",
+      "classification": "Truck/Bus/Limo",
+      "cash": 1.45,
+      "ez_pass_frequent_user": 1.45
+    },
+    {
+      "plaza_name": "Winslow (Exit 33)",
+      "entry_name": "Winslow Ramp Toll",
+      "classification": "Truck/Bus/Limo",
+      "cash": 1.45,
+      "ez_pass_frequent_user": 1.45
+    },
+    {
+      "plaza_name": "Williamstown (Exit 38)",
+      "entry_name": "Williamstown Ramp Toll",
+      "classification": "Truck/Bus/Limo",
+      "cash": 0.8,
+      "ez_pass_frequent_user": 0.8
+    },
+    {
+      "plaza_name": "Berlin - Cross Keys (Exit 41)",
+      "entry_name": "Berlin - Cross Keys Ramp Toll",
+      "classification": "Truck/Bus/Limo",
+      "cash": 0.8,
+      "ez_pass_frequent_user": 0.8
+    }
+  ]
+}

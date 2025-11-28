@@ -1,0 +1,7029 @@
+{
+  "state": "New Jersey",
+  "road": "NJ Turnpike",
+  "vehicle_class_id": 5,
+  "description": "5-Axle Truck",
+  "total_checked": 702,
+  "toll_rates": [
+    {
+      "entry": "01",
+      "exit": "02",
+      "entry_name": "01: DELAWARE MEMORIAL BRIDGE",
+      "exit_name": "02: US 322, SWEDESBORO, CHESTER",
+      "cash": 5.95,
+      "ez_pass_peak": 5.31,
+      "ez_pass_off_peak": 5.04,
+      "status": "OK"
+    },
+    {
+      "entry": "01",
+      "exit": "03",
+      "entry_name": "01: DELAWARE MEMORIAL BRIDGE",
+      "exit_name": "03: NJ 168, WOODBURY, SOUTH CAMDEN",
+      "cash": 12.4,
+      "ez_pass_peak": 11.11,
+      "ez_pass_off_peak": 10.55,
+      "status": "OK"
+    },
+    {
+      "entry": "01",
+      "exit": "04",
+      "entry_name": "01: DELAWARE MEMORIAL BRIDGE",
+      "exit_name": "04: NJ 73, CAMDEN, PHILADELPHIA",
+      "cash": 16.4,
+      "ez_pass_peak": 14.88,
+      "ez_pass_off_peak": 14.13,
+      "status": "OK"
+    },
+    {
+      "entry": "01",
+      "exit": "05",
+      "entry_name": "01: DELAWARE MEMORIAL BRIDGE",
+      "exit_name": "05: BURLINGTON, MT. HOLLY",
+      "cash": 20.55,
+      "ez_pass_peak": 18.76,
+      "ez_pass_off_peak": 17.82,
+      "status": "OK"
+    },
+    {
+      "entry": "01",
+      "exit": "06",
+      "entry_name": "01: DELAWARE MEMORIAL BRIDGE",
+      "exit_name": "06: PENNSYLVANIA TURNPIKE",
+      "cash": 33.25,
+      "ez_pass_peak": 30.35,
+      "ez_pass_off_peak": 28.83,
+      "status": "OK"
+    },
+    {
+      "entry": "01",
+      "exit": "07",
+      "entry_name": "01: DELAWARE MEMORIAL BRIDGE",
+      "exit_name": "07: US 206, BORDENTOWN, TRENTON",
+      "cash": 25.65,
+      "ez_pass_peak": 23.44,
+      "ez_pass_off_peak": 22.27,
+      "status": "OK"
+    },
+    {
+      "entry": "01",
+      "exit": "07A",
+      "entry_name": "01: DELAWARE MEMORIAL BRIDGE",
+      "exit_name": "07A: I-195, TRENTON, HAMILTON",
+      "cash": 28.65,
+      "ez_pass_peak": 26.13,
+      "ez_pass_off_peak": 24.82,
+      "status": "OK"
+    },
+    {
+      "entry": "01",
+      "exit": "08",
+      "entry_name": "01: DELAWARE MEMORIAL BRIDGE",
+      "exit_name": "08: NJ 33, HIGHTSTOWN, FREEHOLD",
+      "cash": 31.6,
+      "ez_pass_peak": 28.72,
+      "ez_pass_off_peak": 27.29,
+      "status": "OK"
+    },
+    {
+      "entry": "01",
+      "exit": "08A",
+      "entry_name": "01: DELAWARE MEMORIAL BRIDGE",
+      "exit_name": "08A: CRANBURY, JAMESBURG",
+      "cash": 34.85,
+      "ez_pass_peak": 31.65,
+      "ez_pass_off_peak": 30.06,
+      "status": "OK"
+    },
+    {
+      "entry": "01",
+      "exit": "09",
+      "entry_name": "01: DELAWARE MEMORIAL BRIDGE",
+      "exit_name": "09: NJ 18, NEW BRUNSWICK",
+      "cash": 38.3,
+      "ez_pass_peak": 34.9,
+      "ez_pass_off_peak": 33.16,
+      "status": "OK"
+    },
+    {
+      "entry": "01",
+      "exit": "10",
+      "entry_name": "01: DELAWARE MEMORIAL BRIDGE",
+      "exit_name": "10: I-287, METUCHEN, PERTH AMBOY",
+      "cash": 40.3,
+      "ez_pass_peak": 36.76,
+      "ez_pass_off_peak": 34.92,
+      "status": "OK"
+    },
+    {
+      "entry": "01",
+      "exit": "11",
+      "entry_name": "01: DELAWARE MEMORIAL BRIDGE",
+      "exit_name": "11: GARDEN STATE PARKWAY",
+      "cash": 45.35,
+      "ez_pass_peak": 41.33,
+      "ez_pass_off_peak": 39.26,
+      "status": "OK"
+    },
+    {
+      "entry": "01",
+      "exit": "12",
+      "entry_name": "01: DELAWARE MEMORIAL BRIDGE",
+      "exit_name": "12: CARTERET, RAHWAY",
+      "cash": 49.65,
+      "ez_pass_peak": 45.1,
+      "ez_pass_off_peak": 42.84,
+      "status": "OK"
+    },
+    {
+      "entry": "01",
+      "exit": "13",
+      "entry_name": "01: DELAWARE MEMORIAL BRIDGE",
+      "exit_name": "13: I-278, ELIZABETH, STATEN ISLAND",
+      "cash": 54.5,
+      "ez_pass_peak": 49.71,
+      "ez_pass_off_peak": 47.23,
+      "status": "OK"
+    },
+    {
+      "entry": "01",
+      "exit": "13A",
+      "entry_name": "01: DELAWARE MEMORIAL BRIDGE",
+      "exit_name": "13A: NEWARK AIRPORT, ELIZABETH SEAPORT",
+      "cash": 54.5,
+      "ez_pass_peak": 49.71,
+      "ez_pass_off_peak": 47.23,
+      "status": "OK"
+    },
+    {
+      "entry": "01",
+      "exit": "14",
+      "entry_name": "01: DELAWARE MEMORIAL BRIDGE",
+      "exit_name": "14: NEWARK AIRPORT, I-78, US 1 AND 9",
+      "cash": 61.9,
+      "ez_pass_peak": 56.75,
+      "ez_pass_off_peak": 53.91,
+      "status": "OK"
+    },
+    {
+      "entry": "01",
+      "exit": "14A",
+      "entry_name": "01: DELAWARE MEMORIAL BRIDGE",
+      "exit_name": "14A: HUDSON CITY EXT, BAYONNE",
+      "cash": 73,
+      "ez_pass_peak": 66.54,
+      "ez_pass_off_peak": 63.22,
+      "status": "OK"
+    },
+    {
+      "entry": "01",
+      "exit": "14B",
+      "entry_name": "01: DELAWARE MEMORIAL BRIDGE",
+      "exit_name": "14B: JERSEY CITY, LIBERTY ST. PARK",
+      "cash": 75.2,
+      "ez_pass_peak": 68.51,
+      "ez_pass_off_peak": 65.09,
+      "status": "OK"
+    },
+    {
+      "entry": "01",
+      "exit": "14C",
+      "entry_name": "01: DELAWARE MEMORIAL BRIDGE",
+      "exit_name": "14C: HOLLAND TUNNEL",
+      "cash": 76.25,
+      "ez_pass_peak": 69.57,
+      "ez_pass_off_peak": 66.09,
+      "status": "OK"
+    },
+    {
+      "entry": "01",
+      "exit": "15E",
+      "entry_name": "01: DELAWARE MEMORIAL BRIDGE",
+      "exit_name": "15E: US 1 AND 9, NEWARK, JERSEY CITY",
+      "cash": 66.6,
+      "ez_pass_peak": 60.68,
+      "ez_pass_off_peak": 57.65,
+      "status": "OK"
+    },
+    {
+      "entry": "01",
+      "exit": "15W",
+      "entry_name": "01: DELAWARE MEMORIAL BRIDGE",
+      "exit_name": "15W: I-280, NEWARK, HARRISON",
+      "cash": 69.7,
+      "ez_pass_peak": 63.61,
+      "ez_pass_off_peak": 60.43,
+      "status": "OK"
+    },
+    {
+      "entry": "01",
+      "exit": "15X",
+      "entry_name": "01: DELAWARE MEMORIAL BRIDGE",
+      "exit_name": "15X: SECAUCUS TRANSFER STATION, SECAUCUS",
+      "cash": 73,
+      "ez_pass_peak": 66.42,
+      "ez_pass_off_peak": 63.1,
+      "status": "OK"
+    },
+    {
+      "entry": "01",
+      "exit": "16E",
+      "entry_name": "01: DELAWARE MEMORIAL BRIDGE",
+      "exit_name": "16E: NJ 3, LINCOLN TUNNEL, SECAUCUS",
+      "cash": 75.2,
+      "ez_pass_peak": 68.51,
+      "ez_pass_off_peak": 65.09,
+      "status": "OK"
+    },
+    {
+      "entry": "01",
+      "exit": "16W",
+      "entry_name": "01: DELAWARE MEMORIAL BRIDGE",
+      "exit_name": "16W: NJ 3, SPORTSPLEX, EAST RUTHERFORD",
+      "cash": 75.2,
+      "ez_pass_peak": 68.51,
+      "ez_pass_off_peak": 65.09,
+      "status": "OK"
+    },
+    {
+      "entry": "01",
+      "exit": "18E",
+      "entry_name": "01: DELAWARE MEMORIAL BRIDGE",
+      "exit_name": "18E: GWB, US 46, I-80, RIDGEFIELD PARK",
+      "cash": 76.25,
+      "ez_pass_peak": 69.57,
+      "ez_pass_off_peak": 66.09,
+      "status": "OK"
+    },
+    {
+      "entry": "01",
+      "exit": "18W",
+      "entry_name": "01: DELAWARE MEMORIAL BRIDGE",
+      "exit_name": "18W: GWB, US 46, I-80, RIDGEFIELD PARK",
+      "cash": 76.25,
+      "ez_pass_peak": 69.57,
+      "ez_pass_off_peak": 66.09,
+      "status": "OK"
+    },
+    {
+      "entry": "02",
+      "exit": "01",
+      "entry_name": "02: US 322, SWEDESBORO, CHESTER",
+      "exit_name": "01: DELAWARE MEMORIAL BRIDGE",
+      "cash": 5.95,
+      "ez_pass_peak": 5.31,
+      "ez_pass_off_peak": 5.04,
+      "status": "OK"
+    },
+    {
+      "entry": "02",
+      "exit": "03",
+      "entry_name": "02: US 322, SWEDESBORO, CHESTER",
+      "exit_name": "03: NJ 168, WOODBURY, SOUTH CAMDEN",
+      "cash": 5.95,
+      "ez_pass_peak": 5.31,
+      "ez_pass_off_peak": 5.04,
+      "status": "OK"
+    },
+    {
+      "entry": "02",
+      "exit": "04",
+      "entry_name": "02: US 322, SWEDESBORO, CHESTER",
+      "exit_name": "04: NJ 73, CAMDEN, PHILADELPHIA",
+      "cash": 10.65,
+      "ez_pass_peak": 9.53,
+      "ez_pass_off_peak": 9.06,
+      "status": "OK"
+    },
+    {
+      "entry": "02",
+      "exit": "05",
+      "entry_name": "02: US 322, SWEDESBORO, CHESTER",
+      "exit_name": "05: BURLINGTON, MT. HOLLY",
+      "cash": 15.2,
+      "ez_pass_peak": 13.87,
+      "ez_pass_off_peak": 13.18,
+      "status": "OK"
+    },
+    {
+      "entry": "02",
+      "exit": "06",
+      "entry_name": "02: US 322, SWEDESBORO, CHESTER",
+      "exit_name": "06: PENNSYLVANIA TURNPIKE",
+      "cash": 27.05,
+      "ez_pass_peak": 24.51,
+      "ez_pass_off_peak": 23.28,
+      "status": "OK"
+    },
+    {
+      "entry": "02",
+      "exit": "07",
+      "entry_name": "02: US 322, SWEDESBORO, CHESTER",
+      "exit_name": "07: US 206, BORDENTOWN, TRENTON",
+      "cash": 19.8,
+      "ez_pass_peak": 18.09,
+      "ez_pass_off_peak": 17.19,
+      "status": "OK"
+    },
+    {
+      "entry": "02",
+      "exit": "07A",
+      "entry_name": "02: US 322, SWEDESBORO, CHESTER",
+      "exit_name": "07A: I-195, TRENTON, HAMILTON",
+      "cash": 21.9,
+      "ez_pass_peak": 19.83,
+      "ez_pass_off_peak": 18.84,
+      "status": "OK"
+    },
+    {
+      "entry": "02",
+      "exit": "08",
+      "entry_name": "02: US 322, SWEDESBORO, CHESTER",
+      "exit_name": "08: NJ 33, HIGHTSTOWN, FREEHOLD",
+      "cash": 25.65,
+      "ez_pass_peak": 23.44,
+      "ez_pass_off_peak": 22.27,
+      "status": "OK"
+    },
+    {
+      "entry": "02",
+      "exit": "08A",
+      "entry_name": "02: US 322, SWEDESBORO, CHESTER",
+      "exit_name": "08A: CRANBURY, JAMESBURG",
+      "cash": 28.85,
+      "ez_pass_peak": 26.36,
+      "ez_pass_off_peak": 25.04,
+      "status": "OK"
+    },
+    {
+      "entry": "02",
+      "exit": "09",
+      "entry_name": "02: US 322, SWEDESBORO, CHESTER",
+      "exit_name": "09: NJ 18, NEW BRUNSWICK",
+      "cash": 31.6,
+      "ez_pass_peak": 28.72,
+      "ez_pass_off_peak": 27.29,
+      "status": "OK"
+    },
+    {
+      "entry": "02",
+      "exit": "10",
+      "entry_name": "02: US 322, SWEDESBORO, CHESTER",
+      "exit_name": "10: I-287, METUCHEN, PERTH AMBOY",
+      "cash": 34.85,
+      "ez_pass_peak": 31.65,
+      "ez_pass_off_peak": 30.06,
+      "status": "OK"
+    },
+    {
+      "entry": "02",
+      "exit": "11",
+      "entry_name": "02: US 322, SWEDESBORO, CHESTER",
+      "exit_name": "11: GARDEN STATE PARKWAY",
+      "cash": 39.4,
+      "ez_pass_peak": 35.97,
+      "ez_pass_off_peak": 34.17,
+      "status": "OK"
+    },
+    {
+      "entry": "02",
+      "exit": "12",
+      "entry_name": "02: US 322, SWEDESBORO, CHESTER",
+      "exit_name": "12: CARTERET, RAHWAY",
+      "cash": 43.65,
+      "ez_pass_peak": 39.81,
+      "ez_pass_off_peak": 37.82,
+      "status": "OK"
+    },
+    {
+      "entry": "02",
+      "exit": "13",
+      "entry_name": "02: US 322, SWEDESBORO, CHESTER",
+      "exit_name": "13: I-278, ELIZABETH, STATEN ISLAND",
+      "cash": 48.55,
+      "ez_pass_peak": 44.42,
+      "ez_pass_off_peak": 42.2,
+      "status": "OK"
+    },
+    {
+      "entry": "02",
+      "exit": "13A",
+      "entry_name": "02: US 322, SWEDESBORO, CHESTER",
+      "exit_name": "13A: NEWARK AIRPORT, ELIZABETH SEAPORT",
+      "cash": 48.55,
+      "ez_pass_peak": 44.42,
+      "ez_pass_off_peak": 42.2,
+      "status": "OK"
+    },
+    {
+      "entry": "02",
+      "exit": "14",
+      "entry_name": "02: US 322, SWEDESBORO, CHESTER",
+      "exit_name": "14: NEWARK AIRPORT, I-78, US 1 AND 9",
+      "cash": 56.15,
+      "ez_pass_peak": 51.23,
+      "ez_pass_off_peak": 48.67,
+      "status": "OK"
+    },
+    {
+      "entry": "02",
+      "exit": "14A",
+      "entry_name": "02: US 322, SWEDESBORO, CHESTER",
+      "exit_name": "14A: HUDSON CITY EXT, BAYONNE",
+      "cash": 66.6,
+      "ez_pass_peak": 60.68,
+      "ez_pass_off_peak": 57.65,
+      "status": "OK"
+    },
+    {
+      "entry": "02",
+      "exit": "14B",
+      "entry_name": "02: US 322, SWEDESBORO, CHESTER",
+      "exit_name": "14B: JERSEY CITY, LIBERTY ST. PARK",
+      "cash": 69,
+      "ez_pass_peak": 62.99,
+      "ez_pass_off_peak": 59.84,
+      "status": "OK"
+    },
+    {
+      "entry": "02",
+      "exit": "14C",
+      "entry_name": "02: US 322, SWEDESBORO, CHESTER",
+      "exit_name": "14C: HOLLAND TUNNEL",
+      "cash": 71.3,
+      "ez_pass_peak": 64.91,
+      "ez_pass_off_peak": 61.66,
+      "status": "OK"
+    },
+    {
+      "entry": "02",
+      "exit": "15E",
+      "entry_name": "02: US 322, SWEDESBORO, CHESTER",
+      "exit_name": "15E: US 1 AND 9, NEWARK, JERSEY CITY",
+      "cash": 61.25,
+      "ez_pass_peak": 55.73,
+      "ez_pass_off_peak": 52.94,
+      "status": "OK"
+    },
+    {
+      "entry": "02",
+      "exit": "15W",
+      "entry_name": "02: US 322, SWEDESBORO, CHESTER",
+      "exit_name": "15W: I-280, NEWARK, HARRISON",
+      "cash": 64.2,
+      "ez_pass_peak": 58.32,
+      "ez_pass_off_peak": 55.41,
+      "status": "OK"
+    },
+    {
+      "entry": "02",
+      "exit": "15X",
+      "entry_name": "02: US 322, SWEDESBORO, CHESTER",
+      "exit_name": "15X: SECAUCUS TRANSFER STATION, SECAUCUS",
+      "cash": 66.95,
+      "ez_pass_peak": 61.02,
+      "ez_pass_off_peak": 57.97,
+      "status": "OK"
+    },
+    {
+      "entry": "02",
+      "exit": "16E",
+      "entry_name": "02: US 322, SWEDESBORO, CHESTER",
+      "exit_name": "16E: NJ 3, LINCOLN TUNNEL, SECAUCUS",
+      "cash": 69,
+      "ez_pass_peak": 62.99,
+      "ez_pass_off_peak": 59.84,
+      "status": "OK"
+    },
+    {
+      "entry": "02",
+      "exit": "16W",
+      "entry_name": "02: US 322, SWEDESBORO, CHESTER",
+      "exit_name": "16W: NJ 3, SPORTSPLEX, EAST RUTHERFORD",
+      "cash": 69,
+      "ez_pass_peak": 62.99,
+      "ez_pass_off_peak": 59.84,
+      "status": "OK"
+    },
+    {
+      "entry": "02",
+      "exit": "18E",
+      "entry_name": "02: US 322, SWEDESBORO, CHESTER",
+      "exit_name": "18E: GWB, US 46, I-80, RIDGEFIELD PARK",
+      "cash": 76.25,
+      "ez_pass_peak": 69.57,
+      "ez_pass_off_peak": 66.09,
+      "status": "OK"
+    },
+    {
+      "entry": "02",
+      "exit": "18W",
+      "entry_name": "02: US 322, SWEDESBORO, CHESTER",
+      "exit_name": "18W: GWB, US 46, I-80, RIDGEFIELD PARK",
+      "cash": 76.25,
+      "ez_pass_peak": 69.57,
+      "ez_pass_off_peak": 66.09,
+      "status": "OK"
+    },
+    {
+      "entry": "03",
+      "exit": "01",
+      "entry_name": "03: NJ 168, WOODBURY, SOUTH CAMDEN",
+      "exit_name": "01: DELAWARE MEMORIAL BRIDGE",
+      "cash": 12.4,
+      "ez_pass_peak": 11.11,
+      "ez_pass_off_peak": 10.55,
+      "status": "OK"
+    },
+    {
+      "entry": "03",
+      "exit": "02",
+      "entry_name": "03: NJ 168, WOODBURY, SOUTH CAMDEN",
+      "exit_name": "02: US 322, SWEDESBORO, CHESTER",
+      "cash": 5.95,
+      "ez_pass_peak": 5.31,
+      "ez_pass_off_peak": 5.04,
+      "status": "OK"
+    },
+    {
+      "entry": "03",
+      "exit": "04",
+      "entry_name": "03: NJ 168, WOODBURY, SOUTH CAMDEN",
+      "exit_name": "04: NJ 73, CAMDEN, PHILADELPHIA",
+      "cash": 4.35,
+      "ez_pass_peak": 4.01,
+      "ez_pass_off_peak": 3.81,
+      "status": "OK"
+    },
+    {
+      "entry": "03",
+      "exit": "05",
+      "entry_name": "03: NJ 168, WOODBURY, SOUTH CAMDEN",
+      "exit_name": "05: BURLINGTON, MT. HOLLY",
+      "cash": 9.45,
+      "ez_pass_peak": 8.57,
+      "ez_pass_off_peak": 8.15,
+      "status": "OK"
+    },
+    {
+      "entry": "03",
+      "exit": "06",
+      "entry_name": "03: NJ 168, WOODBURY, SOUTH CAMDEN",
+      "exit_name": "06: PENNSYLVANIA TURNPIKE",
+      "cash": 20.55,
+      "ez_pass_peak": 18.76,
+      "ez_pass_off_peak": 17.82,
+      "status": "OK"
+    },
+    {
+      "entry": "03",
+      "exit": "07",
+      "entry_name": "03: NJ 168, WOODBURY, SOUTH CAMDEN",
+      "exit_name": "07: US 206, BORDENTOWN, TRENTON",
+      "cash": 13.35,
+      "ez_pass_peak": 12.33,
+      "ez_pass_off_peak": 11.72,
+      "status": "OK"
+    },
+    {
+      "entry": "03",
+      "exit": "07A",
+      "entry_name": "03: NJ 168, WOODBURY, SOUTH CAMDEN",
+      "exit_name": "07A: I-195, TRENTON, HAMILTON",
+      "cash": 16.05,
+      "ez_pass_peak": 14.65,
+      "ez_pass_off_peak": 13.92,
+      "status": "OK"
+    },
+    {
+      "entry": "03",
+      "exit": "08",
+      "entry_name": "03: NJ 168, WOODBURY, SOUTH CAMDEN",
+      "exit_name": "08: NJ 33, HIGHTSTOWN, FREEHOLD",
+      "cash": 19.8,
+      "ez_pass_peak": 18.09,
+      "ez_pass_off_peak": 17.19,
+      "status": "OK"
+    },
+    {
+      "entry": "03",
+      "exit": "08A",
+      "entry_name": "03: NJ 168, WOODBURY, SOUTH CAMDEN",
+      "exit_name": "08A: CRANBURY, JAMESBURG",
+      "cash": 23.1,
+      "ez_pass_peak": 21.24,
+      "ez_pass_off_peak": 20.18,
+      "status": "OK"
+    },
+    {
+      "entry": "03",
+      "exit": "09",
+      "entry_name": "03: NJ 168, WOODBURY, SOUTH CAMDEN",
+      "exit_name": "09: NJ 18, NEW BRUNSWICK",
+      "cash": 25.65,
+      "ez_pass_peak": 23.44,
+      "ez_pass_off_peak": 22.27,
+      "status": "OK"
+    },
+    {
+      "entry": "03",
+      "exit": "10",
+      "entry_name": "03: NJ 168, WOODBURY, SOUTH CAMDEN",
+      "exit_name": "10: I-287, METUCHEN, PERTH AMBOY",
+      "cash": 28.85,
+      "ez_pass_peak": 26.36,
+      "ez_pass_off_peak": 25.04,
+      "status": "OK"
+    },
+    {
+      "entry": "03",
+      "exit": "11",
+      "entry_name": "03: NJ 168, WOODBURY, SOUTH CAMDEN",
+      "exit_name": "11: GARDEN STATE PARKWAY",
+      "cash": 33.25,
+      "ez_pass_peak": 30.35,
+      "ez_pass_off_peak": 28.83,
+      "status": "OK"
+    },
+    {
+      "entry": "03",
+      "exit": "12",
+      "entry_name": "03: NJ 168, WOODBURY, SOUTH CAMDEN",
+      "exit_name": "12: CARTERET, RAHWAY",
+      "cash": 38.3,
+      "ez_pass_peak": 34.9,
+      "ez_pass_off_peak": 33.16,
+      "status": "OK"
+    },
+    {
+      "entry": "03",
+      "exit": "13",
+      "entry_name": "03: NJ 168, WOODBURY, SOUTH CAMDEN",
+      "exit_name": "13: I-278, ELIZABETH, STATEN ISLAND",
+      "cash": 41.9,
+      "ez_pass_peak": 38.23,
+      "ez_pass_off_peak": 36.32,
+      "status": "OK"
+    },
+    {
+      "entry": "03",
+      "exit": "13A",
+      "entry_name": "03: NJ 168, WOODBURY, SOUTH CAMDEN",
+      "exit_name": "13A: NEWARK AIRPORT, ELIZABETH SEAPORT",
+      "cash": 41.9,
+      "ez_pass_peak": 38.23,
+      "ez_pass_off_peak": 36.32,
+      "status": "OK"
+    },
+    {
+      "entry": "03",
+      "exit": "14",
+      "entry_name": "03: NJ 168, WOODBURY, SOUTH CAMDEN",
+      "exit_name": "14: NEWARK AIRPORT, I-78, US 1 AND 9",
+      "cash": 50.25,
+      "ez_pass_peak": 45.94,
+      "ez_pass_off_peak": 43.65,
+      "status": "OK"
+    },
+    {
+      "entry": "03",
+      "exit": "14A",
+      "entry_name": "03: NJ 168, WOODBURY, SOUTH CAMDEN",
+      "exit_name": "14A: HUDSON CITY EXT, BAYONNE",
+      "cash": 61.25,
+      "ez_pass_peak": 55.73,
+      "ez_pass_off_peak": 52.94,
+      "status": "OK"
+    },
+    {
+      "entry": "03",
+      "exit": "14B",
+      "entry_name": "03: NJ 168, WOODBURY, SOUTH CAMDEN",
+      "exit_name": "14B: JERSEY CITY, LIBERTY ST. PARK",
+      "cash": 63.2,
+      "ez_pass_peak": 57.71,
+      "ez_pass_off_peak": 54.82,
+      "status": "OK"
+    },
+    {
+      "entry": "03",
+      "exit": "14C",
+      "entry_name": "03: NJ 168, WOODBURY, SOUTH CAMDEN",
+      "exit_name": "14C: HOLLAND TUNNEL",
+      "cash": 65.55,
+      "ez_pass_peak": 59.72,
+      "ez_pass_off_peak": 56.74,
+      "status": "OK"
+    },
+    {
+      "entry": "03",
+      "exit": "15E",
+      "entry_name": "03: NJ 168, WOODBURY, SOUTH CAMDEN",
+      "exit_name": "15E: US 1 AND 9, NEWARK, JERSEY CITY",
+      "cash": 55,
+      "ez_pass_peak": 50.16,
+      "ez_pass_off_peak": 47.65,
+      "status": "OK"
+    },
+    {
+      "entry": "03",
+      "exit": "15W",
+      "entry_name": "03: NJ 168, WOODBURY, SOUTH CAMDEN",
+      "exit_name": "15W: I-280, NEWARK, HARRISON",
+      "cash": 58.25,
+      "ez_pass_peak": 53.2,
+      "ez_pass_off_peak": 50.54,
+      "status": "OK"
+    },
+    {
+      "entry": "03",
+      "exit": "15X",
+      "entry_name": "03: NJ 168, WOODBURY, SOUTH CAMDEN",
+      "exit_name": "15X: SECAUCUS TRANSFER STATION, SECAUCUS",
+      "cash": 60.9,
+      "ez_pass_peak": 55.68,
+      "ez_pass_off_peak": 52.89,
+      "status": "OK"
+    },
+    {
+      "entry": "03",
+      "exit": "16E",
+      "entry_name": "03: NJ 168, WOODBURY, SOUTH CAMDEN",
+      "exit_name": "16E: NJ 3, LINCOLN TUNNEL, SECAUCUS",
+      "cash": 63.2,
+      "ez_pass_peak": 57.71,
+      "ez_pass_off_peak": 54.82,
+      "status": "OK"
+    },
+    {
+      "entry": "03",
+      "exit": "16W",
+      "entry_name": "03: NJ 168, WOODBURY, SOUTH CAMDEN",
+      "exit_name": "16W: NJ 3, SPORTSPLEX, EAST RUTHERFORD",
+      "cash": 63.2,
+      "ez_pass_peak": 57.71,
+      "ez_pass_off_peak": 54.82,
+      "status": "OK"
+    },
+    {
+      "entry": "03",
+      "exit": "18E",
+      "entry_name": "03: NJ 168, WOODBURY, SOUTH CAMDEN",
+      "exit_name": "18E: GWB, US 46, I-80, RIDGEFIELD PARK",
+      "cash": 70.95,
+      "ez_pass_peak": 64.68,
+      "ez_pass_off_peak": 61.45,
+      "status": "OK"
+    },
+    {
+      "entry": "03",
+      "exit": "18W",
+      "entry_name": "03: NJ 168, WOODBURY, SOUTH CAMDEN",
+      "exit_name": "18W: GWB, US 46, I-80, RIDGEFIELD PARK",
+      "cash": 70.95,
+      "ez_pass_peak": 64.68,
+      "ez_pass_off_peak": 61.45,
+      "status": "OK"
+    },
+    {
+      "entry": "04",
+      "exit": "01",
+      "entry_name": "04: NJ 73, CAMDEN, PHILADELPHIA",
+      "exit_name": "01: DELAWARE MEMORIAL BRIDGE",
+      "cash": 16.4,
+      "ez_pass_peak": 14.88,
+      "ez_pass_off_peak": 14.13,
+      "status": "OK"
+    },
+    {
+      "entry": "04",
+      "exit": "02",
+      "entry_name": "04: NJ 73, CAMDEN, PHILADELPHIA",
+      "exit_name": "02: US 322, SWEDESBORO, CHESTER",
+      "cash": 10.65,
+      "ez_pass_peak": 9.53,
+      "ez_pass_off_peak": 9.06,
+      "status": "OK"
+    },
+    {
+      "entry": "04",
+      "exit": "03",
+      "entry_name": "04: NJ 73, CAMDEN, PHILADELPHIA",
+      "exit_name": "03: NJ 168, WOODBURY, SOUTH CAMDEN",
+      "cash": 4.35,
+      "ez_pass_peak": 4.01,
+      "ez_pass_off_peak": 3.81,
+      "status": "OK"
+    },
+    {
+      "entry": "04",
+      "exit": "05",
+      "entry_name": "04: NJ 73, CAMDEN, PHILADELPHIA",
+      "exit_name": "05: BURLINGTON, MT. HOLLY",
+      "cash": 4.35,
+      "ez_pass_peak": 4.01,
+      "ez_pass_off_peak": 3.81,
+      "status": "OK"
+    },
+    {
+      "entry": "04",
+      "exit": "06",
+      "entry_name": "04: NJ 73, CAMDEN, PHILADELPHIA",
+      "exit_name": "06: PENNSYLVANIA TURNPIKE",
+      "cash": 16.4,
+      "ez_pass_peak": 14.88,
+      "ez_pass_off_peak": 14.13,
+      "status": "OK"
+    },
+    {
+      "entry": "04",
+      "exit": "07",
+      "entry_name": "04: NJ 73, CAMDEN, PHILADELPHIA",
+      "exit_name": "07: US 206, BORDENTOWN, TRENTON",
+      "cash": 9.45,
+      "ez_pass_peak": 8.57,
+      "ez_pass_off_peak": 8.15,
+      "status": "OK"
+    },
+    {
+      "entry": "04",
+      "exit": "07A",
+      "entry_name": "04: NJ 73, CAMDEN, PHILADELPHIA",
+      "exit_name": "07A: I-195, TRENTON, HAMILTON",
+      "cash": 11.15,
+      "ez_pass_peak": 9.87,
+      "ez_pass_off_peak": 9.38,
+      "status": "OK"
+    },
+    {
+      "entry": "04",
+      "exit": "08",
+      "entry_name": "04: NJ 73, CAMDEN, PHILADELPHIA",
+      "exit_name": "08: NJ 33, HIGHTSTOWN, FREEHOLD",
+      "cash": 15.2,
+      "ez_pass_peak": 13.87,
+      "ez_pass_off_peak": 13.18,
+      "status": "OK"
+    },
+    {
+      "entry": "04",
+      "exit": "08A",
+      "entry_name": "04: NJ 73, CAMDEN, PHILADELPHIA",
+      "exit_name": "08A: CRANBURY, JAMESBURG",
+      "cash": 18.45,
+      "ez_pass_peak": 16.85,
+      "ez_pass_off_peak": 16,
+      "status": "OK"
+    },
+    {
+      "entry": "04",
+      "exit": "09",
+      "entry_name": "04: NJ 73, CAMDEN, PHILADELPHIA",
+      "exit_name": "09: NJ 18, NEW BRUNSWICK",
+      "cash": 20.55,
+      "ez_pass_peak": 18.76,
+      "ez_pass_off_peak": 17.82,
+      "status": "OK"
+    },
+    {
+      "entry": "04",
+      "exit": "10",
+      "entry_name": "04: NJ 73, CAMDEN, PHILADELPHIA",
+      "exit_name": "10: I-287, METUCHEN, PERTH AMBOY",
+      "cash": 23.95,
+      "ez_pass_peak": 21.85,
+      "ez_pass_off_peak": 20.76,
+      "status": "OK"
+    },
+    {
+      "entry": "04",
+      "exit": "11",
+      "entry_name": "04: NJ 73, CAMDEN, PHILADELPHIA",
+      "exit_name": "11: GARDEN STATE PARKWAY",
+      "cash": 28.85,
+      "ez_pass_peak": 26.36,
+      "ez_pass_off_peak": 25.04,
+      "status": "OK"
+    },
+    {
+      "entry": "04",
+      "exit": "12",
+      "entry_name": "04: NJ 73, CAMDEN, PHILADELPHIA",
+      "exit_name": "12: CARTERET, RAHWAY",
+      "cash": 33.25,
+      "ez_pass_peak": 30.35,
+      "ez_pass_off_peak": 28.83,
+      "status": "OK"
+    },
+    {
+      "entry": "04",
+      "exit": "13",
+      "entry_name": "04: NJ 73, CAMDEN, PHILADELPHIA",
+      "exit_name": "13: I-278, ELIZABETH, STATEN ISLAND",
+      "cash": 38.3,
+      "ez_pass_peak": 34.9,
+      "ez_pass_off_peak": 33.16,
+      "status": "OK"
+    },
+    {
+      "entry": "04",
+      "exit": "13A",
+      "entry_name": "04: NJ 73, CAMDEN, PHILADELPHIA",
+      "exit_name": "13A: NEWARK AIRPORT, ELIZABETH SEAPORT",
+      "cash": 38.3,
+      "ez_pass_peak": 34.9,
+      "ez_pass_off_peak": 33.16,
+      "status": "OK"
+    },
+    {
+      "entry": "04",
+      "exit": "14",
+      "entry_name": "04: NJ 73, CAMDEN, PHILADELPHIA",
+      "exit_name": "14: NEWARK AIRPORT, I-78, US 1 AND 9",
+      "cash": 45.65,
+      "ez_pass_peak": 41.72,
+      "ez_pass_off_peak": 39.63,
+      "status": "OK"
+    },
+    {
+      "entry": "04",
+      "exit": "14A",
+      "entry_name": "04: NJ 73, CAMDEN, PHILADELPHIA",
+      "exit_name": "14A: HUDSON CITY EXT, BAYONNE",
+      "cash": 56.15,
+      "ez_pass_peak": 51.23,
+      "ez_pass_off_peak": 48.67,
+      "status": "OK"
+    },
+    {
+      "entry": "04",
+      "exit": "14B",
+      "entry_name": "04: NJ 73, CAMDEN, PHILADELPHIA",
+      "exit_name": "14B: JERSEY CITY, LIBERTY ST. PARK",
+      "cash": 58.7,
+      "ez_pass_peak": 53.43,
+      "ez_pass_off_peak": 50.76,
+      "status": "OK"
+    },
+    {
+      "entry": "04",
+      "exit": "14C",
+      "entry_name": "04: NJ 73, CAMDEN, PHILADELPHIA",
+      "exit_name": "14C: HOLLAND TUNNEL",
+      "cash": 61.25,
+      "ez_pass_peak": 55.73,
+      "ez_pass_off_peak": 52.94,
+      "status": "OK"
+    },
+    {
+      "entry": "04",
+      "exit": "15E",
+      "entry_name": "04: NJ 73, CAMDEN, PHILADELPHIA",
+      "exit_name": "15E: US 1 AND 9, NEWARK, JERSEY CITY",
+      "cash": 50.25,
+      "ez_pass_peak": 45.94,
+      "ez_pass_off_peak": 43.65,
+      "status": "OK"
+    },
+    {
+      "entry": "04",
+      "exit": "15W",
+      "entry_name": "04: NJ 73, CAMDEN, PHILADELPHIA",
+      "exit_name": "15W: I-280, NEWARK, HARRISON",
+      "cash": 53.35,
+      "ez_pass_peak": 48.49,
+      "ez_pass_off_peak": 46.06,
+      "status": "OK"
+    },
+    {
+      "entry": "04",
+      "exit": "15X",
+      "entry_name": "04: NJ 73, CAMDEN, PHILADELPHIA",
+      "exit_name": "15X: SECAUCUS TRANSFER STATION, SECAUCUS",
+      "cash": 56.2,
+      "ez_pass_peak": 51.28,
+      "ez_pass_off_peak": 48.71,
+      "status": "OK"
+    },
+    {
+      "entry": "04",
+      "exit": "16E",
+      "entry_name": "04: NJ 73, CAMDEN, PHILADELPHIA",
+      "exit_name": "16E: NJ 3, LINCOLN TUNNEL, SECAUCUS",
+      "cash": 58.7,
+      "ez_pass_peak": 53.43,
+      "ez_pass_off_peak": 50.76,
+      "status": "OK"
+    },
+    {
+      "entry": "04",
+      "exit": "16W",
+      "entry_name": "04: NJ 73, CAMDEN, PHILADELPHIA",
+      "exit_name": "16W: NJ 3, SPORTSPLEX, EAST RUTHERFORD",
+      "cash": 58.7,
+      "ez_pass_peak": 53.43,
+      "ez_pass_off_peak": 50.76,
+      "status": "OK"
+    },
+    {
+      "entry": "04",
+      "exit": "18E",
+      "entry_name": "04: NJ 73, CAMDEN, PHILADELPHIA",
+      "exit_name": "18E: GWB, US 46, I-80, RIDGEFIELD PARK",
+      "cash": 65.85,
+      "ez_pass_peak": 59.95,
+      "ez_pass_off_peak": 56.95,
+      "status": "OK"
+    },
+    {
+      "entry": "04",
+      "exit": "18W",
+      "entry_name": "04: NJ 73, CAMDEN, PHILADELPHIA",
+      "exit_name": "18W: GWB, US 46, I-80, RIDGEFIELD PARK",
+      "cash": 65.85,
+      "ez_pass_peak": 59.95,
+      "ez_pass_off_peak": 56.95,
+      "status": "OK"
+    },
+    {
+      "entry": "05",
+      "exit": "01",
+      "entry_name": "05: BURLINGTON, MT. HOLLY",
+      "exit_name": "01: DELAWARE MEMORIAL BRIDGE",
+      "cash": 20.55,
+      "ez_pass_peak": 18.76,
+      "ez_pass_off_peak": 17.82,
+      "status": "OK"
+    },
+    {
+      "entry": "05",
+      "exit": "02",
+      "entry_name": "05: BURLINGTON, MT. HOLLY",
+      "exit_name": "02: US 322, SWEDESBORO, CHESTER",
+      "cash": 15.2,
+      "ez_pass_peak": 13.87,
+      "ez_pass_off_peak": 13.18,
+      "status": "OK"
+    },
+    {
+      "entry": "05",
+      "exit": "03",
+      "entry_name": "05: BURLINGTON, MT. HOLLY",
+      "exit_name": "03: NJ 168, WOODBURY, SOUTH CAMDEN",
+      "cash": 9.45,
+      "ez_pass_peak": 8.57,
+      "ez_pass_off_peak": 8.15,
+      "status": "OK"
+    },
+    {
+      "entry": "05",
+      "exit": "04",
+      "entry_name": "05: BURLINGTON, MT. HOLLY",
+      "exit_name": "04: NJ 73, CAMDEN, PHILADELPHIA",
+      "cash": 4.35,
+      "ez_pass_peak": 4.01,
+      "ez_pass_off_peak": 3.81,
+      "status": "OK"
+    },
+    {
+      "entry": "05",
+      "exit": "06",
+      "entry_name": "05: BURLINGTON, MT. HOLLY",
+      "exit_name": "06: PENNSYLVANIA TURNPIKE",
+      "cash": 12.4,
+      "ez_pass_peak": 11.11,
+      "ez_pass_off_peak": 10.55,
+      "status": "OK"
+    },
+    {
+      "entry": "05",
+      "exit": "07",
+      "entry_name": "05: BURLINGTON, MT. HOLLY",
+      "exit_name": "07: US 206, BORDENTOWN, TRENTON",
+      "cash": 4.35,
+      "ez_pass_peak": 4.01,
+      "ez_pass_off_peak": 3.81,
+      "status": "OK"
+    },
+    {
+      "entry": "05",
+      "exit": "07A",
+      "entry_name": "05: BURLINGTON, MT. HOLLY",
+      "exit_name": "07A: I-195, TRENTON, HAMILTON",
+      "cash": 6.7,
+      "ez_pass_peak": 6.22,
+      "ez_pass_off_peak": 5.91,
+      "status": "OK"
+    },
+    {
+      "entry": "05",
+      "exit": "08",
+      "entry_name": "05: BURLINGTON, MT. HOLLY",
+      "exit_name": "08: NJ 33, HIGHTSTOWN, FREEHOLD",
+      "cash": 10.65,
+      "ez_pass_peak": 9.53,
+      "ez_pass_off_peak": 9.06,
+      "status": "OK"
+    },
+    {
+      "entry": "05",
+      "exit": "08A",
+      "entry_name": "05: BURLINGTON, MT. HOLLY",
+      "exit_name": "08A: CRANBURY, JAMESBURG",
+      "cash": 13.35,
+      "ez_pass_peak": 12.33,
+      "ez_pass_off_peak": 11.72,
+      "status": "OK"
+    },
+    {
+      "entry": "05",
+      "exit": "09",
+      "entry_name": "05: BURLINGTON, MT. HOLLY",
+      "exit_name": "09: NJ 18, NEW BRUNSWICK",
+      "cash": 16.4,
+      "ez_pass_peak": 14.88,
+      "ez_pass_off_peak": 14.13,
+      "status": "OK"
+    },
+    {
+      "entry": "05",
+      "exit": "10",
+      "entry_name": "05: BURLINGTON, MT. HOLLY",
+      "exit_name": "10: I-287, METUCHEN, PERTH AMBOY",
+      "cash": 19.8,
+      "ez_pass_peak": 18.09,
+      "ez_pass_off_peak": 17.19,
+      "status": "OK"
+    },
+    {
+      "entry": "05",
+      "exit": "11",
+      "entry_name": "05: BURLINGTON, MT. HOLLY",
+      "exit_name": "11: GARDEN STATE PARKWAY",
+      "cash": 23.95,
+      "ez_pass_peak": 21.85,
+      "ez_pass_off_peak": 20.76,
+      "status": "OK"
+    },
+    {
+      "entry": "05",
+      "exit": "12",
+      "entry_name": "05: BURLINGTON, MT. HOLLY",
+      "exit_name": "12: CARTERET, RAHWAY",
+      "cash": 28.85,
+      "ez_pass_peak": 26.36,
+      "ez_pass_off_peak": 25.04,
+      "status": "OK"
+    },
+    {
+      "entry": "05",
+      "exit": "13",
+      "entry_name": "05: BURLINGTON, MT. HOLLY",
+      "exit_name": "13: I-278, ELIZABETH, STATEN ISLAND",
+      "cash": 33.25,
+      "ez_pass_peak": 30.35,
+      "ez_pass_off_peak": 28.83,
+      "status": "OK"
+    },
+    {
+      "entry": "05",
+      "exit": "13A",
+      "entry_name": "05: BURLINGTON, MT. HOLLY",
+      "exit_name": "13A: NEWARK AIRPORT, ELIZABETH SEAPORT",
+      "cash": 33.25,
+      "ez_pass_peak": 30.35,
+      "ez_pass_off_peak": 28.83,
+      "status": "OK"
+    },
+    {
+      "entry": "05",
+      "exit": "14",
+      "entry_name": "05: BURLINGTON, MT. HOLLY",
+      "exit_name": "14: NEWARK AIRPORT, I-78, US 1 AND 9",
+      "cash": 41.6,
+      "ez_pass_peak": 37.83,
+      "ez_pass_off_peak": 35.94,
+      "status": "OK"
+    },
+    {
+      "entry": "05",
+      "exit": "14A",
+      "entry_name": "05: BURLINGTON, MT. HOLLY",
+      "exit_name": "14A: HUDSON CITY EXT, BAYONNE",
+      "cash": 51.65,
+      "ez_pass_peak": 47.08,
+      "ez_pass_off_peak": 44.72,
+      "status": "OK"
+    },
+    {
+      "entry": "05",
+      "exit": "14B",
+      "entry_name": "05: BURLINGTON, MT. HOLLY",
+      "exit_name": "14B: JERSEY CITY, LIBERTY ST. PARK",
+      "cash": 54.5,
+      "ez_pass_peak": 49.71,
+      "ez_pass_off_peak": 47.23,
+      "status": "OK"
+    },
+    {
+      "entry": "05",
+      "exit": "14C",
+      "entry_name": "05: BURLINGTON, MT. HOLLY",
+      "exit_name": "14C: HOLLAND TUNNEL",
+      "cash": 56.15,
+      "ez_pass_peak": 51.23,
+      "ez_pass_off_peak": 48.67,
+      "status": "OK"
+    },
+    {
+      "entry": "05",
+      "exit": "15E",
+      "entry_name": "05: BURLINGTON, MT. HOLLY",
+      "exit_name": "15E: US 1 AND 9, NEWARK, JERSEY CITY",
+      "cash": 45.65,
+      "ez_pass_peak": 41.72,
+      "ez_pass_off_peak": 39.63,
+      "status": "OK"
+    },
+    {
+      "entry": "05",
+      "exit": "15W",
+      "entry_name": "05: BURLINGTON, MT. HOLLY",
+      "exit_name": "15W: I-280, NEWARK, HARRISON",
+      "cash": 48.95,
+      "ez_pass_peak": 44.71,
+      "ez_pass_off_peak": 42.47,
+      "status": "OK"
+    },
+    {
+      "entry": "05",
+      "exit": "15X",
+      "entry_name": "05: BURLINGTON, MT. HOLLY",
+      "exit_name": "15X: SECAUCUS TRANSFER STATION, SECAUCUS",
+      "cash": 52.05,
+      "ez_pass_peak": 47.47,
+      "ez_pass_off_peak": 45.09,
+      "status": "OK"
+    },
+    {
+      "entry": "05",
+      "exit": "16E",
+      "entry_name": "05: BURLINGTON, MT. HOLLY",
+      "exit_name": "16E: NJ 3, LINCOLN TUNNEL, SECAUCUS",
+      "cash": 54.5,
+      "ez_pass_peak": 49.71,
+      "ez_pass_off_peak": 47.23,
+      "status": "OK"
+    },
+    {
+      "entry": "05",
+      "exit": "16W",
+      "entry_name": "05: BURLINGTON, MT. HOLLY",
+      "exit_name": "16W: NJ 3, SPORTSPLEX, EAST RUTHERFORD",
+      "cash": 54.5,
+      "ez_pass_peak": 49.71,
+      "ez_pass_off_peak": 47.23,
+      "status": "OK"
+    },
+    {
+      "entry": "05",
+      "exit": "18E",
+      "entry_name": "05: BURLINGTON, MT. HOLLY",
+      "exit_name": "18E: GWB, US 46, I-80, RIDGEFIELD PARK",
+      "cash": 61.5,
+      "ez_pass_peak": 56.18,
+      "ez_pass_off_peak": 53.37,
+      "status": "OK"
+    },
+    {
+      "entry": "05",
+      "exit": "18W",
+      "entry_name": "05: BURLINGTON, MT. HOLLY",
+      "exit_name": "18W: GWB, US 46, I-80, RIDGEFIELD PARK",
+      "cash": 61.5,
+      "ez_pass_peak": 56.18,
+      "ez_pass_off_peak": 53.37,
+      "status": "OK"
+    },
+    {
+      "entry": "06",
+      "exit": "01",
+      "entry_name": "06: PENNSYLVANIA TURNPIKE",
+      "exit_name": "01: DELAWARE MEMORIAL BRIDGE",
+      "cash": 33.25,
+      "ez_pass_peak": 30.35,
+      "ez_pass_off_peak": 28.83,
+      "status": "OK"
+    },
+    {
+      "entry": "06",
+      "exit": "02",
+      "entry_name": "06: PENNSYLVANIA TURNPIKE",
+      "exit_name": "02: US 322, SWEDESBORO, CHESTER",
+      "cash": 27.05,
+      "ez_pass_peak": 24.51,
+      "ez_pass_off_peak": 23.28,
+      "status": "OK"
+    },
+    {
+      "entry": "06",
+      "exit": "03",
+      "entry_name": "06: PENNSYLVANIA TURNPIKE",
+      "exit_name": "03: NJ 168, WOODBURY, SOUTH CAMDEN",
+      "cash": 20.55,
+      "ez_pass_peak": 18.76,
+      "ez_pass_off_peak": 17.82,
+      "status": "OK"
+    },
+    {
+      "entry": "06",
+      "exit": "04",
+      "entry_name": "06: PENNSYLVANIA TURNPIKE",
+      "exit_name": "04: NJ 73, CAMDEN, PHILADELPHIA",
+      "cash": 16.4,
+      "ez_pass_peak": 14.88,
+      "ez_pass_off_peak": 14.13,
+      "status": "OK"
+    },
+    {
+      "entry": "06",
+      "exit": "05",
+      "entry_name": "06: PENNSYLVANIA TURNPIKE",
+      "exit_name": "05: BURLINGTON, MT. HOLLY",
+      "cash": 12.4,
+      "ez_pass_peak": 11.11,
+      "ez_pass_off_peak": 10.55,
+      "status": "OK"
+    },
+    {
+      "entry": "06",
+      "exit": "07",
+      "entry_name": "06: PENNSYLVANIA TURNPIKE",
+      "exit_name": "07: US 206, BORDENTOWN, TRENTON",
+      "cash": 9.85,
+      "ez_pass_peak": 8.91,
+      "ez_pass_off_peak": 8.47,
+      "status": "OK"
+    },
+    {
+      "entry": "06",
+      "exit": "07A",
+      "entry_name": "06: PENNSYLVANIA TURNPIKE",
+      "exit_name": "07A: I-195, TRENTON, HAMILTON",
+      "cash": 12.4,
+      "ez_pass_peak": 11.11,
+      "ez_pass_off_peak": 10.55,
+      "status": "OK"
+    },
+    {
+      "entry": "06",
+      "exit": "08",
+      "entry_name": "06: PENNSYLVANIA TURNPIKE",
+      "exit_name": "08: NJ 33, HIGHTSTOWN, FREEHOLD",
+      "cash": 16.05,
+      "ez_pass_peak": 14.65,
+      "ez_pass_off_peak": 13.92,
+      "status": "OK"
+    },
+    {
+      "entry": "06",
+      "exit": "08A",
+      "entry_name": "06: PENNSYLVANIA TURNPIKE",
+      "exit_name": "08A: CRANBURY, JAMESBURG",
+      "cash": 19,
+      "ez_pass_peak": 17.24,
+      "ez_pass_off_peak": 16.38,
+      "status": "OK"
+    },
+    {
+      "entry": "06",
+      "exit": "09",
+      "entry_name": "06: PENNSYLVANIA TURNPIKE",
+      "exit_name": "09: NJ 18, NEW BRUNSWICK",
+      "cash": 21.9,
+      "ez_pass_peak": 19.83,
+      "ez_pass_off_peak": 18.84,
+      "status": "OK"
+    },
+    {
+      "entry": "06",
+      "exit": "10",
+      "entry_name": "06: PENNSYLVANIA TURNPIKE",
+      "exit_name": "10: I-287, METUCHEN, PERTH AMBOY",
+      "cash": 25.35,
+      "ez_pass_peak": 22.98,
+      "ez_pass_off_peak": 21.84,
+      "status": "OK"
+    },
+    {
+      "entry": "06",
+      "exit": "11",
+      "entry_name": "06: PENNSYLVANIA TURNPIKE",
+      "exit_name": "11: GARDEN STATE PARKWAY",
+      "cash": 29.5,
+      "ez_pass_peak": 26.75,
+      "ez_pass_off_peak": 25.42,
+      "status": "OK"
+    },
+    {
+      "entry": "06",
+      "exit": "12",
+      "entry_name": "06: PENNSYLVANIA TURNPIKE",
+      "exit_name": "12: CARTERET, RAHWAY",
+      "cash": 34.1,
+      "ez_pass_peak": 31.03,
+      "ez_pass_off_peak": 29.48,
+      "status": "OK"
+    },
+    {
+      "entry": "06",
+      "exit": "13",
+      "entry_name": "06: PENNSYLVANIA TURNPIKE",
+      "exit_name": "13: I-278, ELIZABETH, STATEN ISLAND",
+      "cash": 38.6,
+      "ez_pass_peak": 35.3,
+      "ez_pass_off_peak": 33.54,
+      "status": "OK"
+    },
+    {
+      "entry": "06",
+      "exit": "13A",
+      "entry_name": "06: PENNSYLVANIA TURNPIKE",
+      "exit_name": "13A: NEWARK AIRPORT, ELIZABETH SEAPORT",
+      "cash": 38.6,
+      "ez_pass_peak": 35.3,
+      "ez_pass_off_peak": 33.54,
+      "status": "OK"
+    },
+    {
+      "entry": "06",
+      "exit": "14",
+      "entry_name": "06: PENNSYLVANIA TURNPIKE",
+      "exit_name": "14: NEWARK AIRPORT, I-78, US 1 AND 9",
+      "cash": 46.1,
+      "ez_pass_peak": 42.17,
+      "ez_pass_off_peak": 40.06,
+      "status": "OK"
+    },
+    {
+      "entry": "06",
+      "exit": "14A",
+      "entry_name": "06: PENNSYLVANIA TURNPIKE",
+      "exit_name": "14A: HUDSON CITY EXT, BAYONNE",
+      "cash": 56.75,
+      "ez_pass_peak": 51.68,
+      "ez_pass_off_peak": 49.1,
+      "status": "OK"
+    },
+    {
+      "entry": "06",
+      "exit": "14B",
+      "entry_name": "06: PENNSYLVANIA TURNPIKE",
+      "exit_name": "14B: JERSEY CITY, LIBERTY ST. PARK",
+      "cash": 59.55,
+      "ez_pass_peak": 54.44,
+      "ez_pass_off_peak": 51.72,
+      "status": "OK"
+    },
+    {
+      "entry": "06",
+      "exit": "14C",
+      "entry_name": "06: PENNSYLVANIA TURNPIKE",
+      "exit_name": "14C: HOLLAND TUNNEL",
+      "cash": 61.5,
+      "ez_pass_peak": 56.18,
+      "ez_pass_off_peak": 53.37,
+      "status": "OK"
+    },
+    {
+      "entry": "06",
+      "exit": "15E",
+      "entry_name": "06: PENNSYLVANIA TURNPIKE",
+      "exit_name": "15E: US 1 AND 9, NEWARK, JERSEY CITY",
+      "cash": 51.35,
+      "ez_pass_peak": 46.74,
+      "ez_pass_off_peak": 44.4,
+      "status": "OK"
+    },
+    {
+      "entry": "06",
+      "exit": "15W",
+      "entry_name": "06: PENNSYLVANIA TURNPIKE",
+      "exit_name": "15W: I-280, NEWARK, HARRISON",
+      "cash": 54.5,
+      "ez_pass_peak": 49.71,
+      "ez_pass_off_peak": 47.23,
+      "status": "OK"
+    },
+    {
+      "entry": "06",
+      "exit": "15X",
+      "entry_name": "06: PENNSYLVANIA TURNPIKE",
+      "exit_name": "15X: SECAUCUS TRANSFER STATION, SECAUCUS",
+      "cash": 57.35,
+      "ez_pass_peak": 52.36,
+      "ez_pass_off_peak": 49.74,
+      "status": "OK"
+    },
+    {
+      "entry": "06",
+      "exit": "16E",
+      "entry_name": "06: PENNSYLVANIA TURNPIKE",
+      "exit_name": "16E: NJ 3, LINCOLN TUNNEL, SECAUCUS",
+      "cash": 59.55,
+      "ez_pass_peak": 54.44,
+      "ez_pass_off_peak": 51.72,
+      "status": "OK"
+    },
+    {
+      "entry": "06",
+      "exit": "16W",
+      "entry_name": "06: PENNSYLVANIA TURNPIKE",
+      "exit_name": "16W: NJ 3, SPORTSPLEX, EAST RUTHERFORD",
+      "cash": 59.55,
+      "ez_pass_peak": 54.44,
+      "ez_pass_off_peak": 51.72,
+      "status": "OK"
+    },
+    {
+      "entry": "06",
+      "exit": "18E",
+      "entry_name": "06: PENNSYLVANIA TURNPIKE",
+      "exit_name": "18E: GWB, US 46, I-80, RIDGEFIELD PARK",
+      "cash": 66.6,
+      "ez_pass_peak": 60.68,
+      "ez_pass_off_peak": 57.65,
+      "status": "OK"
+    },
+    {
+      "entry": "06",
+      "exit": "18W",
+      "entry_name": "06: PENNSYLVANIA TURNPIKE",
+      "exit_name": "18W: GWB, US 46, I-80, RIDGEFIELD PARK",
+      "cash": 66.6,
+      "ez_pass_peak": 60.68,
+      "ez_pass_off_peak": 57.65,
+      "status": "OK"
+    },
+    {
+      "entry": "07",
+      "exit": "01",
+      "entry_name": "07: US 206, BORDENTOWN, TRENTON",
+      "exit_name": "01: DELAWARE MEMORIAL BRIDGE",
+      "cash": 25.65,
+      "ez_pass_peak": 23.44,
+      "ez_pass_off_peak": 22.27,
+      "status": "OK"
+    },
+    {
+      "entry": "07",
+      "exit": "02",
+      "entry_name": "07: US 206, BORDENTOWN, TRENTON",
+      "exit_name": "02: US 322, SWEDESBORO, CHESTER",
+      "cash": 19.8,
+      "ez_pass_peak": 18.09,
+      "ez_pass_off_peak": 17.19,
+      "status": "OK"
+    },
+    {
+      "entry": "07",
+      "exit": "03",
+      "entry_name": "07: US 206, BORDENTOWN, TRENTON",
+      "exit_name": "03: NJ 168, WOODBURY, SOUTH CAMDEN",
+      "cash": 13.35,
+      "ez_pass_peak": 12.33,
+      "ez_pass_off_peak": 11.72,
+      "status": "OK"
+    },
+    {
+      "entry": "07",
+      "exit": "04",
+      "entry_name": "07: US 206, BORDENTOWN, TRENTON",
+      "exit_name": "04: NJ 73, CAMDEN, PHILADELPHIA",
+      "cash": 9.45,
+      "ez_pass_peak": 8.57,
+      "ez_pass_off_peak": 8.15,
+      "status": "OK"
+    },
+    {
+      "entry": "07",
+      "exit": "05",
+      "entry_name": "07: US 206, BORDENTOWN, TRENTON",
+      "exit_name": "05: BURLINGTON, MT. HOLLY",
+      "cash": 4.35,
+      "ez_pass_peak": 4.01,
+      "ez_pass_off_peak": 3.81,
+      "status": "OK"
+    },
+    {
+      "entry": "07",
+      "exit": "06",
+      "entry_name": "07: US 206, BORDENTOWN, TRENTON",
+      "exit_name": "06: PENNSYLVANIA TURNPIKE",
+      "cash": 9.85,
+      "ez_pass_peak": 8.91,
+      "ez_pass_off_peak": 8.47,
+      "status": "OK"
+    },
+    {
+      "entry": "07",
+      "exit": "07A",
+      "entry_name": "07: US 206, BORDENTOWN, TRENTON",
+      "exit_name": "07A: I-195, TRENTON, HAMILTON",
+      "cash": 4.35,
+      "ez_pass_peak": 4.01,
+      "ez_pass_off_peak": 3.81,
+      "status": "OK"
+    },
+    {
+      "entry": "07",
+      "exit": "08",
+      "entry_name": "07: US 206, BORDENTOWN, TRENTON",
+      "exit_name": "08: NJ 33, HIGHTSTOWN, FREEHOLD",
+      "cash": 5.95,
+      "ez_pass_peak": 5.31,
+      "ez_pass_off_peak": 5.04,
+      "status": "OK"
+    },
+    {
+      "entry": "07",
+      "exit": "08A",
+      "entry_name": "07: US 206, BORDENTOWN, TRENTON",
+      "exit_name": "08A: CRANBURY, JAMESBURG",
+      "cash": 9.45,
+      "ez_pass_peak": 8.57,
+      "ez_pass_off_peak": 8.15,
+      "status": "OK"
+    },
+    {
+      "entry": "07",
+      "exit": "09",
+      "entry_name": "07: US 206, BORDENTOWN, TRENTON",
+      "exit_name": "09: NJ 18, NEW BRUNSWICK",
+      "cash": 12.4,
+      "ez_pass_peak": 11.11,
+      "ez_pass_off_peak": 10.55,
+      "status": "OK"
+    },
+    {
+      "entry": "07",
+      "exit": "10",
+      "entry_name": "07: US 206, BORDENTOWN, TRENTON",
+      "exit_name": "10: I-287, METUCHEN, PERTH AMBOY",
+      "cash": 15.2,
+      "ez_pass_peak": 13.87,
+      "ez_pass_off_peak": 13.18,
+      "status": "OK"
+    },
+    {
+      "entry": "07",
+      "exit": "11",
+      "entry_name": "07: US 206, BORDENTOWN, TRENTON",
+      "exit_name": "11: GARDEN STATE PARKWAY",
+      "cash": 19.8,
+      "ez_pass_peak": 18.09,
+      "ez_pass_off_peak": 17.19,
+      "status": "OK"
+    },
+    {
+      "entry": "07",
+      "exit": "12",
+      "entry_name": "07: US 206, BORDENTOWN, TRENTON",
+      "exit_name": "12: CARTERET, RAHWAY",
+      "cash": 23.95,
+      "ez_pass_peak": 21.85,
+      "ez_pass_off_peak": 20.76,
+      "status": "OK"
+    },
+    {
+      "entry": "07",
+      "exit": "13",
+      "entry_name": "07: US 206, BORDENTOWN, TRENTON",
+      "exit_name": "13: I-278, ELIZABETH, STATEN ISLAND",
+      "cash": 28.85,
+      "ez_pass_peak": 26.36,
+      "ez_pass_off_peak": 25.04,
+      "status": "OK"
+    },
+    {
+      "entry": "07",
+      "exit": "13A",
+      "entry_name": "07: US 206, BORDENTOWN, TRENTON",
+      "exit_name": "13A: NEWARK AIRPORT, ELIZABETH SEAPORT",
+      "cash": 28.85,
+      "ez_pass_peak": 26.36,
+      "ez_pass_off_peak": 25.04,
+      "status": "OK"
+    },
+    {
+      "entry": "07",
+      "exit": "14",
+      "entry_name": "07: US 206, BORDENTOWN, TRENTON",
+      "exit_name": "14: NEWARK AIRPORT, I-78, US 1 AND 9",
+      "cash": 36.65,
+      "ez_pass_peak": 33.34,
+      "ez_pass_off_peak": 31.67,
+      "status": "OK"
+    },
+    {
+      "entry": "07",
+      "exit": "14A",
+      "entry_name": "07: US 206, BORDENTOWN, TRENTON",
+      "exit_name": "14A: HUDSON CITY EXT, BAYONNE",
+      "cash": 46.9,
+      "ez_pass_peak": 42.73,
+      "ez_pass_off_peak": 40.59,
+      "status": "OK"
+    },
+    {
+      "entry": "07",
+      "exit": "14B",
+      "entry_name": "07: US 206, BORDENTOWN, TRENTON",
+      "exit_name": "14B: JERSEY CITY, LIBERTY ST. PARK",
+      "cash": 49.65,
+      "ez_pass_peak": 45.1,
+      "ez_pass_off_peak": 42.84,
+      "status": "OK"
+    },
+    {
+      "entry": "07",
+      "exit": "14C",
+      "entry_name": "07: US 206, BORDENTOWN, TRENTON",
+      "exit_name": "14C: HOLLAND TUNNEL",
+      "cash": 51.65,
+      "ez_pass_peak": 47.08,
+      "ez_pass_off_peak": 44.72,
+      "status": "OK"
+    },
+    {
+      "entry": "07",
+      "exit": "15E",
+      "entry_name": "07: US 206, BORDENTOWN, TRENTON",
+      "exit_name": "15E: US 1 AND 9, NEWARK, JERSEY CITY",
+      "cash": 41.6,
+      "ez_pass_peak": 37.83,
+      "ez_pass_off_peak": 35.94,
+      "status": "OK"
+    },
+    {
+      "entry": "07",
+      "exit": "15W",
+      "entry_name": "07: US 206, BORDENTOWN, TRENTON",
+      "exit_name": "15W: I-280, NEWARK, HARRISON",
+      "cash": 44.8,
+      "ez_pass_peak": 40.88,
+      "ez_pass_off_peak": 38.83,
+      "status": "OK"
+    },
+    {
+      "entry": "07",
+      "exit": "15X",
+      "entry_name": "07: US 206, BORDENTOWN, TRENTON",
+      "exit_name": "15X: SECAUCUS TRANSFER STATION, SECAUCUS",
+      "cash": 47.3,
+      "ez_pass_peak": 43.12,
+      "ez_pass_off_peak": 40.97,
+      "status": "OK"
+    },
+    {
+      "entry": "07",
+      "exit": "16E",
+      "entry_name": "07: US 206, BORDENTOWN, TRENTON",
+      "exit_name": "16E: NJ 3, LINCOLN TUNNEL, SECAUCUS",
+      "cash": 49.65,
+      "ez_pass_peak": 45.1,
+      "ez_pass_off_peak": 42.84,
+      "status": "OK"
+    },
+    {
+      "entry": "07",
+      "exit": "16W",
+      "entry_name": "07: US 206, BORDENTOWN, TRENTON",
+      "exit_name": "16W: NJ 3, SPORTSPLEX, EAST RUTHERFORD",
+      "cash": 49.65,
+      "ez_pass_peak": 45.1,
+      "ez_pass_off_peak": 42.84,
+      "status": "OK"
+    },
+    {
+      "entry": "07",
+      "exit": "18E",
+      "entry_name": "07: US 206, BORDENTOWN, TRENTON",
+      "exit_name": "18E: GWB, US 46, I-80, RIDGEFIELD PARK",
+      "cash": 56.75,
+      "ez_pass_peak": 51.68,
+      "ez_pass_off_peak": 49.1,
+      "status": "OK"
+    },
+    {
+      "entry": "07",
+      "exit": "18W",
+      "entry_name": "07: US 206, BORDENTOWN, TRENTON",
+      "exit_name": "18W: GWB, US 46, I-80, RIDGEFIELD PARK",
+      "cash": 56.75,
+      "ez_pass_peak": 51.68,
+      "ez_pass_off_peak": 49.1,
+      "status": "OK"
+    },
+    {
+      "entry": "07A",
+      "exit": "01",
+      "entry_name": "07A: I-195, TRENTON, HAMILTON",
+      "exit_name": "01: DELAWARE MEMORIAL BRIDGE",
+      "cash": 28.65,
+      "ez_pass_peak": 26.13,
+      "ez_pass_off_peak": 24.82,
+      "status": "OK"
+    },
+    {
+      "entry": "07A",
+      "exit": "02",
+      "entry_name": "07A: I-195, TRENTON, HAMILTON",
+      "exit_name": "02: US 322, SWEDESBORO, CHESTER",
+      "cash": 21.9,
+      "ez_pass_peak": 19.83,
+      "ez_pass_off_peak": 18.84,
+      "status": "OK"
+    },
+    {
+      "entry": "07A",
+      "exit": "03",
+      "entry_name": "07A: I-195, TRENTON, HAMILTON",
+      "exit_name": "03: NJ 168, WOODBURY, SOUTH CAMDEN",
+      "cash": 16.05,
+      "ez_pass_peak": 14.65,
+      "ez_pass_off_peak": 13.92,
+      "status": "OK"
+    },
+    {
+      "entry": "07A",
+      "exit": "04",
+      "entry_name": "07A: I-195, TRENTON, HAMILTON",
+      "exit_name": "04: NJ 73, CAMDEN, PHILADELPHIA",
+      "cash": 11.15,
+      "ez_pass_peak": 9.87,
+      "ez_pass_off_peak": 9.38,
+      "status": "OK"
+    },
+    {
+      "entry": "07A",
+      "exit": "05",
+      "entry_name": "07A: I-195, TRENTON, HAMILTON",
+      "exit_name": "05: BURLINGTON, MT. HOLLY",
+      "cash": 6.7,
+      "ez_pass_peak": 6.22,
+      "ez_pass_off_peak": 5.91,
+      "status": "OK"
+    },
+    {
+      "entry": "07A",
+      "exit": "06",
+      "entry_name": "07A: I-195, TRENTON, HAMILTON",
+      "exit_name": "06: PENNSYLVANIA TURNPIKE",
+      "cash": 12.4,
+      "ez_pass_peak": 11.11,
+      "ez_pass_off_peak": 10.55,
+      "status": "OK"
+    },
+    {
+      "entry": "07A",
+      "exit": "07",
+      "entry_name": "07A: I-195, TRENTON, HAMILTON",
+      "exit_name": "07: US 206, BORDENTOWN, TRENTON",
+      "cash": 4.35,
+      "ez_pass_peak": 4.01,
+      "ez_pass_off_peak": 3.81,
+      "status": "OK"
+    },
+    {
+      "entry": "07A",
+      "exit": "08",
+      "entry_name": "07A: I-195, TRENTON, HAMILTON",
+      "exit_name": "08: NJ 33, HIGHTSTOWN, FREEHOLD",
+      "cash": 3.95,
+      "ez_pass_peak": 3.39,
+      "ez_pass_off_peak": 3.22,
+      "status": "OK"
+    },
+    {
+      "entry": "07A",
+      "exit": "08A",
+      "entry_name": "07A: I-195, TRENTON, HAMILTON",
+      "exit_name": "08A: CRANBURY, JAMESBURG",
+      "cash": 7.6,
+      "ez_pass_peak": 6.89,
+      "ez_pass_off_peak": 6.54,
+      "status": "OK"
+    },
+    {
+      "entry": "07A",
+      "exit": "09",
+      "entry_name": "07A: I-195, TRENTON, HAMILTON",
+      "exit_name": "09: NJ 18, NEW BRUNSWICK",
+      "cash": 9.85,
+      "ez_pass_peak": 8.91,
+      "ez_pass_off_peak": 8.47,
+      "status": "OK"
+    },
+    {
+      "entry": "07A",
+      "exit": "10",
+      "entry_name": "07A: I-195, TRENTON, HAMILTON",
+      "exit_name": "10: I-287, METUCHEN, PERTH AMBOY",
+      "cash": 12.95,
+      "ez_pass_peak": 11.89,
+      "ez_pass_off_peak": 11.3,
+      "status": "OK"
+    },
+    {
+      "entry": "07A",
+      "exit": "11",
+      "entry_name": "07A: I-195, TRENTON, HAMILTON",
+      "exit_name": "11: GARDEN STATE PARKWAY",
+      "cash": 16.85,
+      "ez_pass_peak": 15.27,
+      "ez_pass_off_peak": 14.51,
+      "status": "OK"
+    },
+    {
+      "entry": "07A",
+      "exit": "12",
+      "entry_name": "07A: I-195, TRENTON, HAMILTON",
+      "exit_name": "12: CARTERET, RAHWAY",
+      "cash": 21.9,
+      "ez_pass_peak": 19.83,
+      "ez_pass_off_peak": 18.84,
+      "status": "OK"
+    },
+    {
+      "entry": "07A",
+      "exit": "13",
+      "entry_name": "07A: I-195, TRENTON, HAMILTON",
+      "exit_name": "13: I-278, ELIZABETH, STATEN ISLAND",
+      "cash": 26,
+      "ez_pass_peak": 23.83,
+      "ez_pass_off_peak": 22.64,
+      "status": "OK"
+    },
+    {
+      "entry": "07A",
+      "exit": "13A",
+      "entry_name": "07A: I-195, TRENTON, HAMILTON",
+      "exit_name": "13A: NEWARK AIRPORT, ELIZABETH SEAPORT",
+      "cash": 26,
+      "ez_pass_peak": 23.83,
+      "ez_pass_off_peak": 22.64,
+      "status": "OK"
+    },
+    {
+      "entry": "07A",
+      "exit": "14",
+      "entry_name": "07A: I-195, TRENTON, HAMILTON",
+      "exit_name": "14: NEWARK AIRPORT, I-78, US 1 AND 9",
+      "cash": 34.85,
+      "ez_pass_peak": 31.65,
+      "ez_pass_off_peak": 30.06,
+      "status": "OK"
+    },
+    {
+      "entry": "07A",
+      "exit": "14A",
+      "entry_name": "07A: I-195, TRENTON, HAMILTON",
+      "exit_name": "14A: HUDSON CITY EXT, BAYONNE",
+      "cash": 45.35,
+      "ez_pass_peak": 41.33,
+      "ez_pass_off_peak": 39.26,
+      "status": "OK"
+    },
+    {
+      "entry": "07A",
+      "exit": "14B",
+      "entry_name": "07A: I-195, TRENTON, HAMILTON",
+      "exit_name": "14B: JERSEY CITY, LIBERTY ST. PARK",
+      "cash": 46.9,
+      "ez_pass_peak": 42.73,
+      "ez_pass_off_peak": 40.59,
+      "status": "OK"
+    },
+    {
+      "entry": "07A",
+      "exit": "14C",
+      "entry_name": "07A: I-195, TRENTON, HAMILTON",
+      "exit_name": "14C: HOLLAND TUNNEL",
+      "cash": 49.65,
+      "ez_pass_peak": 45.1,
+      "ez_pass_off_peak": 42.84,
+      "status": "OK"
+    },
+    {
+      "entry": "07A",
+      "exit": "15E",
+      "entry_name": "07A: I-195, TRENTON, HAMILTON",
+      "exit_name": "15E: US 1 AND 9, NEWARK, JERSEY CITY",
+      "cash": 39.4,
+      "ez_pass_peak": 35.97,
+      "ez_pass_off_peak": 34.17,
+      "status": "OK"
+    },
+    {
+      "entry": "07A",
+      "exit": "15W",
+      "entry_name": "07A: I-195, TRENTON, HAMILTON",
+      "exit_name": "15W: I-280, NEWARK, HARRISON",
+      "cash": 41.9,
+      "ez_pass_peak": 38.23,
+      "ez_pass_off_peak": 36.32,
+      "status": "OK"
+    },
+    {
+      "entry": "07A",
+      "exit": "15X",
+      "entry_name": "07A: I-195, TRENTON, HAMILTON",
+      "exit_name": "15X: SECAUCUS TRANSFER STATION, SECAUCUS",
+      "cash": 44.8,
+      "ez_pass_peak": 40.88,
+      "ez_pass_off_peak": 38.83,
+      "status": "OK"
+    },
+    {
+      "entry": "07A",
+      "exit": "16E",
+      "entry_name": "07A: I-195, TRENTON, HAMILTON",
+      "exit_name": "16E: NJ 3, LINCOLN TUNNEL, SECAUCUS",
+      "cash": 46.9,
+      "ez_pass_peak": 42.73,
+      "ez_pass_off_peak": 40.59,
+      "status": "OK"
+    },
+    {
+      "entry": "07A",
+      "exit": "16W",
+      "entry_name": "07A: I-195, TRENTON, HAMILTON",
+      "exit_name": "16W: NJ 3, SPORTSPLEX, EAST RUTHERFORD",
+      "cash": 46.9,
+      "ez_pass_peak": 42.73,
+      "ez_pass_off_peak": 40.59,
+      "status": "OK"
+    },
+    {
+      "entry": "07A",
+      "exit": "18E",
+      "entry_name": "07A: I-195, TRENTON, HAMILTON",
+      "exit_name": "18E: GWB, US 46, I-80, RIDGEFIELD PARK",
+      "cash": 55,
+      "ez_pass_peak": 50.16,
+      "ez_pass_off_peak": 47.65,
+      "status": "OK"
+    },
+    {
+      "entry": "07A",
+      "exit": "18W",
+      "entry_name": "07A: I-195, TRENTON, HAMILTON",
+      "exit_name": "18W: GWB, US 46, I-80, RIDGEFIELD PARK",
+      "cash": 55,
+      "ez_pass_peak": 50.16,
+      "ez_pass_off_peak": 47.65,
+      "status": "OK"
+    },
+    {
+      "entry": "08",
+      "exit": "01",
+      "entry_name": "08: NJ 33, HIGHTSTOWN, FREEHOLD",
+      "exit_name": "01: DELAWARE MEMORIAL BRIDGE",
+      "cash": 31.6,
+      "ez_pass_peak": 28.72,
+      "ez_pass_off_peak": 27.29,
+      "status": "OK"
+    },
+    {
+      "entry": "08",
+      "exit": "02",
+      "entry_name": "08: NJ 33, HIGHTSTOWN, FREEHOLD",
+      "exit_name": "02: US 322, SWEDESBORO, CHESTER",
+      "cash": 25.65,
+      "ez_pass_peak": 23.44,
+      "ez_pass_off_peak": 22.27,
+      "status": "OK"
+    },
+    {
+      "entry": "08",
+      "exit": "03",
+      "entry_name": "08: NJ 33, HIGHTSTOWN, FREEHOLD",
+      "exit_name": "03: NJ 168, WOODBURY, SOUTH CAMDEN",
+      "cash": 19.8,
+      "ez_pass_peak": 18.09,
+      "ez_pass_off_peak": 17.19,
+      "status": "OK"
+    },
+    {
+      "entry": "08",
+      "exit": "04",
+      "entry_name": "08: NJ 33, HIGHTSTOWN, FREEHOLD",
+      "exit_name": "04: NJ 73, CAMDEN, PHILADELPHIA",
+      "cash": 15.2,
+      "ez_pass_peak": 13.87,
+      "ez_pass_off_peak": 13.18,
+      "status": "OK"
+    },
+    {
+      "entry": "08",
+      "exit": "05",
+      "entry_name": "08: NJ 33, HIGHTSTOWN, FREEHOLD",
+      "exit_name": "05: BURLINGTON, MT. HOLLY",
+      "cash": 10.65,
+      "ez_pass_peak": 9.53,
+      "ez_pass_off_peak": 9.06,
+      "status": "OK"
+    },
+    {
+      "entry": "08",
+      "exit": "06",
+      "entry_name": "08: NJ 33, HIGHTSTOWN, FREEHOLD",
+      "exit_name": "06: PENNSYLVANIA TURNPIKE",
+      "cash": 16.05,
+      "ez_pass_peak": 14.65,
+      "ez_pass_off_peak": 13.92,
+      "status": "OK"
+    },
+    {
+      "entry": "08",
+      "exit": "07",
+      "entry_name": "08: NJ 33, HIGHTSTOWN, FREEHOLD",
+      "exit_name": "07: US 206, BORDENTOWN, TRENTON",
+      "cash": 5.95,
+      "ez_pass_peak": 5.31,
+      "ez_pass_off_peak": 5.04,
+      "status": "OK"
+    },
+    {
+      "entry": "08",
+      "exit": "07A",
+      "entry_name": "08: NJ 33, HIGHTSTOWN, FREEHOLD",
+      "exit_name": "07A: I-195, TRENTON, HAMILTON",
+      "cash": 3.95,
+      "ez_pass_peak": 3.39,
+      "ez_pass_off_peak": 3.22,
+      "status": "OK"
+    },
+    {
+      "entry": "08",
+      "exit": "08A",
+      "entry_name": "08: NJ 33, HIGHTSTOWN, FREEHOLD",
+      "exit_name": "08A: CRANBURY, JAMESBURG",
+      "cash": 3.95,
+      "ez_pass_peak": 3.39,
+      "ez_pass_off_peak": 3.22,
+      "status": "OK"
+    },
+    {
+      "entry": "08",
+      "exit": "09",
+      "entry_name": "08: NJ 33, HIGHTSTOWN, FREEHOLD",
+      "exit_name": "09: NJ 18, NEW BRUNSWICK",
+      "cash": 5.95,
+      "ez_pass_peak": 5.31,
+      "ez_pass_off_peak": 5.04,
+      "status": "OK"
+    },
+    {
+      "entry": "08",
+      "exit": "10",
+      "entry_name": "08: NJ 33, HIGHTSTOWN, FREEHOLD",
+      "exit_name": "10: I-287, METUCHEN, PERTH AMBOY",
+      "cash": 9.45,
+      "ez_pass_peak": 8.57,
+      "ez_pass_off_peak": 8.15,
+      "status": "OK"
+    },
+    {
+      "entry": "08",
+      "exit": "11",
+      "entry_name": "08: NJ 33, HIGHTSTOWN, FREEHOLD",
+      "exit_name": "11: GARDEN STATE PARKWAY",
+      "cash": 13.35,
+      "ez_pass_peak": 12.33,
+      "ez_pass_off_peak": 11.72,
+      "status": "OK"
+    },
+    {
+      "entry": "08",
+      "exit": "12",
+      "entry_name": "08: NJ 33, HIGHTSTOWN, FREEHOLD",
+      "exit_name": "12: CARTERET, RAHWAY",
+      "cash": 18.45,
+      "ez_pass_peak": 16.85,
+      "ez_pass_off_peak": 16,
+      "status": "OK"
+    },
+    {
+      "entry": "08",
+      "exit": "13",
+      "entry_name": "08: NJ 33, HIGHTSTOWN, FREEHOLD",
+      "exit_name": "13: I-278, ELIZABETH, STATEN ISLAND",
+      "cash": 23.1,
+      "ez_pass_peak": 21.24,
+      "ez_pass_off_peak": 20.18,
+      "status": "OK"
+    },
+    {
+      "entry": "08",
+      "exit": "13A",
+      "entry_name": "08: NJ 33, HIGHTSTOWN, FREEHOLD",
+      "exit_name": "13A: NEWARK AIRPORT, ELIZABETH SEAPORT",
+      "cash": 23.1,
+      "ez_pass_peak": 21.24,
+      "ez_pass_off_peak": 20.18,
+      "status": "OK"
+    },
+    {
+      "entry": "08",
+      "exit": "14",
+      "entry_name": "08: NJ 33, HIGHTSTOWN, FREEHOLD",
+      "exit_name": "14: NEWARK AIRPORT, I-78, US 1 AND 9",
+      "cash": 30.55,
+      "ez_pass_peak": 28.04,
+      "ez_pass_off_peak": 26.64,
+      "status": "OK"
+    },
+    {
+      "entry": "08",
+      "exit": "14A",
+      "entry_name": "08: NJ 33, HIGHTSTOWN, FREEHOLD",
+      "exit_name": "14A: HUDSON CITY EXT, BAYONNE",
+      "cash": 41.6,
+      "ez_pass_peak": 37.83,
+      "ez_pass_off_peak": 35.94,
+      "status": "OK"
+    },
+    {
+      "entry": "08",
+      "exit": "14B",
+      "entry_name": "08: NJ 33, HIGHTSTOWN, FREEHOLD",
+      "exit_name": "14B: JERSEY CITY, LIBERTY ST. PARK",
+      "cash": 43.65,
+      "ez_pass_peak": 39.81,
+      "ez_pass_off_peak": 37.82,
+      "status": "OK"
+    },
+    {
+      "entry": "08",
+      "exit": "14C",
+      "entry_name": "08: NJ 33, HIGHTSTOWN, FREEHOLD",
+      "exit_name": "14C: HOLLAND TUNNEL",
+      "cash": 45.65,
+      "ez_pass_peak": 41.72,
+      "ez_pass_off_peak": 39.63,
+      "status": "OK"
+    },
+    {
+      "entry": "08",
+      "exit": "15E",
+      "entry_name": "08: NJ 33, HIGHTSTOWN, FREEHOLD",
+      "exit_name": "15E: US 1 AND 9, NEWARK, JERSEY CITY",
+      "cash": 35.35,
+      "ez_pass_peak": 31.99,
+      "ez_pass_off_peak": 30.39,
+      "status": "OK"
+    },
+    {
+      "entry": "08",
+      "exit": "15W",
+      "entry_name": "08: NJ 33, HIGHTSTOWN, FREEHOLD",
+      "exit_name": "15W: I-280, NEWARK, HARRISON",
+      "cash": 38.6,
+      "ez_pass_peak": 35.3,
+      "ez_pass_off_peak": 33.54,
+      "status": "OK"
+    },
+    {
+      "entry": "08",
+      "exit": "15X",
+      "entry_name": "08: NJ 33, HIGHTSTOWN, FREEHOLD",
+      "exit_name": "15X: SECAUCUS TRANSFER STATION, SECAUCUS",
+      "cash": 41.45,
+      "ez_pass_peak": 37.72,
+      "ez_pass_off_peak": 35.84,
+      "status": "OK"
+    },
+    {
+      "entry": "08",
+      "exit": "16E",
+      "entry_name": "08: NJ 33, HIGHTSTOWN, FREEHOLD",
+      "exit_name": "16E: NJ 3, LINCOLN TUNNEL, SECAUCUS",
+      "cash": 43.65,
+      "ez_pass_peak": 39.81,
+      "ez_pass_off_peak": 37.82,
+      "status": "OK"
+    },
+    {
+      "entry": "08",
+      "exit": "16W",
+      "entry_name": "08: NJ 33, HIGHTSTOWN, FREEHOLD",
+      "exit_name": "16W: NJ 3, SPORTSPLEX, EAST RUTHERFORD",
+      "cash": 43.65,
+      "ez_pass_peak": 39.81,
+      "ez_pass_off_peak": 37.82,
+      "status": "OK"
+    },
+    {
+      "entry": "08",
+      "exit": "18E",
+      "entry_name": "08: NJ 33, HIGHTSTOWN, FREEHOLD",
+      "exit_name": "18E: GWB, US 46, I-80, RIDGEFIELD PARK",
+      "cash": 51.35,
+      "ez_pass_peak": 46.74,
+      "ez_pass_off_peak": 44.4,
+      "status": "OK"
+    },
+    {
+      "entry": "08",
+      "exit": "18W",
+      "entry_name": "08: NJ 33, HIGHTSTOWN, FREEHOLD",
+      "exit_name": "18W: GWB, US 46, I-80, RIDGEFIELD PARK",
+      "cash": 51.35,
+      "ez_pass_peak": 46.74,
+      "ez_pass_off_peak": 44.4,
+      "status": "OK"
+    },
+    {
+      "entry": "08A",
+      "exit": "01",
+      "entry_name": "08A: CRANBURY, JAMESBURG",
+      "exit_name": "01: DELAWARE MEMORIAL BRIDGE",
+      "cash": 34.85,
+      "ez_pass_peak": 31.65,
+      "ez_pass_off_peak": 30.06,
+      "status": "OK"
+    },
+    {
+      "entry": "08A",
+      "exit": "02",
+      "entry_name": "08A: CRANBURY, JAMESBURG",
+      "exit_name": "02: US 322, SWEDESBORO, CHESTER",
+      "cash": 28.85,
+      "ez_pass_peak": 26.36,
+      "ez_pass_off_peak": 25.04,
+      "status": "OK"
+    },
+    {
+      "entry": "08A",
+      "exit": "03",
+      "entry_name": "08A: CRANBURY, JAMESBURG",
+      "exit_name": "03: NJ 168, WOODBURY, SOUTH CAMDEN",
+      "cash": 23.1,
+      "ez_pass_peak": 21.24,
+      "ez_pass_off_peak": 20.18,
+      "status": "OK"
+    },
+    {
+      "entry": "08A",
+      "exit": "04",
+      "entry_name": "08A: CRANBURY, JAMESBURG",
+      "exit_name": "04: NJ 73, CAMDEN, PHILADELPHIA",
+      "cash": 18.45,
+      "ez_pass_peak": 16.85,
+      "ez_pass_off_peak": 16,
+      "status": "OK"
+    },
+    {
+      "entry": "08A",
+      "exit": "05",
+      "entry_name": "08A: CRANBURY, JAMESBURG",
+      "exit_name": "05: BURLINGTON, MT. HOLLY",
+      "cash": 13.35,
+      "ez_pass_peak": 12.33,
+      "ez_pass_off_peak": 11.72,
+      "status": "OK"
+    },
+    {
+      "entry": "08A",
+      "exit": "06",
+      "entry_name": "08A: CRANBURY, JAMESBURG",
+      "exit_name": "06: PENNSYLVANIA TURNPIKE",
+      "cash": 19,
+      "ez_pass_peak": 17.24,
+      "ez_pass_off_peak": 16.38,
+      "status": "OK"
+    },
+    {
+      "entry": "08A",
+      "exit": "07",
+      "entry_name": "08A: CRANBURY, JAMESBURG",
+      "exit_name": "07: US 206, BORDENTOWN, TRENTON",
+      "cash": 9.45,
+      "ez_pass_peak": 8.57,
+      "ez_pass_off_peak": 8.15,
+      "status": "OK"
+    },
+    {
+      "entry": "08A",
+      "exit": "07A",
+      "entry_name": "08A: CRANBURY, JAMESBURG",
+      "exit_name": "07A: I-195, TRENTON, HAMILTON",
+      "cash": 7.6,
+      "ez_pass_peak": 6.89,
+      "ez_pass_off_peak": 6.54,
+      "status": "OK"
+    },
+    {
+      "entry": "08A",
+      "exit": "08",
+      "entry_name": "08A: CRANBURY, JAMESBURG",
+      "exit_name": "08: NJ 33, HIGHTSTOWN, FREEHOLD",
+      "cash": 3.95,
+      "ez_pass_peak": 3.39,
+      "ez_pass_off_peak": 3.22,
+      "status": "OK"
+    },
+    {
+      "entry": "08A",
+      "exit": "09",
+      "entry_name": "08A: CRANBURY, JAMESBURG",
+      "exit_name": "09: NJ 18, NEW BRUNSWICK",
+      "cash": 3.95,
+      "ez_pass_peak": 3.39,
+      "ez_pass_off_peak": 3.22,
+      "status": "OK"
+    },
+    {
+      "entry": "08A",
+      "exit": "10",
+      "entry_name": "08A: CRANBURY, JAMESBURG",
+      "exit_name": "10: I-287, METUCHEN, PERTH AMBOY",
+      "cash": 5.95,
+      "ez_pass_peak": 5.31,
+      "ez_pass_off_peak": 5.04,
+      "status": "OK"
+    },
+    {
+      "entry": "08A",
+      "exit": "11",
+      "entry_name": "08A: CRANBURY, JAMESBURG",
+      "exit_name": "11: GARDEN STATE PARKWAY",
+      "cash": 10.65,
+      "ez_pass_peak": 9.53,
+      "ez_pass_off_peak": 9.06,
+      "status": "OK"
+    },
+    {
+      "entry": "08A",
+      "exit": "12",
+      "entry_name": "08A: CRANBURY, JAMESBURG",
+      "exit_name": "12: CARTERET, RAHWAY",
+      "cash": 15.2,
+      "ez_pass_peak": 13.87,
+      "ez_pass_off_peak": 13.18,
+      "status": "OK"
+    },
+    {
+      "entry": "08A",
+      "exit": "13",
+      "entry_name": "08A: CRANBURY, JAMESBURG",
+      "exit_name": "13: I-278, ELIZABETH, STATEN ISLAND",
+      "cash": 19.8,
+      "ez_pass_peak": 18.09,
+      "ez_pass_off_peak": 17.19,
+      "status": "OK"
+    },
+    {
+      "entry": "08A",
+      "exit": "13A",
+      "entry_name": "08A: CRANBURY, JAMESBURG",
+      "exit_name": "13A: NEWARK AIRPORT, ELIZABETH SEAPORT",
+      "cash": 19.8,
+      "ez_pass_peak": 18.09,
+      "ez_pass_off_peak": 17.19,
+      "status": "OK"
+    },
+    {
+      "entry": "08A",
+      "exit": "14",
+      "entry_name": "08A: CRANBURY, JAMESBURG",
+      "exit_name": "14: NEWARK AIRPORT, I-78, US 1 AND 9",
+      "cash": 28.65,
+      "ez_pass_peak": 26.13,
+      "ez_pass_off_peak": 24.82,
+      "status": "OK"
+    },
+    {
+      "entry": "08A",
+      "exit": "14A",
+      "entry_name": "08A: CRANBURY, JAMESBURG",
+      "exit_name": "14A: HUDSON CITY EXT, BAYONNE",
+      "cash": 38.6,
+      "ez_pass_peak": 35.3,
+      "ez_pass_off_peak": 33.54,
+      "status": "OK"
+    },
+    {
+      "entry": "08A",
+      "exit": "14B",
+      "entry_name": "08A: CRANBURY, JAMESBURG",
+      "exit_name": "14B: JERSEY CITY, LIBERTY ST. PARK",
+      "cash": 40.3,
+      "ez_pass_peak": 36.76,
+      "ez_pass_off_peak": 34.92,
+      "status": "OK"
+    },
+    {
+      "entry": "08A",
+      "exit": "14C",
+      "entry_name": "08A: CRANBURY, JAMESBURG",
+      "exit_name": "14C: HOLLAND TUNNEL",
+      "cash": 43.2,
+      "ez_pass_peak": 39.35,
+      "ez_pass_off_peak": 37.38,
+      "status": "OK"
+    },
+    {
+      "entry": "08A",
+      "exit": "15E",
+      "entry_name": "08A: CRANBURY, JAMESBURG",
+      "exit_name": "15E: US 1 AND 9, NEWARK, JERSEY CITY",
+      "cash": 32.4,
+      "ez_pass_peak": 29.4,
+      "ez_pass_off_peak": 27.93,
+      "status": "OK"
+    },
+    {
+      "entry": "08A",
+      "exit": "15W",
+      "entry_name": "08A: CRANBURY, JAMESBURG",
+      "exit_name": "15W: I-280, NEWARK, HARRISON",
+      "cash": 35.35,
+      "ez_pass_peak": 31.99,
+      "ez_pass_off_peak": 30.39,
+      "status": "OK"
+    },
+    {
+      "entry": "08A",
+      "exit": "15X",
+      "entry_name": "08A: CRANBURY, JAMESBURG",
+      "exit_name": "15X: SECAUCUS TRANSFER STATION, SECAUCUS",
+      "cash": 38.15,
+      "ez_pass_peak": 34.51,
+      "ez_pass_off_peak": 32.78,
+      "status": "OK"
+    },
+    {
+      "entry": "08A",
+      "exit": "16E",
+      "entry_name": "08A: CRANBURY, JAMESBURG",
+      "exit_name": "16E: NJ 3, LINCOLN TUNNEL, SECAUCUS",
+      "cash": 40.3,
+      "ez_pass_peak": 36.76,
+      "ez_pass_off_peak": 34.92,
+      "status": "OK"
+    },
+    {
+      "entry": "08A",
+      "exit": "16W",
+      "entry_name": "08A: CRANBURY, JAMESBURG",
+      "exit_name": "16W: NJ 3, SPORTSPLEX, EAST RUTHERFORD",
+      "cash": 40.3,
+      "ez_pass_peak": 36.76,
+      "ez_pass_off_peak": 34.92,
+      "status": "OK"
+    },
+    {
+      "entry": "08A",
+      "exit": "18E",
+      "entry_name": "08A: CRANBURY, JAMESBURG",
+      "exit_name": "18E: GWB, US 46, I-80, RIDGEFIELD PARK",
+      "cash": 48.55,
+      "ez_pass_peak": 44.42,
+      "ez_pass_off_peak": 42.2,
+      "status": "OK"
+    },
+    {
+      "entry": "08A",
+      "exit": "18W",
+      "entry_name": "08A: CRANBURY, JAMESBURG",
+      "exit_name": "18W: GWB, US 46, I-80, RIDGEFIELD PARK",
+      "cash": 48.55,
+      "ez_pass_peak": 44.42,
+      "ez_pass_off_peak": 42.2,
+      "status": "OK"
+    },
+    {
+      "entry": "09",
+      "exit": "01",
+      "entry_name": "09: NJ 18, NEW BRUNSWICK",
+      "exit_name": "01: DELAWARE MEMORIAL BRIDGE",
+      "cash": 38.3,
+      "ez_pass_peak": 34.9,
+      "ez_pass_off_peak": 33.16,
+      "status": "OK"
+    },
+    {
+      "entry": "09",
+      "exit": "02",
+      "entry_name": "09: NJ 18, NEW BRUNSWICK",
+      "exit_name": "02: US 322, SWEDESBORO, CHESTER",
+      "cash": 31.6,
+      "ez_pass_peak": 28.72,
+      "ez_pass_off_peak": 27.29,
+      "status": "OK"
+    },
+    {
+      "entry": "09",
+      "exit": "03",
+      "entry_name": "09: NJ 18, NEW BRUNSWICK",
+      "exit_name": "03: NJ 168, WOODBURY, SOUTH CAMDEN",
+      "cash": 25.65,
+      "ez_pass_peak": 23.44,
+      "ez_pass_off_peak": 22.27,
+      "status": "OK"
+    },
+    {
+      "entry": "09",
+      "exit": "04",
+      "entry_name": "09: NJ 18, NEW BRUNSWICK",
+      "exit_name": "04: NJ 73, CAMDEN, PHILADELPHIA",
+      "cash": 20.55,
+      "ez_pass_peak": 18.76,
+      "ez_pass_off_peak": 17.82,
+      "status": "OK"
+    },
+    {
+      "entry": "09",
+      "exit": "05",
+      "entry_name": "09: NJ 18, NEW BRUNSWICK",
+      "exit_name": "05: BURLINGTON, MT. HOLLY",
+      "cash": 16.4,
+      "ez_pass_peak": 14.88,
+      "ez_pass_off_peak": 14.13,
+      "status": "OK"
+    },
+    {
+      "entry": "09",
+      "exit": "06",
+      "entry_name": "09: NJ 18, NEW BRUNSWICK",
+      "exit_name": "06: PENNSYLVANIA TURNPIKE",
+      "cash": 21.9,
+      "ez_pass_peak": 19.83,
+      "ez_pass_off_peak": 18.84,
+      "status": "OK"
+    },
+    {
+      "entry": "09",
+      "exit": "07",
+      "entry_name": "09: NJ 18, NEW BRUNSWICK",
+      "exit_name": "07: US 206, BORDENTOWN, TRENTON",
+      "cash": 12.4,
+      "ez_pass_peak": 11.11,
+      "ez_pass_off_peak": 10.55,
+      "status": "OK"
+    },
+    {
+      "entry": "09",
+      "exit": "07A",
+      "entry_name": "09: NJ 18, NEW BRUNSWICK",
+      "exit_name": "07A: I-195, TRENTON, HAMILTON",
+      "cash": 9.85,
+      "ez_pass_peak": 8.91,
+      "ez_pass_off_peak": 8.47,
+      "status": "OK"
+    },
+    {
+      "entry": "09",
+      "exit": "08",
+      "entry_name": "09: NJ 18, NEW BRUNSWICK",
+      "exit_name": "08: NJ 33, HIGHTSTOWN, FREEHOLD",
+      "cash": 5.95,
+      "ez_pass_peak": 5.31,
+      "ez_pass_off_peak": 5.04,
+      "status": "OK"
+    },
+    {
+      "entry": "09",
+      "exit": "08A",
+      "entry_name": "09: NJ 18, NEW BRUNSWICK",
+      "exit_name": "08A: CRANBURY, JAMESBURG",
+      "cash": 3.95,
+      "ez_pass_peak": 3.39,
+      "ez_pass_off_peak": 3.22,
+      "status": "OK"
+    },
+    {
+      "entry": "09",
+      "exit": "10",
+      "entry_name": "09: NJ 18, NEW BRUNSWICK",
+      "exit_name": "10: I-287, METUCHEN, PERTH AMBOY",
+      "cash": 3.95,
+      "ez_pass_peak": 3.39,
+      "ez_pass_off_peak": 3.22,
+      "status": "OK"
+    },
+    {
+      "entry": "09",
+      "exit": "11",
+      "entry_name": "09: NJ 18, NEW BRUNSWICK",
+      "exit_name": "11: GARDEN STATE PARKWAY",
+      "cash": 7.6,
+      "ez_pass_peak": 6.89,
+      "ez_pass_off_peak": 6.54,
+      "status": "OK"
+    },
+    {
+      "entry": "09",
+      "exit": "12",
+      "entry_name": "09: NJ 18, NEW BRUNSWICK",
+      "exit_name": "12: CARTERET, RAHWAY",
+      "cash": 12.4,
+      "ez_pass_peak": 11.11,
+      "ez_pass_off_peak": 10.55,
+      "status": "OK"
+    },
+    {
+      "entry": "09",
+      "exit": "13",
+      "entry_name": "09: NJ 18, NEW BRUNSWICK",
+      "exit_name": "13: I-278, ELIZABETH, STATEN ISLAND",
+      "cash": 16.4,
+      "ez_pass_peak": 14.88,
+      "ez_pass_off_peak": 14.13,
+      "status": "OK"
+    },
+    {
+      "entry": "09",
+      "exit": "13A",
+      "entry_name": "09: NJ 18, NEW BRUNSWICK",
+      "exit_name": "13A: NEWARK AIRPORT, ELIZABETH SEAPORT",
+      "cash": 16.4,
+      "ez_pass_peak": 14.88,
+      "ez_pass_off_peak": 14.13,
+      "status": "OK"
+    },
+    {
+      "entry": "09",
+      "exit": "14",
+      "entry_name": "09: NJ 18, NEW BRUNSWICK",
+      "exit_name": "14: NEWARK AIRPORT, I-78, US 1 AND 9",
+      "cash": 25.35,
+      "ez_pass_peak": 22.98,
+      "ez_pass_off_peak": 21.84,
+      "status": "OK"
+    },
+    {
+      "entry": "09",
+      "exit": "14A",
+      "entry_name": "09: NJ 18, NEW BRUNSWICK",
+      "exit_name": "14A: HUDSON CITY EXT, BAYONNE",
+      "cash": 35.35,
+      "ez_pass_peak": 31.99,
+      "ez_pass_off_peak": 30.39,
+      "status": "OK"
+    },
+    {
+      "entry": "09",
+      "exit": "14B",
+      "entry_name": "09: NJ 18, NEW BRUNSWICK",
+      "exit_name": "14B: JERSEY CITY, LIBERTY ST. PARK",
+      "cash": 38.3,
+      "ez_pass_peak": 34.9,
+      "ez_pass_off_peak": 33.16,
+      "status": "OK"
+    },
+    {
+      "entry": "09",
+      "exit": "14C",
+      "entry_name": "09: NJ 18, NEW BRUNSWICK",
+      "exit_name": "14C: HOLLAND TUNNEL",
+      "cash": 39.9,
+      "ez_pass_peak": 36.21,
+      "ez_pass_off_peak": 34.4,
+      "status": "OK"
+    },
+    {
+      "entry": "09",
+      "exit": "15E",
+      "entry_name": "09: NJ 18, NEW BRUNSWICK",
+      "exit_name": "15E: US 1 AND 9, NEWARK, JERSEY CITY",
+      "cash": 29.5,
+      "ez_pass_peak": 26.75,
+      "ez_pass_off_peak": 25.42,
+      "status": "OK"
+    },
+    {
+      "entry": "09",
+      "exit": "15W",
+      "entry_name": "09: NJ 18, NEW BRUNSWICK",
+      "exit_name": "15W: I-280, NEWARK, HARRISON",
+      "cash": 32.4,
+      "ez_pass_peak": 29.4,
+      "ez_pass_off_peak": 27.93,
+      "status": "OK"
+    },
+    {
+      "entry": "09",
+      "exit": "15X",
+      "entry_name": "09: NJ 18, NEW BRUNSWICK",
+      "exit_name": "15X: SECAUCUS TRANSFER STATION, SECAUCUS",
+      "cash": 35.85,
+      "ez_pass_peak": 32.72,
+      "ez_pass_off_peak": 31.08,
+      "status": "OK"
+    },
+    {
+      "entry": "09",
+      "exit": "16E",
+      "entry_name": "09: NJ 18, NEW BRUNSWICK",
+      "exit_name": "16E: NJ 3, LINCOLN TUNNEL, SECAUCUS",
+      "cash": 38.3,
+      "ez_pass_peak": 34.9,
+      "ez_pass_off_peak": 33.16,
+      "status": "OK"
+    },
+    {
+      "entry": "09",
+      "exit": "16W",
+      "entry_name": "09: NJ 18, NEW BRUNSWICK",
+      "exit_name": "16W: NJ 3, SPORTSPLEX, EAST RUTHERFORD",
+      "cash": 38.3,
+      "ez_pass_peak": 34.9,
+      "ez_pass_off_peak": 33.16,
+      "status": "OK"
+    },
+    {
+      "entry": "09",
+      "exit": "18E",
+      "entry_name": "09: NJ 18, NEW BRUNSWICK",
+      "exit_name": "18E: GWB, US 46, I-80, RIDGEFIELD PARK",
+      "cash": 45.35,
+      "ez_pass_peak": 41.33,
+      "ez_pass_off_peak": 39.26,
+      "status": "OK"
+    },
+    {
+      "entry": "09",
+      "exit": "18W",
+      "entry_name": "09: NJ 18, NEW BRUNSWICK",
+      "exit_name": "18W: GWB, US 46, I-80, RIDGEFIELD PARK",
+      "cash": 45.35,
+      "ez_pass_peak": 41.33,
+      "ez_pass_off_peak": 39.26,
+      "status": "OK"
+    },
+    {
+      "entry": "10",
+      "exit": "01",
+      "entry_name": "10: I-287, METUCHEN, PERTH AMBOY",
+      "exit_name": "01: DELAWARE MEMORIAL BRIDGE",
+      "cash": 40.3,
+      "ez_pass_peak": 36.76,
+      "ez_pass_off_peak": 34.92,
+      "status": "OK"
+    },
+    {
+      "entry": "10",
+      "exit": "02",
+      "entry_name": "10: I-287, METUCHEN, PERTH AMBOY",
+      "exit_name": "02: US 322, SWEDESBORO, CHESTER",
+      "cash": 34.85,
+      "ez_pass_peak": 31.65,
+      "ez_pass_off_peak": 30.06,
+      "status": "OK"
+    },
+    {
+      "entry": "10",
+      "exit": "03",
+      "entry_name": "10: I-287, METUCHEN, PERTH AMBOY",
+      "exit_name": "03: NJ 168, WOODBURY, SOUTH CAMDEN",
+      "cash": 28.85,
+      "ez_pass_peak": 26.36,
+      "ez_pass_off_peak": 25.04,
+      "status": "OK"
+    },
+    {
+      "entry": "10",
+      "exit": "04",
+      "entry_name": "10: I-287, METUCHEN, PERTH AMBOY",
+      "exit_name": "04: NJ 73, CAMDEN, PHILADELPHIA",
+      "cash": 23.95,
+      "ez_pass_peak": 21.85,
+      "ez_pass_off_peak": 20.76,
+      "status": "OK"
+    },
+    {
+      "entry": "10",
+      "exit": "05",
+      "entry_name": "10: I-287, METUCHEN, PERTH AMBOY",
+      "exit_name": "05: BURLINGTON, MT. HOLLY",
+      "cash": 19.8,
+      "ez_pass_peak": 18.09,
+      "ez_pass_off_peak": 17.19,
+      "status": "OK"
+    },
+    {
+      "entry": "10",
+      "exit": "06",
+      "entry_name": "10: I-287, METUCHEN, PERTH AMBOY",
+      "exit_name": "06: PENNSYLVANIA TURNPIKE",
+      "cash": 25.35,
+      "ez_pass_peak": 22.98,
+      "ez_pass_off_peak": 21.84,
+      "status": "OK"
+    },
+    {
+      "entry": "10",
+      "exit": "07",
+      "entry_name": "10: I-287, METUCHEN, PERTH AMBOY",
+      "exit_name": "07: US 206, BORDENTOWN, TRENTON",
+      "cash": 15.2,
+      "ez_pass_peak": 13.87,
+      "ez_pass_off_peak": 13.18,
+      "status": "OK"
+    },
+    {
+      "entry": "10",
+      "exit": "07A",
+      "entry_name": "10: I-287, METUCHEN, PERTH AMBOY",
+      "exit_name": "07A: I-195, TRENTON, HAMILTON",
+      "cash": 12.95,
+      "ez_pass_peak": 11.89,
+      "ez_pass_off_peak": 11.3,
+      "status": "OK"
+    },
+    {
+      "entry": "10",
+      "exit": "08",
+      "entry_name": "10: I-287, METUCHEN, PERTH AMBOY",
+      "exit_name": "08: NJ 33, HIGHTSTOWN, FREEHOLD",
+      "cash": 9.45,
+      "ez_pass_peak": 8.57,
+      "ez_pass_off_peak": 8.15,
+      "status": "OK"
+    },
+    {
+      "entry": "10",
+      "exit": "08A",
+      "entry_name": "10: I-287, METUCHEN, PERTH AMBOY",
+      "exit_name": "08A: CRANBURY, JAMESBURG",
+      "cash": 5.95,
+      "ez_pass_peak": 5.31,
+      "ez_pass_off_peak": 5.04,
+      "status": "OK"
+    },
+    {
+      "entry": "10",
+      "exit": "09",
+      "entry_name": "10: I-287, METUCHEN, PERTH AMBOY",
+      "exit_name": "09: NJ 18, NEW BRUNSWICK",
+      "cash": 3.95,
+      "ez_pass_peak": 3.39,
+      "ez_pass_off_peak": 3.22,
+      "status": "OK"
+    },
+    {
+      "entry": "10",
+      "exit": "11",
+      "entry_name": "10: I-287, METUCHEN, PERTH AMBOY",
+      "exit_name": "11: GARDEN STATE PARKWAY",
+      "cash": 5.45,
+      "ez_pass_peak": 4.92,
+      "ez_pass_off_peak": 4.67,
+      "status": "OK"
+    },
+    {
+      "entry": "10",
+      "exit": "12",
+      "entry_name": "10: I-287, METUCHEN, PERTH AMBOY",
+      "exit_name": "12: CARTERET, RAHWAY",
+      "cash": 9.45,
+      "ez_pass_peak": 8.57,
+      "ez_pass_off_peak": 8.15,
+      "status": "OK"
+    },
+    {
+      "entry": "10",
+      "exit": "13",
+      "entry_name": "10: I-287, METUCHEN, PERTH AMBOY",
+      "exit_name": "13: I-278, ELIZABETH, STATEN ISLAND",
+      "cash": 13.35,
+      "ez_pass_peak": 12.33,
+      "ez_pass_off_peak": 11.72,
+      "status": "OK"
+    },
+    {
+      "entry": "10",
+      "exit": "13A",
+      "entry_name": "10: I-287, METUCHEN, PERTH AMBOY",
+      "exit_name": "13A: NEWARK AIRPORT, ELIZABETH SEAPORT",
+      "cash": 13.35,
+      "ez_pass_peak": 12.33,
+      "ez_pass_off_peak": 11.72,
+      "status": "OK"
+    },
+    {
+      "entry": "10",
+      "exit": "14",
+      "entry_name": "10: I-287, METUCHEN, PERTH AMBOY",
+      "exit_name": "14: NEWARK AIRPORT, I-78, US 1 AND 9",
+      "cash": 21.9,
+      "ez_pass_peak": 19.83,
+      "ez_pass_off_peak": 18.84,
+      "status": "OK"
+    },
+    {
+      "entry": "10",
+      "exit": "14A",
+      "entry_name": "10: I-287, METUCHEN, PERTH AMBOY",
+      "exit_name": "14A: HUDSON CITY EXT, BAYONNE",
+      "cash": 32.4,
+      "ez_pass_peak": 29.4,
+      "ez_pass_off_peak": 27.93,
+      "status": "OK"
+    },
+    {
+      "entry": "10",
+      "exit": "14B",
+      "entry_name": "10: I-287, METUCHEN, PERTH AMBOY",
+      "exit_name": "14B: JERSEY CITY, LIBERTY ST. PARK",
+      "cash": 34.85,
+      "ez_pass_peak": 31.65,
+      "ez_pass_off_peak": 30.06,
+      "status": "OK"
+    },
+    {
+      "entry": "10",
+      "exit": "14C",
+      "entry_name": "10: I-287, METUCHEN, PERTH AMBOY",
+      "exit_name": "14C: HOLLAND TUNNEL",
+      "cash": 36.65,
+      "ez_pass_peak": 33.34,
+      "ez_pass_off_peak": 31.67,
+      "status": "OK"
+    },
+    {
+      "entry": "10",
+      "exit": "15E",
+      "entry_name": "10: I-287, METUCHEN, PERTH AMBOY",
+      "exit_name": "15E: US 1 AND 9, NEWARK, JERSEY CITY",
+      "cash": 26,
+      "ez_pass_peak": 23.83,
+      "ez_pass_off_peak": 22.64,
+      "status": "OK"
+    },
+    {
+      "entry": "10",
+      "exit": "15W",
+      "entry_name": "10: I-287, METUCHEN, PERTH AMBOY",
+      "exit_name": "15W: I-280, NEWARK, HARRISON",
+      "cash": 29.5,
+      "ez_pass_peak": 26.75,
+      "ez_pass_off_peak": 25.42,
+      "status": "OK"
+    },
+    {
+      "entry": "10",
+      "exit": "15X",
+      "entry_name": "10: I-287, METUCHEN, PERTH AMBOY",
+      "exit_name": "15X: SECAUCUS TRANSFER STATION, SECAUCUS",
+      "cash": 32.4,
+      "ez_pass_peak": 29.57,
+      "ez_pass_off_peak": 28.09,
+      "status": "OK"
+    },
+    {
+      "entry": "10",
+      "exit": "16E",
+      "entry_name": "10: I-287, METUCHEN, PERTH AMBOY",
+      "exit_name": "16E: NJ 3, LINCOLN TUNNEL, SECAUCUS",
+      "cash": 34.85,
+      "ez_pass_peak": 31.65,
+      "ez_pass_off_peak": 30.06,
+      "status": "OK"
+    },
+    {
+      "entry": "10",
+      "exit": "16W",
+      "entry_name": "10: I-287, METUCHEN, PERTH AMBOY",
+      "exit_name": "16W: NJ 3, SPORTSPLEX, EAST RUTHERFORD",
+      "cash": 34.85,
+      "ez_pass_peak": 31.65,
+      "ez_pass_off_peak": 30.06,
+      "status": "OK"
+    },
+    {
+      "entry": "10",
+      "exit": "18E",
+      "entry_name": "10: I-287, METUCHEN, PERTH AMBOY",
+      "exit_name": "18E: GWB, US 46, I-80, RIDGEFIELD PARK",
+      "cash": 41.9,
+      "ez_pass_peak": 38.23,
+      "ez_pass_off_peak": 36.32,
+      "status": "OK"
+    },
+    {
+      "entry": "10",
+      "exit": "18W",
+      "entry_name": "10: I-287, METUCHEN, PERTH AMBOY",
+      "exit_name": "18W: GWB, US 46, I-80, RIDGEFIELD PARK",
+      "cash": 41.9,
+      "ez_pass_peak": 38.23,
+      "ez_pass_off_peak": 36.32,
+      "status": "OK"
+    },
+    {
+      "entry": "11",
+      "exit": "01",
+      "entry_name": "11: GARDEN STATE PARKWAY",
+      "exit_name": "01: DELAWARE MEMORIAL BRIDGE",
+      "cash": 45.35,
+      "ez_pass_peak": 41.33,
+      "ez_pass_off_peak": 39.26,
+      "status": "OK"
+    },
+    {
+      "entry": "11",
+      "exit": "02",
+      "entry_name": "11: GARDEN STATE PARKWAY",
+      "exit_name": "02: US 322, SWEDESBORO, CHESTER",
+      "cash": 39.4,
+      "ez_pass_peak": 35.97,
+      "ez_pass_off_peak": 34.17,
+      "status": "OK"
+    },
+    {
+      "entry": "11",
+      "exit": "03",
+      "entry_name": "11: GARDEN STATE PARKWAY",
+      "exit_name": "03: NJ 168, WOODBURY, SOUTH CAMDEN",
+      "cash": 33.25,
+      "ez_pass_peak": 30.35,
+      "ez_pass_off_peak": 28.83,
+      "status": "OK"
+    },
+    {
+      "entry": "11",
+      "exit": "04",
+      "entry_name": "11: GARDEN STATE PARKWAY",
+      "exit_name": "04: NJ 73, CAMDEN, PHILADELPHIA",
+      "cash": 28.85,
+      "ez_pass_peak": 26.36,
+      "ez_pass_off_peak": 25.04,
+      "status": "OK"
+    },
+    {
+      "entry": "11",
+      "exit": "05",
+      "entry_name": "11: GARDEN STATE PARKWAY",
+      "exit_name": "05: BURLINGTON, MT. HOLLY",
+      "cash": 23.95,
+      "ez_pass_peak": 21.85,
+      "ez_pass_off_peak": 20.76,
+      "status": "OK"
+    },
+    {
+      "entry": "11",
+      "exit": "06",
+      "entry_name": "11: GARDEN STATE PARKWAY",
+      "exit_name": "06: PENNSYLVANIA TURNPIKE",
+      "cash": 29.5,
+      "ez_pass_peak": 26.75,
+      "ez_pass_off_peak": 25.42,
+      "status": "OK"
+    },
+    {
+      "entry": "11",
+      "exit": "07",
+      "entry_name": "11: GARDEN STATE PARKWAY",
+      "exit_name": "07: US 206, BORDENTOWN, TRENTON",
+      "cash": 19.8,
+      "ez_pass_peak": 18.09,
+      "ez_pass_off_peak": 17.19,
+      "status": "OK"
+    },
+    {
+      "entry": "11",
+      "exit": "07A",
+      "entry_name": "11: GARDEN STATE PARKWAY",
+      "exit_name": "07A: I-195, TRENTON, HAMILTON",
+      "cash": 16.85,
+      "ez_pass_peak": 15.27,
+      "ez_pass_off_peak": 14.51,
+      "status": "OK"
+    },
+    {
+      "entry": "11",
+      "exit": "08",
+      "entry_name": "11: GARDEN STATE PARKWAY",
+      "exit_name": "08: NJ 33, HIGHTSTOWN, FREEHOLD",
+      "cash": 13.35,
+      "ez_pass_peak": 12.33,
+      "ez_pass_off_peak": 11.72,
+      "status": "OK"
+    },
+    {
+      "entry": "11",
+      "exit": "08A",
+      "entry_name": "11: GARDEN STATE PARKWAY",
+      "exit_name": "08A: CRANBURY, JAMESBURG",
+      "cash": 10.65,
+      "ez_pass_peak": 9.53,
+      "ez_pass_off_peak": 9.06,
+      "status": "OK"
+    },
+    {
+      "entry": "11",
+      "exit": "09",
+      "entry_name": "11: GARDEN STATE PARKWAY",
+      "exit_name": "09: NJ 18, NEW BRUNSWICK",
+      "cash": 7.6,
+      "ez_pass_peak": 6.89,
+      "ez_pass_off_peak": 6.54,
+      "status": "OK"
+    },
+    {
+      "entry": "11",
+      "exit": "10",
+      "entry_name": "11: GARDEN STATE PARKWAY",
+      "exit_name": "10: I-287, METUCHEN, PERTH AMBOY",
+      "cash": 5.45,
+      "ez_pass_peak": 4.92,
+      "ez_pass_off_peak": 4.67,
+      "status": "OK"
+    },
+    {
+      "entry": "11",
+      "exit": "12",
+      "entry_name": "11: GARDEN STATE PARKWAY",
+      "exit_name": "12: CARTERET, RAHWAY",
+      "cash": 4.35,
+      "ez_pass_peak": 4.01,
+      "ez_pass_off_peak": 3.81,
+      "status": "OK"
+    },
+    {
+      "entry": "11",
+      "exit": "13",
+      "entry_name": "11: GARDEN STATE PARKWAY",
+      "exit_name": "13: I-278, ELIZABETH, STATEN ISLAND",
+      "cash": 9.45,
+      "ez_pass_peak": 8.57,
+      "ez_pass_off_peak": 8.15,
+      "status": "OK"
+    },
+    {
+      "entry": "11",
+      "exit": "13A",
+      "entry_name": "11: GARDEN STATE PARKWAY",
+      "exit_name": "13A: NEWARK AIRPORT, ELIZABETH SEAPORT",
+      "cash": 9.45,
+      "ez_pass_peak": 8.57,
+      "ez_pass_off_peak": 8.15,
+      "status": "OK"
+    },
+    {
+      "entry": "11",
+      "exit": "14",
+      "entry_name": "11: GARDEN STATE PARKWAY",
+      "exit_name": "14: NEWARK AIRPORT, I-78, US 1 AND 9",
+      "cash": 16.85,
+      "ez_pass_peak": 15.27,
+      "ez_pass_off_peak": 14.51,
+      "status": "OK"
+    },
+    {
+      "entry": "11",
+      "exit": "14A",
+      "entry_name": "11: GARDEN STATE PARKWAY",
+      "exit_name": "14A: HUDSON CITY EXT, BAYONNE",
+      "cash": 28.65,
+      "ez_pass_peak": 26.13,
+      "ez_pass_off_peak": 24.82,
+      "status": "OK"
+    },
+    {
+      "entry": "11",
+      "exit": "14B",
+      "entry_name": "11: GARDEN STATE PARKWAY",
+      "exit_name": "14B: JERSEY CITY, LIBERTY ST. PARK",
+      "cash": 29.7,
+      "ez_pass_peak": 27.03,
+      "ez_pass_off_peak": 25.68,
+      "status": "OK"
+    },
+    {
+      "entry": "11",
+      "exit": "14C",
+      "entry_name": "11: GARDEN STATE PARKWAY",
+      "exit_name": "14C: HOLLAND TUNNEL",
+      "cash": 32.4,
+      "ez_pass_peak": 29.4,
+      "ez_pass_off_peak": 27.93,
+      "status": "OK"
+    },
+    {
+      "entry": "11",
+      "exit": "15E",
+      "entry_name": "11: GARDEN STATE PARKWAY",
+      "exit_name": "15E: US 1 AND 9, NEWARK, JERSEY CITY",
+      "cash": 21.9,
+      "ez_pass_peak": 19.83,
+      "ez_pass_off_peak": 18.84,
+      "status": "OK"
+    },
+    {
+      "entry": "11",
+      "exit": "15W",
+      "entry_name": "11: GARDEN STATE PARKWAY",
+      "exit_name": "15W: I-280, NEWARK, HARRISON",
+      "cash": 25.35,
+      "ez_pass_peak": 22.98,
+      "ez_pass_off_peak": 21.84,
+      "status": "OK"
+    },
+    {
+      "entry": "11",
+      "exit": "15X",
+      "entry_name": "11: GARDEN STATE PARKWAY",
+      "exit_name": "15X: SECAUCUS TRANSFER STATION, SECAUCUS",
+      "cash": 27.7,
+      "ez_pass_peak": 25.05,
+      "ez_pass_off_peak": 23.8,
+      "status": "OK"
+    },
+    {
+      "entry": "11",
+      "exit": "16E",
+      "entry_name": "11: GARDEN STATE PARKWAY",
+      "exit_name": "16E: NJ 3, LINCOLN TUNNEL, SECAUCUS",
+      "cash": 29.7,
+      "ez_pass_peak": 27.03,
+      "ez_pass_off_peak": 25.68,
+      "status": "OK"
+    },
+    {
+      "entry": "11",
+      "exit": "16W",
+      "entry_name": "11: GARDEN STATE PARKWAY",
+      "exit_name": "16W: NJ 3, SPORTSPLEX, EAST RUTHERFORD",
+      "cash": 29.7,
+      "ez_pass_peak": 27.03,
+      "ez_pass_off_peak": 25.68,
+      "status": "OK"
+    },
+    {
+      "entry": "11",
+      "exit": "18E",
+      "entry_name": "11: GARDEN STATE PARKWAY",
+      "exit_name": "18E: GWB, US 46, I-80, RIDGEFIELD PARK",
+      "cash": 38.3,
+      "ez_pass_peak": 34.9,
+      "ez_pass_off_peak": 33.16,
+      "status": "OK"
+    },
+    {
+      "entry": "11",
+      "exit": "18W",
+      "entry_name": "11: GARDEN STATE PARKWAY",
+      "exit_name": "18W: GWB, US 46, I-80, RIDGEFIELD PARK",
+      "cash": 38.3,
+      "ez_pass_peak": 34.9,
+      "ez_pass_off_peak": 33.16,
+      "status": "OK"
+    },
+    {
+      "entry": "12",
+      "exit": "01",
+      "entry_name": "12: CARTERET, RAHWAY",
+      "exit_name": "01: DELAWARE MEMORIAL BRIDGE",
+      "cash": 49.65,
+      "ez_pass_peak": 45.1,
+      "ez_pass_off_peak": 42.84,
+      "status": "OK"
+    },
+    {
+      "entry": "12",
+      "exit": "02",
+      "entry_name": "12: CARTERET, RAHWAY",
+      "exit_name": "02: US 322, SWEDESBORO, CHESTER",
+      "cash": 43.65,
+      "ez_pass_peak": 39.81,
+      "ez_pass_off_peak": 37.82,
+      "status": "OK"
+    },
+    {
+      "entry": "12",
+      "exit": "03",
+      "entry_name": "12: CARTERET, RAHWAY",
+      "exit_name": "03: NJ 168, WOODBURY, SOUTH CAMDEN",
+      "cash": 38.3,
+      "ez_pass_peak": 34.9,
+      "ez_pass_off_peak": 33.16,
+      "status": "OK"
+    },
+    {
+      "entry": "12",
+      "exit": "04",
+      "entry_name": "12: CARTERET, RAHWAY",
+      "exit_name": "04: NJ 73, CAMDEN, PHILADELPHIA",
+      "cash": 33.25,
+      "ez_pass_peak": 30.35,
+      "ez_pass_off_peak": 28.83,
+      "status": "OK"
+    },
+    {
+      "entry": "12",
+      "exit": "05",
+      "entry_name": "12: CARTERET, RAHWAY",
+      "exit_name": "05: BURLINGTON, MT. HOLLY",
+      "cash": 28.85,
+      "ez_pass_peak": 26.36,
+      "ez_pass_off_peak": 25.04,
+      "status": "OK"
+    },
+    {
+      "entry": "12",
+      "exit": "06",
+      "entry_name": "12: CARTERET, RAHWAY",
+      "exit_name": "06: PENNSYLVANIA TURNPIKE",
+      "cash": 34.1,
+      "ez_pass_peak": 31.03,
+      "ez_pass_off_peak": 29.48,
+      "status": "OK"
+    },
+    {
+      "entry": "12",
+      "exit": "07",
+      "entry_name": "12: CARTERET, RAHWAY",
+      "exit_name": "07: US 206, BORDENTOWN, TRENTON",
+      "cash": 23.95,
+      "ez_pass_peak": 21.85,
+      "ez_pass_off_peak": 20.76,
+      "status": "OK"
+    },
+    {
+      "entry": "12",
+      "exit": "07A",
+      "entry_name": "12: CARTERET, RAHWAY",
+      "exit_name": "07A: I-195, TRENTON, HAMILTON",
+      "cash": 21.9,
+      "ez_pass_peak": 19.83,
+      "ez_pass_off_peak": 18.84,
+      "status": "OK"
+    },
+    {
+      "entry": "12",
+      "exit": "08",
+      "entry_name": "12: CARTERET, RAHWAY",
+      "exit_name": "08: NJ 33, HIGHTSTOWN, FREEHOLD",
+      "cash": 18.45,
+      "ez_pass_peak": 16.85,
+      "ez_pass_off_peak": 16,
+      "status": "OK"
+    },
+    {
+      "entry": "12",
+      "exit": "08A",
+      "entry_name": "12: CARTERET, RAHWAY",
+      "exit_name": "08A: CRANBURY, JAMESBURG",
+      "cash": 15.2,
+      "ez_pass_peak": 13.87,
+      "ez_pass_off_peak": 13.18,
+      "status": "OK"
+    },
+    {
+      "entry": "12",
+      "exit": "09",
+      "entry_name": "12: CARTERET, RAHWAY",
+      "exit_name": "09: NJ 18, NEW BRUNSWICK",
+      "cash": 12.4,
+      "ez_pass_peak": 11.11,
+      "ez_pass_off_peak": 10.55,
+      "status": "OK"
+    },
+    {
+      "entry": "12",
+      "exit": "10",
+      "entry_name": "12: CARTERET, RAHWAY",
+      "exit_name": "10: I-287, METUCHEN, PERTH AMBOY",
+      "cash": 9.45,
+      "ez_pass_peak": 8.57,
+      "ez_pass_off_peak": 8.15,
+      "status": "OK"
+    },
+    {
+      "entry": "12",
+      "exit": "11",
+      "entry_name": "12: CARTERET, RAHWAY",
+      "exit_name": "11: GARDEN STATE PARKWAY",
+      "cash": 4.35,
+      "ez_pass_peak": 4.01,
+      "ez_pass_off_peak": 3.81,
+      "status": "OK"
+    },
+    {
+      "entry": "12",
+      "exit": "13",
+      "entry_name": "12: CARTERET, RAHWAY",
+      "exit_name": "13: I-278, ELIZABETH, STATEN ISLAND",
+      "cash": 4.35,
+      "ez_pass_peak": 4.01,
+      "ez_pass_off_peak": 3.81,
+      "status": "OK"
+    },
+    {
+      "entry": "12",
+      "exit": "13A",
+      "entry_name": "12: CARTERET, RAHWAY",
+      "exit_name": "13A: NEWARK AIRPORT, ELIZABETH SEAPORT",
+      "cash": 4.35,
+      "ez_pass_peak": 4.01,
+      "ez_pass_off_peak": 3.81,
+      "status": "OK"
+    },
+    {
+      "entry": "12",
+      "exit": "14",
+      "entry_name": "12: CARTERET, RAHWAY",
+      "exit_name": "14: NEWARK AIRPORT, I-78, US 1 AND 9",
+      "cash": 12.95,
+      "ez_pass_peak": 11.89,
+      "ez_pass_off_peak": 11.3,
+      "status": "OK"
+    },
+    {
+      "entry": "12",
+      "exit": "14A",
+      "entry_name": "12: CARTERET, RAHWAY",
+      "exit_name": "14A: HUDSON CITY EXT, BAYONNE",
+      "cash": 23.7,
+      "ez_pass_peak": 21.46,
+      "ez_pass_off_peak": 20.39,
+      "status": "OK"
+    },
+    {
+      "entry": "12",
+      "exit": "14B",
+      "entry_name": "12: CARTERET, RAHWAY",
+      "exit_name": "14B: JERSEY CITY, LIBERTY ST. PARK",
+      "cash": 25.65,
+      "ez_pass_peak": 23.44,
+      "ez_pass_off_peak": 22.27,
+      "status": "OK"
+    },
+    {
+      "entry": "12",
+      "exit": "14C",
+      "entry_name": "12: CARTERET, RAHWAY",
+      "exit_name": "14C: HOLLAND TUNNEL",
+      "cash": 28.65,
+      "ez_pass_peak": 26.13,
+      "ez_pass_off_peak": 24.82,
+      "status": "OK"
+    },
+    {
+      "entry": "12",
+      "exit": "15E",
+      "entry_name": "12: CARTERET, RAHWAY",
+      "exit_name": "15E: US 1 AND 9, NEWARK, JERSEY CITY",
+      "cash": 16.85,
+      "ez_pass_peak": 15.27,
+      "ez_pass_off_peak": 14.51,
+      "status": "OK"
+    },
+    {
+      "entry": "12",
+      "exit": "15W",
+      "entry_name": "12: CARTERET, RAHWAY",
+      "exit_name": "15W: I-280, NEWARK, HARRISON",
+      "cash": 20.15,
+      "ez_pass_peak": 18.36,
+      "ez_pass_off_peak": 17.44,
+      "status": "OK"
+    },
+    {
+      "entry": "12",
+      "exit": "15X",
+      "entry_name": "12: CARTERET, RAHWAY",
+      "exit_name": "15X: SECAUCUS TRANSFER STATION, SECAUCUS",
+      "cash": 23.15,
+      "ez_pass_peak": 21.24,
+      "ez_pass_off_peak": 20.18,
+      "status": "OK"
+    },
+    {
+      "entry": "12",
+      "exit": "16E",
+      "entry_name": "12: CARTERET, RAHWAY",
+      "exit_name": "16E: NJ 3, LINCOLN TUNNEL, SECAUCUS",
+      "cash": 25.65,
+      "ez_pass_peak": 23.44,
+      "ez_pass_off_peak": 22.27,
+      "status": "OK"
+    },
+    {
+      "entry": "12",
+      "exit": "16W",
+      "entry_name": "12: CARTERET, RAHWAY",
+      "exit_name": "16W: NJ 3, SPORTSPLEX, EAST RUTHERFORD",
+      "cash": 25.65,
+      "ez_pass_peak": 23.44,
+      "ez_pass_off_peak": 22.27,
+      "status": "OK"
+    },
+    {
+      "entry": "12",
+      "exit": "18E",
+      "entry_name": "12: CARTERET, RAHWAY",
+      "exit_name": "18E: GWB, US 46, I-80, RIDGEFIELD PARK",
+      "cash": 33.25,
+      "ez_pass_peak": 30.35,
+      "ez_pass_off_peak": 28.83,
+      "status": "OK"
+    },
+    {
+      "entry": "12",
+      "exit": "18W",
+      "entry_name": "12: CARTERET, RAHWAY",
+      "exit_name": "18W: GWB, US 46, I-80, RIDGEFIELD PARK",
+      "cash": 33.25,
+      "ez_pass_peak": 30.35,
+      "ez_pass_off_peak": 28.83,
+      "status": "OK"
+    },
+    {
+      "entry": "13",
+      "exit": "01",
+      "entry_name": "13: I-278, ELIZABETH, STATEN ISLAND",
+      "exit_name": "01: DELAWARE MEMORIAL BRIDGE",
+      "cash": 54.5,
+      "ez_pass_peak": 49.71,
+      "ez_pass_off_peak": 47.23,
+      "status": "OK"
+    },
+    {
+      "entry": "13",
+      "exit": "02",
+      "entry_name": "13: I-278, ELIZABETH, STATEN ISLAND",
+      "exit_name": "02: US 322, SWEDESBORO, CHESTER",
+      "cash": 48.55,
+      "ez_pass_peak": 44.42,
+      "ez_pass_off_peak": 42.2,
+      "status": "OK"
+    },
+    {
+      "entry": "13",
+      "exit": "03",
+      "entry_name": "13: I-278, ELIZABETH, STATEN ISLAND",
+      "exit_name": "03: NJ 168, WOODBURY, SOUTH CAMDEN",
+      "cash": 41.9,
+      "ez_pass_peak": 38.23,
+      "ez_pass_off_peak": 36.32,
+      "status": "OK"
+    },
+    {
+      "entry": "13",
+      "exit": "04",
+      "entry_name": "13: I-278, ELIZABETH, STATEN ISLAND",
+      "exit_name": "04: NJ 73, CAMDEN, PHILADELPHIA",
+      "cash": 38.3,
+      "ez_pass_peak": 34.9,
+      "ez_pass_off_peak": 33.16,
+      "status": "OK"
+    },
+    {
+      "entry": "13",
+      "exit": "05",
+      "entry_name": "13: I-278, ELIZABETH, STATEN ISLAND",
+      "exit_name": "05: BURLINGTON, MT. HOLLY",
+      "cash": 33.25,
+      "ez_pass_peak": 30.35,
+      "ez_pass_off_peak": 28.83,
+      "status": "OK"
+    },
+    {
+      "entry": "13",
+      "exit": "06",
+      "entry_name": "13: I-278, ELIZABETH, STATEN ISLAND",
+      "exit_name": "06: PENNSYLVANIA TURNPIKE",
+      "cash": 38.6,
+      "ez_pass_peak": 35.3,
+      "ez_pass_off_peak": 33.54,
+      "status": "OK"
+    },
+    {
+      "entry": "13",
+      "exit": "07",
+      "entry_name": "13: I-278, ELIZABETH, STATEN ISLAND",
+      "exit_name": "07: US 206, BORDENTOWN, TRENTON",
+      "cash": 28.85,
+      "ez_pass_peak": 26.36,
+      "ez_pass_off_peak": 25.04,
+      "status": "OK"
+    },
+    {
+      "entry": "13",
+      "exit": "07A",
+      "entry_name": "13: I-278, ELIZABETH, STATEN ISLAND",
+      "exit_name": "07A: I-195, TRENTON, HAMILTON",
+      "cash": 26,
+      "ez_pass_peak": 23.83,
+      "ez_pass_off_peak": 22.64,
+      "status": "OK"
+    },
+    {
+      "entry": "13",
+      "exit": "08",
+      "entry_name": "13: I-278, ELIZABETH, STATEN ISLAND",
+      "exit_name": "08: NJ 33, HIGHTSTOWN, FREEHOLD",
+      "cash": 23.1,
+      "ez_pass_peak": 21.24,
+      "ez_pass_off_peak": 20.18,
+      "status": "OK"
+    },
+    {
+      "entry": "13",
+      "exit": "08A",
+      "entry_name": "13: I-278, ELIZABETH, STATEN ISLAND",
+      "exit_name": "08A: CRANBURY, JAMESBURG",
+      "cash": 19.8,
+      "ez_pass_peak": 18.09,
+      "ez_pass_off_peak": 17.19,
+      "status": "OK"
+    },
+    {
+      "entry": "13",
+      "exit": "09",
+      "entry_name": "13: I-278, ELIZABETH, STATEN ISLAND",
+      "exit_name": "09: NJ 18, NEW BRUNSWICK",
+      "cash": 16.4,
+      "ez_pass_peak": 14.88,
+      "ez_pass_off_peak": 14.13,
+      "status": "OK"
+    },
+    {
+      "entry": "13",
+      "exit": "10",
+      "entry_name": "13: I-278, ELIZABETH, STATEN ISLAND",
+      "exit_name": "10: I-287, METUCHEN, PERTH AMBOY",
+      "cash": 13.35,
+      "ez_pass_peak": 12.33,
+      "ez_pass_off_peak": 11.72,
+      "status": "OK"
+    },
+    {
+      "entry": "13",
+      "exit": "11",
+      "entry_name": "13: I-278, ELIZABETH, STATEN ISLAND",
+      "exit_name": "11: GARDEN STATE PARKWAY",
+      "cash": 9.45,
+      "ez_pass_peak": 8.57,
+      "ez_pass_off_peak": 8.15,
+      "status": "OK"
+    },
+    {
+      "entry": "13",
+      "exit": "12",
+      "entry_name": "13: I-278, ELIZABETH, STATEN ISLAND",
+      "exit_name": "12: CARTERET, RAHWAY",
+      "cash": 4.35,
+      "ez_pass_peak": 4.01,
+      "ez_pass_off_peak": 3.81,
+      "status": "OK"
+    },
+    {
+      "entry": "13",
+      "exit": "13A",
+      "entry_name": "13: I-278, ELIZABETH, STATEN ISLAND",
+      "exit_name": "13A: NEWARK AIRPORT, ELIZABETH SEAPORT",
+      "cash": 3.95,
+      "ez_pass_peak": 3.39,
+      "ez_pass_off_peak": 3.22,
+      "status": "OK"
+    },
+    {
+      "entry": "13",
+      "exit": "14",
+      "entry_name": "13: I-278, ELIZABETH, STATEN ISLAND",
+      "exit_name": "14: NEWARK AIRPORT, I-78, US 1 AND 9",
+      "cash": 8.75,
+      "ez_pass_peak": 8.12,
+      "ez_pass_off_peak": 7.72,
+      "status": "OK"
+    },
+    {
+      "entry": "13",
+      "exit": "14A",
+      "entry_name": "13: I-278, ELIZABETH, STATEN ISLAND",
+      "exit_name": "14A: HUDSON CITY EXT, BAYONNE",
+      "cash": 19,
+      "ez_pass_peak": 17.24,
+      "ez_pass_off_peak": 16.38,
+      "status": "OK"
+    },
+    {
+      "entry": "13",
+      "exit": "14B",
+      "entry_name": "13: I-278, ELIZABETH, STATEN ISLAND",
+      "exit_name": "14B: JERSEY CITY, LIBERTY ST. PARK",
+      "cash": 20.55,
+      "ez_pass_peak": 18.76,
+      "ez_pass_off_peak": 17.82,
+      "status": "OK"
+    },
+    {
+      "entry": "13",
+      "exit": "14C",
+      "entry_name": "13: I-278, ELIZABETH, STATEN ISLAND",
+      "exit_name": "14C: HOLLAND TUNNEL",
+      "cash": 23.7,
+      "ez_pass_peak": 21.46,
+      "ez_pass_off_peak": 20.39,
+      "status": "OK"
+    },
+    {
+      "entry": "13",
+      "exit": "15E",
+      "entry_name": "13: I-278, ELIZABETH, STATEN ISLAND",
+      "exit_name": "15E: US 1 AND 9, NEWARK, JERSEY CITY",
+      "cash": 12.95,
+      "ez_pass_peak": 11.89,
+      "ez_pass_off_peak": 11.3,
+      "status": "OK"
+    },
+    {
+      "entry": "13",
+      "exit": "15W",
+      "entry_name": "13: I-278, ELIZABETH, STATEN ISLAND",
+      "exit_name": "15W: I-280, NEWARK, HARRISON",
+      "cash": 16.05,
+      "ez_pass_peak": 14.65,
+      "ez_pass_off_peak": 13.92,
+      "status": "OK"
+    },
+    {
+      "entry": "13",
+      "exit": "15X",
+      "entry_name": "13: I-278, ELIZABETH, STATEN ISLAND",
+      "exit_name": "15X: SECAUCUS TRANSFER STATION, SECAUCUS",
+      "cash": 18.45,
+      "ez_pass_peak": 16.79,
+      "ez_pass_off_peak": 15.95,
+      "status": "OK"
+    },
+    {
+      "entry": "13",
+      "exit": "16E",
+      "entry_name": "13: I-278, ELIZABETH, STATEN ISLAND",
+      "exit_name": "16E: NJ 3, LINCOLN TUNNEL, SECAUCUS",
+      "cash": 20.55,
+      "ez_pass_peak": 18.76,
+      "ez_pass_off_peak": 17.82,
+      "status": "OK"
+    },
+    {
+      "entry": "13",
+      "exit": "16W",
+      "entry_name": "13: I-278, ELIZABETH, STATEN ISLAND",
+      "exit_name": "16W: NJ 3, SPORTSPLEX, EAST RUTHERFORD",
+      "cash": 20.55,
+      "ez_pass_peak": 18.76,
+      "ez_pass_off_peak": 17.82,
+      "status": "OK"
+    },
+    {
+      "entry": "13",
+      "exit": "18E",
+      "entry_name": "13: I-278, ELIZABETH, STATEN ISLAND",
+      "exit_name": "18E: GWB, US 46, I-80, RIDGEFIELD PARK",
+      "cash": 28.85,
+      "ez_pass_peak": 26.36,
+      "ez_pass_off_peak": 25.04,
+      "status": "OK"
+    },
+    {
+      "entry": "13",
+      "exit": "18W",
+      "entry_name": "13: I-278, ELIZABETH, STATEN ISLAND",
+      "exit_name": "18W: GWB, US 46, I-80, RIDGEFIELD PARK",
+      "cash": 28.85,
+      "ez_pass_peak": 26.36,
+      "ez_pass_off_peak": 25.04,
+      "status": "OK"
+    },
+    {
+      "entry": "13A",
+      "exit": "01",
+      "entry_name": "13A: NEWARK AIRPORT, ELIZABETH SEAPORT",
+      "exit_name": "01: DELAWARE MEMORIAL BRIDGE",
+      "cash": 54.5,
+      "ez_pass_peak": 49.71,
+      "ez_pass_off_peak": 47.23,
+      "status": "OK"
+    },
+    {
+      "entry": "13A",
+      "exit": "02",
+      "entry_name": "13A: NEWARK AIRPORT, ELIZABETH SEAPORT",
+      "exit_name": "02: US 322, SWEDESBORO, CHESTER",
+      "cash": 48.55,
+      "ez_pass_peak": 44.42,
+      "ez_pass_off_peak": 42.2,
+      "status": "OK"
+    },
+    {
+      "entry": "13A",
+      "exit": "03",
+      "entry_name": "13A: NEWARK AIRPORT, ELIZABETH SEAPORT",
+      "exit_name": "03: NJ 168, WOODBURY, SOUTH CAMDEN",
+      "cash": 41.9,
+      "ez_pass_peak": 38.23,
+      "ez_pass_off_peak": 36.32,
+      "status": "OK"
+    },
+    {
+      "entry": "13A",
+      "exit": "04",
+      "entry_name": "13A: NEWARK AIRPORT, ELIZABETH SEAPORT",
+      "exit_name": "04: NJ 73, CAMDEN, PHILADELPHIA",
+      "cash": 38.3,
+      "ez_pass_peak": 34.9,
+      "ez_pass_off_peak": 33.16,
+      "status": "OK"
+    },
+    {
+      "entry": "13A",
+      "exit": "05",
+      "entry_name": "13A: NEWARK AIRPORT, ELIZABETH SEAPORT",
+      "exit_name": "05: BURLINGTON, MT. HOLLY",
+      "cash": 33.25,
+      "ez_pass_peak": 30.35,
+      "ez_pass_off_peak": 28.83,
+      "status": "OK"
+    },
+    {
+      "entry": "13A",
+      "exit": "06",
+      "entry_name": "13A: NEWARK AIRPORT, ELIZABETH SEAPORT",
+      "exit_name": "06: PENNSYLVANIA TURNPIKE",
+      "cash": 38.6,
+      "ez_pass_peak": 35.3,
+      "ez_pass_off_peak": 33.54,
+      "status": "OK"
+    },
+    {
+      "entry": "13A",
+      "exit": "07",
+      "entry_name": "13A: NEWARK AIRPORT, ELIZABETH SEAPORT",
+      "exit_name": "07: US 206, BORDENTOWN, TRENTON",
+      "cash": 28.85,
+      "ez_pass_peak": 26.36,
+      "ez_pass_off_peak": 25.04,
+      "status": "OK"
+    },
+    {
+      "entry": "13A",
+      "exit": "07A",
+      "entry_name": "13A: NEWARK AIRPORT, ELIZABETH SEAPORT",
+      "exit_name": "07A: I-195, TRENTON, HAMILTON",
+      "cash": 26,
+      "ez_pass_peak": 23.83,
+      "ez_pass_off_peak": 22.64,
+      "status": "OK"
+    },
+    {
+      "entry": "13A",
+      "exit": "08",
+      "entry_name": "13A: NEWARK AIRPORT, ELIZABETH SEAPORT",
+      "exit_name": "08: NJ 33, HIGHTSTOWN, FREEHOLD",
+      "cash": 23.1,
+      "ez_pass_peak": 21.24,
+      "ez_pass_off_peak": 20.18,
+      "status": "OK"
+    },
+    {
+      "entry": "13A",
+      "exit": "08A",
+      "entry_name": "13A: NEWARK AIRPORT, ELIZABETH SEAPORT",
+      "exit_name": "08A: CRANBURY, JAMESBURG",
+      "cash": 19.8,
+      "ez_pass_peak": 18.09,
+      "ez_pass_off_peak": 17.19,
+      "status": "OK"
+    },
+    {
+      "entry": "13A",
+      "exit": "09",
+      "entry_name": "13A: NEWARK AIRPORT, ELIZABETH SEAPORT",
+      "exit_name": "09: NJ 18, NEW BRUNSWICK",
+      "cash": 16.4,
+      "ez_pass_peak": 14.88,
+      "ez_pass_off_peak": 14.13,
+      "status": "OK"
+    },
+    {
+      "entry": "13A",
+      "exit": "10",
+      "entry_name": "13A: NEWARK AIRPORT, ELIZABETH SEAPORT",
+      "exit_name": "10: I-287, METUCHEN, PERTH AMBOY",
+      "cash": 13.35,
+      "ez_pass_peak": 12.33,
+      "ez_pass_off_peak": 11.72,
+      "status": "OK"
+    },
+    {
+      "entry": "13A",
+      "exit": "11",
+      "entry_name": "13A: NEWARK AIRPORT, ELIZABETH SEAPORT",
+      "exit_name": "11: GARDEN STATE PARKWAY",
+      "cash": 9.45,
+      "ez_pass_peak": 8.57,
+      "ez_pass_off_peak": 8.15,
+      "status": "OK"
+    },
+    {
+      "entry": "13A",
+      "exit": "12",
+      "entry_name": "13A: NEWARK AIRPORT, ELIZABETH SEAPORT",
+      "exit_name": "12: CARTERET, RAHWAY",
+      "cash": 4.35,
+      "ez_pass_peak": 4.01,
+      "ez_pass_off_peak": 3.81,
+      "status": "OK"
+    },
+    {
+      "entry": "13A",
+      "exit": "13",
+      "entry_name": "13A: NEWARK AIRPORT, ELIZABETH SEAPORT",
+      "exit_name": "13: I-278, ELIZABETH, STATEN ISLAND",
+      "cash": 3.95,
+      "ez_pass_peak": 3.39,
+      "ez_pass_off_peak": 3.22,
+      "status": "OK"
+    },
+    {
+      "entry": "13A",
+      "exit": "14",
+      "entry_name": "13A: NEWARK AIRPORT, ELIZABETH SEAPORT",
+      "exit_name": "14: NEWARK AIRPORT, I-78, US 1 AND 9",
+      "cash": 5.9,
+      "ez_pass_peak": 5.08,
+      "ez_pass_off_peak": 4.83,
+      "status": "OK"
+    },
+    {
+      "entry": "13A",
+      "exit": "14A",
+      "entry_name": "13A: NEWARK AIRPORT, ELIZABETH SEAPORT",
+      "exit_name": "14A: HUDSON CITY EXT, BAYONNE",
+      "cash": 19,
+      "ez_pass_peak": 17.24,
+      "ez_pass_off_peak": 16.38,
+      "status": "OK"
+    },
+    {
+      "entry": "13A",
+      "exit": "14B",
+      "entry_name": "13A: NEWARK AIRPORT, ELIZABETH SEAPORT",
+      "exit_name": "14B: JERSEY CITY, LIBERTY ST. PARK",
+      "cash": 20.55,
+      "ez_pass_peak": 18.76,
+      "ez_pass_off_peak": 17.82,
+      "status": "OK"
+    },
+    {
+      "entry": "13A",
+      "exit": "14C",
+      "entry_name": "13A: NEWARK AIRPORT, ELIZABETH SEAPORT",
+      "exit_name": "14C: HOLLAND TUNNEL",
+      "cash": 23.7,
+      "ez_pass_peak": 21.46,
+      "ez_pass_off_peak": 20.39,
+      "status": "OK"
+    },
+    {
+      "entry": "13A",
+      "exit": "15E",
+      "entry_name": "13A: NEWARK AIRPORT, ELIZABETH SEAPORT",
+      "exit_name": "15E: US 1 AND 9, NEWARK, JERSEY CITY",
+      "cash": 12.95,
+      "ez_pass_peak": 11.89,
+      "ez_pass_off_peak": 11.3,
+      "status": "OK"
+    },
+    {
+      "entry": "13A",
+      "exit": "15W",
+      "entry_name": "13A: NEWARK AIRPORT, ELIZABETH SEAPORT",
+      "exit_name": "15W: I-280, NEWARK, HARRISON",
+      "cash": 16.05,
+      "ez_pass_peak": 14.65,
+      "ez_pass_off_peak": 13.92,
+      "status": "OK"
+    },
+    {
+      "entry": "13A",
+      "exit": "15X",
+      "entry_name": "13A: NEWARK AIRPORT, ELIZABETH SEAPORT",
+      "exit_name": "15X: SECAUCUS TRANSFER STATION, SECAUCUS",
+      "cash": 18.45,
+      "ez_pass_peak": 16.79,
+      "ez_pass_off_peak": 15.95,
+      "status": "OK"
+    },
+    {
+      "entry": "13A",
+      "exit": "16E",
+      "entry_name": "13A: NEWARK AIRPORT, ELIZABETH SEAPORT",
+      "exit_name": "16E: NJ 3, LINCOLN TUNNEL, SECAUCUS",
+      "cash": 20.55,
+      "ez_pass_peak": 18.76,
+      "ez_pass_off_peak": 17.82,
+      "status": "OK"
+    },
+    {
+      "entry": "13A",
+      "exit": "16W",
+      "entry_name": "13A: NEWARK AIRPORT, ELIZABETH SEAPORT",
+      "exit_name": "16W: NJ 3, SPORTSPLEX, EAST RUTHERFORD",
+      "cash": 20.55,
+      "ez_pass_peak": 18.76,
+      "ez_pass_off_peak": 17.82,
+      "status": "OK"
+    },
+    {
+      "entry": "13A",
+      "exit": "18E",
+      "entry_name": "13A: NEWARK AIRPORT, ELIZABETH SEAPORT",
+      "exit_name": "18E: GWB, US 46, I-80, RIDGEFIELD PARK",
+      "cash": 28.85,
+      "ez_pass_peak": 26.36,
+      "ez_pass_off_peak": 25.04,
+      "status": "OK"
+    },
+    {
+      "entry": "13A",
+      "exit": "18W",
+      "entry_name": "13A: NEWARK AIRPORT, ELIZABETH SEAPORT",
+      "exit_name": "18W: GWB, US 46, I-80, RIDGEFIELD PARK",
+      "cash": 28.85,
+      "ez_pass_peak": 26.36,
+      "ez_pass_off_peak": 25.04,
+      "status": "OK"
+    },
+    {
+      "entry": "14",
+      "exit": "01",
+      "entry_name": "14: NEWARK AIRPORT, I-78, US 1 AND 9",
+      "exit_name": "01: DELAWARE MEMORIAL BRIDGE",
+      "cash": 61.9,
+      "ez_pass_peak": 56.75,
+      "ez_pass_off_peak": 53.91,
+      "status": "OK"
+    },
+    {
+      "entry": "14",
+      "exit": "02",
+      "entry_name": "14: NEWARK AIRPORT, I-78, US 1 AND 9",
+      "exit_name": "02: US 322, SWEDESBORO, CHESTER",
+      "cash": 56.15,
+      "ez_pass_peak": 51.23,
+      "ez_pass_off_peak": 48.67,
+      "status": "OK"
+    },
+    {
+      "entry": "14",
+      "exit": "03",
+      "entry_name": "14: NEWARK AIRPORT, I-78, US 1 AND 9",
+      "exit_name": "03: NJ 168, WOODBURY, SOUTH CAMDEN",
+      "cash": 50.25,
+      "ez_pass_peak": 45.94,
+      "ez_pass_off_peak": 43.65,
+      "status": "OK"
+    },
+    {
+      "entry": "14",
+      "exit": "04",
+      "entry_name": "14: NEWARK AIRPORT, I-78, US 1 AND 9",
+      "exit_name": "04: NJ 73, CAMDEN, PHILADELPHIA",
+      "cash": 45.65,
+      "ez_pass_peak": 41.72,
+      "ez_pass_off_peak": 39.63,
+      "status": "OK"
+    },
+    {
+      "entry": "14",
+      "exit": "05",
+      "entry_name": "14: NEWARK AIRPORT, I-78, US 1 AND 9",
+      "exit_name": "05: BURLINGTON, MT. HOLLY",
+      "cash": 41.6,
+      "ez_pass_peak": 37.83,
+      "ez_pass_off_peak": 35.94,
+      "status": "OK"
+    },
+    {
+      "entry": "14",
+      "exit": "06",
+      "entry_name": "14: NEWARK AIRPORT, I-78, US 1 AND 9",
+      "exit_name": "06: PENNSYLVANIA TURNPIKE",
+      "cash": 46.1,
+      "ez_pass_peak": 42.17,
+      "ez_pass_off_peak": 40.06,
+      "status": "OK"
+    },
+    {
+      "entry": "14",
+      "exit": "07",
+      "entry_name": "14: NEWARK AIRPORT, I-78, US 1 AND 9",
+      "exit_name": "07: US 206, BORDENTOWN, TRENTON",
+      "cash": 36.65,
+      "ez_pass_peak": 33.34,
+      "ez_pass_off_peak": 31.67,
+      "status": "OK"
+    },
+    {
+      "entry": "14",
+      "exit": "07A",
+      "entry_name": "14: NEWARK AIRPORT, I-78, US 1 AND 9",
+      "exit_name": "07A: I-195, TRENTON, HAMILTON",
+      "cash": 34.85,
+      "ez_pass_peak": 31.65,
+      "ez_pass_off_peak": 30.06,
+      "status": "OK"
+    },
+    {
+      "entry": "14",
+      "exit": "08",
+      "entry_name": "14: NEWARK AIRPORT, I-78, US 1 AND 9",
+      "exit_name": "08: NJ 33, HIGHTSTOWN, FREEHOLD",
+      "cash": 30.55,
+      "ez_pass_peak": 28.04,
+      "ez_pass_off_peak": 26.64,
+      "status": "OK"
+    },
+    {
+      "entry": "14",
+      "exit": "08A",
+      "entry_name": "14: NEWARK AIRPORT, I-78, US 1 AND 9",
+      "exit_name": "08A: CRANBURY, JAMESBURG",
+      "cash": 28.65,
+      "ez_pass_peak": 26.13,
+      "ez_pass_off_peak": 24.82,
+      "status": "OK"
+    },
+    {
+      "entry": "14",
+      "exit": "09",
+      "entry_name": "14: NEWARK AIRPORT, I-78, US 1 AND 9",
+      "exit_name": "09: NJ 18, NEW BRUNSWICK",
+      "cash": 25.35,
+      "ez_pass_peak": 22.98,
+      "ez_pass_off_peak": 21.84,
+      "status": "OK"
+    },
+    {
+      "entry": "14",
+      "exit": "10",
+      "entry_name": "14: NEWARK AIRPORT, I-78, US 1 AND 9",
+      "exit_name": "10: I-287, METUCHEN, PERTH AMBOY",
+      "cash": 21.9,
+      "ez_pass_peak": 19.83,
+      "ez_pass_off_peak": 18.84,
+      "status": "OK"
+    },
+    {
+      "entry": "14",
+      "exit": "11",
+      "entry_name": "14: NEWARK AIRPORT, I-78, US 1 AND 9",
+      "exit_name": "11: GARDEN STATE PARKWAY",
+      "cash": 16.85,
+      "ez_pass_peak": 15.27,
+      "ez_pass_off_peak": 14.51,
+      "status": "OK"
+    },
+    {
+      "entry": "14",
+      "exit": "12",
+      "entry_name": "14: NEWARK AIRPORT, I-78, US 1 AND 9",
+      "exit_name": "12: CARTERET, RAHWAY",
+      "cash": 12.95,
+      "ez_pass_peak": 11.89,
+      "ez_pass_off_peak": 11.3,
+      "status": "OK"
+    },
+    {
+      "entry": "14",
+      "exit": "13",
+      "entry_name": "14: NEWARK AIRPORT, I-78, US 1 AND 9",
+      "exit_name": "13: I-278, ELIZABETH, STATEN ISLAND",
+      "cash": 8.75,
+      "ez_pass_peak": 8.12,
+      "ez_pass_off_peak": 7.72,
+      "status": "OK"
+    },
+    {
+      "entry": "14",
+      "exit": "13A",
+      "entry_name": "14: NEWARK AIRPORT, I-78, US 1 AND 9",
+      "exit_name": "13A: NEWARK AIRPORT, ELIZABETH SEAPORT",
+      "cash": 5.9,
+      "ez_pass_peak": 5.08,
+      "ez_pass_off_peak": 4.83,
+      "status": "OK"
+    },
+    {
+      "entry": "14",
+      "exit": "14A",
+      "entry_name": "14: NEWARK AIRPORT, I-78, US 1 AND 9",
+      "exit_name": "14A: HUDSON CITY EXT, BAYONNE",
+      "cash": 10.65,
+      "ez_pass_peak": 9.53,
+      "ez_pass_off_peak": 9.06,
+      "status": "OK"
+    },
+    {
+      "entry": "14",
+      "exit": "14B",
+      "entry_name": "14: NEWARK AIRPORT, I-78, US 1 AND 9",
+      "exit_name": "14B: JERSEY CITY, LIBERTY ST. PARK",
+      "cash": 12.95,
+      "ez_pass_peak": 11.89,
+      "ez_pass_off_peak": 11.3,
+      "status": "OK"
+    },
+    {
+      "entry": "14",
+      "exit": "14C",
+      "entry_name": "14: NEWARK AIRPORT, I-78, US 1 AND 9",
+      "exit_name": "14C: HOLLAND TUNNEL",
+      "cash": 15.2,
+      "ez_pass_peak": 13.87,
+      "ez_pass_off_peak": 13.18,
+      "status": "OK"
+    },
+    {
+      "entry": "14",
+      "exit": "15E",
+      "entry_name": "14: NEWARK AIRPORT, I-78, US 1 AND 9",
+      "exit_name": "15E: US 1 AND 9, NEWARK, JERSEY CITY",
+      "cash": 4.35,
+      "ez_pass_peak": 4.01,
+      "ez_pass_off_peak": 3.81,
+      "status": "OK"
+    },
+    {
+      "entry": "14",
+      "exit": "15W",
+      "entry_name": "14: NEWARK AIRPORT, I-78, US 1 AND 9",
+      "exit_name": "15W: I-280, NEWARK, HARRISON",
+      "cash": 7.6,
+      "ez_pass_peak": 6.89,
+      "ez_pass_off_peak": 6.54,
+      "status": "OK"
+    },
+    {
+      "entry": "14",
+      "exit": "15X",
+      "entry_name": "14: NEWARK AIRPORT, I-78, US 1 AND 9",
+      "exit_name": "15X: SECAUCUS TRANSFER STATION, SECAUCUS",
+      "cash": 10.65,
+      "ez_pass_peak": 9.75,
+      "ez_pass_off_peak": 9.26,
+      "status": "OK"
+    },
+    {
+      "entry": "14",
+      "exit": "16E",
+      "entry_name": "14: NEWARK AIRPORT, I-78, US 1 AND 9",
+      "exit_name": "16E: NJ 3, LINCOLN TUNNEL, SECAUCUS",
+      "cash": 12.95,
+      "ez_pass_peak": 11.89,
+      "ez_pass_off_peak": 11.3,
+      "status": "OK"
+    },
+    {
+      "entry": "14",
+      "exit": "16W",
+      "entry_name": "14: NEWARK AIRPORT, I-78, US 1 AND 9",
+      "exit_name": "16W: NJ 3, SPORTSPLEX, EAST RUTHERFORD",
+      "cash": 12.95,
+      "ez_pass_peak": 11.89,
+      "ez_pass_off_peak": 11.3,
+      "status": "OK"
+    },
+    {
+      "entry": "14",
+      "exit": "18E",
+      "entry_name": "14: NEWARK AIRPORT, I-78, US 1 AND 9",
+      "exit_name": "18E: GWB, US 46, I-80, RIDGEFIELD PARK",
+      "cash": 20.15,
+      "ez_pass_peak": 18.36,
+      "ez_pass_off_peak": 17.44,
+      "status": "OK"
+    },
+    {
+      "entry": "14",
+      "exit": "18W",
+      "entry_name": "14: NEWARK AIRPORT, I-78, US 1 AND 9",
+      "exit_name": "18W: GWB, US 46, I-80, RIDGEFIELD PARK",
+      "cash": 20.15,
+      "ez_pass_peak": 18.36,
+      "ez_pass_off_peak": 17.44,
+      "status": "OK"
+    },
+    {
+      "entry": "14A",
+      "exit": "01",
+      "entry_name": "14A: HUDSON CITY EXT, BAYONNE",
+      "exit_name": "01: DELAWARE MEMORIAL BRIDGE",
+      "cash": 73,
+      "ez_pass_peak": 66.54,
+      "ez_pass_off_peak": 63.22,
+      "status": "OK"
+    },
+    {
+      "entry": "14A",
+      "exit": "02",
+      "entry_name": "14A: HUDSON CITY EXT, BAYONNE",
+      "exit_name": "02: US 322, SWEDESBORO, CHESTER",
+      "cash": 66.6,
+      "ez_pass_peak": 60.68,
+      "ez_pass_off_peak": 57.65,
+      "status": "OK"
+    },
+    {
+      "entry": "14A",
+      "exit": "03",
+      "entry_name": "14A: HUDSON CITY EXT, BAYONNE",
+      "exit_name": "03: NJ 168, WOODBURY, SOUTH CAMDEN",
+      "cash": 61.25,
+      "ez_pass_peak": 55.73,
+      "ez_pass_off_peak": 52.94,
+      "status": "OK"
+    },
+    {
+      "entry": "14A",
+      "exit": "04",
+      "entry_name": "14A: HUDSON CITY EXT, BAYONNE",
+      "exit_name": "04: NJ 73, CAMDEN, PHILADELPHIA",
+      "cash": 56.15,
+      "ez_pass_peak": 51.23,
+      "ez_pass_off_peak": 48.67,
+      "status": "OK"
+    },
+    {
+      "entry": "14A",
+      "exit": "05",
+      "entry_name": "14A: HUDSON CITY EXT, BAYONNE",
+      "exit_name": "05: BURLINGTON, MT. HOLLY",
+      "cash": 51.65,
+      "ez_pass_peak": 47.08,
+      "ez_pass_off_peak": 44.72,
+      "status": "OK"
+    },
+    {
+      "entry": "14A",
+      "exit": "06",
+      "entry_name": "14A: HUDSON CITY EXT, BAYONNE",
+      "exit_name": "06: PENNSYLVANIA TURNPIKE",
+      "cash": 56.75,
+      "ez_pass_peak": 51.68,
+      "ez_pass_off_peak": 49.1,
+      "status": "OK"
+    },
+    {
+      "entry": "14A",
+      "exit": "07",
+      "entry_name": "14A: HUDSON CITY EXT, BAYONNE",
+      "exit_name": "07: US 206, BORDENTOWN, TRENTON",
+      "cash": 46.9,
+      "ez_pass_peak": 42.73,
+      "ez_pass_off_peak": 40.59,
+      "status": "OK"
+    },
+    {
+      "entry": "14A",
+      "exit": "07A",
+      "entry_name": "14A: HUDSON CITY EXT, BAYONNE",
+      "exit_name": "07A: I-195, TRENTON, HAMILTON",
+      "cash": 45.35,
+      "ez_pass_peak": 41.33,
+      "ez_pass_off_peak": 39.26,
+      "status": "OK"
+    },
+    {
+      "entry": "14A",
+      "exit": "08",
+      "entry_name": "14A: HUDSON CITY EXT, BAYONNE",
+      "exit_name": "08: NJ 33, HIGHTSTOWN, FREEHOLD",
+      "cash": 41.6,
+      "ez_pass_peak": 37.83,
+      "ez_pass_off_peak": 35.94,
+      "status": "OK"
+    },
+    {
+      "entry": "14A",
+      "exit": "08A",
+      "entry_name": "14A: HUDSON CITY EXT, BAYONNE",
+      "exit_name": "08A: CRANBURY, JAMESBURG",
+      "cash": 38.6,
+      "ez_pass_peak": 35.3,
+      "ez_pass_off_peak": 33.54,
+      "status": "OK"
+    },
+    {
+      "entry": "14A",
+      "exit": "09",
+      "entry_name": "14A: HUDSON CITY EXT, BAYONNE",
+      "exit_name": "09: NJ 18, NEW BRUNSWICK",
+      "cash": 35.35,
+      "ez_pass_peak": 31.99,
+      "ez_pass_off_peak": 30.39,
+      "status": "OK"
+    },
+    {
+      "entry": "14A",
+      "exit": "10",
+      "entry_name": "14A: HUDSON CITY EXT, BAYONNE",
+      "exit_name": "10: I-287, METUCHEN, PERTH AMBOY",
+      "cash": 32.4,
+      "ez_pass_peak": 29.4,
+      "ez_pass_off_peak": 27.93,
+      "status": "OK"
+    },
+    {
+      "entry": "14A",
+      "exit": "11",
+      "entry_name": "14A: HUDSON CITY EXT, BAYONNE",
+      "exit_name": "11: GARDEN STATE PARKWAY",
+      "cash": 28.65,
+      "ez_pass_peak": 26.13,
+      "ez_pass_off_peak": 24.82,
+      "status": "OK"
+    },
+    {
+      "entry": "14A",
+      "exit": "12",
+      "entry_name": "14A: HUDSON CITY EXT, BAYONNE",
+      "exit_name": "12: CARTERET, RAHWAY",
+      "cash": 23.7,
+      "ez_pass_peak": 21.46,
+      "ez_pass_off_peak": 20.39,
+      "status": "OK"
+    },
+    {
+      "entry": "14A",
+      "exit": "13",
+      "entry_name": "14A: HUDSON CITY EXT, BAYONNE",
+      "exit_name": "13: I-278, ELIZABETH, STATEN ISLAND",
+      "cash": 19,
+      "ez_pass_peak": 17.24,
+      "ez_pass_off_peak": 16.38,
+      "status": "OK"
+    },
+    {
+      "entry": "14A",
+      "exit": "13A",
+      "entry_name": "14A: HUDSON CITY EXT, BAYONNE",
+      "exit_name": "13A: NEWARK AIRPORT, ELIZABETH SEAPORT",
+      "cash": 19,
+      "ez_pass_peak": 17.24,
+      "ez_pass_off_peak": 16.38,
+      "status": "OK"
+    },
+    {
+      "entry": "14A",
+      "exit": "14",
+      "entry_name": "14A: HUDSON CITY EXT, BAYONNE",
+      "exit_name": "14: NEWARK AIRPORT, I-78, US 1 AND 9",
+      "cash": 10.65,
+      "ez_pass_peak": 9.53,
+      "ez_pass_off_peak": 9.06,
+      "status": "OK"
+    },
+    {
+      "entry": "14A",
+      "exit": "14B",
+      "entry_name": "14A: HUDSON CITY EXT, BAYONNE",
+      "exit_name": "14B: JERSEY CITY, LIBERTY ST. PARK",
+      "cash": 4.35,
+      "ez_pass_peak": 4.01,
+      "ez_pass_off_peak": 3.81,
+      "status": "OK"
+    },
+    {
+      "entry": "14A",
+      "exit": "14C",
+      "entry_name": "14A: HUDSON CITY EXT, BAYONNE",
+      "exit_name": "14C: HOLLAND TUNNEL",
+      "cash": 6.7,
+      "ez_pass_peak": 6.22,
+      "ez_pass_off_peak": 5.91,
+      "status": "OK"
+    },
+    {
+      "entry": "14A",
+      "exit": "15E",
+      "entry_name": "14A: HUDSON CITY EXT, BAYONNE",
+      "exit_name": "15E: US 1 AND 9, NEWARK, JERSEY CITY",
+      "cash": 15.2,
+      "ez_pass_peak": 13.87,
+      "ez_pass_off_peak": 13.18,
+      "status": "OK"
+    },
+    {
+      "entry": "14A",
+      "exit": "15W",
+      "entry_name": "14A: HUDSON CITY EXT, BAYONNE",
+      "exit_name": "15W: I-280, NEWARK, HARRISON",
+      "cash": 19,
+      "ez_pass_peak": 17.24,
+      "ez_pass_off_peak": 16.38,
+      "status": "OK"
+    },
+    {
+      "entry": "14A",
+      "exit": "15X",
+      "entry_name": "14A: HUDSON CITY EXT, BAYONNE",
+      "exit_name": "15X: SECAUCUS TRANSFER STATION, SECAUCUS",
+      "cash": 21.4,
+      "ez_pass_peak": 19.33,
+      "ez_pass_off_peak": 18.36,
+      "status": "OK"
+    },
+    {
+      "entry": "14A",
+      "exit": "16E",
+      "entry_name": "14A: HUDSON CITY EXT, BAYONNE",
+      "exit_name": "16E: NJ 3, LINCOLN TUNNEL, SECAUCUS",
+      "cash": 23.7,
+      "ez_pass_peak": 21.46,
+      "ez_pass_off_peak": 20.39,
+      "status": "OK"
+    },
+    {
+      "entry": "14A",
+      "exit": "16W",
+      "entry_name": "14A: HUDSON CITY EXT, BAYONNE",
+      "exit_name": "16W: NJ 3, SPORTSPLEX, EAST RUTHERFORD",
+      "cash": 23.7,
+      "ez_pass_peak": 21.46,
+      "ez_pass_off_peak": 20.39,
+      "status": "OK"
+    },
+    {
+      "entry": "14A",
+      "exit": "18E",
+      "entry_name": "14A: HUDSON CITY EXT, BAYONNE",
+      "exit_name": "18E: GWB, US 46, I-80, RIDGEFIELD PARK",
+      "cash": 30.55,
+      "ez_pass_peak": 28.04,
+      "ez_pass_off_peak": 26.64,
+      "status": "OK"
+    },
+    {
+      "entry": "14A",
+      "exit": "18W",
+      "entry_name": "14A: HUDSON CITY EXT, BAYONNE",
+      "exit_name": "18W: GWB, US 46, I-80, RIDGEFIELD PARK",
+      "cash": 30.55,
+      "ez_pass_peak": 28.04,
+      "ez_pass_off_peak": 26.64,
+      "status": "OK"
+    },
+    {
+      "entry": "14B",
+      "exit": "01",
+      "entry_name": "14B: JERSEY CITY, LIBERTY ST. PARK",
+      "exit_name": "01: DELAWARE MEMORIAL BRIDGE",
+      "cash": 75.2,
+      "ez_pass_peak": 68.51,
+      "ez_pass_off_peak": 65.09,
+      "status": "OK"
+    },
+    {
+      "entry": "14B",
+      "exit": "02",
+      "entry_name": "14B: JERSEY CITY, LIBERTY ST. PARK",
+      "exit_name": "02: US 322, SWEDESBORO, CHESTER",
+      "cash": 69,
+      "ez_pass_peak": 62.99,
+      "ez_pass_off_peak": 59.84,
+      "status": "OK"
+    },
+    {
+      "entry": "14B",
+      "exit": "03",
+      "entry_name": "14B: JERSEY CITY, LIBERTY ST. PARK",
+      "exit_name": "03: NJ 168, WOODBURY, SOUTH CAMDEN",
+      "cash": 63.2,
+      "ez_pass_peak": 57.71,
+      "ez_pass_off_peak": 54.82,
+      "status": "OK"
+    },
+    {
+      "entry": "14B",
+      "exit": "04",
+      "entry_name": "14B: JERSEY CITY, LIBERTY ST. PARK",
+      "exit_name": "04: NJ 73, CAMDEN, PHILADELPHIA",
+      "cash": 58.7,
+      "ez_pass_peak": 53.43,
+      "ez_pass_off_peak": 50.76,
+      "status": "OK"
+    },
+    {
+      "entry": "14B",
+      "exit": "05",
+      "entry_name": "14B: JERSEY CITY, LIBERTY ST. PARK",
+      "exit_name": "05: BURLINGTON, MT. HOLLY",
+      "cash": 54.5,
+      "ez_pass_peak": 49.71,
+      "ez_pass_off_peak": 47.23,
+      "status": "OK"
+    },
+    {
+      "entry": "14B",
+      "exit": "06",
+      "entry_name": "14B: JERSEY CITY, LIBERTY ST. PARK",
+      "exit_name": "06: PENNSYLVANIA TURNPIKE",
+      "cash": 59.55,
+      "ez_pass_peak": 54.44,
+      "ez_pass_off_peak": 51.72,
+      "status": "OK"
+    },
+    {
+      "entry": "14B",
+      "exit": "07",
+      "entry_name": "14B: JERSEY CITY, LIBERTY ST. PARK",
+      "exit_name": "07: US 206, BORDENTOWN, TRENTON",
+      "cash": 49.65,
+      "ez_pass_peak": 45.1,
+      "ez_pass_off_peak": 42.84,
+      "status": "OK"
+    },
+    {
+      "entry": "14B",
+      "exit": "07A",
+      "entry_name": "14B: JERSEY CITY, LIBERTY ST. PARK",
+      "exit_name": "07A: I-195, TRENTON, HAMILTON",
+      "cash": 46.9,
+      "ez_pass_peak": 42.73,
+      "ez_pass_off_peak": 40.59,
+      "status": "OK"
+    },
+    {
+      "entry": "14B",
+      "exit": "08",
+      "entry_name": "14B: JERSEY CITY, LIBERTY ST. PARK",
+      "exit_name": "08: NJ 33, HIGHTSTOWN, FREEHOLD",
+      "cash": 43.65,
+      "ez_pass_peak": 39.81,
+      "ez_pass_off_peak": 37.82,
+      "status": "OK"
+    },
+    {
+      "entry": "14B",
+      "exit": "08A",
+      "entry_name": "14B: JERSEY CITY, LIBERTY ST. PARK",
+      "exit_name": "08A: CRANBURY, JAMESBURG",
+      "cash": 40.3,
+      "ez_pass_peak": 36.76,
+      "ez_pass_off_peak": 34.92,
+      "status": "OK"
+    },
+    {
+      "entry": "14B",
+      "exit": "09",
+      "entry_name": "14B: JERSEY CITY, LIBERTY ST. PARK",
+      "exit_name": "09: NJ 18, NEW BRUNSWICK",
+      "cash": 38.3,
+      "ez_pass_peak": 34.9,
+      "ez_pass_off_peak": 33.16,
+      "status": "OK"
+    },
+    {
+      "entry": "14B",
+      "exit": "10",
+      "entry_name": "14B: JERSEY CITY, LIBERTY ST. PARK",
+      "exit_name": "10: I-287, METUCHEN, PERTH AMBOY",
+      "cash": 34.85,
+      "ez_pass_peak": 31.65,
+      "ez_pass_off_peak": 30.06,
+      "status": "OK"
+    },
+    {
+      "entry": "14B",
+      "exit": "11",
+      "entry_name": "14B: JERSEY CITY, LIBERTY ST. PARK",
+      "exit_name": "11: GARDEN STATE PARKWAY",
+      "cash": 29.7,
+      "ez_pass_peak": 27.03,
+      "ez_pass_off_peak": 25.68,
+      "status": "OK"
+    },
+    {
+      "entry": "14B",
+      "exit": "12",
+      "entry_name": "14B: JERSEY CITY, LIBERTY ST. PARK",
+      "exit_name": "12: CARTERET, RAHWAY",
+      "cash": 25.65,
+      "ez_pass_peak": 23.44,
+      "ez_pass_off_peak": 22.27,
+      "status": "OK"
+    },
+    {
+      "entry": "14B",
+      "exit": "13",
+      "entry_name": "14B: JERSEY CITY, LIBERTY ST. PARK",
+      "exit_name": "13: I-278, ELIZABETH, STATEN ISLAND",
+      "cash": 20.55,
+      "ez_pass_peak": 18.76,
+      "ez_pass_off_peak": 17.82,
+      "status": "OK"
+    },
+    {
+      "entry": "14B",
+      "exit": "13A",
+      "entry_name": "14B: JERSEY CITY, LIBERTY ST. PARK",
+      "exit_name": "13A: NEWARK AIRPORT, ELIZABETH SEAPORT",
+      "cash": 20.55,
+      "ez_pass_peak": 18.76,
+      "ez_pass_off_peak": 17.82,
+      "status": "OK"
+    },
+    {
+      "entry": "14B",
+      "exit": "14",
+      "entry_name": "14B: JERSEY CITY, LIBERTY ST. PARK",
+      "exit_name": "14: NEWARK AIRPORT, I-78, US 1 AND 9",
+      "cash": 12.95,
+      "ez_pass_peak": 11.89,
+      "ez_pass_off_peak": 11.3,
+      "status": "OK"
+    },
+    {
+      "entry": "14B",
+      "exit": "14A",
+      "entry_name": "14B: JERSEY CITY, LIBERTY ST. PARK",
+      "exit_name": "14A: HUDSON CITY EXT, BAYONNE",
+      "cash": 4.35,
+      "ez_pass_peak": 4.01,
+      "ez_pass_off_peak": 3.81,
+      "status": "OK"
+    },
+    {
+      "entry": "14B",
+      "exit": "14C",
+      "entry_name": "14B: JERSEY CITY, LIBERTY ST. PARK",
+      "exit_name": "14C: HOLLAND TUNNEL",
+      "cash": 4.35,
+      "ez_pass_peak": 4.01,
+      "ez_pass_off_peak": 3.81,
+      "status": "OK"
+    },
+    {
+      "entry": "14B",
+      "exit": "15E",
+      "entry_name": "14B: JERSEY CITY, LIBERTY ST. PARK",
+      "exit_name": "15E: US 1 AND 9, NEWARK, JERSEY CITY",
+      "cash": 16.85,
+      "ez_pass_peak": 15.27,
+      "ez_pass_off_peak": 14.51,
+      "status": "OK"
+    },
+    {
+      "entry": "14B",
+      "exit": "15W",
+      "entry_name": "14B: JERSEY CITY, LIBERTY ST. PARK",
+      "exit_name": "15W: I-280, NEWARK, HARRISON",
+      "cash": 20.55,
+      "ez_pass_peak": 18.76,
+      "ez_pass_off_peak": 17.82,
+      "status": "OK"
+    },
+    {
+      "entry": "14B",
+      "exit": "15X",
+      "entry_name": "14B: JERSEY CITY, LIBERTY ST. PARK",
+      "exit_name": "15X: SECAUCUS TRANSFER STATION, SECAUCUS",
+      "cash": 23.15,
+      "ez_pass_peak": 21.24,
+      "ez_pass_off_peak": 20.18,
+      "status": "OK"
+    },
+    {
+      "entry": "14B",
+      "exit": "16E",
+      "entry_name": "14B: JERSEY CITY, LIBERTY ST. PARK",
+      "exit_name": "16E: NJ 3, LINCOLN TUNNEL, SECAUCUS",
+      "cash": 25.65,
+      "ez_pass_peak": 23.44,
+      "ez_pass_off_peak": 22.27,
+      "status": "OK"
+    },
+    {
+      "entry": "14B",
+      "exit": "16W",
+      "entry_name": "14B: JERSEY CITY, LIBERTY ST. PARK",
+      "exit_name": "16W: NJ 3, SPORTSPLEX, EAST RUTHERFORD",
+      "cash": 25.65,
+      "ez_pass_peak": 23.44,
+      "ez_pass_off_peak": 22.27,
+      "status": "OK"
+    },
+    {
+      "entry": "14B",
+      "exit": "18E",
+      "entry_name": "14B: JERSEY CITY, LIBERTY ST. PARK",
+      "exit_name": "18E: GWB, US 46, I-80, RIDGEFIELD PARK",
+      "cash": 33.25,
+      "ez_pass_peak": 30.35,
+      "ez_pass_off_peak": 28.83,
+      "status": "OK"
+    },
+    {
+      "entry": "14B",
+      "exit": "18W",
+      "entry_name": "14B: JERSEY CITY, LIBERTY ST. PARK",
+      "exit_name": "18W: GWB, US 46, I-80, RIDGEFIELD PARK",
+      "cash": 33.25,
+      "ez_pass_peak": 30.35,
+      "ez_pass_off_peak": 28.83,
+      "status": "OK"
+    },
+    {
+      "entry": "14C",
+      "exit": "01",
+      "entry_name": "14C: HOLLAND TUNNEL",
+      "exit_name": "01: DELAWARE MEMORIAL BRIDGE",
+      "cash": 76.25,
+      "ez_pass_peak": 69.57,
+      "ez_pass_off_peak": 66.09,
+      "status": "OK"
+    },
+    {
+      "entry": "14C",
+      "exit": "02",
+      "entry_name": "14C: HOLLAND TUNNEL",
+      "exit_name": "02: US 322, SWEDESBORO, CHESTER",
+      "cash": 71.3,
+      "ez_pass_peak": 64.91,
+      "ez_pass_off_peak": 61.66,
+      "status": "OK"
+    },
+    {
+      "entry": "14C",
+      "exit": "03",
+      "entry_name": "14C: HOLLAND TUNNEL",
+      "exit_name": "03: NJ 168, WOODBURY, SOUTH CAMDEN",
+      "cash": 65.55,
+      "ez_pass_peak": 59.72,
+      "ez_pass_off_peak": 56.74,
+      "status": "OK"
+    },
+    {
+      "entry": "14C",
+      "exit": "04",
+      "entry_name": "14C: HOLLAND TUNNEL",
+      "exit_name": "04: NJ 73, CAMDEN, PHILADELPHIA",
+      "cash": 61.25,
+      "ez_pass_peak": 55.73,
+      "ez_pass_off_peak": 52.94,
+      "status": "OK"
+    },
+    {
+      "entry": "14C",
+      "exit": "05",
+      "entry_name": "14C: HOLLAND TUNNEL",
+      "exit_name": "05: BURLINGTON, MT. HOLLY",
+      "cash": 56.15,
+      "ez_pass_peak": 51.23,
+      "ez_pass_off_peak": 48.67,
+      "status": "OK"
+    },
+    {
+      "entry": "14C",
+      "exit": "06",
+      "entry_name": "14C: HOLLAND TUNNEL",
+      "exit_name": "06: PENNSYLVANIA TURNPIKE",
+      "cash": 61.5,
+      "ez_pass_peak": 56.18,
+      "ez_pass_off_peak": 53.37,
+      "status": "OK"
+    },
+    {
+      "entry": "14C",
+      "exit": "07",
+      "entry_name": "14C: HOLLAND TUNNEL",
+      "exit_name": "07: US 206, BORDENTOWN, TRENTON",
+      "cash": 51.65,
+      "ez_pass_peak": 47.08,
+      "ez_pass_off_peak": 44.72,
+      "status": "OK"
+    },
+    {
+      "entry": "14C",
+      "exit": "07A",
+      "entry_name": "14C: HOLLAND TUNNEL",
+      "exit_name": "07A: I-195, TRENTON, HAMILTON",
+      "cash": 49.65,
+      "ez_pass_peak": 45.1,
+      "ez_pass_off_peak": 42.84,
+      "status": "OK"
+    },
+    {
+      "entry": "14C",
+      "exit": "08",
+      "entry_name": "14C: HOLLAND TUNNEL",
+      "exit_name": "08: NJ 33, HIGHTSTOWN, FREEHOLD",
+      "cash": 45.65,
+      "ez_pass_peak": 41.72,
+      "ez_pass_off_peak": 39.63,
+      "status": "OK"
+    },
+    {
+      "entry": "14C",
+      "exit": "08A",
+      "entry_name": "14C: HOLLAND TUNNEL",
+      "exit_name": "08A: CRANBURY, JAMESBURG",
+      "cash": 43.2,
+      "ez_pass_peak": 39.35,
+      "ez_pass_off_peak": 37.38,
+      "status": "OK"
+    },
+    {
+      "entry": "14C",
+      "exit": "09",
+      "entry_name": "14C: HOLLAND TUNNEL",
+      "exit_name": "09: NJ 18, NEW BRUNSWICK",
+      "cash": 39.9,
+      "ez_pass_peak": 36.21,
+      "ez_pass_off_peak": 34.4,
+      "status": "OK"
+    },
+    {
+      "entry": "14C",
+      "exit": "10",
+      "entry_name": "14C: HOLLAND TUNNEL",
+      "exit_name": "10: I-287, METUCHEN, PERTH AMBOY",
+      "cash": 36.65,
+      "ez_pass_peak": 33.34,
+      "ez_pass_off_peak": 31.67,
+      "status": "OK"
+    },
+    {
+      "entry": "14C",
+      "exit": "11",
+      "entry_name": "14C: HOLLAND TUNNEL",
+      "exit_name": "11: GARDEN STATE PARKWAY",
+      "cash": 32.4,
+      "ez_pass_peak": 29.4,
+      "ez_pass_off_peak": 27.93,
+      "status": "OK"
+    },
+    {
+      "entry": "14C",
+      "exit": "12",
+      "entry_name": "14C: HOLLAND TUNNEL",
+      "exit_name": "12: CARTERET, RAHWAY",
+      "cash": 28.65,
+      "ez_pass_peak": 26.13,
+      "ez_pass_off_peak": 24.82,
+      "status": "OK"
+    },
+    {
+      "entry": "14C",
+      "exit": "13",
+      "entry_name": "14C: HOLLAND TUNNEL",
+      "exit_name": "13: I-278, ELIZABETH, STATEN ISLAND",
+      "cash": 23.7,
+      "ez_pass_peak": 21.46,
+      "ez_pass_off_peak": 20.39,
+      "status": "OK"
+    },
+    {
+      "entry": "14C",
+      "exit": "13A",
+      "entry_name": "14C: HOLLAND TUNNEL",
+      "exit_name": "13A: NEWARK AIRPORT, ELIZABETH SEAPORT",
+      "cash": 23.7,
+      "ez_pass_peak": 21.46,
+      "ez_pass_off_peak": 20.39,
+      "status": "OK"
+    },
+    {
+      "entry": "14C",
+      "exit": "14",
+      "entry_name": "14C: HOLLAND TUNNEL",
+      "exit_name": "14: NEWARK AIRPORT, I-78, US 1 AND 9",
+      "cash": 15.2,
+      "ez_pass_peak": 13.87,
+      "ez_pass_off_peak": 13.18,
+      "status": "OK"
+    },
+    {
+      "entry": "14C",
+      "exit": "14A",
+      "entry_name": "14C: HOLLAND TUNNEL",
+      "exit_name": "14A: HUDSON CITY EXT, BAYONNE",
+      "cash": 6.7,
+      "ez_pass_peak": 6.22,
+      "ez_pass_off_peak": 5.91,
+      "status": "OK"
+    },
+    {
+      "entry": "14C",
+      "exit": "14B",
+      "entry_name": "14C: HOLLAND TUNNEL",
+      "exit_name": "14B: JERSEY CITY, LIBERTY ST. PARK",
+      "cash": 4.35,
+      "ez_pass_peak": 4.01,
+      "ez_pass_off_peak": 3.81,
+      "status": "OK"
+    },
+    {
+      "entry": "14C",
+      "exit": "15E",
+      "entry_name": "14C: HOLLAND TUNNEL",
+      "exit_name": "15E: US 1 AND 9, NEWARK, JERSEY CITY",
+      "cash": 19.8,
+      "ez_pass_peak": 18.09,
+      "ez_pass_off_peak": 17.19,
+      "status": "OK"
+    },
+    {
+      "entry": "14C",
+      "exit": "15W",
+      "entry_name": "14C: HOLLAND TUNNEL",
+      "exit_name": "15W: I-280, NEWARK, HARRISON",
+      "cash": 23.7,
+      "ez_pass_peak": 21.46,
+      "ez_pass_off_peak": 20.39,
+      "status": "OK"
+    },
+    {
+      "entry": "14C",
+      "exit": "15X",
+      "entry_name": "14C: HOLLAND TUNNEL",
+      "exit_name": "15X: SECAUCUS TRANSFER STATION, SECAUCUS",
+      "cash": 26.2,
+      "ez_pass_peak": 23.83,
+      "ez_pass_off_peak": 22.64,
+      "status": "OK"
+    },
+    {
+      "entry": "14C",
+      "exit": "16E",
+      "entry_name": "14C: HOLLAND TUNNEL",
+      "exit_name": "16E: NJ 3, LINCOLN TUNNEL, SECAUCUS",
+      "cash": 28.65,
+      "ez_pass_peak": 26.13,
+      "ez_pass_off_peak": 24.82,
+      "status": "OK"
+    },
+    {
+      "entry": "14C",
+      "exit": "16W",
+      "entry_name": "14C: HOLLAND TUNNEL",
+      "exit_name": "16W: NJ 3, SPORTSPLEX, EAST RUTHERFORD",
+      "cash": 28.65,
+      "ez_pass_peak": 26.13,
+      "ez_pass_off_peak": 24.82,
+      "status": "OK"
+    },
+    {
+      "entry": "14C",
+      "exit": "18E",
+      "entry_name": "14C: HOLLAND TUNNEL",
+      "exit_name": "18E: GWB, US 46, I-80, RIDGEFIELD PARK",
+      "cash": 35.35,
+      "ez_pass_peak": 31.99,
+      "ez_pass_off_peak": 30.39,
+      "status": "OK"
+    },
+    {
+      "entry": "14C",
+      "exit": "18W",
+      "entry_name": "14C: HOLLAND TUNNEL",
+      "exit_name": "18W: GWB, US 46, I-80, RIDGEFIELD PARK",
+      "cash": 35.35,
+      "ez_pass_peak": 31.99,
+      "ez_pass_off_peak": 30.39,
+      "status": "OK"
+    },
+    {
+      "entry": "15E",
+      "exit": "01",
+      "entry_name": "15E: US 1 AND 9, NEWARK, JERSEY CITY",
+      "exit_name": "01: DELAWARE MEMORIAL BRIDGE",
+      "cash": 66.6,
+      "ez_pass_peak": 60.68,
+      "ez_pass_off_peak": 57.65,
+      "status": "OK"
+    },
+    {
+      "entry": "15E",
+      "exit": "02",
+      "entry_name": "15E: US 1 AND 9, NEWARK, JERSEY CITY",
+      "exit_name": "02: US 322, SWEDESBORO, CHESTER",
+      "cash": 61.25,
+      "ez_pass_peak": 55.73,
+      "ez_pass_off_peak": 52.94,
+      "status": "OK"
+    },
+    {
+      "entry": "15E",
+      "exit": "03",
+      "entry_name": "15E: US 1 AND 9, NEWARK, JERSEY CITY",
+      "exit_name": "03: NJ 168, WOODBURY, SOUTH CAMDEN",
+      "cash": 55,
+      "ez_pass_peak": 50.16,
+      "ez_pass_off_peak": 47.65,
+      "status": "OK"
+    },
+    {
+      "entry": "15E",
+      "exit": "04",
+      "entry_name": "15E: US 1 AND 9, NEWARK, JERSEY CITY",
+      "exit_name": "04: NJ 73, CAMDEN, PHILADELPHIA",
+      "cash": 50.25,
+      "ez_pass_peak": 45.94,
+      "ez_pass_off_peak": 43.65,
+      "status": "OK"
+    },
+    {
+      "entry": "15E",
+      "exit": "05",
+      "entry_name": "15E: US 1 AND 9, NEWARK, JERSEY CITY",
+      "exit_name": "05: BURLINGTON, MT. HOLLY",
+      "cash": 45.65,
+      "ez_pass_peak": 41.72,
+      "ez_pass_off_peak": 39.63,
+      "status": "OK"
+    },
+    {
+      "entry": "15E",
+      "exit": "06",
+      "entry_name": "15E: US 1 AND 9, NEWARK, JERSEY CITY",
+      "exit_name": "06: PENNSYLVANIA TURNPIKE",
+      "cash": 51.35,
+      "ez_pass_peak": 46.74,
+      "ez_pass_off_peak": 44.4,
+      "status": "OK"
+    },
+    {
+      "entry": "15E",
+      "exit": "07",
+      "entry_name": "15E: US 1 AND 9, NEWARK, JERSEY CITY",
+      "exit_name": "07: US 206, BORDENTOWN, TRENTON",
+      "cash": 41.6,
+      "ez_pass_peak": 37.83,
+      "ez_pass_off_peak": 35.94,
+      "status": "OK"
+    },
+    {
+      "entry": "15E",
+      "exit": "07A",
+      "entry_name": "15E: US 1 AND 9, NEWARK, JERSEY CITY",
+      "exit_name": "07A: I-195, TRENTON, HAMILTON",
+      "cash": 39.4,
+      "ez_pass_peak": 35.97,
+      "ez_pass_off_peak": 34.17,
+      "status": "OK"
+    },
+    {
+      "entry": "15E",
+      "exit": "08",
+      "entry_name": "15E: US 1 AND 9, NEWARK, JERSEY CITY",
+      "exit_name": "08: NJ 33, HIGHTSTOWN, FREEHOLD",
+      "cash": 35.35,
+      "ez_pass_peak": 31.99,
+      "ez_pass_off_peak": 30.39,
+      "status": "OK"
+    },
+    {
+      "entry": "15E",
+      "exit": "08A",
+      "entry_name": "15E: US 1 AND 9, NEWARK, JERSEY CITY",
+      "exit_name": "08A: CRANBURY, JAMESBURG",
+      "cash": 32.4,
+      "ez_pass_peak": 29.4,
+      "ez_pass_off_peak": 27.93,
+      "status": "OK"
+    },
+    {
+      "entry": "15E",
+      "exit": "09",
+      "entry_name": "15E: US 1 AND 9, NEWARK, JERSEY CITY",
+      "exit_name": "09: NJ 18, NEW BRUNSWICK",
+      "cash": 29.5,
+      "ez_pass_peak": 26.75,
+      "ez_pass_off_peak": 25.42,
+      "status": "OK"
+    },
+    {
+      "entry": "15E",
+      "exit": "10",
+      "entry_name": "15E: US 1 AND 9, NEWARK, JERSEY CITY",
+      "exit_name": "10: I-287, METUCHEN, PERTH AMBOY",
+      "cash": 26,
+      "ez_pass_peak": 23.83,
+      "ez_pass_off_peak": 22.64,
+      "status": "OK"
+    },
+    {
+      "entry": "15E",
+      "exit": "11",
+      "entry_name": "15E: US 1 AND 9, NEWARK, JERSEY CITY",
+      "exit_name": "11: GARDEN STATE PARKWAY",
+      "cash": 21.9,
+      "ez_pass_peak": 19.83,
+      "ez_pass_off_peak": 18.84,
+      "status": "OK"
+    },
+    {
+      "entry": "15E",
+      "exit": "12",
+      "entry_name": "15E: US 1 AND 9, NEWARK, JERSEY CITY",
+      "exit_name": "12: CARTERET, RAHWAY",
+      "cash": 16.85,
+      "ez_pass_peak": 15.27,
+      "ez_pass_off_peak": 14.51,
+      "status": "OK"
+    },
+    {
+      "entry": "15E",
+      "exit": "13",
+      "entry_name": "15E: US 1 AND 9, NEWARK, JERSEY CITY",
+      "exit_name": "13: I-278, ELIZABETH, STATEN ISLAND",
+      "cash": 12.95,
+      "ez_pass_peak": 11.89,
+      "ez_pass_off_peak": 11.3,
+      "status": "OK"
+    },
+    {
+      "entry": "15E",
+      "exit": "13A",
+      "entry_name": "15E: US 1 AND 9, NEWARK, JERSEY CITY",
+      "exit_name": "13A: NEWARK AIRPORT, ELIZABETH SEAPORT",
+      "cash": 12.95,
+      "ez_pass_peak": 11.89,
+      "ez_pass_off_peak": 11.3,
+      "status": "OK"
+    },
+    {
+      "entry": "15E",
+      "exit": "14",
+      "entry_name": "15E: US 1 AND 9, NEWARK, JERSEY CITY",
+      "exit_name": "14: NEWARK AIRPORT, I-78, US 1 AND 9",
+      "cash": 4.35,
+      "ez_pass_peak": 4.01,
+      "ez_pass_off_peak": 3.81,
+      "status": "OK"
+    },
+    {
+      "entry": "15E",
+      "exit": "14A",
+      "entry_name": "15E: US 1 AND 9, NEWARK, JERSEY CITY",
+      "exit_name": "14A: HUDSON CITY EXT, BAYONNE",
+      "cash": 15.2,
+      "ez_pass_peak": 13.87,
+      "ez_pass_off_peak": 13.18,
+      "status": "OK"
+    },
+    {
+      "entry": "15E",
+      "exit": "14B",
+      "entry_name": "15E: US 1 AND 9, NEWARK, JERSEY CITY",
+      "exit_name": "14B: JERSEY CITY, LIBERTY ST. PARK",
+      "cash": 16.85,
+      "ez_pass_peak": 15.27,
+      "ez_pass_off_peak": 14.51,
+      "status": "OK"
+    },
+    {
+      "entry": "15E",
+      "exit": "14C",
+      "entry_name": "15E: US 1 AND 9, NEWARK, JERSEY CITY",
+      "exit_name": "14C: HOLLAND TUNNEL",
+      "cash": 19.8,
+      "ez_pass_peak": 18.09,
+      "ez_pass_off_peak": 17.19,
+      "status": "OK"
+    },
+    {
+      "entry": "15E",
+      "exit": "15W",
+      "entry_name": "15E: US 1 AND 9, NEWARK, JERSEY CITY",
+      "exit_name": "15W: I-280, NEWARK, HARRISON",
+      "cash": 4.35,
+      "ez_pass_peak": 4.01,
+      "ez_pass_off_peak": 3.81,
+      "status": "OK"
+    },
+    {
+      "entry": "15E",
+      "exit": "15X",
+      "entry_name": "15E: US 1 AND 9, NEWARK, JERSEY CITY",
+      "exit_name": "15X: SECAUCUS TRANSFER STATION, SECAUCUS",
+      "cash": 6.3,
+      "ez_pass_peak": 5.76,
+      "ez_pass_off_peak": 5.47,
+      "status": "OK"
+    },
+    {
+      "entry": "15E",
+      "exit": "16E",
+      "entry_name": "15E: US 1 AND 9, NEWARK, JERSEY CITY",
+      "exit_name": "16E: NJ 3, LINCOLN TUNNEL, SECAUCUS",
+      "cash": 8.75,
+      "ez_pass_peak": 8.12,
+      "ez_pass_off_peak": 7.72,
+      "status": "OK"
+    },
+    {
+      "entry": "15E",
+      "exit": "16W",
+      "entry_name": "15E: US 1 AND 9, NEWARK, JERSEY CITY",
+      "exit_name": "16W: NJ 3, SPORTSPLEX, EAST RUTHERFORD",
+      "cash": 8.75,
+      "ez_pass_peak": 8.12,
+      "ez_pass_off_peak": 7.72,
+      "status": "OK"
+    },
+    {
+      "entry": "15E",
+      "exit": "18E",
+      "entry_name": "15E: US 1 AND 9, NEWARK, JERSEY CITY",
+      "exit_name": "18E: GWB, US 46, I-80, RIDGEFIELD PARK",
+      "cash": 16.05,
+      "ez_pass_peak": 14.65,
+      "ez_pass_off_peak": 13.92,
+      "status": "OK"
+    },
+    {
+      "entry": "15E",
+      "exit": "18W",
+      "entry_name": "15E: US 1 AND 9, NEWARK, JERSEY CITY",
+      "exit_name": "18W: GWB, US 46, I-80, RIDGEFIELD PARK",
+      "cash": 16.05,
+      "ez_pass_peak": 14.65,
+      "ez_pass_off_peak": 13.92,
+      "status": "OK"
+    },
+    {
+      "entry": "15W",
+      "exit": "01",
+      "entry_name": "15W: I-280, NEWARK, HARRISON",
+      "exit_name": "01: DELAWARE MEMORIAL BRIDGE",
+      "cash": 69.7,
+      "ez_pass_peak": 63.61,
+      "ez_pass_off_peak": 60.43,
+      "status": "OK"
+    },
+    {
+      "entry": "15W",
+      "exit": "02",
+      "entry_name": "15W: I-280, NEWARK, HARRISON",
+      "exit_name": "02: US 322, SWEDESBORO, CHESTER",
+      "cash": 64.2,
+      "ez_pass_peak": 58.32,
+      "ez_pass_off_peak": 55.41,
+      "status": "OK"
+    },
+    {
+      "entry": "15W",
+      "exit": "03",
+      "entry_name": "15W: I-280, NEWARK, HARRISON",
+      "exit_name": "03: NJ 168, WOODBURY, SOUTH CAMDEN",
+      "cash": 58.25,
+      "ez_pass_peak": 53.2,
+      "ez_pass_off_peak": 50.54,
+      "status": "OK"
+    },
+    {
+      "entry": "15W",
+      "exit": "04",
+      "entry_name": "15W: I-280, NEWARK, HARRISON",
+      "exit_name": "04: NJ 73, CAMDEN, PHILADELPHIA",
+      "cash": 53.35,
+      "ez_pass_peak": 48.49,
+      "ez_pass_off_peak": 46.06,
+      "status": "OK"
+    },
+    {
+      "entry": "15W",
+      "exit": "05",
+      "entry_name": "15W: I-280, NEWARK, HARRISON",
+      "exit_name": "05: BURLINGTON, MT. HOLLY",
+      "cash": 48.95,
+      "ez_pass_peak": 44.71,
+      "ez_pass_off_peak": 42.47,
+      "status": "OK"
+    },
+    {
+      "entry": "15W",
+      "exit": "06",
+      "entry_name": "15W: I-280, NEWARK, HARRISON",
+      "exit_name": "06: PENNSYLVANIA TURNPIKE",
+      "cash": 54.5,
+      "ez_pass_peak": 49.71,
+      "ez_pass_off_peak": 47.23,
+      "status": "OK"
+    },
+    {
+      "entry": "15W",
+      "exit": "07",
+      "entry_name": "15W: I-280, NEWARK, HARRISON",
+      "exit_name": "07: US 206, BORDENTOWN, TRENTON",
+      "cash": 44.8,
+      "ez_pass_peak": 40.88,
+      "ez_pass_off_peak": 38.83,
+      "status": "OK"
+    },
+    {
+      "entry": "15W",
+      "exit": "07A",
+      "entry_name": "15W: I-280, NEWARK, HARRISON",
+      "exit_name": "07A: I-195, TRENTON, HAMILTON",
+      "cash": 41.9,
+      "ez_pass_peak": 38.23,
+      "ez_pass_off_peak": 36.32,
+      "status": "OK"
+    },
+    {
+      "entry": "15W",
+      "exit": "08",
+      "entry_name": "15W: I-280, NEWARK, HARRISON",
+      "exit_name": "08: NJ 33, HIGHTSTOWN, FREEHOLD",
+      "cash": 38.6,
+      "ez_pass_peak": 35.3,
+      "ez_pass_off_peak": 33.54,
+      "status": "OK"
+    },
+    {
+      "entry": "15W",
+      "exit": "08A",
+      "entry_name": "15W: I-280, NEWARK, HARRISON",
+      "exit_name": "08A: CRANBURY, JAMESBURG",
+      "cash": 35.35,
+      "ez_pass_peak": 31.99,
+      "ez_pass_off_peak": 30.39,
+      "status": "OK"
+    },
+    {
+      "entry": "15W",
+      "exit": "09",
+      "entry_name": "15W: I-280, NEWARK, HARRISON",
+      "exit_name": "09: NJ 18, NEW BRUNSWICK",
+      "cash": 32.4,
+      "ez_pass_peak": 29.4,
+      "ez_pass_off_peak": 27.93,
+      "status": "OK"
+    },
+    {
+      "entry": "15W",
+      "exit": "10",
+      "entry_name": "15W: I-280, NEWARK, HARRISON",
+      "exit_name": "10: I-287, METUCHEN, PERTH AMBOY",
+      "cash": 29.5,
+      "ez_pass_peak": 26.75,
+      "ez_pass_off_peak": 25.42,
+      "status": "OK"
+    },
+    {
+      "entry": "15W",
+      "exit": "11",
+      "entry_name": "15W: I-280, NEWARK, HARRISON",
+      "exit_name": "11: GARDEN STATE PARKWAY",
+      "cash": 25.35,
+      "ez_pass_peak": 22.98,
+      "ez_pass_off_peak": 21.84,
+      "status": "OK"
+    },
+    {
+      "entry": "15W",
+      "exit": "12",
+      "entry_name": "15W: I-280, NEWARK, HARRISON",
+      "exit_name": "12: CARTERET, RAHWAY",
+      "cash": 20.15,
+      "ez_pass_peak": 18.36,
+      "ez_pass_off_peak": 17.44,
+      "status": "OK"
+    },
+    {
+      "entry": "15W",
+      "exit": "13",
+      "entry_name": "15W: I-280, NEWARK, HARRISON",
+      "exit_name": "13: I-278, ELIZABETH, STATEN ISLAND",
+      "cash": 16.05,
+      "ez_pass_peak": 14.65,
+      "ez_pass_off_peak": 13.92,
+      "status": "OK"
+    },
+    {
+      "entry": "15W",
+      "exit": "13A",
+      "entry_name": "15W: I-280, NEWARK, HARRISON",
+      "exit_name": "13A: NEWARK AIRPORT, ELIZABETH SEAPORT",
+      "cash": 16.05,
+      "ez_pass_peak": 14.65,
+      "ez_pass_off_peak": 13.92,
+      "status": "OK"
+    },
+    {
+      "entry": "15W",
+      "exit": "14",
+      "entry_name": "15W: I-280, NEWARK, HARRISON",
+      "exit_name": "14: NEWARK AIRPORT, I-78, US 1 AND 9",
+      "cash": 7.6,
+      "ez_pass_peak": 6.89,
+      "ez_pass_off_peak": 6.54,
+      "status": "OK"
+    },
+    {
+      "entry": "15W",
+      "exit": "14A",
+      "entry_name": "15W: I-280, NEWARK, HARRISON",
+      "exit_name": "14A: HUDSON CITY EXT, BAYONNE",
+      "cash": 19,
+      "ez_pass_peak": 17.24,
+      "ez_pass_off_peak": 16.38,
+      "status": "OK"
+    },
+    {
+      "entry": "15W",
+      "exit": "14B",
+      "entry_name": "15W: I-280, NEWARK, HARRISON",
+      "exit_name": "14B: JERSEY CITY, LIBERTY ST. PARK",
+      "cash": 20.55,
+      "ez_pass_peak": 18.76,
+      "ez_pass_off_peak": 17.82,
+      "status": "OK"
+    },
+    {
+      "entry": "15W",
+      "exit": "14C",
+      "entry_name": "15W: I-280, NEWARK, HARRISON",
+      "exit_name": "14C: HOLLAND TUNNEL",
+      "cash": 23.7,
+      "ez_pass_peak": 21.46,
+      "ez_pass_off_peak": 20.39,
+      "status": "OK"
+    },
+    {
+      "entry": "15W",
+      "exit": "15E",
+      "entry_name": "15W: I-280, NEWARK, HARRISON",
+      "exit_name": "15E: US 1 AND 9, NEWARK, JERSEY CITY",
+      "cash": 4.35,
+      "ez_pass_peak": 4.01,
+      "ez_pass_off_peak": 3.81,
+      "status": "OK"
+    },
+    {
+      "entry": "15W",
+      "exit": "15X",
+      "entry_name": "15W: I-280, NEWARK, HARRISON",
+      "exit_name": "15X: SECAUCUS TRANSFER STATION, SECAUCUS",
+      "cash": 5.1,
+      "ez_pass_peak": 4.64,
+      "ez_pass_off_peak": 4.41,
+      "status": "OK"
+    },
+    {
+      "entry": "15W",
+      "exit": "16E",
+      "entry_name": "15W: I-280, NEWARK, HARRISON",
+      "exit_name": "16E: NJ 3, LINCOLN TUNNEL, SECAUCUS",
+      "cash": 5.45,
+      "ez_pass_peak": 4.92,
+      "ez_pass_off_peak": 4.67,
+      "status": "OK"
+    },
+    {
+      "entry": "15W",
+      "exit": "16W",
+      "entry_name": "15W: I-280, NEWARK, HARRISON",
+      "exit_name": "16W: NJ 3, SPORTSPLEX, EAST RUTHERFORD",
+      "cash": 5.45,
+      "ez_pass_peak": 4.92,
+      "ez_pass_off_peak": 4.67,
+      "status": "OK"
+    },
+    {
+      "entry": "15W",
+      "exit": "18E",
+      "entry_name": "15W: I-280, NEWARK, HARRISON",
+      "exit_name": "18E: GWB, US 46, I-80, RIDGEFIELD PARK",
+      "cash": 12.95,
+      "ez_pass_peak": 11.89,
+      "ez_pass_off_peak": 11.3,
+      "status": "OK"
+    },
+    {
+      "entry": "15W",
+      "exit": "18W",
+      "entry_name": "15W: I-280, NEWARK, HARRISON",
+      "exit_name": "18W: GWB, US 46, I-80, RIDGEFIELD PARK",
+      "cash": 12.95,
+      "ez_pass_peak": 11.89,
+      "ez_pass_off_peak": 11.3,
+      "status": "OK"
+    },
+    {
+      "entry": "15X",
+      "exit": "01",
+      "entry_name": "15X: SECAUCUS TRANSFER STATION, SECAUCUS",
+      "exit_name": "01: DELAWARE MEMORIAL BRIDGE",
+      "cash": 73,
+      "ez_pass_peak": 66.42,
+      "ez_pass_off_peak": 63.1,
+      "status": "OK"
+    },
+    {
+      "entry": "15X",
+      "exit": "02",
+      "entry_name": "15X: SECAUCUS TRANSFER STATION, SECAUCUS",
+      "exit_name": "02: US 322, SWEDESBORO, CHESTER",
+      "cash": 66.95,
+      "ez_pass_peak": 61.02,
+      "ez_pass_off_peak": 57.97,
+      "status": "OK"
+    },
+    {
+      "entry": "15X",
+      "exit": "03",
+      "entry_name": "15X: SECAUCUS TRANSFER STATION, SECAUCUS",
+      "exit_name": "03: NJ 168, WOODBURY, SOUTH CAMDEN",
+      "cash": 60.9,
+      "ez_pass_peak": 55.68,
+      "ez_pass_off_peak": 52.89,
+      "status": "OK"
+    },
+    {
+      "entry": "15X",
+      "exit": "04",
+      "entry_name": "15X: SECAUCUS TRANSFER STATION, SECAUCUS",
+      "exit_name": "04: NJ 73, CAMDEN, PHILADELPHIA",
+      "cash": 56.2,
+      "ez_pass_peak": 51.28,
+      "ez_pass_off_peak": 48.71,
+      "status": "OK"
+    },
+    {
+      "entry": "15X",
+      "exit": "05",
+      "entry_name": "15X: SECAUCUS TRANSFER STATION, SECAUCUS",
+      "exit_name": "05: BURLINGTON, MT. HOLLY",
+      "cash": 52.05,
+      "ez_pass_peak": 47.47,
+      "ez_pass_off_peak": 45.09,
+      "status": "OK"
+    },
+    {
+      "entry": "15X",
+      "exit": "06",
+      "entry_name": "15X: SECAUCUS TRANSFER STATION, SECAUCUS",
+      "exit_name": "06: PENNSYLVANIA TURNPIKE",
+      "cash": 57.35,
+      "ez_pass_peak": 52.36,
+      "ez_pass_off_peak": 49.74,
+      "status": "OK"
+    },
+    {
+      "entry": "15X",
+      "exit": "07",
+      "entry_name": "15X: SECAUCUS TRANSFER STATION, SECAUCUS",
+      "exit_name": "07: US 206, BORDENTOWN, TRENTON",
+      "cash": 47.3,
+      "ez_pass_peak": 43.12,
+      "ez_pass_off_peak": 40.97,
+      "status": "OK"
+    },
+    {
+      "entry": "15X",
+      "exit": "07A",
+      "entry_name": "15X: SECAUCUS TRANSFER STATION, SECAUCUS",
+      "exit_name": "07A: I-195, TRENTON, HAMILTON",
+      "cash": 44.8,
+      "ez_pass_peak": 40.88,
+      "ez_pass_off_peak": 38.83,
+      "status": "OK"
+    },
+    {
+      "entry": "15X",
+      "exit": "08",
+      "entry_name": "15X: SECAUCUS TRANSFER STATION, SECAUCUS",
+      "exit_name": "08: NJ 33, HIGHTSTOWN, FREEHOLD",
+      "cash": 41.45,
+      "ez_pass_peak": 37.72,
+      "ez_pass_off_peak": 35.84,
+      "status": "OK"
+    },
+    {
+      "entry": "15X",
+      "exit": "08A",
+      "entry_name": "15X: SECAUCUS TRANSFER STATION, SECAUCUS",
+      "exit_name": "08A: CRANBURY, JAMESBURG",
+      "cash": 38.15,
+      "ez_pass_peak": 34.51,
+      "ez_pass_off_peak": 32.78,
+      "status": "OK"
+    },
+    {
+      "entry": "15X",
+      "exit": "09",
+      "entry_name": "15X: SECAUCUS TRANSFER STATION, SECAUCUS",
+      "exit_name": "09: NJ 18, NEW BRUNSWICK",
+      "cash": 35.85,
+      "ez_pass_peak": 32.72,
+      "ez_pass_off_peak": 31.08,
+      "status": "OK"
+    },
+    {
+      "entry": "15X",
+      "exit": "10",
+      "entry_name": "15X: SECAUCUS TRANSFER STATION, SECAUCUS",
+      "exit_name": "10: I-287, METUCHEN, PERTH AMBOY",
+      "cash": 32.4,
+      "ez_pass_peak": 29.57,
+      "ez_pass_off_peak": 28.09,
+      "status": "OK"
+    },
+    {
+      "entry": "15X",
+      "exit": "11",
+      "entry_name": "15X: SECAUCUS TRANSFER STATION, SECAUCUS",
+      "exit_name": "11: GARDEN STATE PARKWAY",
+      "cash": 27.7,
+      "ez_pass_peak": 25.05,
+      "ez_pass_off_peak": 23.8,
+      "status": "OK"
+    },
+    {
+      "entry": "15X",
+      "exit": "12",
+      "entry_name": "15X: SECAUCUS TRANSFER STATION, SECAUCUS",
+      "exit_name": "12: CARTERET, RAHWAY",
+      "cash": 23.15,
+      "ez_pass_peak": 21.24,
+      "ez_pass_off_peak": 20.18,
+      "status": "OK"
+    },
+    {
+      "entry": "15X",
+      "exit": "13",
+      "entry_name": "15X: SECAUCUS TRANSFER STATION, SECAUCUS",
+      "exit_name": "13: I-278, ELIZABETH, STATEN ISLAND",
+      "cash": 18.45,
+      "ez_pass_peak": 16.79,
+      "ez_pass_off_peak": 15.95,
+      "status": "OK"
+    },
+    {
+      "entry": "15X",
+      "exit": "13A",
+      "entry_name": "15X: SECAUCUS TRANSFER STATION, SECAUCUS",
+      "exit_name": "13A: NEWARK AIRPORT, ELIZABETH SEAPORT",
+      "cash": 18.45,
+      "ez_pass_peak": 16.79,
+      "ez_pass_off_peak": 15.95,
+      "status": "OK"
+    },
+    {
+      "entry": "15X",
+      "exit": "14",
+      "entry_name": "15X: SECAUCUS TRANSFER STATION, SECAUCUS",
+      "exit_name": "14: NEWARK AIRPORT, I-78, US 1 AND 9",
+      "cash": 10.65,
+      "ez_pass_peak": 9.75,
+      "ez_pass_off_peak": 9.26,
+      "status": "OK"
+    },
+    {
+      "entry": "15X",
+      "exit": "14A",
+      "entry_name": "15X: SECAUCUS TRANSFER STATION, SECAUCUS",
+      "exit_name": "14A: HUDSON CITY EXT, BAYONNE",
+      "cash": 21.4,
+      "ez_pass_peak": 19.33,
+      "ez_pass_off_peak": 18.36,
+      "status": "OK"
+    },
+    {
+      "entry": "15X",
+      "exit": "14B",
+      "entry_name": "15X: SECAUCUS TRANSFER STATION, SECAUCUS",
+      "exit_name": "14B: JERSEY CITY, LIBERTY ST. PARK",
+      "cash": 23.15,
+      "ez_pass_peak": 21.24,
+      "ez_pass_off_peak": 20.18,
+      "status": "OK"
+    },
+    {
+      "entry": "15X",
+      "exit": "14C",
+      "entry_name": "15X: SECAUCUS TRANSFER STATION, SECAUCUS",
+      "exit_name": "14C: HOLLAND TUNNEL",
+      "cash": 26.2,
+      "ez_pass_peak": 23.83,
+      "ez_pass_off_peak": 22.64,
+      "status": "OK"
+    },
+    {
+      "entry": "15X",
+      "exit": "15E",
+      "entry_name": "15X: SECAUCUS TRANSFER STATION, SECAUCUS",
+      "exit_name": "15E: US 1 AND 9, NEWARK, JERSEY CITY",
+      "cash": 6.3,
+      "ez_pass_peak": 5.76,
+      "ez_pass_off_peak": 5.47,
+      "status": "OK"
+    },
+    {
+      "entry": "15X",
+      "exit": "15W",
+      "entry_name": "15X: SECAUCUS TRANSFER STATION, SECAUCUS",
+      "exit_name": "15W: I-280, NEWARK, HARRISON",
+      "cash": 5.1,
+      "ez_pass_peak": 4.64,
+      "ez_pass_off_peak": 4.41,
+      "status": "OK"
+    },
+    {
+      "entry": "15X",
+      "exit": "16E",
+      "entry_name": "15X: SECAUCUS TRANSFER STATION, SECAUCUS",
+      "exit_name": "16E: NJ 3, LINCOLN TUNNEL, SECAUCUS",
+      "cash": 2.6,
+      "ez_pass_peak": 2.22,
+      "ez_pass_off_peak": 2.11,
+      "status": "OK"
+    },
+    {
+      "entry": "15X",
+      "exit": "16W",
+      "entry_name": "15X: SECAUCUS TRANSFER STATION, SECAUCUS",
+      "exit_name": "16W: NJ 3, SPORTSPLEX, EAST RUTHERFORD",
+      "cash": 0,
+      "ez_pass_peak": 0,
+      "ez_pass_off_peak": 0,
+      "status": "OK"
+    },
+    {
+      "entry": "15X",
+      "exit": "18E",
+      "entry_name": "15X: SECAUCUS TRANSFER STATION, SECAUCUS",
+      "exit_name": "18E: GWB, US 46, I-80, RIDGEFIELD PARK",
+      "cash": 4.4,
+      "ez_pass_peak": 4.07,
+      "ez_pass_off_peak": 3.87,
+      "status": "OK"
+    },
+    {
+      "entry": "15X",
+      "exit": "18W",
+      "entry_name": "15X: SECAUCUS TRANSFER STATION, SECAUCUS",
+      "exit_name": "18W: GWB, US 46, I-80, RIDGEFIELD PARK",
+      "cash": 0,
+      "ez_pass_peak": 0,
+      "ez_pass_off_peak": 0,
+      "status": "OK"
+    },
+    {
+      "entry": "16E",
+      "exit": "01",
+      "entry_name": "16E: NJ 3, LINCOLN TUNNEL, SECAUCUS",
+      "exit_name": "01: DELAWARE MEMORIAL BRIDGE",
+      "cash": 75.2,
+      "ez_pass_peak": 68.51,
+      "ez_pass_off_peak": 65.09,
+      "status": "OK"
+    },
+    {
+      "entry": "16E",
+      "exit": "02",
+      "entry_name": "16E: NJ 3, LINCOLN TUNNEL, SECAUCUS",
+      "exit_name": "02: US 322, SWEDESBORO, CHESTER",
+      "cash": 69,
+      "ez_pass_peak": 62.99,
+      "ez_pass_off_peak": 59.84,
+      "status": "OK"
+    },
+    {
+      "entry": "16E",
+      "exit": "03",
+      "entry_name": "16E: NJ 3, LINCOLN TUNNEL, SECAUCUS",
+      "exit_name": "03: NJ 168, WOODBURY, SOUTH CAMDEN",
+      "cash": 63.2,
+      "ez_pass_peak": 57.71,
+      "ez_pass_off_peak": 54.82,
+      "status": "OK"
+    },
+    {
+      "entry": "16E",
+      "exit": "04",
+      "entry_name": "16E: NJ 3, LINCOLN TUNNEL, SECAUCUS",
+      "exit_name": "04: NJ 73, CAMDEN, PHILADELPHIA",
+      "cash": 58.7,
+      "ez_pass_peak": 53.43,
+      "ez_pass_off_peak": 50.76,
+      "status": "OK"
+    },
+    {
+      "entry": "16E",
+      "exit": "05",
+      "entry_name": "16E: NJ 3, LINCOLN TUNNEL, SECAUCUS",
+      "exit_name": "05: BURLINGTON, MT. HOLLY",
+      "cash": 54.5,
+      "ez_pass_peak": 49.71,
+      "ez_pass_off_peak": 47.23,
+      "status": "OK"
+    },
+    {
+      "entry": "16E",
+      "exit": "06",
+      "entry_name": "16E: NJ 3, LINCOLN TUNNEL, SECAUCUS",
+      "exit_name": "06: PENNSYLVANIA TURNPIKE",
+      "cash": 59.55,
+      "ez_pass_peak": 54.44,
+      "ez_pass_off_peak": 51.72,
+      "status": "OK"
+    },
+    {
+      "entry": "16E",
+      "exit": "07",
+      "entry_name": "16E: NJ 3, LINCOLN TUNNEL, SECAUCUS",
+      "exit_name": "07: US 206, BORDENTOWN, TRENTON",
+      "cash": 49.65,
+      "ez_pass_peak": 45.1,
+      "ez_pass_off_peak": 42.84,
+      "status": "OK"
+    },
+    {
+      "entry": "16E",
+      "exit": "07A",
+      "entry_name": "16E: NJ 3, LINCOLN TUNNEL, SECAUCUS",
+      "exit_name": "07A: I-195, TRENTON, HAMILTON",
+      "cash": 46.9,
+      "ez_pass_peak": 42.73,
+      "ez_pass_off_peak": 40.59,
+      "status": "OK"
+    },
+    {
+      "entry": "16E",
+      "exit": "08",
+      "entry_name": "16E: NJ 3, LINCOLN TUNNEL, SECAUCUS",
+      "exit_name": "08: NJ 33, HIGHTSTOWN, FREEHOLD",
+      "cash": 43.65,
+      "ez_pass_peak": 39.81,
+      "ez_pass_off_peak": 37.82,
+      "status": "OK"
+    },
+    {
+      "entry": "16E",
+      "exit": "08A",
+      "entry_name": "16E: NJ 3, LINCOLN TUNNEL, SECAUCUS",
+      "exit_name": "08A: CRANBURY, JAMESBURG",
+      "cash": 40.3,
+      "ez_pass_peak": 36.76,
+      "ez_pass_off_peak": 34.92,
+      "status": "OK"
+    },
+    {
+      "entry": "16E",
+      "exit": "09",
+      "entry_name": "16E: NJ 3, LINCOLN TUNNEL, SECAUCUS",
+      "exit_name": "09: NJ 18, NEW BRUNSWICK",
+      "cash": 38.3,
+      "ez_pass_peak": 34.9,
+      "ez_pass_off_peak": 33.16,
+      "status": "OK"
+    },
+    {
+      "entry": "16E",
+      "exit": "10",
+      "entry_name": "16E: NJ 3, LINCOLN TUNNEL, SECAUCUS",
+      "exit_name": "10: I-287, METUCHEN, PERTH AMBOY",
+      "cash": 34.85,
+      "ez_pass_peak": 31.65,
+      "ez_pass_off_peak": 30.06,
+      "status": "OK"
+    },
+    {
+      "entry": "16E",
+      "exit": "11",
+      "entry_name": "16E: NJ 3, LINCOLN TUNNEL, SECAUCUS",
+      "exit_name": "11: GARDEN STATE PARKWAY",
+      "cash": 29.7,
+      "ez_pass_peak": 27.03,
+      "ez_pass_off_peak": 25.68,
+      "status": "OK"
+    },
+    {
+      "entry": "16E",
+      "exit": "12",
+      "entry_name": "16E: NJ 3, LINCOLN TUNNEL, SECAUCUS",
+      "exit_name": "12: CARTERET, RAHWAY",
+      "cash": 25.65,
+      "ez_pass_peak": 23.44,
+      "ez_pass_off_peak": 22.27,
+      "status": "OK"
+    },
+    {
+      "entry": "16E",
+      "exit": "13",
+      "entry_name": "16E: NJ 3, LINCOLN TUNNEL, SECAUCUS",
+      "exit_name": "13: I-278, ELIZABETH, STATEN ISLAND",
+      "cash": 20.55,
+      "ez_pass_peak": 18.76,
+      "ez_pass_off_peak": 17.82,
+      "status": "OK"
+    },
+    {
+      "entry": "16E",
+      "exit": "13A",
+      "entry_name": "16E: NJ 3, LINCOLN TUNNEL, SECAUCUS",
+      "exit_name": "13A: NEWARK AIRPORT, ELIZABETH SEAPORT",
+      "cash": 20.55,
+      "ez_pass_peak": 18.76,
+      "ez_pass_off_peak": 17.82,
+      "status": "OK"
+    },
+    {
+      "entry": "16E",
+      "exit": "14",
+      "entry_name": "16E: NJ 3, LINCOLN TUNNEL, SECAUCUS",
+      "exit_name": "14: NEWARK AIRPORT, I-78, US 1 AND 9",
+      "cash": 12.95,
+      "ez_pass_peak": 11.89,
+      "ez_pass_off_peak": 11.3,
+      "status": "OK"
+    },
+    {
+      "entry": "16E",
+      "exit": "14A",
+      "entry_name": "16E: NJ 3, LINCOLN TUNNEL, SECAUCUS",
+      "exit_name": "14A: HUDSON CITY EXT, BAYONNE",
+      "cash": 23.7,
+      "ez_pass_peak": 21.46,
+      "ez_pass_off_peak": 20.39,
+      "status": "OK"
+    },
+    {
+      "entry": "16E",
+      "exit": "14B",
+      "entry_name": "16E: NJ 3, LINCOLN TUNNEL, SECAUCUS",
+      "exit_name": "14B: JERSEY CITY, LIBERTY ST. PARK",
+      "cash": 25.65,
+      "ez_pass_peak": 23.44,
+      "ez_pass_off_peak": 22.27,
+      "status": "OK"
+    },
+    {
+      "entry": "16E",
+      "exit": "14C",
+      "entry_name": "16E: NJ 3, LINCOLN TUNNEL, SECAUCUS",
+      "exit_name": "14C: HOLLAND TUNNEL",
+      "cash": 28.65,
+      "ez_pass_peak": 26.13,
+      "ez_pass_off_peak": 24.82,
+      "status": "OK"
+    },
+    {
+      "entry": "16E",
+      "exit": "15E",
+      "entry_name": "16E: NJ 3, LINCOLN TUNNEL, SECAUCUS",
+      "exit_name": "15E: US 1 AND 9, NEWARK, JERSEY CITY",
+      "cash": 8.75,
+      "ez_pass_peak": 8.12,
+      "ez_pass_off_peak": 7.72,
+      "status": "OK"
+    },
+    {
+      "entry": "16E",
+      "exit": "15W",
+      "entry_name": "16E: NJ 3, LINCOLN TUNNEL, SECAUCUS",
+      "exit_name": "15W: I-280, NEWARK, HARRISON",
+      "cash": 5.45,
+      "ez_pass_peak": 4.92,
+      "ez_pass_off_peak": 4.67,
+      "status": "OK"
+    },
+    {
+      "entry": "16E",
+      "exit": "15X",
+      "entry_name": "16E: NJ 3, LINCOLN TUNNEL, SECAUCUS",
+      "exit_name": "15X: SECAUCUS TRANSFER STATION, SECAUCUS",
+      "cash": 2.6,
+      "ez_pass_peak": 2.22,
+      "ez_pass_off_peak": 2.11,
+      "status": "OK"
+    },
+    {
+      "entry": "16E",
+      "exit": "16W",
+      "entry_name": "16E: NJ 3, LINCOLN TUNNEL, SECAUCUS",
+      "exit_name": "16W: NJ 3, SPORTSPLEX, EAST RUTHERFORD",
+      "cash": 0,
+      "ez_pass_peak": 0,
+      "ez_pass_off_peak": 0,
+      "status": "OK"
+    },
+    {
+      "entry": "16E",
+      "exit": "18E",
+      "entry_name": "16E: NJ 3, LINCOLN TUNNEL, SECAUCUS",
+      "exit_name": "18E: GWB, US 46, I-80, RIDGEFIELD PARK",
+      "cash": 0,
+      "ez_pass_peak": 0,
+      "ez_pass_off_peak": 0,
+      "status": "OK"
+    },
+    {
+      "entry": "16E",
+      "exit": "18W",
+      "entry_name": "16E: NJ 3, LINCOLN TUNNEL, SECAUCUS",
+      "exit_name": "18W: GWB, US 46, I-80, RIDGEFIELD PARK",
+      "cash": 0,
+      "ez_pass_peak": 0,
+      "ez_pass_off_peak": 0,
+      "status": "OK"
+    },
+    {
+      "entry": "16W",
+      "exit": "01",
+      "entry_name": "16W: NJ 3, SPORTSPLEX, EAST RUTHERFORD",
+      "exit_name": "01: DELAWARE MEMORIAL BRIDGE",
+      "cash": 75.2,
+      "ez_pass_peak": 68.51,
+      "ez_pass_off_peak": 65.09,
+      "status": "OK"
+    },
+    {
+      "entry": "16W",
+      "exit": "02",
+      "entry_name": "16W: NJ 3, SPORTSPLEX, EAST RUTHERFORD",
+      "exit_name": "02: US 322, SWEDESBORO, CHESTER",
+      "cash": 69,
+      "ez_pass_peak": 62.99,
+      "ez_pass_off_peak": 59.84,
+      "status": "OK"
+    },
+    {
+      "entry": "16W",
+      "exit": "03",
+      "entry_name": "16W: NJ 3, SPORTSPLEX, EAST RUTHERFORD",
+      "exit_name": "03: NJ 168, WOODBURY, SOUTH CAMDEN",
+      "cash": 63.2,
+      "ez_pass_peak": 57.71,
+      "ez_pass_off_peak": 54.82,
+      "status": "OK"
+    },
+    {
+      "entry": "16W",
+      "exit": "04",
+      "entry_name": "16W: NJ 3, SPORTSPLEX, EAST RUTHERFORD",
+      "exit_name": "04: NJ 73, CAMDEN, PHILADELPHIA",
+      "cash": 58.7,
+      "ez_pass_peak": 53.43,
+      "ez_pass_off_peak": 50.76,
+      "status": "OK"
+    },
+    {
+      "entry": "16W",
+      "exit": "05",
+      "entry_name": "16W: NJ 3, SPORTSPLEX, EAST RUTHERFORD",
+      "exit_name": "05: BURLINGTON, MT. HOLLY",
+      "cash": 54.5,
+      "ez_pass_peak": 49.71,
+      "ez_pass_off_peak": 47.23,
+      "status": "OK"
+    },
+    {
+      "entry": "16W",
+      "exit": "06",
+      "entry_name": "16W: NJ 3, SPORTSPLEX, EAST RUTHERFORD",
+      "exit_name": "06: PENNSYLVANIA TURNPIKE",
+      "cash": 59.55,
+      "ez_pass_peak": 54.44,
+      "ez_pass_off_peak": 51.72,
+      "status": "OK"
+    },
+    {
+      "entry": "16W",
+      "exit": "07",
+      "entry_name": "16W: NJ 3, SPORTSPLEX, EAST RUTHERFORD",
+      "exit_name": "07: US 206, BORDENTOWN, TRENTON",
+      "cash": 49.65,
+      "ez_pass_peak": 45.1,
+      "ez_pass_off_peak": 42.84,
+      "status": "OK"
+    },
+    {
+      "entry": "16W",
+      "exit": "07A",
+      "entry_name": "16W: NJ 3, SPORTSPLEX, EAST RUTHERFORD",
+      "exit_name": "07A: I-195, TRENTON, HAMILTON",
+      "cash": 46.9,
+      "ez_pass_peak": 42.73,
+      "ez_pass_off_peak": 40.59,
+      "status": "OK"
+    },
+    {
+      "entry": "16W",
+      "exit": "08",
+      "entry_name": "16W: NJ 3, SPORTSPLEX, EAST RUTHERFORD",
+      "exit_name": "08: NJ 33, HIGHTSTOWN, FREEHOLD",
+      "cash": 43.65,
+      "ez_pass_peak": 39.81,
+      "ez_pass_off_peak": 37.82,
+      "status": "OK"
+    },
+    {
+      "entry": "16W",
+      "exit": "08A",
+      "entry_name": "16W: NJ 3, SPORTSPLEX, EAST RUTHERFORD",
+      "exit_name": "08A: CRANBURY, JAMESBURG",
+      "cash": 40.3,
+      "ez_pass_peak": 36.76,
+      "ez_pass_off_peak": 34.92,
+      "status": "OK"
+    },
+    {
+      "entry": "16W",
+      "exit": "09",
+      "entry_name": "16W: NJ 3, SPORTSPLEX, EAST RUTHERFORD",
+      "exit_name": "09: NJ 18, NEW BRUNSWICK",
+      "cash": 38.3,
+      "ez_pass_peak": 34.9,
+      "ez_pass_off_peak": 33.16,
+      "status": "OK"
+    },
+    {
+      "entry": "16W",
+      "exit": "10",
+      "entry_name": "16W: NJ 3, SPORTSPLEX, EAST RUTHERFORD",
+      "exit_name": "10: I-287, METUCHEN, PERTH AMBOY",
+      "cash": 34.85,
+      "ez_pass_peak": 31.65,
+      "ez_pass_off_peak": 30.06,
+      "status": "OK"
+    },
+    {
+      "entry": "16W",
+      "exit": "11",
+      "entry_name": "16W: NJ 3, SPORTSPLEX, EAST RUTHERFORD",
+      "exit_name": "11: GARDEN STATE PARKWAY",
+      "cash": 29.7,
+      "ez_pass_peak": 27.03,
+      "ez_pass_off_peak": 25.68,
+      "status": "OK"
+    },
+    {
+      "entry": "16W",
+      "exit": "12",
+      "entry_name": "16W: NJ 3, SPORTSPLEX, EAST RUTHERFORD",
+      "exit_name": "12: CARTERET, RAHWAY",
+      "cash": 25.65,
+      "ez_pass_peak": 23.44,
+      "ez_pass_off_peak": 22.27,
+      "status": "OK"
+    },
+    {
+      "entry": "16W",
+      "exit": "13",
+      "entry_name": "16W: NJ 3, SPORTSPLEX, EAST RUTHERFORD",
+      "exit_name": "13: I-278, ELIZABETH, STATEN ISLAND",
+      "cash": 20.55,
+      "ez_pass_peak": 18.76,
+      "ez_pass_off_peak": 17.82,
+      "status": "OK"
+    },
+    {
+      "entry": "16W",
+      "exit": "13A",
+      "entry_name": "16W: NJ 3, SPORTSPLEX, EAST RUTHERFORD",
+      "exit_name": "13A: NEWARK AIRPORT, ELIZABETH SEAPORT",
+      "cash": 20.55,
+      "ez_pass_peak": 18.76,
+      "ez_pass_off_peak": 17.82,
+      "status": "OK"
+    },
+    {
+      "entry": "16W",
+      "exit": "14",
+      "entry_name": "16W: NJ 3, SPORTSPLEX, EAST RUTHERFORD",
+      "exit_name": "14: NEWARK AIRPORT, I-78, US 1 AND 9",
+      "cash": 12.95,
+      "ez_pass_peak": 11.89,
+      "ez_pass_off_peak": 11.3,
+      "status": "OK"
+    },
+    {
+      "entry": "16W",
+      "exit": "14A",
+      "entry_name": "16W: NJ 3, SPORTSPLEX, EAST RUTHERFORD",
+      "exit_name": "14A: HUDSON CITY EXT, BAYONNE",
+      "cash": 23.7,
+      "ez_pass_peak": 21.46,
+      "ez_pass_off_peak": 20.39,
+      "status": "OK"
+    },
+    {
+      "entry": "16W",
+      "exit": "14B",
+      "entry_name": "16W: NJ 3, SPORTSPLEX, EAST RUTHERFORD",
+      "exit_name": "14B: JERSEY CITY, LIBERTY ST. PARK",
+      "cash": 25.65,
+      "ez_pass_peak": 23.44,
+      "ez_pass_off_peak": 22.27,
+      "status": "OK"
+    },
+    {
+      "entry": "16W",
+      "exit": "14C",
+      "entry_name": "16W: NJ 3, SPORTSPLEX, EAST RUTHERFORD",
+      "exit_name": "14C: HOLLAND TUNNEL",
+      "cash": 28.65,
+      "ez_pass_peak": 26.13,
+      "ez_pass_off_peak": 24.82,
+      "status": "OK"
+    },
+    {
+      "entry": "16W",
+      "exit": "15E",
+      "entry_name": "16W: NJ 3, SPORTSPLEX, EAST RUTHERFORD",
+      "exit_name": "15E: US 1 AND 9, NEWARK, JERSEY CITY",
+      "cash": 8.75,
+      "ez_pass_peak": 8.12,
+      "ez_pass_off_peak": 7.72,
+      "status": "OK"
+    },
+    {
+      "entry": "16W",
+      "exit": "15W",
+      "entry_name": "16W: NJ 3, SPORTSPLEX, EAST RUTHERFORD",
+      "exit_name": "15W: I-280, NEWARK, HARRISON",
+      "cash": 5.45,
+      "ez_pass_peak": 4.92,
+      "ez_pass_off_peak": 4.67,
+      "status": "OK"
+    },
+    {
+      "entry": "16W",
+      "exit": "15X",
+      "entry_name": "16W: NJ 3, SPORTSPLEX, EAST RUTHERFORD",
+      "exit_name": "15X: SECAUCUS TRANSFER STATION, SECAUCUS",
+      "cash": 0,
+      "ez_pass_peak": 0,
+      "ez_pass_off_peak": 0,
+      "status": "OK"
+    },
+    {
+      "entry": "16W",
+      "exit": "16E",
+      "entry_name": "16W: NJ 3, SPORTSPLEX, EAST RUTHERFORD",
+      "exit_name": "16E: NJ 3, LINCOLN TUNNEL, SECAUCUS",
+      "cash": 0,
+      "ez_pass_peak": 0,
+      "ez_pass_off_peak": 0,
+      "status": "OK"
+    },
+    {
+      "entry": "16W",
+      "exit": "18E",
+      "entry_name": "16W: NJ 3, SPORTSPLEX, EAST RUTHERFORD",
+      "exit_name": "18E: GWB, US 46, I-80, RIDGEFIELD PARK",
+      "cash": 0,
+      "ez_pass_peak": 0,
+      "ez_pass_off_peak": 0,
+      "status": "OK"
+    },
+    {
+      "entry": "16W",
+      "exit": "18W",
+      "entry_name": "16W: NJ 3, SPORTSPLEX, EAST RUTHERFORD",
+      "exit_name": "18W: GWB, US 46, I-80, RIDGEFIELD PARK",
+      "cash": 7.1,
+      "ez_pass_peak": 6.61,
+      "ez_pass_off_peak": 6.28,
+      "status": "OK"
+    },
+    {
+      "entry": "18E",
+      "exit": "01",
+      "entry_name": "18E: GWB, US 46, I-80, RIDGEFIELD PARK",
+      "exit_name": "01: DELAWARE MEMORIAL BRIDGE",
+      "cash": 76.25,
+      "ez_pass_peak": 69.57,
+      "ez_pass_off_peak": 66.09,
+      "status": "OK"
+    },
+    {
+      "entry": "18E",
+      "exit": "02",
+      "entry_name": "18E: GWB, US 46, I-80, RIDGEFIELD PARK",
+      "exit_name": "02: US 322, SWEDESBORO, CHESTER",
+      "cash": 76.25,
+      "ez_pass_peak": 69.57,
+      "ez_pass_off_peak": 66.09,
+      "status": "OK"
+    },
+    {
+      "entry": "18E",
+      "exit": "03",
+      "entry_name": "18E: GWB, US 46, I-80, RIDGEFIELD PARK",
+      "exit_name": "03: NJ 168, WOODBURY, SOUTH CAMDEN",
+      "cash": 70.95,
+      "ez_pass_peak": 64.68,
+      "ez_pass_off_peak": 61.45,
+      "status": "OK"
+    },
+    {
+      "entry": "18E",
+      "exit": "04",
+      "entry_name": "18E: GWB, US 46, I-80, RIDGEFIELD PARK",
+      "exit_name": "04: NJ 73, CAMDEN, PHILADELPHIA",
+      "cash": 65.85,
+      "ez_pass_peak": 59.95,
+      "ez_pass_off_peak": 56.95,
+      "status": "OK"
+    },
+    {
+      "entry": "18E",
+      "exit": "05",
+      "entry_name": "18E: GWB, US 46, I-80, RIDGEFIELD PARK",
+      "exit_name": "05: BURLINGTON, MT. HOLLY",
+      "cash": 61.5,
+      "ez_pass_peak": 56.18,
+      "ez_pass_off_peak": 53.37,
+      "status": "OK"
+    },
+    {
+      "entry": "18E",
+      "exit": "06",
+      "entry_name": "18E: GWB, US 46, I-80, RIDGEFIELD PARK",
+      "exit_name": "06: PENNSYLVANIA TURNPIKE",
+      "cash": 66.6,
+      "ez_pass_peak": 60.68,
+      "ez_pass_off_peak": 57.65,
+      "status": "OK"
+    },
+    {
+      "entry": "18E",
+      "exit": "07",
+      "entry_name": "18E: GWB, US 46, I-80, RIDGEFIELD PARK",
+      "exit_name": "07: US 206, BORDENTOWN, TRENTON",
+      "cash": 56.75,
+      "ez_pass_peak": 51.68,
+      "ez_pass_off_peak": 49.1,
+      "status": "OK"
+    },
+    {
+      "entry": "18E",
+      "exit": "07A",
+      "entry_name": "18E: GWB, US 46, I-80, RIDGEFIELD PARK",
+      "exit_name": "07A: I-195, TRENTON, HAMILTON",
+      "cash": 55,
+      "ez_pass_peak": 50.16,
+      "ez_pass_off_peak": 47.65,
+      "status": "OK"
+    },
+    {
+      "entry": "18E",
+      "exit": "08",
+      "entry_name": "18E: GWB, US 46, I-80, RIDGEFIELD PARK",
+      "exit_name": "08: NJ 33, HIGHTSTOWN, FREEHOLD",
+      "cash": 51.35,
+      "ez_pass_peak": 46.74,
+      "ez_pass_off_peak": 44.4,
+      "status": "OK"
+    },
+    {
+      "entry": "18E",
+      "exit": "08A",
+      "entry_name": "18E: GWB, US 46, I-80, RIDGEFIELD PARK",
+      "exit_name": "08A: CRANBURY, JAMESBURG",
+      "cash": 48.55,
+      "ez_pass_peak": 44.42,
+      "ez_pass_off_peak": 42.2,
+      "status": "OK"
+    },
+    {
+      "entry": "18E",
+      "exit": "09",
+      "entry_name": "18E: GWB, US 46, I-80, RIDGEFIELD PARK",
+      "exit_name": "09: NJ 18, NEW BRUNSWICK",
+      "cash": 45.35,
+      "ez_pass_peak": 41.33,
+      "ez_pass_off_peak": 39.26,
+      "status": "OK"
+    },
+    {
+      "entry": "18E",
+      "exit": "10",
+      "entry_name": "18E: GWB, US 46, I-80, RIDGEFIELD PARK",
+      "exit_name": "10: I-287, METUCHEN, PERTH AMBOY",
+      "cash": 41.9,
+      "ez_pass_peak": 38.23,
+      "ez_pass_off_peak": 36.32,
+      "status": "OK"
+    },
+    {
+      "entry": "18E",
+      "exit": "11",
+      "entry_name": "18E: GWB, US 46, I-80, RIDGEFIELD PARK",
+      "exit_name": "11: GARDEN STATE PARKWAY",
+      "cash": 38.3,
+      "ez_pass_peak": 34.9,
+      "ez_pass_off_peak": 33.16,
+      "status": "OK"
+    },
+    {
+      "entry": "18E",
+      "exit": "12",
+      "entry_name": "18E: GWB, US 46, I-80, RIDGEFIELD PARK",
+      "exit_name": "12: CARTERET, RAHWAY",
+      "cash": 33.25,
+      "ez_pass_peak": 30.35,
+      "ez_pass_off_peak": 28.83,
+      "status": "OK"
+    },
+    {
+      "entry": "18E",
+      "exit": "13",
+      "entry_name": "18E: GWB, US 46, I-80, RIDGEFIELD PARK",
+      "exit_name": "13: I-278, ELIZABETH, STATEN ISLAND",
+      "cash": 28.85,
+      "ez_pass_peak": 26.36,
+      "ez_pass_off_peak": 25.04,
+      "status": "OK"
+    },
+    {
+      "entry": "18E",
+      "exit": "13A",
+      "entry_name": "18E: GWB, US 46, I-80, RIDGEFIELD PARK",
+      "exit_name": "13A: NEWARK AIRPORT, ELIZABETH SEAPORT",
+      "cash": 28.85,
+      "ez_pass_peak": 26.36,
+      "ez_pass_off_peak": 25.04,
+      "status": "OK"
+    },
+    {
+      "entry": "18E",
+      "exit": "14",
+      "entry_name": "18E: GWB, US 46, I-80, RIDGEFIELD PARK",
+      "exit_name": "14: NEWARK AIRPORT, I-78, US 1 AND 9",
+      "cash": 20.15,
+      "ez_pass_peak": 18.36,
+      "ez_pass_off_peak": 17.44,
+      "status": "OK"
+    },
+    {
+      "entry": "18E",
+      "exit": "14A",
+      "entry_name": "18E: GWB, US 46, I-80, RIDGEFIELD PARK",
+      "exit_name": "14A: HUDSON CITY EXT, BAYONNE",
+      "cash": 30.55,
+      "ez_pass_peak": 28.04,
+      "ez_pass_off_peak": 26.64,
+      "status": "OK"
+    },
+    {
+      "entry": "18E",
+      "exit": "14B",
+      "entry_name": "18E: GWB, US 46, I-80, RIDGEFIELD PARK",
+      "exit_name": "14B: JERSEY CITY, LIBERTY ST. PARK",
+      "cash": 33.25,
+      "ez_pass_peak": 30.35,
+      "ez_pass_off_peak": 28.83,
+      "status": "OK"
+    },
+    {
+      "entry": "18E",
+      "exit": "14C",
+      "entry_name": "18E: GWB, US 46, I-80, RIDGEFIELD PARK",
+      "exit_name": "14C: HOLLAND TUNNEL",
+      "cash": 35.35,
+      "ez_pass_peak": 31.99,
+      "ez_pass_off_peak": 30.39,
+      "status": "OK"
+    },
+    {
+      "entry": "18E",
+      "exit": "15E",
+      "entry_name": "18E: GWB, US 46, I-80, RIDGEFIELD PARK",
+      "exit_name": "15E: US 1 AND 9, NEWARK, JERSEY CITY",
+      "cash": 16.05,
+      "ez_pass_peak": 14.65,
+      "ez_pass_off_peak": 13.92,
+      "status": "OK"
+    },
+    {
+      "entry": "18E",
+      "exit": "15W",
+      "entry_name": "18E: GWB, US 46, I-80, RIDGEFIELD PARK",
+      "exit_name": "15W: I-280, NEWARK, HARRISON",
+      "cash": 12.95,
+      "ez_pass_peak": 11.89,
+      "ez_pass_off_peak": 11.3,
+      "status": "OK"
+    },
+    {
+      "entry": "18E",
+      "exit": "15X",
+      "entry_name": "18E: GWB, US 46, I-80, RIDGEFIELD PARK",
+      "exit_name": "15X: SECAUCUS TRANSFER STATION, SECAUCUS",
+      "cash": 4.4,
+      "ez_pass_peak": 4.07,
+      "ez_pass_off_peak": 3.87,
+      "status": "OK"
+    },
+    {
+      "entry": "18E",
+      "exit": "16E",
+      "entry_name": "18E: GWB, US 46, I-80, RIDGEFIELD PARK",
+      "exit_name": "16E: NJ 3, LINCOLN TUNNEL, SECAUCUS",
+      "cash": 0,
+      "ez_pass_peak": 0,
+      "ez_pass_off_peak": 0,
+      "status": "OK"
+    },
+    {
+      "entry": "18E",
+      "exit": "16W",
+      "entry_name": "18E: GWB, US 46, I-80, RIDGEFIELD PARK",
+      "exit_name": "16W: NJ 3, SPORTSPLEX, EAST RUTHERFORD",
+      "cash": 0,
+      "ez_pass_peak": 0,
+      "ez_pass_off_peak": 0,
+      "status": "OK"
+    },
+    {
+      "entry": "18E",
+      "exit": "18W",
+      "entry_name": "18E: GWB, US 46, I-80, RIDGEFIELD PARK",
+      "exit_name": "18W: GWB, US 46, I-80, RIDGEFIELD PARK",
+      "cash": 0,
+      "ez_pass_peak": 0,
+      "ez_pass_off_peak": 0,
+      "status": "OK"
+    },
+    {
+      "entry": "18W",
+      "exit": "01",
+      "entry_name": "18W: GWB, US 46, I-80, RIDGEFIELD PARK",
+      "exit_name": "01: DELAWARE MEMORIAL BRIDGE",
+      "cash": 76.25,
+      "ez_pass_peak": 69.57,
+      "ez_pass_off_peak": 66.09,
+      "status": "OK"
+    },
+    {
+      "entry": "18W",
+      "exit": "02",
+      "entry_name": "18W: GWB, US 46, I-80, RIDGEFIELD PARK",
+      "exit_name": "02: US 322, SWEDESBORO, CHESTER",
+      "cash": 76.25,
+      "ez_pass_peak": 69.57,
+      "ez_pass_off_peak": 66.09,
+      "status": "OK"
+    },
+    {
+      "entry": "18W",
+      "exit": "03",
+      "entry_name": "18W: GWB, US 46, I-80, RIDGEFIELD PARK",
+      "exit_name": "03: NJ 168, WOODBURY, SOUTH CAMDEN",
+      "cash": 70.95,
+      "ez_pass_peak": 64.68,
+      "ez_pass_off_peak": 61.45,
+      "status": "OK"
+    },
+    {
+      "entry": "18W",
+      "exit": "04",
+      "entry_name": "18W: GWB, US 46, I-80, RIDGEFIELD PARK",
+      "exit_name": "04: NJ 73, CAMDEN, PHILADELPHIA",
+      "cash": 65.85,
+      "ez_pass_peak": 59.95,
+      "ez_pass_off_peak": 56.95,
+      "status": "OK"
+    },
+    {
+      "entry": "18W",
+      "exit": "05",
+      "entry_name": "18W: GWB, US 46, I-80, RIDGEFIELD PARK",
+      "exit_name": "05: BURLINGTON, MT. HOLLY",
+      "cash": 61.5,
+      "ez_pass_peak": 56.18,
+      "ez_pass_off_peak": 53.37,
+      "status": "OK"
+    },
+    {
+      "entry": "18W",
+      "exit": "06",
+      "entry_name": "18W: GWB, US 46, I-80, RIDGEFIELD PARK",
+      "exit_name": "06: PENNSYLVANIA TURNPIKE",
+      "cash": 66.6,
+      "ez_pass_peak": 60.68,
+      "ez_pass_off_peak": 57.65,
+      "status": "OK"
+    },
+    {
+      "entry": "18W",
+      "exit": "07",
+      "entry_name": "18W: GWB, US 46, I-80, RIDGEFIELD PARK",
+      "exit_name": "07: US 206, BORDENTOWN, TRENTON",
+      "cash": 56.75,
+      "ez_pass_peak": 51.68,
+      "ez_pass_off_peak": 49.1,
+      "status": "OK"
+    },
+    {
+      "entry": "18W",
+      "exit": "07A",
+      "entry_name": "18W: GWB, US 46, I-80, RIDGEFIELD PARK",
+      "exit_name": "07A: I-195, TRENTON, HAMILTON",
+      "cash": 55,
+      "ez_pass_peak": 50.16,
+      "ez_pass_off_peak": 47.65,
+      "status": "OK"
+    },
+    {
+      "entry": "18W",
+      "exit": "08",
+      "entry_name": "18W: GWB, US 46, I-80, RIDGEFIELD PARK",
+      "exit_name": "08: NJ 33, HIGHTSTOWN, FREEHOLD",
+      "cash": 51.35,
+      "ez_pass_peak": 46.74,
+      "ez_pass_off_peak": 44.4,
+      "status": "OK"
+    },
+    {
+      "entry": "18W",
+      "exit": "08A",
+      "entry_name": "18W: GWB, US 46, I-80, RIDGEFIELD PARK",
+      "exit_name": "08A: CRANBURY, JAMESBURG",
+      "cash": 48.55,
+      "ez_pass_peak": 44.42,
+      "ez_pass_off_peak": 42.2,
+      "status": "OK"
+    },
+    {
+      "entry": "18W",
+      "exit": "09",
+      "entry_name": "18W: GWB, US 46, I-80, RIDGEFIELD PARK",
+      "exit_name": "09: NJ 18, NEW BRUNSWICK",
+      "cash": 45.35,
+      "ez_pass_peak": 41.33,
+      "ez_pass_off_peak": 39.26,
+      "status": "OK"
+    },
+    {
+      "entry": "18W",
+      "exit": "10",
+      "entry_name": "18W: GWB, US 46, I-80, RIDGEFIELD PARK",
+      "exit_name": "10: I-287, METUCHEN, PERTH AMBOY",
+      "cash": 41.9,
+      "ez_pass_peak": 38.23,
+      "ez_pass_off_peak": 36.32,
+      "status": "OK"
+    },
+    {
+      "entry": "18W",
+      "exit": "11",
+      "entry_name": "18W: GWB, US 46, I-80, RIDGEFIELD PARK",
+      "exit_name": "11: GARDEN STATE PARKWAY",
+      "cash": 38.3,
+      "ez_pass_peak": 34.9,
+      "ez_pass_off_peak": 33.16,
+      "status": "OK"
+    },
+    {
+      "entry": "18W",
+      "exit": "12",
+      "entry_name": "18W: GWB, US 46, I-80, RIDGEFIELD PARK",
+      "exit_name": "12: CARTERET, RAHWAY",
+      "cash": 33.25,
+      "ez_pass_peak": 30.35,
+      "ez_pass_off_peak": 28.83,
+      "status": "OK"
+    },
+    {
+      "entry": "18W",
+      "exit": "13",
+      "entry_name": "18W: GWB, US 46, I-80, RIDGEFIELD PARK",
+      "exit_name": "13: I-278, ELIZABETH, STATEN ISLAND",
+      "cash": 28.85,
+      "ez_pass_peak": 26.36,
+      "ez_pass_off_peak": 25.04,
+      "status": "OK"
+    },
+    {
+      "entry": "18W",
+      "exit": "13A",
+      "entry_name": "18W: GWB, US 46, I-80, RIDGEFIELD PARK",
+      "exit_name": "13A: NEWARK AIRPORT, ELIZABETH SEAPORT",
+      "cash": 28.85,
+      "ez_pass_peak": 26.36,
+      "ez_pass_off_peak": 25.04,
+      "status": "OK"
+    },
+    {
+      "entry": "18W",
+      "exit": "14",
+      "entry_name": "18W: GWB, US 46, I-80, RIDGEFIELD PARK",
+      "exit_name": "14: NEWARK AIRPORT, I-78, US 1 AND 9",
+      "cash": 20.15,
+      "ez_pass_peak": 18.36,
+      "ez_pass_off_peak": 17.44,
+      "status": "OK"
+    },
+    {
+      "entry": "18W",
+      "exit": "14A",
+      "entry_name": "18W: GWB, US 46, I-80, RIDGEFIELD PARK",
+      "exit_name": "14A: HUDSON CITY EXT, BAYONNE",
+      "cash": 30.55,
+      "ez_pass_peak": 28.04,
+      "ez_pass_off_peak": 26.64,
+      "status": "OK"
+    },
+    {
+      "entry": "18W",
+      "exit": "14B",
+      "entry_name": "18W: GWB, US 46, I-80, RIDGEFIELD PARK",
+      "exit_name": "14B: JERSEY CITY, LIBERTY ST. PARK",
+      "cash": 33.25,
+      "ez_pass_peak": 30.35,
+      "ez_pass_off_peak": 28.83,
+      "status": "OK"
+    },
+    {
+      "entry": "18W",
+      "exit": "14C",
+      "entry_name": "18W: GWB, US 46, I-80, RIDGEFIELD PARK",
+      "exit_name": "14C: HOLLAND TUNNEL",
+      "cash": 35.35,
+      "ez_pass_peak": 31.99,
+      "ez_pass_off_peak": 30.39,
+      "status": "OK"
+    },
+    {
+      "entry": "18W",
+      "exit": "15E",
+      "entry_name": "18W: GWB, US 46, I-80, RIDGEFIELD PARK",
+      "exit_name": "15E: US 1 AND 9, NEWARK, JERSEY CITY",
+      "cash": 16.05,
+      "ez_pass_peak": 14.65,
+      "ez_pass_off_peak": 13.92,
+      "status": "OK"
+    },
+    {
+      "entry": "18W",
+      "exit": "15W",
+      "entry_name": "18W: GWB, US 46, I-80, RIDGEFIELD PARK",
+      "exit_name": "15W: I-280, NEWARK, HARRISON",
+      "cash": 12.95,
+      "ez_pass_peak": 11.89,
+      "ez_pass_off_peak": 11.3,
+      "status": "OK"
+    },
+    {
+      "entry": "18W",
+      "exit": "15X",
+      "entry_name": "18W: GWB, US 46, I-80, RIDGEFIELD PARK",
+      "exit_name": "15X: SECAUCUS TRANSFER STATION, SECAUCUS",
+      "cash": 0,
+      "ez_pass_peak": 0,
+      "ez_pass_off_peak": 0,
+      "status": "OK"
+    },
+    {
+      "entry": "18W",
+      "exit": "16E",
+      "entry_name": "18W: GWB, US 46, I-80, RIDGEFIELD PARK",
+      "exit_name": "16E: NJ 3, LINCOLN TUNNEL, SECAUCUS",
+      "cash": 0,
+      "ez_pass_peak": 0,
+      "ez_pass_off_peak": 0,
+      "status": "OK"
+    },
+    {
+      "entry": "18W",
+      "exit": "16W",
+      "entry_name": "18W: GWB, US 46, I-80, RIDGEFIELD PARK",
+      "exit_name": "16W: NJ 3, SPORTSPLEX, EAST RUTHERFORD",
+      "cash": 7.1,
+      "ez_pass_peak": 6.61,
+      "ez_pass_off_peak": 6.28,
+      "status": "OK"
+    },
+    {
+      "entry": "18W",
+      "exit": "18E",
+      "entry_name": "18W: GWB, US 46, I-80, RIDGEFIELD PARK",
+      "exit_name": "18E: GWB, US 46, I-80, RIDGEFIELD PARK",
+      "cash": 0,
+      "ez_pass_peak": 0,
+      "ez_pass_off_peak": 0,
+      "status": "OK"
+    }
+  ]
+}
