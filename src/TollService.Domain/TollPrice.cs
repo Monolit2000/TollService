@@ -8,9 +8,13 @@ public class TollPrice
 
     public Guid TollId { get; set; }
     public Toll Toll { get; set; } = null!;
+
+    public Guid? CalculatePriceId { get; set; }
+    public CalculatePrice? CalculatePrice { get; set; }
     public TollPaymentType PaymentType { get; set; }
     public TollPriceTimeOfDay TimeOfDay { get; set; } = TollPriceTimeOfDay.Any;
-    public DateTime? DateTimeOfDay { get; set; }
+    public TimeOnly TimeFrom { get; set; }
+    public TimeOnly TimeTo { get; set; }
     public string? Description { get; set; }
     public double Amount { get; set; }
 }

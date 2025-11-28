@@ -20,6 +20,7 @@ namespace TollService.Domain
         public double IPass { get; set; } = 0;
         public double Cash { get; set; } = 0;
 
+
         /// <summary>
         /// Дополнительные цены/тарифы для этого расчёта.
         /// Пока это просто навигационное свойство без явной конфигурации.
