@@ -20,12 +20,27 @@ namespace TollService.Domain
         public double IPass { get; set; } = 0;
         public double Cash { get; set; } = 0;
 
-
-        /// <summary>
-        /// Дополнительные цены/тарифы для этого расчёта.
-        /// Пока это просто навигационное свойство без явной конфигурации.
-        /// </summary>
         public List<TollPrice> TollPrices { get; set; } = [];
+
+        public void SetPriceByPaymentType(double amount, TollPaymentType paymentType, AxelType axelType = AxelType._5L)
+        {
+            var price = GetPriceByPaymentType(paymentType);
+            if (price != null)
+            {
+                price.Amount = amount;
+            }
+            else
+            {
+                var newTollPrice = new TollPrice(this.Id, amount, paymentType, axelType);
+                TollPrices.Add(newTollPrice);
+            }
+        }
+
+        public TollPrice? GetPriceByPaymentType(TollPaymentType paymentType)
+        {
+            var existingTollPrice = TollPrices.FirstOrDefault(x => x.PaymentType == paymentType);
+            return existingTollPrice;
+        }
 
         public void AddTollPrice(TollPrice tollPrice)
         {

@@ -15,6 +15,7 @@ using TollService.Application.Tolls.Commands;
 using TollService.Application.Tolls.Queries;
 using TollService.Contracts;
 using TollService.Infrastructure.Integrations;
+using TollService.Application.TollPriceParser.NY;
 
 namespace TollService.Api.Controllers;
 
@@ -368,6 +369,47 @@ public class TollsController : ControllerBase
             BaseUrl: baseUrl ?? "https://www.paturnpike.com/toll-schedule-v2/get-toll-schedule");
         var result = await _mediator.Send(command, ct);
         return Ok(result);
+    }
+
+    [HttpPost("parse-NewYork-interchanges")]
+    [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(ParseMassachusettsInterchangesResult))]
+    [ProducesResponseType(StatusCodes.Status400BadRequest)]
+    public async Task<IActionResult> ParseNewYorkInterchanges(
+        CancellationToken ct = default)
+    {
+        try
+        {
+            // HTML/XML отправляем в саму команду (сейчас используется встроенный htmlCode внутри хендлера)
+            var command = new ParseNewYorkInterchangesCommand(string.Empty);
+            var result = await _mediator.Send(command, ct);
+            return Ok(result);
+        }
+        catch (Exception ex)
+        {
+            return BadRequest($"Error processing request: {ex.Message}");
+        }
+    }
+
+    [HttpPost("parse-NewYork-prices")]
+    [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(ParseTollPricesResult))]
+    [ProducesResponseType(StatusCodes.Status400BadRequest)]
+    public async Task<IActionResult> ParseNewYorkTollPrices(
+        [FromQuery] int vehicleClass = 7,
+        [FromQuery] string? baseUrl = null,
+        CancellationToken ct = default)
+    {
+        try
+        {
+            var command = new ParseNewYorkTollPricesCommand(
+                VehicleClass: vehicleClass,
+                BaseUrl: baseUrl ?? "https://tollcalculator.thruway.ny.gov/index.aspx");
+            var result = await _mediator.Send(command, ct);
+            return Ok(result);
+        }
+        catch (Exception ex)
+        {
+            return BadRequest($"Error processing request: {ex.Message}");
+        }
     }
 
     [HttpPost("parse-indiana-tolls")]
