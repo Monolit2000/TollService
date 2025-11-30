@@ -103,8 +103,8 @@ public class RoadCalculator
                 tollPriceDtos.Add(new TollPriceDto
                 {
                     Toll = tollInfoTo.Toll,
-                    PayOnline = price.Cash,
-                    IPass = price.IPass
+                    PayOnline = price.GetAmmountByPaymentType(TollPaymentType.Cash) == 0.0 ? price.Cash : price.GetAmmountByPaymentType(TollPaymentType.Cash),
+                    IPass = price.GetAmmountByPaymentType(TollPaymentType.EZPass) == 0.0 ? price.IPass : price.GetAmmountByPaymentType(TollPaymentType.EZPass)
                 });
 
                 // Исключаем все tolls с такими же именами

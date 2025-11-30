@@ -42,6 +42,15 @@ namespace TollService.Domain
             return existingTollPrice;
         }
 
+        public double GetAmmountByPaymentType(TollPaymentType paymentType)
+        {
+            var existingTollPrice = TollPrices.FirstOrDefault(x => x.PaymentType == paymentType);
+            double amount = existingTollPrice == null ? 0.0 : existingTollPrice.Amount;
+            return amount;
+        }
+
+
+
         public void AddTollPrice(TollPrice tollPrice)
         {
             if (tollPrice != null)

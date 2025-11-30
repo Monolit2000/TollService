@@ -20,12 +20,14 @@ namespace TollService.Application.Roads.Commands.CalculateRoutePrice
 
             var dbTolls = await tollDbContext.Tolls
                 .Where(t => tollsDtos.Select(tt => tt.Id).Contains(t.Id))
+                .Include(t => t.TollPrices)
                 .ToListAsync(cancellationToken);
 
             // Загружаем все CalculatePrices с включенными From и To для поиска по Name
             var allCalculatePrices = await tollDbContext.CalculatePrices
                 .Include(p => p.From)
                 .Include(p => p.To)
+                .Include(p => p.TollPrices)
                 .ToListAsync(cancellationToken);
 
             return roadCalculator.CalculateRoutePrices(tollsDtos, dbTolls, allCalculatePrices);
