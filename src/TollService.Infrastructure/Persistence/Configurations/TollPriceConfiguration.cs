@@ -23,6 +23,9 @@ public class TollPriceConfiguration : IEntityTypeConfiguration<TollPrice>
             .HasMaxLength(512)
             .IsRequired(false);
 
+        //builder.Property(x => x.IsCalculate)
+        //    .HasDefaultValue(false);
+
         builder.HasOne(x => x.Toll)
             .WithMany(t => t.TollPrices)
             .HasForeignKey(x => x.TollId)

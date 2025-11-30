@@ -23,6 +23,7 @@ public class TollPrice
     public TimeOnly TimeTo { get; set; }
     public string? Description { get; set; }
     public double Amount { get; set; }
+    //public bool IsCalculate { get; set; }
 
     // Пустой конструктор для EF Core
     public TollPrice()
@@ -34,6 +35,7 @@ public class TollPrice
         double amount,
         TollPaymentType paymentType,
         AxelType axelType = AxelType._5L,
+        //bool isCalculate = false,
         TimeOnly timeFrom = default,
         TimeOnly timeTo = default,
         string? description = null)
@@ -41,11 +43,17 @@ public class TollPrice
         CalculatePriceId = calculatePriceId;
         Amount = amount;
         PaymentType = paymentType;
+        //IsCalculate = isCalculate;
         AxelType = axelType;
         TimeFrom = timeFrom;
         TimeTo = timeTo;
         Description = description;
     }
+}
+
+public static class TollPriceExtensions
+{
+    public static bool IsCalculate(this TollPrice tollPrice) => tollPrice.CalculatePriceId.HasValue;
 }
 
 public enum TollPaymentType

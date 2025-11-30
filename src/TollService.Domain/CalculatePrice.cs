@@ -45,22 +45,17 @@ namespace TollService.Domain
         public double GetAmmountByPaymentType(TollPaymentType paymentType)
         {
             var existingTollPrice = TollPrices.FirstOrDefault(x => x.PaymentType == paymentType);
-            double amount = existingTollPrice == null ? 0.0 : existingTollPrice.Amount;
-            return amount;
-        }
+            if (existingTollPrice == null)
+            {
+                if (paymentType == TollPaymentType.EZPass || paymentType == TollPaymentType.IPass)
+                    return IPass;
 
-
-
-        public void AddTollPrice(TollPrice tollPrice)
-        {
-            if (tollPrice != null)
-                TollPrices.Add(tollPrice);
-        }
-
-        public void AddTollPrices(List<TollPrice> tollPrices)
-        {
-            if (tollPrices.Any())
-                TollPrices.AddRange(tollPrices);
+                return Cash;
+            }
+            else
+            {
+                return existingTollPrice.Amount;
+            }
         }
     }
 }
