@@ -222,7 +222,7 @@ public class LinkNewHampshireTollsCommandHandler(
                                     Amount = cashPrice,
                                     Description = $"{plaza.Name} - {vehicleClass.Key}"
                                 };
-                                toll.AddTollPrice(newCashPrice);
+                                toll.TollPrices.Add(newCashPrice);
                                 _context.TollPrices.Add(newCashPrice);
                                 createdCount++;
                             }
@@ -256,7 +256,7 @@ public class LinkNewHampshireTollsCommandHandler(
                                     Amount = ezpassPrice,
                                     Description = $"{plaza.Name} - {vehicleClass.Key}"
                                 };
-                                toll.AddTollPrice(newEzPassPrice);
+                                toll.TollPrices.Add(newEzPassPrice);
                                 _context.TollPrices.Add(newEzPassPrice);
                                 createdCount++;
                             }

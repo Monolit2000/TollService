@@ -275,7 +275,7 @@ public class ParseMaineTollPricesCommandHandler(
 
                         if (tollPricesToAdd.Count > 0)
                         {
-                            fromToll.AddTollPrices(tollPricesToAdd);
+                            fromToll.TollPrices.AddRange(tollPricesToAdd);
                             _context.TollPrices.AddRange(tollPricesToAdd);
                         }
 

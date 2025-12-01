@@ -11,6 +11,8 @@ using TollService.Application.TollPriceParser.ME;
 using TollService.Application.TollPriceParser.NH;
 using TollService.Application.TollPriceParser.OH;
 using TollService.Application.TollPriceParser.PA;
+using TollService.Application.TollPriceParser.CA;
+using TollService.Application.TollPriceParser.OK;
 using TollService.Application.Tolls.Commands;
 using TollService.Application.Tolls.Queries;
 using TollService.Contracts;
@@ -665,6 +667,111 @@ public class TollsController : ControllerBase
         }
 
         return Ok(result);
+    }
+
+    [HttpPost("link-california-tolls")]
+    [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(LinkCaliforniaTollsResult))]
+    [ProducesResponseType(StatusCodes.Status400BadRequest)]
+    public async Task<IActionResult> LinkCaliforniaTolls(
+        [FromBody] object payload,
+        CancellationToken ct = default)
+    {
+        if (payload == null)
+        {
+            return BadRequest("Payload cannot be null");
+        }
+
+        var json = payload switch
+        {
+            JsonElement element => element.GetRawText(),
+            string str => str,
+            _ => System.Text.Json.JsonSerializer.Serialize(payload)
+        };
+
+        var command = new LinkCaliforniaTollsCommand(json);
+        var result = await _mediator.Send(command, ct);
+        
+        if (!string.IsNullOrWhiteSpace(result.Error))
+        {
+            return BadRequest(result.Error);
+        }
+
+        return Ok(result);
+    }
+
+    [HttpPost("link-oklahoma-tolls")]
+    [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(LinkOklahomaTollsResult))]
+    [ProducesResponseType(StatusCodes.Status400BadRequest)]
+    public async Task<IActionResult> LinkOklahomaTolls(
+        [FromBody] object payload,
+        CancellationToken ct = default)
+    {
+        if (payload == null)
+        {
+            return BadRequest("Payload cannot be null");
+        }
+
+        try
+        {
+            List<int> turnpikeIds;
+
+            // Пробуем распарсить как массив ID или объект с массивом
+            if (payload is JsonElement element)
+            {
+                if (element.ValueKind == JsonValueKind.Array)
+                {
+                    turnpikeIds = JsonSerializer.Deserialize<List<int>>(element.GetRawText()) ?? new();
+                }
+                else if (element.TryGetProperty("turnpikeIds", out var idsProperty))
+                {
+                    turnpikeIds = JsonSerializer.Deserialize<List<int>>(idsProperty.GetRawText()) ?? new();
+                }
+                else
+                {
+                    return BadRequest("Payload must contain 'turnpikeIds' array or be an array of IDs");
+                }
+            }
+            else if (payload is string str)
+            {
+                turnpikeIds = JsonSerializer.Deserialize<List<int>>(str) ?? new();
+            }
+            else
+            {
+                var json = JsonSerializer.Serialize(payload);
+                var doc = JsonDocument.Parse(json);
+                if (doc.RootElement.ValueKind == JsonValueKind.Array)
+                {
+                    turnpikeIds = JsonSerializer.Deserialize<List<int>>(json) ?? new();
+                }
+                else
+                {
+                    return BadRequest("Payload must be an array of turnpike IDs or an object with 'turnpikeIds' array");
+                }
+            }
+
+            if (turnpikeIds == null || turnpikeIds.Count == 0)
+            {
+                return BadRequest("At least one turnpike ID is required");
+            }
+
+            var command = new LinkOklahomaTollsCommand(turnpikeIds);
+            var result = await _mediator.Send(command, ct);
+
+            if (!string.IsNullOrWhiteSpace(result.Error))
+            {
+                return BadRequest(result.Error);
+            }
+
+            return Ok(result);
+        }
+        catch (JsonException jsonEx)
+        {
+            return BadRequest($"Invalid JSON format: {jsonEx.Message}");
+        }
+        catch (Exception ex)
+        {
+            return BadRequest($"Error processing request: {ex.Message}");
+        }
     }
 }
 

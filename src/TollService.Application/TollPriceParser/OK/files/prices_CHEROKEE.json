@@ -1,0 +1,142 @@
+[
+  {
+    "entryName": "US 69",
+    "exitName": "SH 82 / Locust Grove",
+    "pikePassRate": 1.69,
+    "cashCashlessRate": 4.4,
+    "createdDate": "2025-03-13T10:33:57.01"
+  },
+  {
+    "entryName": "US 69",
+    "exitName": "US 412 / Leach",
+    "pikePassRate": 5.05,
+    "cashCashlessRate": 9.93,
+    "createdDate": "2025-03-13T10:33:57.01"
+  },
+  {
+    "entryName": "US 69",
+    "exitName": "SH 10 / Kansas",
+    "pikePassRate": 9.04,
+    "cashCashlessRate": 22.06,
+    "createdDate": "2025-03-13T10:33:57.01"
+  },
+  {
+    "entryName": "US 69",
+    "exitName": "Flint Bridge / State Line",
+    "pikePassRate": 10.72,
+    "cashCashlessRate": 22.06,
+    "createdDate": "2025-03-13T10:33:57.01"
+  },
+  {
+    "entryName": "SH 82 / Locust Grove",
+    "exitName": "US 69",
+    "pikePassRate": 1.69,
+    "cashCashlessRate": 4.4,
+    "createdDate": "2025-03-13T10:33:57.01"
+  },
+  {
+    "entryName": "SH 82 / Locust Grove",
+    "exitName": "US 412 / Leach",
+    "pikePassRate": 3.65,
+    "cashCashlessRate": 9.93,
+    "createdDate": "2025-03-13T10:33:57.01"
+  },
+  {
+    "entryName": "SH 82 / Locust Grove",
+    "exitName": "SH 10 / Kansas",
+    "pikePassRate": 7.46,
+    "cashCashlessRate": 22.06,
+    "createdDate": "2025-03-13T10:33:57.01"
+  },
+  {
+    "entryName": "SH 82 / Locust Grove",
+    "exitName": "Flint Bridge / State Line",
+    "pikePassRate": 9.04,
+    "cashCashlessRate": 22.06,
+    "createdDate": "2025-03-13T10:33:57.01"
+  },
+  {
+    "entryName": "US 412 / Leach",
+    "exitName": "US 69",
+    "pikePassRate": 5.05,
+    "cashCashlessRate": 9.93,
+    "createdDate": "2025-03-13T10:33:57.01"
+  },
+  {
+    "entryName": "US 412 / Leach",
+    "exitName": "SH 82 / Locust Grove",
+    "pikePassRate": 3.65,
+    "cashCashlessRate": 9.93,
+    "createdDate": "2025-03-13T10:33:57.01"
+  },
+  {
+    "entryName": "US 412 / Leach",
+    "exitName": "SH 10 / Kansas",
+    "pikePassRate": 3.88,
+    "cashCashlessRate": 22.06,
+    "createdDate": "2025-03-13T10:33:57.01"
+  },
+  {
+    "entryName": "US 412 / Leach",
+    "exitName": "Flint Bridge / State Line",
+    "pikePassRate": 5.17,
+    "cashCashlessRate": 22.06,
+    "createdDate": "2025-03-13T10:33:57.01"
+  },
+  {
+    "entryName": "SH 10 / Kansas",
+    "exitName": "US 69",
+    "pikePassRate": 9.04,
+    "cashCashlessRate": 22.06,
+    "createdDate": "2025-03-13T10:33:57.01"
+  },
+  {
+    "entryName": "SH 10 / Kansas",
+    "exitName": "SH 82 / Locust Grove",
+    "pikePassRate": 7.46,
+    "cashCashlessRate": 22.06,
+    "createdDate": "2025-03-13T10:33:57.01"
+  },
+  {
+    "entryName": "SH 10 / Kansas",
+    "exitName": "US 412 / Leach",
+    "pikePassRate": 3.88,
+    "cashCashlessRate": 22.06,
+    "createdDate": "2025-03-13T10:33:57.01"
+  },
+  {
+    "entryName": "SH 10 / Kansas",
+    "exitName": "Flint Bridge / State Line",
+    "pikePassRate": 1.69,
+    "cashCashlessRate": 4.94,
+    "createdDate": "2025-03-13T10:33:57.027"
+  },
+  {
+    "entryName": "Flint Bridge / State Line",
+    "exitName": "US 69",
+    "pikePassRate": 10.72,
+    "cashCashlessRate": 22.06,
+    "createdDate": "2025-03-13T10:33:57.027"
+  },
+  {
+    "entryName": "Flint Bridge / State Line",
+    "exitName": "SH 82 / Locust Grove",
+    "pikePassRate": 9.04,
+    "cashCashlessRate": 22.06,
+    "createdDate": "2025-03-13T10:33:57.027"
+  },
+  {
+    "entryName": "Flint Bridge / State Line",
+    "exitName": "US 412 / Leach",
+    "pikePassRate": 5.17,
+    "cashCashlessRate": 22.06,
+    "createdDate": "2025-03-13T10:33:57.027"
+  },
+  {
+    "entryName": "Flint Bridge / State Line",
+    "exitName": "SH 10 / Kansas",
+    "pikePassRate": 1.69,
+    "cashCashlessRate": 4.94,
+    "createdDate": "2025-03-13T10:33:57.027"
+  }
+]
