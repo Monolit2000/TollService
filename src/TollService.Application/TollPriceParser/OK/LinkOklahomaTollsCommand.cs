@@ -99,6 +99,7 @@ public class LinkOklahomaTollsCommandHandler(
         // Списки для батч-вставки
         var calculatePricesToAdd = new List<CalculatePrice>();
         var tollPricesToAdd = new List<TollPrice>();
+        var tollPriceIdsSet = new HashSet<Guid>(); // Для отслеживания уже добавленных TollPrice по Id
 
         // Кэш для CalculatePrice: ключ = (FromId, ToId)
         var calculatePriceCache = new Dictionary<(Guid FromId, Guid ToId), CalculatePrice>();
@@ -314,7 +315,12 @@ public class LinkOklahomaTollsCommandHandler(
                             Description = $"{rate.EntryName} -> {rate.ExitName} ({turnpikeName})"
                         };
                         calculatePrice.TollPrices.Add(newTollPrice);
-                        tollPricesToAdd.Add(newTollPrice);
+                        
+                        // Добавляем только если еще не добавлен (проверка по Id для избежания дублей)
+                        if (tollPriceIdsSet.Add(newTollPrice.Id))
+                        {
+                            tollPricesToAdd.Add(newTollPrice);
+                        }
                     }
 
                     var existingCash = calculatePrice.TollPrices
@@ -339,7 +345,12 @@ public class LinkOklahomaTollsCommandHandler(
                             Description = $"{rate.EntryName} -> {rate.ExitName} ({turnpikeName})"
                         };
                         calculatePrice.TollPrices.Add(newTollPrice);
-                        tollPricesToAdd.Add(newTollPrice);
+                        
+                        // Добавляем только если еще не добавлен (проверка по Id для избежания дублей)
+                        if (tollPriceIdsSet.Add(newTollPrice.Id))
+                        {
+                            tollPricesToAdd.Add(newTollPrice);
+                        }
                     }
 
                     foundTolls.Add(new OklahomaFoundTollInfo(
@@ -368,12 +379,37 @@ public class LinkOklahomaTollsCommandHandler(
         // Затем добавляем новые TollPrice батчами
         if (tollPricesToAdd.Count > 0)
         {
-            const int batchSize = 500;
-            for (int i = 0; i < tollPricesToAdd.Count; i += batchSize)
+            // Удаляем дубликаты по Id (на случай если один и тот же TollPrice был добавлен несколько раз)
+            var uniqueTollPrices = tollPricesToAdd
+                .GroupBy(tp => tp.Id)
+                .Select(g => g.First())
+                .Where(tp => tp.Id != Guid.Empty) // Убеждаемся, что Id установлен
+                .ToList();
+
+            // Получаем все существующие Id из БД для проверки
+            var existingTollPriceIds = await _context.TollPrices
+                .Where(tp => uniqueTollPrices.Select(utp => utp.Id).Contains(tp.Id))
+                .Select(tp => tp.Id)
+                .ToListAsync(ct);
+
+            // Фильтруем только те TollPrice, которые:
+            // 1. Не отслеживаются EF (не в Local)
+            // 2. Не существуют в БД (не в existingTollPriceIds)
+            var newTollPricesOnly = uniqueTollPrices
+                .Where(tp => 
+                    !_context.TollPrices.Local.Any(e => e.Id == tp.Id) &&
+                    !existingTollPriceIds.Contains(tp.Id))
+                .ToList();
+
+            if (newTollPricesOnly.Count > 0)
             {
-                var batch = tollPricesToAdd.Skip(i).Take(batchSize).ToList();
-                _context.TollPrices.AddRange(batch);
-                await _context.SaveChangesAsync(ct);
+                const int batchSize = 500;
+                for (int i = 0; i < newTollPricesOnly.Count; i += batchSize)
+                {
+                    var batch = newTollPricesOnly.Skip(i).Take(batchSize).ToList();
+                    _context.TollPrices.AddRange(batch);
+                    await _context.SaveChangesAsync(ct);
+                }
             }
         }
 
