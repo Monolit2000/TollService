@@ -37,6 +37,7 @@ public class TollPrice
         AxelType axelType = AxelType._5L,
         TollPriceDayOfWeek dayOfWeekFrom = TollPriceDayOfWeek.Any,
         TollPriceDayOfWeek dayOfWeekTo = TollPriceDayOfWeek.Any,
+        TollPriceTimeOfDay timeOfDay = TollPriceTimeOfDay.Any,
         //bool isCalculate = false,
         TimeOnly timeFrom = default,
         TimeOnly timeTo = default,
@@ -49,6 +50,7 @@ public class TollPrice
         AxelType = axelType;
         DayOfWeekFrom = dayOfWeekFrom;
         DayOfWeekTo = dayOfWeekTo;
+        TimeOfDay = timeOfDay;
         TimeFrom = timeFrom;
         TimeTo = timeTo;
         Description = description;

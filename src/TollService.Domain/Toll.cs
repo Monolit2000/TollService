@@ -38,31 +38,51 @@ public class Toll
     #endregion
     public List<TollPrice> TollPrices { get; set; } = [];
 
-    public void SetPriceByPaymentType(double amount, TollPaymentType paymentType, AxelType axelType = AxelType._5L, TollPriceDayOfWeek dayOfWeekFrom = TollPriceDayOfWeek.Any, TollPriceDayOfWeek dayOfWeekTo = TollPriceDayOfWeek.Any)
+    public void SetPriceByPaymentType(
+        double amount,
+        TollPaymentType paymentType,
+        AxelType axelType = AxelType._5L,
+        TollPriceDayOfWeek dayOfWeekFrom = TollPriceDayOfWeek.Any,
+        TollPriceDayOfWeek dayOfWeekTo = TollPriceDayOfWeek.Any,
+        TollPriceTimeOfDay timeOfDay = TollPriceTimeOfDay.Any)
     {
-        var price = GetPriceByPaymentType(paymentType);
+        var price = GetPriceByPaymentType(paymentType, axelType, dayOfWeekFrom, dayOfWeekTo, timeOfDay);
         if (price != null)
         {
             price.Amount = amount;
         }
         else
         {
-            var newTollPrice = new TollPrice(this.Id, amount, paymentType, axelType, dayOfWeekFrom, dayOfWeekTo);
+            var newTollPrice = new TollPrice(this.Id, amount, paymentType, axelType, dayOfWeekFrom, dayOfWeekTo, timeOfDay);
             TollPrices.Add(newTollPrice);
         }
     }
 
-    public TollPrice? GetPriceByPaymentType(TollPaymentType paymentType)
+    public TollPrice? GetPriceByPaymentType(
+        TollPaymentType paymentType,
+        AxelType axelType = AxelType._5L,
+        TollPriceDayOfWeek dayOfWeekFrom = TollPriceDayOfWeek.Any,
+        TollPriceDayOfWeek dayOfWeekTo = TollPriceDayOfWeek.Any,
+        TollPriceTimeOfDay timeOfDay = TollPriceTimeOfDay.Any)
     {
         var existingTollPrice = TollPrices.FirstOrDefault(
-            x => x.PaymentType == paymentType && 
+            x => x.PaymentType == paymentType &&
+            x.AxelType == axelType &&
+            x.DayOfWeekFrom == dayOfWeekFrom &&
+            x.DayOfWeekTo == dayOfWeekTo &&
+            x.TimeOfDay == timeOfDay &&
             !x.IsCalculate());
         return existingTollPrice;
     }
 
-    public double GetAmmountByPaymentType(TollPaymentType paymentType)
+    public double GetAmmountByPaymentType(
+        TollPaymentType paymentType,
+        AxelType axelType = AxelType._5L,
+        TollPriceDayOfWeek dayOfWeekFrom = TollPriceDayOfWeek.Any,
+        TollPriceDayOfWeek dayOfWeekTo = TollPriceDayOfWeek.Any,
+        TollPriceTimeOfDay timeOfDay = TollPriceTimeOfDay.Any)
     {
-        var existingTollPrice = GetPriceByPaymentType(paymentType);
+        var existingTollPrice = GetPriceByPaymentType(paymentType, axelType, dayOfWeekFrom, dayOfWeekTo, timeOfDay);
         if (existingTollPrice == null)
         {
             if (paymentType == TollPaymentType.EZPass || paymentType == TollPaymentType.IPass)
