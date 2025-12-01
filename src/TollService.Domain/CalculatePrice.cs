@@ -22,17 +22,19 @@ namespace TollService.Domain
 
         public List<TollPrice> TollPrices { get; set; } = [];
 
-        public void SetPriceByPaymentType(double amount, TollPaymentType paymentType, AxelType axelType = AxelType._5L, TollPriceDayOfWeek dayOfWeekFrom = TollPriceDayOfWeek.Any, TollPriceDayOfWeek dayOfWeekTo = TollPriceDayOfWeek.Any)
+        public TollPrice SetPriceByPaymentType(double amount, TollPaymentType paymentType, AxelType axelType = AxelType._5L, TollPriceDayOfWeek dayOfWeekFrom = TollPriceDayOfWeek.Any, TollPriceDayOfWeek dayOfWeekTo = TollPriceDayOfWeek.Any)
         {
             var price = GetPriceByPaymentType(paymentType);
             if (price != null)
             {
                 price.Amount = amount;
+                return price;
             }
             else
             {
                 var newTollPrice = new TollPrice(this.Id, amount, paymentType, axelType, dayOfWeekFrom, dayOfWeekTo);
                 TollPrices.Add(newTollPrice);
+                return newTollPrice;
             }
         }
 
