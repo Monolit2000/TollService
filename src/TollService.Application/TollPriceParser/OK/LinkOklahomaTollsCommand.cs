@@ -273,7 +273,13 @@ public class LinkOklahomaTollsCommandHandler(
             }
 
             // Определяем AxelType из vehicleClass
-            var axelType = vehicleClass == 5 ? AxelType._5L : AxelType._6L;
+            // Класс 5 = 5-осные аксели, Класс 6 = 6-осные аксели
+            var axelType = vehicleClass switch
+            {
+                5 => AxelType._5L,
+                6 => AxelType._6L,
+                _ => throw new InvalidOperationException($"Неподдерживаемый класс транспортного средства: {vehicleClass}. Поддерживаются только классы 5 и 6.")
+            };
 
             // Может быть несколько tolls с одинаковым именем, поэтому создаем записи для всех комбинаций
             foreach (var entryToll in entryTolls)
@@ -292,64 +298,49 @@ public class LinkOklahomaTollsCommandHandler(
                         continue; // Не должно случиться, но на всякий случай
                     }
 
-                    // Проверяем существующий TollPrice с таким PaymentType и AxelType
-                    var existingEzPass = calculatePrice.TollPrices
-                        .FirstOrDefault(tp => 
-                            tp.PaymentType == TollPaymentType.EZPass && 
-                            tp.AxelType == axelType);
-
-                    if (existingEzPass != null)
+                    // Используем SetPriceByPaymentType для EZPass (pikePassRate)
+                    if (rate.PikePassRate > 0)
                     {
-                        existingEzPass.Amount = rate.PikePassRate;
-                    }
-                    else if (rate.PikePassRate > 0)
-                    {
-                        var newTollPrice = new TollPrice(
-                            calculatePrice.Id,
+                        var tollPrice = calculatePrice.SetPriceByPaymentType(
                             rate.PikePassRate,
                             TollPaymentType.EZPass,
-                            axelType)
+                            axelType);
+
+                        // Если это новый TollPrice (TollId == Guid.Empty означает, что он только что создан),
+                        // нужно его настроить и добавить в список для сохранения
+                        if (tollPrice.TollId == Guid.Empty)
                         {
-                            Id = Guid.NewGuid(),
-                            TollId = entryToll.Id,
-                            Description = $"{rate.EntryName} -> {rate.ExitName} ({turnpikeName})"
-                        };
-                        calculatePrice.TollPrices.Add(newTollPrice);
-                        
-                        // Добавляем только если еще не добавлен (проверка по Id для избежания дублей)
-                        if (tollPriceIdsSet.Add(newTollPrice.Id))
-                        {
-                            tollPricesToAdd.Add(newTollPrice);
+                            tollPrice.TollId = entryToll.Id;
+                            tollPrice.Description = $"{rate.EntryName} -> {rate.ExitName} ({turnpikeName}, Class {vehicleClass})";
+                            
+                            // Добавляем только если еще не добавлен (проверка по Id для избежания дублей)
+                            if (tollPriceIdsSet.Add(tollPrice.Id))
+                            {
+                                tollPricesToAdd.Add(tollPrice);
+                            }
                         }
                     }
 
-                    var existingCash = calculatePrice.TollPrices
-                        .FirstOrDefault(tp => 
-                            tp.PaymentType == TollPaymentType.Cash && 
-                            tp.AxelType == axelType);
-
-                    if (existingCash != null)
+                    // Используем SetPriceByPaymentType для Cash (cashCashlessRate)
+                    if (rate.CashCashlessRate > 0)
                     {
-                        existingCash.Amount = rate.CashCashlessRate;
-                    }
-                    else if (rate.CashCashlessRate > 0)
-                    {
-                        var newTollPrice = new TollPrice(
-                            calculatePrice.Id,
+                        var tollPrice = calculatePrice.SetPriceByPaymentType(
                             rate.CashCashlessRate,
                             TollPaymentType.Cash,
-                            axelType)
+                            axelType);
+
+                        // Если это новый TollPrice (TollId == Guid.Empty означает, что он только что создан),
+                        // нужно его настроить и добавить в список для сохранения
+                        if (tollPrice.TollId == Guid.Empty)
                         {
-                            Id = Guid.NewGuid(),
-                            TollId = entryToll.Id,
-                            Description = $"{rate.EntryName} -> {rate.ExitName} ({turnpikeName})"
-                        };
-                        calculatePrice.TollPrices.Add(newTollPrice);
-                        
-                        // Добавляем только если еще не добавлен (проверка по Id для избежания дублей)
-                        if (tollPriceIdsSet.Add(newTollPrice.Id))
-                        {
-                            tollPricesToAdd.Add(newTollPrice);
+                            tollPrice.TollId = entryToll.Id;
+                            tollPrice.Description = $"{rate.EntryName} -> {rate.ExitName} ({turnpikeName}, Class {vehicleClass})";
+                            
+                            // Добавляем только если еще не добавлен (проверка по Id для избежания дублей)
+                            if (tollPriceIdsSet.Add(tollPrice.Id))
+                            {
+                                tollPricesToAdd.Add(tollPrice);
+                            }
                         }
                     }
 
@@ -369,7 +360,11 @@ public class LinkOklahomaTollsCommandHandler(
             }
         }
 
-        // Батч-вставка: сначала сохраняем новые CalculatePrice
+        // Батч-вставка: сначала сохраняем изменения в Toll (Number, StateCalculatorId)
+        // Это важно, чтобы все изменения были сохранены перед вставкой TollPrice
+        await _context.SaveChangesAsync(ct);
+
+        // Затем сохраняем новые CalculatePrice
         if (calculatePricesToAdd.Count > 0)
         {
             _context.CalculatePrices.AddRange(calculatePricesToAdd);
