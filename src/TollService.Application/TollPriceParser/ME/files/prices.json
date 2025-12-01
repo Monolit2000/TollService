@@ -1,0 +1,4638 @@
+{
+  "prices": {
+    "prices": [
+      {
+        "fromId": 2,
+        "fromName": "Exit 2",
+        "toId": 3,
+        "toName": "Exit 3",
+        "cash": 0,
+        "ezPass": 0,
+        "error": null
+      },
+      {
+        "fromId": 2,
+        "fromName": "Exit 2",
+        "toId": 7,
+        "toName": "Exit 7",
+        "cash": 0,
+        "ezPass": 0,
+        "error": null
+      },
+      {
+        "fromId": 2,
+        "fromName": "Exit 2",
+        "toId": 19,
+        "toName": "Exit 19",
+        "cash": 0,
+        "ezPass": 0,
+        "error": null
+      },
+      {
+        "fromId": 2,
+        "fromName": "Exit 2",
+        "toId": 25,
+        "toName": "Exit 25",
+        "cash": 0,
+        "ezPass": 0,
+        "error": null
+      },
+      {
+        "fromId": 2,
+        "fromName": "Exit 2",
+        "toId": 32,
+        "toName": "Exit 32",
+        "cash": 0,
+        "ezPass": 0,
+        "error": null
+      },
+      {
+        "fromId": 2,
+        "fromName": "Exit 2",
+        "toId": 35,
+        "toName": "Exit 35",
+        "cash": 0,
+        "ezPass": 0,
+        "error": null
+      },
+      {
+        "fromId": 2,
+        "fromName": "Exit 2",
+        "toId": 36,
+        "toName": "Exit 36",
+        "cash": 0,
+        "ezPass": 0,
+        "error": null
+      },
+      {
+        "fromId": 2,
+        "fromName": "Exit 2",
+        "toId": 42,
+        "toName": "Exit 42",
+        "cash": 0,
+        "ezPass": 0,
+        "error": null
+      },
+      {
+        "fromId": 2,
+        "fromName": "Exit 2",
+        "toId": 44,
+        "toName": "Exit 44",
+        "cash": 0,
+        "ezPass": 0,
+        "error": null
+      },
+      {
+        "fromId": 2,
+        "fromName": "Exit 2",
+        "toId": 45,
+        "toName": "Exit 45",
+        "cash": 0,
+        "ezPass": 0,
+        "error": null
+      },
+      {
+        "fromId": 2,
+        "fromName": "Exit 2",
+        "toId": 46,
+        "toName": "Exit 46",
+        "cash": 0,
+        "ezPass": 0,
+        "error": null
+      },
+      {
+        "fromId": 2,
+        "fromName": "Exit 2",
+        "toId": 47,
+        "toName": "Exit 47",
+        "cash": 0,
+        "ezPass": 0,
+        "error": null
+      },
+      {
+        "fromId": 2,
+        "fromName": "Exit 2",
+        "toId": 48,
+        "toName": "Exit 48",
+        "cash": 0,
+        "ezPass": 0,
+        "error": null
+      },
+      {
+        "fromId": 2,
+        "fromName": "Exit 2",
+        "toId": 52,
+        "toName": "Exit 52",
+        "cash": 0,
+        "ezPass": 0,
+        "error": null
+      },
+      {
+        "fromId": 2,
+        "fromName": "Exit 2",
+        "toId": 53,
+        "toName": "Exit 53",
+        "cash": 0,
+        "ezPass": 0,
+        "error": null
+      },
+      {
+        "fromId": 2,
+        "fromName": "Exit 2",
+        "toId": 63,
+        "toName": "Exit 63",
+        "cash": 0,
+        "ezPass": 0,
+        "error": null
+      },
+      {
+        "fromId": 2,
+        "fromName": "Exit 2",
+        "toId": 75,
+        "toName": "Exit 75",
+        "cash": 0,
+        "ezPass": 0,
+        "error": null
+      },
+      {
+        "fromId": 2,
+        "fromName": "Exit 2",
+        "toId": 80,
+        "toName": "Exit 80",
+        "cash": 0,
+        "ezPass": 0,
+        "error": null
+      },
+      {
+        "fromId": 2,
+        "fromName": "Exit 2",
+        "toId": 86,
+        "toName": "Exit 86",
+        "cash": 0,
+        "ezPass": 0,
+        "error": null
+      },
+      {
+        "fromId": 2,
+        "fromName": "Exit 2",
+        "toId": 102,
+        "toName": "Exit 102",
+        "cash": 0,
+        "ezPass": 0,
+        "error": null
+      },
+      {
+        "fromId": 2,
+        "fromName": "Exit 2",
+        "toId": 103,
+        "toName": "Exit 103",
+        "cash": 0,
+        "ezPass": 0,
+        "error": "Ошибка API для 2->103: Exit 103 serves Southbound direction only."
+      },
+      {
+        "fromId": 2,
+        "fromName": "Exit 2",
+        "toId": 109,
+        "toName": "Exit 109",
+        "cash": 0,
+        "ezPass": 0,
+        "error": null
+      },
+      {
+        "fromId": 3,
+        "fromName": "Exit 3",
+        "toId": 2,
+        "toName": "Exit 2",
+        "cash": 0,
+        "ezPass": 0,
+        "error": null
+      },
+      {
+        "fromId": 3,
+        "fromName": "Exit 3",
+        "toId": 7,
+        "toName": "Exit 7",
+        "cash": 0,
+        "ezPass": 0,
+        "error": null
+      },
+      {
+        "fromId": 3,
+        "fromName": "Exit 3",
+        "toId": 19,
+        "toName": "Exit 19",
+        "cash": 0,
+        "ezPass": 0,
+        "error": null
+      },
+      {
+        "fromId": 3,
+        "fromName": "Exit 3",
+        "toId": 25,
+        "toName": "Exit 25",
+        "cash": 0,
+        "ezPass": 0,
+        "error": null
+      },
+      {
+        "fromId": 3,
+        "fromName": "Exit 3",
+        "toId": 32,
+        "toName": "Exit 32",
+        "cash": 0,
+        "ezPass": 0,
+        "error": null
+      },
+      {
+        "fromId": 3,
+        "fromName": "Exit 3",
+        "toId": 35,
+        "toName": "Exit 35",
+        "cash": 0,
+        "ezPass": 0,
+        "error": null
+      },
+      {
+        "fromId": 3,
+        "fromName": "Exit 3",
+        "toId": 36,
+        "toName": "Exit 36",
+        "cash": 0,
+        "ezPass": 0,
+        "error": null
+      },
+      {
+        "fromId": 3,
+        "fromName": "Exit 3",
+        "toId": 42,
+        "toName": "Exit 42",
+        "cash": 0,
+        "ezPass": 0,
+        "error": null
+      },
+      {
+        "fromId": 3,
+        "fromName": "Exit 3",
+        "toId": 44,
+        "toName": "Exit 44",
+        "cash": 0,
+        "ezPass": 0,
+        "error": null
+      },
+      {
+        "fromId": 3,
+        "fromName": "Exit 3",
+        "toId": 45,
+        "toName": "Exit 45",
+        "cash": 0,
+        "ezPass": 0,
+        "error": null
+      },
+      {
+        "fromId": 3,
+        "fromName": "Exit 3",
+        "toId": 46,
+        "toName": "Exit 46",
+        "cash": 0,
+        "ezPass": 0,
+        "error": null
+      },
+      {
+        "fromId": 3,
+        "fromName": "Exit 3",
+        "toId": 47,
+        "toName": "Exit 47",
+        "cash": 0,
+        "ezPass": 0,
+        "error": null
+      },
+      {
+        "fromId": 3,
+        "fromName": "Exit 3",
+        "toId": 48,
+        "toName": "Exit 48",
+        "cash": 0,
+        "ezPass": 0,
+        "error": null
+      },
+      {
+        "fromId": 3,
+        "fromName": "Exit 3",
+        "toId": 52,
+        "toName": "Exit 52",
+        "cash": 0,
+        "ezPass": 0,
+        "error": null
+      },
+      {
+        "fromId": 3,
+        "fromName": "Exit 3",
+        "toId": 53,
+        "toName": "Exit 53",
+        "cash": 0,
+        "ezPass": 0,
+        "error": null
+      },
+      {
+        "fromId": 3,
+        "fromName": "Exit 3",
+        "toId": 63,
+        "toName": "Exit 63",
+        "cash": 0,
+        "ezPass": 0,
+        "error": null
+      },
+      {
+        "fromId": 3,
+        "fromName": "Exit 3",
+        "toId": 75,
+        "toName": "Exit 75",
+        "cash": 0,
+        "ezPass": 0,
+        "error": null
+      },
+      {
+        "fromId": 3,
+        "fromName": "Exit 3",
+        "toId": 80,
+        "toName": "Exit 80",
+        "cash": 0,
+        "ezPass": 0,
+        "error": null
+      },
+      {
+        "fromId": 3,
+        "fromName": "Exit 3",
+        "toId": 86,
+        "toName": "Exit 86",
+        "cash": 0,
+        "ezPass": 0,
+        "error": null
+      },
+      {
+        "fromId": 3,
+        "fromName": "Exit 3",
+        "toId": 102,
+        "toName": "Exit 102",
+        "cash": 0,
+        "ezPass": 0,
+        "error": null
+      },
+      {
+        "fromId": 3,
+        "fromName": "Exit 3",
+        "toId": 103,
+        "toName": "Exit 103",
+        "cash": 0,
+        "ezPass": 0,
+        "error": "Ошибка API для 3->103: Exit 103 serves Southbound direction only."
+      },
+      {
+        "fromId": 3,
+        "fromName": "Exit 3",
+        "toId": 109,
+        "toName": "Exit 109",
+        "cash": 0,
+        "ezPass": 0,
+        "error": null
+      },
+      {
+        "fromId": 7,
+        "fromName": "Exit 7",
+        "toId": 2,
+        "toName": "Exit 2",
+        "cash": 0,
+        "ezPass": 0,
+        "error": null
+      },
+      {
+        "fromId": 7,
+        "fromName": "Exit 7",
+        "toId": 3,
+        "toName": "Exit 3",
+        "cash": 0,
+        "ezPass": 0,
+        "error": null
+      },
+      {
+        "fromId": 7,
+        "fromName": "Exit 7",
+        "toId": 19,
+        "toName": "Exit 19",
+        "cash": 16,
+        "ezPass": 3.8,
+        "error": null
+      },
+      {
+        "fromId": 7,
+        "fromName": "Exit 7",
+        "toId": 25,
+        "toName": "Exit 25",
+        "cash": 16,
+        "ezPass": 5.8,
+        "error": null
+      },
+      {
+        "fromId": 7,
+        "fromName": "Exit 7",
+        "toId": 32,
+        "toName": "Exit 32",
+        "cash": 16,
+        "ezPass": 7.8,
+        "error": null
+      },
+      {
+        "fromId": 7,
+        "fromName": "Exit 7",
+        "toId": 35,
+        "toName": "Exit 35",
+        "cash": 16,
+        "ezPass": 8.8,
+        "error": null
+      },
+      {
+        "fromId": 7,
+        "fromName": "Exit 7",
+        "toId": 36,
+        "toName": "Exit 36",
+        "cash": 16,
+        "ezPass": 9,
+        "error": null
+      },
+      {
+        "fromId": 7,
+        "fromName": "Exit 7",
+        "toId": 42,
+        "toName": "Exit 42",
+        "cash": 16,
+        "ezPass": 11.2,
+        "error": null
+      },
+      {
+        "fromId": 7,
+        "fromName": "Exit 7",
+        "toId": 44,
+        "toName": "Exit 44",
+        "cash": 20,
+        "ezPass": 11.8,
+        "error": null
+      },
+      {
+        "fromId": 7,
+        "fromName": "Exit 7",
+        "toId": 45,
+        "toName": "Exit 45",
+        "cash": 16,
+        "ezPass": 12,
+        "error": null
+      },
+      {
+        "fromId": 7,
+        "fromName": "Exit 7",
+        "toId": 46,
+        "toName": "Exit 46",
+        "cash": 16,
+        "ezPass": 12.4,
+        "error": null
+      },
+      {
+        "fromId": 7,
+        "fromName": "Exit 7",
+        "toId": 47,
+        "toName": "Exit 47",
+        "cash": 16,
+        "ezPass": 12.8,
+        "error": null
+      },
+      {
+        "fromId": 7,
+        "fromName": "Exit 7",
+        "toId": 48,
+        "toName": "Exit 48",
+        "cash": 16,
+        "ezPass": 13.2,
+        "error": null
+      },
+      {
+        "fromId": 7,
+        "fromName": "Exit 7",
+        "toId": 52,
+        "toName": "Exit 52",
+        "cash": 20,
+        "ezPass": 14.2,
+        "error": null
+      },
+      {
+        "fromId": 7,
+        "fromName": "Exit 7",
+        "toId": 53,
+        "toName": "Exit 53",
+        "cash": 16,
+        "ezPass": 14.4,
+        "error": null
+      },
+      {
+        "fromId": 7,
+        "fromName": "Exit 7",
+        "toId": 63,
+        "toName": "Exit 63",
+        "cash": 16,
+        "ezPass": 16,
+        "error": null
+      },
+      {
+        "fromId": 7,
+        "fromName": "Exit 7",
+        "toId": 75,
+        "toName": "Exit 75",
+        "cash": 25,
+        "ezPass": 21.6,
+        "error": null
+      },
+      {
+        "fromId": 7,
+        "fromName": "Exit 7",
+        "toId": 80,
+        "toName": "Exit 80",
+        "cash": 25,
+        "ezPass": 21.6,
+        "error": null
+      },
+      {
+        "fromId": 7,
+        "fromName": "Exit 7",
+        "toId": 86,
+        "toName": "Exit 86",
+        "cash": 25,
+        "ezPass": 21.6,
+        "error": null
+      },
+      {
+        "fromId": 7,
+        "fromName": "Exit 7",
+        "toId": 102,
+        "toName": "Exit 102",
+        "cash": 32,
+        "ezPass": 26.8,
+        "error": null
+      },
+      {
+        "fromId": 7,
+        "fromName": "Exit 7",
+        "toId": 103,
+        "toName": "Exit 103",
+        "cash": 0,
+        "ezPass": 0,
+        "error": "Ошибка API для 7->103: Exit 103 serves Southbound direction only."
+      },
+      {
+        "fromId": 7,
+        "fromName": "Exit 7",
+        "toId": 109,
+        "toName": "Exit 109",
+        "cash": 32,
+        "ezPass": 26.8,
+        "error": null
+      },
+      {
+        "fromId": 19,
+        "fromName": "Exit 19",
+        "toId": 2,
+        "toName": "Exit 2",
+        "cash": 0,
+        "ezPass": 0,
+        "error": null
+      },
+      {
+        "fromId": 19,
+        "fromName": "Exit 19",
+        "toId": 3,
+        "toName": "Exit 3",
+        "cash": 0,
+        "ezPass": 0,
+        "error": null
+      },
+      {
+        "fromId": 19,
+        "fromName": "Exit 19",
+        "toId": 7,
+        "toName": "Exit 7",
+        "cash": 16,
+        "ezPass": 3.8,
+        "error": null
+      },
+      {
+        "fromId": 19,
+        "fromName": "Exit 19",
+        "toId": 25,
+        "toName": "Exit 25",
+        "cash": 6,
+        "ezPass": 2,
+        "error": null
+      },
+      {
+        "fromId": 19,
+        "fromName": "Exit 19",
+        "toId": 32,
+        "toName": "Exit 32",
+        "cash": 6,
+        "ezPass": 4,
+        "error": null
+      },
+      {
+        "fromId": 19,
+        "fromName": "Exit 19",
+        "toId": 35,
+        "toName": "Exit 35",
+        "cash": 6,
+        "ezPass": 5,
+        "error": null
+      },
+      {
+        "fromId": 19,
+        "fromName": "Exit 19",
+        "toId": 36,
+        "toName": "Exit 36",
+        "cash": 6,
+        "ezPass": 5.2,
+        "error": null
+      },
+      {
+        "fromId": 19,
+        "fromName": "Exit 19",
+        "toId": 42,
+        "toName": "Exit 42",
+        "cash": 6,
+        "ezPass": 6,
+        "error": null
+      },
+      {
+        "fromId": 19,
+        "fromName": "Exit 19",
+        "toId": 44,
+        "toName": "Exit 44",
+        "cash": 10,
+        "ezPass": 8,
+        "error": null
+      },
+      {
+        "fromId": 19,
+        "fromName": "Exit 19",
+        "toId": 45,
+        "toName": "Exit 45",
+        "cash": 6,
+        "ezPass": 6,
+        "error": null
+      },
+      {
+        "fromId": 19,
+        "fromName": "Exit 19",
+        "toId": 46,
+        "toName": "Exit 46",
+        "cash": 6,
+        "ezPass": 6,
+        "error": null
+      },
+      {
+        "fromId": 19,
+        "fromName": "Exit 19",
+        "toId": 47,
+        "toName": "Exit 47",
+        "cash": 6,
+        "ezPass": 6,
+        "error": null
+      },
+      {
+        "fromId": 19,
+        "fromName": "Exit 19",
+        "toId": 48,
+        "toName": "Exit 48",
+        "cash": 6,
+        "ezPass": 6,
+        "error": null
+      },
+      {
+        "fromId": 19,
+        "fromName": "Exit 19",
+        "toId": 52,
+        "toName": "Exit 52",
+        "cash": 10,
+        "ezPass": 10,
+        "error": null
+      },
+      {
+        "fromId": 19,
+        "fromName": "Exit 19",
+        "toId": 53,
+        "toName": "Exit 53",
+        "cash": 6,
+        "ezPass": 6,
+        "error": null
+      },
+      {
+        "fromId": 19,
+        "fromName": "Exit 19",
+        "toId": 63,
+        "toName": "Exit 63",
+        "cash": 6,
+        "ezPass": 6,
+        "error": null
+      },
+      {
+        "fromId": 19,
+        "fromName": "Exit 19",
+        "toId": 75,
+        "toName": "Exit 75",
+        "cash": 15,
+        "ezPass": 15,
+        "error": null
+      },
+      {
+        "fromId": 19,
+        "fromName": "Exit 19",
+        "toId": 80,
+        "toName": "Exit 80",
+        "cash": 15,
+        "ezPass": 15,
+        "error": null
+      },
+      {
+        "fromId": 19,
+        "fromName": "Exit 19",
+        "toId": 86,
+        "toName": "Exit 86",
+        "cash": 15,
+        "ezPass": 15,
+        "error": null
+      },
+      {
+        "fromId": 19,
+        "fromName": "Exit 19",
+        "toId": 102,
+        "toName": "Exit 102",
+        "cash": 22,
+        "ezPass": 20.2,
+        "error": null
+      },
+      {
+        "fromId": 19,
+        "fromName": "Exit 19",
+        "toId": 103,
+        "toName": "Exit 103",
+        "cash": 0,
+        "ezPass": 0,
+        "error": "Ошибка API для 19->103: Exit 103 serves Southbound direction only."
+      },
+      {
+        "fromId": 19,
+        "fromName": "Exit 19",
+        "toId": 109,
+        "toName": "Exit 109",
+        "cash": 22,
+        "ezPass": 20.2,
+        "error": null
+      },
+      {
+        "fromId": 25,
+        "fromName": "Exit 25",
+        "toId": 2,
+        "toName": "Exit 2",
+        "cash": 0,
+        "ezPass": 0,
+        "error": null
+      },
+      {
+        "fromId": 25,
+        "fromName": "Exit 25",
+        "toId": 3,
+        "toName": "Exit 3",
+        "cash": 0,
+        "ezPass": 0,
+        "error": null
+      },
+      {
+        "fromId": 25,
+        "fromName": "Exit 25",
+        "toId": 7,
+        "toName": "Exit 7",
+        "cash": 20,
+        "ezPass": 5.8,
+        "error": null
+      },
+      {
+        "fromId": 25,
+        "fromName": "Exit 25",
+        "toId": 19,
+        "toName": "Exit 19",
+        "cash": 4,
+        "ezPass": 2,
+        "error": null
+      },
+      {
+        "fromId": 25,
+        "fromName": "Exit 25",
+        "toId": 32,
+        "toName": "Exit 32",
+        "cash": 4,
+        "ezPass": 2,
+        "error": null
+      },
+      {
+        "fromId": 25,
+        "fromName": "Exit 25",
+        "toId": 35,
+        "toName": "Exit 35",
+        "cash": 4,
+        "ezPass": 3,
+        "error": null
+      },
+      {
+        "fromId": 25,
+        "fromName": "Exit 25",
+        "toId": 36,
+        "toName": "Exit 36",
+        "cash": 4,
+        "ezPass": 3.2,
+        "error": null
+      },
+      {
+        "fromId": 25,
+        "fromName": "Exit 25",
+        "toId": 42,
+        "toName": "Exit 42",
+        "cash": 4,
+        "ezPass": 4,
+        "error": null
+      },
+      {
+        "fromId": 25,
+        "fromName": "Exit 25",
+        "toId": 44,
+        "toName": "Exit 44",
+        "cash": 8,
+        "ezPass": 6,
+        "error": null
+      },
+      {
+        "fromId": 25,
+        "fromName": "Exit 25",
+        "toId": 45,
+        "toName": "Exit 45",
+        "cash": 4,
+        "ezPass": 4,
+        "error": null
+      },
+      {
+        "fromId": 25,
+        "fromName": "Exit 25",
+        "toId": 46,
+        "toName": "Exit 46",
+        "cash": 4,
+        "ezPass": 4,
+        "error": null
+      },
+      {
+        "fromId": 25,
+        "fromName": "Exit 25",
+        "toId": 47,
+        "toName": "Exit 47",
+        "cash": 4,
+        "ezPass": 4,
+        "error": null
+      },
+      {
+        "fromId": 25,
+        "fromName": "Exit 25",
+        "toId": 48,
+        "toName": "Exit 48",
+        "cash": 4,
+        "ezPass": 4,
+        "error": null
+      },
+      {
+        "fromId": 25,
+        "fromName": "Exit 25",
+        "toId": 52,
+        "toName": "Exit 52",
+        "cash": 8,
+        "ezPass": 8,
+        "error": null
+      },
+      {
+        "fromId": 25,
+        "fromName": "Exit 25",
+        "toId": 53,
+        "toName": "Exit 53",
+        "cash": 4,
+        "ezPass": 4,
+        "error": null
+      },
+      {
+        "fromId": 25,
+        "fromName": "Exit 25",
+        "toId": 63,
+        "toName": "Exit 63",
+        "cash": 4,
+        "ezPass": 4,
+        "error": null
+      },
+      {
+        "fromId": 25,
+        "fromName": "Exit 25",
+        "toId": 75,
+        "toName": "Exit 75",
+        "cash": 13,
+        "ezPass": 13,
+        "error": null
+      },
+      {
+        "fromId": 25,
+        "fromName": "Exit 25",
+        "toId": 80,
+        "toName": "Exit 80",
+        "cash": 13,
+        "ezPass": 13,
+        "error": null
+      },
+      {
+        "fromId": 25,
+        "fromName": "Exit 25",
+        "toId": 86,
+        "toName": "Exit 86",
+        "cash": 13,
+        "ezPass": 13,
+        "error": null
+      },
+      {
+        "fromId": 25,
+        "fromName": "Exit 25",
+        "toId": 102,
+        "toName": "Exit 102",
+        "cash": 20,
+        "ezPass": 18.2,
+        "error": null
+      },
+      {
+        "fromId": 25,
+        "fromName": "Exit 25",
+        "toId": 103,
+        "toName": "Exit 103",
+        "cash": 0,
+        "ezPass": 0,
+        "error": "Ошибка API для 25->103: Exit 103 serves Southbound direction only."
+      },
+      {
+        "fromId": 25,
+        "fromName": "Exit 25",
+        "toId": 109,
+        "toName": "Exit 109",
+        "cash": 20,
+        "ezPass": 18.2,
+        "error": null
+      },
+      {
+        "fromId": 32,
+        "fromName": "Exit 32",
+        "toId": 2,
+        "toName": "Exit 2",
+        "cash": 0,
+        "ezPass": 0,
+        "error": null
+      },
+      {
+        "fromId": 32,
+        "fromName": "Exit 32",
+        "toId": 3,
+        "toName": "Exit 3",
+        "cash": 0,
+        "ezPass": 0,
+        "error": null
+      },
+      {
+        "fromId": 32,
+        "fromName": "Exit 32",
+        "toId": 7,
+        "toName": "Exit 7",
+        "cash": 20,
+        "ezPass": 7.8,
+        "error": null
+      },
+      {
+        "fromId": 32,
+        "fromName": "Exit 32",
+        "toId": 19,
+        "toName": "Exit 19",
+        "cash": 4,
+        "ezPass": 4,
+        "error": null
+      },
+      {
+        "fromId": 32,
+        "fromName": "Exit 32",
+        "toId": 25,
+        "toName": "Exit 25",
+        "cash": 4,
+        "ezPass": 2,
+        "error": null
+      },
+      {
+        "fromId": 32,
+        "fromName": "Exit 32",
+        "toId": 35,
+        "toName": "Exit 35",
+        "cash": 4,
+        "ezPass": 2,
+        "error": null
+      },
+      {
+        "fromId": 32,
+        "fromName": "Exit 32",
+        "toId": 36,
+        "toName": "Exit 36",
+        "cash": 4,
+        "ezPass": 2,
+        "error": null
+      },
+      {
+        "fromId": 32,
+        "fromName": "Exit 32",
+        "toId": 42,
+        "toName": "Exit 42",
+        "cash": 4,
+        "ezPass": 3.4,
+        "error": null
+      },
+      {
+        "fromId": 32,
+        "fromName": "Exit 32",
+        "toId": 44,
+        "toName": "Exit 44",
+        "cash": 8,
+        "ezPass": 4,
+        "error": null
+      },
+      {
+        "fromId": 32,
+        "fromName": "Exit 32",
+        "toId": 45,
+        "toName": "Exit 45",
+        "cash": 4,
+        "ezPass": 4,
+        "error": null
+      },
+      {
+        "fromId": 32,
+        "fromName": "Exit 32",
+        "toId": 46,
+        "toName": "Exit 46",
+        "cash": 4,
+        "ezPass": 4,
+        "error": null
+      },
+      {
+        "fromId": 32,
+        "fromName": "Exit 32",
+        "toId": 47,
+        "toName": "Exit 47",
+        "cash": 4,
+        "ezPass": 4,
+        "error": null
+      },
+      {
+        "fromId": 32,
+        "fromName": "Exit 32",
+        "toId": 48,
+        "toName": "Exit 48",
+        "cash": 4,
+        "ezPass": 4,
+        "error": null
+      },
+      {
+        "fromId": 32,
+        "fromName": "Exit 32",
+        "toId": 52,
+        "toName": "Exit 52",
+        "cash": 8,
+        "ezPass": 6.4,
+        "error": null
+      },
+      {
+        "fromId": 32,
+        "fromName": "Exit 32",
+        "toId": 53,
+        "toName": "Exit 53",
+        "cash": 4,
+        "ezPass": 4,
+        "error": null
+      },
+      {
+        "fromId": 32,
+        "fromName": "Exit 32",
+        "toId": 63,
+        "toName": "Exit 63",
+        "cash": 4,
+        "ezPass": 4,
+        "error": null
+      },
+      {
+        "fromId": 32,
+        "fromName": "Exit 32",
+        "toId": 75,
+        "toName": "Exit 75",
+        "cash": 13,
+        "ezPass": 13,
+        "error": null
+      },
+      {
+        "fromId": 32,
+        "fromName": "Exit 32",
+        "toId": 80,
+        "toName": "Exit 80",
+        "cash": 13,
+        "ezPass": 13,
+        "error": null
+      },
+      {
+        "fromId": 32,
+        "fromName": "Exit 32",
+        "toId": 86,
+        "toName": "Exit 86",
+        "cash": 13,
+        "ezPass": 13,
+        "error": null
+      },
+      {
+        "fromId": 32,
+        "fromName": "Exit 32",
+        "toId": 102,
+        "toName": "Exit 102",
+        "cash": 20,
+        "ezPass": 18.2,
+        "error": null
+      },
+      {
+        "fromId": 32,
+        "fromName": "Exit 32",
+        "toId": 103,
+        "toName": "Exit 103",
+        "cash": 0,
+        "ezPass": 0,
+        "error": "Ошибка API для 32->103: Exit 103 serves Southbound direction only."
+      },
+      {
+        "fromId": 32,
+        "fromName": "Exit 32",
+        "toId": 109,
+        "toName": "Exit 109",
+        "cash": 20,
+        "ezPass": 18.2,
+        "error": null
+      },
+      {
+        "fromId": 35,
+        "fromName": "Exit 35",
+        "toId": 2,
+        "toName": "Exit 2",
+        "cash": 0,
+        "ezPass": 0,
+        "error": null
+      },
+      {
+        "fromId": 35,
+        "fromName": "Exit 35",
+        "toId": 3,
+        "toName": "Exit 3",
+        "cash": 0,
+        "ezPass": 0,
+        "error": null
+      },
+      {
+        "fromId": 35,
+        "fromName": "Exit 35",
+        "toId": 7,
+        "toName": "Exit 7",
+        "cash": 20,
+        "ezPass": 8.8,
+        "error": null
+      },
+      {
+        "fromId": 35,
+        "fromName": "Exit 35",
+        "toId": 19,
+        "toName": "Exit 19",
+        "cash": 4,
+        "ezPass": 4,
+        "error": null
+      },
+      {
+        "fromId": 35,
+        "fromName": "Exit 35",
+        "toId": 25,
+        "toName": "Exit 25",
+        "cash": 4,
+        "ezPass": 3,
+        "error": null
+      },
+      {
+        "fromId": 35,
+        "fromName": "Exit 35",
+        "toId": 32,
+        "toName": "Exit 32",
+        "cash": 4,
+        "ezPass": 2,
+        "error": null
+      },
+      {
+        "fromId": 35,
+        "fromName": "Exit 35",
+        "toId": 36,
+        "toName": "Exit 36",
+        "cash": 4,
+        "ezPass": 2,
+        "error": null
+      },
+      {
+        "fromId": 35,
+        "fromName": "Exit 35",
+        "toId": 42,
+        "toName": "Exit 42",
+        "cash": 4,
+        "ezPass": 2.4,
+        "error": null
+      },
+      {
+        "fromId": 35,
+        "fromName": "Exit 35",
+        "toId": 44,
+        "toName": "Exit 44",
+        "cash": 8,
+        "ezPass": 3,
+        "error": null
+      },
+      {
+        "fromId": 35,
+        "fromName": "Exit 35",
+        "toId": 45,
+        "toName": "Exit 45",
+        "cash": 4,
+        "ezPass": 3.2,
+        "error": null
+      },
+      {
+        "fromId": 35,
+        "fromName": "Exit 35",
+        "toId": 46,
+        "toName": "Exit 46",
+        "cash": 4,
+        "ezPass": 3.6,
+        "error": null
+      },
+      {
+        "fromId": 35,
+        "fromName": "Exit 35",
+        "toId": 47,
+        "toName": "Exit 47",
+        "cash": 4,
+        "ezPass": 4,
+        "error": null
+      },
+      {
+        "fromId": 35,
+        "fromName": "Exit 35",
+        "toId": 48,
+        "toName": "Exit 48",
+        "cash": 4,
+        "ezPass": 4,
+        "error": null
+      },
+      {
+        "fromId": 35,
+        "fromName": "Exit 35",
+        "toId": 52,
+        "toName": "Exit 52",
+        "cash": 8,
+        "ezPass": 5.4,
+        "error": null
+      },
+      {
+        "fromId": 35,
+        "fromName": "Exit 35",
+        "toId": 53,
+        "toName": "Exit 53",
+        "cash": 4,
+        "ezPass": 4,
+        "error": null
+      },
+      {
+        "fromId": 35,
+        "fromName": "Exit 35",
+        "toId": 63,
+        "toName": "Exit 63",
+        "cash": 4,
+        "ezPass": 4,
+        "error": null
+      },
+      {
+        "fromId": 35,
+        "fromName": "Exit 35",
+        "toId": 75,
+        "toName": "Exit 75",
+        "cash": 13,
+        "ezPass": 12.8,
+        "error": null
+      },
+      {
+        "fromId": 35,
+        "fromName": "Exit 35",
+        "toId": 80,
+        "toName": "Exit 80",
+        "cash": 13,
+        "ezPass": 12.8,
+        "error": null
+      },
+      {
+        "fromId": 35,
+        "fromName": "Exit 35",
+        "toId": 86,
+        "toName": "Exit 86",
+        "cash": 13,
+        "ezPass": 12.8,
+        "error": null
+      },
+      {
+        "fromId": 35,
+        "fromName": "Exit 35",
+        "toId": 102,
+        "toName": "Exit 102",
+        "cash": 20,
+        "ezPass": 18,
+        "error": null
+      },
+      {
+        "fromId": 35,
+        "fromName": "Exit 35",
+        "toId": 103,
+        "toName": "Exit 103",
+        "cash": 0,
+        "ezPass": 0,
+        "error": "Ошибка API для 35->103: Exit 103 serves Southbound direction only."
+      },
+      {
+        "fromId": 35,
+        "fromName": "Exit 35",
+        "toId": 109,
+        "toName": "Exit 109",
+        "cash": 0,
+        "ezPass": 0,
+        "error": null
+      },
+      {
+        "fromId": 36,
+        "fromName": "Exit 36",
+        "toId": 2,
+        "toName": "Exit 2",
+        "cash": 0,
+        "ezPass": 0,
+        "error": null
+      },
+      {
+        "fromId": 36,
+        "fromName": "Exit 36",
+        "toId": 3,
+        "toName": "Exit 3",
+        "cash": 0,
+        "ezPass": 0,
+        "error": null
+      },
+      {
+        "fromId": 36,
+        "fromName": "Exit 36",
+        "toId": 7,
+        "toName": "Exit 7",
+        "cash": 20,
+        "ezPass": 9,
+        "error": null
+      },
+      {
+        "fromId": 36,
+        "fromName": "Exit 36",
+        "toId": 19,
+        "toName": "Exit 19",
+        "cash": 4,
+        "ezPass": 4,
+        "error": null
+      },
+      {
+        "fromId": 36,
+        "fromName": "Exit 36",
+        "toId": 25,
+        "toName": "Exit 25",
+        "cash": 4,
+        "ezPass": 3.2,
+        "error": null
+      },
+      {
+        "fromId": 36,
+        "fromName": "Exit 36",
+        "toId": 32,
+        "toName": "Exit 32",
+        "cash": 4,
+        "ezPass": 2,
+        "error": null
+      },
+      {
+        "fromId": 36,
+        "fromName": "Exit 36",
+        "toId": 35,
+        "toName": "Exit 35",
+        "cash": 4,
+        "ezPass": 2,
+        "error": null
+      },
+      {
+        "fromId": 36,
+        "fromName": "Exit 36",
+        "toId": 42,
+        "toName": "Exit 42",
+        "cash": 4,
+        "ezPass": 2.2,
+        "error": null
+      },
+      {
+        "fromId": 36,
+        "fromName": "Exit 36",
+        "toId": 44,
+        "toName": "Exit 44",
+        "cash": 8,
+        "ezPass": 2.8,
+        "error": null
+      },
+      {
+        "fromId": 36,
+        "fromName": "Exit 36",
+        "toId": 45,
+        "toName": "Exit 45",
+        "cash": 4,
+        "ezPass": 3,
+        "error": null
+      },
+      {
+        "fromId": 36,
+        "fromName": "Exit 36",
+        "toId": 46,
+        "toName": "Exit 46",
+        "cash": 4,
+        "ezPass": 3.4,
+        "error": null
+      },
+      {
+        "fromId": 36,
+        "fromName": "Exit 36",
+        "toId": 47,
+        "toName": "Exit 47",
+        "cash": 4,
+        "ezPass": 3.8,
+        "error": null
+      },
+      {
+        "fromId": 36,
+        "fromName": "Exit 36",
+        "toId": 48,
+        "toName": "Exit 48",
+        "cash": 4,
+        "ezPass": 4,
+        "error": null
+      },
+      {
+        "fromId": 36,
+        "fromName": "Exit 36",
+        "toId": 52,
+        "toName": "Exit 52",
+        "cash": 8,
+        "ezPass": 5,
+        "error": null
+      },
+      {
+        "fromId": 36,
+        "fromName": "Exit 36",
+        "toId": 53,
+        "toName": "Exit 53",
+        "cash": 4,
+        "ezPass": 4,
+        "error": null
+      },
+      {
+        "fromId": 36,
+        "fromName": "Exit 36",
+        "toId": 63,
+        "toName": "Exit 63",
+        "cash": 4,
+        "ezPass": 4,
+        "error": null
+      },
+      {
+        "fromId": 36,
+        "fromName": "Exit 36",
+        "toId": 75,
+        "toName": "Exit 75",
+        "cash": 13,
+        "ezPass": 12.6,
+        "error": null
+      },
+      {
+        "fromId": 36,
+        "fromName": "Exit 36",
+        "toId": 80,
+        "toName": "Exit 80",
+        "cash": 13,
+        "ezPass": 12.6,
+        "error": null
+      },
+      {
+        "fromId": 36,
+        "fromName": "Exit 36",
+        "toId": 86,
+        "toName": "Exit 86",
+        "cash": 13,
+        "ezPass": 12.6,
+        "error": null
+      },
+      {
+        "fromId": 36,
+        "fromName": "Exit 36",
+        "toId": 102,
+        "toName": "Exit 102",
+        "cash": 20,
+        "ezPass": 17.8,
+        "error": null
+      },
+      {
+        "fromId": 36,
+        "fromName": "Exit 36",
+        "toId": 103,
+        "toName": "Exit 103",
+        "cash": 0,
+        "ezPass": 0,
+        "error": "Ошибка API для 36->103: Exit 103 serves Southbound direction only."
+      },
+      {
+        "fromId": 36,
+        "fromName": "Exit 36",
+        "toId": 109,
+        "toName": "Exit 109",
+        "cash": 20,
+        "ezPass": 17.8,
+        "error": null
+      },
+      {
+        "fromId": 42,
+        "fromName": "Exit 42",
+        "toId": 2,
+        "toName": "Exit 2",
+        "cash": 0,
+        "ezPass": 0,
+        "error": null
+      },
+      {
+        "fromId": 42,
+        "fromName": "Exit 42",
+        "toId": 3,
+        "toName": "Exit 3",
+        "cash": 0,
+        "ezPass": 0,
+        "error": null
+      },
+      {
+        "fromId": 42,
+        "fromName": "Exit 42",
+        "toId": 7,
+        "toName": "Exit 7",
+        "cash": 20,
+        "ezPass": 11.2,
+        "error": null
+      },
+      {
+        "fromId": 42,
+        "fromName": "Exit 42",
+        "toId": 19,
+        "toName": "Exit 19",
+        "cash": 4,
+        "ezPass": 4,
+        "error": null
+      },
+      {
+        "fromId": 42,
+        "fromName": "Exit 42",
+        "toId": 25,
+        "toName": "Exit 25",
+        "cash": 4,
+        "ezPass": 4,
+        "error": null
+      },
+      {
+        "fromId": 42,
+        "fromName": "Exit 42",
+        "toId": 32,
+        "toName": "Exit 32",
+        "cash": 4,
+        "ezPass": 3.4,
+        "error": null
+      },
+      {
+        "fromId": 42,
+        "fromName": "Exit 42",
+        "toId": 35,
+        "toName": "Exit 35",
+        "cash": 4,
+        "ezPass": 2.4,
+        "error": null
+      },
+      {
+        "fromId": 42,
+        "fromName": "Exit 42",
+        "toId": 36,
+        "toName": "Exit 36",
+        "cash": 4,
+        "ezPass": 2.2,
+        "error": null
+      },
+      {
+        "fromId": 42,
+        "fromName": "Exit 42",
+        "toId": 44,
+        "toName": "Exit 44",
+        "cash": 8,
+        "ezPass": 2,
+        "error": null
+      },
+      {
+        "fromId": 42,
+        "fromName": "Exit 42",
+        "toId": 45,
+        "toName": "Exit 45",
+        "cash": 4,
+        "ezPass": 2,
+        "error": null
+      },
+      {
+        "fromId": 42,
+        "fromName": "Exit 42",
+        "toId": 46,
+        "toName": "Exit 46",
+        "cash": 4,
+        "ezPass": 2,
+        "error": null
+      },
+      {
+        "fromId": 42,
+        "fromName": "Exit 42",
+        "toId": 47,
+        "toName": "Exit 47",
+        "cash": 4,
+        "ezPass": 2,
+        "error": null
+      },
+      {
+        "fromId": 42,
+        "fromName": "Exit 42",
+        "toId": 48,
+        "toName": "Exit 48",
+        "cash": 4,
+        "ezPass": 2,
+        "error": null
+      },
+      {
+        "fromId": 42,
+        "fromName": "Exit 42",
+        "toId": 52,
+        "toName": "Exit 52",
+        "cash": 8,
+        "ezPass": 3,
+        "error": null
+      },
+      {
+        "fromId": 42,
+        "fromName": "Exit 42",
+        "toId": 53,
+        "toName": "Exit 53",
+        "cash": 4,
+        "ezPass": 3.2,
+        "error": null
+      },
+      {
+        "fromId": 42,
+        "fromName": "Exit 42",
+        "toId": 63,
+        "toName": "Exit 63",
+        "cash": 4,
+        "ezPass": 4,
+        "error": null
+      },
+      {
+        "fromId": 42,
+        "fromName": "Exit 42",
+        "toId": 75,
+        "toName": "Exit 75",
+        "cash": 13,
+        "ezPass": 10.4,
+        "error": null
+      },
+      {
+        "fromId": 42,
+        "fromName": "Exit 42",
+        "toId": 80,
+        "toName": "Exit 80",
+        "cash": 13,
+        "ezPass": 10.4,
+        "error": null
+      },
+      {
+        "fromId": 42,
+        "fromName": "Exit 42",
+        "toId": 86,
+        "toName": "Exit 86",
+        "cash": 13,
+        "ezPass": 10.4,
+        "error": null
+      },
+      {
+        "fromId": 42,
+        "fromName": "Exit 42",
+        "toId": 102,
+        "toName": "Exit 102",
+        "cash": 20,
+        "ezPass": 15.6,
+        "error": null
+      },
+      {
+        "fromId": 42,
+        "fromName": "Exit 42",
+        "toId": 103,
+        "toName": "Exit 103",
+        "cash": 0,
+        "ezPass": 0,
+        "error": "Ошибка API для 42->103: Exit 103 serves Southbound direction only."
+      },
+      {
+        "fromId": 42,
+        "fromName": "Exit 42",
+        "toId": 109,
+        "toName": "Exit 109",
+        "cash": 20,
+        "ezPass": 15.6,
+        "error": null
+      },
+      {
+        "fromId": 44,
+        "fromName": "Exit 44",
+        "toId": 2,
+        "toName": "Exit 2",
+        "cash": 0,
+        "ezPass": 0,
+        "error": null
+      },
+      {
+        "fromId": 44,
+        "fromName": "Exit 44",
+        "toId": 3,
+        "toName": "Exit 3",
+        "cash": 0,
+        "ezPass": 0,
+        "error": null
+      },
+      {
+        "fromId": 44,
+        "fromName": "Exit 44",
+        "toId": 7,
+        "toName": "Exit 7",
+        "cash": 20,
+        "ezPass": 11.8,
+        "error": null
+      },
+      {
+        "fromId": 44,
+        "fromName": "Exit 44",
+        "toId": 19,
+        "toName": "Exit 19",
+        "cash": 4,
+        "ezPass": 4,
+        "error": null
+      },
+      {
+        "fromId": 44,
+        "fromName": "Exit 44",
+        "toId": 25,
+        "toName": "Exit 25",
+        "cash": 4,
+        "ezPass": 4,
+        "error": null
+      },
+      {
+        "fromId": 44,
+        "fromName": "Exit 44",
+        "toId": 32,
+        "toName": "Exit 32",
+        "cash": 4,
+        "ezPass": 4,
+        "error": null
+      },
+      {
+        "fromId": 44,
+        "fromName": "Exit 44",
+        "toId": 35,
+        "toName": "Exit 35",
+        "cash": 4,
+        "ezPass": 3,
+        "error": null
+      },
+      {
+        "fromId": 44,
+        "fromName": "Exit 44",
+        "toId": 36,
+        "toName": "Exit 36",
+        "cash": 4,
+        "ezPass": 2.8,
+        "error": null
+      },
+      {
+        "fromId": 44,
+        "fromName": "Exit 44",
+        "toId": 42,
+        "toName": "Exit 42",
+        "cash": 4,
+        "ezPass": 2,
+        "error": null
+      },
+      {
+        "fromId": 44,
+        "fromName": "Exit 44",
+        "toId": 45,
+        "toName": "Exit 45",
+        "cash": 0,
+        "ezPass": 0,
+        "error": "Ошибка API для 44->45: Only Southbound travel is permitted when entering from Exit 44."
+      },
+      {
+        "fromId": 44,
+        "fromName": "Exit 44",
+        "toId": 46,
+        "toName": "Exit 46",
+        "cash": 0,
+        "ezPass": 0,
+        "error": "Ошибка API для 44->46: Only Southbound travel is permitted when entering from Exit 44."
+      },
+      {
+        "fromId": 44,
+        "fromName": "Exit 44",
+        "toId": 47,
+        "toName": "Exit 47",
+        "cash": 0,
+        "ezPass": 0,
+        "error": "Ошибка API для 44->47: Only Southbound travel is permitted when entering from Exit 44."
+      },
+      {
+        "fromId": 44,
+        "fromName": "Exit 44",
+        "toId": 48,
+        "toName": "Exit 48",
+        "cash": 0,
+        "ezPass": 0,
+        "error": "Ошибка API для 44->48: Only Southbound travel is permitted when entering from Exit 44."
+      },
+      {
+        "fromId": 44,
+        "fromName": "Exit 44",
+        "toId": 52,
+        "toName": "Exit 52",
+        "cash": 0,
+        "ezPass": 0,
+        "error": "Ошибка API для 44->52: Only Southbound travel is permitted when entering from Exit 44."
+      },
+      {
+        "fromId": 44,
+        "fromName": "Exit 44",
+        "toId": 53,
+        "toName": "Exit 53",
+        "cash": 0,
+        "ezPass": 0,
+        "error": "Ошибка API для 44->53: Only Southbound travel is permitted when entering from Exit 44."
+      },
+      {
+        "fromId": 44,
+        "fromName": "Exit 44",
+        "toId": 63,
+        "toName": "Exit 63",
+        "cash": 0,
+        "ezPass": 0,
+        "error": "Ошибка API для 44->63: Only Southbound travel is permitted when entering from Exit 44."
+      },
+      {
+        "fromId": 44,
+        "fromName": "Exit 44",
+        "toId": 75,
+        "toName": "Exit 75",
+        "cash": 0,
+        "ezPass": 0,
+        "error": "Ошибка API для 44->75: Only Southbound travel is permitted when entering from Exit 44."
+      },
+      {
+        "fromId": 44,
+        "fromName": "Exit 44",
+        "toId": 80,
+        "toName": "Exit 80",
+        "cash": 0,
+        "ezPass": 0,
+        "error": "Ошибка API для 44->80: Only Southbound travel is permitted when entering from Exit 44."
+      },
+      {
+        "fromId": 44,
+        "fromName": "Exit 44",
+        "toId": 86,
+        "toName": "Exit 86",
+        "cash": 0,
+        "ezPass": 0,
+        "error": "Ошибка API для 44->86: Only Southbound travel is permitted when entering from Exit 44."
+      },
+      {
+        "fromId": 44,
+        "fromName": "Exit 44",
+        "toId": 102,
+        "toName": "Exit 102",
+        "cash": 0,
+        "ezPass": 0,
+        "error": "Ошибка API для 44->102: Only Southbound travel is permitted when entering from Exit 44."
+      },
+      {
+        "fromId": 44,
+        "fromName": "Exit 44",
+        "toId": 103,
+        "toName": "Exit 103",
+        "cash": 0,
+        "ezPass": 0,
+        "error": "Ошибка API для 44->103: Exit 103 serves Southbound direction only."
+      },
+      {
+        "fromId": 44,
+        "fromName": "Exit 44",
+        "toId": 109,
+        "toName": "Exit 109",
+        "cash": 0,
+        "ezPass": 0,
+        "error": "Ошибка API для 44->109: Only Southbound travel is permitted when entering from Exit 44."
+      },
+      {
+        "fromId": 45,
+        "fromName": "Exit 45",
+        "toId": 2,
+        "toName": "Exit 2",
+        "cash": 0,
+        "ezPass": 0,
+        "error": null
+      },
+      {
+        "fromId": 45,
+        "fromName": "Exit 45",
+        "toId": 3,
+        "toName": "Exit 3",
+        "cash": 0,
+        "ezPass": 0,
+        "error": null
+      },
+      {
+        "fromId": 45,
+        "fromName": "Exit 45",
+        "toId": 7,
+        "toName": "Exit 7",
+        "cash": 20,
+        "ezPass": 12,
+        "error": null
+      },
+      {
+        "fromId": 45,
+        "fromName": "Exit 45",
+        "toId": 19,
+        "toName": "Exit 19",
+        "cash": 4,
+        "ezPass": 4,
+        "error": null
+      },
+      {
+        "fromId": 45,
+        "fromName": "Exit 45",
+        "toId": 25,
+        "toName": "Exit 25",
+        "cash": 4,
+        "ezPass": 4,
+        "error": null
+      },
+      {
+        "fromId": 45,
+        "fromName": "Exit 45",
+        "toId": 32,
+        "toName": "Exit 32",
+        "cash": 4,
+        "ezPass": 4,
+        "error": null
+      },
+      {
+        "fromId": 45,
+        "fromName": "Exit 45",
+        "toId": 35,
+        "toName": "Exit 35",
+        "cash": 4,
+        "ezPass": 3.2,
+        "error": null
+      },
+      {
+        "fromId": 45,
+        "fromName": "Exit 45",
+        "toId": 36,
+        "toName": "Exit 36",
+        "cash": 4,
+        "ezPass": 3,
+        "error": null
+      },
+      {
+        "fromId": 45,
+        "fromName": "Exit 45",
+        "toId": 42,
+        "toName": "Exit 42",
+        "cash": 4,
+        "ezPass": 2,
+        "error": null
+      },
+      {
+        "fromId": 45,
+        "fromName": "Exit 45",
+        "toId": 44,
+        "toName": "Exit 44",
+        "cash": 0,
+        "ezPass": 0,
+        "error": "Ошибка API для 45->44: Exit 44 serves Northbound direction only."
+      },
+      {
+        "fromId": 45,
+        "fromName": "Exit 45",
+        "toId": 46,
+        "toName": "Exit 46",
+        "cash": 4,
+        "ezPass": 2,
+        "error": null
+      },
+      {
+        "fromId": 45,
+        "fromName": "Exit 45",
+        "toId": 47,
+        "toName": "Exit 47",
+        "cash": 4,
+        "ezPass": 2,
+        "error": null
+      },
+      {
+        "fromId": 45,
+        "fromName": "Exit 45",
+        "toId": 48,
+        "toName": "Exit 48",
+        "cash": 4,
+        "ezPass": 2,
+        "error": null
+      },
+      {
+        "fromId": 45,
+        "fromName": "Exit 45",
+        "toId": 52,
+        "toName": "Exit 52",
+        "cash": 8,
+        "ezPass": 2.2,
+        "error": null
+      },
+      {
+        "fromId": 45,
+        "fromName": "Exit 45",
+        "toId": 53,
+        "toName": "Exit 53",
+        "cash": 4,
+        "ezPass": 2.4,
+        "error": null
+      },
+      {
+        "fromId": 45,
+        "fromName": "Exit 45",
+        "toId": 63,
+        "toName": "Exit 63",
+        "cash": 4,
+        "ezPass": 4,
+        "error": null
+      },
+      {
+        "fromId": 45,
+        "fromName": "Exit 45",
+        "toId": 75,
+        "toName": "Exit 75",
+        "cash": 13,
+        "ezPass": 9.6,
+        "error": null
+      },
+      {
+        "fromId": 45,
+        "fromName": "Exit 45",
+        "toId": 80,
+        "toName": "Exit 80",
+        "cash": 13,
+        "ezPass": 9.6,
+        "error": null
+      },
+      {
+        "fromId": 45,
+        "fromName": "Exit 45",
+        "toId": 86,
+        "toName": "Exit 86",
+        "cash": 13,
+        "ezPass": 9.6,
+        "error": null
+      },
+      {
+        "fromId": 45,
+        "fromName": "Exit 45",
+        "toId": 102,
+        "toName": "Exit 102",
+        "cash": 20,
+        "ezPass": 14.8,
+        "error": null
+      },
+      {
+        "fromId": 45,
+        "fromName": "Exit 45",
+        "toId": 103,
+        "toName": "Exit 103",
+        "cash": 0,
+        "ezPass": 0,
+        "error": "Ошибка API для 45->103: Exit 103 serves Southbound direction only."
+      },
+      {
+        "fromId": 45,
+        "fromName": "Exit 45",
+        "toId": 109,
+        "toName": "Exit 109",
+        "cash": 20,
+        "ezPass": 14.8,
+        "error": null
+      },
+      {
+        "fromId": 46,
+        "fromName": "Exit 46",
+        "toId": 2,
+        "toName": "Exit 2",
+        "cash": 0,
+        "ezPass": 0,
+        "error": null
+      },
+      {
+        "fromId": 46,
+        "fromName": "Exit 46",
+        "toId": 3,
+        "toName": "Exit 3",
+        "cash": 0,
+        "ezPass": 0,
+        "error": null
+      },
+      {
+        "fromId": 46,
+        "fromName": "Exit 46",
+        "toId": 7,
+        "toName": "Exit 7",
+        "cash": 20,
+        "ezPass": 12.4,
+        "error": null
+      },
+      {
+        "fromId": 46,
+        "fromName": "Exit 46",
+        "toId": 19,
+        "toName": "Exit 19",
+        "cash": 4,
+        "ezPass": 4,
+        "error": null
+      },
+      {
+        "fromId": 46,
+        "fromName": "Exit 46",
+        "toId": 25,
+        "toName": "Exit 25",
+        "cash": 4,
+        "ezPass": 4,
+        "error": null
+      },
+      {
+        "fromId": 46,
+        "fromName": "Exit 46",
+        "toId": 32,
+        "toName": "Exit 32",
+        "cash": 4,
+        "ezPass": 4,
+        "error": null
+      },
+      {
+        "fromId": 46,
+        "fromName": "Exit 46",
+        "toId": 35,
+        "toName": "Exit 35",
+        "cash": 4,
+        "ezPass": 3.6,
+        "error": null
+      },
+      {
+        "fromId": 46,
+        "fromName": "Exit 46",
+        "toId": 36,
+        "toName": "Exit 36",
+        "cash": 4,
+        "ezPass": 3.4,
+        "error": null
+      },
+      {
+        "fromId": 46,
+        "fromName": "Exit 46",
+        "toId": 42,
+        "toName": "Exit 42",
+        "cash": 4,
+        "ezPass": 2,
+        "error": null
+      },
+      {
+        "fromId": 46,
+        "fromName": "Exit 46",
+        "toId": 44,
+        "toName": "Exit 44",
+        "cash": 0,
+        "ezPass": 0,
+        "error": "Ошибка API для 46->44: Exit 44 serves Northbound direction only."
+      },
+      {
+        "fromId": 46,
+        "fromName": "Exit 46",
+        "toId": 45,
+        "toName": "Exit 45",
+        "cash": 4,
+        "ezPass": 2,
+        "error": null
+      },
+      {
+        "fromId": 46,
+        "fromName": "Exit 46",
+        "toId": 47,
+        "toName": "Exit 47",
+        "cash": 4,
+        "ezPass": 2,
+        "error": null
+      },
+      {
+        "fromId": 46,
+        "fromName": "Exit 46",
+        "toId": 48,
+        "toName": "Exit 48",
+        "cash": 4,
+        "ezPass": 2,
+        "error": null
+      },
+      {
+        "fromId": 46,
+        "fromName": "Exit 46",
+        "toId": 52,
+        "toName": "Exit 52",
+        "cash": 8,
+        "ezPass": 2,
+        "error": null
+      },
+      {
+        "fromId": 46,
+        "fromName": "Exit 46",
+        "toId": 53,
+        "toName": "Exit 53",
+        "cash": 4,
+        "ezPass": 2,
+        "error": null
+      },
+      {
+        "fromId": 46,
+        "fromName": "Exit 46",
+        "toId": 63,
+        "toName": "Exit 63",
+        "cash": 4,
+        "ezPass": 4,
+        "error": null
+      },
+      {
+        "fromId": 46,
+        "fromName": "Exit 46",
+        "toId": 75,
+        "toName": "Exit 75",
+        "cash": 13,
+        "ezPass": 9.2,
+        "error": null
+      },
+      {
+        "fromId": 46,
+        "fromName": "Exit 46",
+        "toId": 80,
+        "toName": "Exit 80",
+        "cash": 13,
+        "ezPass": 9.2,
+        "error": null
+      },
+      {
+        "fromId": 46,
+        "fromName": "Exit 46",
+        "toId": 86,
+        "toName": "Exit 86",
+        "cash": 13,
+        "ezPass": 9.2,
+        "error": null
+      },
+      {
+        "fromId": 46,
+        "fromName": "Exit 46",
+        "toId": 102,
+        "toName": "Exit 102",
+        "cash": 20,
+        "ezPass": 14.4,
+        "error": null
+      },
+      {
+        "fromId": 46,
+        "fromName": "Exit 46",
+        "toId": 103,
+        "toName": "Exit 103",
+        "cash": 0,
+        "ezPass": 0,
+        "error": "Ошибка API для 46->103: Exit 103 serves Southbound direction only."
+      },
+      {
+        "fromId": 46,
+        "fromName": "Exit 46",
+        "toId": 109,
+        "toName": "Exit 109",
+        "cash": 20,
+        "ezPass": 14.4,
+        "error": null
+      },
+      {
+        "fromId": 47,
+        "fromName": "Exit 47",
+        "toId": 2,
+        "toName": "Exit 2",
+        "cash": 0,
+        "ezPass": 0,
+        "error": null
+      },
+      {
+        "fromId": 47,
+        "fromName": "Exit 47",
+        "toId": 3,
+        "toName": "Exit 3",
+        "cash": 0,
+        "ezPass": 0,
+        "error": null
+      },
+      {
+        "fromId": 47,
+        "fromName": "Exit 47",
+        "toId": 7,
+        "toName": "Exit 7",
+        "cash": 20,
+        "ezPass": 12.8,
+        "error": null
+      },
+      {
+        "fromId": 47,
+        "fromName": "Exit 47",
+        "toId": 19,
+        "toName": "Exit 19",
+        "cash": 4,
+        "ezPass": 4,
+        "error": null
+      },
+      {
+        "fromId": 47,
+        "fromName": "Exit 47",
+        "toId": 25,
+        "toName": "Exit 25",
+        "cash": 4,
+        "ezPass": 4,
+        "error": null
+      },
+      {
+        "fromId": 47,
+        "fromName": "Exit 47",
+        "toId": 32,
+        "toName": "Exit 32",
+        "cash": 4,
+        "ezPass": 4,
+        "error": null
+      },
+      {
+        "fromId": 47,
+        "fromName": "Exit 47",
+        "toId": 35,
+        "toName": "Exit 35",
+        "cash": 4,
+        "ezPass": 4,
+        "error": null
+      },
+      {
+        "fromId": 47,
+        "fromName": "Exit 47",
+        "toId": 36,
+        "toName": "Exit 36",
+        "cash": 4,
+        "ezPass": 3.8,
+        "error": null
+      },
+      {
+        "fromId": 47,
+        "fromName": "Exit 47",
+        "toId": 42,
+        "toName": "Exit 42",
+        "cash": 4,
+        "ezPass": 2,
+        "error": null
+      },
+      {
+        "fromId": 47,
+        "fromName": "Exit 47",
+        "toId": 44,
+        "toName": "Exit 44",
+        "cash": 0,
+        "ezPass": 0,
+        "error": "Ошибка API для 47->44: Exit 44 serves Northbound direction only."
+      },
+      {
+        "fromId": 47,
+        "fromName": "Exit 47",
+        "toId": 45,
+        "toName": "Exit 45",
+        "cash": 4,
+        "ezPass": 2,
+        "error": null
+      },
+      {
+        "fromId": 47,
+        "fromName": "Exit 47",
+        "toId": 46,
+        "toName": "Exit 46",
+        "cash": 4,
+        "ezPass": 2,
+        "error": null
+      },
+      {
+        "fromId": 47,
+        "fromName": "Exit 47",
+        "toId": 48,
+        "toName": "Exit 48",
+        "cash": 4,
+        "ezPass": 2,
+        "error": null
+      },
+      {
+        "fromId": 47,
+        "fromName": "Exit 47",
+        "toId": 52,
+        "toName": "Exit 52",
+        "cash": 8,
+        "ezPass": 2,
+        "error": null
+      },
+      {
+        "fromId": 47,
+        "fromName": "Exit 47",
+        "toId": 53,
+        "toName": "Exit 53",
+        "cash": 4,
+        "ezPass": 2,
+        "error": null
+      },
+      {
+        "fromId": 47,
+        "fromName": "Exit 47",
+        "toId": 63,
+        "toName": "Exit 63",
+        "cash": 4,
+        "ezPass": 4,
+        "error": null
+      },
+      {
+        "fromId": 47,
+        "fromName": "Exit 47",
+        "toId": 75,
+        "toName": "Exit 75",
+        "cash": 13,
+        "ezPass": 8.8,
+        "error": null
+      },
+      {
+        "fromId": 47,
+        "fromName": "Exit 47",
+        "toId": 80,
+        "toName": "Exit 80",
+        "cash": 13,
+        "ezPass": 8.8,
+        "error": null
+      },
+      {
+        "fromId": 47,
+        "fromName": "Exit 47",
+        "toId": 86,
+        "toName": "Exit 86",
+        "cash": 13,
+        "ezPass": 8.8,
+        "error": null
+      },
+      {
+        "fromId": 47,
+        "fromName": "Exit 47",
+        "toId": 102,
+        "toName": "Exit 102",
+        "cash": 20,
+        "ezPass": 14,
+        "error": null
+      },
+      {
+        "fromId": 47,
+        "fromName": "Exit 47",
+        "toId": 103,
+        "toName": "Exit 103",
+        "cash": 0,
+        "ezPass": 0,
+        "error": "Ошибка API для 47->103: Exit 103 serves Southbound direction only."
+      },
+      {
+        "fromId": 47,
+        "fromName": "Exit 47",
+        "toId": 109,
+        "toName": "Exit 109",
+        "cash": 20,
+        "ezPass": 14,
+        "error": null
+      },
+      {
+        "fromId": 48,
+        "fromName": "Exit 48",
+        "toId": 2,
+        "toName": "Exit 2",
+        "cash": 0,
+        "ezPass": 0,
+        "error": null
+      },
+      {
+        "fromId": 48,
+        "fromName": "Exit 48",
+        "toId": 3,
+        "toName": "Exit 3",
+        "cash": 0,
+        "ezPass": 0,
+        "error": null
+      },
+      {
+        "fromId": 48,
+        "fromName": "Exit 48",
+        "toId": 7,
+        "toName": "Exit 7",
+        "cash": 20,
+        "ezPass": 13.2,
+        "error": null
+      },
+      {
+        "fromId": 48,
+        "fromName": "Exit 48",
+        "toId": 19,
+        "toName": "Exit 19",
+        "cash": 4,
+        "ezPass": 4,
+        "error": null
+      },
+      {
+        "fromId": 48,
+        "fromName": "Exit 48",
+        "toId": 25,
+        "toName": "Exit 25",
+        "cash": 4,
+        "ezPass": 4,
+        "error": null
+      },
+      {
+        "fromId": 48,
+        "fromName": "Exit 48",
+        "toId": 32,
+        "toName": "Exit 32",
+        "cash": 4,
+        "ezPass": 4,
+        "error": null
+      },
+      {
+        "fromId": 48,
+        "fromName": "Exit 48",
+        "toId": 35,
+        "toName": "Exit 35",
+        "cash": 4,
+        "ezPass": 4,
+        "error": null
+      },
+      {
+        "fromId": 48,
+        "fromName": "Exit 48",
+        "toId": 36,
+        "toName": "Exit 36",
+        "cash": 4,
+        "ezPass": 4,
+        "error": null
+      },
+      {
+        "fromId": 48,
+        "fromName": "Exit 48",
+        "toId": 42,
+        "toName": "Exit 42",
+        "cash": 4,
+        "ezPass": 2,
+        "error": null
+      },
+      {
+        "fromId": 48,
+        "fromName": "Exit 48",
+        "toId": 44,
+        "toName": "Exit 44",
+        "cash": 0,
+        "ezPass": 0,
+        "error": "Ошибка API для 48->44: Exit 44 serves Northbound direction only."
+      },
+      {
+        "fromId": 48,
+        "fromName": "Exit 48",
+        "toId": 45,
+        "toName": "Exit 45",
+        "cash": 4,
+        "ezPass": 2,
+        "error": null
+      },
+      {
+        "fromId": 48,
+        "fromName": "Exit 48",
+        "toId": 46,
+        "toName": "Exit 46",
+        "cash": 4,
+        "ezPass": 2,
+        "error": null
+      },
+      {
+        "fromId": 48,
+        "fromName": "Exit 48",
+        "toId": 47,
+        "toName": "Exit 47",
+        "cash": 4,
+        "ezPass": 2,
+        "error": null
+      },
+      {
+        "fromId": 48,
+        "fromName": "Exit 48",
+        "toId": 52,
+        "toName": "Exit 52",
+        "cash": 8,
+        "ezPass": 2,
+        "error": null
+      },
+      {
+        "fromId": 48,
+        "fromName": "Exit 48",
+        "toId": 53,
+        "toName": "Exit 53",
+        "cash": 4,
+        "ezPass": 2,
+        "error": null
+      },
+      {
+        "fromId": 48,
+        "fromName": "Exit 48",
+        "toId": 63,
+        "toName": "Exit 63",
+        "cash": 4,
+        "ezPass": 4,
+        "error": null
+      },
+      {
+        "fromId": 48,
+        "fromName": "Exit 48",
+        "toId": 75,
+        "toName": "Exit 75",
+        "cash": 13,
+        "ezPass": 8.4,
+        "error": null
+      },
+      {
+        "fromId": 48,
+        "fromName": "Exit 48",
+        "toId": 80,
+        "toName": "Exit 80",
+        "cash": 13,
+        "ezPass": 8.4,
+        "error": null
+      },
+      {
+        "fromId": 48,
+        "fromName": "Exit 48",
+        "toId": 86,
+        "toName": "Exit 86",
+        "cash": 13,
+        "ezPass": 8.4,
+        "error": null
+      },
+      {
+        "fromId": 48,
+        "fromName": "Exit 48",
+        "toId": 102,
+        "toName": "Exit 102",
+        "cash": 20,
+        "ezPass": 13.6,
+        "error": null
+      },
+      {
+        "fromId": 48,
+        "fromName": "Exit 48",
+        "toId": 103,
+        "toName": "Exit 103",
+        "cash": 0,
+        "ezPass": 0,
+        "error": "Ошибка API для 48->103: Exit 103 serves Southbound direction only."
+      },
+      {
+        "fromId": 48,
+        "fromName": "Exit 48",
+        "toId": 109,
+        "toName": "Exit 109",
+        "cash": 20,
+        "ezPass": 13.6,
+        "error": null
+      },
+      {
+        "fromId": 52,
+        "fromName": "Exit 52",
+        "toId": 2,
+        "toName": "Exit 2",
+        "cash": 0,
+        "ezPass": 0,
+        "error": null
+      },
+      {
+        "fromId": 52,
+        "fromName": "Exit 52",
+        "toId": 3,
+        "toName": "Exit 3",
+        "cash": 0,
+        "ezPass": 0,
+        "error": null
+      },
+      {
+        "fromId": 52,
+        "fromName": "Exit 52",
+        "toId": 7,
+        "toName": "Exit 7",
+        "cash": 20,
+        "ezPass": 14.2,
+        "error": null
+      },
+      {
+        "fromId": 52,
+        "fromName": "Exit 52",
+        "toId": 19,
+        "toName": "Exit 19",
+        "cash": 4,
+        "ezPass": 4,
+        "error": null
+      },
+      {
+        "fromId": 52,
+        "fromName": "Exit 52",
+        "toId": 25,
+        "toName": "Exit 25",
+        "cash": 4,
+        "ezPass": 4,
+        "error": null
+      },
+      {
+        "fromId": 52,
+        "fromName": "Exit 52",
+        "toId": 32,
+        "toName": "Exit 32",
+        "cash": 4,
+        "ezPass": 4,
+        "error": null
+      },
+      {
+        "fromId": 52,
+        "fromName": "Exit 52",
+        "toId": 35,
+        "toName": "Exit 35",
+        "cash": 4,
+        "ezPass": 4,
+        "error": null
+      },
+      {
+        "fromId": 52,
+        "fromName": "Exit 52",
+        "toId": 36,
+        "toName": "Exit 36",
+        "cash": 4,
+        "ezPass": 4,
+        "error": null
+      },
+      {
+        "fromId": 52,
+        "fromName": "Exit 52",
+        "toId": 42,
+        "toName": "Exit 42",
+        "cash": 4,
+        "ezPass": 3,
+        "error": null
+      },
+      {
+        "fromId": 52,
+        "fromName": "Exit 52",
+        "toId": 44,
+        "toName": "Exit 44",
+        "cash": 0,
+        "ezPass": 0,
+        "error": "Ошибка API для 52->44: Exit 44 serves Northbound direction only."
+      },
+      {
+        "fromId": 52,
+        "fromName": "Exit 52",
+        "toId": 45,
+        "toName": "Exit 45",
+        "cash": 4,
+        "ezPass": 2.2,
+        "error": null
+      },
+      {
+        "fromId": 52,
+        "fromName": "Exit 52",
+        "toId": 46,
+        "toName": "Exit 46",
+        "cash": 4,
+        "ezPass": 2,
+        "error": null
+      },
+      {
+        "fromId": 52,
+        "fromName": "Exit 52",
+        "toId": 47,
+        "toName": "Exit 47",
+        "cash": 4,
+        "ezPass": 2,
+        "error": null
+      },
+      {
+        "fromId": 52,
+        "fromName": "Exit 52",
+        "toId": 48,
+        "toName": "Exit 48",
+        "cash": 4,
+        "ezPass": 2,
+        "error": null
+      },
+      {
+        "fromId": 52,
+        "fromName": "Exit 52",
+        "toId": 53,
+        "toName": "Exit 53",
+        "cash": 4,
+        "ezPass": 2,
+        "error": null
+      },
+      {
+        "fromId": 52,
+        "fromName": "Exit 52",
+        "toId": 63,
+        "toName": "Exit 63",
+        "cash": 4,
+        "ezPass": 3.6,
+        "error": null
+      },
+      {
+        "fromId": 52,
+        "fromName": "Exit 52",
+        "toId": 75,
+        "toName": "Exit 75",
+        "cash": 13,
+        "ezPass": 7.4,
+        "error": null
+      },
+      {
+        "fromId": 52,
+        "fromName": "Exit 52",
+        "toId": 80,
+        "toName": "Exit 80",
+        "cash": 13,
+        "ezPass": 7.4,
+        "error": null
+      },
+      {
+        "fromId": 52,
+        "fromName": "Exit 52",
+        "toId": 86,
+        "toName": "Exit 86",
+        "cash": 13,
+        "ezPass": 7.4,
+        "error": null
+      },
+      {
+        "fromId": 52,
+        "fromName": "Exit 52",
+        "toId": 102,
+        "toName": "Exit 102",
+        "cash": 20,
+        "ezPass": 12.6,
+        "error": null
+      },
+      {
+        "fromId": 52,
+        "fromName": "Exit 52",
+        "toId": 103,
+        "toName": "Exit 103",
+        "cash": 0,
+        "ezPass": 0,
+        "error": "Ошибка API для 52->103: Exit 103 serves Southbound direction only."
+      },
+      {
+        "fromId": 52,
+        "fromName": "Exit 52",
+        "toId": 109,
+        "toName": "Exit 109",
+        "cash": 20,
+        "ezPass": 12.6,
+        "error": null
+      },
+      {
+        "fromId": 53,
+        "fromName": "Exit 53",
+        "toId": 2,
+        "toName": "Exit 2",
+        "cash": 0,
+        "ezPass": 0,
+        "error": null
+      },
+      {
+        "fromId": 53,
+        "fromName": "Exit 53",
+        "toId": 3,
+        "toName": "Exit 3",
+        "cash": 0,
+        "ezPass": 0,
+        "error": null
+      },
+      {
+        "fromId": 53,
+        "fromName": "Exit 53",
+        "toId": 7,
+        "toName": "Exit 7",
+        "cash": 20,
+        "ezPass": 14.4,
+        "error": null
+      },
+      {
+        "fromId": 53,
+        "fromName": "Exit 53",
+        "toId": 19,
+        "toName": "Exit 19",
+        "cash": 4,
+        "ezPass": 4,
+        "error": null
+      },
+      {
+        "fromId": 53,
+        "fromName": "Exit 53",
+        "toId": 25,
+        "toName": "Exit 25",
+        "cash": 4,
+        "ezPass": 4,
+        "error": null
+      },
+      {
+        "fromId": 53,
+        "fromName": "Exit 53",
+        "toId": 32,
+        "toName": "Exit 32",
+        "cash": 4,
+        "ezPass": 4,
+        "error": null
+      },
+      {
+        "fromId": 53,
+        "fromName": "Exit 53",
+        "toId": 35,
+        "toName": "Exit 35",
+        "cash": 4,
+        "ezPass": 4,
+        "error": null
+      },
+      {
+        "fromId": 53,
+        "fromName": "Exit 53",
+        "toId": 36,
+        "toName": "Exit 36",
+        "cash": 4,
+        "ezPass": 4,
+        "error": null
+      },
+      {
+        "fromId": 53,
+        "fromName": "Exit 53",
+        "toId": 42,
+        "toName": "Exit 42",
+        "cash": 4,
+        "ezPass": 3.2,
+        "error": null
+      },
+      {
+        "fromId": 53,
+        "fromName": "Exit 53",
+        "toId": 44,
+        "toName": "Exit 44",
+        "cash": 0,
+        "ezPass": 0,
+        "error": "Ошибка API для 53->44: Exit 44 serves Northbound direction only."
+      },
+      {
+        "fromId": 53,
+        "fromName": "Exit 53",
+        "toId": 45,
+        "toName": "Exit 45",
+        "cash": 4,
+        "ezPass": 2.4,
+        "error": null
+      },
+      {
+        "fromId": 53,
+        "fromName": "Exit 53",
+        "toId": 46,
+        "toName": "Exit 46",
+        "cash": 4,
+        "ezPass": 2,
+        "error": null
+      },
+      {
+        "fromId": 53,
+        "fromName": "Exit 53",
+        "toId": 47,
+        "toName": "Exit 47",
+        "cash": 4,
+        "ezPass": 2,
+        "error": null
+      },
+      {
+        "fromId": 53,
+        "fromName": "Exit 53",
+        "toId": 48,
+        "toName": "Exit 48",
+        "cash": 4,
+        "ezPass": 2,
+        "error": null
+      },
+      {
+        "fromId": 53,
+        "fromName": "Exit 53",
+        "toId": 52,
+        "toName": "Exit 52",
+        "cash": 8,
+        "ezPass": 2,
+        "error": null
+      },
+      {
+        "fromId": 53,
+        "fromName": "Exit 53",
+        "toId": 63,
+        "toName": "Exit 63",
+        "cash": 4,
+        "ezPass": 3.4,
+        "error": null
+      },
+      {
+        "fromId": 53,
+        "fromName": "Exit 53",
+        "toId": 75,
+        "toName": "Exit 75",
+        "cash": 13,
+        "ezPass": 7.2,
+        "error": null
+      },
+      {
+        "fromId": 53,
+        "fromName": "Exit 53",
+        "toId": 80,
+        "toName": "Exit 80",
+        "cash": 13,
+        "ezPass": 7.2,
+        "error": null
+      },
+      {
+        "fromId": 53,
+        "fromName": "Exit 53",
+        "toId": 86,
+        "toName": "Exit 86",
+        "cash": 13,
+        "ezPass": 7.2,
+        "error": null
+      },
+      {
+        "fromId": 53,
+        "fromName": "Exit 53",
+        "toId": 102,
+        "toName": "Exit 102",
+        "cash": 20,
+        "ezPass": 12.4,
+        "error": null
+      },
+      {
+        "fromId": 53,
+        "fromName": "Exit 53",
+        "toId": 103,
+        "toName": "Exit 103",
+        "cash": 0,
+        "ezPass": 0,
+        "error": "Ошибка API для 53->103: Exit 103 serves Southbound direction only."
+      },
+      {
+        "fromId": 53,
+        "fromName": "Exit 53",
+        "toId": 109,
+        "toName": "Exit 109",
+        "cash": 20,
+        "ezPass": 12.4,
+        "error": null
+      },
+      {
+        "fromId": 63,
+        "fromName": "Exit 63",
+        "toId": 2,
+        "toName": "Exit 2",
+        "cash": 0,
+        "ezPass": 0,
+        "error": null
+      },
+      {
+        "fromId": 63,
+        "fromName": "Exit 63",
+        "toId": 3,
+        "toName": "Exit 3",
+        "cash": 0,
+        "ezPass": 0,
+        "error": null
+      },
+      {
+        "fromId": 63,
+        "fromName": "Exit 63",
+        "toId": 7,
+        "toName": "Exit 7",
+        "cash": 22,
+        "ezPass": 17.8,
+        "error": null
+      },
+      {
+        "fromId": 63,
+        "fromName": "Exit 63",
+        "toId": 19,
+        "toName": "Exit 19",
+        "cash": 6,
+        "ezPass": 6,
+        "error": null
+      },
+      {
+        "fromId": 63,
+        "fromName": "Exit 63",
+        "toId": 25,
+        "toName": "Exit 25",
+        "cash": 6,
+        "ezPass": 6,
+        "error": null
+      },
+      {
+        "fromId": 63,
+        "fromName": "Exit 63",
+        "toId": 32,
+        "toName": "Exit 32",
+        "cash": 6,
+        "ezPass": 6,
+        "error": null
+      },
+      {
+        "fromId": 63,
+        "fromName": "Exit 63",
+        "toId": 35,
+        "toName": "Exit 35",
+        "cash": 6,
+        "ezPass": 6,
+        "error": null
+      },
+      {
+        "fromId": 63,
+        "fromName": "Exit 63",
+        "toId": 36,
+        "toName": "Exit 36",
+        "cash": 6,
+        "ezPass": 6,
+        "error": null
+      },
+      {
+        "fromId": 63,
+        "fromName": "Exit 63",
+        "toId": 42,
+        "toName": "Exit 42",
+        "cash": 6,
+        "ezPass": 6,
+        "error": null
+      },
+      {
+        "fromId": 63,
+        "fromName": "Exit 63",
+        "toId": 44,
+        "toName": "Exit 44",
+        "cash": 0,
+        "ezPass": 0,
+        "error": "Ошибка API для 63->44: Exit 44 serves Northbound direction only."
+      },
+      {
+        "fromId": 63,
+        "fromName": "Exit 63",
+        "toId": 45,
+        "toName": "Exit 45",
+        "cash": 6,
+        "ezPass": 5.8,
+        "error": null
+      },
+      {
+        "fromId": 63,
+        "fromName": "Exit 63",
+        "toId": 46,
+        "toName": "Exit 46",
+        "cash": 6,
+        "ezPass": 5.4,
+        "error": null
+      },
+      {
+        "fromId": 63,
+        "fromName": "Exit 63",
+        "toId": 47,
+        "toName": "Exit 47",
+        "cash": 6,
+        "ezPass": 5,
+        "error": null
+      },
+      {
+        "fromId": 63,
+        "fromName": "Exit 63",
+        "toId": 48,
+        "toName": "Exit 48",
+        "cash": 6,
+        "ezPass": 4.6,
+        "error": null
+      },
+      {
+        "fromId": 63,
+        "fromName": "Exit 63",
+        "toId": 52,
+        "toName": "Exit 52",
+        "cash": 10,
+        "ezPass": 3.6,
+        "error": null
+      },
+      {
+        "fromId": 63,
+        "fromName": "Exit 63",
+        "toId": 53,
+        "toName": "Exit 53",
+        "cash": 6,
+        "ezPass": 3.4,
+        "error": null
+      },
+      {
+        "fromId": 63,
+        "fromName": "Exit 63",
+        "toId": 75,
+        "toName": "Exit 75",
+        "cash": 9,
+        "ezPass": 3.8,
+        "error": null
+      },
+      {
+        "fromId": 63,
+        "fromName": "Exit 63",
+        "toId": 80,
+        "toName": "Exit 80",
+        "cash": 9,
+        "ezPass": 3.8,
+        "error": null
+      },
+      {
+        "fromId": 63,
+        "fromName": "Exit 63",
+        "toId": 86,
+        "toName": "Exit 86",
+        "cash": 9,
+        "ezPass": 3.8,
+        "error": null
+      },
+      {
+        "fromId": 63,
+        "fromName": "Exit 63",
+        "toId": 102,
+        "toName": "Exit 102",
+        "cash": 16,
+        "ezPass": 9,
+        "error": null
+      },
+      {
+        "fromId": 63,
+        "fromName": "Exit 63",
+        "toId": 103,
+        "toName": "Exit 103",
+        "cash": 0,
+        "ezPass": 0,
+        "error": "Ошибка API для 63->103: Exit 103 serves Southbound direction only."
+      },
+      {
+        "fromId": 63,
+        "fromName": "Exit 63",
+        "toId": 109,
+        "toName": "Exit 109",
+        "cash": 16,
+        "ezPass": 9,
+        "error": null
+      },
+      {
+        "fromId": 75,
+        "fromName": "Exit 75",
+        "toId": 2,
+        "toName": "Exit 2",
+        "cash": 0,
+        "ezPass": 0,
+        "error": null
+      },
+      {
+        "fromId": 75,
+        "fromName": "Exit 75",
+        "toId": 3,
+        "toName": "Exit 3",
+        "cash": 0,
+        "ezPass": 0,
+        "error": null
+      },
+      {
+        "fromId": 75,
+        "fromName": "Exit 75",
+        "toId": 7,
+        "toName": "Exit 7",
+        "cash": 25,
+        "ezPass": 21.6,
+        "error": null
+      },
+      {
+        "fromId": 75,
+        "fromName": "Exit 75",
+        "toId": 19,
+        "toName": "Exit 19",
+        "cash": 9,
+        "ezPass": 9,
+        "error": null
+      },
+      {
+        "fromId": 75,
+        "fromName": "Exit 75",
+        "toId": 25,
+        "toName": "Exit 25",
+        "cash": 9,
+        "ezPass": 9,
+        "error": null
+      },
+      {
+        "fromId": 75,
+        "fromName": "Exit 75",
+        "toId": 32,
+        "toName": "Exit 32",
+        "cash": 9,
+        "ezPass": 9,
+        "error": null
+      },
+      {
+        "fromId": 75,
+        "fromName": "Exit 75",
+        "toId": 35,
+        "toName": "Exit 35",
+        "cash": 9,
+        "ezPass": 9,
+        "error": null
+      },
+      {
+        "fromId": 75,
+        "fromName": "Exit 75",
+        "toId": 36,
+        "toName": "Exit 36",
+        "cash": 9,
+        "ezPass": 9,
+        "error": null
+      },
+      {
+        "fromId": 75,
+        "fromName": "Exit 75",
+        "toId": 42,
+        "toName": "Exit 42",
+        "cash": 9,
+        "ezPass": 9,
+        "error": null
+      },
+      {
+        "fromId": 75,
+        "fromName": "Exit 75",
+        "toId": 44,
+        "toName": "Exit 44",
+        "cash": 0,
+        "ezPass": 0,
+        "error": "Ошибка API для 75->44: Exit 44 serves Northbound direction only."
+      },
+      {
+        "fromId": 75,
+        "fromName": "Exit 75",
+        "toId": 45,
+        "toName": "Exit 45",
+        "cash": 9,
+        "ezPass": 9,
+        "error": null
+      },
+      {
+        "fromId": 75,
+        "fromName": "Exit 75",
+        "toId": 46,
+        "toName": "Exit 46",
+        "cash": 9,
+        "ezPass": 9,
+        "error": null
+      },
+      {
+        "fromId": 75,
+        "fromName": "Exit 75",
+        "toId": 47,
+        "toName": "Exit 47",
+        "cash": 9,
+        "ezPass": 8.8,
+        "error": null
+      },
+      {
+        "fromId": 75,
+        "fromName": "Exit 75",
+        "toId": 48,
+        "toName": "Exit 48",
+        "cash": 9,
+        "ezPass": 8.4,
+        "error": null
+      },
+      {
+        "fromId": 75,
+        "fromName": "Exit 75",
+        "toId": 52,
+        "toName": "Exit 52",
+        "cash": 13,
+        "ezPass": 7.4,
+        "error": null
+      },
+      {
+        "fromId": 75,
+        "fromName": "Exit 75",
+        "toId": 53,
+        "toName": "Exit 53",
+        "cash": 9,
+        "ezPass": 7.2,
+        "error": null
+      },
+      {
+        "fromId": 75,
+        "fromName": "Exit 75",
+        "toId": 63,
+        "toName": "Exit 63",
+        "cash": 9,
+        "ezPass": 3.8,
+        "error": null
+      },
+      {
+        "fromId": 75,
+        "fromName": "Exit 75",
+        "toId": 80,
+        "toName": "Exit 80",
+        "cash": 0,
+        "ezPass": 0,
+        "error": null
+      },
+      {
+        "fromId": 75,
+        "fromName": "Exit 75",
+        "toId": 86,
+        "toName": "Exit 86",
+        "cash": 0,
+        "ezPass": 0,
+        "error": null
+      },
+      {
+        "fromId": 75,
+        "fromName": "Exit 75",
+        "toId": 102,
+        "toName": "Exit 102",
+        "cash": 7,
+        "ezPass": 5.2,
+        "error": null
+      },
+      {
+        "fromId": 75,
+        "fromName": "Exit 75",
+        "toId": 103,
+        "toName": "Exit 103",
+        "cash": 0,
+        "ezPass": 0,
+        "error": "Ошибка API для 75->103: Exit 103 serves Southbound direction only."
+      },
+      {
+        "fromId": 75,
+        "fromName": "Exit 75",
+        "toId": 109,
+        "toName": "Exit 109",
+        "cash": 7,
+        "ezPass": 5.2,
+        "error": null
+      },
+      {
+        "fromId": 80,
+        "fromName": "Exit 80",
+        "toId": 2,
+        "toName": "Exit 2",
+        "cash": 0,
+        "ezPass": 0,
+        "error": null
+      },
+      {
+        "fromId": 80,
+        "fromName": "Exit 80",
+        "toId": 3,
+        "toName": "Exit 3",
+        "cash": 0,
+        "ezPass": 0,
+        "error": null
+      },
+      {
+        "fromId": 80,
+        "fromName": "Exit 80",
+        "toId": 7,
+        "toName": "Exit 7",
+        "cash": 25,
+        "ezPass": 21.6,
+        "error": null
+      },
+      {
+        "fromId": 80,
+        "fromName": "Exit 80",
+        "toId": 19,
+        "toName": "Exit 19",
+        "cash": 9,
+        "ezPass": 9,
+        "error": null
+      },
+      {
+        "fromId": 80,
+        "fromName": "Exit 80",
+        "toId": 25,
+        "toName": "Exit 25",
+        "cash": 9,
+        "ezPass": 9,
+        "error": null
+      },
+      {
+        "fromId": 80,
+        "fromName": "Exit 80",
+        "toId": 32,
+        "toName": "Exit 32",
+        "cash": 9,
+        "ezPass": 9,
+        "error": null
+      },
+      {
+        "fromId": 80,
+        "fromName": "Exit 80",
+        "toId": 35,
+        "toName": "Exit 35",
+        "cash": 9,
+        "ezPass": 9,
+        "error": null
+      },
+      {
+        "fromId": 80,
+        "fromName": "Exit 80",
+        "toId": 36,
+        "toName": "Exit 36",
+        "cash": 9,
+        "ezPass": 9,
+        "error": null
+      },
+      {
+        "fromId": 80,
+        "fromName": "Exit 80",
+        "toId": 42,
+        "toName": "Exit 42",
+        "cash": 9,
+        "ezPass": 9,
+        "error": null
+      },
+      {
+        "fromId": 80,
+        "fromName": "Exit 80",
+        "toId": 44,
+        "toName": "Exit 44",
+        "cash": 0,
+        "ezPass": 0,
+        "error": "Ошибка API для 80->44: Exit 44 serves Northbound direction only."
+      },
+      {
+        "fromId": 80,
+        "fromName": "Exit 80",
+        "toId": 45,
+        "toName": "Exit 45",
+        "cash": 9,
+        "ezPass": 9,
+        "error": null
+      },
+      {
+        "fromId": 80,
+        "fromName": "Exit 80",
+        "toId": 46,
+        "toName": "Exit 46",
+        "cash": 9,
+        "ezPass": 9,
+        "error": null
+      },
+      {
+        "fromId": 80,
+        "fromName": "Exit 80",
+        "toId": 47,
+        "toName": "Exit 47",
+        "cash": 9,
+        "ezPass": 8.8,
+        "error": null
+      },
+      {
+        "fromId": 80,
+        "fromName": "Exit 80",
+        "toId": 48,
+        "toName": "Exit 48",
+        "cash": 9,
+        "ezPass": 8.4,
+        "error": null
+      },
+      {
+        "fromId": 80,
+        "fromName": "Exit 80",
+        "toId": 52,
+        "toName": "Exit 52",
+        "cash": 13,
+        "ezPass": 7.4,
+        "error": null
+      },
+      {
+        "fromId": 80,
+        "fromName": "Exit 80",
+        "toId": 53,
+        "toName": "Exit 53",
+        "cash": 9,
+        "ezPass": 7.2,
+        "error": null
+      },
+      {
+        "fromId": 80,
+        "fromName": "Exit 80",
+        "toId": 63,
+        "toName": "Exit 63",
+        "cash": 9,
+        "ezPass": 3.8,
+        "error": null
+      },
+      {
+        "fromId": 80,
+        "fromName": "Exit 80",
+        "toId": 75,
+        "toName": "Exit 75",
+        "cash": 0,
+        "ezPass": 0,
+        "error": null
+      },
+      {
+        "fromId": 80,
+        "fromName": "Exit 80",
+        "toId": 86,
+        "toName": "Exit 86",
+        "cash": 0,
+        "ezPass": 0,
+        "error": null
+      },
+      {
+        "fromId": 80,
+        "fromName": "Exit 80",
+        "toId": 102,
+        "toName": "Exit 102",
+        "cash": 7,
+        "ezPass": 5.2,
+        "error": null
+      },
+      {
+        "fromId": 80,
+        "fromName": "Exit 80",
+        "toId": 103,
+        "toName": "Exit 103",
+        "cash": 0,
+        "ezPass": 0,
+        "error": "Ошибка API для 80->103: Exit 103 serves Southbound direction only."
+      },
+      {
+        "fromId": 80,
+        "fromName": "Exit 80",
+        "toId": 109,
+        "toName": "Exit 109",
+        "cash": 7,
+        "ezPass": 5.2,
+        "error": null
+      },
+      {
+        "fromId": 86,
+        "fromName": "Exit 86",
+        "toId": 2,
+        "toName": "Exit 2",
+        "cash": 0,
+        "ezPass": 0,
+        "error": null
+      },
+      {
+        "fromId": 86,
+        "fromName": "Exit 86",
+        "toId": 3,
+        "toName": "Exit 3",
+        "cash": 0,
+        "ezPass": 0,
+        "error": null
+      },
+      {
+        "fromId": 86,
+        "fromName": "Exit 86",
+        "toId": 7,
+        "toName": "Exit 7",
+        "cash": 25,
+        "ezPass": 21.6,
+        "error": null
+      },
+      {
+        "fromId": 86,
+        "fromName": "Exit 86",
+        "toId": 19,
+        "toName": "Exit 19",
+        "cash": 9,
+        "ezPass": 9,
+        "error": null
+      },
+      {
+        "fromId": 86,
+        "fromName": "Exit 86",
+        "toId": 25,
+        "toName": "Exit 25",
+        "cash": 9,
+        "ezPass": 9,
+        "error": null
+      },
+      {
+        "fromId": 86,
+        "fromName": "Exit 86",
+        "toId": 32,
+        "toName": "Exit 32",
+        "cash": 9,
+        "ezPass": 9,
+        "error": null
+      },
+      {
+        "fromId": 86,
+        "fromName": "Exit 86",
+        "toId": 35,
+        "toName": "Exit 35",
+        "cash": 9,
+        "ezPass": 9,
+        "error": null
+      },
+      {
+        "fromId": 86,
+        "fromName": "Exit 86",
+        "toId": 36,
+        "toName": "Exit 36",
+        "cash": 9,
+        "ezPass": 9,
+        "error": null
+      },
+      {
+        "fromId": 86,
+        "fromName": "Exit 86",
+        "toId": 42,
+        "toName": "Exit 42",
+        "cash": 9,
+        "ezPass": 9,
+        "error": null
+      },
+      {
+        "fromId": 86,
+        "fromName": "Exit 86",
+        "toId": 44,
+        "toName": "Exit 44",
+        "cash": 0,
+        "ezPass": 0,
+        "error": "Ошибка API для 86->44: Exit 44 serves Northbound direction only."
+      },
+      {
+        "fromId": 86,
+        "fromName": "Exit 86",
+        "toId": 45,
+        "toName": "Exit 45",
+        "cash": 9,
+        "ezPass": 9,
+        "error": null
+      },
+      {
+        "fromId": 86,
+        "fromName": "Exit 86",
+        "toId": 46,
+        "toName": "Exit 46",
+        "cash": 9,
+        "ezPass": 9,
+        "error": null
+      },
+      {
+        "fromId": 86,
+        "fromName": "Exit 86",
+        "toId": 47,
+        "toName": "Exit 47",
+        "cash": 9,
+        "ezPass": 8.8,
+        "error": null
+      },
+      {
+        "fromId": 86,
+        "fromName": "Exit 86",
+        "toId": 48,
+        "toName": "Exit 48",
+        "cash": 9,
+        "ezPass": 8.4,
+        "error": null
+      },
+      {
+        "fromId": 86,
+        "fromName": "Exit 86",
+        "toId": 52,
+        "toName": "Exit 52",
+        "cash": 13,
+        "ezPass": 7.4,
+        "error": null
+      },
+      {
+        "fromId": 86,
+        "fromName": "Exit 86",
+        "toId": 53,
+        "toName": "Exit 53",
+        "cash": 9,
+        "ezPass": 7.2,
+        "error": null
+      },
+      {
+        "fromId": 86,
+        "fromName": "Exit 86",
+        "toId": 63,
+        "toName": "Exit 63",
+        "cash": 9,
+        "ezPass": 3.8,
+        "error": null
+      },
+      {
+        "fromId": 86,
+        "fromName": "Exit 86",
+        "toId": 75,
+        "toName": "Exit 75",
+        "cash": 0,
+        "ezPass": 0,
+        "error": null
+      },
+      {
+        "fromId": 86,
+        "fromName": "Exit 86",
+        "toId": 80,
+        "toName": "Exit 80",
+        "cash": 0,
+        "ezPass": 0,
+        "error": null
+      },
+      {
+        "fromId": 86,
+        "fromName": "Exit 86",
+        "toId": 102,
+        "toName": "Exit 102",
+        "cash": 7,
+        "ezPass": 5.2,
+        "error": null
+      },
+      {
+        "fromId": 86,
+        "fromName": "Exit 86",
+        "toId": 103,
+        "toName": "Exit 103",
+        "cash": 0,
+        "ezPass": 0,
+        "error": "Ошибка API для 86->103: Exit 103 serves Southbound direction only."
+      },
+      {
+        "fromId": 86,
+        "fromName": "Exit 86",
+        "toId": 109,
+        "toName": "Exit 109",
+        "cash": 7,
+        "ezPass": 5.2,
+        "error": null
+      },
+      {
+        "fromId": 102,
+        "fromName": "Exit 102",
+        "toId": 2,
+        "toName": "Exit 2",
+        "cash": 0,
+        "ezPass": 0,
+        "error": null
+      },
+      {
+        "fromId": 102,
+        "fromName": "Exit 102",
+        "toId": 3,
+        "toName": "Exit 3",
+        "cash": 0,
+        "ezPass": 0,
+        "error": null
+      },
+      {
+        "fromId": 102,
+        "fromName": "Exit 102",
+        "toId": 7,
+        "toName": "Exit 7",
+        "cash": 32,
+        "ezPass": 26.8,
+        "error": null
+      },
+      {
+        "fromId": 102,
+        "fromName": "Exit 102",
+        "toId": 19,
+        "toName": "Exit 19",
+        "cash": 16,
+        "ezPass": 14.2,
+        "error": null
+      },
+      {
+        "fromId": 102,
+        "fromName": "Exit 102",
+        "toId": 25,
+        "toName": "Exit 25",
+        "cash": 16,
+        "ezPass": 14.2,
+        "error": null
+      },
+      {
+        "fromId": 102,
+        "fromName": "Exit 102",
+        "toId": 32,
+        "toName": "Exit 32",
+        "cash": 16,
+        "ezPass": 14.2,
+        "error": null
+      },
+      {
+        "fromId": 102,
+        "fromName": "Exit 102",
+        "toId": 35,
+        "toName": "Exit 35",
+        "cash": 16,
+        "ezPass": 14.2,
+        "error": null
+      },
+      {
+        "fromId": 102,
+        "fromName": "Exit 102",
+        "toId": 36,
+        "toName": "Exit 36",
+        "cash": 16,
+        "ezPass": 14.2,
+        "error": null
+      },
+      {
+        "fromId": 102,
+        "fromName": "Exit 102",
+        "toId": 42,
+        "toName": "Exit 42",
+        "cash": 16,
+        "ezPass": 14.2,
+        "error": null
+      },
+      {
+        "fromId": 102,
+        "fromName": "Exit 102",
+        "toId": 44,
+        "toName": "Exit 44",
+        "cash": 0,
+        "ezPass": 0,
+        "error": "Ошибка API для 102->44: Exit 44 serves Northbound direction only."
+      },
+      {
+        "fromId": 102,
+        "fromName": "Exit 102",
+        "toId": 45,
+        "toName": "Exit 45",
+        "cash": 16,
+        "ezPass": 14.2,
+        "error": null
+      },
+      {
+        "fromId": 102,
+        "fromName": "Exit 102",
+        "toId": 46,
+        "toName": "Exit 46",
+        "cash": 16,
+        "ezPass": 14.2,
+        "error": null
+      },
+      {
+        "fromId": 102,
+        "fromName": "Exit 102",
+        "toId": 47,
+        "toName": "Exit 47",
+        "cash": 16,
+        "ezPass": 14,
+        "error": null
+      },
+      {
+        "fromId": 102,
+        "fromName": "Exit 102",
+        "toId": 48,
+        "toName": "Exit 48",
+        "cash": 16,
+        "ezPass": 13.6,
+        "error": null
+      },
+      {
+        "fromId": 102,
+        "fromName": "Exit 102",
+        "toId": 52,
+        "toName": "Exit 52",
+        "cash": 20,
+        "ezPass": 12.6,
+        "error": null
+      },
+      {
+        "fromId": 102,
+        "fromName": "Exit 102",
+        "toId": 53,
+        "toName": "Exit 53",
+        "cash": 16,
+        "ezPass": 12.4,
+        "error": null
+      },
+      {
+        "fromId": 102,
+        "fromName": "Exit 102",
+        "toId": 63,
+        "toName": "Exit 63",
+        "cash": 16,
+        "ezPass": 9,
+        "error": null
+      },
+      {
+        "fromId": 102,
+        "fromName": "Exit 102",
+        "toId": 75,
+        "toName": "Exit 75",
+        "cash": 7,
+        "ezPass": 5.2,
+        "error": null
+      },
+      {
+        "fromId": 102,
+        "fromName": "Exit 102",
+        "toId": 80,
+        "toName": "Exit 80",
+        "cash": 7,
+        "ezPass": 5.2,
+        "error": null
+      },
+      {
+        "fromId": 102,
+        "fromName": "Exit 102",
+        "toId": 86,
+        "toName": "Exit 86",
+        "cash": 7,
+        "ezPass": 5.2,
+        "error": null
+      },
+      {
+        "fromId": 102,
+        "fromName": "Exit 102",
+        "toId": 103,
+        "toName": "Exit 103",
+        "cash": 0,
+        "ezPass": 0,
+        "error": "Ошибка API для 102->103: Only Southbound travel is permitted when entering from Exit 102."
+      },
+      {
+        "fromId": 102,
+        "fromName": "Exit 102",
+        "toId": 109,
+        "toName": "Exit 109",
+        "cash": 0,
+        "ezPass": 0,
+        "error": "Ошибка API для 102->109: Only Southbound travel is permitted when entering from Exit 102."
+      },
+      {
+        "fromId": 103,
+        "fromName": "Exit 103",
+        "toId": 2,
+        "toName": "Exit 2",
+        "cash": 0,
+        "ezPass": 0,
+        "error": "Ошибка API для 103->2: Only Northbound travel is permitted when entering from Exit 103."
+      },
+      {
+        "fromId": 103,
+        "fromName": "Exit 103",
+        "toId": 3,
+        "toName": "Exit 3",
+        "cash": 0,
+        "ezPass": 0,
+        "error": "Ошибка API для 103->3: Only Northbound travel is permitted when entering from Exit 103."
+      },
+      {
+        "fromId": 103,
+        "fromName": "Exit 103",
+        "toId": 7,
+        "toName": "Exit 7",
+        "cash": 0,
+        "ezPass": 0,
+        "error": "Ошибка API для 103->7: Only Northbound travel is permitted when entering from Exit 103."
+      },
+      {
+        "fromId": 103,
+        "fromName": "Exit 103",
+        "toId": 19,
+        "toName": "Exit 19",
+        "cash": 0,
+        "ezPass": 0,
+        "error": "Ошибка API для 103->19: Only Northbound travel is permitted when entering from Exit 103."
+      },
+      {
+        "fromId": 103,
+        "fromName": "Exit 103",
+        "toId": 25,
+        "toName": "Exit 25",
+        "cash": 0,
+        "ezPass": 0,
+        "error": "Ошибка API для 103->25: Only Northbound travel is permitted when entering from Exit 103."
+      },
+      {
+        "fromId": 103,
+        "fromName": "Exit 103",
+        "toId": 32,
+        "toName": "Exit 32",
+        "cash": 0,
+        "ezPass": 0,
+        "error": "Ошибка API для 103->32: Only Northbound travel is permitted when entering from Exit 103."
+      },
+      {
+        "fromId": 103,
+        "fromName": "Exit 103",
+        "toId": 35,
+        "toName": "Exit 35",
+        "cash": 0,
+        "ezPass": 0,
+        "error": "Ошибка API для 103->35: Only Northbound travel is permitted when entering from Exit 103."
+      },
+      {
+        "fromId": 103,
+        "fromName": "Exit 103",
+        "toId": 36,
+        "toName": "Exit 36",
+        "cash": 0,
+        "ezPass": 0,
+        "error": "Ошибка API для 103->36: Only Northbound travel is permitted when entering from Exit 103."
+      },
+      {
+        "fromId": 103,
+        "fromName": "Exit 103",
+        "toId": 42,
+        "toName": "Exit 42",
+        "cash": 0,
+        "ezPass": 0,
+        "error": "Ошибка API для 103->42: Only Northbound travel is permitted when entering from Exit 103."
+      },
+      {
+        "fromId": 103,
+        "fromName": "Exit 103",
+        "toId": 44,
+        "toName": "Exit 44",
+        "cash": 0,
+        "ezPass": 0,
+        "error": "Ошибка API для 103->44: Only Northbound travel is permitted when entering from Exit 103."
+      },
+      {
+        "fromId": 103,
+        "fromName": "Exit 103",
+        "toId": 45,
+        "toName": "Exit 45",
+        "cash": 0,
+        "ezPass": 0,
+        "error": "Ошибка API для 103->45: Only Northbound travel is permitted when entering from Exit 103."
+      },
+      {
+        "fromId": 103,
+        "fromName": "Exit 103",
+        "toId": 46,
+        "toName": "Exit 46",
+        "cash": 0,
+        "ezPass": 0,
+        "error": "Ошибка API для 103->46: Only Northbound travel is permitted when entering from Exit 103."
+      },
+      {
+        "fromId": 103,
+        "fromName": "Exit 103",
+        "toId": 47,
+        "toName": "Exit 47",
+        "cash": 0,
+        "ezPass": 0,
+        "error": "Ошибка API для 103->47: Only Northbound travel is permitted when entering from Exit 103."
+      },
+      {
+        "fromId": 103,
+        "fromName": "Exit 103",
+        "toId": 48,
+        "toName": "Exit 48",
+        "cash": 0,
+        "ezPass": 0,
+        "error": "Ошибка API для 103->48: Only Northbound travel is permitted when entering from Exit 103."
+      },
+      {
+        "fromId": 103,
+        "fromName": "Exit 103",
+        "toId": 52,
+        "toName": "Exit 52",
+        "cash": 0,
+        "ezPass": 0,
+        "error": "Ошибка API для 103->52: Only Northbound travel is permitted when entering from Exit 103."
+      },
+      {
+        "fromId": 103,
+        "fromName": "Exit 103",
+        "toId": 53,
+        "toName": "Exit 53",
+        "cash": 0,
+        "ezPass": 0,
+        "error": "Ошибка API для 103->53: Only Northbound travel is permitted when entering from Exit 103."
+      },
+      {
+        "fromId": 103,
+        "fromName": "Exit 103",
+        "toId": 63,
+        "toName": "Exit 63",
+        "cash": 0,
+        "ezPass": 0,
+        "error": "Ошибка API для 103->63: Only Northbound travel is permitted when entering from Exit 103."
+      },
+      {
+        "fromId": 103,
+        "fromName": "Exit 103",
+        "toId": 75,
+        "toName": "Exit 75",
+        "cash": 0,
+        "ezPass": 0,
+        "error": "Ошибка API для 103->75: Only Northbound travel is permitted when entering from Exit 103."
+      },
+      {
+        "fromId": 103,
+        "fromName": "Exit 103",
+        "toId": 80,
+        "toName": "Exit 80",
+        "cash": 0,
+        "ezPass": 0,
+        "error": "Ошибка API для 103->80: Only Northbound travel is permitted when entering from Exit 103."
+      },
+      {
+        "fromId": 103,
+        "fromName": "Exit 103",
+        "toId": 86,
+        "toName": "Exit 86",
+        "cash": 0,
+        "ezPass": 0,
+        "error": "Ошибка API для 103->86: Only Northbound travel is permitted when entering from Exit 103."
+      },
+      {
+        "fromId": 103,
+        "fromName": "Exit 103",
+        "toId": 102,
+        "toName": "Exit 102",
+        "cash": 0,
+        "ezPass": 0,
+        "error": "Ошибка API для 103->102: Exit 102 serves Northbound direction only."
+      },
+      {
+        "fromId": 103,
+        "fromName": "Exit 103",
+        "toId": 109,
+        "toName": "Exit 109",
+        "cash": 4,
+        "ezPass": 2,
+        "error": null
+      },
+      {
+        "fromId": 109,
+        "fromName": "Exit 109",
+        "toId": 2,
+        "toName": "Exit 2",
+        "cash": 0,
+        "ezPass": 0,
+        "error": null
+      },
+      {
+        "fromId": 109,
+        "fromName": "Exit 109",
+        "toId": 3,
+        "toName": "Exit 3",
+        "cash": 0,
+        "ezPass": 0,
+        "error": null
+      },
+      {
+        "fromId": 109,
+        "fromName": "Exit 109",
+        "toId": 7,
+        "toName": "Exit 7",
+        "cash": 32,
+        "ezPass": 26.8,
+        "error": null
+      },
+      {
+        "fromId": 109,
+        "fromName": "Exit 109",
+        "toId": 19,
+        "toName": "Exit 19",
+        "cash": 16,
+        "ezPass": 14.2,
+        "error": null
+      },
+      {
+        "fromId": 109,
+        "fromName": "Exit 109",
+        "toId": 25,
+        "toName": "Exit 25",
+        "cash": 16,
+        "ezPass": 14.2,
+        "error": null
+      },
+      {
+        "fromId": 109,
+        "fromName": "Exit 109",
+        "toId": 32,
+        "toName": "Exit 32",
+        "cash": 16,
+        "ezPass": 14.2,
+        "error": null
+      },
+      {
+        "fromId": 109,
+        "fromName": "Exit 109",
+        "toId": 35,
+        "toName": "Exit 35",
+        "cash": 0,
+        "ezPass": 0,
+        "error": null
+      },
+      {
+        "fromId": 109,
+        "fromName": "Exit 109",
+        "toId": 36,
+        "toName": "Exit 36",
+        "cash": 16,
+        "ezPass": 14.2,
+        "error": null
+      },
+      {
+        "fromId": 109,
+        "fromName": "Exit 109",
+        "toId": 42,
+        "toName": "Exit 42",
+        "cash": 16,
+        "ezPass": 14.2,
+        "error": null
+      },
+      {
+        "fromId": 109,
+        "fromName": "Exit 109",
+        "toId": 44,
+        "toName": "Exit 44",
+        "cash": 0,
+        "ezPass": 0,
+        "error": "Ошибка API для 109->44: Exit 44 serves Northbound direction only."
+      },
+      {
+        "fromId": 109,
+        "fromName": "Exit 109",
+        "toId": 45,
+        "toName": "Exit 45",
+        "cash": 16,
+        "ezPass": 14.2,
+        "error": null
+      },
+      {
+        "fromId": 109,
+        "fromName": "Exit 109",
+        "toId": 46,
+        "toName": "Exit 46",
+        "cash": 16,
+        "ezPass": 14.2,
+        "error": null
+      },
+      {
+        "fromId": 109,
+        "fromName": "Exit 109",
+        "toId": 47,
+        "toName": "Exit 47",
+        "cash": 16,
+        "ezPass": 14,
+        "error": null
+      },
+      {
+        "fromId": 109,
+        "fromName": "Exit 109",
+        "toId": 48,
+        "toName": "Exit 48",
+        "cash": 16,
+        "ezPass": 13.6,
+        "error": null
+      },
+      {
+        "fromId": 109,
+        "fromName": "Exit 109",
+        "toId": 52,
+        "toName": "Exit 52",
+        "cash": 20,
+        "ezPass": 12.6,
+        "error": null
+      },
+      {
+        "fromId": 109,
+        "fromName": "Exit 109",
+        "toId": 53,
+        "toName": "Exit 53",
+        "cash": 16,
+        "ezPass": 12.4,
+        "error": null
+      },
+      {
+        "fromId": 109,
+        "fromName": "Exit 109",
+        "toId": 63,
+        "toName": "Exit 63",
+        "cash": 16,
+        "ezPass": 9,
+        "error": null
+      },
+      {
+        "fromId": 109,
+        "fromName": "Exit 109",
+        "toId": 75,
+        "toName": "Exit 75",
+        "cash": 7,
+        "ezPass": 5.2,
+        "error": null
+      },
+      {
+        "fromId": 109,
+        "fromName": "Exit 109",
+        "toId": 80,
+        "toName": "Exit 80",
+        "cash": 7,
+        "ezPass": 5.2,
+        "error": null
+      },
+      {
+        "fromId": 109,
+        "fromName": "Exit 109",
+        "toId": 86,
+        "toName": "Exit 86",
+        "cash": 7,
+        "ezPass": 5.2,
+        "error": null
+      },
+      {
+        "fromId": 109,
+        "fromName": "Exit 109",
+        "toId": 102,
+        "toName": "Exit 102",
+        "cash": 0,
+        "ezPass": 0,
+        "error": "Ошибка API для 109->102: Exit 102 serves Northbound direction only."
+      },
+      {
+        "fromId": 109,
+        "fromName": "Exit 109",
+        "toId": 103,
+        "toName": "Exit 103",
+        "cash": 4,
+        "ezPass": 2,
+        "error": null
+      }
+    ],
+    "fetchedAt": "2025-11-29T03:29:36.7975511Z",
+    "totalCount": 506,
+    "successCount": 438,
+    "errorCount": 68
+  },
+  "totalCombinations": 506,
+  "successCount": 438,
+  "errorCount": 68,
+  "errors": [
+    "Ошибка API для 2->103: Exit 103 serves Southbound direction only.",
+    "Ошибка API для 3->103: Exit 103 serves Southbound direction only.",
+    "Ошибка API для 7->103: Exit 103 serves Southbound direction only.",
+    "Ошибка API для 19->103: Exit 103 serves Southbound direction only.",
+    "Ошибка API для 25->103: Exit 103 serves Southbound direction only.",
+    "Ошибка API для 32->103: Exit 103 serves Southbound direction only.",
+    "Ошибка API для 35->103: Exit 103 serves Southbound direction only.",
+    "Ошибка API для 36->103: Exit 103 serves Southbound direction only.",
+    "Ошибка API для 42->103: Exit 103 serves Southbound direction only.",
+    "Ошибка API для 44->45: Only Southbound travel is permitted when entering from Exit 44.",
+    "Ошибка API для 44->46: Only Southbound travel is permitted when entering from Exit 44.",
+    "Ошибка API для 44->47: Only Southbound travel is permitted when entering from Exit 44.",
+    "Ошибка API для 44->48: Only Southbound travel is permitted when entering from Exit 44.",
+    "Ошибка API для 44->52: Only Southbound travel is permitted when entering from Exit 44.",
+    "Ошибка API для 44->53: Only Southbound travel is permitted when entering from Exit 44.",
+    "Ошибка API для 44->63: Only Southbound travel is permitted when entering from Exit 44.",
+    "Ошибка API для 44->75: Only Southbound travel is permitted when entering from Exit 44.",
+    "Ошибка API для 44->80: Only Southbound travel is permitted when entering from Exit 44.",
+    "Ошибка API для 44->86: Only Southbound travel is permitted when entering from Exit 44.",
+    "Ошибка API для 44->102: Only Southbound travel is permitted when entering from Exit 44.",
+    "Ошибка API для 44->103: Exit 103 serves Southbound direction only.",
+    "Ошибка API для 44->109: Only Southbound travel is permitted when entering from Exit 44.",
+    "Ошибка API для 45->44: Exit 44 serves Northbound direction only.",
+    "Ошибка API для 45->103: Exit 103 serves Southbound direction only.",
+    "Ошибка API для 46->44: Exit 44 serves Northbound direction only.",
+    "Ошибка API для 46->103: Exit 103 serves Southbound direction only.",
+    "Ошибка API для 47->44: Exit 44 serves Northbound direction only.",
+    "Ошибка API для 47->103: Exit 103 serves Southbound direction only.",
+    "Ошибка API для 48->44: Exit 44 serves Northbound direction only.",
+    "Ошибка API для 48->103: Exit 103 serves Southbound direction only.",
+    "Ошибка API для 52->44: Exit 44 serves Northbound direction only.",
+    "Ошибка API для 52->103: Exit 103 serves Southbound direction only.",
+    "Ошибка API для 53->44: Exit 44 serves Northbound direction only.",
+    "Ошибка API для 53->103: Exit 103 serves Southbound direction only.",
+    "Ошибка API для 63->44: Exit 44 serves Northbound direction only.",
+    "Ошибка API для 63->103: Exit 103 serves Southbound direction only.",
+    "Ошибка API для 75->44: Exit 44 serves Northbound direction only.",
+    "Ошибка API для 75->103: Exit 103 serves Southbound direction only.",
+    "Ошибка API для 80->44: Exit 44 serves Northbound direction only.",
+    "Ошибка API для 80->103: Exit 103 serves Southbound direction only.",
+    "Ошибка API для 86->44: Exit 44 serves Northbound direction only.",
+    "Ошибка API для 86->103: Exit 103 serves Southbound direction only.",
+    "Ошибка API для 102->44: Exit 44 serves Northbound direction only.",
+    "Ошибка API для 102->103: Only Southbound travel is permitted when entering from Exit 102.",
+    "Ошибка API для 102->109: Only Southbound travel is permitted when entering from Exit 102.",
+    "Ошибка API для 103->2: Only Northbound travel is permitted when entering from Exit 103.",
+    "Ошибка API для 103->3: Only Northbound travel is permitted when entering from Exit 103.",
+    "Ошибка API для 103->7: Only Northbound travel is permitted when entering from Exit 103.",
+    "Ошибка API для 103->19: Only Northbound travel is permitted when entering from Exit 103.",
+    "Ошибка API для 103->25: Only Northbound travel is permitted when entering from Exit 103.",
+    "Ошибка API для 103->32: Only Northbound travel is permitted when entering from Exit 103.",
+    "Ошибка API для 103->35: Only Northbound travel is permitted when entering from Exit 103.",
+    "Ошибка API для 103->36: Only Northbound travel is permitted when entering from Exit 103.",
+    "Ошибка API для 103->42: Only Northbound travel is permitted when entering from Exit 103.",
+    "Ошибка API для 103->44: Only Northbound travel is permitted when entering from Exit 103.",
+    "Ошибка API для 103->45: Only Northbound travel is permitted when entering from Exit 103.",
+    "Ошибка API для 103->46: Only Northbound travel is permitted when entering from Exit 103.",
+    "Ошибка API для 103->47: Only Northbound travel is permitted when entering from Exit 103.",
+    "Ошибка API для 103->48: Only Northbound travel is permitted when entering from Exit 103.",
+    "Ошибка API для 103->52: Only Northbound travel is permitted when entering from Exit 103.",
+    "Ошибка API для 103->53: Only Northbound travel is permitted when entering from Exit 103.",
+    "Ошибка API для 103->63: Only Northbound travel is permitted when entering from Exit 103.",
+    "Ошибка API для 103->75: Only Northbound travel is permitted when entering from Exit 103.",
+    "Ошибка API для 103->80: Only Northbound travel is permitted when entering from Exit 103.",
+    "Ошибка API для 103->86: Only Northbound travel is permitted when entering from Exit 103.",
+    "Ошибка API для 103->102: Exit 102 serves Northbound direction only.",
+    "Ошибка API для 109->44: Exit 44 serves Northbound direction only.",
+    "Ошибка API для 109->102: Exit 102 serves Northbound direction only."
+  ],
+  "error": null
+}

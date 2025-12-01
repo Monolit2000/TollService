@@ -1,0 +1,802 @@
+{
+  "road_name": "The Toll Roads (73, 133, 241, 261) - California",
+  "vehicle_class_id": 5,
+  "description": "Five or More Axle Vehicles (Rates Effective July 1, 2025)",
+  "toll_points": [
+    {
+      "toll_point_name": "Orange Grove MAINLINE",
+      "rate_type": "Time-Dependent",
+      "rates": [
+        {
+          "day_period": "Monday through Friday",
+          "direction": "Southbound",
+          "time_window": "12:00 a.m. - 6:59 a.m.",
+          "account_toll": 12.88,
+          "non_account_toll": 14.84
+        },
+        {
+          "day_period": "Monday through Friday",
+          "direction": "Southbound",
+          "time_window": "7:00 a.m. - 7:29 a.m.",
+          "account_toll": 14.12,
+          "non_account_toll": 14.84
+        },
+        {
+          "day_period": "Monday through Friday",
+          "direction": "Southbound",
+          "time_window": "7:30 a.m. - 8:29 a.m.",
+          "account_toll": 14.84,
+          "non_account_toll": 14.84
+        },
+        {
+          "day_period": "Monday through Friday",
+          "direction": "Southbound",
+          "time_window": "8:30 a.m. - 8:59 a.m.",
+          "account_toll": 14.12,
+          "non_account_toll": 14.84
+        },
+        {
+          "day_period": "Monday through Friday",
+          "direction": "Southbound",
+          "time_window": "9:00 a.m. - 11:59 p.m.",
+          "account_toll": 12.88,
+          "non_account_toll": 14.84
+        },
+        {
+          "day_period": "Monday through Friday",
+          "direction": "Northbound",
+          "time_window": "12:00 a.m. - 3:59 p.m.",
+          "account_toll": 12.88,
+          "non_account_toll": 14.84
+        },
+        {
+          "day_period": "Monday through Friday",
+          "direction": "Northbound",
+          "time_window": "4:00 p.m. - 4:59 p.m.",
+          "account_toll": 14.12,
+          "non_account_toll": 14.84
+        },
+        {
+          "day_period": "Monday through Friday",
+          "direction": "Northbound",
+          "time_window": "5:00 p.m. - 5:59 p.m.",
+          "account_toll": 14.84,
+          "non_account_toll": 14.84
+        },
+        {
+          "day_period": "Monday through Friday",
+          "direction": "Northbound",
+          "time_window": "6:00 p.m. - 6:59 p.m.",
+          "account_toll": 14.12,
+          "non_account_toll": 14.84
+        },
+        {
+          "day_period": "Monday through Friday",
+          "direction": "Northbound",
+          "time_window": "7:00 p.m. - 11:59 p.m.",
+          "account_toll": 12.88,
+          "non_account_toll": 14.84
+        },
+        {
+          "day_period": "Saturday and Sunday",
+          "direction": "Both Directions",
+          "time_window": "12:00 a.m. - 11:59 p.m.",
+          "account_toll": 12.88,
+          "non_account_toll": 14.84
+        }
+      ]
+    },
+    {
+      "toll_point_name": "Irvine Ranch MAINLINE",
+      "rate_type": "Time-Dependent",
+      "rates": [
+        {
+          "day_period": "Monday through Friday",
+          "direction": "Southbound",
+          "time_window": "12:00 a.m. - 6:59 a.m.",
+          "account_toll": 11.4,
+          "non_account_toll": 14.12
+        },
+        {
+          "day_period": "Monday through Friday",
+          "direction": "Southbound",
+          "time_window": "7:00 a.m. - 7:29 a.m.",
+          "account_toll": 13.4,
+          "non_account_toll": 14.12
+        },
+        {
+          "day_period": "Monday through Friday",
+          "direction": "Southbound",
+          "time_window": "7:30 a.m. - 8:29 a.m.",
+          "account_toll": 14.12,
+          "non_account_toll": 14.12
+        },
+        {
+          "day_period": "Monday through Friday",
+          "direction": "Southbound",
+          "time_window": "8:30 a.m. - 8:59 a.m.",
+          "account_toll": 13.4,
+          "non_account_toll": 14.12
+        },
+        {
+          "day_period": "Monday through Friday",
+          "direction": "Southbound",
+          "time_window": "9:00 a.m. - 11:59 p.m.",
+          "account_toll": 11.4,
+          "non_account_toll": 14.12
+        },
+        {
+          "day_period": "Monday through Friday",
+          "direction": "Northbound",
+          "time_window": "12:00 a.m. - 3:59 p.m.",
+          "account_toll": 11.4,
+          "non_account_toll": 14.12
+        },
+        {
+          "day_period": "Monday through Friday",
+          "direction": "Northbound",
+          "time_window": "4:00 p.m. - 4:59 p.m.",
+          "account_toll": 13.4,
+          "non_account_toll": 14.12
+        },
+        {
+          "day_period": "Monday through Friday",
+          "direction": "Northbound",
+          "time_window": "5:00 p.m. - 5:59 p.m.",
+          "account_toll": 14.12,
+          "non_account_toll": 14.12
+        },
+        {
+          "day_period": "Monday through Friday",
+          "direction": "Northbound",
+          "time_window": "6:00 p.m. - 6:59 p.m.",
+          "account_toll": 13.4,
+          "non_account_toll": 14.12
+        },
+        {
+          "day_period": "Monday through Friday",
+          "direction": "Northbound",
+          "time_window": "7:00 p.m. - 11:59 p.m.",
+          "account_toll": 11.4,
+          "non_account_toll": 14.12
+        },
+        {
+          "day_period": "Saturday and Sunday",
+          "direction": "Both Directions",
+          "time_window": "12:00 a.m. - 11:59 p.m.",
+          "account_toll": 11.4,
+          "non_account_toll": 14.12
+        }
+      ]
+    },
+    {
+      "toll_point_name": "Windy Ridge MAINLINE",
+      "rate_type": "Time-Dependent",
+      "rates": [
+        {
+          "day_period": "Monday through Friday",
+          "direction": "Southbound",
+          "time_window": "12:00 a.m. - 6:59 a.m.",
+          "account_toll": 16.52,
+          "non_account_toll": 18.68
+        },
+        {
+          "day_period": "Monday through Friday",
+          "direction": "Southbound",
+          "time_window": "7:00 a.m. - 7:29 a.m.",
+          "account_toll": 17.8,
+          "non_account_toll": 18.68
+        },
+        {
+          "day_period": "Monday through Friday",
+          "direction": "Southbound",
+          "time_window": "7:30 a.m. - 8:29 a.m.",
+          "account_toll": 18.68,
+          "non_account_toll": 18.68
+        },
+        {
+          "day_period": "Monday through Friday",
+          "direction": "Southbound",
+          "time_window": "8:30 a.m. - 8:59 a.m.",
+          "account_toll": 17.8,
+          "non_account_toll": 18.68
+        },
+        {
+          "day_period": "Monday through Friday",
+          "direction": "Southbound",
+          "time_window": "9:00 a.m. - 11:59 p.m.",
+          "account_toll": 16.52,
+          "non_account_toll": 18.68
+        },
+        {
+          "day_period": "Monday through Friday",
+          "direction": "Northbound",
+          "time_window": "12:00 a.m. - 3:59 p.m.",
+          "account_toll": 16.52,
+          "non_account_toll": 18.68
+        },
+        {
+          "day_period": "Monday through Friday",
+          "direction": "Northbound",
+          "time_window": "4:00 p.m. - 4:59 p.m.",
+          "account_toll": 17.8,
+          "non_account_toll": 18.68
+        },
+        {
+          "day_period": "Monday through Friday",
+          "direction": "Northbound",
+          "time_window": "5:00 p.m. - 5:59 p.m.",
+          "account_toll": 18.68,
+          "non_account_toll": 18.68
+        },
+        {
+          "day_period": "Monday through Friday",
+          "direction": "Northbound",
+          "time_window": "6:00 p.m. - 6:59 p.m.",
+          "account_toll": 17.8,
+          "non_account_toll": 18.68
+        },
+        {
+          "day_period": "Monday through Friday",
+          "direction": "Northbound",
+          "time_window": "7:00 p.m. - 11:59 p.m.",
+          "account_toll": 16.52,
+          "non_account_toll": 18.68
+        },
+        {
+          "day_period": "Saturday and Sunday",
+          "direction": "Both Directions",
+          "time_window": "12:00 a.m. - 11:59 p.m.",
+          "account_toll": 16.52,
+          "non_account_toll": 18.68
+        }
+      ]
+    },
+    {
+      "toll_point_name": "Tomato Springs MAINLINE",
+      "rate_type": "Time-Dependent",
+      "rates": [
+        {
+          "day_period": "Monday through Friday",
+          "direction": "Southbound",
+          "time_window": "12:00 a.m. - 3:59 p.m.",
+          "account_toll": 15.84,
+          "non_account_toll": 17.84
+        },
+        {
+          "day_period": "Monday through Friday",
+          "direction": "Southbound",
+          "time_window": "4:00 p.m. - 4:59 p.m.",
+          "account_toll": 17.0,
+          "non_account_toll": 17.84
+        },
+        {
+          "day_period": "Monday through Friday",
+          "direction": "Southbound",
+          "time_window": "5:00 p.m. - 5:59 p.m.",
+          "account_toll": 17.84,
+          "non_account_toll": 17.84
+        },
+        {
+          "day_period": "Monday through Friday",
+          "direction": "Southbound",
+          "time_window": "6:00 p.m. - 6:59 p.m.",
+          "account_toll": 17.0,
+          "non_account_toll": 17.84
+        },
+        {
+          "day_period": "Monday through Friday",
+          "direction": "Southbound",
+          "time_window": "7:00 p.m. - 11:59 p.m.",
+          "account_toll": 15.84,
+          "non_account_toll": 17.84
+        },
+        {
+          "day_period": "Monday through Friday",
+          "direction": "Northbound",
+          "time_window": "12:00 a.m. - 6:59 a.m.",
+          "account_toll": 15.84,
+          "non_account_toll": 17.84
+        },
+        {
+          "day_period": "Monday through Friday",
+          "direction": "Northbound",
+          "time_window": "7:00 a.m. - 7:29 a.m.",
+          "account_toll": 17.0,
+          "non_account_toll": 17.84
+        },
+        {
+          "day_period": "Monday through Friday",
+          "direction": "Northbound",
+          "time_window": "7:30 a.m. - 8:29 a.m.",
+          "account_toll": 17.84,
+          "non_account_toll": 17.84
+        },
+        {
+          "day_period": "Monday through Friday",
+          "direction": "Northbound",
+          "time_window": "8:30 a.m. - 8:59 a.m.",
+          "account_toll": 17.0,
+          "non_account_toll": 17.84
+        },
+        {
+          "day_period": "Monday through Friday",
+          "direction": "Northbound",
+          "time_window": "9:00 a.m. - 11:59 p.m.",
+          "account_toll": 15.84,
+          "non_account_toll": 17.84
+        },
+        {
+          "day_period": "Saturday and Sunday",
+          "direction": "Both Directions",
+          "time_window": "12:00 a.m. - 11:59 p.m.",
+          "account_toll": 15.84,
+          "non_account_toll": 17.84
+        }
+      ]
+    },
+    {
+      "toll_point_name": "Catalina View MAINLINE",
+      "rate_type": "Time-Dependent",
+      "rates": [
+        {
+          "day_period": "Monday through Friday",
+          "direction": "Southbound",
+          "time_window": "12:00 a.m. - 2:59 p.m.",
+          "account_toll": 29.24,
+          "non_account_toll": 38.2
+        },
+        {
+          "day_period": "Monday through Friday",
+          "direction": "Southbound",
+          "time_window": "3:00 p.m. - 4:59 p.m.",
+          "account_toll": 34.96,
+          "non_account_toll": 38.2
+        },
+        {
+          "day_period": "Monday through Friday",
+          "direction": "Southbound",
+          "time_window": "5:00 p.m. - 5:59 p.m.",
+          "account_toll": 38.2,
+          "non_account_toll": 38.2
+        },
+        {
+          "day_period": "Monday through Friday",
+          "direction": "Southbound",
+          "time_window": "6:00 p.m. - 6:59 p.m.",
+          "account_toll": 34.96,
+          "non_account_toll": 38.2
+        },
+        {
+          "day_period": "Monday through Friday",
+          "direction": "Southbound",
+          "time_window": "7:00 p.m. - 11:59 p.m.",
+          "account_toll": 29.24,
+          "non_account_toll": 38.2
+        },
+        {
+          "day_period": "Monday through Friday",
+          "direction": "Northbound",
+          "time_window": "12:00 a.m. - 6:59 a.m.",
+          "account_toll": 29.24,
+          "non_account_toll": 38.2
+        },
+        {
+          "day_period": "Monday through Friday",
+          "direction": "Northbound",
+          "time_window": "7:00 a.m. - 7:59 a.m.",
+          "account_toll": 34.96,
+          "non_account_toll": 38.2
+        },
+        {
+          "day_period": "Monday through Friday",
+          "direction": "Northbound",
+          "time_window": "8:00 a.m. - 8:59 a.m.",
+          "account_toll": 38.2,
+          "non_account_toll": 38.2
+        },
+        {
+          "day_period": "Monday through Friday",
+          "direction": "Northbound",
+          "time_window": "9:00 a.m. - 9:59 a.m.",
+          "account_toll": 34.96,
+          "non_account_toll": 38.2
+        },
+        {
+          "day_period": "Monday through Friday",
+          "direction": "Northbound",
+          "time_window": "10:00 a.m. - 11:59 p.m.",
+          "account_toll": 29.24,
+          "non_account_toll": 38.2
+        },
+        {
+          "day_period": "Saturday and Sunday",
+          "direction": "Both Directions",
+          "time_window": "12:00 a.m. - 11:59 p.m.",
+          "account_toll": 28.0,
+          "non_account_toll": 38.2
+        }
+      ]
+    },
+    {
+      "toll_point_name": "Portola Pkwy - North",
+      "rate_type": "Time-Dependent (Ramp)",
+      "rates": [
+        {
+          "day_period": "Monday through Friday",
+          "direction": "Southbound",
+          "time_window": "12:00 a.m. - 3:59 p.m.",
+          "account_toll": 2.85,
+          "non_account_toll": 3.35
+        },
+        {
+          "day_period": "Monday through Friday",
+          "direction": "Southbound",
+          "time_window": "4:00 p.m. - 6:59 p.m.",
+          "account_toll": 3.35,
+          "non_account_toll": 3.35
+        },
+        {
+          "day_period": "Monday through Friday",
+          "direction": "Southbound",
+          "time_window": "7:00 p.m. - 11:59 p.m.",
+          "account_toll": 2.85,
+          "non_account_toll": 3.35
+        },
+        {
+          "day_period": "Monday through Friday",
+          "direction": "Northbound",
+          "time_window": "12:00 a.m. - 6:59 a.m.",
+          "account_toll": 2.85,
+          "non_account_toll": 3.35
+        },
+        {
+          "day_period": "Monday through Friday",
+          "direction": "Northbound",
+          "time_window": "7:00 a.m. - 8:59 a.m.",
+          "account_toll": 3.35,
+          "non_account_toll": 3.35
+        },
+        {
+          "day_period": "Monday through Friday",
+          "direction": "Northbound",
+          "time_window": "9:00 a.m. - 11:59 p.m.",
+          "account_toll": 2.85,
+          "non_account_toll": 3.35
+        },
+        {
+          "day_period": "Saturday and Sunday",
+          "direction": "Both Directions",
+          "time_window": "12:00 a.m. - 11:59 p.m.",
+          "account_toll": 2.85,
+          "non_account_toll": 3.35
+        }
+      ]
+    },
+    {
+      "toll_point_name": "Oso Pkwy",
+      "rate_type": "Fixed",
+      "rates": [
+        {
+          "day_period": "All Days",
+          "direction": "Both",
+          "time_window": "12:00 a.m. - 11:59 p.m.",
+          "account_toll": 10.96,
+          "non_account_toll": 10.96
+        }
+      ]
+    },
+    {
+      "toll_point_name": "Oso Bridge MAINLINE",
+      "rate_type": "Fixed",
+      "rates": [
+        {
+          "day_period": "All Days",
+          "direction": "Both",
+          "time_window": "12:00 a.m. - 11:59 p.m.",
+          "account_toll": 10.96,
+          "non_account_toll": 10.96
+        }
+      ]
+    },
+    {
+      "toll_point_name": "Irvine Blvd - East",
+      "rate_type": "Fixed",
+      "rates": [
+        {
+          "day_period": "All Days",
+          "direction": "Both",
+          "time_window": "12:00 a.m. - 11:59 p.m.",
+          "account_toll": 2.24,
+          "non_account_toll": 2.24
+        }
+      ]
+    },
+    {
+      "toll_point_name": "Irvine Blvd - West (NB On)",
+      "rate_type": "Fixed",
+      "rates": [
+        {
+          "day_period": "All Days",
+          "direction": "Northbound On",
+          "time_window": "12:00 a.m. - 11:59 p.m.",
+          "account_toll": 2.85,
+          "non_account_toll": 2.85
+        }
+      ]
+    },
+    {
+      "toll_point_name": "Irvine Blvd - West (NB Off)",
+      "rate_type": "Fixed",
+      "rates": [
+        {
+          "day_period": "All Days",
+          "direction": "Northbound Off",
+          "time_window": "12:00 a.m. - 11:59 p.m.",
+          "account_toll": 2.24,
+          "non_account_toll": 2.24
+        }
+      ]
+    },
+    {
+      "toll_point_name": "Irvine Blvd - West (SB On)",
+      "rate_type": "Fixed",
+      "rates": [
+        {
+          "day_period": "All Days",
+          "direction": "Southbound On",
+          "time_window": "12:00 a.m. - 11:59 p.m.",
+          "account_toll": 2.24,
+          "non_account_toll": 2.24
+        }
+      ]
+    },
+    {
+      "toll_point_name": "Irvine Blvd - West (SB Off)",
+      "rate_type": "Fixed",
+      "rates": [
+        {
+          "day_period": "All Days",
+          "direction": "Southbound Off",
+          "time_window": "12:00 a.m. - 11:59 p.m.",
+          "account_toll": 0.0,
+          "non_account_toll": 0.0
+        }
+      ]
+    },
+    {
+      "toll_point_name": "Portola Pkwy - West (NB On)",
+      "rate_type": "Fixed",
+      "rates": [
+        {
+          "day_period": "All Days",
+          "direction": "Northbound On",
+          "time_window": "12:00 a.m. - 11:59 p.m.",
+          "account_toll": 2.85,
+          "non_account_toll": 2.85
+        }
+      ]
+    },
+    {
+      "toll_point_name": "Portola Pkwy - West (NB Off)",
+      "rate_type": "Fixed",
+      "rates": [
+        {
+          "day_period": "All Days",
+          "direction": "Northbound Off",
+          "time_window": "12:00 a.m. - 11:59 p.m.",
+          "account_toll": 0.0,
+          "non_account_toll": 0.0
+        }
+      ]
+    },
+    {
+      "toll_point_name": "Portola Pkwy - West (SB On)",
+      "rate_type": "Fixed",
+      "rates": [
+        {
+          "day_period": "All Days",
+          "direction": "Southbound On",
+          "time_window": "12:00 a.m. - 11:59 p.m.",
+          "account_toll": 2.85,
+          "non_account_toll": 2.85
+        }
+      ]
+    },
+    {
+      "toll_point_name": "Portola Pkwy - West (SB Off)",
+      "rate_type": "Fixed",
+      "rates": [
+        {
+          "day_period": "All Days",
+          "direction": "Southbound Off",
+          "time_window": "12:00 a.m. - 11:59 p.m.",
+          "account_toll": 2.85,
+          "non_account_toll": 2.85
+        }
+      ]
+    },
+    {
+      "toll_point_name": "Chapman/Santiago Cyn Rd",
+      "rate_type": "Fixed",
+      "rates": [
+        {
+          "day_period": "All Days",
+          "direction": "Both",
+          "time_window": "12:00 a.m. - 11:59 p.m.",
+          "account_toll": 0.0,
+          "non_account_toll": 0.0
+        }
+      ]
+    },
+    {
+      "toll_point_name": "Bison Ave",
+      "rate_type": "Fixed",
+      "rates": [
+        {
+          "day_period": "All Days",
+          "direction": "Both",
+          "time_window": "12:00 a.m. - 11:59 p.m.",
+          "account_toll": 0.0,
+          "non_account_toll": 0.0
+        }
+      ]
+    },
+    {
+      "toll_point_name": "Bonita Canyon Dr",
+      "rate_type": "Fixed",
+      "rates": [
+        {
+          "day_period": "All Days",
+          "direction": "Both",
+          "time_window": "12:00 a.m. - 11:59 p.m.",
+          "account_toll": 2.33,
+          "non_account_toll": 2.33
+        }
+      ]
+    },
+    {
+      "toll_point_name": "Newport Coast Dr",
+      "rate_type": "Fixed",
+      "rates": [
+        {
+          "day_period": "All Days",
+          "direction": "Both",
+          "time_window": "12:00 a.m. - 11:59 p.m.",
+          "account_toll": 3.86,
+          "non_account_toll": 3.86
+        }
+      ]
+    },
+    {
+      "toll_point_name": "El Toro Rd/Laguna Cyn/133",
+      "rate_type": "Fixed",
+      "rates": [
+        {
+          "day_period": "All Days",
+          "direction": "Both",
+          "time_window": "12:00 a.m. - 11:59 p.m.",
+          "account_toll": 4.16,
+          "non_account_toll": 4.16
+        }
+      ]
+    },
+    {
+      "toll_point_name": "Glenwood/Pacific Park Dr",
+      "rate_type": "Fixed",
+      "rates": [
+        {
+          "day_period": "All Days",
+          "direction": "Both",
+          "time_window": "12:00 a.m. - 11:59 p.m.",
+          "account_toll": 0.0,
+          "non_account_toll": 0.0
+        }
+      ]
+    },
+    {
+      "toll_point_name": "Aliso Creek Rd",
+      "rate_type": "Fixed",
+      "rates": [
+        {
+          "day_period": "All Days",
+          "direction": "Both",
+          "time_window": "12:00 a.m. - 11:59 p.m.",
+          "account_toll": 3.43,
+          "non_account_toll": 3.43
+        }
+      ]
+    },
+    {
+      "toll_point_name": "La Paz Rd/Moulton Pkwy",
+      "rate_type": "Fixed",
+      "rates": [
+        {
+          "day_period": "All Days",
+          "direction": "Both",
+          "time_window": "12:00 a.m. - 11:59 p.m.",
+          "account_toll": 2.75,
+          "non_account_toll": 2.75
+        }
+      ]
+    },
+    {
+      "toll_point_name": "Greenfield Dr",
+      "rate_type": "Fixed",
+      "rates": [
+        {
+          "day_period": "All Days",
+          "direction": "Both",
+          "time_window": "12:00 a.m. - 11:59 p.m.",
+          "account_toll": 0.0,
+          "non_account_toll": 0.0
+        }
+      ]
+    },
+    {
+      "toll_point_name": "Alton Pkwy",
+      "rate_type": "Fixed",
+      "rates": [
+        {
+          "day_period": "All Days",
+          "direction": "Both",
+          "time_window": "12:00 a.m. - 11:59 p.m.",
+          "account_toll": 2.85,
+          "non_account_toll": 2.85
+        }
+      ]
+    },
+    {
+      "toll_point_name": "Lake Forest Dr",
+      "rate_type": "Fixed",
+      "rates": [
+        {
+          "day_period": "All Days",
+          "direction": "Both",
+          "time_window": "12:00 a.m. - 11:59 p.m.",
+          "account_toll": 0.0,
+          "non_account_toll": 0.0
+        }
+      ]
+    },
+    {
+      "toll_point_name": "Portola Pkwy - South",
+      "rate_type": "Fixed",
+      "rates": [
+        {
+          "day_period": "All Days",
+          "direction": "Both",
+          "time_window": "12:00 a.m. - 11:59 p.m.",
+          "account_toll": 1.93,
+          "non_account_toll": 1.93
+        }
+      ]
+    },
+    {
+      "toll_point_name": "Los Alisos Blvd",
+      "rate_type": "Fixed",
+      "rates": [
+        {
+          "day_period": "All Days",
+          "direction": "Both",
+          "time_window": "12:00 a.m. - 11:59 p.m.",
+          "account_toll": 1.8,
+          "non_account_toll": 1.8
+        }
+      ]
+    },
+    {
+      "toll_point_name": "Santa Margarita Pkwy",
+      "rate_type": "Fixed",
+      "rates": [
+        {
+          "day_period": "All Days",
+          "direction": "Both",
+          "time_window": "12:00 a.m. - 11:59 p.m.",
+          "account_toll": 0.0,
+          "non_account_toll": 0.0
+        }
+      ]
+    }
+  ]
+}

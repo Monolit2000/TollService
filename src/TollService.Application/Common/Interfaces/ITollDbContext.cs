@@ -10,6 +10,7 @@ public interface ITollDbContext
     DbSet<StateCalculator> StateCalculators { get; set; }
 
     public DbSet<CalculatePrice> CalculatePrices { get; set; }
+    public DbSet<TollPrice> TollPrices { get; set; }
     Task<int> SaveChangesAsync(CancellationToken cancellationToken = default);
 }
 

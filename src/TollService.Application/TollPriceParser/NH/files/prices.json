@@ -1,0 +1,133 @@
+{
+  "new_hampshire_turnpike_system_tolls": {
+    "currency": "USD",
+    "vehicle_classes": {
+      "class_5": "2-axle truck",
+      "class_6": "3-axle truck"
+    },
+    "toll_plazas": [
+      {
+        "name": "Hooksett Main",
+        "highway": "I-93",
+        "tolls": {
+          "class_5": {
+            "cash": 2.0,
+            "ezpass": 1.8
+          },
+          "class_6": {
+            "cash": 2.5,
+            "ezpass": 2.25
+          }
+        }
+      },
+      {
+        "name": "Hooksett Ramp",
+        "highway": "I-93, Exit 11",
+        "tolls": {
+          "class_5": {
+            "cash": 1.0,
+            "ezpass": 0.9
+          },
+          "class_6": {
+            "cash": 1.5,
+            "ezpass": 1.35
+          }
+        }
+      },
+      {
+        "name": "Bedford Main",
+        "highway": "I-93/F.E. Everett Turnpike",
+        "tolls": {
+          "class_5": {
+            "cash": 2.0,
+            "ezpass": 1.8
+          },
+          "class_6": {
+            "cash": 2.5,
+            "ezpass": 2.25
+          }
+        }
+      },
+      {
+        "name": "Merrimack Industrial",
+        "highway": "F.E. Everett Turnpike, Exit 10",
+        "tolls": {
+          "class_5": {
+            "cash": 1.0,
+            "ezpass": 0.9
+          },
+          "class_6": {
+            "cash": 1.5,
+            "ezpass": 1.35
+          }
+        }
+      },
+      {
+        "name": "Hampton Main",
+        "highway": "I-95/Blue Star Turnpike",
+        "tolls": {
+          "class_5": {
+            "cash": 4.0,
+            "ezpass": 3.6
+          },
+          "class_6": {
+            "cash": 4.5,
+            "ezpass": 4.05
+          }
+        }
+      },
+      {
+        "name": "Hampton Side",
+        "highway": "I-95, Exit 2",
+        "tolls": {
+          "class_5": {
+            "cash": 1.5,
+            "ezpass": 1.35
+          },
+          "class_6": {
+            "cash": 2.0,
+            "ezpass": 1.8
+          }
+        }
+      },
+      {
+        "name": "Dover Toll",
+        "highway": "Route 16/Spaulding Turnpike",
+        "tolls": {
+          "class_5": {
+            "cash": 1.5,
+            "ezpass": 1.35
+          },
+          "class_6": {
+            "cash": 2.0,
+            "ezpass": 1.8
+          }
+        }
+      },
+      {
+        "name": "Rochester Toll",
+        "highway": "Route 16/Spaulding Turnpike",
+        "tolls": {
+          "class_5": {
+            "cash": 1.5,
+            "ezpass": 1.35
+          },
+          "class_6": {
+            "cash": 2.0,
+            "ezpass": 1.8
+          }
+        }
+      }
+    ],
+    "summary": {
+      "most_expensive_plaza": "Hampton Main",
+      "cheapest_plazas": [
+        "Hooksett Ramp",
+        "Merrimack Industrial",
+        "Dover Toll",
+        "Rochester Toll"
+      ],
+      "ezpass_discount_note": "E-ZPass provides approximately 10% discount compared to cash payments"
+    }
+  }
+}

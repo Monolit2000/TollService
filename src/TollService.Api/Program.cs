@@ -73,7 +73,6 @@ app.MapGet("/", context =>
     context.Response.Redirect("/swagger/index.html", permanent: false);
     return Task.CompletedTask;
 });
-
 app.MapControllers();
 
 // Apply EF Core migrations on startup

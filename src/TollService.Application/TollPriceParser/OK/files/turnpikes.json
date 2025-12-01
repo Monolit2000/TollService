@@ -1,0 +1,56 @@
+{
+  "turnpikes": [
+    {
+      "id": 8,
+      "name": "CHEROKEE TURNPIKE"
+    },
+    {
+      "id": 9,
+      "name": "CHICKASAW TURNPIKE"
+    },
+    {
+      "id": 6,
+      "name": "CIMARRON TURNPIKE"
+    },
+    {
+      "id": 10,
+      "name": "CREEK TURNPIKE"
+    },
+    {
+      "id": 13,
+      "name": "GILCREASE TURNPIKE"
+    },
+    {
+      "id": 3,
+      "name": "H.E.BAILEY TURNPIKE"
+    },
+    {
+      "id": 5,
+      "name": "INDIAN NATION TURNPIKE"
+    },
+    {
+      "id": 11,
+      "name": "KICKAPOO TURNPIKE"
+    },
+    {
+      "id": 7,
+      "name": "KILPATRICK TURNPIKE"
+    },
+    {
+      "id": 4,
+      "name": "MUSKOGEE TURNPIKE"
+    },
+    {
+      "id": 12,
+      "name": "SOUTHWEST JKT TURNPIKE"
+    },
+    {
+      "id": 1,
+      "name": "TURNER TURNPIKE"
+    },
+    {
+      "id": 2,
+      "name": "WILL ROGERS TURNPIKE"
+    }
+  ]
+}
