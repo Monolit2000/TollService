@@ -62,7 +62,7 @@ public class Toll
 
     public double GetAmmountByPaymentType(TollPaymentType paymentType)
     {
-        var existingTollPrice = TollPrices.FirstOrDefault(x => x.PaymentType == paymentType);
+        var existingTollPrice = GetPriceByPaymentType(paymentType);
         if (existingTollPrice == null)
         {
             if (paymentType == TollPaymentType.EZPass || paymentType == TollPaymentType.IPass)
