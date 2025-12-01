@@ -185,7 +185,7 @@ public class ParseMaineTollPricesCommandHandler(
                         }
 
                         // 4. Находим или создаем CalculatePrice для пары from->to
-                        var calculatePrice = await _context.CalculatePrices
+                        var calculatePrice = await _context.CalculatePrices.Include(cp => cp.TollPrices)
                             .FirstOrDefaultAsync(cp =>
                                 cp.FromId == fromToll.Id &&
                                 cp.ToId == toToll.Id &&
