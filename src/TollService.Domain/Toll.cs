@@ -38,17 +38,42 @@ public class Toll
     #endregion
     public List<TollPrice> TollPrices { get; set; } = [];
 
-
-    public void AddTollPrice(TollPrice tollPrice)
+    public void SetPriceByPaymentType(double amount, TollPaymentType paymentType, AxelType axelType = AxelType._5L)
     {
-        if(tollPrice != null)
-            TollPrices.Add(tollPrice);
+        var price = GetPriceByPaymentType(paymentType);
+        if (price != null)
+        {
+            price.Amount = amount;
+        }
+        else
+        {
+            var newTollPrice = new TollPrice(this.Id, amount, paymentType, axelType);
+            TollPrices.Add(newTollPrice);
+        }
     }
 
-    public void AddTollPrices(List<TollPrice> tollPrices)
+    public TollPrice? GetPriceByPaymentType(TollPaymentType paymentType)
     {
-        if (tollPrices.Any())
-            TollPrices.AddRange(tollPrices);
+        var existingTollPrice = TollPrices.FirstOrDefault(
+            x => x.PaymentType == paymentType && 
+            !x.IsCalculate());
+        return existingTollPrice;
+    }
+
+    public double GetAmmountByPaymentType(TollPaymentType paymentType)
+    {
+        var existingTollPrice = TollPrices.FirstOrDefault(x => x.PaymentType == paymentType);
+        if (existingTollPrice == null)
+        {
+            if (paymentType == TollPaymentType.EZPass || paymentType == TollPaymentType.IPass)
+                return IPass;
+
+            return PayOnline;
+        }
+        else
+        {
+            return existingTollPrice.Amount;
+        }
     }
 }
 

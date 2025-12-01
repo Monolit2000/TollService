@@ -1,5 +1,3 @@
-using System;
-
 namespace TollService.Domain;
 
 public class TollPrice
@@ -19,10 +17,13 @@ public class TollPrice
     public AxelType AxelType { get; set; } = AxelType.Unknown;
 
     public TollPriceTimeOfDay TimeOfDay { get; set; } = TollPriceTimeOfDay.Any;
+    public TollPriceDayOfWeek DayOfWeekFrom { get; set; } = TollPriceDayOfWeek.Any;
+    public TollPriceDayOfWeek DayOfWeekTo { get; set; } = TollPriceDayOfWeek.Any;
     public TimeOnly TimeFrom { get; set; }
     public TimeOnly TimeTo { get; set; }
     public string? Description { get; set; }
     public double Amount { get; set; }
+    //public bool IsCalculate { get; set; }
 
     // Пустой конструктор для EF Core
     public TollPrice()
@@ -34,6 +35,9 @@ public class TollPrice
         double amount,
         TollPaymentType paymentType,
         AxelType axelType = AxelType._5L,
+        TollPriceDayOfWeek dayOfWeekFrom = TollPriceDayOfWeek.Any,
+        TollPriceDayOfWeek dayOfWeekTo = TollPriceDayOfWeek.Any,
+        //bool isCalculate = false,
         TimeOnly timeFrom = default,
         TimeOnly timeTo = default,
         string? description = null)
@@ -41,11 +45,19 @@ public class TollPrice
         CalculatePriceId = calculatePriceId;
         Amount = amount;
         PaymentType = paymentType;
+        //IsCalculate = isCalculate;
         AxelType = axelType;
+        DayOfWeekFrom = dayOfWeekFrom;
+        DayOfWeekTo = dayOfWeekTo;
         TimeFrom = timeFrom;
         TimeTo = timeTo;
         Description = description;
     }
+}
+
+public static class TollPriceExtensions
+{
+    public static bool IsCalculate(this TollPrice tollPrice) => tollPrice.CalculatePriceId.HasValue;
 }
 
 public enum TollPaymentType
@@ -62,6 +74,18 @@ public enum TollPriceTimeOfDay
     Any = 0,
     Day = 1,
     Night = 2,
+}
+
+public enum TollPriceDayOfWeek
+{
+    Any = 0,
+    Monday = 1,
+    Tuesday = 2,
+    Wednesday = 3,
+    Thursday = 4,
+    Friday = 5,
+    Saturday = 6,
+    Sunday = 7,
 }
 
 public enum AxelType
@@ -97,4 +121,10 @@ public enum AxelType
     /// Класс 6L.
     /// </summary>
     _6L = 6,
+
+    _7L = 7,
+
+    _8L = 8,
+
+    _9L = 9
 }

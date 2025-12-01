@@ -42,16 +42,20 @@ namespace TollService.Domain
             return existingTollPrice;
         }
 
-        public void AddTollPrice(TollPrice tollPrice)
+        public double GetAmmountByPaymentType(TollPaymentType paymentType)
         {
-            if (tollPrice != null)
-                TollPrices.Add(tollPrice);
-        }
+            var existingTollPrice = TollPrices.FirstOrDefault(x => x.PaymentType == paymentType);
+            if (existingTollPrice == null)
+            {
+                if (paymentType == TollPaymentType.EZPass || paymentType == TollPaymentType.IPass)
+                    return IPass;
 
-        public void AddTollPrices(List<TollPrice> tollPrices)
-        {
-            if (tollPrices.Any())
-                TollPrices.AddRange(tollPrices);
+                return Cash;
+            }
+            else
+            {
+                return existingTollPrice.Amount;
+            }
         }
     }
 }

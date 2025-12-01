@@ -19,9 +19,18 @@ public class TollPriceConfiguration : IEntityTypeConfiguration<TollPrice>
         builder.Property(x => x.TimeOfDay)
             .HasConversion<int>();
 
+        builder.Property(x => x.DayOfWeekFrom)
+            .HasConversion<int>();
+
+        builder.Property(x => x.DayOfWeekTo)
+            .HasConversion<int>();
+
         builder.Property(x => x.Description)
             .HasMaxLength(512)
             .IsRequired(false);
+
+        //builder.Property(x => x.IsCalculate)
+        //    .HasDefaultValue(false);
 
         builder.HasOne(x => x.Toll)
             .WithMany(t => t.TollPrices)
