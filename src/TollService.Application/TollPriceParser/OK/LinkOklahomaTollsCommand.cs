@@ -103,12 +103,17 @@ public class LinkOklahomaTollsCommandHandler(
         // Кэш для CalculatePrice: ключ = (FromId, ToId)
         var calculatePriceCache = new Dictionary<(Guid FromId, Guid ToId), CalculatePrice>();
 
+        // Собираем все пары (FromId, ToId) для батч-загрузки CalculatePrice
+        var tollPairsToProcess = new HashSet<(Guid FromId, Guid ToId)>();
+        var tollRatesData = new List<(OklahomaTollRate Rate, List<Toll> EntryTolls, List<Toll> ExitTolls, int TurnpikeId, string? TurnpikeName, int VehicleClass)>();
+
         var httpClient = _httpClientFactory.CreateClient();
         httpClient.Timeout = TimeSpan.FromMinutes(5);
 
         // Обрабатываем запросы для классов 5 и 6 (аксели)
         var vehicleClasses = new[] { 5, 6 };
 
+        // Первый проход: собираем все данные и пары tolls
         foreach (var turnpikeId in request.TurnpikeIds)
         {
             foreach (var vehicleClass in vehicleClasses)
@@ -165,135 +170,23 @@ public class LinkOklahomaTollsCommandHandler(
                             }
                         }
 
-                        // Если нашли оба toll, создаем CalculatePrice и добавляем цены
+                        // Если нашли оба toll, сохраняем данные для обработки
                         if (entryTolls.Count > 0 && exitTolls.Count > 0)
                         {
-                            // Устанавливаем Number и StateCalculatorId для найденных tolls (добавляем в список для обновления)
-                            foreach (var entryToll in entryTolls)
-                            {
-                                if (entryToll.Number != rate.EntryName)
-                                {
-                                    entryToll.Number = rate.EntryName;
-                                }
-                                entryToll.StateCalculatorId = oklahomaCalculator.Id;
-                            }
-
-                            foreach (var exitToll in exitTolls)
-                            {
-                                if (exitToll.Number != rate.ExitName)
-                                {
-                                    exitToll.Number = rate.ExitName;
-                                }
-                                exitToll.StateCalculatorId = oklahomaCalculator.Id;
-                            }
-
-                            // Определяем AxelType из vehicleClass
-                            var axelType = vehicleClass == 5 ? AxelType._5L : AxelType._6L;
-
-                            // Может быть несколько tolls с одинаковым именем, поэтому создаем записи для всех комбинаций
+                            // Собираем пары для батч-загрузки
                             foreach (var entryToll in entryTolls)
                             {
                                 foreach (var exitToll in exitTolls)
                                 {
-                                    if (entryToll.Id == exitToll.Id)
+                                    if (entryToll.Id != exitToll.Id)
                                     {
-                                        continue; // Пропускаем, если entry и exit это один и тот же toll
+                                        tollPairsToProcess.Add((entryToll.Id, exitToll.Id));
                                     }
-
-                                    // Находим или создаем CalculatePrice для пары from->to
-                                    var cacheKey = (entryToll.Id, exitToll.Id);
-                                    if (!calculatePriceCache.TryGetValue(cacheKey, out var calculatePrice))
-                                    {
-                                        // Пробуем загрузить из БД
-                                        calculatePrice = await _context.CalculatePrices
-                                            .Include(cp => cp.TollPrices)
-                                            .FirstOrDefaultAsync(cp =>
-                                                cp.FromId == entryToll.Id &&
-                                                cp.ToId == exitToll.Id &&
-                                                cp.StateCalculatorId == oklahomaCalculator.Id,
-                                                ct);
-
-                                        if (calculatePrice == null)
-                                        {
-                                            calculatePrice = new CalculatePrice
-                                            {
-                                                Id = Guid.NewGuid(),
-                                                StateCalculatorId = oklahomaCalculator.Id,
-                                                FromId = entryToll.Id,
-                                                ToId = exitToll.Id,
-                                                TollPrices = new List<TollPrice>()
-                                            };
-                                            calculatePricesToAdd.Add(calculatePrice);
-                                        }
-
-                                        calculatePriceCache[cacheKey] = calculatePrice;
-                                    }
-
-                                    // Проверяем существующий TollPrice с таким PaymentType и AxelType
-                                    var existingEzPass = calculatePrice.TollPrices
-                                        .FirstOrDefault(tp => 
-                                            tp.PaymentType == TollPaymentType.EZPass && 
-                                            tp.AxelType == axelType);
-
-                                    if (existingEzPass != null)
-                                    {
-                                        existingEzPass.Amount = rate.PikePassRate;
-                                    }
-                                    else if (rate.PikePassRate > 0)
-                                    {
-                                        var newTollPrice = new TollPrice(
-                                            calculatePrice.Id,
-                                            rate.PikePassRate,
-                                            TollPaymentType.EZPass,
-                                            axelType)
-                                        {
-                                            Id = Guid.NewGuid(),
-                                            TollId = entryToll.Id,
-                                            Description = $"{rate.EntryName} -> {rate.ExitName} ({turnpikeName})"
-                                        };
-                                        calculatePrice.TollPrices.Add(newTollPrice);
-                                        tollPricesToAdd.Add(newTollPrice);
-                                    }
-
-                                    var existingCash = calculatePrice.TollPrices
-                                        .FirstOrDefault(tp => 
-                                            tp.PaymentType == TollPaymentType.Cash && 
-                                            tp.AxelType == axelType);
-
-                                    if (existingCash != null)
-                                    {
-                                        existingCash.Amount = rate.CashCashlessRate;
-                                    }
-                                    else if (rate.CashCashlessRate > 0)
-                                    {
-                                        var newTollPrice = new TollPrice(
-                                            calculatePrice.Id,
-                                            rate.CashCashlessRate,
-                                            TollPaymentType.Cash,
-                                            axelType)
-                                        {
-                                            Id = Guid.NewGuid(),
-                                            TollId = entryToll.Id,
-                                            Description = $"{rate.EntryName} -> {rate.ExitName} ({turnpikeName})"
-                                        };
-                                        calculatePrice.TollPrices.Add(newTollPrice);
-                                        tollPricesToAdd.Add(newTollPrice);
-                                    }
-
-                                    foundTolls.Add(new OklahomaFoundTollInfo(
-                                        EntryName: rate.EntryName,
-                                        ExitName: rate.ExitName,
-                                        FromTollId: entryToll.Id,
-                                        FromTollName: entryToll.Name,
-                                        FromTollKey: entryToll.Key,
-                                        ToTollId: exitToll.Id,
-                                        ToTollName: exitToll.Name,
-                                        ToTollKey: exitToll.Key,
-                                        TurnpikeId: turnpikeId,
-                                        TurnpikeName: turnpikeName,
-                                        VehicleClass: vehicleClass));
                                 }
                             }
+
+                            // Сохраняем данные для второго прохода
+                            tollRatesData.Add((rate, entryTolls, exitTolls, turnpikeId, turnpikeName, vehicleClass));
                         }
                     }
                 }
@@ -308,6 +201,159 @@ public class LinkOklahomaTollsCommandHandler(
                 catch (Exception ex)
                 {
                     errors.Add($"Turnpike ID {turnpikeId}, Class {vehicleClass}: Ошибка - {ex.Message}");
+                }
+            }
+        }
+
+        // Батч-загрузка всех существующих CalculatePrice одним запросом
+        if (tollPairsToProcess.Count > 0)
+        {
+            // Загружаем все существующие CalculatePrice, которые могут соответствовать нашим парам
+            var fromIds = tollPairsToProcess.Select(p => p.FromId).Distinct().ToList();
+            var toIds = tollPairsToProcess.Select(p => p.ToId).Distinct().ToList();
+
+            var existingCalculatePrices = await _context.CalculatePrices
+                .Include(cp => cp.TollPrices)
+                .Where(cp =>
+                    cp.StateCalculatorId == oklahomaCalculator.Id &&
+                    fromIds.Contains(cp.FromId) &&
+                    toIds.Contains(cp.ToId))
+                .ToListAsync(ct);
+
+            // Заполняем кэш существующими CalculatePrice (проверяем точное соответствие пары)
+            foreach (var cp in existingCalculatePrices)
+            {
+                var key = (cp.FromId, cp.ToId);
+                if (tollPairsToProcess.Contains(key))
+                {
+                    calculatePriceCache[key] = cp;
+                }
+            }
+
+            // Создаем новые CalculatePrice для пар, которых нет в БД
+            foreach (var pair in tollPairsToProcess)
+            {
+                if (!calculatePriceCache.ContainsKey(pair))
+                {
+                    var newCalculatePrice = new CalculatePrice
+                    {
+                        Id = Guid.NewGuid(),
+                        StateCalculatorId = oklahomaCalculator.Id,
+                        FromId = pair.FromId,
+                        ToId = pair.ToId,
+                        TollPrices = new List<TollPrice>()
+                    };
+                    calculatePriceCache[pair] = newCalculatePrice;
+                    calculatePricesToAdd.Add(newCalculatePrice);
+                }
+            }
+        }
+
+        // Второй проход: обработка данных и создание/обновление цен
+        foreach (var (rate, entryTolls, exitTolls, turnpikeId, turnpikeName, vehicleClass) in tollRatesData)
+        {
+            // Устанавливаем Number и StateCalculatorId для найденных tolls
+            foreach (var entryToll in entryTolls)
+            {
+                if (entryToll.Number != rate.EntryName)
+                {
+                    entryToll.Number = rate.EntryName;
+                }
+                entryToll.StateCalculatorId = oklahomaCalculator.Id;
+            }
+
+            foreach (var exitToll in exitTolls)
+            {
+                if (exitToll.Number != rate.ExitName)
+                {
+                    exitToll.Number = rate.ExitName;
+                }
+                exitToll.StateCalculatorId = oklahomaCalculator.Id;
+            }
+
+            // Определяем AxelType из vehicleClass
+            var axelType = vehicleClass == 5 ? AxelType._5L : AxelType._6L;
+
+            // Может быть несколько tolls с одинаковым именем, поэтому создаем записи для всех комбинаций
+            foreach (var entryToll in entryTolls)
+            {
+                foreach (var exitToll in exitTolls)
+                {
+                    if (entryToll.Id == exitToll.Id)
+                    {
+                        continue; // Пропускаем, если entry и exit это один и тот же toll
+                    }
+
+                    // Получаем CalculatePrice из кэша
+                    var cacheKey = (entryToll.Id, exitToll.Id);
+                    if (!calculatePriceCache.TryGetValue(cacheKey, out var calculatePrice))
+                    {
+                        continue; // Не должно случиться, но на всякий случай
+                    }
+
+                    // Проверяем существующий TollPrice с таким PaymentType и AxelType
+                    var existingEzPass = calculatePrice.TollPrices
+                        .FirstOrDefault(tp => 
+                            tp.PaymentType == TollPaymentType.EZPass && 
+                            tp.AxelType == axelType);
+
+                    if (existingEzPass != null)
+                    {
+                        existingEzPass.Amount = rate.PikePassRate;
+                    }
+                    else if (rate.PikePassRate > 0)
+                    {
+                        var newTollPrice = new TollPrice(
+                            calculatePrice.Id,
+                            rate.PikePassRate,
+                            TollPaymentType.EZPass,
+                            axelType)
+                        {
+                            Id = Guid.NewGuid(),
+                            TollId = entryToll.Id,
+                            Description = $"{rate.EntryName} -> {rate.ExitName} ({turnpikeName})"
+                        };
+                        calculatePrice.TollPrices.Add(newTollPrice);
+                        tollPricesToAdd.Add(newTollPrice);
+                    }
+
+                    var existingCash = calculatePrice.TollPrices
+                        .FirstOrDefault(tp => 
+                            tp.PaymentType == TollPaymentType.Cash && 
+                            tp.AxelType == axelType);
+
+                    if (existingCash != null)
+                    {
+                        existingCash.Amount = rate.CashCashlessRate;
+                    }
+                    else if (rate.CashCashlessRate > 0)
+                    {
+                        var newTollPrice = new TollPrice(
+                            calculatePrice.Id,
+                            rate.CashCashlessRate,
+                            TollPaymentType.Cash,
+                            axelType)
+                        {
+                            Id = Guid.NewGuid(),
+                            TollId = entryToll.Id,
+                            Description = $"{rate.EntryName} -> {rate.ExitName} ({turnpikeName})"
+                        };
+                        calculatePrice.TollPrices.Add(newTollPrice);
+                        tollPricesToAdd.Add(newTollPrice);
+                    }
+
+                    foundTolls.Add(new OklahomaFoundTollInfo(
+                        EntryName: rate.EntryName,
+                        ExitName: rate.ExitName,
+                        FromTollId: entryToll.Id,
+                        FromTollName: entryToll.Name,
+                        FromTollKey: entryToll.Key,
+                        ToTollId: exitToll.Id,
+                        ToTollName: exitToll.Name,
+                        ToTollKey: exitToll.Key,
+                        TurnpikeId: turnpikeId,
+                        TurnpikeName: turnpikeName,
+                        VehicleClass: vehicleClass));
                 }
             }
         }

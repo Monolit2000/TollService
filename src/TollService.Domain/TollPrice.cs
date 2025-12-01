@@ -43,6 +43,7 @@ public class TollPrice
         TimeOnly timeTo = default,
         string? description = null)
     {
+        Id =Guid.NewGuid();
         CalculatePriceId = calculatePriceId;
         Amount = amount;
         PaymentType = paymentType;
