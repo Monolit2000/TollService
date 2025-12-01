@@ -38,7 +38,7 @@ public class Toll
     #endregion
     public List<TollPrice> TollPrices { get; set; } = [];
 
-    public void SetPriceByPaymentType(double amount, TollPaymentType paymentType, AxelType axelType = AxelType._5L)
+    public void SetPriceByPaymentType(double amount, TollPaymentType paymentType, AxelType axelType = AxelType._5L, TollPriceDayOfWeek dayOfWeekFrom = TollPriceDayOfWeek.Any, TollPriceDayOfWeek dayOfWeekTo = TollPriceDayOfWeek.Any)
     {
         var price = GetPriceByPaymentType(paymentType);
         if (price != null)
@@ -47,7 +47,7 @@ public class Toll
         }
         else
         {
-            var newTollPrice = new TollPrice(this.Id, amount, paymentType, axelType);
+            var newTollPrice = new TollPrice(this.Id, amount, paymentType, axelType, dayOfWeekFrom, dayOfWeekTo);
             TollPrices.Add(newTollPrice);
         }
     }
