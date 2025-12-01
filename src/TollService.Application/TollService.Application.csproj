@@ -23,7 +23,6 @@
   <ItemGroup>
     <Folder Include="TollPriceParser\IL\" />
     <Folder Include="TollPriceParser\MA\" />
-    <Folder Include="TollPriceParser\NY\fieles\" />
   </ItemGroup>
 
 
