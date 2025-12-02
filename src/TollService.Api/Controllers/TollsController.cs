@@ -18,6 +18,7 @@ using TollService.Application.Tolls.Queries;
 using TollService.Contracts;
 using TollService.Infrastructure.Integrations;
 using TollService.Application.TollPriceParser.NY;
+using static TollService.Application.TollPriceParser.NY.ParseNewYorkTollPricesCommandHandler;
 
 namespace TollService.Api.Controllers;
 
@@ -396,15 +397,20 @@ public class TollsController : ControllerBase
     [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(ParseTollPricesResult))]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
     public async Task<IActionResult> ParseNewYorkTollPrices(
+        [FromBody] List<NewYorkTollRate>? newYorkTollRates,
         [FromQuery] int vehicleClass = 7,
-        [FromQuery] string? baseUrl = null,
         CancellationToken ct = default)
     {
+        if (newYorkTollRates == null || newYorkTollRates.Count == 0)
+        {
+            return BadRequest("Request body cannot be empty");
+        }
+
         try
         {
             var command = new ParseNewYorkTollPricesCommand(
-                VehicleClass: vehicleClass,
-                BaseUrl: baseUrl ?? "https://tollcalculator.thruway.ny.gov/index.aspx");
+                NewYorkTollRates: newYorkTollRates,
+                VehicleClass: vehicleClass);
             var result = await _mediator.Send(command, ct);
             return Ok(result);
         }
