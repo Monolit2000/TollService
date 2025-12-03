@@ -1,0 +1,153 @@
+using Microsoft.EntityFrameworkCore;
+using NetTopologySuite.Geometries;
+using TollService.Application.Common.Interfaces;
+using TollService.Domain;
+
+namespace TollService.Application.Common;
+
+/// <summary>
+/// Универсальный сервис для поиска толлов по имени или ключу в рамках bounding box.
+/// Поддерживает точное и частичное совпадение.
+/// </summary>
+public class TollSearchService
+{
+    private readonly ITollDbContext _context;
+
+    public TollSearchService(ITollDbContext context)
+    {
+        _context = context;
+    }
+
+    /// <summary>
+    /// Находит толлы по имени или ключу в пределах bounding box.
+    /// Сначала ищет точное совпадение (регистронезависимо), затем частичное.
+    /// </summary>
+    /// <param name="searchName">Имя или ключ для поиска (будет приведено к нижнему регистру)</param>
+    /// <param name="boundingBox">Географические границы поиска</param>
+    /// <param name="searchOptions">Опции поиска (по Name, Key или обоим)</param>
+    /// <param name="ct">Токен отмены</param>
+    /// <returns>Список найденных толлов</returns>
+    public async Task<List<Toll>> FindTollsInBoundingBoxAsync(
+        string searchName,
+        Polygon boundingBox,
+        TollSearchOptions searchOptions = TollSearchOptions.NameOrKey,
+        CancellationToken ct = default)
+    {
+        if (string.IsNullOrWhiteSpace(searchName))
+            return new List<Toll>();
+
+        var searchNameLower = searchName.ToLower();
+
+        // Загружаем все tolls в пределах bounding box один раз
+        var allTollsInBox = await _context.Tolls
+            .Where(t => t.Location != null && boundingBox.Contains(t.Location))
+            .ToListAsync(ct);
+
+        // Сначала ищем точное совпадение в памяти
+        var tolls = FindExactMatch(allTollsInBox, searchNameLower, searchOptions);
+
+        // Если не нашли точное совпадение, пробуем частичное совпадение
+        if (tolls.Count == 0)
+        {
+            tolls = FindPartialMatch(allTollsInBox, searchNameLower, searchOptions);
+        }
+
+        // Фильтруем: исключаем tolls с пустыми или невалидными именами/ключами
+        tolls = tolls
+            .Where(t => IsValidTollNameOrKey(t.Name) || IsValidTollNameOrKey(t.Key))
+            .ToList();
+
+        return tolls;
+    }
+
+    /// <summary>
+    /// Находит толлы по точному совпадению имени или ключа в уже загруженной коллекции
+    /// </summary>
+    private static List<Toll> FindExactMatch(
+        List<Toll> allTollsInBox,
+        string searchNameLower,
+        TollSearchOptions searchOptions)
+    {
+        if (searchOptions.HasFlag(TollSearchOptions.Name) && searchOptions.HasFlag(TollSearchOptions.Key))
+        {
+            return allTollsInBox
+                .Where(t =>
+                    (t.Name != null && t.Name.ToLower() == searchNameLower) ||
+                    (t.Key != null && t.Key.ToLower() == searchNameLower))
+                .ToList();
+        }
+        else if (searchOptions.HasFlag(TollSearchOptions.Name))
+        {
+            return allTollsInBox
+                .Where(t => t.Name != null && t.Name.ToLower() == searchNameLower)
+                .ToList();
+        }
+        else if (searchOptions.HasFlag(TollSearchOptions.Key))
+        {
+            return allTollsInBox
+                .Where(t => t.Key != null && t.Key.ToLower() == searchNameLower)
+                .ToList();
+        }
+
+        return new List<Toll>();
+    }
+
+    /// <summary>
+    /// Находит толлы по частичному совпадению имени или ключа в уже загруженной коллекции
+    /// </summary>
+    private static List<Toll> FindPartialMatch(
+        List<Toll> allTollsInBox,
+        string searchNameLower,
+        TollSearchOptions searchOptions)
+    {
+        if (searchOptions.HasFlag(TollSearchOptions.Name) && searchOptions.HasFlag(TollSearchOptions.Key))
+        {
+            return allTollsInBox
+                .Where(t =>
+                    (t.Name != null && (t.Name.ToLower().Contains(searchNameLower) || searchNameLower.Contains(t.Name.ToLower()))) ||
+                    (t.Key != null && (t.Key.ToLower().Contains(searchNameLower) || searchNameLower.Contains(t.Key.ToLower()))))
+                .ToList();
+        }
+        else if (searchOptions.HasFlag(TollSearchOptions.Name))
+        {
+            return allTollsInBox
+                .Where(t => t.Name != null && (t.Name.ToLower().Contains(searchNameLower) || searchNameLower.Contains(t.Name.ToLower())))
+                .ToList();
+        }
+        else if (searchOptions.HasFlag(TollSearchOptions.Key))
+        {
+            return allTollsInBox
+                .Where(t => t.Key != null && (t.Key.ToLower().Contains(searchNameLower) || searchNameLower.Contains(t.Key.ToLower())))
+                .ToList();
+        }
+
+        return new List<Toll>();
+    }
+
+    /// <summary>
+    /// Проверяет, является ли имя или ключ валидным (не пустой, не только подчеркивания)
+    /// </summary>
+    public static bool IsValidTollNameOrKey(string? nameOrKey)
+    {
+        if (string.IsNullOrWhiteSpace(nameOrKey))
+            return false;
+
+        var trimmed = nameOrKey.Trim();
+        if (string.IsNullOrWhiteSpace(trimmed) || trimmed == "_" || trimmed.All(c => c == '_'))
+            return false;
+
+        return true;
+    }
+}
+
+/// <summary>
+/// Опции поиска толлов
+/// </summary>
+[Flags]
+public enum TollSearchOptions
+{
+    Name = 1,
+    Key = 2,
+    NameOrKey = Name | Key
+}
+

@@ -53,7 +53,18 @@ public class Toll
         }
         else
         {
-            var newTollPrice = new TollPrice(this.Id, amount, paymentType, axelType, dayOfWeekFrom, dayOfWeekTo, timeOfDay);
+            var newTollPrice = new TollPrice
+            {
+                Id = Guid.NewGuid(),
+                TollId = this.Id,
+                CalculatePriceId = null,
+                Amount = amount,
+                PaymentType = paymentType,
+                AxelType = axelType,
+                DayOfWeekFrom = dayOfWeekFrom,
+                DayOfWeekTo = dayOfWeekTo,
+                TimeOfDay = timeOfDay
+            };
             TollPrices.Add(newTollPrice);
         }
     }
