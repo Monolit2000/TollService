@@ -13,6 +13,7 @@ using TollService.Application.TollPriceParser.OH;
 using TollService.Application.TollPriceParser.PA;
 using TollService.Application.TollPriceParser.CA;
 using TollService.Application.TollPriceParser.OK;
+using TollService.Application.TollPriceParser.CO;
 using TollService.Application.Tolls.Commands;
 using TollService.Application.Tolls.Queries;
 using TollService.Contracts;
@@ -778,6 +779,36 @@ public class TollsController : ControllerBase
         {
             return BadRequest($"Error processing request: {ex.Message}");
         }
+    }
+
+    [HttpPost("link-colorado-tolls")]
+    [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(LinkColoradoTollsResult))]
+    [ProducesResponseType(StatusCodes.Status400BadRequest)]
+    public async Task<IActionResult> LinkColoradoTolls(
+        [FromBody] object payload,
+        CancellationToken ct = default)
+    {
+        if (payload == null)
+        {
+            return BadRequest("Payload cannot be null");
+        }
+
+        var json = payload switch
+        {
+            JsonElement element => element.GetRawText(),
+            string str => str,
+            _ => System.Text.Json.JsonSerializer.Serialize(payload)
+        };
+
+        var command = new LinkColoradoTollsCommand(json);
+        var result = await _mediator.Send(command, ct);
+        
+        if (!string.IsNullOrWhiteSpace(result.Error))
+        {
+            return BadRequest(result.Error);
+        }
+
+        return Ok(result);
     }
 }
 

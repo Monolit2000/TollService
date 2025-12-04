@@ -1,0 +1,28 @@
+[
+  {
+    "plaza_name": "Mainline",
+    "rates": {
+      "5_axles": {
+        "rate_6am_to_9pm": 28.4,
+        "rate_9pm_to_6am": 14.0
+      },
+      "6_axles": {
+        "rate_6am_to_9pm": 35.5,
+        "rate_9pm_to_6am": 17.5
+      }
+    }
+  },
+  {
+    "plaza_name": "Ramps (US287 & Sheridan)",
+    "rates": {
+      "5_axles": {
+        "rate_6am_to_9pm": 15.3,
+        "rate_9pm_to_6am": 5.8
+      },
+      "6_axles": {
+        "rate_6am_to_9pm": 19.4,
+        "rate_9pm_to_6am": 7.35
+      }
+    }
+  }
+]
