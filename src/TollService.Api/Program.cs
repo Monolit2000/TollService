@@ -1,11 +1,12 @@
 using MediatR;
 using Microsoft.EntityFrameworkCore;
-using TollService.Application.Mappings;
+using TollService.Api.Extensions;
+using TollService.Application.Common;
 using TollService.Application.Common.Interfaces;
+using TollService.Application.Mappings;
 using TollService.Infrastructure.Integrations;
 using TollService.Infrastructure.Persistence;
 using TollService.Infrastructure.Services;
-using TollService.Api.Extensions;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -38,6 +39,12 @@ builder.Services.AddScoped<OsmTollParserService>();
 builder.Services.AddScoped<OsmImportService>();
 builder.Services.AddScoped<ISpatialQueryService, SpatialQueryService>();
 builder.Services.AddScoped<RoadRefService>();
+
+builder.Services.AddScoped<CalculatePriceService>();
+builder.Services.AddScoped<StateCalculatorService>();
+builder.Services.AddScoped<TollMatchingService>();
+builder.Services.AddScoped<TollNumberService>();
+builder.Services.AddScoped<TollSearchService>();
 
 // Configure CORS to allow all
 builder.Services.AddCors(options =>
