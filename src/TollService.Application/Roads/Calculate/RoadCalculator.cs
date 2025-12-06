@@ -99,12 +99,17 @@ public class RoadCalculator
                 var price = tollInfoToWithPrice.Price!;
                 var toName = tollInfoTo.Toll.Name;
 
+                var tollPrices = tollInfoTo.Toll.TollPrices;
+                tollInfoTo.Toll.TollPrices = [];
+
                 // Добавляем цену и исключаем оба имени
                 tollPriceDtos.Add(new TollPriceDto
                 {
                     Toll = tollInfoTo.Toll,
                     PayOnline = price.GetAmmountByPaymentType(TollPaymentType.Cash),
-                    IPass = price.GetAmmountByPaymentType(TollPaymentType.EZPass)
+                    IPass = price.GetAmmountByPaymentType(TollPaymentType.EZPass),
+                    TollPrices = price.TollPrices
+
                 });
 
                 // Исключаем все tolls с такими же именами
@@ -115,6 +120,8 @@ public class RoadCalculator
             }
             else
             {
+                var tollPrices = tollInfo.Toll.TollPrices;
+                tollInfo.Toll.TollPrices = [];
                 // Для tolls без StateCalculatorId используем прямые цены
                 var toll = tollInfo.Toll;
                 tollPriceDtos.Add(new TollPriceDto
@@ -124,6 +131,7 @@ public class RoadCalculator
                     IPass = toll.GetAmmountByPaymentType(TollPaymentType.EZPass),
                     PayOnlineOvernight = toll.GetAmmountByPaymentType(TollPaymentType.Cash),
                     PayOnline = toll.GetAmmountByPaymentType(TollPaymentType.Cash),
+                    TollPrices = tollPrices
                 });
 
                 // Исключаем имя из дальнейшей обработки

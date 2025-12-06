@@ -27,7 +27,7 @@ public record ParseMassachusettsInterchangesResult(
 
 
 
-public class ParseMassachusettsInterchangesCommandHandler(
+public class ParseNewYorkInterchangesCommandHandler(
     ITollDbContext context)
     : IRequestHandler<ParseNewYorkInterchangesCommand, ParseMassachusettsInterchangesResult>
 {

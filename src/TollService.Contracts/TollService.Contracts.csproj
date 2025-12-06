@@ -6,4 +6,8 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\TollService.Domain\TollService.Domain.csproj" />
+  </ItemGroup>
+
 </Project>

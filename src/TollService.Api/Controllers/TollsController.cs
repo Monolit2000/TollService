@@ -19,6 +19,7 @@ using TollService.Application.Tolls.Queries;
 using TollService.Contracts;
 using TollService.Infrastructure.Integrations;
 using TollService.Application.TollPriceParser.NY;
+using TollService.Application.TollPriceParser.FL;
 using static TollService.Application.TollPriceParser.NY.ParseNewYorkTollPricesCommandHandler;
 
 namespace TollService.Api.Controllers;
@@ -157,6 +158,19 @@ public class TollsController : ControllerBase
             return NotFound();
         }
         return Ok();
+    }
+
+    [HttpDelete("by-state/{stateCode}")]
+    [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(int))]
+    public async Task<IActionResult> DeleteTollsByState(string stateCode, CancellationToken ct)
+    {
+        if (string.IsNullOrWhiteSpace(stateCode))
+        {
+            return BadRequest("stateCode cannot be empty");
+        }
+
+        var result = await _mediator.Send(new DeleteTollsByStateCommand(stateCode), ct);
+        return Ok(result);
     }
 
     [HttpPost("parse-prices")]
@@ -809,6 +823,54 @@ public class TollsController : ControllerBase
         }
 
         return Ok(result);
+    }
+
+    [HttpPost("link-florida-tolls")]
+    [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(LinkFloridaTollsResult))]
+    [ProducesResponseType(StatusCodes.Status400BadRequest)]
+    public async Task<IActionResult> LinkFloridaTolls(
+        CancellationToken ct = default)
+    {
+        try
+        {
+            var command = new LinkFloridaTollsCommand();
+            var result = await _mediator.Send(command, ct);
+
+            if (!string.IsNullOrWhiteSpace(result.Error))
+            {
+                return BadRequest(result.Error);
+            }
+
+            return Ok(result);
+        }
+        catch (Exception ex)
+        {
+            return BadRequest($"Error processing Florida tolls: {ex.Message}");
+        }
+    }
+
+    [HttpPost("sync-florida-tolls")]
+    [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(SyncFloridaTollsResult))]
+    [ProducesResponseType(StatusCodes.Status400BadRequest)]
+    public async Task<IActionResult> SyncFloridaTolls(
+        CancellationToken ct = default)
+    {
+        try
+        {
+            var command = new SyncFloridaTollsCommand();
+            var result = await _mediator.Send(command, ct);
+
+            if (!string.IsNullOrWhiteSpace(result.Error))
+            {
+                return BadRequest(result.Error);
+            }
+
+            return Ok(result);
+        }
+        catch (Exception ex)
+        {
+            return BadRequest($"Error syncing Florida tolls: {ex.Message}");
+        }
     }
 }
 

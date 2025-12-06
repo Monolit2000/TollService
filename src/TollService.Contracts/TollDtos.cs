@@ -1,3 +1,5 @@
+using TollService.Domain;
+
 namespace TollService.Contracts;
 
 public record RoadDto(Guid Id, string Name, string HighwayType, bool IsToll);
@@ -38,6 +40,8 @@ public class TollWithRouteSectionDto
     public double PayOnline { get; set; }
     public double Distance { get; set; } = 0;
     public double OrderId { get; set; } = 0;
+
+    public List<TollPrice> TollPrices { get; set; }
 }
 
 public record TollDto(

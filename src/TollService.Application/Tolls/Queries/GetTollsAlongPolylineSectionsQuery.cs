@@ -97,6 +97,7 @@ public class GetTollsAlongPolylineSectionsQueryHandler(
                     localToll.PayOnline = priced.PayOnline;
                     localToll.IPassOvernight = priced.IPassOvernight;
                     localToll.PayOnlineOvernight = priced.PayOnlineOvernight;
+                    localToll.TollPrices = priced.TollPrices;
                 }
             }
 
