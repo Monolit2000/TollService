@@ -41,7 +41,7 @@ public class TollWithRouteSectionDto
     public double Distance { get; set; } = 0;
     public double OrderId { get; set; } = 0;
 
-    public List<TollPrice> TollPrices { get; set; }
+    public List<TollPrice> TollPrices { get; set; } = [];
 }
 
 public record TollDto(
