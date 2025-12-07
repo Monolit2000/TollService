@@ -1,6 +1,7 @@
 using TollService.Application.Roads.Commands.CalculateRoutePrice;
 using TollService.Contracts;
 using TollService.Domain;
+using TollPriceDto = TollService.Application.Roads.Commands.CalculateRoutePrice.TollPriceDto;
 
 namespace TollService.Application.Roads.Calculate;
 
