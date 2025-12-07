@@ -15,6 +15,8 @@ public record TollPriceData(
     TollPriceDayOfWeek DayOfWeekFrom = TollPriceDayOfWeek.Any,
     TollPriceDayOfWeek DayOfWeekTo = TollPriceDayOfWeek.Any,
     TollPriceTimeOfDay TimeOfDay = TollPriceTimeOfDay.Any,
+    TimeOnly TimeFrom = default,
+    TimeOnly TimeTo = default,
     string? Description = null);
 
 /// <summary>
@@ -49,7 +51,7 @@ public class CalculatePriceService
             throw new ArgumentException("FromTollId and ToTollId cannot be the same", nameof(toTollId));
 
         var query = _context.CalculatePrices.AsQueryable();
-        
+
         if (includeTollPrices)
         {
             query = query.Include(cp => cp.TollPrices);
@@ -103,7 +105,7 @@ public class CalculatePriceService
         var toIds = pairs.Select(p => p.ToId).Distinct().ToList();
 
         var query = _context.CalculatePrices.AsQueryable();
-        
+
         if (includeTollPrices)
         {
             query = query.Include(cp => cp.TollPrices);
@@ -152,7 +154,7 @@ public class CalculatePriceService
                         if (tollPrice.Amount > 0)
                         {
                             var tollId = tollPrice.TollId == Guid.Empty ? pair.FromId : tollPrice.TollId;
-                            
+
                             SetTollPrice(
                                 newCalculatePrice,
                                 tollId,
@@ -174,7 +176,7 @@ public class CalculatePriceService
             {
                 // Обновляем TollPrice для существующего CalculatePrice
                 var existingCalculatePrice = result[pair];
-                
+
                 if (tollPairsWithPrices.TryGetValue(pair, out var tollPricesList) && tollPricesList != null)
                 {
                     foreach (var tollPrice in tollPricesList)
@@ -182,7 +184,7 @@ public class CalculatePriceService
                         if (tollPrice.Amount > 0)
                         {
                             var tollId = tollPrice.TollId == Guid.Empty ? pair.FromId : tollPrice.TollId;
-                            
+
                             var updatedTollPrice = SetTollPrice(
                                 existingCalculatePrice,
                                 tollId,
@@ -392,7 +394,9 @@ public class CalculatePriceService
                         priceData.DayOfWeekFrom,
                         priceData.DayOfWeekTo,
                         priceData.TimeOfDay,
-                        priceData.Description);
+                        priceData.Description,
+                        priceData.TimeFrom,
+                        priceData.TimeTo);
 
                     createdPrices.Add(tollPrice);
                 }

@@ -5,8 +5,8 @@ using System.Linq;
 using System.Text.Json;
 using System.Text.RegularExpressions;
 using MediatR;
-using Microsoft.EntityFrameworkCore;
 using NetTopologySuite.Geometries;
+using TollService.Application.Common;
 using TollService.Application.Common.Interfaces;
 using TollService.Domain;
 
@@ -42,12 +42,13 @@ public record CaliforniaFoundTollInfo(
 public record LinkCaliforniaTollsResult(
     List<CaliforniaFoundTollInfo> FoundTolls,
     List<string> NotFoundTollPoints,
-    int UpdatedCount,
-    int CreatedCount,
+    int UpdatedTollsCount,
     string? Error = null);
 
 public class LinkCaliforniaTollsCommandHandler(
-    ITollDbContext _context) : IRequestHandler<LinkCaliforniaTollsCommand, LinkCaliforniaTollsResult>
+    ITollDbContext _context,
+    TollSearchService _tollSearchService,
+    CalculatePriceService _calculatePriceService) : IRequestHandler<LinkCaliforniaTollsCommand, LinkCaliforniaTollsResult>
 {
     // California bounds: approximate (south, west, north, east)
     // South: ~32.5°N, West: ~124.5°W, North: ~42.0°N, East: ~114.0°W
@@ -60,7 +61,7 @@ public class LinkCaliforniaTollsCommandHandler(
     {
         if (string.IsNullOrWhiteSpace(request.JsonPayload))
         {
-            return new LinkCaliforniaTollsResult(new(), new(), 0, 0, "JSON payload is empty");
+            return new LinkCaliforniaTollsResult(new(), new(), 0, "JSON payload is empty");
         }
 
         CaliforniaPricesData? data = null;
@@ -76,16 +77,16 @@ public class LinkCaliforniaTollsCommandHandler(
         }
         catch (JsonException jsonEx)
         {
-            return new LinkCaliforniaTollsResult(new(), new(), 0, 0, $"Ошибка парсинга JSON: {jsonEx.Message}");
+            return new LinkCaliforniaTollsResult(new(), new(), 0, $"Ошибка парсинга JSON: {jsonEx.Message}");
         }
 
         if (data?.TollPoints == null || data.TollPoints.Count == 0)
         {
             if (data == null)
             {
-                return new LinkCaliforniaTollsResult(new(), new(), 0, 0, "Не удалось распарсить JSON. Проверьте структуру данных.");
+                return new LinkCaliforniaTollsResult(new(), new(), 0, "Не удалось распарсить JSON. Проверьте структуру данных.");
             }
-            return new LinkCaliforniaTollsResult(new(), new(), 0, 0, "Toll points не найдены в JSON (массив 'toll_points' пуст или отсутствует).");
+            return new LinkCaliforniaTollsResult(new(), new(), 0, "Toll points не найдены в JSON (массив 'toll_points' пуст или отсутствует).");
         }
 
         // Определяем AxelType из vehicle_class_id
@@ -104,20 +105,38 @@ public class LinkCaliforniaTollsCommandHandler(
         };
 
         // Создаем bounding box для California
-        var caBoundingBox = new Polygon(new LinearRing(new[]
+        var caBoundingBox = BoundingBoxHelper.CreateBoundingBox(
+            CaMinLongitude,
+            CaMinLatitude,
+            CaMaxLongitude,
+            CaMaxLatitude);
+
+        // Собираем все уникальные имена toll points для оптимизированного поиска
+        var allTollPointNames = data.TollPoints
+            .Where(tp => !string.IsNullOrWhiteSpace(tp.TollPointName))
+            .Select(tp => tp.TollPointName)
+            .Distinct()
+            .ToList();
+
+        if (allTollPointNames.Count == 0)
         {
-            new Coordinate(CaMinLongitude, CaMinLatitude),
-            new Coordinate(CaMaxLongitude, CaMinLatitude),
-            new Coordinate(CaMaxLongitude, CaMaxLatitude),
-            new Coordinate(CaMinLongitude, CaMaxLatitude),
-            new Coordinate(CaMinLongitude, CaMinLatitude)
-        }))
-        { SRID = 4326 };
+            return new LinkCaliforniaTollsResult(
+                new(),
+                new(),
+                0,
+                "Не найдено ни одного имени toll point");
+        }
+
+        // Оптимизированный поиск tolls: один запрос к БД
+        var tollsByTollPointName = await _tollSearchService.FindMultipleTollsInBoundingBoxAsync(
+            allTollPointNames,
+            caBoundingBox,
+            TollSearchOptions.NameOrKey,
+            ct);
 
         var foundTolls = new List<CaliforniaFoundTollInfo>();
         var notFoundTollPoints = new List<string>();
-        int updatedCount = 0;
-        int createdCount = 0;
+        var tollsToUpdatePrices = new Dictionary<Guid, List<TollPriceData>>();
 
         foreach (var tollPoint in data.TollPoints)
         {
@@ -127,41 +146,8 @@ public class LinkCaliforniaTollsCommandHandler(
                 continue;
             }
 
-            var tollPointNameLower = tollPoint.TollPointName.ToLower();
-
-            // Ищем tolls по name или key в пределах California
-            // Сначала ищем точное совпадение (без учета регистра)
-            var tolls = await _context.Tolls
-                .Where(t =>
-                    t.Location != null &&
-                    caBoundingBox.Contains(t.Location) &&
-                    ((t.Name != null && t.Name.ToLower() == tollPointNameLower) ||
-                     (t.Key != null && t.Key.ToLower() == tollPointNameLower)))
-                .ToListAsync(ct);
-
-            // Если не нашли точное совпадение, пробуем частичное совпадение
-            if (tolls.Count == 0)
-            {
-                // Загружаем все tolls в пределах bounding box и фильтруем в памяти
-                var allTollsInBox = await _context.Tolls
-                    .Where(t =>
-                        t.Location != null &&
-                        caBoundingBox.Contains(t.Location))
-                    .ToListAsync(ct);
-
-                tolls = allTollsInBox
-                    .Where(t =>
-                        (t.Name != null && (t.Name.ToLower().Contains(tollPointNameLower) || tollPointNameLower.Contains(t.Name.ToLower()))) ||
-                        (t.Key != null && (t.Key.ToLower().Contains(tollPointNameLower) || tollPointNameLower.Contains(t.Key.ToLower()))))
-                    .ToList();
-            }
-
-            // Фильтруем tolls: исключаем те, у которых имя и ключ пустые или невалидные
-            tolls = tolls
-                .Where(t => IsValidTollNameOrKey(t.Name) || IsValidTollNameOrKey(t.Key))
-                .ToList();
-
-            if (tolls.Count == 0)
+            // Получаем найденные tolls из словаря
+            if (!tollsByTollPointName.TryGetValue(tollPoint.TollPointName, out var tolls) || tolls.Count == 0)
             {
                 notFoundTollPoints.Add(tollPoint.TollPointName);
                 continue;
@@ -182,116 +168,98 @@ public class LinkCaliforniaTollsCommandHandler(
                 {
                     foreach (var rate in tollPoint.Rates)
                     {
+                        var (dayOfWeekFrom, dayOfWeekTo) = ParseDayPeriod(rate.DayPeriod);
+                        var (timeFrom, timeTo) = ParseTimeWindow(rate.TimeWindow);
+                        var timeOfDay = DetermineTimeOfDay(timeFrom, timeTo);
+
                         // Обрабатываем account_toll (EZPass)
                         if (rate.AccountToll > 0)
                         {
-                            var (dayOfWeekFrom, dayOfWeekTo) = ParseDayPeriod(rate.DayPeriod);
-                            var (timeFrom, timeTo) = ParseTimeWindow(rate.TimeWindow);
-
-                            var existingEzPass = await _context.TollPrices
-                                .FirstOrDefaultAsync(tp =>
-                                    tp.TollId == toll.Id &&
-                                    tp.PaymentType == TollPaymentType.EZPass &&
-                                    tp.AxelType == axelType &&
-                                    tp.DayOfWeekFrom == dayOfWeekFrom &&
-                                    tp.DayOfWeekTo == dayOfWeekTo &&
-                                    tp.TimeFrom == timeFrom &&
-                                    tp.TimeTo == timeTo,
-                                    ct);
-
-                            if (existingEzPass != null)
+                            if (!tollsToUpdatePrices.ContainsKey(toll.Id))
                             {
-                                existingEzPass.Amount = rate.AccountToll;
-                                updatedCount++;
+                                tollsToUpdatePrices[toll.Id] = new List<TollPriceData>();
                             }
-                            else
-                            {
-                                var newEzPassPrice = new TollPrice
-                                {
-                                    Id = Guid.NewGuid(),
-                                    TollId = toll.Id,
-                                    PaymentType = TollPaymentType.EZPass,
-                                    AxelType = axelType,
-                                    DayOfWeekFrom = dayOfWeekFrom,
-                                    DayOfWeekTo = dayOfWeekTo,
-                                    TimeFrom = timeFrom,
-                                    TimeTo = timeTo,
-                                    Amount = rate.AccountToll,
-                                    Description = $"{tollPoint.TollPointName} - {rate.Direction}"
-                                };
-                                toll.TollPrices.Add(newEzPassPrice);
-                                _context.TollPrices.Add(newEzPassPrice);
-                                createdCount++;
-                            }
+
+                            tollsToUpdatePrices[toll.Id].Add(new TollPriceData(
+                                TollId: toll.Id,
+                                Amount: rate.AccountToll,
+                                PaymentType: TollPaymentType.EZPass,
+                                AxelType: axelType,
+                                DayOfWeekFrom: dayOfWeekFrom,
+                                DayOfWeekTo: dayOfWeekTo,
+                                TimeOfDay: timeOfDay,
+                                TimeFrom: timeFrom,
+                                TimeTo: timeTo,
+                                Description: $"{tollPoint.TollPointName} - {rate.Direction}"));
                         }
 
                         // Обрабатываем non_account_toll (Cash)
                         if (rate.NonAccountToll > 0)
                         {
-                            var (dayOfWeekFrom, dayOfWeekTo) = ParseDayPeriod(rate.DayPeriod);
-                            var (timeFrom, timeTo) = ParseTimeWindow(rate.TimeWindow);
-
-                            var existingCash = await _context.TollPrices
-                                .FirstOrDefaultAsync(tp =>
-                                    tp.TollId == toll.Id &&
-                                    tp.PaymentType == TollPaymentType.Cash &&
-                                    tp.AxelType == axelType &&
-                                    tp.DayOfWeekFrom == dayOfWeekFrom &&
-                                    tp.DayOfWeekTo == dayOfWeekTo &&
-                                    tp.TimeFrom == timeFrom &&
-                                    tp.TimeTo == timeTo,
-                                    ct);
-
-                            if (existingCash != null)
+                            if (!tollsToUpdatePrices.ContainsKey(toll.Id))
                             {
-                                existingCash.Amount = rate.NonAccountToll;
-                                updatedCount++;
+                                tollsToUpdatePrices[toll.Id] = new List<TollPriceData>();
                             }
-                            else
-                            {
-                                var newCashPrice = new TollPrice
-                                {
-                                    Id = Guid.NewGuid(),
-                                    TollId = toll.Id,
-                                    PaymentType = TollPaymentType.Cash,
-                                    AxelType = axelType,
-                                    DayOfWeekFrom = dayOfWeekFrom,
-                                    DayOfWeekTo = dayOfWeekTo,
-                                    TimeFrom = timeFrom,
-                                    TimeTo = timeTo,
-                                    Amount = rate.NonAccountToll,
-                                    Description = $"{tollPoint.TollPointName} - {rate.Direction}"
-                                };
-                                toll.TollPrices.Add(newCashPrice);
-                                _context.TollPrices.Add(newCashPrice);
-                                createdCount++;
-                            }
+
+                            tollsToUpdatePrices[toll.Id].Add(new TollPriceData(
+                                TollId: toll.Id,
+                                Amount: rate.NonAccountToll,
+                                PaymentType: TollPaymentType.Cash,
+                                AxelType: axelType,
+                                DayOfWeekFrom: dayOfWeekFrom,
+                                DayOfWeekTo: dayOfWeekTo,
+                                TimeOfDay: timeOfDay,
+                                TimeFrom: timeFrom,
+                                TimeTo: timeTo,
+                                Description: $"{tollPoint.TollPointName} - {rate.Direction}"));
                         }
                     }
                 }
             }
         }
 
+        // Пакетная установка цен
+        int updatedTollsCount = 0;
+        if (tollsToUpdatePrices.Count > 0)
+        {
+            // Конвертируем List в IEnumerable для метода
+            var tollsToUpdatePricesEnumerable = tollsToUpdatePrices.ToDictionary(
+                kvp => kvp.Key,
+                kvp => (IEnumerable<TollPriceData>)kvp.Value);
+
+            var updatedPricesResult = await _calculatePriceService.SetTollPricesDirectlyBatchAsync(
+                tollsToUpdatePricesEnumerable,
+                ct);
+            updatedTollsCount = updatedPricesResult.Count;
+        }
+
+        // Сохраняем все изменения
         await _context.SaveChangesAsync(ct);
 
         return new LinkCaliforniaTollsResult(
             foundTolls,
             notFoundTollPoints,
-            updatedCount,
-            createdCount);
+            updatedTollsCount);
     }
 
-    private static bool IsValidTollNameOrKey(string? nameOrKey)
+    private static TollPriceTimeOfDay DetermineTimeOfDay(TimeOnly timeFrom, TimeOnly timeTo)
     {
-        if (string.IsNullOrWhiteSpace(nameOrKey))
-            return false;
+        // Если время не задано, возвращаем Any
+        if (timeFrom == default && timeTo == default)
+            return TollPriceTimeOfDay.Any;
 
-        // Убираем пробелы и проверяем, не является ли строка только подчеркиваниями
-        var trimmed = nameOrKey.Trim();
-        if (string.IsNullOrWhiteSpace(trimmed) || trimmed == "_" || trimmed.All(c => c == '_'))
-            return false;
+        // Определяем, день это или ночь на основе времени
+        // Обычно день: 6:00 - 21:00, ночь: 21:00 - 6:00
+        // Но здесь используем более простую логику: если время начинается после 6:00 и до 21:00, это день
+        if (timeFrom != default)
+        {
+            var hour = timeFrom.Hour;
+            if (hour >= 6 && hour < 21)
+                return TollPriceTimeOfDay.Day;
+            return TollPriceTimeOfDay.Night;
+        }
 
-        return true;
+        return TollPriceTimeOfDay.Any;
     }
 
     private static (TollPriceDayOfWeek from, TollPriceDayOfWeek to) ParseDayPeriod(string? dayPeriod)
@@ -300,16 +268,16 @@ public class LinkCaliforniaTollsCommandHandler(
             return (TollPriceDayOfWeek.Any, TollPriceDayOfWeek.Any);
 
         var periodLower = dayPeriod.ToLower();
-        
+
         if (periodLower.Contains("monday through friday") || periodLower.Contains("monday-friday"))
             return (TollPriceDayOfWeek.Monday, TollPriceDayOfWeek.Friday);
-        
+
         if (periodLower.Contains("saturday and sunday") || periodLower.Contains("saturday-sunday") || periodLower.Contains("weekend"))
             return (TollPriceDayOfWeek.Saturday, TollPriceDayOfWeek.Sunday);
-        
+
         if (periodLower.Contains("saturday"))
             return (TollPriceDayOfWeek.Saturday, TollPriceDayOfWeek.Saturday);
-        
+
         if (periodLower.Contains("sunday"))
             return (TollPriceDayOfWeek.Sunday, TollPriceDayOfWeek.Sunday);
 
