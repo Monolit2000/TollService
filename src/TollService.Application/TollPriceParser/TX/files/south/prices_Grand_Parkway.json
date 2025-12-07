@@ -1,0 +1,137 @@
+{
+  "toll_rates": {
+    "standard_toll_rates": [
+      {
+        "Toll_Plaza": "Riverpark",
+        "2-Axle": 0.46,
+        "3-Axle": 0.92,
+        "4-Axle": 1.38,
+        "5-Axle": 1.84,
+        "6-Axle": 2.3
+      },
+      {
+        "Toll_Plaza": "New Territory",
+        "2-Axle": 0.46,
+        "3-Axle": 0.92,
+        "4-Axle": 1.38,
+        "5-Axle": 1.84,
+        "6-Axle": 2.3
+      },
+      {
+        "Toll_Plaza": "US 90A",
+        "2-Axle": 0.46,
+        "3-Axle": 0.92,
+        "4-Axle": 1.38,
+        "5-Axle": 1.84,
+        "6-Axle": 2.3
+      },
+      {
+        "Toll_Plaza": "Harlem",
+        "2-Axle": 0.46,
+        "3-Axle": 0.92,
+        "4-Axle": 1.38,
+        "5-Axle": 1.84,
+        "6-Axle": 2.3
+      },
+      {
+        "Toll_Plaza": "West Bellfort",
+        "2-Axle": 0.46,
+        "3-Axle": 0.92,
+        "4-Axle": 1.38,
+        "5-Axle": 1.84,
+        "6-Axle": 2.3
+      },
+      {
+        "Toll_Plaza": "Parkway Peek",
+        "2-Axle": 0.46,
+        "3-Axle": 0.92,
+        "4-Axle": 1.38,
+        "5-Axle": 1.84,
+        "6-Axle": 2.3
+      },
+      {
+        "Toll_Plaza": "Bellaire",
+        "2-Axle": 0.46,
+        "3-Axle": 0.92,
+        "4-Axle": 1.38,
+        "5-Axle": 1.84,
+        "6-Axle": 2.3
+      },
+      {
+        "Toll_Plaza": "Westpark",
+        "2-Axle": 0.46,
+        "3-Axle": 0.92,
+        "4-Axle": 1.38,
+        "5-Axle": 1.84,
+        "6-Axle": 2.3
+      }
+    ],
+    "invalid_transaction_fleet_rates": [
+      {
+        "Toll_Plaza": "Riverpark",
+        "2-Axle": 0.7,
+        "3-Axle": 1.15,
+        "4-Axle": 1.6,
+        "5-Axle": 2.05,
+        "6-Axle": 2.5
+      },
+      {
+        "Toll_Plaza": "New Territory",
+        "2-Axle": 0.7,
+        "3-Axle": 1.15,
+        "4-Axle": 1.6,
+        "5-Axle": 2.05,
+        "6-Axle": 2.5
+      },
+      {
+        "Toll_Plaza": "US 90A",
+        "2-Axle": 0.7,
+        "3-Axle": 1.15,
+        "4-Axle": 1.6,
+        "5-Axle": 2.05,
+        "6-Axle": 2.5
+      },
+      {
+        "Toll_Plaza": "Harlem",
+        "2-Axle": 0.7,
+        "3-Axle": 1.15,
+        "4-Axle": 1.6,
+        "5-Axle": 2.05,
+        "6-Axle": 2.5
+      },
+      {
+        "Toll_Plaza": "West Bellfort",
+        "2-Axle": 0.7,
+        "3-Axle": 1.15,
+        "4-Axle": 1.6,
+        "5-Axle": 2.05,
+        "6-Axle": 2.5
+      },
+      {
+        "Toll_Plaza": "Parkway Peek",
+        "2-Axle": 0.7,
+        "3-Axle": 1.15,
+        "4-Axle": 1.6,
+        "5-Axle": 2.05,
+        "6-Axle": 2.5
+      },
+      {
+        "Toll_Plaza": "Bellaire",
+        "2-Axle": 0.7,
+        "3-Axle": 1.15,
+        "4-Axle": 1.6,
+        "5-Axle": 2.05,
+        "6-Axle": 2.5
+      },
+      {
+        "Toll_Plaza": "Westpark",
+        "2-Axle": 0.7,
+        "3-Axle": 1.15,
+        "4-Axle": 1.6,
+        "5-Axle": 2.05,
+        "6-Axle": 2.5
+      }
+    ]
+  },
+  "link": "https://www.fbctra.com/toll-roads/"
+}

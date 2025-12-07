@@ -1,0 +1,145 @@
+{
+  "toll_locations": [
+    {
+      "name": "Tidwell Road",
+      "type": "EXIT RAMP",
+      "rates": {
+        "2_axles_ez_tag_discount": 0.81,
+        "2_axles_tag": 0.9,
+        "3_axles_tag": 2.0,
+        "4_axles_tag": 3.0,
+        "5_axles_tag": 4.0,
+        "6_axles_tag": 5.0,
+        "7_axles_tag": 6.0,
+        "8_axles_tag": 7.0
+      }
+    },
+    {
+      "name": "Little York",
+      "type": "EXIT RAMP",
+      "rates": {
+        "2_axles_ez_tag_discount": 1.08,
+        "2_axles_tag": 1.2,
+        "3_axles_tag": 2.5,
+        "4_axles_tag": 3.75,
+        "5_axles_tag": 5.0,
+        "6_axles_tag": 6.25,
+        "7_axles_tag": 7.5,
+        "8_axles_tag": 8.75
+      }
+    },
+    {
+      "name": "Aldine Mail Route",
+      "type": "EXIT RAMP",
+      "rates": {
+        "2_axles_ez_tag_discount": 1.08,
+        "2_axles_tag": 1.2,
+        "3_axles_tag": 2.5,
+        "4_axles_tag": 3.75,
+        "5_axles_tag": 5.0,
+        "6_axles_tag": 6.25,
+        "7_axles_tag": 7.5,
+        "8_axles_tag": 8.75
+      }
+    },
+    {
+      "name": "Hardy South Plaza",
+      "type": "PASS THROUGH",
+      "rates": {
+        "2_axles_ez_tag_discount": 1.35,
+        "2_axles_tag": 1.5,
+        "3_axles_tag": 3.5,
+        "4_axles_tag": 5.25,
+        "5_axles_tag": 7.0,
+        "6_axles_tag": 8.75,
+        "7_axles_tag": 10.5,
+        "8_axles_tag": 12.25
+      }
+    },
+    {
+      "name": "Central Greens Blvd",
+      "type": "EXIT RAMP",
+      "rates": {
+        "2_axles_ez_tag_discount": 0.81,
+        "2_axles_tag": 0.9,
+        "3_axles_tag": 2.0,
+        "4_axles_tag": 3.0,
+        "5_axles_tag": 4.0,
+        "6_axles_tag": 5.0,
+        "7_axles_tag": 6.0,
+        "8_axles_tag": 7.0
+      }
+    },
+    {
+      "name": "Airport Connector",
+      "type": "PASS THROUGH",
+      "rates": {
+        "2_axles_ez_tag_discount": 1.08,
+        "2_axles_tag": 1.2,
+        "3_axles_tag": 2.5,
+        "4_axles_tag": 3.75,
+        "5_axles_tag": 5.0,
+        "6_axles_tag": 6.25,
+        "7_axles_tag": 7.5,
+        "8_axles_tag": 8.75
+      }
+    },
+    {
+      "name": "Rankin Road",
+      "type": "EXIT RAMP",
+      "rates": {
+        "2_axles_ez_tag_discount": 0.81,
+        "2_axles_tag": 0.9,
+        "3_axles_tag": 2.0,
+        "4_axles_tag": 3.0,
+        "5_axles_tag": 4.0,
+        "6_axles_tag": 5.0,
+        "7_axles_tag": 6.0,
+        "8_axles_tag": 7.0
+      }
+    },
+    {
+      "name": "Richey Road",
+      "type": "EXIT RAMP",
+      "rates": {
+        "2_axles_ez_tag_discount": 1.08,
+        "2_axles_tag": 1.2,
+        "3_axles_tag": 2.5,
+        "4_axles_tag": 3.75,
+        "5_axles_tag": 5.0,
+        "6_axles_tag": 6.25,
+        "7_axles_tag": 7.5,
+        "8_axles_tag": 8.75
+      }
+    },
+    {
+      "name": "FM 1960",
+      "type": "EXIT RAMP",
+      "rates": {
+        "2_axles_ez_tag_discount": 1.08,
+        "2_axles_tag": 1.2,
+        "3_axles_tag": 2.5,
+        "4_axles_tag": 3.75,
+        "5_axles_tag": 5.0,
+        "6_axles_tag": 6.25,
+        "7_axles_tag": 7.5,
+        "8_axles_tag": 8.75
+      }
+    },
+    {
+      "name": "Hardy North Plaza",
+      "type": "PASS THROUGH",
+      "rates": {
+        "2_axles_ez_tag_discount": 1.35,
+        "2_axles_tag": 1.5,
+        "3_axles_tag": 3.5,
+        "4_axles_tag": 5.25,
+        "5_axles_tag": 7.0,
+        "6_axles_tag": 8.75,
+        "7_axles_tag": 10.5,
+        "8_axles_tag": 12.25
+      }
+    }
+  ],
+  "link": "https://www.hctra.org/TollRates?tollRoad=Hardy+Toll+Road"
+}

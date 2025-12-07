@@ -1,0 +1,1362 @@
+[
+  {
+    "from": "Toll N.C. 885 at I-40",
+    "to": "Hopson Rd. / Davis Dr. (3/2)",
+    "rate_x4": 1.84
+  },
+  {
+    "from": "Toll N.C. 885 at I-40",
+    "to": "Chapel Hill Rd. / N.C. 54 (69)",
+    "rate_x4": 4.04
+  },
+  {
+    "from": "Toll N.C. 885 at I-40",
+    "to": "N.C. 55 (66)",
+    "rate_x4": 5.08
+  },
+  {
+    "from": "Toll N.C. 885 at I-40",
+    "to": "Morrisville Pkwy (64)",
+    "rate_x4": 7.28
+  },
+  {
+    "from": "Toll N.C. 885 at I-40",
+    "to": "Green Level West Rd. (62)",
+    "rate_x4": 9.12
+  },
+  {
+    "from": "Toll N.C. 885 at I-40",
+    "to": "U.S. 64 (59)",
+    "rate_x4": 11.36
+  },
+  {
+    "from": "Toll N.C. 885 at I-40",
+    "to": "Old U.S. Hwy 1 / S. Salem St. (57)",
+    "rate_x4": 14.12
+  },
+  {
+    "from": "Toll N.C. 885 at I-40",
+    "to": "U.S. 1 (56)",
+    "rate_x4": 14.12
+  },
+  {
+    "from": "Toll N.C. 885 at I-40",
+    "to": "Veridea Pkwy (55)",
+    "rate_x4": 15.52
+  },
+  {
+    "from": "Toll N.C. 885 at I-40",
+    "to": "N.C. 55 (54)",
+    "rate_x4": 16.2
+  },
+  {
+    "from": "Toll N.C. 885 at I-40",
+    "to": "Holly Springs Rd. (50)",
+    "rate_x4": 19.16
+  },
+  {
+    "from": "Toll N.C. 885 at I-40",
+    "to": "Bells Lake Rd. (47)",
+    "rate_x4": 21.88
+  },
+  {
+    "from": "Toll N.C. 885 at I-40",
+    "to": "U.S. 401 (45)",
+    "rate_x4": 24.48
+  },
+  {
+    "from": "Toll N.C. 885 at I-40",
+    "to": "Old Stage Rd. (43)",
+    "rate_x4": 26.56
+  },
+  {
+    "from": "Toll N.C. 885 at I-40",
+    "to": "N.C. 50 (39)",
+    "rate_x4": 30.56
+  },
+  {
+    "from": "Toll N.C. 885 at I-40",
+    "to": "I-40 (36)",
+    "rate_x4": 32.96
+  },
+  {
+    "from": "Hopson Rd. / Davis Dr. (3/2)",
+    "to": "Toll N.C. 885 at I-40",
+    "rate_x4": 1.84
+  },
+  {
+    "from": "Hopson Rd. / Davis Dr. (3/2)",
+    "to": "Chapel Hill Rd. / N.C. 54 (69)",
+    "rate_x4": 4.04
+  },
+  {
+    "from": "Hopson Rd. / Davis Dr. (3/2)",
+    "to": "N.C. 55 (66)",
+    "rate_x4": 5.08
+  },
+  {
+    "from": "Hopson Rd. / Davis Dr. (3/2)",
+    "to": "Morrisville Pkwy (64)",
+    "rate_x4": 7.28
+  },
+  {
+    "from": "Hopson Rd. / Davis Dr. (3/2)",
+    "to": "Green Level West Rd. (62)",
+    "rate_x4": 9.12
+  },
+  {
+    "from": "Hopson Rd. / Davis Dr. (3/2)",
+    "to": "U.S. 64 (59)",
+    "rate_x4": 11.36
+  },
+  {
+    "from": "Hopson Rd. / Davis Dr. (3/2)",
+    "to": "Old U.S. Hwy 1 / S. Salem St. (57)",
+    "rate_x4": 14.12
+  },
+  {
+    "from": "Hopson Rd. / Davis Dr. (3/2)",
+    "to": "U.S. 1 (56)",
+    "rate_x4": 14.12
+  },
+  {
+    "from": "Hopson Rd. / Davis Dr. (3/2)",
+    "to": "Veridea Pkwy (55)",
+    "rate_x4": 15.52
+  },
+  {
+    "from": "Hopson Rd. / Davis Dr. (3/2)",
+    "to": "N.C. 55 (54)",
+    "rate_x4": 16.2
+  },
+  {
+    "from": "Hopson Rd. / Davis Dr. (3/2)",
+    "to": "Holly Springs Rd. (50)",
+    "rate_x4": 19.16
+  },
+  {
+    "from": "Hopson Rd. / Davis Dr. (3/2)",
+    "to": "Bells Lake Rd. (47)",
+    "rate_x4": 21.88
+  },
+  {
+    "from": "Hopson Rd. / Davis Dr. (3/2)",
+    "to": "U.S. 401 (45)",
+    "rate_x4": 24.48
+  },
+  {
+    "from": "Hopson Rd. / Davis Dr. (3/2)",
+    "to": "Old Stage Rd. (43)",
+    "rate_x4": 26.56
+  },
+  {
+    "from": "Hopson Rd. / Davis Dr. (3/2)",
+    "to": "N.C. 50 (39)",
+    "rate_x4": 30.56
+  },
+  {
+    "from": "Hopson Rd. / Davis Dr. (3/2)",
+    "to": "I-40 (36)",
+    "rate_x4": 32.96
+  },
+  {
+    "from": "Chapel Hill Rd. / N.C. 54 (69)",
+    "to": "Toll N.C. 885 at I-40",
+    "rate_x4": 4.04
+  },
+  {
+    "from": "Chapel Hill Rd. / N.C. 54 (69)",
+    "to": "Hopson Rd. / Davis Dr. (3/2)",
+    "rate_x4": 4.04
+  },
+  {
+    "from": "Chapel Hill Rd. / N.C. 54 (69)",
+    "to": "N.C. 55 (66)",
+    "rate_x4": 3.24
+  },
+  {
+    "from": "Chapel Hill Rd. / N.C. 54 (69)",
+    "to": "Morrisville Pkwy (64)",
+    "rate_x4": 5.44
+  },
+  {
+    "from": "Chapel Hill Rd. / N.C. 54 (69)",
+    "to": "Green Level West Rd. (62)",
+    "rate_x4": 7.28
+  },
+  {
+    "from": "Chapel Hill Rd. / N.C. 54 (69)",
+    "to": "U.S. 64 (59)",
+    "rate_x4": 9.52
+  },
+  {
+    "from": "Chapel Hill Rd. / N.C. 54 (69)",
+    "to": "Old U.S. Hwy 1 / S. Salem St. (57)",
+    "rate_x4": 12.28
+  },
+  {
+    "from": "Chapel Hill Rd. / N.C. 54 (69)",
+    "to": "U.S. 1 (56)",
+    "rate_x4": 12.28
+  },
+  {
+    "from": "Chapel Hill Rd. / N.C. 54 (69)",
+    "to": "Veridea Pkwy (55)",
+    "rate_x4": 13.68
+  },
+  {
+    "from": "Chapel Hill Rd. / N.C. 54 (69)",
+    "to": "N.C. 55 (54)",
+    "rate_x4": 14.36
+  },
+  {
+    "from": "Chapel Hill Rd. / N.C. 54 (69)",
+    "to": "Holly Springs Rd. (50)",
+    "rate_x4": 17.32
+  },
+  {
+    "from": "Chapel Hill Rd. / N.C. 54 (69)",
+    "to": "Bells Lake Rd. (47)",
+    "rate_x4": 20.04
+  },
+  {
+    "from": "Chapel Hill Rd. / N.C. 54 (69)",
+    "to": "U.S. 401 (45)",
+    "rate_x4": 22.64
+  },
+  {
+    "from": "Chapel Hill Rd. / N.C. 54 (69)",
+    "to": "Old Stage Rd. (43)",
+    "rate_x4": 24.72
+  },
+  {
+    "from": "Chapel Hill Rd. / N.C. 54 (69)",
+    "to": "N.C. 50 (39)",
+    "rate_x4": 28.72
+  },
+  {
+    "from": "Chapel Hill Rd. / N.C. 54 (69)",
+    "to": "I-40 (36)",
+    "rate_x4": 31.12
+  },
+  {
+    "from": "N.C. 55 (66)",
+    "to": "Toll N.C. 885 at I-40",
+    "rate_x4": 5.08
+  },
+  {
+    "from": "N.C. 55 (66)",
+    "to": "Hopson Rd. / Davis Dr. (3/2)",
+    "rate_x4": 5.08
+  },
+  {
+    "from": "N.C. 55 (66)",
+    "to": "Chapel Hill Rd. / N.C. 54 (69)",
+    "rate_x4": 3.24
+  },
+  {
+    "from": "N.C. 55 (66)",
+    "to": "Morrisville Pkwy (64)",
+    "rate_x4": 2.2
+  },
+  {
+    "from": "N.C. 55 (66)",
+    "to": "Green Level West Rd. (62)",
+    "rate_x4": 4.04
+  },
+  {
+    "from": "N.C. 55 (66)",
+    "to": "U.S. 64 (59)",
+    "rate_x4": 6.28
+  },
+  {
+    "from": "N.C. 55 (66)",
+    "to": "Old U.S. Hwy 1 / S. Salem St. (57)",
+    "rate_x4": 9.04
+  },
+  {
+    "from": "N.C. 55 (66)",
+    "to": "U.S. 1 (56)",
+    "rate_x4": 9.04
+  },
+  {
+    "from": "N.C. 55 (66)",
+    "to": "Veridea Pkwy (55)",
+    "rate_x4": 10.44
+  },
+  {
+    "from": "N.C. 55 (66)",
+    "to": "N.C. 55 (54)",
+    "rate_x4": 11.12
+  },
+  {
+    "from": "N.C. 55 (66)",
+    "to": "Holly Springs Rd. (50)",
+    "rate_x4": 14.08
+  },
+  {
+    "from": "N.C. 55 (66)",
+    "to": "Bells Lake Rd. (47)",
+    "rate_x4": 16.8
+  },
+  {
+    "from": "N.C. 55 (66)",
+    "to": "U.S. 401 (45)",
+    "rate_x4": 19.4
+  },
+  {
+    "from": "N.C. 55 (66)",
+    "to": "Old Stage Rd. (43)",
+    "rate_x4": 21.48
+  },
+  {
+    "from": "N.C. 55 (66)",
+    "to": "N.C. 50 (39)",
+    "rate_x4": 25.48
+  },
+  {
+    "from": "N.C. 55 (66)",
+    "to": "I-40 (36)",
+    "rate_x4": 27.88
+  },
+  {
+    "from": "Morrisville Pkwy (64)",
+    "to": "Toll N.C. 885 at I-40",
+    "rate_x4": 7.28
+  },
+  {
+    "from": "Morrisville Pkwy (64)",
+    "to": "Hopson Rd. / Davis Dr. (3/2)",
+    "rate_x4": 7.28
+  },
+  {
+    "from": "Morrisville Pkwy (64)",
+    "to": "Chapel Hill Rd. / N.C. 54 (69)",
+    "rate_x4": 5.44
+  },
+  {
+    "from": "Morrisville Pkwy (64)",
+    "to": "N.C. 55 (66)",
+    "rate_x4": 2.2
+  },
+  {
+    "from": "Morrisville Pkwy (64)",
+    "to": "Green Level West Rd. (62)",
+    "rate_x4": 1.84
+  },
+  {
+    "from": "Morrisville Pkwy (64)",
+    "to": "U.S. 64 (59)",
+    "rate_x4": 4.08
+  },
+  {
+    "from": "Morrisville Pkwy (64)",
+    "to": "Old U.S. Hwy 1 / S. Salem St. (57)",
+    "rate_x4": 6.84
+  },
+  {
+    "from": "Morrisville Pkwy (64)",
+    "to": "U.S. 1 (56)",
+    "rate_x4": 6.84
+  },
+  {
+    "from": "Morrisville Pkwy (64)",
+    "to": "Veridea Pkwy (55)",
+    "rate_x4": 8.24
+  },
+  {
+    "from": "Morrisville Pkwy (64)",
+    "to": "N.C. 55 (54)",
+    "rate_x4": 8.92
+  },
+  {
+    "from": "Morrisville Pkwy (64)",
+    "to": "Holly Springs Rd. (50)",
+    "rate_x4": 11.88
+  },
+  {
+    "from": "Morrisville Pkwy (64)",
+    "to": "Bells Lake Rd. (47)",
+    "rate_x4": 14.6
+  },
+  {
+    "from": "Morrisville Pkwy (64)",
+    "to": "U.S. 401 (45)",
+    "rate_x4": 17.2
+  },
+  {
+    "from": "Morrisville Pkwy (64)",
+    "to": "Old Stage Rd. (43)",
+    "rate_x4": 19.28
+  },
+  {
+    "from": "Morrisville Pkwy (64)",
+    "to": "N.C. 50 (39)",
+    "rate_x4": 23.28
+  },
+  {
+    "from": "Morrisville Pkwy (64)",
+    "to": "I-40 (36)",
+    "rate_x4": 25.68
+  },
+  {
+    "from": "Green Level West Rd. (62)",
+    "to": "Toll N.C. 885 at I-40",
+    "rate_x4": 9.12
+  },
+  {
+    "from": "Green Level West Rd. (62)",
+    "to": "Hopson Rd. / Davis Dr. (3/2)",
+    "rate_x4": 9.12
+  },
+  {
+    "from": "Green Level West Rd. (62)",
+    "to": "Chapel Hill Rd. / N.C. 54 (69)",
+    "rate_x4": 7.28
+  },
+  {
+    "from": "Green Level West Rd. (62)",
+    "to": "N.C. 55 (66)",
+    "rate_x4": 4.04
+  },
+  {
+    "from": "Green Level West Rd. (62)",
+    "to": "Morrisville Pkwy (64)",
+    "rate_x4": 1.84
+  },
+  {
+    "from": "Green Level West Rd. (62)",
+    "to": "U.S. 64 (59)",
+    "rate_x4": 2.24
+  },
+  {
+    "from": "Green Level West Rd. (62)",
+    "to": "Old U.S. Hwy 1 / S. Salem St. (57)",
+    "rate_x4": 5.0
+  },
+  {
+    "from": "Green Level West Rd. (62)",
+    "to": "U.S. 1 (56)",
+    "rate_x4": 5.0
+  },
+  {
+    "from": "Green Level West Rd. (62)",
+    "to": "Veridea Pkwy (55)",
+    "rate_x4": 6.4
+  },
+  {
+    "from": "Green Level West Rd. (62)",
+    "to": "N.C. 55 (54)",
+    "rate_x4": 7.08
+  },
+  {
+    "from": "Green Level West Rd. (62)",
+    "to": "Holly Springs Rd. (50)",
+    "rate_x4": 10.04
+  },
+  {
+    "from": "Green Level West Rd. (62)",
+    "to": "Bells Lake Rd. (47)",
+    "rate_x4": 12.76
+  },
+  {
+    "from": "Green Level West Rd. (62)",
+    "to": "U.S. 401 (45)",
+    "rate_x4": 15.36
+  },
+  {
+    "from": "Green Level West Rd. (62)",
+    "to": "Old Stage Rd. (43)",
+    "rate_x4": 17.44
+  },
+  {
+    "from": "Green Level West Rd. (62)",
+    "to": "N.C. 50 (39)",
+    "rate_x4": 21.44
+  },
+  {
+    "from": "Green Level West Rd. (62)",
+    "to": "I-40 (36)",
+    "rate_x4": 23.84
+  },
+  {
+    "from": "U.S. 64 (59)",
+    "to": "Toll N.C. 885 at I-40",
+    "rate_x4": 11.36
+  },
+  {
+    "from": "U.S. 64 (59)",
+    "to": "Hopson Rd. / Davis Dr. (3/2)",
+    "rate_x4": 11.36
+  },
+  {
+    "from": "U.S. 64 (59)",
+    "to": "Chapel Hill Rd. / N.C. 54 (69)",
+    "rate_x4": 9.52
+  },
+  {
+    "from": "U.S. 64 (59)",
+    "to": "N.C. 55 (66)",
+    "rate_x4": 6.28
+  },
+  {
+    "from": "U.S. 64 (59)",
+    "to": "Morrisville Pkwy (64)",
+    "rate_x4": 4.08
+  },
+  {
+    "from": "U.S. 64 (59)",
+    "to": "Green Level West Rd. (62)",
+    "rate_x4": 2.24
+  },
+  {
+    "from": "U.S. 64 (59)",
+    "to": "Old U.S. Hwy 1 / S. Salem St. (57)",
+    "rate_x4": 5.0
+  },
+  {
+    "from": "U.S. 64 (59)",
+    "to": "U.S. 1 (56)",
+    "rate_x4": 5.0
+  },
+  {
+    "from": "U.S. 64 (59)",
+    "to": "Veridea Pkwy (55)",
+    "rate_x4": 6.4
+  },
+  {
+    "from": "U.S. 64 (59)",
+    "to": "N.C. 55 (54)",
+    "rate_x4": 7.08
+  },
+  {
+    "from": "U.S. 64 (59)",
+    "to": "Holly Springs Rd. (50)",
+    "rate_x4": 10.04
+  },
+  {
+    "from": "U.S. 64 (59)",
+    "to": "Bells Lake Rd. (47)",
+    "rate_x4": 12.76
+  },
+  {
+    "from": "U.S. 64 (59)",
+    "to": "U.S. 401 (45)",
+    "rate_x4": 15.36
+  },
+  {
+    "from": "U.S. 64 (59)",
+    "to": "Old Stage Rd. (43)",
+    "rate_x4": 17.44
+  },
+  {
+    "from": "U.S. 64 (59)",
+    "to": "N.C. 50 (39)",
+    "rate_x4": 21.44
+  },
+  {
+    "from": "U.S. 64 (59)",
+    "to": "I-40 (36)",
+    "rate_x4": 23.84
+  },
+  {
+    "from": "Old U.S. Hwy 1 / S. Salem St. (57)",
+    "to": "Toll N.C. 885 at I-40",
+    "rate_x4": 14.12
+  },
+  {
+    "from": "Old U.S. Hwy 1 / S. Salem St. (57)",
+    "to": "Hopson Rd. / Davis Dr. (3/2)",
+    "rate_x4": 14.12
+  },
+  {
+    "from": "Old U.S. Hwy 1 / S. Salem St. (57)",
+    "to": "Chapel Hill Rd. / N.C. 54 (69)",
+    "rate_x4": 12.28
+  },
+  {
+    "from": "Old U.S. Hwy 1 / S. Salem St. (57)",
+    "to": "N.C. 55 (66)",
+    "rate_x4": 9.04
+  },
+  {
+    "from": "Old U.S. Hwy 1 / S. Salem St. (57)",
+    "to": "Morrisville Pkwy (64)",
+    "rate_x4": 6.84
+  },
+  {
+    "from": "Old U.S. Hwy 1 / S. Salem St. (57)",
+    "to": "Green Level West Rd. (62)",
+    "rate_x4": 5.0
+  },
+  {
+    "from": "Old U.S. Hwy 1 / S. Salem St. (57)",
+    "to": "U.S. 64 (59)",
+    "rate_x4": 5.0
+  },
+  {
+    "from": "Old U.S. Hwy 1 / S. Salem St. (57)",
+    "to": "U.S. 1 (56)",
+    "rate_x4": 1.28
+  },
+  {
+    "from": "Old U.S. Hwy 1 / S. Salem St. (57)",
+    "to": "Veridea Pkwy (55)",
+    "rate_x4": 2.68
+  },
+  {
+    "from": "Old U.S. Hwy 1 / S. Salem St. (57)",
+    "to": "N.C. 55 (54)",
+    "rate_x4": 3.36
+  },
+  {
+    "from": "Old U.S. Hwy 1 / S. Salem St. (57)",
+    "to": "Holly Springs Rd. (50)",
+    "rate_x4": 6.32
+  },
+  {
+    "from": "Old U.S. Hwy 1 / S. Salem St. (57)",
+    "to": "Bells Lake Rd. (47)",
+    "rate_x4": 9.04
+  },
+  {
+    "from": "Old U.S. Hwy 1 / S. Salem St. (57)",
+    "to": "U.S. 401 (45)",
+    "rate_x4": 11.64
+  },
+  {
+    "from": "Old U.S. Hwy 1 / S. Salem St. (57)",
+    "to": "Old Stage Rd. (43)",
+    "rate_x4": 13.72
+  },
+  {
+    "from": "Old U.S. Hwy 1 / S. Salem St. (57)",
+    "to": "N.C. 50 (39)",
+    "rate_x4": 17.72
+  },
+  {
+    "from": "Old U.S. Hwy 1 / S. Salem St. (57)",
+    "to": "I-40 (36)",
+    "rate_x4": 20.12
+  },
+  {
+    "from": "U.S. 1 (56)",
+    "to": "Toll N.C. 885 at I-40",
+    "rate_x4": 14.12
+  },
+  {
+    "from": "U.S. 1 (56)",
+    "to": "Hopson Rd. / Davis Dr. (3/2)",
+    "rate_x4": 14.12
+  },
+  {
+    "from": "U.S. 1 (56)",
+    "to": "Chapel Hill Rd. / N.C. 54 (69)",
+    "rate_x4": 12.28
+  },
+  {
+    "from": "U.S. 1 (56)",
+    "to": "N.C. 55 (66)",
+    "rate_x4": 9.04
+  },
+  {
+    "from": "U.S. 1 (56)",
+    "to": "Morrisville Pkwy (64)",
+    "rate_x4": 6.84
+  },
+  {
+    "from": "U.S. 1 (56)",
+    "to": "Green Level West Rd. (62)",
+    "rate_x4": 5.0
+  },
+  {
+    "from": "U.S. 1 (56)",
+    "to": "U.S. 64 (59)",
+    "rate_x4": 5.0
+  },
+  {
+    "from": "U.S. 1 (56)",
+    "to": "Old U.S. Hwy 1 / S. Salem St. (57)",
+    "rate_x4": 1.28
+  },
+  {
+    "from": "U.S. 1 (56)",
+    "to": "Veridea Pkwy (55)",
+    "rate_x4": 1.4
+  },
+  {
+    "from": "U.S. 1 (56)",
+    "to": "N.C. 55 (54)",
+    "rate_x4": 2.08
+  },
+  {
+    "from": "U.S. 1 (56)",
+    "to": "Holly Springs Rd. (50)",
+    "rate_x4": 5.04
+  },
+  {
+    "from": "U.S. 1 (56)",
+    "to": "Bells Lake Rd. (47)",
+    "rate_x4": 7.76
+  },
+  {
+    "from": "U.S. 1 (56)",
+    "to": "U.S. 401 (45)",
+    "rate_x4": 10.36
+  },
+  {
+    "from": "U.S. 1 (56)",
+    "to": "Old Stage Rd. (43)",
+    "rate_x4": 12.44
+  },
+  {
+    "from": "U.S. 1 (56)",
+    "to": "N.C. 50 (39)",
+    "rate_x4": 16.44
+  },
+  {
+    "from": "U.S. 1 (56)",
+    "to": "I-40 (36)",
+    "rate_x4": 18.84
+  },
+  {
+    "from": "Veridea Pkwy (55)",
+    "to": "Toll N.C. 885 at I-40",
+    "rate_x4": 15.52
+  },
+  {
+    "from": "Veridea Pkwy (55)",
+    "to": "Hopson Rd. / Davis Dr. (3/2)",
+    "rate_x4": 15.52
+  },
+  {
+    "from": "Veridea Pkwy (55)",
+    "to": "Chapel Hill Rd. / N.C. 54 (69)",
+    "rate_x4": 13.68
+  },
+  {
+    "from": "Veridea Pkwy (55)",
+    "to": "N.C. 55 (66)",
+    "rate_x4": 10.44
+  },
+  {
+    "from": "Veridea Pkwy (55)",
+    "to": "Morrisville Pkwy (64)",
+    "rate_x4": 8.24
+  },
+  {
+    "from": "Veridea Pkwy (55)",
+    "to": "Green Level West Rd. (62)",
+    "rate_x4": 6.4
+  },
+  {
+    "from": "Veridea Pkwy (55)",
+    "to": "U.S. 64 (59)",
+    "rate_x4": 6.4
+  },
+  {
+    "from": "Veridea Pkwy (55)",
+    "to": "Old U.S. Hwy 1 / S. Salem St. (57)",
+    "rate_x4": 2.68
+  },
+  {
+    "from": "Veridea Pkwy (55)",
+    "to": "U.S. 1 (56)",
+    "rate_x4": 1.4
+  },
+  {
+    "from": "Veridea Pkwy (55)",
+    "to": "N.C. 55 (54)",
+    "rate_x4": 2.08
+  },
+  {
+    "from": "Veridea Pkwy (55)",
+    "to": "Holly Springs Rd. (50)",
+    "rate_x4": 5.04
+  },
+  {
+    "from": "Veridea Pkwy (55)",
+    "to": "Bells Lake Rd. (47)",
+    "rate_x4": 7.76
+  },
+  {
+    "from": "Veridea Pkwy (55)",
+    "to": "U.S. 401 (45)",
+    "rate_x4": 10.36
+  },
+  {
+    "from": "Veridea Pkwy (55)",
+    "to": "Old Stage Rd. (43)",
+    "rate_x4": 12.44
+  },
+  {
+    "from": "Veridea Pkwy (55)",
+    "to": "N.C. 50 (39)",
+    "rate_x4": 16.44
+  },
+  {
+    "from": "Veridea Pkwy (55)",
+    "to": "I-40 (36)",
+    "rate_x4": 18.84
+  },
+  {
+    "from": "N.C. 55 (54)",
+    "to": "Toll N.C. 885 at I-40",
+    "rate_x4": 16.2
+  },
+  {
+    "from": "N.C. 55 (54)",
+    "to": "Hopson Rd. / Davis Dr. (3/2)",
+    "rate_x4": 16.2
+  },
+  {
+    "from": "N.C. 55 (54)",
+    "to": "Chapel Hill Rd. / N.C. 54 (69)",
+    "rate_x4": 14.36
+  },
+  {
+    "from": "N.C. 55 (54)",
+    "to": "N.C. 55 (66)",
+    "rate_x4": 11.12
+  },
+  {
+    "from": "N.C. 55 (54)",
+    "to": "Morrisville Pkwy (64)",
+    "rate_x4": 8.92
+  },
+  {
+    "from": "N.C. 55 (54)",
+    "to": "Green Level West Rd. (62)",
+    "rate_x4": 7.08
+  },
+  {
+    "from": "N.C. 55 (54)",
+    "to": "U.S. 64 (59)",
+    "rate_x4": 7.08
+  },
+  {
+    "from": "N.C. 55 (54)",
+    "to": "Old U.S. Hwy 1 / S. Salem St. (57)",
+    "rate_x4": 3.36
+  },
+  {
+    "from": "N.C. 55 (54)",
+    "to": "U.S. 1 (56)",
+    "rate_x4": 2.08
+  },
+  {
+    "from": "N.C. 55 (54)",
+    "to": "Veridea Pkwy (55)",
+    "rate_x4": 2.08
+  },
+  {
+    "from": "N.C. 55 (54)",
+    "to": "Holly Springs Rd. (50)",
+    "rate_x4": 2.96
+  },
+  {
+    "from": "N.C. 55 (54)",
+    "to": "Bells Lake Rd. (47)",
+    "rate_x4": 5.68
+  },
+  {
+    "from": "N.C. 55 (54)",
+    "to": "U.S. 401 (45)",
+    "rate_x4": 8.28
+  },
+  {
+    "from": "N.C. 55 (54)",
+    "to": "Old Stage Rd. (43)",
+    "rate_x4": 10.36
+  },
+  {
+    "from": "N.C. 55 (54)",
+    "to": "N.C. 50 (39)",
+    "rate_x4": 14.36
+  },
+  {
+    "from": "N.C. 55 (54)",
+    "to": "I-40 (36)",
+    "rate_x4": 16.76
+  },
+  {
+    "from": "Holly Springs Rd. (50)",
+    "to": "Toll N.C. 885 at I-40",
+    "rate_x4": 19.16
+  },
+  {
+    "from": "Holly Springs Rd. (50)",
+    "to": "Hopson Rd. / Davis Dr. (3/2)",
+    "rate_x4": 19.16
+  },
+  {
+    "from": "Holly Springs Rd. (50)",
+    "to": "Chapel Hill Rd. / N.C. 54 (69)",
+    "rate_x4": 17.32
+  },
+  {
+    "from": "Holly Springs Rd. (50)",
+    "to": "N.C. 55 (66)",
+    "rate_x4": 14.08
+  },
+  {
+    "from": "Holly Springs Rd. (50)",
+    "to": "Morrisville Pkwy (64)",
+    "rate_x4": 11.88
+  },
+  {
+    "from": "Holly Springs Rd. (50)",
+    "to": "Green Level West Rd. (62)",
+    "rate_x4": 10.04
+  },
+  {
+    "from": "Holly Springs Rd. (50)",
+    "to": "U.S. 64 (59)",
+    "rate_x4": 10.04
+  },
+  {
+    "from": "Holly Springs Rd. (50)",
+    "to": "Old U.S. Hwy 1 / S. Salem St. (57)",
+    "rate_x4": 6.32
+  },
+  {
+    "from": "Holly Springs Rd. (50)",
+    "to": "U.S. 1 (56)",
+    "rate_x4": 5.04
+  },
+  {
+    "from": "Holly Springs Rd. (50)",
+    "to": "Veridea Pkwy (55)",
+    "rate_x4": 5.04
+  },
+  {
+    "from": "Holly Springs Rd. (50)",
+    "to": "N.C. 55 (54)",
+    "rate_x4": 2.96
+  },
+  {
+    "from": "Holly Springs Rd. (50)",
+    "to": "Bells Lake Rd. (47)",
+    "rate_x4": 2.72
+  },
+  {
+    "from": "Holly Springs Rd. (50)",
+    "to": "U.S. 401 (45)",
+    "rate_x4": 5.32
+  },
+  {
+    "from": "Holly Springs Rd. (50)",
+    "to": "Old Stage Rd. (43)",
+    "rate_x4": 7.4
+  },
+  {
+    "from": "Holly Springs Rd. (50)",
+    "to": "N.C. 50 (39)",
+    "rate_x4": 11.4
+  },
+  {
+    "from": "Holly Springs Rd. (50)",
+    "to": "I-40 (36)",
+    "rate_x4": 13.8
+  },
+  {
+    "from": "Bells Lake Rd. (47)",
+    "to": "Toll N.C. 885 at I-40",
+    "rate_x4": 21.88
+  },
+  {
+    "from": "Bells Lake Rd. (47)",
+    "to": "Hopson Rd. / Davis Dr. (3/2)",
+    "rate_x4": 21.88
+  },
+  {
+    "from": "Bells Lake Rd. (47)",
+    "to": "Chapel Hill Rd. / N.C. 54 (69)",
+    "rate_x4": 20.04
+  },
+  {
+    "from": "Bells Lake Rd. (47)",
+    "to": "N.C. 55 (66)",
+    "rate_x4": 16.8
+  },
+  {
+    "from": "Bells Lake Rd. (47)",
+    "to": "Morrisville Pkwy (64)",
+    "rate_x4": 14.6
+  },
+  {
+    "from": "Bells Lake Rd. (47)",
+    "to": "Green Level West Rd. (62)",
+    "rate_x4": 12.76
+  },
+  {
+    "from": "Bells Lake Rd. (47)",
+    "to": "U.S. 64 (59)",
+    "rate_x4": 12.76
+  },
+  {
+    "from": "Bells Lake Rd. (47)",
+    "to": "Old U.S. Hwy 1 / S. Salem St. (57)",
+    "rate_x4": 9.04
+  },
+  {
+    "from": "Bells Lake Rd. (47)",
+    "to": "U.S. 1 (56)",
+    "rate_x4": 7.76
+  },
+  {
+    "from": "Bells Lake Rd. (47)",
+    "to": "Veridea Pkwy (55)",
+    "rate_x4": 7.76
+  },
+  {
+    "from": "Bells Lake Rd. (47)",
+    "to": "N.C. 55 (54)",
+    "rate_x4": 5.68
+  },
+  {
+    "from": "Bells Lake Rd. (47)",
+    "to": "Holly Springs Rd. (50)",
+    "rate_x4": 2.72
+  },
+  {
+    "from": "Bells Lake Rd. (47)",
+    "to": "U.S. 401 (45)",
+    "rate_x4": 2.6
+  },
+  {
+    "from": "Bells Lake Rd. (47)",
+    "to": "Old Stage Rd. (43)",
+    "rate_x4": 4.68
+  },
+  {
+    "from": "Bells Lake Rd. (47)",
+    "to": "N.C. 50 (39)",
+    "rate_x4": 8.68
+  },
+  {
+    "from": "Bells Lake Rd. (47)",
+    "to": "I-40 (36)",
+    "rate_x4": 11.08
+  },
+  {
+    "from": "U.S. 401 (45)",
+    "to": "Toll N.C. 885 at I-40",
+    "rate_x4": 24.48
+  },
+  {
+    "from": "U.S. 401 (45)",
+    "to": "Hopson Rd. / Davis Dr. (3/2)",
+    "rate_x4": 24.48
+  },
+  {
+    "from": "U.S. 401 (45)",
+    "to": "Chapel Hill Rd. / N.C. 54 (69)",
+    "rate_x4": 22.64
+  },
+  {
+    "from": "U.S. 401 (45)",
+    "to": "N.C. 55 (66)",
+    "rate_x4": 19.4
+  },
+  {
+    "from": "U.S. 401 (45)",
+    "to": "Morrisville Pkwy (64)",
+    "rate_x4": 17.2
+  },
+  {
+    "from": "U.S. 401 (45)",
+    "to": "Green Level West Rd. (62)",
+    "rate_x4": 15.36
+  },
+  {
+    "from": "U.S. 401 (45)",
+    "to": "U.S. 64 (59)",
+    "rate_x4": 15.36
+  },
+  {
+    "from": "U.S. 401 (45)",
+    "to": "Old U.S. Hwy 1 / S. Salem St. (57)",
+    "rate_x4": 11.64
+  },
+  {
+    "from": "U.S. 401 (45)",
+    "to": "U.S. 1 (56)",
+    "rate_x4": 10.36
+  },
+  {
+    "from": "U.S. 401 (45)",
+    "to": "Veridea Pkwy (55)",
+    "rate_x4": 10.36
+  },
+  {
+    "from": "U.S. 401 (45)",
+    "to": "N.C. 55 (54)",
+    "rate_x4": 8.28
+  },
+  {
+    "from": "U.S. 401 (45)",
+    "to": "Holly Springs Rd. (50)",
+    "rate_x4": 5.32
+  },
+  {
+    "from": "U.S. 401 (45)",
+    "to": "Bells Lake Rd. (47)",
+    "rate_x4": 2.6
+  },
+  {
+    "from": "U.S. 401 (45)",
+    "to": "Old Stage Rd. (43)",
+    "rate_x4": 2.08
+  },
+  {
+    "from": "U.S. 401 (45)",
+    "to": "N.C. 50 (39)",
+    "rate_x4": 6.08
+  },
+  {
+    "from": "U.S. 401 (45)",
+    "to": "I-40 (36)",
+    "rate_x4": 8.48
+  },
+  {
+    "from": "Old Stage Rd. (43)",
+    "to": "Toll N.C. 885 at I-40",
+    "rate_x4": 26.56
+  },
+  {
+    "from": "Old Stage Rd. (43)",
+    "to": "Hopson Rd. / Davis Dr. (3/2)",
+    "rate_x4": 26.56
+  },
+  {
+    "from": "Old Stage Rd. (43)",
+    "to": "Chapel Hill Rd. / N.C. 54 (69)",
+    "rate_x4": 24.72
+  },
+  {
+    "from": "Old Stage Rd. (43)",
+    "to": "N.C. 55 (66)",
+    "rate_x4": 21.48
+  },
+  {
+    "from": "Old Stage Rd. (43)",
+    "to": "Morrisville Pkwy (64)",
+    "rate_x4": 19.28
+  },
+  {
+    "from": "Old Stage Rd. (43)",
+    "to": "Green Level West Rd. (62)",
+    "rate_x4": 17.44
+  },
+  {
+    "from": "Old Stage Rd. (43)",
+    "to": "U.S. 64 (59)",
+    "rate_x4": 17.44
+  },
+  {
+    "from": "Old Stage Rd. (43)",
+    "to": "Old U.S. Hwy 1 / S. Salem St. (57)",
+    "rate_x4": 13.72
+  },
+  {
+    "from": "Old Stage Rd. (43)",
+    "to": "U.S. 1 (56)",
+    "rate_x4": 12.44
+  },
+  {
+    "from": "Old Stage Rd. (43)",
+    "to": "Veridea Pkwy (55)",
+    "rate_x4": 12.44
+  },
+  {
+    "from": "Old Stage Rd. (43)",
+    "to": "N.C. 55 (54)",
+    "rate_x4": 10.36
+  },
+  {
+    "from": "Old Stage Rd. (43)",
+    "to": "Holly Springs Rd. (50)",
+    "rate_x4": 7.4
+  },
+  {
+    "from": "Old Stage Rd. (43)",
+    "to": "Bells Lake Rd. (47)",
+    "rate_x4": 4.68
+  },
+  {
+    "from": "Old Stage Rd. (43)",
+    "to": "U.S. 401 (45)",
+    "rate_x4": 2.08
+  },
+  {
+    "from": "Old Stage Rd. (43)",
+    "to": "N.C. 50 (39)",
+    "rate_x4": 4.0
+  },
+  {
+    "from": "Old Stage Rd. (43)",
+    "to": "I-40 (36)",
+    "rate_x4": 6.4
+  },
+  {
+    "from": "N.C. 50 (39)",
+    "to": "Toll N.C. 885 at I-40",
+    "rate_x4": 30.56
+  },
+  {
+    "from": "N.C. 50 (39)",
+    "to": "Hopson Rd. / Davis Dr. (3/2)",
+    "rate_x4": 30.56
+  },
+  {
+    "from": "N.C. 50 (39)",
+    "to": "Chapel Hill Rd. / N.C. 54 (69)",
+    "rate_x4": 28.72
+  },
+  {
+    "from": "N.C. 50 (39)",
+    "to": "N.C. 55 (66)",
+    "rate_x4": 25.48
+  },
+  {
+    "from": "N.C. 50 (39)",
+    "to": "Morrisville Pkwy (64)",
+    "rate_x4": 23.28
+  },
+  {
+    "from": "N.C. 50 (39)",
+    "to": "Green Level West Rd. (62)",
+    "rate_x4": 21.44
+  },
+  {
+    "from": "N.C. 50 (39)",
+    "to": "U.S. 64 (59)",
+    "rate_x4": 21.44
+  },
+  {
+    "from": "N.C. 50 (39)",
+    "to": "Old U.S. Hwy 1 / S. Salem St. (57)",
+    "rate_x4": 17.72
+  },
+  {
+    "from": "N.C. 50 (39)",
+    "to": "U.S. 1 (56)",
+    "rate_x4": 16.44
+  },
+  {
+    "from": "N.C. 50 (39)",
+    "to": "Veridea Pkwy (55)",
+    "rate_x4": 16.44
+  },
+  {
+    "from": "N.C. 50 (39)",
+    "to": "N.C. 55 (54)",
+    "rate_x4": 14.36
+  },
+  {
+    "from": "N.C. 50 (39)",
+    "to": "Holly Springs Rd. (50)",
+    "rate_x4": 11.4
+  },
+  {
+    "from": "N.C. 50 (39)",
+    "to": "Bells Lake Rd. (47)",
+    "rate_x4": 8.68
+  },
+  {
+    "from": "N.C. 50 (39)",
+    "to": "U.S. 401 (45)",
+    "rate_x4": 6.08
+  },
+  {
+    "from": "N.C. 50 (39)",
+    "to": "Old Stage Rd. (43)",
+    "rate_x4": 4.0
+  },
+  {
+    "from": "N.C. 50 (39)",
+    "to": "I-40 (36)",
+    "rate_x4": 2.4
+  },
+  {
+    "from": "I-40 (36)",
+    "to": "Toll N.C. 885 at I-40",
+    "rate_x4": 32.96
+  },
+  {
+    "from": "I-40 (36)",
+    "to": "Hopson Rd. / Davis Dr. (3/2)",
+    "rate_x4": 32.96
+  },
+  {
+    "from": "I-40 (36)",
+    "to": "Chapel Hill Rd. / N.C. 54 (69)",
+    "rate_x4": 31.12
+  },
+  {
+    "from": "I-40 (36)",
+    "to": "N.C. 55 (66)",
+    "rate_x4": 27.88
+  },
+  {
+    "from": "I-40 (36)",
+    "to": "Morrisville Pkwy (64)",
+    "rate_x4": 25.68
+  },
+  {
+    "from": "I-40 (36)",
+    "to": "Green Level West Rd. (62)",
+    "rate_x4": 23.84
+  },
+  {
+    "from": "I-40 (36)",
+    "to": "U.S. 64 (59)",
+    "rate_x4": 23.84
+  },
+  {
+    "from": "I-40 (36)",
+    "to": "Old U.S. Hwy 1 / S. Salem St. (57)",
+    "rate_x4": 20.12
+  },
+  {
+    "from": "I-40 (36)",
+    "to": "U.S. 1 (56)",
+    "rate_x4": 18.84
+  },
+  {
+    "from": "I-40 (36)",
+    "to": "Veridea Pkwy (55)",
+    "rate_x4": 18.84
+  },
+  {
+    "from": "I-40 (36)",
+    "to": "N.C. 55 (54)",
+    "rate_x4": 16.76
+  },
+  {
+    "from": "I-40 (36)",
+    "to": "Holly Springs Rd. (50)",
+    "rate_x4": 13.8
+  },
+  {
+    "from": "I-40 (36)",
+    "to": "Bells Lake Rd. (47)",
+    "rate_x4": 11.08
+  },
+  {
+    "from": "I-40 (36)",
+    "to": "U.S. 401 (45)",
+    "rate_x4": 8.48
+  },
+  {
+    "from": "I-40 (36)",
+    "to": "Old Stage Rd. (43)",
+    "rate_x4": 6.4
+  },
+  {
+    "from": "I-40 (36)",
+    "to": "N.C. 50 (39)",
+    "rate_x4": 2.4
+  }
+]

@@ -1,0 +1,104 @@
+{
+  "toll_locations": [
+    {
+      "name": "51st Street SB Exit Ramp",
+      "5 Axle": {
+        "TxTag": "$3.24",
+        "Pay by Mail": "$4.88"
+      },
+      "6 Axle": {
+        "TxTag": "$4.05",
+        "Pay by Mail": "$6.10"
+      }
+    },
+    {
+      "name": "MLK Jr. Blvd. SB Mainline",
+      "5 Axle": {
+        "TxTag": "$6.00",
+        "Pay by Mail": "$9.00"
+      },
+      "6 Axle": {
+        "TxTag": "$7.50",
+        "Pay by Mail": "$11.25"
+      }
+    },
+    {
+      "name": "51st Street NB Entry Ramp",
+      "5 Axle": {
+        "TxTag": "$3.24",
+        "Pay by Mail": "$4.88"
+      },
+      "6 Axle": {
+        "TxTag": "$4.05",
+        "Pay by Mail": "$6.10"
+      }
+    },
+    {
+      "name": "51st Street NB Mainline",
+      "5 Axle": {
+        "TxTag": "$6.00",
+        "Pay by Mail": "$9.00"
+      },
+      "6 Axle": {
+        "TxTag": "$7.50",
+        "Pay by Mail": "$11.25"
+      }
+    },
+    {
+      "name": "MLK Blvd. NB Exit Ramp",
+      "5 Axle": {
+        "TxTag": "$4.36",
+        "Pay by Mail": "$6.56"
+      },
+      "6 Axle": {
+        "TxTag": "$5.45",
+        "Pay by Mail": "$8.20"
+      }
+    },
+    {
+      "name": "Smith Road SB Entry Ramp",
+      "5 Axle": {
+        "TxTag": "$2.84",
+        "Pay by Mail": "$4.28"
+      },
+      "6 Axle": {
+        "TxTag": "$3.55",
+        "Pay by Mail": "$5.35"
+      }
+    },
+    {
+      "name": "Smith Road NB Exit Ramp",
+      "5 Axle": {
+        "TxTag": "$2.84",
+        "Pay by Mail": "$4.28"
+      },
+      "6 Axle": {
+        "TxTag": "$3.55",
+        "Pay by Mail": "$5.35"
+      }
+    },
+    {
+      "name": "Thompson Lane Plaza",
+      "5 Axle": {
+        "TxTag": "$5.20",
+        "Pay by Mail": "$7.80"
+      },
+      "6 Axle": {
+        "TxTag": "$6.50",
+        "Pay by Mail": "$9.75"
+      }
+    },
+    {
+      "name": "SH 71 Direct Connector",
+      "5 Axle": {
+        "TxTag": "$2.84",
+        "Pay by Mail": "$4.28"
+      },
+      "6 Axle": {
+        "TxTag": "$3.55",
+        "Pay by Mail": "$5.35"
+      }
+    }
+  ],
+  "link": "https://www.mobilityauthority.com/traveler-info/open-roads/183-toll/"
+}

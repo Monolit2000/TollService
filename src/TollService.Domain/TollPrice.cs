@@ -70,6 +70,8 @@ public enum TollPaymentType
     PayOnline = 2,
     Cash = 3,
     EZPass = 4,
+    OutOfStateEZPass = 5,
+    VideoTolls = 6,
 }
 
 public enum TollPriceTimeOfDay

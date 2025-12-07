@@ -61,6 +61,62 @@ public class TollSearchService
     }
 
     /// <summary>
+    /// Находит толлы для множества имен в пределах bounding box одним запросом к БД.
+    /// Загружает все tolls в bounding box один раз, затем ищет совпадения для всех имен в памяти.
+    /// </summary>
+    /// <param name="searchNames">Список имен для поиска</param>
+    /// <param name="boundingBox">Географические границы поиска</param>
+    /// <param name="searchOptions">Опции поиска (по Name, Key или обоим)</param>
+    /// <param name="ct">Токен отмены</param>
+    /// <returns>Словарь: ключ - имя для поиска, значение - список найденных толлов</returns>
+    public async Task<Dictionary<string, List<Toll>>> FindMultipleTollsInBoundingBoxAsync(
+        IEnumerable<string> searchNames,
+        Polygon boundingBox,
+        TollSearchOptions searchOptions = TollSearchOptions.NameOrKey,
+        CancellationToken ct = default)
+    {
+        var searchNamesList = searchNames
+            .Where(name => !string.IsNullOrWhiteSpace(name))
+            .Distinct()
+            .ToList();
+
+        if (searchNamesList.Count == 0)
+            return new Dictionary<string, List<Toll>>();
+
+        // Загружаем все tolls в пределах bounding box один раз
+        var allTollsInBox = await _context.Tolls
+            .Where(t => t.Location != null && boundingBox.Contains(t.Location))
+            .ToListAsync(ct);
+
+        var result = new Dictionary<string, List<Toll>>();
+
+        // Для каждого имени ищем совпадения в уже загруженной коллекции
+        foreach (var searchName in searchNamesList)
+        {
+            var searchNameLower = searchName.ToLower();
+            var tolls = new List<Toll>();
+
+            // Сначала ищем точное совпадение
+            tolls = FindExactMatch(allTollsInBox, searchNameLower, searchOptions);
+
+            // Если не нашли точное совпадение, пробуем частичное совпадение
+            if (tolls.Count == 0)
+            {
+                tolls = FindPartialMatch(allTollsInBox, searchNameLower, searchOptions);
+            }
+
+            // Фильтруем: исключаем tolls с пустыми или невалидными именами/ключами
+            tolls = tolls
+                .Where(t => IsValidTollNameOrKey(t.Name) || IsValidTollNameOrKey(t.Key))
+                .ToList();
+
+            result[searchName] = tolls;
+        }
+
+        return result;
+    }
+
+    /// <summary>
     /// Находит толлы по точному совпадению имени или ключа в уже загруженной коллекции
     /// </summary>
     private static List<Toll> FindExactMatch(

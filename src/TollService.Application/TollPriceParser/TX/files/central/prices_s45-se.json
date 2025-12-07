@@ -1,0 +1,38 @@
+{
+  "toll_locations": [
+    {
+      "name": "Mainline Plaza between N. Turnersville Rd. and Palmer Rd.",
+      "5 Axle": {
+        "TxTag": "$3.90",
+        "Pay by Mail": "$5.85"
+      },
+      "6 Axle": {
+        "TxTag": "$3.90",
+        "Pay by Mail": "$5.85"
+      }
+    },
+    {
+      "name": "N. Turnersville Rd.",
+      "5 Axle": {
+        "TxTag": "$2.55",
+        "Pay by Mail": "$3.84"
+      },
+      "6 Axle": {
+        "TxTag": "$2.55",
+        "Pay by Mail": "$3.84"
+      }
+    },
+    {
+      "name": "FM 1625",
+      "5 Axle": {
+        "TxTag": "$2.55",
+        "Pay by Mail": "$3.84"
+      },
+      "6 Axle": {
+        "TxTag": "$2.55",
+        "Pay by Mail": "$3.84"
+      }
+    }
+  ],
+  "link": "https://www.txdot.gov/content/dam/docs/division/pfd/toll-roads/2025-txdot-austin-area-toll-rates.pdf"
+}

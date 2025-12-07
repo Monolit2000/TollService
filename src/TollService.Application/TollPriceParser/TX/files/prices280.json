@@ -1,0 +1,380 @@
+{
+  "toll_locations": [
+    {
+      "location_id": 1,
+      "location_name": "SH 288 Main Lane Gantry Brays Bayou Northbound",
+      "schedule_type": "Weekday",
+      "rates": [
+        {
+          "time_range": "12:00 AM - 04:30 AM",
+          "base_price": 2.3,
+          "price_5_axle": 11.5,
+          "price_6_axle": 13.8
+        },
+        {
+          "time_range": "05:00 AM - 06:30 PM",
+          "base_price": 3.2,
+          "price_5_axle": 16.0,
+          "price_6_axle": 19.2
+        },
+        {
+          "time_range": "07:00 PM - 11:59 PM",
+          "base_price": 2.3,
+          "price_5_axle": 11.5,
+          "price_6_axle": 13.8
+        }
+      ]
+    },
+    {
+      "location_id": 2,
+      "location_name": "SH 288 Main Lane Gantry Brays Bayou Southbound",
+      "schedule_type": "Weekday",
+      "rates": [
+        {
+          "time_range": "12:00 AM - 05:30 AM",
+          "base_price": 1.75,
+          "price_5_axle": 8.75,
+          "price_6_axle": 10.5
+        },
+        {
+          "time_range": "06:00 AM - 02:30 PM",
+          "base_price": 1.85,
+          "price_5_axle": 9.25,
+          "price_6_axle": 11.1
+        },
+        {
+          "time_range": "03:00 PM - 06:30 PM",
+          "base_price": 2.01,
+          "price_5_axle": 10.05,
+          "price_6_axle": 12.06
+        },
+        {
+          "time_range": "07:00 PM - 11:59 PM",
+          "base_price": 1.75,
+          "price_5_axle": 8.75,
+          "price_6_axle": 10.5
+        }
+      ]
+    },
+    {
+      "location_id": 3,
+      "location_name": "SH 288 Main Lane Gantry Holly Hall Northbound",
+      "schedule_type": "Weekday",
+      "rates": [
+        {
+          "time_range": "12:00 AM - 04:00 AM",
+          "base_price": 2.3,
+          "price_5_axle": 11.5,
+          "price_6_axle": 13.8
+        },
+        {
+          "time_range": "04:30 AM - 05:00 AM",
+          "base_price": 6.0,
+          "price_5_axle": 30.0,
+          "price_6_axle": 36.0
+        },
+        {
+          "time_range": "05:30 AM - 06:00 PM",
+          "base_price": 8.59,
+          "price_5_axle": 42.95,
+          "price_6_axle": 51.54
+        },
+        {
+          "time_range": "06:30 PM - 11:59 PM",
+          "base_price": 2.3,
+          "price_5_axle": 11.5,
+          "price_6_axle": 13.8
+        }
+      ]
+    },
+    {
+      "location_id": 4,
+      "location_name": "SH 288 Main Lane Gantry Holly Hall Southbound",
+      "schedule_type": "Weekday",
+      "rates": [
+        {
+          "time_range": "12:00 AM - 04:30 AM",
+          "base_price": 2.0,
+          "price_5_axle": 10.0,
+          "price_6_axle": 12.0
+        },
+        {
+          "time_range": "05:00 AM - 01:30 PM",
+          "base_price": 4.75,
+          "price_5_axle": 23.75,
+          "price_6_axle": 28.5
+        },
+        {
+          "time_range": "02:00 PM - 07:00 PM",
+          "base_price": 8.46,
+          "price_5_axle": 42.3,
+          "price_6_axle": 50.76
+        },
+        {
+          "time_range": "07:30 PM - 11:59 PM",
+          "base_price": 2.0,
+          "price_5_axle": 10.0,
+          "price_6_axle": 12.0
+        }
+      ]
+    },
+    {
+      "location_id": 5,
+      "location_name": "SH 288 Main Lane Gantry Almeda Genoa Northbound",
+      "schedule_type": "Weekday",
+      "rates": [
+        {
+          "time_range": "12:00 AM - 04:30 AM",
+          "base_price": 2.3,
+          "price_5_axle": 11.5,
+          "price_6_axle": 13.8
+        },
+        {
+          "time_range": "05:00 AM - 04:30 PM",
+          "base_price": 3.42,
+          "price_5_axle": 17.1,
+          "price_6_axle": 20.52
+        },
+        {
+          "time_range": "05:00 PM - 06:30 PM",
+          "base_price": 2.7,
+          "price_5_axle": 13.5,
+          "price_6_axle": 16.2
+        },
+        {
+          "time_range": "07:00 PM - 11:59 PM",
+          "base_price": 2.3,
+          "price_5_axle": 11.5,
+          "price_6_axle": 13.8
+        }
+      ]
+    },
+    {
+      "location_id": 6,
+      "location_name": "SH 288 Main Lane Gantry Almeda Genoa Southbound",
+      "schedule_type": "Weekday",
+      "rates": [
+        {
+          "time_range": "12:00 AM - 05:30 AM",
+          "base_price": 1.75,
+          "price_5_axle": 8.75,
+          "price_6_axle": 10.5
+        },
+        {
+          "time_range": "06:00 AM - 12:30 PM",
+          "base_price": 2.35,
+          "price_5_axle": 11.75,
+          "price_6_axle": 14.1
+        },
+        {
+          "time_range": "01:00 PM - 07:00 PM",
+          "base_price": 3.55,
+          "price_5_axle": 17.75,
+          "price_6_axle": 21.3
+        },
+        {
+          "time_range": "07:30 PM - 11:59 PM",
+          "base_price": 1.75,
+          "price_5_axle": 8.75,
+          "price_6_axle": 10.5
+        }
+      ]
+    },
+    {
+      "location_id": 7,
+      "location_name": "Beltway (BW) 8 Direct Connector BW 8 to SH 288 Westbound",
+      "schedule_type": "Weekday",
+      "rates": [
+        {
+          "time_range": "12:00 AM - 11:59 PM",
+          "base_price": 2.96,
+          "price_5_axle": 14.8,
+          "price_6_axle": 17.76
+        }
+      ]
+    },
+    {
+      "location_id": 8,
+      "location_name": "Beltway (BW) 8 Direct Connector SH 288 to BW 8 Northbound",
+      "schedule_type": "Weekday",
+      "rates": [
+        {
+          "time_range": "12:00 AM - 11:59 PM",
+          "base_price": 2.96,
+          "price_5_axle": 14.8,
+          "price_6_axle": 17.76
+        }
+      ]
+    },
+    {
+      "location_id": 9,
+      "location_name": "Beltway (BW) 8 Direct Connector SH 288 to BW 8 Southbound",
+      "schedule_type": "Weekday",
+      "rates": [
+        {
+          "time_range": "12:00 AM - 11:59 PM",
+          "base_price": 2.96,
+          "price_5_axle": 14.8,
+          "price_6_axle": 17.76
+        }
+      ]
+    },
+    {
+      "location_id": 10,
+      "location_name": "Beltway (BW) 8 Direct Connector BW 8 to SH 288 Eastbound",
+      "schedule_type": "Weekday",
+      "rates": [
+        {
+          "time_range": "12:00 AM - 11:59 PM",
+          "base_price": 2.96,
+          "price_5_axle": 14.8,
+          "price_6_axle": 17.76
+        }
+      ]
+    },
+    {
+      "location_id": 11,
+      "location_name": "IH 610 Direct Connector 610 to SH 288 Northbound",
+      "schedule_type": "Weekday",
+      "rates": [
+        {
+          "time_range": "12:00 AM - 06:00 AM",
+          "base_price": 1.75,
+          "price_5_axle": 8.75,
+          "price_6_axle": 10.5
+        },
+        {
+          "time_range": "06:30 AM - 08:30 AM",
+          "base_price": 2.35,
+          "price_5_axle": 11.75,
+          "price_6_axle": 14.1
+        },
+        {
+          "time_range": "09:00 AM - 02:30 PM",
+          "base_price": 1.75,
+          "price_5_axle": 8.75,
+          "price_6_axle": 10.5
+        },
+        {
+          "time_range": "03:00 PM - 05:00 PM",
+          "base_price": 2.0,
+          "price_5_axle": 10.0,
+          "price_6_axle": 12.0
+        },
+        {
+          "time_range": "05:30 PM - 11:59 PM",
+          "base_price": 1.75,
+          "price_5_axle": 8.75,
+          "price_6_axle": 10.5
+        }
+      ]
+    },
+    {
+      "location_id": 12,
+      "location_name": "IH 610 Direct Connector SH 288 Northbound to 610",
+      "schedule_type": "Weekday",
+      "rates": [
+        {
+          "time_range": "12:00 AM - 04:30 AM",
+          "base_price": 2.0,
+          "price_5_axle": 10.0,
+          "price_6_axle": 12.0
+        },
+        {
+          "time_range": "05:00 AM - 05:00 AM",
+          "base_price": 5.3,
+          "price_5_axle": 26.5,
+          "price_6_axle": 31.8
+        },
+        {
+          "time_range": "05:30 AM - 10:00 AM",
+          "base_price": 8.58,
+          "price_5_axle": 42.9,
+          "price_6_axle": 51.48
+        },
+        {
+          "time_range": "10:30 AM - 06:00 PM",
+          "base_price": 5.3,
+          "price_5_axle": 26.5,
+          "price_6_axle": 31.8
+        },
+        {
+          "time_range": "06:30 PM - 11:59 PM",
+          "base_price": 2.0,
+          "price_5_axle": 10.0,
+          "price_6_axle": 12.0
+        }
+      ]
+    },
+    {
+      "location_id": 13,
+      "location_name": "IH 610 Direct Connector SH 288 to 610 Southbound",
+      "schedule_type": "Weekday",
+      "rates": [
+        {
+          "time_range": "12:00 AM - 09:00 AM",
+          "base_price": 1.75,
+          "price_5_axle": 8.75,
+          "price_6_axle": 10.5
+        },
+        {
+          "time_range": "09:30 AM - 02:30 PM",
+          "base_price": 2.0,
+          "price_5_axle": 10.0,
+          "price_6_axle": 12.0
+        },
+        {
+          "time_range": "03:00 PM - 06:00 PM",
+          "base_price": 2.5,
+          "price_5_axle": 12.5,
+          "price_6_axle": 15.0
+        },
+        {
+          "time_range": "06:30 PM - 11:59 PM",
+          "base_price": 1.75,
+          "price_5_axle": 8.75,
+          "price_6_axle": 10.5
+        }
+      ]
+    },
+    {
+      "location_id": 14,
+      "location_name": "IH 610 Direct Connector 610 to SH 288 Southbound",
+      "schedule_type": "Weekday",
+      "rates": [
+        {
+          "time_range": "12:00 AM - 09:00 AM",
+          "base_price": 1.75,
+          "price_5_axle": 8.75,
+          "price_6_axle": 10.5
+        },
+        {
+          "time_range": "09:30 AM - 01:30 PM",
+          "base_price": 2.0,
+          "price_5_axle": 10.0,
+          "price_6_axle": 12.0
+        },
+        {
+          "time_range": "02:00 PM - 02:30 PM",
+          "base_price": 4.0,
+          "price_5_axle": 20.0,
+          "price_6_axle": 24.0
+        },
+        {
+          "time_range": "03:00 PM - 07:00 PM",
+          "base_price": 7.5,
+          "price_5_axle": 37.5,
+          "price_6_axle": 45.0
+        },
+        {
+          "time_range": "07:30 PM - 11:59 PM",
+          "base_price": 2.0,
+          "price_5_axle": 10.0,
+          "price_6_axle": 12.0
+        }
+      ]
+    }
+  ],
+
+  "link": "https://www.txdot.gov/discover/toll-roads-managed-lanes/managed-lanes/sh288-toll/sh288-toll-rate-archive.html"
+}

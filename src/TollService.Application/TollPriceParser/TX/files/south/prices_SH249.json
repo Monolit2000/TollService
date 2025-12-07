@@ -1,0 +1,89 @@
+{
+  "toll_locations": [
+    {
+      "name": "Entrance and Exit Ramps: South of FM 149",
+      "5 Axle": {
+        "TxTag": "$2.44",
+        "Pay by Mail": "$3.68"
+      },
+      "6 Axle": {
+        "TxTag": "$3.05",
+        "Pay by Mail": "$4.60"
+      }
+    },
+    {
+      "name": "Mainlane Gantry: North of FM 149",
+      "5 Axle": {
+        "TxTag": "$7.96",
+        "Pay by Mail": " $11.96"
+      },
+      "6 Axle": {
+        "TxTag": "$9.95",
+        "Pay by Mail": "$14.95"
+      }
+    },
+    {
+      "name": "Entrance and Exit Ramps: South of CR 107 (1)",
+      "5 Axle": {
+        "TxTag": "$1.88",
+        "Pay by Mail": "$2.84"
+      },
+      "6 Axle": {
+        "TxTag": "$2.35",
+        "Pay by Mail": "$3.55"
+      }
+    },
+    {
+      "name": "Entrance and Exit Ramps: South of FM 1486",
+      "5 Axle": {
+        "TxTag": "$3.84",
+        "Pay by Mail": "$5.76"
+      },
+      "6 Axle": {
+        "TxTag": "$4.80",
+        "Pay by Mail": "$7.20"
+      }
+    },
+    {
+      "name": "Entrance and Exit Ramps: South of CR 115 (1)",
+      "5 Axle": {
+        "TxTag": "$5.16",
+        "Pay by Mail": "$7.76"
+      },
+      "6 Axle": {
+        "TxTag": "$6.45",
+        "Pay by Mail": "$9.70"
+      }
+    },
+    {
+      "name": "Mainlane Gantry: North of CR 115 (1)",
+      "5 Axle": {
+        "TxTag": "$10.40",
+        "Pay by Mail": "$15.60"
+      },
+      "6 Axle": {
+        "TxTag": "$13.00",
+        "Pay by Mail": "$19.50"
+      }
+    },
+    {
+      "name": "Decker Prairie",
+      "5 Axle": {
+        "TxTag": "$6.14"
+      },
+      "6 Axle": {
+        "TxTag": "$7.68"
+      }
+    },
+    {
+      "name": "Hardin Store Rd",
+      "5 Axle": {
+        "TxTag": "$2.42"
+      },
+      "6 Axle": {
+        "TxTag": "$3.03"
+      }
+    }
+  ],
+  "link": "https://www.txdot.gov/content/dam/docs/division/pfd/toll-roads/2025-txdot-sh249-toll-rates.pdf"
+}

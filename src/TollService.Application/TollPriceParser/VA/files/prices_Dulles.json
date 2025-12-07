@@ -1,0 +1,31 @@
+{
+  "toll_plazas": [
+    {
+      "name": "Main Line Plaza",
+      "rates": {
+        "5_axles": {
+          "ezpass_rate": 10.5,
+          "pay_by_plate_rate": 12.1
+        },
+        "6_axles": {
+          "ezpass_rate": 11.75,
+          "pay_by_plate_rate": 13.35
+        }
+      }
+    },
+    {
+      "name": "Ramps",
+      "rates": {
+        "5_axles": {
+          "ezpass_rate": 5.0,
+          "pay_by_plate_rate": 6.6
+        },
+        "6_axles": {
+          "ezpass_rate": 5.5,
+          "pay_by_plate_rate": 7.1
+        }
+      }
+    }
+  ],
+  "link": "https://www.dullestollroad.com/toll-rates-electronic-payment-and-pay-plate"
+}

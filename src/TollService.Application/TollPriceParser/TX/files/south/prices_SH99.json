@@ -1,0 +1,605 @@
+{
+  "toll_locations": [
+    {
+      "location_name": "Entrance and Exit Ramps at Colonial Parkway",
+      "rates_by_axle": [
+        {
+          "axle_count": 5,
+          "Tag*": 2.2,
+          "Non-Tag†": 3.32
+        },
+        {
+          "axle_count": 6,
+          "Tag*": 2.75,
+          "Non-Tag†": 4.15
+        }
+      ]
+    },
+    {
+      "location_name": "Mainlane Plaza: South of FM 529",
+      "rates_by_axle": [
+        {
+          "axle_count": 5,
+          "Tag*": 10.04,
+          "Non-Tag†": 15.08
+        },
+        {
+          "axle_count": 6,
+          "Tag*": 12.55,
+          "Non-Tag†": 18.85
+        }
+      ]
+    },
+    {
+      "location_name": "Mainlane Plaza: South of US 290",
+      "rates_by_axle": [
+        {
+          "axle_count": 5,
+          "Tag*": 5.2,
+          "Non-Tag†": 7.8
+        },
+        {
+          "axle_count": 6,
+          "Tag*": 6.5,
+          "Non-Tag†": 9.75
+        }
+      ]
+    },
+    {
+      "location_name": "Entrance and Exit Ramps at: Franz Rd., West Rd., Jack Rd., Bridgeland Creek Pkwy., and N. Bridgeland Lake Pkwy.",
+      "rates_by_axle": [
+        {
+          "axle_count": 5,
+          "Tag*": 2.2,
+          "Non-Tag†": 3.32
+        },
+        {
+          "axle_count": 6,
+          "Tag*": 2.75,
+          "Non-Tag†": 4.15
+        }
+      ]
+    },
+    {
+      "location_name": "Entrance and Exit Ramps at Morton Rd.(1)",
+      "rates_by_axle": [
+        {
+          "axle_count": 5,
+          "Tag*": 2.72,
+          "Non-Tag†": 4.08
+        },
+        {
+          "axle_count": 6,
+          "Tag*": 3.4,
+          "Non-Tag†": 5.1
+        }
+      ]
+    },
+    {
+      "location_name": "Entrance and Exit Ramps at Clay Rd.(1)",
+      "rates_by_axle": [
+        {
+          "axle_count": 5,
+          "Tag*": 3.88,
+          "Non-Tag†": 5.84
+        },
+        {
+          "axle_count": 6,
+          "Tag*": 4.85,
+          "Non-Tag†": 7.3
+        }
+      ]
+    },
+    {
+      "location_name": "Entrance and Exit Ramps at FM 529",
+      "rates_by_axle": [
+        {
+          "axle_count": 5,
+          "Tag*": 3.16,
+          "Non-Tag†": 4.76
+        },
+        {
+          "axle_count": 6,
+          "Tag*": 3.95,
+          "Non-Tag†": 5.95
+        }
+      ]
+    },
+    {
+      "location_name": "Mainline Plaza: North of US 290",
+      "rates_by_axle": [
+        {
+          "axle_count": 5,
+          "Tag*": 6.84,
+          "Non-Tag†": 10.28
+        },
+        {
+          "axle_count": 6,
+          "Tag*": 8.55,
+          "Non-Tag†": 12.85
+        }
+      ]
+    },
+    {
+      "location_name": "Mainline Plaza: West of SH 249",
+      "rates_by_axle": [
+        {
+          "axle_count": 5,
+          "Tag*": 4.8,
+          "Non-Tag†": 7.2
+        },
+        {
+          "axle_count": 6,
+          "Tag*": 6.0,
+          "Non-Tag†": 9.0
+        }
+      ]
+    },
+    {
+      "location_name": "Entrance and Exit Ramps at: Cumberland Ridge, Mueschke Rd.",
+      "rates_by_axle": [
+        {
+          "axle_count": 5,
+          "Tag*": 2.2,
+          "Non-Tag†": 3.32
+        },
+        {
+          "axle_count": 6,
+          "Tag*": 2.75,
+          "Non-Tag†": 4.15
+        }
+      ]
+    },
+    {
+      "location_name": "Entrance and Exit Ramps at Telge Rd.",
+      "rates_by_axle": [
+        {
+          "axle_count": 5,
+          "Tag*": 2.2,
+          "Non-Tag†": 3.32
+        },
+        {
+          "axle_count": 6,
+          "Tag*": 2.75,
+          "Non-Tag†": 4.15
+        }
+      ]
+    },
+    {
+      "location_name": "Mainline Plaza: West of FM 2920",
+      "rates_by_axle": [
+        {
+          "axle_count": 5,
+          "Tag*": 6.08,
+          "Non-Tag†": 9.12
+        },
+        {
+          "axle_count": 6,
+          "Tag*": 7.6,
+          "Non-Tag†": 11.4
+        }
+      ]
+    },
+    {
+      "location_name": "Mainline Plaza: West of I-45",
+      "rates_by_axle": [
+        {
+          "axle_count": 5,
+          "Tag*": 5.6,
+          "Non-Tag†": 8.4
+        },
+        {
+          "axle_count": 6,
+          "Tag*": 7.0,
+          "Non-Tag†": 10.5
+        }
+      ]
+    },
+    {
+      "location_name": "Entrance and Exit Ramps at: FM 2920, Gosling Rd., and Ramps to/from I-45 North Direct Connectors",
+      "rates_by_axle": [
+        {
+          "axle_count": 5,
+          "Tag*": 2.2,
+          "Non-Tag†": 3.32
+        },
+        {
+          "axle_count": 6,
+          "Tag*": 2.75,
+          "Non-Tag†": 4.15
+        }
+      ]
+    },
+    {
+      "location_name": "Entrance and Exit Ramps at Gleannloch Forest Dr.",
+      "rates_by_axle": [
+        {
+          "axle_count": 5,
+          "Tag*": 2.28,
+          "Non-Tag†": 3.44
+        },
+        {
+          "axle_count": 6,
+          "Tag*": 2.85,
+          "Non-Tag†": 4.3
+        }
+      ]
+    },
+    {
+      "location_name": "Mainline Plaza: East of I-45",
+      "rates_by_axle": [
+        {
+          "axle_count": 5,
+          "Tag*": 2.2,
+          "Non-Tag†": 3.32
+        },
+        {
+          "axle_count": 6,
+          "Tag*": 2.75,
+          "Non-Tag†": 4.15
+        }
+      ]
+    },
+    {
+      "location_name": "Mainline Plaza: East of Hardy Toll Rd.",
+      "rates_by_axle": [
+        {
+          "axle_count": 5,
+          "Tag*": 3.28,
+          "Non-Tag†": 4.92
+        },
+        {
+          "axle_count": 6,
+          "Tag*": 4.1,
+          "Non-Tag†": 6.15
+        }
+      ]
+    },
+    {
+      "location_name": "Mainline Plaza: West of I-69/US 59",
+      "rates_by_axle": [
+        {
+          "axle_count": 5,
+          "Tag*": 8.8,
+          "Non-Tag†": 13.2
+        },
+        {
+          "axle_count": 6,
+          "Tag*": 11.0,
+          "Non-Tag†": 16.5
+        }
+      ]
+    },
+    {
+      "location_name": "Entrance and Exit Ramps at FM 1314",
+      "rates_by_axle": [
+        {
+          "axle_count": 5,
+          "Tag*": 5.08,
+          "Non-Tag†": 7.64
+        },
+        {
+          "axle_count": 6,
+          "Tag*": 6.35,
+          "Non-Tag†": 9.55
+        }
+      ]
+    },
+    {
+      "location_name": "Entrance and Exit Ramps at Highlands Parkway",
+      "rates_by_axle": [
+        {
+          "axle_count": 5,
+          "Tag*": 4.08,
+          "Non-Tag†": 6.12
+        },
+        {
+          "axle_count": 6,
+          "Tag*": 5.1,
+          "Non-Tag†": 7.65
+        }
+      ]
+    },
+    {
+      "location_name": "Entrance and Exit Ramps West of Rayford Rd.",
+      "rates_by_axle": [
+        {
+          "axle_count": 5,
+          "Tag*": 2.2,
+          "Non-Tag†": 3.32
+        },
+        {
+          "axle_count": 6,
+          "Tag*": 2.75,
+          "Non-Tag†": 4.15
+        }
+      ]
+    },
+    {
+      "location_name": "Mainline Plaza West of FM 1485",
+      "rates_by_axle": [
+        {
+          "axle_count": 5,
+          "Tag*": 8.12,
+          "Non-Tag†": 12.2
+        },
+        {
+          "axle_count": 6,
+          "Tag*": 10.15,
+          "Non-Tag†": 15.25
+        }
+      ]
+    },
+    {
+      "location_name": "Entrance and Exit Ramps at Galaxy Blvd.",
+      "rates_by_axle": [
+        {
+          "axle_count": 5,
+          "Tag*": 3.16,
+          "Non-Tag†": 4.76
+        },
+        {
+          "axle_count": 6,
+          "Tag*": 3.95,
+          "Non-Tag†": 5.95
+        }
+      ]
+    },
+    {
+      "location_name": "Entrance and Exit Ramps at Miller Wilson",
+      "rates_by_axle": [
+        {
+          "axle_count": 5,
+          "Tag*": 2.2,
+          "Non-Tag†": 3.32
+        },
+        {
+          "axle_count": 6,
+          "Tag*": 2.75,
+          "Non-Tag†": 4.15
+        }
+      ]
+    },
+    {
+      "location_name": "Entrance and Exit Ramps at Community Dr.",
+      "rates_by_axle": [
+        {
+          "axle_count": 5,
+          "Tag*": 3.24,
+          "Non-Tag†": 4.88
+        },
+        {
+          "axle_count": 6,
+          "Tag*": 4.05,
+          "Non-Tag†": 6.1
+        }
+      ]
+    },
+    {
+      "location_name": "Mainline Plaza West of Wolf Trot",
+      "rates_by_axle": [
+        {
+          "axle_count": 5,
+          "Tag*": 14.08,
+          "Non-Tag†": 21.12
+        },
+        {
+          "axle_count": 6,
+          "Tag*": 17.6,
+          "Non-Tag†": 26.4
+        }
+      ]
+    },
+    {
+      "location_name": "Entrance and Exit Ramps at Wolf Trot",
+      "rates_by_axle": [
+        {
+          "axle_count": 5,
+          "Tag*": 9.52,
+          "Non-Tag†": 14.28
+        },
+        {
+          "axle_count": 6,
+          "Tag*": 11.9,
+          "Non-Tag†": 17.85
+        }
+      ]
+    },
+    {
+      "location_name": "Entrance and Exit Ramps at Kingwood Dr.",
+      "rates_by_axle": [
+        {
+          "axle_count": 5,
+          "Tag*": 7.96,
+          "Non-Tag†": 11.96
+        },
+        {
+          "axle_count": 6,
+          "Tag*": 9.95,
+          "Non-Tag†": 14.95
+        }
+      ]
+    },
+    {
+      "location_name": "Entrance and Exit Ramps at FM 686",
+      "rates_by_axle": [
+        {
+          "axle_count": 5,
+          "Tag*": 5.84,
+          "Non-Tag†": 8.76
+        },
+        {
+          "axle_count": 6,
+          "Tag*": 7.3,
+          "Non-Tag†": 10.95
+        }
+      ]
+    },
+    {
+      "location_name": "Entrance and Exit Ramps at FM 1960",
+      "rates_by_axle": [
+        {
+          "axle_count": 5,
+          "Tag*": 3.4,
+          "Non-Tag†": 5.08
+        },
+        {
+          "axle_count": 6,
+          "Tag*": 4.25,
+          "Non-Tag†": 6.35
+        }
+      ]
+    },
+    {
+      "location_name": "Entrance and Exit Ramps at FM 1413",
+      "rates_by_axle": [
+        {
+          "axle_count": 5,
+          "Tag*": 3.6,
+          "Non-Tag†": 5.4
+        },
+        {
+          "axle_count": 6,
+          "Tag*": 4.5,
+          "Non-Tag†": 6.75
+        }
+      ]
+    },
+    {
+      "location_name": "Mainline Plaza North of SH 146",
+      "rates_by_axle": [
+        {
+          "axle_count": 5,
+          "Tag*": 14.24,
+          "Non-Tag†": 21.36
+        },
+        {
+          "axle_count": 6,
+          "Tag*": 17.8,
+          "Non-Tag†": 26.7
+        }
+      ]
+    },
+    {
+      "location_name": "Entrance and Exit Ramps at SH 146",
+      "rates_by_axle": [
+        {
+          "axle_count": 5,
+          "Tag*": 3.6,
+          "Non-Tag†": 5.4
+        },
+        {
+          "axle_count": 6,
+          "Tag*": 4.5,
+          "Non-Tag†": 6.75
+        }
+      ]
+    },
+    {
+      "location_name": "Entrance and Exit Ramps at FM 565",
+      "rates_by_axle": [
+        {
+          "axle_count": 5,
+          "Tag*": 2.2,
+          "Non-Tag†": 3.32
+        },
+        {
+          "axle_count": 6,
+          "Tag*": 2.75,
+          "Non-Tag†": 4.15
+        }
+      ]
+    },
+    {
+      "location_name": "Entrance and Exit Ramps Kilgore Parkway",
+      "rates_by_axle": [
+        {
+          "axle_count": 5,
+          "Tag*": 2.2,
+          "Non-Tag†": 3.32
+        },
+        {
+          "axle_count": 6,
+          "Tag*": 2.75,
+          "Non-Tag†": 4.15
+        }
+      ]
+    },
+    {
+      "location_name": "Entrance and Exit Ramps North of FM 565",
+      "rates_by_axle": [
+        {
+          "axle_count": 5,
+          "Tag*": 2.8,
+          "Non-Tag†": 4.2
+        },
+        {
+          "axle_count": 6,
+          "Tag*": 3.5,
+          "Non-Tag†": 5.25
+        }
+      ]
+    },
+    {
+      "location_name": "Entrance and Exit Ramps at Johnnie G. Jennings Dr.",
+      "rates_by_axle": [
+        {
+          "axle_count": 5,
+          "Tag*": 4.36,
+          "Non-Tag†": 6.56
+        },
+        {
+          "axle_count": 6,
+          "Tag*": 5.45,
+          "Non-Tag†": 8.2
+        }
+      ]
+    },
+    {
+      "location_name": "Mainlane Plaza South of FM 565",
+      "rates_by_axle": [
+        {
+          "axle_count": 5,
+          "Tag*": 8.8,
+          "Non-Tag†": 13.2
+        },
+        {
+          "axle_count": 6,
+          "Tag*": 11.0,
+          "Non-Tag†": 16.5
+        }
+      ]
+    },
+    {
+      "location_name": "Mainline Plaza at FM 1405",
+      "rates_by_axle": [
+        {
+          "axle_count": 5,
+          "Tag*": 2.56,
+          "Non-Tag†": 3.84
+        },
+        {
+          "axle_count": 6,
+          "Tag*": 3.2,
+          "Non-Tag†": 4.8
+        }
+      ]
+    },
+    {
+      "location_name": "Mainline Plaza West of SH 146 (Bus.)",
+      "rates_by_axle": [
+        {
+          "axle_count": 5,
+          "Tag*": 2.64,
+          "Non-Tag†": 3.96
+        },
+        {
+          "axle_count": 6,
+          "Tag*": 3.3,
+          "Non-Tag†": 4.95
+        }
+      ]
+    }
+  ],
+  "link": "https://www.txdot.gov/discover/toll-roads-managed-lanes/txdot-toll-roads.html"
+}

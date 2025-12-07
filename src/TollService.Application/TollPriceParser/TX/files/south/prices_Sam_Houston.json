@@ -1,0 +1,523 @@
+{
+  "toll_locations": [
+    {
+      "name": "Wilson Road",
+      "type": "EXIT RAMP",
+      "rates": {
+        "2_axles_ez_tag_discount": 0.45,
+        "2_axles_tag": 0.5,
+        "3_axles_tag": 1.0,
+        "4_axles_tag": 1.5,
+        "5_axles_tag": 2.0,
+        "6_axles_tag": 2.5,
+        "7_axles_tag": 3.0,
+        "8_axles_tag": 3.5
+      }
+    },
+    {
+      "name": "John Ralston Road",
+      "type": "EXIT RAMP",
+      "rates": {
+        "2_axles_ez_tag_discount": 0.81,
+        "2_axles_tag": 0.9,
+        "3_axles_tag": 2.0,
+        "4_axles_tag": 3.0,
+        "5_axles_tag": 4.0,
+        "6_axles_tag": 5.0,
+        "7_axles_tag": 6.0,
+        "8_axles_tag": 7.0
+      }
+    },
+    {
+      "name": "W. Lake Houston",
+      "type": "EXIT RAMP",
+      "rates": {
+        "2_axles_ez_tag_discount": 1.08,
+        "2_axles_tag": 1.2,
+        "3_axles_tag": 2.5,
+        "4_axles_tag": 3.75,
+        "5_axles_tag": 5.0,
+        "6_axles_tag": 6.25,
+        "7_axles_tag": 7.5,
+        "8_axles_tag": 8.75
+      }
+    },
+    {
+      "name": "Sam Houston Northeast Mainline",
+      "type": "PASS THROUGH",
+      "rates": {
+        "2_axles_ez_tag_discount": 1.35,
+        "2_axles_tag": 1.5,
+        "3_axles_tag": 3.5,
+        "4_axles_tag": 5.25,
+        "5_axles_tag": 7.0,
+        "6_axles_tag": 8.75,
+        "7_axles_tag": 10.5,
+        "8_axles_tag": 12.25
+      }
+    },
+    {
+      "name": "Generation Parkway",
+      "type": "ON RAMP",
+      "rates": {
+        "2_axles_ez_tag_discount": 1.08,
+        "2_axles_tag": 1.2,
+        "3_axles_tag": 2.5,
+        "4_axles_tag": 3.75,
+        "5_axles_tag": 5.0,
+        "6_axles_tag": 6.25,
+        "7_axles_tag": 7.5,
+        "8_axles_tag": 8.75
+      }
+    },
+    {
+      "name": "Garrett Road",
+      "type": "ON RAMP",
+      "rates": {
+        "2_axles_ez_tag_discount": 1.08,
+        "2_axles_tag": 1.2,
+        "3_axles_tag": 2.5,
+        "4_axles_tag": 3.75,
+        "5_axles_tag": 5.0,
+        "6_axles_tag": 6.25,
+        "7_axles_tag": 7.5,
+        "8_axles_tag": 8.75
+      }
+    },
+    {
+      "name": "Tidwell",
+      "type": "ON RAMP",
+      "rates": {
+        "2_axles_ez_tag_discount": 0.81,
+        "2_axles_tag": 0.9,
+        "3_axles_tag": 2.0,
+        "4_axles_tag": 3.0,
+        "5_axles_tag": 4.0,
+        "6_axles_tag": 5.0,
+        "7_axles_tag": 6.0,
+        "8_axles_tag": 7.0
+      }
+    },
+    {
+      "name": "Sam Houston Ship Channel Bridge",
+      "type": "PASS THROUGH",
+      "rates": {
+        "2_axles_ez_tag_discount": 1.35,
+        "2_axles_tag": 1.5,
+        "3_axles_tag": 4.0,
+        "4_axles_tag": 6.0,
+        "5_axles_tag": 8.0,
+        "6_axles_tag": 10.0,
+        "7_axles_tag": 12.0,
+        "8_axles_tag": 14.0
+      }
+    },
+    {
+      "name": "Red Bluff",
+      "type": "EXIT RAMP",
+      "rates": {
+        "2_axles_ez_tag_discount": 0.81,
+        "2_axles_tag": 0.9,
+        "3_axles_tag": 2.0,
+        "4_axles_tag": 3.0,
+        "5_axles_tag": 4.0,
+        "6_axles_tag": 5.0,
+        "7_axles_tag": 6.0,
+        "8_axles_tag": 7.0
+      }
+    },
+    {
+      "name": "Spencer Highway",
+      "type": "EXIT RAMP",
+      "rates": {
+        "2_axles_ez_tag_discount": 1.08,
+        "2_axles_tag": 1.2,
+        "3_axles_tag": 2.5,
+        "4_axles_tag": 3.75,
+        "5_axles_tag": 5.0,
+        "6_axles_tag": 6.25,
+        "7_axles_tag": 7.5,
+        "8_axles_tag": 8.75
+      }
+    },
+    {
+      "name": "Fairmont Parkway",
+      "type": "EXIT RAMP",
+      "rates": {
+        "2_axles_ez_tag_discount": 1.08,
+        "2_axles_tag": 1.2,
+        "3_axles_tag": 2.5,
+        "4_axles_tag": 3.75,
+        "5_axles_tag": 5.0,
+        "6_axles_tag": 6.25,
+        "7_axles_tag": 7.5,
+        "8_axles_tag": 8.75
+      }
+    },
+    {
+      "name": "SH-3 / Old Galveston Rd.",
+      "type": "EXIT RAMP",
+      "rates": {
+        "2_axles_ez_tag_discount": 1.35,
+        "2_axles_tag": 1.5,
+        "3_axles_tag": 3.5,
+        "4_axles_tag": 5.25,
+        "5_axles_tag": 7.0,
+        "6_axles_tag": 8.75,
+        "7_axles_tag": 10.5,
+        "8_axles_tag": 12.25
+      }
+    },
+    {
+      "name": "Sam Houston East Plaza",
+      "type": "PASS THROUGH",
+      "rates": {
+        "2_axles_ez_tag_discount": 1.35,
+        "2_axles_tag": 1.5,
+        "3_axles_tag": 3.5,
+        "4_axles_tag": 5.25,
+        "5_axles_tag": 7.0,
+        "6_axles_tag": 8.75,
+        "7_axles_tag": 10.5,
+        "8_axles_tag": 12.25
+      }
+    },
+    {
+      "name": "Monroe / Pearland Parkway",
+      "type": "EXIT RAMP",
+      "rates": {
+        "2_axles_ez_tag_discount": 0.81,
+        "2_axles_tag": 0.9,
+        "3_axles_tag": 2.0,
+        "4_axles_tag": 3.0,
+        "5_axles_tag": 4.0,
+        "6_axles_tag": 5.0,
+        "7_axles_tag": 6.0,
+        "8_axles_tag": 7.0
+      }
+    },
+    {
+      "name": "Telephone Road / SH 35",
+      "type": "EXIT RAMP",
+      "rates": {
+        "2_axles_ez_tag_discount": 1.08,
+        "2_axles_tag": 1.2,
+        "3_axles_tag": 2.5,
+        "4_axles_tag": 3.75,
+        "5_axles_tag": 5.0,
+        "6_axles_tag": 6.25,
+        "7_axles_tag": 7.5,
+        "8_axles_tag": 8.75
+      }
+    },
+    {
+      "name": "Wayside",
+      "type": "EXIT RAMP",
+      "rates": {
+        "2_axles_ez_tag_discount": 1.08,
+        "2_axles_tag": 1.2,
+        "3_axles_tag": 2.5,
+        "4_axles_tag": 3.75,
+        "5_axles_tag": 5.0,
+        "6_axles_tag": 6.25,
+        "7_axles_tag": 7.5,
+        "8_axles_tag": 8.75
+      }
+    },
+    {
+      "name": "Sam Houston Southeast Plaza",
+      "type": "PASS THROUGH",
+      "rates": {
+        "2_axles_ez_tag_discount": 1.35,
+        "2_axles_tag": 1.5,
+        "3_axles_tag": 3.5,
+        "4_axles_tag": 5.25,
+        "5_axles_tag": 7.0,
+        "6_axles_tag": 8.75,
+        "7_axles_tag": 10.5,
+        "8_axles_tag": 12.25
+      }
+    },
+    {
+      "name": "Cullen (FM 865)",
+      "type": "ON RAMP",
+      "rates": {
+        "2_axles_ez_tag_discount": 0.81,
+        "2_axles_tag": 0.9,
+        "3_axles_tag": 2.0,
+        "4_axles_tag": 3.0,
+        "5_axles_tag": 4.0,
+        "6_axles_tag": 5.0,
+        "7_axles_tag": 6.0,
+        "8_axles_tag": 7.0
+      }
+    },
+    {
+      "name": "Sam Houston Southwest Plaza",
+      "type": "PASS THROUGH",
+      "rates": {
+        "2_axles_ez_tag_discount": 1.35,
+        "2_axles_tag": 1.5,
+        "3_axles_tag": 3.5,
+        "4_axles_tag": 5.25,
+        "5_axles_tag": 7.0,
+        "6_axles_tag": 8.75,
+        "7_axles_tag": 10.5,
+        "8_axles_tag": 12.25
+      }
+    },
+    {
+      "name": "Almeda Road",
+      "type": "ON RAMP",
+      "rates": {
+        "2_axles_ez_tag_discount": 1.08,
+        "2_axles_tag": 1.2,
+        "3_axles_tag": 2.5,
+        "4_axles_tag": 3.75,
+        "5_axles_tag": 5.0,
+        "6_axles_tag": 6.25,
+        "7_axles_tag": 7.5,
+        "8_axles_tag": 8.75
+      }
+    },
+    {
+      "name": "W. Fuqua Street",
+      "type": "ON RAMP",
+      "rates": {
+        "2_axles_ez_tag_discount": 1.08,
+        "2_axles_tag": 1.2,
+        "3_axles_tag": 2.5,
+        "4_axles_tag": 3.75,
+        "5_axles_tag": 5.0,
+        "6_axles_tag": 6.25,
+        "7_axles_tag": 7.5,
+        "8_axles_tag": 8.75
+      }
+    },
+    {
+      "name": "Hillcroft Avenue",
+      "type": "ON RAMP",
+      "rates": {
+        "2_axles_ez_tag_discount": 0.81,
+        "2_axles_tag": 0.9,
+        "3_axles_tag": 2.0,
+        "4_axles_tag": 3.0,
+        "5_axles_tag": 4.0,
+        "6_axles_tag": 5.0,
+        "7_axles_tag": 6.0,
+        "8_axles_tag": 7.0
+      }
+    },
+    {
+      "name": "South Main / US 90",
+      "type": "ON RAMP",
+      "rates": {
+        "2_axles_ez_tag_discount": 0.81,
+        "2_axles_tag": 0.9,
+        "3_axles_tag": 2.0,
+        "4_axles_tag": 3.0,
+        "5_axles_tag": 4.0,
+        "6_axles_tag": 5.0,
+        "7_axles_tag": 6.0,
+        "8_axles_tag": 7.0
+      }
+    },
+    {
+      "name": "Bellaire",
+      "type": "EXIT RAMP",
+      "rates": {
+        "2_axles_ez_tag_discount": 0.81,
+        "2_axles_tag": 0.9,
+        "3_axles_tag": 2.0,
+        "4_axles_tag": 3.0,
+        "5_axles_tag": 4.0,
+        "6_axles_tag": 5.0,
+        "7_axles_tag": 6.0,
+        "8_axles_tag": 7.0
+      }
+    },
+    {
+      "name": "Beltway 8 (to Westpark east or west)",
+      "type": "EXIT RAMP",
+      "rates": {
+        "2_axles_ez_tag_discount": 0.45,
+        "2_axles_tag": 0.5,
+        "3_axles_tag": 1.0,
+        "4_axles_tag": 1.5,
+        "5_axles_tag": 2.0,
+        "6_axles_tag": 2.5,
+        "7_axles_tag": 3.0,
+        "8_axles_tag": 3.5
+      }
+    },
+    {
+      "name": "Westheimer Road",
+      "type": "EXIT RAMP",
+      "rates": {
+        "2_axles_ez_tag_discount": 1.08,
+        "2_axles_tag": 1.2,
+        "3_axles_tag": 2.5,
+        "4_axles_tag": 3.75,
+        "5_axles_tag": 5.0,
+        "6_axles_tag": 6.25,
+        "7_axles_tag": 7.5,
+        "8_axles_tag": 8.75
+      }
+    },
+    {
+      "name": "Brair Forest Dr.",
+      "type": "EXIT RAMP",
+      "rates": {
+        "2_axles_ez_tag_discount": 1.08,
+        "2_axles_tag": 1.2,
+        "3_axles_tag": 2.5,
+        "4_axles_tag": 3.75,
+        "5_axles_tag": 5.0,
+        "6_axles_tag": 6.25,
+        "7_axles_tag": 7.5,
+        "8_axles_tag": 8.75
+      }
+    },
+    {
+      "name": "Sam Houston South Plaza",
+      "type": "PASS THROUGH",
+      "rates": {
+        "2_axles_ez_tag_discount": 1.35,
+        "2_axles_tag": 1.5,
+        "3_axles_tag": 3.5,
+        "4_axles_tag": 5.25,
+        "5_axles_tag": 7.0,
+        "6_axles_tag": 8.75,
+        "7_axles_tag": 10.5,
+        "8_axles_tag": 12.25
+      }
+    },
+    {
+      "name": "Hammerly Boulevard / Kempwood",
+      "type": "EXIT RAMP",
+      "rates": {
+        "2_axles_ez_tag_discount": 0.81,
+        "2_axles_tag": 0.9,
+        "3_axles_tag": 2.0,
+        "4_axles_tag": 3.0,
+        "5_axles_tag": 4.0,
+        "6_axles_tag": 5.0,
+        "7_axles_tag": 6.0,
+        "8_axles_tag": 7.0
+      }
+    },
+    {
+      "name": "Clay Road",
+      "type": "EXIT RAMP",
+      "rates": {
+        "2_axles_ez_tag_discount": 1.08,
+        "2_axles_tag": 1.2,
+        "3_axles_tag": 2.5,
+        "4_axles_tag": 3.75,
+        "5_axles_tag": 5.0,
+        "6_axles_tag": 6.25,
+        "7_axles_tag": 7.5,
+        "8_axles_tag": 8.75
+      }
+    },
+    {
+      "name": "Tanner Road",
+      "type": "EXIT RAMP",
+      "rates": {
+        "2_axles_ez_tag_discount": 1.08,
+        "2_axles_tag": 1.2,
+        "3_axles_tag": 2.5,
+        "4_axles_tag": 3.75,
+        "5_axles_tag": 5.0,
+        "6_axles_tag": 6.25,
+        "7_axles_tag": 7.5,
+        "8_axles_tag": 8.75
+      }
+    },
+    {
+      "name": "Sam Houston Central Plaza",
+      "type": "PASS THROUGH",
+      "rates": {
+        "2_axles_ez_tag_discount": 1.35,
+        "2_axles_tag": 1.5,
+        "3_axles_tag": 3.5,
+        "4_axles_tag": 5.25,
+        "5_axles_tag": 7.0,
+        "6_axles_tag": 8.75,
+        "7_axles_tag": 10.5,
+        "8_axles_tag": 12.25
+      }
+    },
+    {
+      "name": "West Road",
+      "type": "EXIT RAMP",
+      "rates": {
+        "2_axles_ez_tag_discount": 0.81,
+        "2_axles_tag": 0.9,
+        "3_axles_tag": 2.0,
+        "4_axles_tag": 3.0,
+        "5_axles_tag": 4.0,
+        "6_axles_tag": 5.0,
+        "7_axles_tag": 6.0,
+        "8_axles_tag": 7.0
+      }
+    },
+    {
+      "name": "Fallbrook Drive",
+      "type": "EXIT RAMP",
+      "rates": {
+        "2_axles_ez_tag_discount": 1.08,
+        "2_axles_tag": 1.2,
+        "3_axles_tag": 2.5,
+        "4_axles_tag": 3.75,
+        "5_axles_tag": 5.0,
+        "6_axles_tag": 6.25,
+        "7_axles_tag": 7.5,
+        "8_axles_tag": 8.75
+      }
+    },
+    {
+      "name": "N. Gessner Road",
+      "type": "EXIT RAMP",
+      "rates": {
+        "2_axles_ez_tag_discount": 1.08,
+        "2_axles_tag": 1.2,
+        "3_axles_tag": 2.5,
+        "4_axles_tag": 3.75,
+        "5_axles_tag": 5.0,
+        "6_axles_tag": 6.25,
+        "7_axles_tag": 7.5,
+        "8_axles_tag": 8.75
+      }
+    },
+    {
+      "name": "SH 249",
+      "type": "EXIT RAMP",
+      "rates": {
+        "2_axles_ez_tag_discount": 1.08,
+        "2_axles_tag": 1.2,
+        "3_axles_tag": 2.5,
+        "4_axles_tag": 3.75,
+        "5_axles_tag": 5.0,
+        "6_axles_tag": 6.25,
+        "7_axles_tag": 7.5,
+        "8_axles_tag": 8.75
+      }
+    },
+    {
+      "name": "Sam Houston North Plaza",
+      "type": "PASS THROUGH",
+      "rates": {
+        "2_axles_ez_tag_discount": 1.35,
+        "2_axles_tag": 1.5,
+        "3_axles_tag": 3.5,
+        "4_axles_tag": 5.25,
+        "5_axles_tag": 7.0,
+        "6_axles_tag": 8.75,
+        "7_axles_tag": 10.5,
+        "8_axles_tag": 12.25
+      }
+    }
+  ],
+  "link": "https://www.hctra.org/TollRates?tollRoad=Sam+Houston+Tollway"
+}

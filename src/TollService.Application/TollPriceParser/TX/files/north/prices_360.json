@@ -1,0 +1,40 @@
+{
+  "toll_locations": [
+    {
+      "Toll_Plaza": "Webb Lynn Road (WEBRD)",
+      "rates": {
+        "5_Axle": { "TollTag": 1.36, "ZipCash": 2.72 },
+        "6_Axle_and_above": { "TollTag": 1.7, "ZipCash": 3.4 }
+      }
+    },
+    {
+      "Toll_Plaza": "New York Mainlane Gantry (MLG14)",
+      "rates": {
+        "5_Axle": { "TollTag": 5.52, "ZipCash": 11.04 },
+        "6_Axle_and_above": { "TollTag": 6.9, "ZipCash": 13.8 }
+      }
+    },
+    {
+      "Toll_Plaza": "New York Avenue (NYAVE)",
+      "rates": {
+        "5_Axle": { "TollTag": 3.68, "ZipCash": 7.36 },
+        "6_Axle_and_above": { "TollTag": 4.6, "ZipCash": 9.2 }
+      }
+    },
+    {
+      "Toll_Plaza": "Debbie Lane (DEBLN)",
+      "rates": {
+        "5_Axle": { "TollTag": 2.56, "ZipCash": 5.12 },
+        "6_Axle_and_above": { "TollTag": 3.2, "ZipCash": 6.4 }
+      }
+    },
+    {
+      "Toll_Plaza": "Lone Star Mainlane Gantry (MLG15)",
+      "rates": {
+        "5_Axle": { "TollTag": 2.56, "ZipCash": 5.12 },
+        "6_Axle_and_above": { "TollTag": 3.2, "ZipCash": 6.4 }
+      }
+    }
+  ],
+  "link": "https://www.ntta.org/sites/default/files/2025-06/NTTAS_2025-2027_Toll%20Rate%20Tables.pdf"
+}

@@ -268,7 +268,278 @@ public class CalculatePriceService
         return tollPrice;
     }
 
-  
+    /// <summary>
+    /// Устанавливает TollPrice напрямую к Toll без использования CalculatePrice.
+    /// Использует метод Toll.SetPriceByPaymentType для создания или обновления цены.
+    /// </summary>
+    /// <param name="toll">Toll для установки цены</param>
+    /// <param name="amount">Сумма</param>
+    /// <param name="paymentType">Тип оплаты</param>
+    /// <param name="axelType">Тип осей</param>
+    /// <param name="dayOfWeekFrom">День недели начала</param>
+    /// <param name="dayOfWeekTo">День недели окончания</param>
+    /// <param name="timeOfDay">Время суток</param>
+    /// <param name="description">Описание (опционально)</param>
+    /// <param name="timeFrom">Время начала (опционально)</param>
+    /// <param name="timeTo">Время окончания (опционально)</param>
+    /// <returns>Созданный или обновленный TollPrice</returns>
+    public TollPrice SetTollPriceDirectly(
+        Toll toll,
+        double amount,
+        TollPaymentType paymentType,
+        AxelType axelType = AxelType._5L,
+        TollPriceDayOfWeek dayOfWeekFrom = TollPriceDayOfWeek.Any,
+        TollPriceDayOfWeek dayOfWeekTo = TollPriceDayOfWeek.Any,
+        TollPriceTimeOfDay timeOfDay = TollPriceTimeOfDay.Any,
+        string? description = null,
+        TimeOnly timeFrom = default,
+        TimeOnly timeTo = default)
+    {
+        if (amount <= 0)
+            throw new ArgumentException("Amount must be greater than zero", nameof(amount));
+
+        // Используем метод Toll.SetPriceByPaymentType
+        toll.SetPriceByPaymentType(
+            amount,
+            paymentType,
+            axelType,
+            dayOfWeekFrom,
+            dayOfWeekTo,
+            timeOfDay);
+
+        // Находим созданный или обновленный TollPrice
+        var tollPrice = toll.GetPriceByPaymentType(
+            paymentType,
+            axelType,
+            dayOfWeekFrom,
+            dayOfWeekTo,
+            timeOfDay);
+
+        if (tollPrice == null)
+        {
+            throw new InvalidOperationException("Failed to create or find TollPrice");
+        }
+
+        // Устанавливаем дополнительные поля
+        if (!string.IsNullOrWhiteSpace(description))
+        {
+            tollPrice.Description = description;
+        }
+
+        if (timeFrom != default)
+        {
+            tollPrice.TimeFrom = timeFrom;
+        }
+
+        if (timeTo != default)
+        {
+            tollPrice.TimeTo = timeTo;
+        }
+
+        return tollPrice;
+    }
+
+    /// <summary>
+    /// Батч-установка TollPrice напрямую к Toll без использования CalculatePrice.
+    /// Загружает Toll из базы данных, если они еще не загружены.
+    /// </summary>
+    /// <param name="tollPricesData">Словарь: ключ - TollId, значение - список TollPriceData для установки</param>
+    /// <param name="ct">Токен отмены</param>
+    /// <returns>Словарь: ключ - TollId, значение - список созданных или обновленных TollPrice</returns>
+    public async Task<Dictionary<Guid, List<TollPrice>>> SetTollPricesDirectlyBatchAsync(
+        Dictionary<Guid, IEnumerable<TollPriceData>> tollPricesData,
+        CancellationToken ct = default)
+    {
+        if (tollPricesData.Count == 0)
+            return new Dictionary<Guid, List<TollPrice>>();
+
+        var tollIds = tollPricesData.Keys.Distinct().ToList();
+
+        // Загружаем все Toll с их TollPrices
+        var tolls = await _context.Tolls
+            .Include(t => t.TollPrices)
+            .Where(t => tollIds.Contains(t.Id))
+            .ToListAsync(ct);
+
+        var result = new Dictionary<Guid, List<TollPrice>>();
+        var tollsToUpdate = new List<Toll>();
+
+        foreach (var kvp in tollPricesData)
+        {
+            var tollId = kvp.Key;
+            var pricesData = kvp.Value;
+
+            var toll = tolls.FirstOrDefault(t => t.Id == tollId);
+            if (toll == null)
+            {
+                continue; // Пропускаем, если Toll не найден
+            }
+
+            var createdPrices = new List<TollPrice>();
+
+            foreach (var priceData in pricesData)
+            {
+                if (priceData.Amount <= 0)
+                    continue;
+
+                try
+                {
+                    var tollPrice = SetTollPriceDirectly(
+                        toll,
+                        priceData.Amount,
+                        priceData.PaymentType,
+                        priceData.AxelType,
+                        priceData.DayOfWeekFrom,
+                        priceData.DayOfWeekTo,
+                        priceData.TimeOfDay,
+                        priceData.Description);
+
+                    createdPrices.Add(tollPrice);
+                }
+                catch (Exception)
+                {
+                    // Логируем ошибку, но продолжаем обработку остальных цен
+                    // Можно добавить логирование здесь
+                    continue;
+                }
+            }
+
+            if (createdPrices.Count > 0)
+            {
+                result[tollId] = createdPrices;
+                if (!tollsToUpdate.Contains(toll))
+                {
+                    tollsToUpdate.Add(toll);
+                }
+            }
+        }
+
+        // Помечаем Toll как измененные для EF Core
+        foreach (var toll in tollsToUpdate)
+        {
+            _context.Tolls.Update(toll);
+        }
+
+        return result;
+    }
+
+    /// <summary>
+    /// Батч-установка TollPrice напрямую к Toll без использования CalculatePrice.
+    /// Принимает уже готовые TollPrice объекты.
+    /// </summary>
+    /// <param name="tollPricesByTollId">Словарь: ключ - TollId, значение - список готовых TollPrice для установки</param>
+    /// <param name="ct">Токен отмены</param>
+    /// <returns>Словарь: ключ - TollId, значение - список созданных или обновленных TollPrice</returns>
+    public async Task<Dictionary<Guid, List<TollPrice>>> SetTollPricesDirectlyBatchAsync(
+        Dictionary<Guid, IEnumerable<TollPrice>> tollPricesByTollId,
+        CancellationToken ct = default)
+    {
+        if (tollPricesByTollId.Count == 0)
+            return new Dictionary<Guid, List<TollPrice>>();
+
+        var tollIds = tollPricesByTollId.Keys.Distinct().ToList();
+
+        // Загружаем все Toll с их TollPrices
+        var tolls = await _context.Tolls
+            .Include(t => t.TollPrices)
+            .Where(t => tollIds.Contains(t.Id))
+            .ToListAsync(ct);
+
+        var result = new Dictionary<Guid, List<TollPrice>>();
+        var tollsToUpdate = new List<Toll>();
+        var newTollPricesToAdd = new List<TollPrice>();
+
+        foreach (var kvp in tollPricesByTollId)
+        {
+            var tollId = kvp.Key;
+            var tollPrices = kvp.Value;
+
+            var toll = tolls.FirstOrDefault(t => t.Id == tollId);
+            if (toll == null)
+            {
+                continue; // Пропускаем, если Toll не найден
+            }
+
+            var processedPrices = new List<TollPrice>();
+
+            foreach (var tollPrice in tollPrices)
+            {
+                if (tollPrice.Amount <= 0)
+                    continue;
+
+                // Устанавливаем TollId, если он не установлен
+                if (tollPrice.TollId == Guid.Empty)
+                {
+                    tollPrice.TollId = tollId;
+                }
+
+                // Убеждаемся, что CalculatePriceId = null (прямая цена без CalculatePrice)
+                tollPrice.CalculatePriceId = null;
+
+                // Проверяем, существует ли уже такая цена
+                var existingPrice = toll.TollPrices.FirstOrDefault(
+                    tp => tp.PaymentType == tollPrice.PaymentType &&
+                          tp.AxelType == tollPrice.AxelType &&
+                          tp.DayOfWeekFrom == tollPrice.DayOfWeekFrom &&
+                          tp.DayOfWeekTo == tollPrice.DayOfWeekTo &&
+                          tp.TimeOfDay == tollPrice.TimeOfDay &&
+                          !tp.IsCalculate());
+
+                if (existingPrice != null)
+                {
+                    // Обновляем существующую цену
+                    existingPrice.Amount = tollPrice.Amount;
+                    if (!string.IsNullOrWhiteSpace(tollPrice.Description))
+                    {
+                        existingPrice.Description = tollPrice.Description;
+                    }
+                    if (tollPrice.TimeFrom != default)
+                    {
+                        existingPrice.TimeFrom = tollPrice.TimeFrom;
+                    }
+                    if (tollPrice.TimeTo != default)
+                    {
+                        existingPrice.TimeTo = tollPrice.TimeTo;
+                    }
+                    processedPrices.Add(existingPrice);
+                }
+                else
+                {
+                    // Создаем новую цену
+                    if (tollPrice.Id == Guid.Empty)
+                    {
+                        tollPrice.Id = Guid.NewGuid();
+                    }
+                    toll.TollPrices.Add(tollPrice);
+                    newTollPricesToAdd.Add(tollPrice);
+                    processedPrices.Add(tollPrice);
+                }
+            }
+
+            if (processedPrices.Count > 0)
+            {
+                result[tollId] = processedPrices;
+                if (!tollsToUpdate.Contains(toll))
+                {
+                    tollsToUpdate.Add(toll);
+                }
+            }
+        }
+
+        // Добавляем новые TollPrice в контекст
+        if (newTollPricesToAdd.Count > 0)
+        {
+            _context.TollPrices.AddRange(newTollPricesToAdd);
+        }
+
+        // Помечаем Toll как измененные для EF Core
+        foreach (var toll in tollsToUpdate)
+        {
+            _context.Tolls.Update(toll);
+        }
+
+        return result;
+    }
 
 }
 

@@ -1,0 +1,51 @@
+{
+  "payment_types": {
+    "Tag": true,
+    "No plate": false,
+    "Cash": true,
+    "No card": false,
+    "App": true,
+    "Card": true
+  },
+  "toll_plazas": [
+    {
+      "name": "Main Toll Plaza",
+      "rates": {
+        "5_axles": {
+          "cash_out_of_state_ezpass": 10.2,
+          "va_ezpass": 10.2
+        },
+        "6_axles": {
+          "cash_out_of_state_ezpass": 11.7,
+          "va_ezpass": 11.7
+        }
+      }
+    },
+    {
+      "name": "Laburnum Ave.",
+      "rates": {
+        "5_axles": {
+          "cash_out_of_state_ezpass": 7.7,
+          "va_ezpass": 7.7
+        },
+        "6_axles": {
+          "cash_out_of_state_ezpass": 9.15,
+          "va_ezpass": 9.15
+        }
+      }
+    },
+    {
+      "name": "Airport Drive",
+      "rates": {
+        "5_axles": {
+          "cash_out_of_state_ezpass": 7.7,
+          "va_ezpass": 7.7
+        },
+        "6_axles": {
+          "cash_out_of_state_ezpass": 9.15,
+          "va_ezpass": 9.15
+        }
+      }
+    }
+  ]
+}

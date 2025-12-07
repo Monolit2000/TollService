@@ -185,29 +185,18 @@ public class LinkOklahomaTollsCommandHandler(
 
                             var description = $"{rate.EntryName} -> {rate.ExitName} ({turnpikeName}, Class {vehicleClass})";
 
-                            // Может быть несколько tolls с одинаковым именем, поэтому создаем записи для всех комбинаций
-                            foreach (var entryToll in entryTolls)
-                            {
-                                foreach (var exitToll in exitTolls)
+                            // Обрабатываем все комбинации entry -> exit толлов
+                            var pairResults = TollPairProcessor.ProcessAllPairsToDictionaryList(
+                                entryTolls,
+                                exitTolls,
+                                (entryToll, exitToll) =>
                                 {
-                                    if (entryToll.Id == exitToll.Id)
-                                    {
-                                        continue; // Пропускаем, если entry и exit это один и тот же toll
-                                    }
-
-                                    var pairKey = (entryToll.Id, exitToll.Id);
-
-                                    // Инициализируем список TollPrice для пары, если его еще нет
-                                    if (!tollPairsWithPrices.TryGetValue(pairKey, out var tollPricesForPair))
-                                    {
-                                        tollPricesForPair = new List<TollPrice>();
-                                        tollPairsWithPrices[pairKey] = tollPricesForPair;
-                                    }
+                                    var tollPrices = new List<TollPrice>();
 
                                     // Создаем TollPrice для EZPass (pikePassRate)
                                     if (rate.PikePassRate > 0)
                                     {
-                                        tollPricesForPair.Add(new TollPrice
+                                        tollPrices.Add(new TollPrice
                                         {
                                             TollId = entryToll.Id,
                                             PaymentType = TollPaymentType.EZPass,
@@ -220,7 +209,7 @@ public class LinkOklahomaTollsCommandHandler(
                                     // Создаем TollPrice для Cash (cashCashlessRate)
                                     if (rate.CashCashlessRate > 0)
                                     {
-                                        tollPricesForPair.Add(new TollPrice
+                                        tollPrices.Add(new TollPrice
                                         {
                                             TollId = entryToll.Id,
                                             PaymentType = TollPaymentType.Cash,
@@ -230,6 +219,7 @@ public class LinkOklahomaTollsCommandHandler(
                                         });
                                     }
 
+                                    // Добавляем в foundTolls
                                     foundTolls.Add(new OklahomaFoundTollInfo(
                                         EntryName: rate.EntryName,
                                         ExitName: rate.ExitName,
@@ -242,7 +232,19 @@ public class LinkOklahomaTollsCommandHandler(
                                         TurnpikeId: turnpikeId,
                                         TurnpikeName: turnpikeName,
                                         VehicleClass: vehicleClass));
+
+                                    return tollPrices;
+                                });
+
+                            // Объединяем результаты с общим словарем
+                            foreach (var kvp in pairResults)
+                            {
+                                if (!tollPairsWithPrices.TryGetValue(kvp.Key, out var existingList))
+                                {
+                                    existingList = new List<TollPrice>();
+                                    tollPairsWithPrices[kvp.Key] = existingList;
                                 }
+                                existingList.AddRange(kvp.Value);
                             }
                         }
                     }
