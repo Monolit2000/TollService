@@ -1,12 +1,12 @@
 using MediatR;
 using Microsoft.EntityFrameworkCore;
-using TollService.Application.Mappings;
+using TollService.Api.Extensions;
 using TollService.Application.Common;
 using TollService.Application.Common.Interfaces;
+using TollService.Application.Mappings;
 using TollService.Infrastructure.Integrations;
 using TollService.Infrastructure.Persistence;
 using TollService.Infrastructure.Services;
-using TollService.Api.Extensions;
 
 var builder = WebApplication.CreateBuilder(args);
 
