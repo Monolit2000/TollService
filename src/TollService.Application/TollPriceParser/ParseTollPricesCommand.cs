@@ -126,23 +126,39 @@ public class ParseTollPricesCommandHandler(
             if(toll != null)
                 milepostToTollMap[interchange.Milepost] = toll;
         }
-        
+
+        var tollsId = ohioTolls.Select(t => t.Id);
+
+        var existingPrices = await _context.CalculatePrices
+            .Where(cp =>
+                tollsId.Contains(cp.FromId) ||
+                tollsId.Contains(cp.ToId) &&
+                cp.StateCalculatorId == ohioCalculator.Id).ToListAsync(ct);
+
         // Создаем или обновляем CalculatePrice записи
         foreach (var priceEntry in tollPrices)
         {
+
+            if(priceEntry.EntranceMilepost == 0)
+            {
+
+            }
+
             if (!milepostToTollMap.TryGetValue(priceEntry.EntranceMilepost, out var fromToll) ||
                 !milepostToTollMap.TryGetValue(priceEntry.ExitMilepost, out var toToll))
             {
                 notFoundPlazas.Add($"Milepost {priceEntry.EntranceMilepost} -> {priceEntry.ExitMilepost}");
                 continue;
             }
+
+
             
             // Проверяем, существует ли уже CalculatePrice для этой пары
-            var existingPrice = await _context.CalculatePrices
-                .FirstOrDefaultAsync(cp => 
+            var existingPrice = existingPrices
+                .FirstOrDefault(cp => 
                     cp.FromId == fromToll.Id && 
                     cp.ToId == toToll.Id && 
-                    cp.StateCalculatorId == ohioCalculator.Id, ct);
+                    cp.StateCalculatorId == ohioCalculator.Id);
             
             if (existingPrice != null)
             {
