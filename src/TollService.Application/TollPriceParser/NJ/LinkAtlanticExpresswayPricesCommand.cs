@@ -132,8 +132,8 @@ public class LinkAtlanticExpresswayPricesCommandHandler(
                     continue;
                 }
 
-                // Ищем tolls по имени плазы
-                if (!tollsByPlazaName.TryGetValue(rate.PlazaName.ToLower(), out var foundTolls) || foundTolls.Count == 0)
+                // Ищем tolls по имени плазы (ключи в словаре хранятся в оригинальном регистре)
+                if (!tollsByPlazaName.TryGetValue(rate.PlazaName, out var foundTolls) || foundTolls.Count == 0)
                 {
                     notFoundPlazas.Add(rate.PlazaName);
                     continue;
