@@ -55,7 +55,8 @@ public class GetTollsAlongPolylineSectionsQueryHandler(
             var tollsDict = tolls.ToDictionary(t => t.Id);
 
             // Маппим в TollDto с добавлением RouteSection и Distance
-            var tollDtos = _mapper.Map<List<TollDto>>(tolls);
+            //var tollDtos = _mapper.Map<List<TollDto>>(tolls);
+            var tollDtos = MapToTollDtos(tolls);
             var tollsWithSection = tollDtos.Select(t =>
             {
                 var toll = tollsDict.TryGetValue(t.Id, out var foundToll) ? foundToll : null;
@@ -105,6 +106,43 @@ public class GetTollsAlongPolylineSectionsQueryHandler(
         }
 
         return allTolls;
+    }
+
+    public List<TollDto> MapToTollDtos(List<Toll> tolls)
+    {
+        return tolls.Select(t => new TollDto(
+            id: t.Id,
+            name: t.Name ?? string.Empty,
+            nodeId: t.NodeId ?? 0,
+            price: t.Price,
+            latitude: t.Location?.Y ?? 0,
+            longitude: t.Location?.X ?? 0,
+            roadId: t.RoadId ?? Guid.Empty,
+            key: t.Key,
+            comment: t.Comment,
+            isDynamic: t.isDynamic,
+            iPassOvernight: t.IPassOvernight,
+            iPass: t.IPass,
+            payOnlineOvernight: t.PayOnlineOvernight,
+            payOnline: t.PayOnline
+        )
+        {
+            TollPrices = t.TollPrices.Select(tp => new TollWithPriceDto
+            {
+                Id = tp.Id,
+                TollId = tp.TollId,
+                CalculatePriceId = tp.CalculatePriceId,
+                PaymentType = tp.PaymentType,
+                AxelType = tp.AxelType,
+                TimeOfDay = tp.TimeOfDay,
+                DayOfWeekFrom = tp.DayOfWeekFrom,
+                DayOfWeekTo = tp.DayOfWeekTo,
+                TimeFrom = tp.TimeFrom,
+                TimeTo = tp.TimeTo,
+                Description = tp.Description,
+                Amount = tp.Amount
+            }).ToList()
+        }).ToList();
     }
 
     /// <summary>
