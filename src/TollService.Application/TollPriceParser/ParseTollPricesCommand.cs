@@ -11,6 +11,7 @@ namespace TollService.Application.TollPriceParser;
 public record ParseTollPricesCommand(string Url = "https://agency.illinoistollway.com/toll-rates") 
     : IRequest<ParseTollPricesResult>;
 
+
 public record ParseTollPricesResult(
     int UpdatedCount,
     List<string> NotFoundPlazas);
@@ -19,6 +20,9 @@ public class ParseTollPricesCommandHandler(
     ITollDbContext _context,
     IHttpClientFactory _httpClientFactory) : IRequestHandler<ParseTollPricesCommand, ParseTollPricesResult>
 {
+    private static readonly (double south, double west, double north, double east) OhioBounds =
+    (38.4, -84.8, 42.0, -80.5);
+
     public async Task<ParseTollPricesResult> Handle(ParseTollPricesCommand request, CancellationToken ct)
     {
         // Проверяем, является ли URL JS файлом Ohio Turnpike
@@ -60,19 +64,28 @@ public class ParseTollPricesCommandHandler(
             _context.StateCalculators.Add(ohioCalculator);
             await _context.SaveChangesAsync(ct);
         }
-        
+
+        var (south, west, north, east) = OhioBounds;
+
+        var ohioTolls = await _context.Tolls
+    .Where(t => t.Location != null
+                && t.Location.Y >= south && t.Location.Y <= north   // latitude
+                && t.Location.X >= west && t.Location.X <= east)   // longitude
+    .ToListAsync(ct);
+
         // Обновляем или создаем Toll записи на основе interchanges
         var milepostToTollMap = new Dictionary<int, Toll>();
         
         foreach (var interchange in interchanges)
         {
-            var tolls = await _context.Tolls
-                .Where(t => /*t.Number == interchange.Milepost || */
-                           //(t.Key != null && t.Key.Equals(interchange.Name, StringComparison.OrdinalIgnoreCase)) ||
-                           (t.Name != null && t.Name == interchange.Name))
-                           //(t.Name != null && EF.Functions.Like(t.Name, $"%{interchange.Name}%")))
-                .ToListAsync(ct);
-            
+ 
+
+            var tolls = ohioTolls
+                .Where(t => t.Location != null
+                            && t.Name != null
+                            && t.Name == interchange.Name)
+                .ToList();
+
             Toll? toll = null;
             
             if(tolls.Count < 0)
@@ -113,23 +126,39 @@ public class ParseTollPricesCommandHandler(
             if(toll != null)
                 milepostToTollMap[interchange.Milepost] = toll;
         }
-        
+
+        var tollsId = ohioTolls.Select(t => t.Id);
+
+        var existingPrices = await _context.CalculatePrices
+            .Where(cp =>
+                tollsId.Contains(cp.FromId) ||
+                tollsId.Contains(cp.ToId) &&
+                cp.StateCalculatorId == ohioCalculator.Id).ToListAsync(ct);
+
         // Создаем или обновляем CalculatePrice записи
         foreach (var priceEntry in tollPrices)
         {
+
+            if(priceEntry.EntranceMilepost == 0)
+            {
+
+            }
+
             if (!milepostToTollMap.TryGetValue(priceEntry.EntranceMilepost, out var fromToll) ||
                 !milepostToTollMap.TryGetValue(priceEntry.ExitMilepost, out var toToll))
             {
                 notFoundPlazas.Add($"Milepost {priceEntry.EntranceMilepost} -> {priceEntry.ExitMilepost}");
                 continue;
             }
+
+
             
             // Проверяем, существует ли уже CalculatePrice для этой пары
-            var existingPrice = await _context.CalculatePrices
-                .FirstOrDefaultAsync(cp => 
+            var existingPrice = existingPrices
+                .FirstOrDefault(cp => 
                     cp.FromId == fromToll.Id && 
                     cp.ToId == toToll.Id && 
-                    cp.StateCalculatorId == ohioCalculator.Id, ct);
+                    cp.StateCalculatorId == ohioCalculator.Id);
             
             if (existingPrice != null)
             {

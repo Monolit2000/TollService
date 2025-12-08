@@ -157,7 +157,7 @@ public class CalculatePriceService
 
                             SetTollPrice(
                                 newCalculatePrice,
-                                tollId,
+                                tollId.Value,
                                 tollPrice.Amount,
                                 tollPrice.PaymentType,
                                 tollPrice.AxelType,
@@ -187,7 +187,7 @@ public class CalculatePriceService
 
                             var updatedTollPrice = SetTollPrice(
                                 existingCalculatePrice,
-                                tollId,
+                                tollId.Value,
                                 tollPrice.Amount,
                                 tollPrice.PaymentType,
                                 tollPrice.AxelType,

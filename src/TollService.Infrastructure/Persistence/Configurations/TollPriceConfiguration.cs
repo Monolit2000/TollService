@@ -32,6 +32,9 @@ public class TollPriceConfiguration : IEntityTypeConfiguration<TollPrice>
             .HasMaxLength(512)
             .IsRequired(false);
 
+        builder.Property(x => x.TollId)
+            .IsRequired(false);
+
         //builder.Property(x => x.IsCalculate)
         //    .HasDefaultValue(false);
 

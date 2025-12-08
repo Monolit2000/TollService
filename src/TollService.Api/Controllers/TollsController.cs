@@ -25,6 +25,8 @@ using TollService.Application.Tolls.Queries;
 using TollService.Contracts;
 using TollService.Infrastructure.Integrations;
 using TollService.Application.TollPriceParser.NY;
+using TollService.Application.TollPriceParser.FL;
+using static TollService.Application.TollPriceParser.NY.ParseNewYorkTollPricesCommandHandler;
 
 namespace TollService.Api.Controllers;
 
@@ -116,7 +118,7 @@ public class TollsController : ControllerBase
 
         var distanceMeters = request.DistanceMeters ?? 1;
         var result = await _mediator.Send(
-            new GetTollsAlongPolylineQuery(request.Coordinates, distanceMeters), 
+            new GetTollsAlongPolylineQuery(request.Coordinates, distanceMeters),
             ct);
         return Ok(result);
     }
@@ -146,7 +148,7 @@ public class TollsController : ControllerBase
         }
 
         var result = await _mediator.Send(
-            new GetTollsAlongPolylineSectionsQuery(sections), 
+            new GetTollsAlongPolylineSectionsQuery(sections),
             ct);
         return Ok(result);
     }
@@ -162,6 +164,19 @@ public class TollsController : ControllerBase
             return NotFound();
         }
         return Ok();
+    }
+
+    [HttpDelete("by-state/{stateCode}")]
+    [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(int))]
+    public async Task<IActionResult> DeleteTollsByState(string stateCode, CancellationToken ct)
+    {
+        if (string.IsNullOrWhiteSpace(stateCode))
+        {
+            return BadRequest("stateCode cannot be empty");
+        }
+
+        var result = await _mediator.Send(new DeleteTollsByStateCommand(stateCode), ct);
+        return Ok(result);
     }
 
     [HttpPost("parse-prices")]
@@ -403,15 +418,20 @@ public class TollsController : ControllerBase
     [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(ParseTollPricesResult))]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
     public async Task<IActionResult> ParseNewYorkTollPrices(
+        [FromBody] List<NewYorkTollRate>? newYorkTollRates,
         [FromQuery] int vehicleClass = 7,
-        [FromQuery] string? baseUrl = null,
         CancellationToken ct = default)
     {
+        if (newYorkTollRates == null || newYorkTollRates.Count == 0)
+        {
+            return BadRequest("Request body cannot be empty");
+        }
+
         try
         {
             var command = new ParseNewYorkTollPricesCommand(
-                VehicleClass: vehicleClass,
-                BaseUrl: baseUrl ?? "https://tollcalculator.thruway.ny.gov/index.aspx");
+                NewYorkTollRates: newYorkTollRates,
+                VehicleClass: vehicleClass);
             var result = await _mediator.Send(command, ct);
             return Ok(result);
         }
@@ -520,7 +540,7 @@ public class TollsController : ControllerBase
             };
 
             var request = System.Text.Json.JsonSerializer.Deserialize<List<KansasTollRequestDto>>(jsonContent, options);
-            
+
             if (request == null || request.Count == 0)
             {
                 return BadRequest("No valid toll data found in JSON");
@@ -595,7 +615,7 @@ public class TollsController : ControllerBase
 
             var command = new FetchMaineTollPricesCommand(jsonContent);
             var result = await _mediator.Send(command, ct);
-            
+
             if (!string.IsNullOrWhiteSpace(result.Error))
             {
                 return BadRequest(result.Error);
@@ -632,7 +652,7 @@ public class TollsController : ControllerBase
 
             var command = new ParseMaineTollPricesCommand(jsonContent);
             var result = await _mediator.Send(command, ct);
-            
+
             if (!string.IsNullOrWhiteSpace(result.Error))
             {
                 return BadRequest(result.Error);
@@ -667,7 +687,7 @@ public class TollsController : ControllerBase
 
         var command = new LinkNewHampshireTollsCommand(json);
         var result = await _mediator.Send(command, ct);
-        
+
         if (!string.IsNullOrWhiteSpace(result.Error))
         {
             return BadRequest(result.Error);
@@ -697,7 +717,7 @@ public class TollsController : ControllerBase
 
         var command = new LinkCaliforniaTollsCommand(json);
         var result = await _mediator.Send(command, ct);
-        
+
         if (!string.IsNullOrWhiteSpace(result.Error))
         {
             return BadRequest(result.Error);
@@ -802,7 +822,7 @@ public class TollsController : ControllerBase
 
         var command = new LinkColoradoTollsCommand(json);
         var result = await _mediator.Send(command, ct);
-        
+
         if (!string.IsNullOrWhiteSpace(result.Error))
         {
             return BadRequest(result.Error);
@@ -1044,6 +1064,54 @@ public class TollsController : ControllerBase
         catch (Exception ex)
         {
             return BadRequest($"Error processing request: {ex.Message}");
+        }
+    }
+
+    [HttpPost("link-florida-tolls")]
+    [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(LinkFloridaTollsResult))]
+    [ProducesResponseType(StatusCodes.Status400BadRequest)]
+    public async Task<IActionResult> LinkFloridaTolls(
+        CancellationToken ct = default)
+    {
+        try
+        {
+            var command = new LinkFloridaTollsCommand();
+            var result = await _mediator.Send(command, ct);
+
+            if (!string.IsNullOrWhiteSpace(result.Error))
+            {
+                return BadRequest(result.Error);
+            }
+
+            return Ok(result);
+        }
+        catch (Exception ex)
+        {
+            return BadRequest($"Error processing Florida tolls: {ex.Message}");
+        }
+    }
+
+    [HttpPost("sync-florida-tolls")]
+    [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(SyncFloridaTollsResult))]
+    [ProducesResponseType(StatusCodes.Status400BadRequest)]
+    public async Task<IActionResult> SyncFloridaTolls(
+        CancellationToken ct = default)
+    {
+        try
+        {
+            var command = new SyncFloridaTollsCommand();
+            var result = await _mediator.Send(command, ct);
+
+            if (!string.IsNullOrWhiteSpace(result.Error))
+            {
+                return BadRequest(result.Error);
+            }
+
+            return Ok(result);
+        }
+        catch (Exception ex)
+        {
+            return BadRequest($"Error syncing Florida tolls: {ex.Message}");
         }
     }
 }

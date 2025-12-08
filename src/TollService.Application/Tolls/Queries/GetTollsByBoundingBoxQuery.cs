@@ -4,6 +4,7 @@ using Microsoft.EntityFrameworkCore;
 using NetTopologySuite.Geometries;
 using TollService.Application.Common.Interfaces;
 using TollService.Contracts;
+using TollService.Domain;
 
 namespace TollService.Application.Tolls.Queries;
 
@@ -30,10 +31,49 @@ public class GetTollsByBoundingBoxQueryHandler(
 
         var tolls = await _context.Tolls
             .Where(t => t.Location != null && boundingBox.Contains(t.Location))
+            .Include(t => t.TollPrices.Where(tp => !tp.CalculatePriceId.HasValue))
             .ToListAsync(ct);
 
-        return _mapper.Map<List<TollDto>>(tolls);
+        return MapToTollDtos(tolls);
     }
+
+    public List<TollDto> MapToTollDtos(List<Toll> tolls)
+    {
+        return tolls.Select(t => new TollDto(
+            id: t.Id,
+            name: t.Name ?? string.Empty,
+            nodeId: t.NodeId ?? 0,
+            price: t.Price,
+            latitude: t.Location?.Y ?? 0,    
+            longitude: t.Location?.X ?? 0,   
+            roadId: t.RoadId ?? Guid.Empty,
+            key: t.Key,
+            comment: t.Comment,
+            isDynamic: t.isDynamic,
+            iPassOvernight: t.IPassOvernight,
+            iPass: t.IPass,
+            payOnlineOvernight: t.PayOnlineOvernight,
+            payOnline: t.PayOnline
+        )
+        {
+            TollPrices = t.TollPrices.Select(tp => new TollWithPriceDto
+            {
+                Id = tp.Id,
+                TollId = tp.TollId,
+                CalculatePriceId = tp.CalculatePriceId,
+                PaymentType = tp.PaymentType,
+                AxelType = tp.AxelType,
+                TimeOfDay = tp.TimeOfDay,
+                DayOfWeekFrom = tp.DayOfWeekFrom,
+                DayOfWeekTo = tp.DayOfWeekTo,
+                TimeFrom = tp.TimeFrom,
+                TimeTo = tp.TimeTo,
+                Description = tp.Description,
+                Amount = tp.Amount
+            }).ToList()
+        }).ToList();
+    }
+
 }
 
 

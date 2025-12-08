@@ -69,6 +69,8 @@ public class Toll
         }
     }
 
+    
+
     public TollPrice? GetPriceByPaymentType(
         TollPaymentType paymentType,
         AxelType axelType = AxelType._5L,

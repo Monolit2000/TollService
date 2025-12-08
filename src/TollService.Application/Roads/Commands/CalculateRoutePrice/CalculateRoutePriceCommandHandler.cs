@@ -17,14 +17,16 @@ namespace TollService.Application.Roads.Commands.CalculateRoutePrice
             var roadCalculator = new RoadCalculator();
 
             var tollsDtos = request.Tolls;
+            var tollIds = tollsDtos.Select(t => t.Id).ToList();
 
             var dbTolls = await tollDbContext.Tolls
-                .Where(t => tollsDtos.Select(tt => tt.Id).Contains(t.Id))
+                .Where(t => tollIds.Contains(t.Id))
                 .Include(t => t.TollPrices)
                 .ToListAsync(cancellationToken);
 
-            // Загружаем все CalculatePrices с включенными From и To для поиска по Name
+            // Загружаем только те CalculatePrices, которые относятся к толлам из текущего списка
             var allCalculatePrices = await tollDbContext.CalculatePrices
+                .Where(p => tollIds.Contains(p.FromId) && tollIds.Contains(p.ToId))
                 .Include(p => p.From)
                 .Include(p => p.To)
                 .Include(p => p.TollPrices)
@@ -56,6 +58,8 @@ namespace TollService.Application.Roads.Commands.CalculateRoutePrice
     public class TollPriceDto
     {
         public Toll Toll { get; set; }
+
+        public List<TollPrice> TollPrices { get; set; } = [];
         public double IPassOvernight { get; set; }
 
         public double IPass { get; set; }

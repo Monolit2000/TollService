@@ -1,3 +1,5 @@
+using TollService.Domain;
+
 namespace TollService.Contracts;
 
 public record RoadDto(Guid Id, string Name, string HighwayType, bool IsToll);
@@ -38,23 +40,84 @@ public class TollWithRouteSectionDto
     public double PayOnline { get; set; }
     public double Distance { get; set; } = 0;
     public double OrderId { get; set; } = 0;
+
+    public List<TollPrice> TollPrices { get; set; } = [];
 }
 
-public record TollDto(
-    Guid Id, 
-    string Name, 
-    long NodeId, 
-    decimal Price, 
-    double Latitude, 
-    double Longitude, 
-    Guid RoadId, 
-    string? Key, 
-    string? Comment, 
-    bool IsDynamic = false,
-    double IPassOvernight = 0,
-    double IPass = 0,
-    double PayOnlineOvernight = 0,
-    double PayOnline = 0);
+public class TollDto
+{
+    public Guid Id { get; set; }
+    public string Name { get; set; }
+    public long NodeId { get; set; }
+    public decimal Price { get; set; }
+    public double Latitude { get; set; }
+    public double Longitude { get; set; }
+    public Guid RoadId { get; set; }
+    public string? Key { get; set; }
+    public string? Comment { get; set; }
+    public bool IsDynamic { get; set; }
+    public double IPassOvernight { get; set; }
+    public double IPass { get; set; }
+    public double PayOnlineOvernight { get; set; }
+    public double PayOnline { get; set; }
+
+    public List<TollWithPriceDto> TollPrices { get; set; } = [];
+
+    public TollDto()
+    {
+            
+    }
+
+    public TollDto(
+        Guid id,
+        string name,
+        long nodeId,
+        decimal price,
+        double latitude,
+        double longitude,
+        Guid roadId,
+        string? key,
+        string? comment,
+        bool isDynamic = false,
+        double iPassOvernight = 0,
+        double iPass = 0,
+        double payOnlineOvernight = 0,
+        double payOnline = 0)
+    {
+        Id = id;
+        Name = name;
+        NodeId = nodeId;
+        Price = price;
+        Latitude = latitude;
+        Longitude = longitude;
+        RoadId = roadId;
+        Key = key;
+        Comment = comment;
+        IsDynamic = isDynamic;
+        IPassOvernight = iPassOvernight;
+        IPass = iPass;
+        PayOnlineOvernight = payOnlineOvernight;
+        PayOnline = payOnline;
+    }
+}
+
+public class TollWithPriceDto
+{
+    public Guid Id { get; set; }
+    public Guid? TollId { get; set; }
+    public Guid? CalculatePriceId { get; set; }
+    public TollPaymentType PaymentType { get; set; }
+
+    public AxelType AxelType { get; set; } = AxelType.Unknown;
+
+    public TollPriceTimeOfDay TimeOfDay { get; set; } = TollPriceTimeOfDay.Any;
+    public TollPriceDayOfWeek DayOfWeekFrom { get; set; } = TollPriceDayOfWeek.Any;
+    public TollPriceDayOfWeek DayOfWeekTo { get; set; } = TollPriceDayOfWeek.Any;
+    public TimeOnly TimeFrom { get; set; }
+    public TimeOnly TimeTo { get; set; }
+    public string? Description { get; set; }
+    public double Amount { get; set; }
+}
 
 public record IndianaTollPriceRequestDto(
     string entry,

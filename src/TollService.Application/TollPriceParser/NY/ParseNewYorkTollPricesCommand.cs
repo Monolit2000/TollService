@@ -2,9 +2,9 @@ using System.Globalization;
 using System.Text.RegularExpressions;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
-using NetTopologySuite.Geometries;
 using TollService.Application.Common.Interfaces;
 using TollService.Domain;
+using static TollService.Application.TollPriceParser.NY.ParseNewYorkTollPricesCommandHandler;
 
 namespace TollService.Application.TollPriceParser.NY;
 
@@ -16,13 +16,12 @@ namespace TollService.Application.TollPriceParser.NY;
 /// и вытаскивает из HTML только строку Total (NY E‑ZPass и NON‑NY E‑ZPass &amp; Tolls By Mail).
 /// </summary>
 public record ParseNewYorkTollPricesCommand(
-    int VehicleClass = 5,
-    string BaseUrl = "https://tollcalculator.thruway.ny.gov/index.aspx")
+    List<NewYorkTollRate> NewYorkTollRates,
+    int VehicleClass = 5)
     : IRequest<ParseTollPricesResult>;
 
 public class ParseNewYorkTollPricesCommandHandler(
-    ITollDbContext _context,
-    IHttpClientFactory _httpClientFactory)
+    ITollDbContext _context)
     : IRequestHandler<ParseNewYorkTollPricesCommand, ParseTollPricesResult>
 {
     // Границы Нью-Йорка (как в OsmImportService)
@@ -83,13 +82,28 @@ public class ParseNewYorkTollPricesCommandHandler(
             return new ParseTollPricesResult(0, new List<string> { "Не удалось получить список номеров плаз для NY" });
         }
 
+        // 2.1. Устанавливаем StateCalculatorId только для Toll, найденных по Number
+        var tollsToUpdate = tollsByNumber.Values
+            .SelectMany(tolls => tolls)
+            .Where(t => t.StateCalculatorId == null)
+            .ToList();
+        if (tollsToUpdate.Count > 0)
+        {
+            foreach (var toll in tollsToUpdate)
+            {
+                toll.StateCalculatorId = nyCalculator.Id;
+            }
+            await _context.SaveChangesAsync(ct);
+        }
+
         // 3. Загружаем уже существующие цены для этого калькулятора
         var existingPrices = await _context.CalculatePrices
             .Where(cp => cp.StateCalculatorId == nyCalculator.Id)
+            .Include(cp => cp.TollPrices)
             .ToListAsync(ct);
 
-        var httpClient = _httpClientFactory.CreateClient();
-        httpClient.Timeout = TimeSpan.FromSeconds(30);
+        // 3.1. Используем тарифы, переданные в команде
+        var nyRates = request.NewYorkTollRates ?? [];
 
         // Чтобы не дергать один и тот же URL дважды
         var processedPairs = new HashSet<string>(StringComparer.OrdinalIgnoreCase);
@@ -117,24 +131,21 @@ public class ParseNewYorkTollPricesCommandHandler(
                     continue;
                 }
 
-                var url = $"{request.BaseUrl}?Class={request.VehicleClass}&Entry={entryCode}&Exit={exitCode}";
+                // Ищем запись в JSON по коду въезда/выезда
+                var rate = nyRates.FirstOrDefault(r =>
+                    string.Equals(r.Entry, entryCode, StringComparison.OrdinalIgnoreCase) &&
+                    string.Equals(r.Exit, exitCode, StringComparison.OrdinalIgnoreCase) &&
+                    (r.Error == null || r.Error == string.Empty) &&
+                    string.Equals(r.Status, "OK", StringComparison.OrdinalIgnoreCase));
 
-                string html;
-                try
+                if (rate == null)
                 {
-                    html = await httpClient.GetStringAsync(url, ct);
-                }
-                catch (Exception ex)
-                {
-                    notFoundPairs.Add($"{pairKey}: HTTP error: {ex.Message}");
+                    notFoundPairs.Add($"{pairKey}: not found in JSON rates");
                     continue;
                 }
 
-                if (!TryParseTotals(html, out var ezPass, out var mailRate))
-                {
-                    notFoundPairs.Add($"{pairKey}: cannot parse Total row");
-                    continue;
-                }
+                var ezPass = (double)rate.Ny;      // NY E‑ZPass
+                var mailRate = (double)rate.NonNy; // NON‑NY E‑ZPass & Tolls By Mail
 
                 var fromTolls = tollsByNumber[entryNumber];
                 var toTolls = tollsByNumber[exitNumber];
@@ -151,11 +162,15 @@ public class ParseNewYorkTollPricesCommandHandler(
                                 cp.FromId == fromToll.Id &&
                                 cp.ToId == toToll.Id);
 
+                        // Определяем тип осей по VehicleClass (по умолчанию _5L)
+                        var axelType = Enum.IsDefined(typeof(AxelType), request.VehicleClass)
+                            ? (AxelType)request.VehicleClass
+                            : AxelType._5L;
+
                         if (existingPrice != null)
                         {
-                            existingPrice.IPass = (double)ezPass;       // NY E‑ZPass
-                            existingPrice.Cash = (double)mailRate;      // NON‑NY E‑ZPass & Tolls By Mail
-                            existingPrice.Online = (double)mailRate;    // Online = Mail
+                            UpsertTollPrice(existingPrice, fromToll.Id, ezPass, TollPaymentType.EZPass, axelType);
+                            UpsertTollPrice(existingPrice, fromToll.Id, mailRate, TollPaymentType.Cash, axelType);
                         }
                         else
                         {
@@ -165,10 +180,26 @@ public class ParseNewYorkTollPricesCommandHandler(
                                 StateCalculatorId = nyCalculator.Id,
                                 FromId = fromToll.Id,
                                 ToId = toToll.Id,
-                                IPass = (double)ezPass,
-                                Cash = (double)mailRate,
-                                Online = (double)mailRate
+                                IPass = ezPass,
+                                Cash = mailRate,
+                                Online = mailRate
                             };
+                            calculatePrice.TollPrices ??= [];
+
+                            calculatePrice.TollPrices.Add(CreateTollPrice(
+                                calculatePrice.Id,
+                                fromToll.Id,
+                                ezPass,
+                                TollPaymentType.EZPass,
+                                axelType));
+
+                            calculatePrice.TollPrices.Add(CreateTollPrice(
+                                calculatePrice.Id,
+                                fromToll.Id,
+                                mailRate,
+                                TollPaymentType.Cash,
+                                axelType));
+
                             _context.CalculatePrices.Add(calculatePrice);
                             existingPrices.Add(calculatePrice);
                         }
@@ -211,39 +242,62 @@ public class ParseNewYorkTollPricesCommandHandler(
         return $"m{digits}{letter}";
     }
 
-    /// <summary>
-    /// Ищет в HTML строку Total и достает два значения: NY E‑ZPass и NON‑NY E‑ZPass &amp; Tolls By Mail.
-    /// Опирается на структуру страницы калькулятора:
-    /// https://tollcalculator.thruway.ny.gov/index.aspx?Class=7&amp;Entry=m04x&amp;Exit=m37x
-    /// </summary>
-    private static bool TryParseTotals(string html, out decimal ezPass, out decimal mailRate)
+    private static void UpsertTollPrice(
+        CalculatePrice calculatePrice,
+        Guid tollId,
+        double amount,
+        TollPaymentType paymentType,
+        AxelType axelType)
     {
-        ezPass = 0m;
-        mailRate = 0m;
+        calculatePrice.TollPrices ??= [];
 
-        if (string.IsNullOrWhiteSpace(html))
-            return false;
+        var tollPrice = calculatePrice.TollPrices.FirstOrDefault(tp =>
+            tp.PaymentType == paymentType &&
+            tp.AxelType == axelType);
 
-        var idx = html.IndexOf(">Total<", StringComparison.OrdinalIgnoreCase);
-        if (idx < 0)
-            return false;
-
-        var length = Math.Min(html.Length - idx, 1200);
-        var snippet = html.Substring(idx, length);
-
-        // Ищем все суммы вида $78.84
-        var matches = Regex.Matches(snippet, @"\$(\d+(\.\d+)?)", RegexOptions.IgnoreCase);
-        if (matches.Count < 2)
-            return false;
-
-        if (!decimal.TryParse(matches[0].Groups[1].Value, NumberStyles.Any, CultureInfo.InvariantCulture, out ezPass))
-            return false;
-
-        if (!decimal.TryParse(matches[1].Groups[1].Value, NumberStyles.Any, CultureInfo.InvariantCulture, out mailRate))
-            return false;
-
-        return true;
+        if (tollPrice != null)
+        {
+            tollPrice.Amount = amount;
+            tollPrice.TollId = tollId;
+        }
+        else
+        {
+            calculatePrice.TollPrices.Add(CreateTollPrice(
+                calculatePrice.Id,
+                tollId,
+                amount,
+                paymentType,
+                axelType));
+        }
     }
+
+    private static TollPrice CreateTollPrice(
+        Guid calculatePriceId,
+        Guid tollId,
+        double amount,
+        TollPaymentType paymentType,
+        AxelType axelType)
+    {
+        var tollPrice = new TollPrice(
+            calculatePriceId,
+            amount,
+            paymentType,
+            axelType);
+
+        tollPrice.TollId = tollId;
+        return tollPrice;
+    }
+
+public class NewYorkTollRate
+{
+    public string Entry { get; set; } = string.Empty;
+    public string Exit { get; set; } = string.Empty;
+    public decimal Ny { get; set; }
+    public decimal NonNy { get; set; }
+    public double Miles { get; set; }
+    public string? Error { get; set; }
+    public string Status { get; set; } = string.Empty;
+}
 }
 
 

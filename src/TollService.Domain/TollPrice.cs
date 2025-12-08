@@ -3,8 +3,8 @@ namespace TollService.Domain;
 public class TollPrice
 {
     public Guid Id { get; set; }
-    public Guid TollId { get; set; }
-    public Toll Toll { get; set; } = null!;
+    public Guid? TollId { get; set; }
+    public Toll? Toll { get; set; } = null!;
 
     public Guid? CalculatePriceId { get; set; }
     public CalculatePrice? CalculatePrice { get; set; }
@@ -31,6 +31,40 @@ public class TollPrice
     }
 
     public TollPrice(
+    Guid? tollId,
+    Guid? calculatePriceId,
+    double amount,
+    TollPaymentType paymentType,
+    AxelType axelType = AxelType._5L,
+    TollPriceDayOfWeek dayOfWeekFrom = TollPriceDayOfWeek.Any,
+    TollPriceDayOfWeek dayOfWeekTo = TollPriceDayOfWeek.Any,
+    TollPriceTimeOfDay timeOfDay = TollPriceTimeOfDay.Any,
+    //bool isCalculate = false,
+    TimeOnly timeFrom = default,
+    TimeOnly timeTo = default,
+    string? description = null)
+    {
+        if (tollId == null && calculatePriceId == null)
+        {
+            throw new ArgumentException("Either tollId or calculatePriceId must be provided.");
+        }
+
+        Id = Guid.NewGuid();
+        TollId = tollId;
+        CalculatePriceId = calculatePriceId;
+        Amount = amount;
+        PaymentType = paymentType;
+        //IsCalculate = isCalculate;
+        AxelType = axelType;
+        DayOfWeekFrom = dayOfWeekFrom;
+        DayOfWeekTo = dayOfWeekTo;
+        TimeOfDay = timeOfDay;
+        TimeFrom = timeFrom;
+        TimeTo = timeTo;
+        Description = description;
+    }
+
+    public TollPrice(
         Guid calculatePriceId,
         double amount,
         TollPaymentType paymentType,
@@ -43,7 +77,7 @@ public class TollPrice
         TimeOnly timeTo = default,
         string? description = null)
     {
-        Id =Guid.NewGuid();
+        Id = Guid.NewGuid();
         CalculatePriceId = calculatePriceId;
         Amount = amount;
         PaymentType = paymentType;
@@ -72,6 +106,7 @@ public enum TollPaymentType
     EZPass = 4,
     OutOfStateEZPass = 5,
     VideoTolls = 6,
+    SunPass = 7,
 }
 
 public enum TollPriceTimeOfDay
