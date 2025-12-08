@@ -61,7 +61,7 @@ public class TollDto
     public double PayOnlineOvernight { get; set; }
     public double PayOnline { get; set; }
 
-    public List<TollPriceDto> TollPrices { get; set; } = [];
+    public List<TollWithPriceDto> TollPrices { get; set; } = [];
 
     public TollDto()
     {
@@ -101,7 +101,7 @@ public class TollDto
     }
 }
 
-public class TollPriceDto
+public class TollWithPriceDto
 {
     public Guid Id { get; set; }
     public Guid? TollId { get; set; }
