@@ -101,6 +101,7 @@ public class TollDto
     }
 }
 
+
 public class TollWithPriceDto
 {
     public Guid Id { get; set; }
