@@ -31,7 +31,7 @@ public class GetTollsByBoundingBoxQueryHandler(
 
         var tolls = await _context.Tolls
             .Where(t => t.Location != null && boundingBox.Contains(t.Location))
-            .Include(t => t.TollPrices)
+            .Include(t => t.TollPrices.Where(tp => !tp.CalculatePriceId.HasValue))
             .ToListAsync(ct);
 
         return MapToTollDtos(tolls);
