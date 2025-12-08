@@ -1,8 +1,10 @@
 using System.Linq;
 using System.Text.Json;
+using System.Text.Json.Serialization;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
 using NetTopologySuite.Geometries;
+using TollService.Application.Common;
 using TollService.Application.Common.Interfaces;
 using TollService.Domain;
 
@@ -19,10 +21,14 @@ public record ParseMaineTollPricesResult(
     List<string> Errors,
     string? Error = null);
 
+// Maine bounds: approximate (south, west, north, east)
 public class ParseMaineTollPricesCommandHandler(
-    ITollDbContext _context) : IRequestHandler<ParseMaineTollPricesCommand, ParseMaineTollPricesResult>
+    ITollDbContext _context,
+    StateCalculatorService _stateCalculatorService,
+    TollSearchService _tollSearchService,
+    TollNumberService _tollNumberService,
+    CalculatePriceService _calculatePriceService) : IRequestHandler<ParseMaineTollPricesCommand, ParseMaineTollPricesResult>
 {
-    // Maine bounds: approximate (south, west, north, east)
     private static readonly double MeMinLatitude = 43.0;
     private static readonly double MeMinLongitude = -71.0;
     private static readonly double MeMaxLatitude = 45.0;
@@ -33,8 +39,6 @@ public class ParseMaineTollPricesCommandHandler(
         var resultLines = new List<string>();
         var notFoundPlazas = new List<string>();
         var errors = new List<string>();
-        int updatedCount = 0;
-        int createdCount = 0;
 
         if (string.IsNullOrWhiteSpace(request.PricesJsonContent))
         {
@@ -101,26 +105,20 @@ public class ParseMaineTollPricesCommandHandler(
 
         resultLines.Add($"Всего записей в JSON: {prices.Count}, валидных с ценами: {validPrices.Count}");
 
-        // 2. Получаем или создаем StateCalculator для Maine
-        var maineCalculator = await _context.StateCalculators
-            .FirstOrDefaultAsync(sc => sc.StateCode == "ME", ct);
+        // Получаем или создаем StateCalculator для Maine
+        var maineCalculator = await _stateCalculatorService.GetOrCreateStateCalculatorAsync(
+            stateCode: "ME",
+            calculatorName: "Maine Turnpike",
+            ct);
 
-        if (maineCalculator == null)
-        {
-            maineCalculator = new StateCalculator
-            {
-                Id = Guid.NewGuid(),
-                Name = "Maine Turnpike",
-                StateCode = "ME"
-            };
-            _context.StateCalculators.Add(maineCalculator);
-            await _context.SaveChangesAsync(ct);
-        }
+        // Создаем bounding box для Maine
+        var meBoundingBox = BoundingBoxHelper.CreateBoundingBox(
+            MeMinLongitude,
+            MeMinLatitude,
+            MeMaxLongitude,
+            MeMaxLatitude);
 
-        // 3. Кэш toll'ов по коду (строковый fromId)
-        var tollCacheByCode = new Dictionary<string, List<Toll>>();
-        // Кэш toll'ов для toCode (строковый toId)
-        var tollToCacheByCode = new Dictionary<string, List<Toll>>();
+        var tollPairsWithPrices = new Dictionary<(Guid FromId, Guid ToId), List<TollPrice>>();
 
         foreach (var priceData in validPrices)
         {
@@ -129,166 +127,143 @@ public class ParseMaineTollPricesCommandHandler(
                 var fromCode = priceData.FromId.ToString(); // "7", "102" и т.п.
                 var toCode = priceData.ToId.ToString();
 
-                // ищем / берём из кэша Toll по Name/Key/Number
-                if (!tollCacheByCode.TryGetValue(fromCode, out var tollsForCode))
-                {
-                    tollsForCode = await _context.Tolls
-                        .Where(t =>
-                            t.Name == fromCode ||
-                            t.Key == fromCode ||
-                            t.Number == fromCode)
-                        .ToListAsync(ct);
+                // Ищем entry toll
+                var entryTolls = await _tollSearchService.FindTollsInBoundingBoxAsync(
+                    fromCode,
+                    meBoundingBox,
+                    TollSearchOptions.NameOrKey,
+                    ct);
 
-                    tollCacheByCode[fromCode] = tollsForCode;
+                // Фильтруем результаты: должны точно совпадать с кодом
+                var filteredEntryTolls = entryTolls
+                    .Where(t =>
+                        (t.Key != null && t.Key == fromCode) ||
+                        (t.Name != null && t.Name == fromCode) ||
+                        (t.Number != null && t.Number == fromCode))
+                    .ToList();
+
+                // Если не нашли по Key/Name, ищем по Number в пределах Maine
+                if (filteredEntryTolls.Count == 0)
+                {
+                    var tollsByNumber = await _context.Tolls
+                        .Where(t =>
+                            t.Number == fromCode &&
+                            t.Location != null &&
+                            meBoundingBox.Contains(t.Location))
+                        .ToListAsync(ct);
+                    filteredEntryTolls.AddRange(tollsByNumber);
                 }
 
-                if (tollsForCode == null || tollsForCode.Count == 0)
+                if (filteredEntryTolls.Count == 0)
                 {
-                    notFoundPlazas.Add(fromCode);
-                    resultLines.Add($"FromCode {fromCode} ({priceData.FromName}): НЕ НАЙДЕНО ни одного Toll");
+                    notFoundPlazas.Add($"FromCode: {fromCode} ({priceData.FromName})");
+                    resultLines.Add($"FromCode {fromCode} ({priceData.FromName}): НЕ НАЙДЕНО");
                     continue;
                 }
 
-                // Находим toToll(ы) по коду
-                if (!tollToCacheByCode.TryGetValue(toCode, out var tollsToForCode))
-                {
-                    tollsToForCode = await _context.Tolls
-                        .Where(t =>
-                            t.Name == toCode ||
-                            t.Key == toCode ||
-                            t.Number == toCode)
-                        .ToListAsync(ct);
+                // Ищем exit toll
+                var exitTolls = await _tollSearchService.FindTollsInBoundingBoxAsync(
+                    toCode,
+                    meBoundingBox,
+                    TollSearchOptions.NameOrKey,
+                    ct);
 
-                    tollToCacheByCode[toCode] = tollsToForCode;
+                // Фильтруем результаты: должны точно совпадать с кодом
+                var filteredExitTolls = exitTolls
+                    .Where(t =>
+                        (t.Key != null && t.Key == toCode) ||
+                        (t.Name != null && t.Name == toCode) ||
+                        (t.Number != null && t.Number == toCode))
+                    .ToList();
+
+                // Если не нашли по Key/Name, ищем по Number в пределах Maine
+                if (filteredExitTolls.Count == 0)
+                {
+                    var tollsByNumber = await _context.Tolls
+                        .Where(t =>
+                            t.Number == toCode &&
+                            t.Location != null &&
+                            meBoundingBox.Contains(t.Location))
+                        .ToListAsync(ct);
+                    filteredExitTolls.AddRange(tollsByNumber);
                 }
 
-                if (tollsToForCode == null || tollsToForCode.Count == 0)
+                if (filteredExitTolls.Count == 0)
                 {
-                    notFoundPlazas.Add(toCode);
-                    resultLines.Add($"ToCode {toCode} ({priceData.ToName}): НЕ НАЙДЕНО ни одного Toll");
+                    notFoundPlazas.Add($"ToCode: {toCode} ({priceData.ToName})");
+                    resultLines.Add($"ToCode {toCode} ({priceData.ToName}): НЕ НАЙДЕНО");
                     continue;
                 }
 
-                foreach (var fromToll in tollsForCode)
+                // Если нашли оба toll, обрабатываем сразу
+                if (filteredEntryTolls.Count > 0 && filteredExitTolls.Count > 0)
                 {
-                    // Нормализуем Number для найденных fromToll'ов
-                    if (string.IsNullOrWhiteSpace(fromToll.Number))
-                    {
-                        fromToll.Number = fromCode;
-                    }
+                    // Устанавливаем Number и StateCalculatorId для найденных tolls
+                    _tollNumberService.SetNumberAndCalculatorId(
+                        filteredEntryTolls,
+                        fromCode,
+                        maineCalculator.Id,
+                        updateNumberIfDifferent: true);
 
-                    foreach (var toToll in tollsToForCode)
-                    {
-                        if (fromToll.Id == toToll.Id)
-                        {
-                            continue;
-                        }
+                    _tollNumberService.SetNumberAndCalculatorId(
+                        filteredExitTolls,
+                        toCode,
+                        maineCalculator.Id,
+                        updateNumberIfDifferent: true);
 
-                        // 4. Находим или создаем CalculatePrice для пары from->to
-                        var calculatePrice = await _context.CalculatePrices.Include(cp => cp.TollPrices)
-                            .FirstOrDefaultAsync(cp =>
-                                cp.FromId == fromToll.Id &&
-                                cp.ToId == toToll.Id &&
-                                cp.StateCalculatorId == maineCalculator.Id,
-                                ct);
+                    var description = $"{priceData.FromName} -> {priceData.ToName}";
 
-                        if (calculatePrice != null)
+                    // Обрабатываем все комбинации entry -> exit толлов
+                    var pairResults = TollPairProcessor.ProcessAllPairsToDictionaryList(
+                        filteredEntryTolls,
+                        filteredExitTolls,
+                        (entryToll, exitToll) =>
                         {
-                            // Для Maine CalculatePrice хранит только связь From -> To -> StateCalculator,
-                            // сами значения цен храним в TollPrice, поэтому здесь ничего не обновляем.
-                            updatedCount++;
-                        }
-                        else
-                        {
-                            calculatePrice = new CalculatePrice
+                            var tollPrices = new List<TollPrice>();
+
+                            // Создаем TollPrice для Cash
+                            if (priceData.Cash > 0)
                             {
-                                Id = Guid.NewGuid(),
-                                StateCalculatorId = maineCalculator.Id,
-                                FromId = fromToll.Id,
-                                ToId = toToll.Id
-                            };
-                            _context.CalculatePrices.Add(calculatePrice);
-                            createdCount++;
-                        }
-
-                        var tollPricesToAdd = new List<TollPrice>();
-
-                        // Cash TollPrice, привязанный к CalculatePrice
-                        if (priceData.Cash > 0)
-                        {
-                            var existingCash = await _context.TollPrices
-                                .FirstOrDefaultAsync(tp =>
-                                    tp.TollId == fromToll.Id &&
-                                    tp.PaymentType == TollPaymentType.Cash &&
-                                    tp.CalculatePriceId == calculatePrice.Id,
-                                    ct);
-
-                            if (existingCash != null)
-                            {
-                                existingCash.Amount = priceData.Cash;
-                                updatedCount++;
-                            }
-                            else
-                            {
-                                tollPricesToAdd.Add(new TollPrice
+                                tollPrices.Add(new TollPrice
                                 {
-                                    Id = Guid.NewGuid(),
-                                    TollId = fromToll.Id,
-                                    CalculatePriceId = calculatePrice.Id,
+                                    TollId = entryToll.Id,
                                     PaymentType = TollPaymentType.Cash,
+                                    AxelType = AxelType._5L,
                                     Amount = priceData.Cash,
-                                    Description = $"To {priceData.ToName}"
+                                    Description = description
                                 });
-                                createdCount++;
                             }
-                        }
 
-                        // EZPass TollPrice
-                        if (priceData.EzPass > 0)
-                        {
-                            var existingEz = await _context.TollPrices
-                                .FirstOrDefaultAsync(tp =>
-                                    tp.TollId == fromToll.Id &&
-                                    tp.PaymentType == TollPaymentType.EZPass &&
-                                    tp.CalculatePriceId == calculatePrice.Id,
-                                    ct);
-
-                            if (existingEz != null)
+                            // Создаем TollPrice для EZPass
+                            if (priceData.EzPass > 0)
                             {
-                                existingEz.Amount = priceData.EzPass;
-                                updatedCount++;
-                            }
-                            else
-                            {
-                                tollPricesToAdd.Add(new TollPrice
+                                tollPrices.Add(new TollPrice
                                 {
-                                    Id = Guid.NewGuid(),
-                                    TollId = fromToll.Id,
-                                    CalculatePriceId = calculatePrice.Id,
+                                    TollId = entryToll.Id,
                                     PaymentType = TollPaymentType.EZPass,
+                                    AxelType = AxelType._5L,
                                     Amount = priceData.EzPass,
-                                    Description = $"To {priceData.ToName}"
+                                    Description = description
                                 });
-                                createdCount++;
                             }
-                        }
 
-                        if (tollPricesToAdd.Count > 0)
+                            return tollPrices;
+                        });
+
+                    // Объединяем результаты с общим словарем
+                    foreach (var kvp in pairResults)
+                    {
+                        if (!tollPairsWithPrices.TryGetValue(kvp.Key, out var existingList))
                         {
-                            fromToll.TollPrices.AddRange(tollPricesToAdd);
-                            _context.TollPrices.AddRange(tollPricesToAdd);
+                            existingList = new List<TollPrice>();
+                            tollPairsWithPrices[kvp.Key] = existingList;
                         }
-
-                        resultLines.Add(
-                            $"{priceData.FromName} (code {fromCode}) -> {priceData.ToName} (code {toCode}) - Cash: {priceData.Cash:0.00}, EZPass: {priceData.EzPass:0.00}");
+                        existingList.AddRange(kvp.Value);
                     }
-                }
 
-                // Периодически сохраняем
-                if ((updatedCount + createdCount) % 50 == 0)
-                {
-                    await _context.SaveChangesAsync(ct);
-                    resultLines.Add($"Промежуточное сохранение: создано {createdCount}, обновлено {updatedCount}");
+                    // Добавляем строку в результат
+                    resultLines.Add(
+                        $"{priceData.FromName} (code {fromCode}) -> {priceData.ToName} (code {toCode}) - Cash: {priceData.Cash:0.00}, EZPass: {priceData.EzPass:0.00}");
                 }
             }
             catch (Exception ex)
@@ -297,15 +272,29 @@ public class ParseMaineTollPricesCommandHandler(
             }
         }
 
-        // Финальное сохранение
+        // Батч-создание/обновление CalculatePrice с TollPrice
+        if (tollPairsWithPrices.Count > 0)
+        {
+            var tollPairsWithPricesEnumerable = tollPairsWithPrices.ToDictionary(
+                kvp => kvp.Key,
+                kvp => (IEnumerable<TollPrice>?)kvp.Value);
+
+            await _calculatePriceService.GetOrCreateCalculatePricesBatchAsync(
+                tollPairsWithPricesEnumerable,
+                maineCalculator.Id,
+                includeTollPrices: true,
+                ct);
+        }
+
+        // Сохраняем все изменения (Toll, CalculatePrice, TollPrice)
         await _context.SaveChangesAsync(ct);
 
-        resultLines.Add($"Обработка завершена. Создано: {createdCount}, Обновлено: {updatedCount}, Не найдено кодов: {notFoundPlazas.Count}, Ошибок: {errors.Count}");
+        resultLines.Add($"Обработка завершена. Не найдено кодов: {notFoundPlazas.Count}, Ошибок: {errors.Count}");
 
         return new ParseMaineTollPricesResult(
             resultLines,
-            updatedCount,
-            createdCount,
+            0,
+            0,
             notFoundPlazas.Distinct().ToList(),
             errors);
     }

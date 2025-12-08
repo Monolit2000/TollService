@@ -1,0 +1,122 @@
+{
+  "toll_locations": [
+    {
+      "Toll_Gantry_Location": "Stevenson Mainline",
+      "rates": {
+        "5_Axles": {
+          "Transponder_Rate": 6.68,
+          "Pay_by_Mail_Rate": 10.04
+        },
+        "6_Axles_and_above": {
+          "Transponder_Rate": 8.35,
+          "Pay_by_Mail_Rate": 12.55
+        }
+      }
+    },
+    {
+      "Toll_Gantry_Location": "FM 16 - Ent./Ext. Ramp",
+      "rates": {
+        "5_Axles": {
+          "Transponder_Rate": 3.08,
+          "Pay_by_Mail_Rate": 4.64
+        },
+        "6_Axles_and_above": {
+          "Transponder_Rate": 3.85,
+          "Pay_by_Mail_Rate": 5.8
+        }
+      }
+    },
+    {
+      "Toll_Gantry_Location": "Prairie Creek Mainline",
+      "rates": {
+        "5_Axles": {
+          "Transponder_Rate": 10.08,
+          "Pay_by_Mail_Rate": 15.12
+        },
+        "6_Axles_and_above": {
+          "Transponder_Rate": 12.6,
+          "Pay_by_Mail_Rate": 18.9
+        }
+      }
+    },
+    {
+      "Toll_Gantry_Location": "SH 64 NB/SB Ramp",
+      "rates": {
+        "5_Axles": {
+          "Transponder_Rate": 2.64,
+          "Pay_by_Mail_Rate": 3.96
+        },
+        "6_Axles_and_above": {
+          "Transponder_Rate": 3.3,
+          "Pay_by_Mail_Rate": 4.95
+        }
+      }
+    },
+    {
+      "Toll_Gantry_Location": "SH 31 Plaza Mainline",
+      "rates": {
+        "5_Axles": {
+          "Transponder_Rate": 6.0,
+          "Pay_by_Mail_Rate": 9.0
+        },
+        "6_Axles_and_above": {
+          "Transponder_Rate": 7.5,
+          "Pay_by_Mail_Rate": 11.25
+        }
+      }
+    },
+    {
+      "Toll_Gantry_Location": "Saline Creek Plaza Mainline",
+      "rates": {
+        "5_Axles": {
+          "Transponder_Rate": 5.16,
+          "Pay_by_Mail_Rate": 7.76
+        },
+        "6_Axles_and_above": {
+          "Transponder_Rate": 6.45,
+          "Pay_by_Mail_Rate": 9.7
+        }
+      }
+    },
+    {
+      "Toll_Gantry_Location": "FM 2493 - Old J'Ville Ent./Ext. Ramp",
+      "rates": {
+        "5_Axles": {
+          "Transponder_Rate": 2.4,
+          "Pay_by_Mail_Rate": 3.6
+        },
+        "6_Axles_and_above": {
+          "Transponder_Rate": 3.0,
+          "Pay_by_Mail_Rate": 4.5
+        }
+      }
+    },
+    {
+      "Toll_Gantry_Location": "FM 756 - Paluxy Drive Ent./Ext. Ramp",
+      "rates": {
+        "5_Axles": {
+          "Transponder_Rate": 2.0,
+          "Pay_by_Mail_Rate": 3.0
+        },
+        "6_Axles_and_above": {
+          "Transponder_Rate": 2.5,
+          "Pay_by_Mail_Rate": 3.75
+        }
+      }
+    },
+    {
+      "Toll_Gantry_Location": "SH 110 Plaza Mainline",
+      "rates": {
+        "5_Axles": {
+          "Transponder_Rate": 4.64,
+          "Pay_by_Mail_Rate": 6.96
+        },
+        "6_Axles_and_above": {
+          "Transponder_Rate": 5.8,
+          "Pay_by_Mail_Rate": 8.7
+        }
+      }
+    }
+  ],
+  "link": "https://www.netrma.org/net-rma-policies/toll-rates/"
+}

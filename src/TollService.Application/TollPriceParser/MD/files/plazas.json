@@ -1,0 +1,38 @@
+[
+  {
+    "value": "i370",
+    "label": "Interstate 370"
+  },
+  {
+    "value": "md97",
+    "label": "Georgia Ave (MD 97)"
+  },
+  {
+    "value": "md182",
+    "label": "Layhill Rd (MD 182)"
+  },
+  {
+    "value": "md650",
+    "label": "New Hampshire Ave (MD 650)"
+  },
+  {
+    "value": "us29",
+    "label": "Columbia Pike (US 29) / Briggs Chaney Rd"
+  },
+  {
+    "value": "i95",
+    "label": "Interstate 95"
+  },
+  {
+    "value": "us1",
+    "label": "Konterra Drive / US 1"
+  },
+  {
+    "value": "md43",
+    "label": "MD 43"
+  },
+  {
+    "value": "md152",
+    "label": "MD 152"
+  }
+]

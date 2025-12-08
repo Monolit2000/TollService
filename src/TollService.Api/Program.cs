@@ -40,11 +40,12 @@ builder.Services.AddScoped<OsmImportService>();
 builder.Services.AddScoped<ISpatialQueryService, SpatialQueryService>();
 builder.Services.AddScoped<RoadRefService>();
 
-builder.Services.AddScoped<CalculatePriceService>();
-builder.Services.AddScoped<StateCalculatorService>();
-builder.Services.AddScoped<TollMatchingService>();
-builder.Services.AddScoped<TollNumberService>();
+// Toll Price Parser Services
 builder.Services.AddScoped<TollSearchService>();
+builder.Services.AddScoped<StateCalculatorService>();
+builder.Services.AddScoped<TollNumberService>();
+builder.Services.AddScoped<TollMatchingService>();
+builder.Services.AddScoped<CalculatePriceService>();
 
 // Configure CORS to allow all
 builder.Services.AddCors(options =>

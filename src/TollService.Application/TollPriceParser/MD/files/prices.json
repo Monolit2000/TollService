@@ -1,0 +1,3280 @@
+{
+  "class2-tjh": {
+    "headers": ["Toll Rate"],
+    "rates": [
+      { "name": "E-ZPass Maryland", "values": ["6.00"] },
+      { "name": "Out of State E-ZPass", "values": ["8.00"] },
+      { "name": "Pay-By-Plate", "values": ["8.00"] },
+      { "name": "Video Tolls", "values": ["12.00"] },
+      { "name": "Discount Plan (if available)", "values": ["2.80"] }
+    ],
+    "savings": ["6.00"]
+  },
+  "class2-jfk": {
+    "headers": ["Toll Rate"],
+    "rates": [
+      { "name": "E-ZPass Maryland", "values": ["6.00"] },
+      { "name": "Out of State E-ZPass", "values": ["8.00"] },
+      { "name": "Pay-By-Plate", "values": ["8.00"] },
+      { "name": "Video Tolls", "values": ["12.00"] },
+      { "name": "Discount Plan (if available)", "values": ["2.80"] }
+    ],
+    "savings": ["6.00"]
+  },
+  "class2-etl": {
+    "headers": ["Peak", "Off-Peak", "Overnight"],
+    "rates": [
+      { "name": "E-ZPass Maryland", "values": ["1.54", "1.19", "0.49"] },
+      { "name": "Out of State E-ZPass", "values": ["1.54", "1.19", "0.49"] },
+      { "name": "Pay-By-Plate", "values": ["1.93", "1.49", "0.61"] },
+      { "name": "Video Tolls", "values": ["2.54", "2.19", "1.49"] },
+      {
+        "name": "Discount Plan (if available)",
+        "values": ["n/a", "n/a", "n/a"]
+      }
+    ],
+    "savings": ["1.00", "1.00", "1.00"]
+  },
+  "class2-bht": {
+    "headers": ["Toll Rate"],
+    "rates": [
+      { "name": "E-ZPass Maryland", "values": ["3.00"] },
+      { "name": "Out of State E-ZPass", "values": ["4.00"] },
+      { "name": "Pay-By-Plate", "values": ["4.00"] },
+      { "name": "Video Tolls", "values": ["6.00"] },
+      { "name": "Discount Plan (if available)", "values": ["1.40"] }
+    ],
+    "savings": ["3.00"]
+  },
+  "class2-fsk": {
+    "headers": ["Toll Rate"],
+    "rates": [
+      { "name": "E-ZPass Maryland", "values": ["3.00"] },
+      { "name": "Out of State E-ZPass", "values": ["4.00"] },
+      { "name": "Pay-By-Plate", "values": ["4.00"] },
+      { "name": "Video Tolls", "values": ["6.00"] },
+      { "name": "Discount Plan (if available)", "values": ["1.40"] }
+    ],
+    "savings": ["3.00"]
+  },
+  "class2-fmt": {
+    "headers": ["Toll Rate"],
+    "rates": [
+      { "name": "E-ZPass Maryland", "values": ["3.00"] },
+      { "name": "Out of State E-ZPass", "values": ["4.00"] },
+      { "name": "Pay-By-Plate", "values": ["4.00"] },
+      { "name": "Video Tolls", "values": ["6.00"] },
+      { "name": "Discount Plan (if available)", "values": ["1.40"] }
+    ],
+    "savings": ["3.00"]
+  },
+  "class2-byb": {
+    "headers": ["Toll Rate"],
+    "rates": [
+      { "name": "E-ZPass Maryland", "values": ["2.50"] },
+      { "name": "Out of State E-ZPass", "values": ["4.00"] },
+      { "name": "Pay-By-Plate", "values": ["4.00"] },
+      { "name": "Video Tolls", "values": ["6.00"] },
+      { "name": "Discount Plan (if available)", "values": ["1.40"] }
+    ],
+    "savings": ["3.50"]
+  },
+  "class2-nmb": {
+    "headers": ["Toll Rate"],
+    "rates": [
+      { "name": "E-ZPass Maryland", "values": ["4.50"] },
+      { "name": "Out of State E-ZPass", "values": ["6.00"] },
+      { "name": "Pay-By-Plate", "values": ["6.00"] },
+      { "name": "Video Tolls", "values": ["9.00"] },
+      { "name": "Discount Plan (if available)", "values": ["2.10"] }
+    ],
+    "savings": ["4.50"]
+  },
+  "class3-tjh": {
+    "headers": ["Toll Rate"],
+    "rates": [
+      { "name": "E-ZPass Maryland", "values": ["11.20"] },
+      { "name": "Out of State E-ZPass", "values": ["16.00"] },
+      { "name": "Pay-By-Plate", "values": ["16.00"] },
+      { "name": "Video Tolls", "values": ["24.00"] }
+    ],
+    "savings": ["12.80"]
+  },
+  "class3-jfk": {
+    "headers": ["Toll Rate"],
+    "rates": [
+      { "name": "E-ZPass Maryland", "values": ["16.00"] },
+      { "name": "Out of State E-ZPass", "values": ["16.00"] },
+      { "name": "Pay-By-Plate", "values": ["16.00"] },
+      { "name": "Video Tolls", "values": ["24.00"] }
+    ],
+    "savings": ["8.00"]
+  },
+  "class3-etl": {
+    "headers": ["Peak", "Off-Peak", "Overnight"],
+    "rates": [
+      { "name": "E-ZPass Maryland", "values": ["3.08", "2.38", "0.98"] },
+      { "name": "Out of State E-ZPass", "values": ["3.08", "2.38", "0.98"] },
+      { "name": "Pay-By-Plate", "values": ["3.85", "2.98", "1.23"] },
+      { "name": "Video Tolls", "values": ["4.62", "3.57", "1.98"] }
+    ],
+    "savings": ["1.54", "1.19", "1.00"]
+  },
+  "class3-bht": {
+    "headers": ["Toll Rate"],
+    "rates": [
+      { "name": "E-ZPass Maryland", "values": ["*8.00"] },
+      { "name": "Out of State E-ZPass", "values": ["8.00"] },
+      { "name": "Pay-By-Plate", "values": ["8.00"] },
+      { "name": "Video Tolls", "values": ["12.00"] }
+    ],
+    "savings": ["4.00"]
+  },
+  "class3-fsk": {
+    "headers": ["Toll Rate"],
+    "rates": [
+      { "name": "E-ZPass Maryland", "values": ["8.00"] },
+      { "name": "Out of State E-ZPass", "values": ["8.00"] },
+      { "name": "Pay-By-Plate", "values": ["8.00"] },
+      { "name": "Video Tolls", "values": ["12.00"] }
+    ],
+    "savings": ["4.00"]
+  },
+  "class3-fmt": {
+    "headers": ["Toll Rate"],
+    "rates": [
+      { "name": "E-ZPass Maryland", "values": ["8.00"] },
+      { "name": "Out of State E-ZPass", "values": ["8.00"] },
+      { "name": "Pay-By-Plate", "values": ["8.00"] },
+      { "name": "Video Tolls", "values": ["12.00"] }
+    ],
+    "savings": ["4.00"]
+  },
+  "class3-byb": {
+    "headers": ["Toll Rate"],
+    "rates": [
+      { "name": "E-ZPass Maryland", "values": ["8.00"] },
+      { "name": "Out of State E-ZPass", "values": ["8.00"] },
+      { "name": "Pay-By-Plate", "values": ["8.00"] },
+      { "name": "Video Tolls", "values": ["12.00"] }
+    ],
+    "savings": ["4.00"]
+  },
+  "class3-nmb": {
+    "headers": ["Toll Rate"],
+    "rates": [
+      { "name": "E-ZPass Maryland", "values": ["12.00"] },
+      { "name": "Out of State E-ZPass", "values": ["12.00"] },
+      { "name": "Pay-By-Plate", "values": ["12.00"] },
+      { "name": "Video Tolls", "values": ["18.00"] }
+    ],
+    "savings": ["6.00"]
+  },
+  "class4-tjh": {
+    "headers": ["Toll Rate"],
+    "rates": [
+      { "name": "E-ZPass Maryland", "values": ["16.80"] },
+      { "name": "Out of State E-ZPass", "values": ["24.00"] },
+      { "name": "Pay-By-Plate", "values": ["24.00"] },
+      { "name": "Video Tolls", "values": ["36.00"] }
+    ],
+    "savings": ["19.20"]
+  },
+  "class4-jfk": {
+    "headers": ["Toll Rate"],
+    "rates": [
+      { "name": "E-ZPass Maryland", "values": ["24.00"] },
+      { "name": "Out of State E-ZPass", "values": ["24.00"] },
+      { "name": "Pay-By-Plate", "values": ["24.00"] },
+      { "name": "Video Tolls", "values": ["36.00"] }
+    ],
+    "savings": ["12.00"]
+  },
+  "class4-etl": {
+    "headers": ["Peak", "Off-Peak", "Overnight"],
+    "rates": [
+      { "name": "E-ZPass Maryland", "values": ["4.62", "3.57", "1.47"] },
+      { "name": "Out of State E-ZPass", "values": ["4.62", "3.57", "1.47"] },
+      { "name": "Pay-By-Plate", "values": ["5.78", "4.46", "1.84"] },
+      { "name": "Video Tolls", "values": ["6.93", "5.36", "2.47"] }
+    ],
+    "savings": ["2.31", "1.79", "1.00"]
+  },
+  "class4-bht": {
+    "headers": ["Toll Rate"],
+    "rates": [
+      { "name": "E-ZPass Maryland", "values": ["*12.00"] },
+      { "name": "Out of State E-ZPass", "values": ["12.00"] },
+      { "name": "Pay-By-Plate", "values": ["12.00"] },
+      { "name": "Video Tolls", "values": ["18.00"] }
+    ],
+    "savings": ["6.00"]
+  },
+  "class4-fsk": {
+    "headers": ["Toll Rate"],
+    "rates": [
+      { "name": "E-ZPass Maryland", "values": ["12.00"] },
+      { "name": "Out of State E-ZPass", "values": ["12.00"] },
+      { "name": "Pay-By-Plate", "values": ["12.00"] },
+      { "name": "Video Tolls", "values": ["18.00"] }
+    ],
+    "savings": ["6.00"]
+  },
+  "class4-fmt": {
+    "headers": ["Toll Rate"],
+    "rates": [
+      { "name": "E-ZPass Maryland", "values": ["12.00"] },
+      { "name": "Out of State E-ZPass", "values": ["12.00"] },
+      { "name": "Pay-By-Plate", "values": ["12.00"] },
+      { "name": "Video Tolls", "values": ["18.00"] }
+    ],
+    "savings": ["6.00"]
+  },
+  "class4-byb": {
+    "headers": ["Toll Rate"],
+    "rates": [
+      { "name": "E-ZPass Maryland", "values": ["12.00"] },
+      { "name": "Out of State E-ZPass", "values": ["12.00"] },
+      { "name": "Pay-By-Plate", "values": ["12.00"] },
+      { "name": "Video Tolls", "values": ["18.00"] }
+    ],
+    "savings": ["6.00"]
+  },
+  "class4-nmb": {
+    "headers": ["Toll Rate"],
+    "rates": [
+      { "name": "E-ZPass Maryland", "values": ["18.00"] },
+      { "name": "Out of State E-ZPass", "values": ["18.00"] },
+      { "name": "Pay-By-Plate", "values": ["18.00"] },
+      { "name": "Video Tolls", "values": ["27.00"] }
+    ],
+    "savings": ["9.00"]
+  },
+  "class5-tjh": {
+    "headers": ["Toll Rate"],
+    "rates": [
+      { "name": "E-ZPass Maryland", "values": ["48.00"] },
+      { "name": "Out of State E-ZPass", "values": ["48.00"] },
+      { "name": "Pay-By-Plate", "values": ["48.00"] },
+      { "name": "Video Tolls", "values": ["63.00"] }
+    ],
+    "savings": ["15.00"]
+  },
+  "class5-jfk": {
+    "headers": ["Toll Rate"],
+    "rates": [
+      { "name": "E-ZPass Maryland", "values": ["48.00"] },
+      { "name": "Out of State E-ZPass", "values": ["48.00"] },
+      { "name": "Pay-By-Plate", "values": ["48.00"] },
+      { "name": "Video Tolls", "values": ["63.00"] }
+    ],
+    "savings": ["15.00"]
+  },
+  "class5-etl": {
+    "headers": ["Peak", "Off-Peak", "Overnight"],
+    "rates": [
+      { "name": "E-ZPass Maryland", "values": ["9.24", "7.14", "2.94"] },
+      { "name": "Out of State E-ZPass", "values": ["9.24", "7.14", "2.94"] },
+      { "name": "Pay-By-Plate", "values": ["11.55", "8.93", "3.68"] },
+      { "name": "Video Tolls", "values": ["13.86", "10.71", "4.41"] }
+    ],
+    "savings": ["4.62", "3.57", "1.47"]
+  },
+  "class5-bht": {
+    "headers": ["Toll Rate"],
+    "rates": [
+      { "name": "E-ZPass Maryland", "values": ["*24.00"] },
+      { "name": "Out of State E-ZPass", "values": ["24.00"] },
+      { "name": "Pay-By-Plate", "values": ["24.00"] },
+      { "name": "Video Tolls", "values": ["36.00"] }
+    ],
+    "savings": ["12.00"]
+  },
+  "class5-fsk": {
+    "headers": ["Toll Rate"],
+    "rates": [
+      { "name": "E-ZPass Maryland", "values": ["24.00"] },
+      { "name": "Out of State E-ZPass", "values": ["24.00"] },
+      { "name": "Pay-By-Plate", "values": ["24.00"] },
+      { "name": "Video Tolls", "values": ["36.00"] }
+    ],
+    "savings": ["12.00"]
+  },
+  "class5-fmt": {
+    "headers": ["Toll Rate"],
+    "rates": [
+      { "name": "E-ZPass Maryland", "values": ["24.00"] },
+      { "name": "Out of State E-ZPass", "values": ["24.00"] },
+      { "name": "Pay-By-Plate", "values": ["24.00"] },
+      { "name": "Video Tolls", "values": ["36.00"] }
+    ],
+    "savings": ["12.00"]
+  },
+  "class5-byb": {
+    "headers": ["Toll Rate"],
+    "rates": [
+      { "name": "E-ZPass Maryland", "values": ["24.00"] },
+      { "name": "Out of State E-ZPass", "values": ["24.00"] },
+      { "name": "Pay-By-Plate", "values": ["24.00"] },
+      { "name": "Video Tolls", "values": ["36.00"] }
+    ],
+    "savings": ["12.00"]
+  },
+  "class5-nmb": {
+    "headers": ["Toll Rate"],
+    "rates": [
+      { "name": "E-ZPass Maryland", "values": ["36.00"] },
+      { "name": "Out of State E-ZPass", "values": ["36.00"] },
+      { "name": "Pay-By-Plate", "values": ["36.00"] },
+      { "name": "Video Tolls", "values": ["51.00"] }
+    ],
+    "savings": ["15.00"]
+  },
+  "class6-tjh": {
+    "headers": ["Toll Rate"],
+    "rates": [
+      { "name": "E-ZPass Maryland", "values": ["60.00"] },
+      { "name": "Out of State E-ZPass", "values": ["60.00"] },
+      { "name": "Pay-By-Plate", "values": ["60.00"] },
+      { "name": "Video Tolls", "values": ["75.00"] }
+    ],
+    "savings": ["15.00"]
+  },
+  "class6-jfk": {
+    "headers": ["Toll Rate"],
+    "rates": [
+      { "name": "E-ZPass Maryland", "values": ["60.00"] },
+      { "name": "Out of State E-ZPass", "values": ["60.00"] },
+      { "name": "Pay-By-Plate", "values": ["60.00"] },
+      { "name": "Video Tolls", "values": ["75.00"] }
+    ],
+    "savings": ["15.00"]
+  },
+  "class6-etl": {
+    "headers": ["Peak", "Off-Peak", "Overnight"],
+    "rates": [
+      { "name": "E-ZPass Maryland", "values": ["11.55", "8.93", "3.68"] },
+      { "name": "Out of State E-ZPass", "values": ["11.55", "8.93", "3.68"] },
+      { "name": "Pay-By-Plate", "values": ["14.44", "11.16", "4.59"] },
+      { "name": "Video Tolls", "values": ["17.33", "13.39", "5.51"] }
+    ],
+    "savings": ["5.78", "4.46", "1.83"]
+  },
+  "class6-bht": {
+    "headers": ["Toll Rate"],
+    "rates": [
+      { "name": "E-ZPass Maryland", "values": ["*30.00"] },
+      { "name": "Out of State E-ZPass", "values": ["30.00"] },
+      { "name": "Pay-By-Plate", "values": ["30.00"] },
+      { "name": "Video Tolls", "values": ["45.00"] }
+    ],
+    "savings": ["15.00"]
+  },
+  "class6-fsk": {
+    "headers": ["Toll Rate"],
+    "rates": [
+      { "name": "E-ZPass Maryland", "values": ["30.00"] },
+      { "name": "Out of State E-ZPass", "values": ["30.00"] },
+      { "name": "Pay-By-Plate", "values": ["30.00"] },
+      { "name": "Video Tolls", "values": ["45.00"] }
+    ],
+    "savings": ["15.00"]
+  },
+  "class6-fmt": {
+    "headers": ["Toll Rate"],
+    "rates": [
+      { "name": "E-ZPass Maryland", "values": ["30.00"] },
+      { "name": "Out of State E-ZPass", "values": ["30.00"] },
+      { "name": "Pay-By-Plate", "values": ["30.00"] },
+      { "name": "Video Tolls", "values": ["45.00"] }
+    ],
+    "savings": ["15.00"]
+  },
+  "class6-byb": {
+    "headers": ["Toll Rate"],
+    "rates": [
+      { "name": "E-ZPass Maryland", "values": ["30.00"] },
+      { "name": "Out of State E-ZPass", "values": ["30.00"] },
+      { "name": "Pay-By-Plate", "values": ["30.00"] },
+      { "name": "Video Tolls", "values": ["45.00"] }
+    ],
+    "savings": ["15.00"]
+  },
+  "class6-nmb": {
+    "headers": ["Toll Rate"],
+    "rates": [
+      { "name": "E-ZPass Maryland", "values": ["45.00"] },
+      { "name": "Out of State E-ZPass", "values": ["45.00"] },
+      { "name": "Pay-By-Plate", "values": ["45.00"] },
+      { "name": "Video Tolls", "values": ["60.00"] }
+    ],
+    "savings": ["15.00"]
+  },
+  "class8-tjh": {
+    "headers": ["Toll Rate"],
+    "rates": [
+      { "name": "E-ZPass Maryland", "values": ["6.00"] },
+      { "name": "Out of State E-ZPass", "values": ["8.00"] },
+      { "name": "Pay-By-Plate", "values": ["8.00"] },
+      { "name": "Video Tolls", "values": ["12.00"] },
+      { "name": "Discount Plan (if available)", "values": ["2.80"] }
+    ],
+    "savings": ["6.00"]
+  },
+  "class8-jfk": {
+    "headers": ["Toll Rate"],
+    "rates": [
+      { "name": "E-ZPass Maryland", "values": ["6.00"] },
+      { "name": "Out of State E-ZPass", "values": ["8.00"] },
+      { "name": "Pay-By-Plate", "values": ["8.00"] },
+      { "name": "Video Tolls", "values": ["12.00"] },
+      { "name": "Discount Plan (if available)", "values": ["2.80"] }
+    ],
+    "savings": ["6.00"]
+  },
+  "class8-etl": {
+    "headers": ["Peak", "Off-Peak", "Overnight"],
+    "rates": [
+      { "name": "E-ZPass Maryland", "values": ["1.54", "1.19", "0.49"] },
+      { "name": "Out of State E-ZPass", "values": ["1.54", "1.19", "0.49"] },
+      { "name": "Pay-By-Plate", "values": ["1.93", "1.49", "0.61"] },
+      { "name": "Video Tolls", "values": ["2.54", "2.19", "1.49"] },
+      {
+        "name": "Discount Plan (if available)",
+        "values": ["n/a", "n/a", "n/a"]
+      }
+    ],
+    "savings": ["1.00", "1.00", "1.00"]
+  },
+  "class8-bht": {
+    "headers": ["Toll Rate"],
+    "rates": [
+      { "name": "E-ZPass Maryland", "values": ["3.00"] },
+      { "name": "Out of State E-ZPass", "values": ["4.00"] },
+      { "name": "Pay-By-Plate", "values": ["4.00"] },
+      { "name": "Video Tolls", "values": ["6.00"] },
+      { "name": "Discount Plan (if available)", "values": ["1.40"] }
+    ],
+    "savings": ["3.00"]
+  },
+  "class8-fsk": {
+    "headers": ["Toll Rate"],
+    "rates": [
+      { "name": "E-ZPass Maryland", "values": ["3.00"] },
+      { "name": "Out of State E-ZPass", "values": ["4.00"] },
+      { "name": "Pay-By-Plate", "values": ["4.00"] },
+      { "name": "Video Tolls", "values": ["6.00"] },
+      { "name": "Discount Plan (if available)", "values": ["1.40"] }
+    ],
+    "savings": ["3.00"]
+  },
+  "class8-fmt": {
+    "headers": ["Toll Rate"],
+    "rates": [
+      { "name": "E-ZPass Maryland", "values": ["3.00"] },
+      { "name": "Out of State E-ZPass", "values": ["4.00"] },
+      { "name": "Pay-By-Plate", "values": ["4.00"] },
+      { "name": "Video Tolls", "values": ["6.00"] },
+      { "name": "Discount Plan (if available)", "values": ["1.40"] }
+    ],
+    "savings": ["3.00"]
+  },
+  "class8-byb": {
+    "headers": ["Toll Rate"],
+    "rates": [
+      { "name": "E-ZPass Maryland", "values": ["2.50"] },
+      { "name": "Out of State E-ZPass", "values": ["4.00"] },
+      { "name": "Pay-By-Plate", "values": ["4.00"] },
+      { "name": "Video Tolls", "values": ["6.00"] },
+      { "name": "Discount Plan (if available)", "values": ["1.40"] }
+    ],
+    "savings": ["3.50"]
+  },
+  "class8-nmb": {
+    "headers": ["Toll Rate"],
+    "rates": [
+      { "name": "E-ZPass Maryland", "values": ["4.50"] },
+      { "name": "Out of State E-ZPass", "values": ["6.00"] },
+      { "name": "Pay-By-Plate", "values": ["6.00"] },
+      { "name": "Video Tolls", "values": ["9.00"] },
+      { "name": "Discount Plan (if available)", "values": ["2.10"] }
+    ],
+    "savings": ["4.50"]
+  },
+  "class2-icc-i370-md97": {
+    "headers": ["Peak", "Off-Peak", "Overnight"],
+    "rates": [
+      { "name": "E-ZPass Maryland", "values": ["1.24", "0.96", "0.40"] },
+      { "name": "Out of State E-ZPass", "values": ["1.24", "0.96", "0.40"] },
+      { "name": "Pay-By-Plate", "values": ["1.55", "1.20", "0.50"] },
+      { "name": "Video Tolls", "values": ["2.24", "1.96", "1.40"] }
+    ],
+    "savings": ["1.00", "1.00", "1.00"]
+  },
+  "class2-icc-i370-md182": {
+    "headers": ["Peak", "Off-Peak", "Overnight"],
+    "rates": [
+      { "name": "E-ZPass Maryland", "values": ["1.74", "1.35", "0.56"] },
+      { "name": "Out of State E-ZPass", "values": ["1.74", "1.35", "0.56"] },
+      { "name": "Pay-By-Plate", "values": ["2.18", "1.69", "0.69"] },
+      { "name": "Video Tolls", "values": ["2.74", "2.35", "1.56"] }
+    ],
+    "savings": ["1.00", "1.00", "1.00"]
+  },
+  "class2-icc-i370-md650": {
+    "headers": ["Peak", "Off-Peak", "Overnight"],
+    "rates": [
+      { "name": "E-ZPass Maryland", "values": ["2.37", "1.83", "0.75"] },
+      { "name": "Out of State E-ZPass", "values": ["2.37", "1.83", "0.75"] },
+      { "name": "Pay-By-Plate", "values": ["2.96", "2.29", "0.94"] },
+      { "name": "Video Tolls", "values": ["3.55", "2.83", "1.75"] }
+    ],
+    "savings": ["1.18", "1.00", "1.00"]
+  },
+  "class2-icc-i370-us29": {
+    "headers": ["Peak", "Off-Peak", "Overnight"],
+    "rates": [
+      { "name": "E-ZPass Maryland", "values": ["2.92", "2.26", "0.93"] },
+      { "name": "Out of State E-ZPass", "values": ["2.92", "2.26", "0.93"] },
+      { "name": "Pay-By-Plate", "values": ["3.65", "2.82", "1.16"] },
+      { "name": "Video Tolls", "values": ["4.38", "3.39", "1.93"] }
+    ],
+    "savings": ["1.46", "1.13", "1.00"]
+  },
+  "class2-icc-i370-i95": {
+    "headers": ["Peak", "Off-Peak", "Overnight"],
+    "rates": [
+      { "name": "E-ZPass Maryland", "values": ["3.52", "2.72", "1.12"] },
+      { "name": "Out of State E-ZPass", "values": ["3.52", "2.72", "1.12"] },
+      { "name": "Pay-By-Plate", "values": ["4.40", "3.40", "1.40"] },
+      { "name": "Video Tolls", "values": ["5.28", "4.08", "2.12"] }
+    ],
+    "savings": ["1.76", "1.36", "1.00"]
+  },
+  "class2-icc-i370-us1": {
+    "headers": ["Peak", "Off-Peak", "Overnight"],
+    "rates": [
+      { "name": "E-ZPass Maryland", "values": ["3.86", "2.98", "1.23"] },
+      { "name": "Out of State E-ZPass", "values": ["3.86", "2.98", "1.23"] },
+      { "name": "Pay-By-Plate", "values": ["4.82", "3.73", "1.53"] },
+      { "name": "Video Tolls", "values": ["5.78", "4.47", "2.23"] }
+    ],
+    "savings": ["1.92", "1.49", "1.00"]
+  },
+  "class3-icc-i370-md97": {
+    "headers": ["Peak", "Off-Peak", "Overnight"],
+    "rates": [
+      { "name": "E-ZPass Maryland", "values": ["2.49", "1.92", "0.79"] },
+      { "name": "Out of State E-ZPass", "values": ["2.49", "1.92", "0.79"] },
+      { "name": "Pay-By-Plate", "values": ["3.11", "2.40", "0.99"] },
+      { "name": "Video Tolls", "values": ["3.73", "2.92", "1.79"] }
+    ],
+    "savings": ["1.24", "1.00", "1.00"]
+  },
+  "class3-icc-i370-md182": {
+    "headers": ["Peak", "Off-Peak", "Overnight"],
+    "rates": [
+      { "name": "E-ZPass Maryland", "values": ["3.49", "2.70", "1.11"] },
+      { "name": "Out of State E-ZPass", "values": ["3.49", "2.70", "1.11"] },
+      { "name": "Pay-By-Plate", "values": ["4.36", "3.37", "1.39"] },
+      { "name": "Video Tolls", "values": ["5.23", "4.04", "2.11"] }
+    ],
+    "savings": ["1.74", "1.34", "1.00"]
+  },
+  "class3-icc-i370-md650": {
+    "headers": ["Peak", "Off-Peak", "Overnight"],
+    "rates": [
+      { "name": "E-ZPass Maryland", "values": ["4.74", "3.66", "1.51"] },
+      { "name": "Out of State E-ZPass", "values": ["4.74", "3.66", "1.51"] },
+      { "name": "Pay-By-Plate", "values": ["5.92", "4.58", "1.88"] },
+      { "name": "Video Tolls", "values": ["7.11", "5.49", "2.51"] }
+    ],
+    "savings": ["2.37", "1.83", "1.00"]
+  },
+  "class3-icc-i370-us29": {
+    "headers": ["Peak", "Off-Peak", "Overnight"],
+    "rates": [
+      { "name": "E-ZPass Maryland", "values": ["5.84", "4.52", "1.86"] },
+      { "name": "Out of State E-ZPass", "values": ["5.84", "4.52", "1.86"] },
+      { "name": "Pay-By-Plate", "values": ["7.30", "5.64", "2.32"] },
+      { "name": "Video Tolls", "values": ["8.76", "6.77", "2.86"] }
+    ],
+    "savings": ["2.92", "2.25", "1.00"]
+  },
+  "class3-icc-i370-i95": {
+    "headers": ["Peak", "Off-Peak", "Overnight"],
+    "rates": [
+      { "name": "E-ZPass Maryland", "values": ["7.04", "5.44", "2.24"] },
+      { "name": "Out of State E-ZPass", "values": ["7.04", "5.44", "2.24"] },
+      { "name": "Pay-By-Plate", "values": ["8.80", "6.80", "2.80"] },
+      { "name": "Video Tolls", "values": ["10.56", "8.16", "3.36"] }
+    ],
+    "savings": ["3.52", "2.72", "1.12"]
+  },
+  "class3-icc-i370-us1": {
+    "headers": ["Peak", "Off-Peak", "Overnight"],
+    "rates": [
+      { "name": "E-ZPass Maryland", "values": ["7.71", "5.96", "2.45"] },
+      { "name": "Out of State E-ZPass", "values": ["7.71", "5.96", "2.45"] },
+      { "name": "Pay-By-Plate", "values": ["9.64", "7.45", "3.07"] },
+      { "name": "Video Tolls", "values": ["11.57", "8.94", "3.68"] }
+    ],
+    "savings": ["3.86", "2.98", "1.23"]
+  },
+  "class4-icc-i370-md97": {
+    "headers": ["Peak", "Off-Peak", "Overnight"],
+    "rates": [
+      { "name": "E-ZPass Maryland", "values": ["3.73", "2.88", "1.19"] },
+      { "name": "Out of State E-ZPass", "values": ["3.73", "2.88", "1.19"] },
+      { "name": "Pay-By-Plate", "values": ["4.66", "3.60", "1.48"] },
+      { "name": "Video Tolls", "values": ["5.59", "4.32", "2.19"] }
+    ],
+    "savings": ["1.86", "1.44", "1.00"]
+  },
+  "class4-icc-i370-md182": {
+    "headers": ["Peak", "Off-Peak", "Overnight"],
+    "rates": [
+      { "name": "E-ZPass Maryland", "values": ["5.23", "4.04", "1.67"] },
+      { "name": "Out of State E-ZPass", "values": ["5.23", "4.04", "1.67"] },
+      { "name": "Pay-By-Plate", "values": ["6.54", "5.06", "2.08"] },
+      { "name": "Video Tolls", "values": ["7.85", "6.07", "2.67"] }
+    ],
+    "savings": ["2.62", "2.03", "1.00"]
+  },
+  "class4-icc-i370-md650": {
+    "headers": ["Peak", "Off-Peak", "Overnight"],
+    "rates": [
+      { "name": "E-ZPass Maryland", "values": ["7.11", "5.49", "2.26"] },
+      { "name": "Out of State E-ZPass", "values": ["7.11", "5.49", "2.26"] },
+      { "name": "Pay-By-Plate", "values": ["8.89", "6.87", "2.83"] },
+      { "name": "Video Tolls", "values": ["10.66", "8.24", "3.39"] }
+    ],
+    "savings": ["3.55", "2.75", "1.13"]
+  },
+  "class4-icc-i370-us29": {
+    "headers": ["Peak", "Off-Peak", "Overnight"],
+    "rates": [
+      { "name": "E-ZPass Maryland", "values": ["8.76", "6.77", "2.79"] },
+      { "name": "Out of State E-ZPass", "values": ["8.76", "6.77", "2.79"] },
+      { "name": "Pay-By-Plate", "values": ["10.96", "8.47", "3.49"] },
+      { "name": "Video Tolls", "values": ["13.15", "10.16", "4.18"] }
+    ],
+    "savings": ["4.39", "3.39", "1.39"]
+  },
+  "class4-icc-i370-i95": {
+    "headers": ["Peak", "Off-Peak", "Overnight"],
+    "rates": [
+      { "name": "E-ZPass Maryland", "values": ["10.56", "8.16", "3.36"] },
+      { "name": "Out of State E-ZPass", "values": ["10.56", "8.16", "3.36"] },
+      { "name": "Pay-By-Plate", "values": ["13.20", "10.20", "4.20"] },
+      { "name": "Video Tolls", "values": ["15.84", "12.24", "5.04"] }
+    ],
+    "savings": ["5.28", "4.08", "1.68"]
+  },
+  "class4-icc-i370-us1": {
+    "headers": ["Peak", "Off-Peak", "Overnight"],
+    "rates": [
+      { "name": "E-ZPass Maryland", "values": ["11.57", "8.94", "3.68"] },
+      { "name": "Out of State E-ZPass", "values": ["11.57", "8.94", "3.68"] },
+      { "name": "Pay-By-Plate", "values": ["14.46", "11.18", "4.60"] },
+      { "name": "Video Tolls", "values": ["17.35", "13.41", "5.52"] }
+    ],
+    "savings": ["5.78", "4.47", "1.84"]
+  },
+  "class5-icc-i370-md97": {
+    "headers": ["Peak", "Off-Peak", "Overnight"],
+    "rates": [
+      { "name": "E-ZPass Maryland", "values": ["7.46", "5.76", "2.37"] },
+      { "name": "Out of State E-ZPass", "values": ["7.46", "5.76", "2.37"] },
+      { "name": "Pay-By-Plate", "values": ["9.32", "7.20", "2.97"] },
+      { "name": "Video Tolls", "values": ["11.19", "8.64", "3.56"] }
+    ],
+    "savings": ["3.73", "2.88", "1.19"]
+  },
+  "class5-icc-i370-md182": {
+    "headers": ["Peak", "Off-Peak", "Overnight"],
+    "rates": [
+      { "name": "E-ZPass Maryland", "values": ["10.47", "8.09", "3.33"] },
+      { "name": "Out of State E-ZPass", "values": ["10.47", "8.09", "3.33"] },
+      { "name": "Pay-By-Plate", "values": ["13.08", "10.11", "4.16"] },
+      { "name": "Video Tolls", "values": ["15.70", "12.13", "5.00"] }
+    ],
+    "savings": ["5.23", "4.04", "1.67"]
+  },
+  "class5-icc-i370-md650": {
+    "headers": ["Peak", "Off-Peak", "Overnight"],
+    "rates": [
+      { "name": "E-ZPass Maryland", "values": ["14.22", "10.99", "4.52"] },
+      { "name": "Out of State E-ZPass", "values": ["14.22", "10.99", "4.52"] },
+      { "name": "Pay-By-Plate", "values": ["17.77", "13.73", "5.65"] },
+      { "name": "Video Tolls", "values": ["21.32", "16.48", "6.79"] }
+    ],
+    "savings": ["7.10", "5.49", "2.27"]
+  },
+  "class5-icc-i370-us29": {
+    "headers": ["Peak", "Off-Peak", "Overnight"],
+    "rates": [
+      { "name": "E-ZPass Maryland", "values": ["17.53", "13.55", "5.58"] },
+      { "name": "Out of State E-ZPass", "values": ["17.53", "13.55", "5.58"] },
+      { "name": "Pay-By-Plate", "values": ["21.91", "16.93", "6.97"] },
+      { "name": "Video Tolls", "values": ["26.29", "20.32", "8.37"] }
+    ],
+    "savings": ["8.76", "6.77", "2.79"]
+  },
+  "class5-icc-i370-i95": {
+    "headers": ["Peak", "Off-Peak", "Overnight"],
+    "rates": [
+      { "name": "E-ZPass Maryland", "values": ["21.12", "16.32", "6.72"] },
+      { "name": "Out of State E-ZPass", "values": ["21.12", "16.32", "6.72"] },
+      { "name": "Pay-By-Plate", "values": ["26.40", "20.40", "8.40"] },
+      { "name": "Video Tolls", "values": ["31.68", "24.48", "10.08"] }
+    ],
+    "savings": ["10.56", "8.16", "3.36"]
+  },
+  "class5-icc-i370-us1": {
+    "headers": ["Peak", "Off-Peak", "Overnight"],
+    "rates": [
+      { "name": "E-ZPass Maryland", "values": ["23.14", "17.88", "7.36"] },
+      { "name": "Out of State E-ZPass", "values": ["23.14", "17.88", "7.36"] },
+      { "name": "Pay-By-Plate", "values": ["28.92", "22.35", "9.20"] },
+      { "name": "Video Tolls", "values": ["34.71", "26.82", "11.04"] }
+    ],
+    "savings": ["11.57", "8.94", "3.68"]
+  },
+  "class6-icc-i370-md97": {
+    "headers": ["Peak", "Off-Peak", "Overnight"],
+    "rates": [
+      { "name": "E-ZPass Maryland", "values": ["9.32", "7.20", "2.97"] },
+      { "name": "Out of State E-ZPass", "values": ["9.32", "7.20", "2.97"] },
+      { "name": "Pay-By-Plate", "values": ["11.65", "9.00", "3.71"] },
+      { "name": "Video Tolls", "values": ["13.98", "10.81", "4.45"] }
+    ],
+    "savings": ["4.66", "3.61", "1.48"]
+  },
+  "class6-icc-i370-md182": {
+    "headers": ["Peak", "Off-Peak", "Overnight"],
+    "rates": [
+      { "name": "E-ZPass Maryland", "values": ["13.08", "10.11", "4.16"] },
+      { "name": "Out of State E-ZPass", "values": ["13.08", "10.11", "4.16"] },
+      { "name": "Pay-By-Plate", "values": ["16.36", "12.64", "5.20"] },
+      { "name": "Video Tolls", "values": ["19.63", "15.17", "6.24"] }
+    ],
+    "savings": ["6.55", "5.06", "2.08"]
+  },
+  "class6-icc-i370-md650": {
+    "headers": ["Peak", "Off-Peak", "Overnight"],
+    "rates": [
+      { "name": "E-ZPass Maryland", "values": ["17.77", "13.73", "5.65"] },
+      { "name": "Out of State E-ZPass", "values": ["17.77", "13.73", "5.65"] },
+      { "name": "Pay-By-Plate", "values": ["22.21", "17.16", "7.07"] },
+      { "name": "Video Tolls", "values": ["26.66", "20.60", "8.48"] }
+    ],
+    "savings": ["8.89", "6.87", "2.83"]
+  },
+  "class6-icc-i370-us29": {
+    "headers": ["Peak", "Off-Peak", "Overnight"],
+    "rates": [
+      { "name": "E-ZPass Maryland", "values": ["21.91", "16.93", "6.97"] },
+      { "name": "Out of State E-ZPass", "values": ["21.91", "16.93", "6.97"] },
+      { "name": "Pay-By-Plate", "values": ["27.39", "21.17", "8.72"] },
+      { "name": "Video Tolls", "values": ["32.87", "25.40", "10.46"] }
+    ],
+    "savings": ["10.96", "8.47", "3.49"]
+  },
+  "class6-icc-i370-i95": {
+    "headers": ["Peak", "Off-Peak", "Overnight"],
+    "rates": [
+      { "name": "E-ZPass Maryland", "values": ["26.40", "20.40", "8.40"] },
+      { "name": "Out of State E-ZPass", "values": ["26.40", "20.40", "8.40"] },
+      { "name": "Pay-By-Plate", "values": ["33.00", "25.50", "10.50"] },
+      { "name": "Video Tolls", "values": ["39.60", "30.60", "12.60"] }
+    ],
+    "savings": ["13.20", "10.20", "4.20"]
+  },
+  "class6-icc-i370-us1": {
+    "headers": ["Peak", "Off-Peak", "Overnight"],
+    "rates": [
+      { "name": "E-ZPass Maryland", "values": ["28.92", "22.35", "9.20"] },
+      { "name": "Out of State E-ZPass", "values": ["28.92", "22.35", "9.20"] },
+      { "name": "Pay-By-Plate", "values": ["36.16", "27.94", "11.50"] },
+      { "name": "Video Tolls", "values": ["43.39", "33.53", "13.80"] }
+    ],
+    "savings": ["14.47", "11.18", "4.60"]
+  },
+  "class8-icc-i370-md97": {
+    "headers": ["Peak", "Off-Peak", "Overnight"],
+    "rates": [
+      { "name": "E-ZPass Maryland", "values": ["1.24", "0.96", "0.40"] },
+      { "name": "Out of State E-ZPass", "values": ["1.24", "0.96", "0.40"] },
+      { "name": "Pay-By-Plate", "values": ["1.55", "1.20", "0.50"] },
+      { "name": "Video Tolls", "values": ["2.24", "1.96", "1.40"] }
+    ],
+    "savings": ["1.00", "1.00", "1.00"]
+  },
+  "class8-icc-i370-md182": {
+    "headers": ["Peak", "Off-Peak", "Overnight"],
+    "rates": [
+      { "name": "E-ZPass Maryland", "values": ["1.74", "1.35", "0.56"] },
+      { "name": "Out of State E-ZPass", "values": ["1.74", "1.35", "0.56"] },
+      { "name": "Pay-By-Plate", "values": ["2.18", "1.69", "0.69"] },
+      { "name": "Video Tolls", "values": ["2.74", "2.35", "1.56"] }
+    ],
+    "savings": ["1.00", "1.00", "1.00"]
+  },
+  "class8-icc-i370-md650": {
+    "headers": ["Peak", "Off-Peak", "Overnight"],
+    "rates": [
+      { "name": "E-ZPass Maryland", "values": ["2.37", "1.83", "0.75"] },
+      { "name": "Out of State E-ZPass", "values": ["2.37", "1.83", "0.75"] },
+      { "name": "Pay-By-Plate", "values": ["2.96", "2.29", "0.94"] },
+      { "name": "Video Tolls", "values": ["3.55", "2.83", "1.75"] }
+    ],
+    "savings": ["1.18", "1.00", "1.00"]
+  },
+  "class8-icc-i370-us29": {
+    "headers": ["Peak", "Off-Peak", "Overnight"],
+    "rates": [
+      { "name": "E-ZPass Maryland", "values": ["2.92", "2.26", "0.93"] },
+      { "name": "Out of State E-ZPass", "values": ["2.92", "2.26", "0.93"] },
+      { "name": "Pay-By-Plate", "values": ["3.65", "2.82", "1.16"] },
+      { "name": "Video Tolls", "values": ["4.38", "3.39", "1.93"] }
+    ],
+    "savings": ["1.46", "1.13", "1.00"]
+  },
+  "class8-icc-i370-i95": {
+    "headers": ["Peak", "Off-Peak", "Overnight"],
+    "rates": [
+      { "name": "E-ZPass Maryland", "values": ["3.52", "2.72", "1.12"] },
+      { "name": "Out of State E-ZPass", "values": ["3.52", "2.72", "1.12"] },
+      { "name": "Pay-By-Plate", "values": ["4.40", "3.40", "1.40"] },
+      { "name": "Video Tolls", "values": ["5.28", "4.08", "2.12"] }
+    ],
+    "savings": ["1.76", "1.36", "1.00"]
+  },
+  "class8-icc-i370-us1": {
+    "headers": ["Peak", "Off-Peak", "Overnight"],
+    "rates": [
+      { "name": "E-ZPass Maryland", "values": ["3.86", "2.98", "1.23"] },
+      { "name": "Out of State E-ZPass", "values": ["3.86", "2.98", "1.23"] },
+      { "name": "Pay-By-Plate", "values": ["4.82", "3.73", "1.53"] },
+      { "name": "Video Tolls", "values": ["5.78", "4.47", "2.23"] }
+    ],
+    "savings": ["1.92", "1.49", "1.00"]
+  },
+  "class2-icc-md97-md182": {
+    "headers": ["Peak", "Off-Peak", "Overnight"],
+    "rates": [
+      { "name": "E-ZPass Maryland", "values": ["0.50", "0.40", "0.40"] },
+      { "name": "Out of State E-ZPass", "values": ["0.50", "0.40", "0.40"] },
+      { "name": "Pay-By-Plate", "values": ["0.63", "0.50", "0.50"] },
+      { "name": "Video Tolls", "values": ["1.50", "1.40", "1.40"] }
+    ],
+    "savings": ["1.00", "1.00", "1.00"]
+  },
+  "class2-icc-md97-md650": {
+    "headers": ["Peak", "Off-Peak", "Overnight"],
+    "rates": [
+      { "name": "E-ZPass Maryland", "values": ["1.13", "0.87", "0.40"] },
+      { "name": "Out of State E-ZPass", "values": ["1.13", "0.87", "0.40"] },
+      { "name": "Pay-By-Plate", "values": ["1.41", "1.09", "0.50"] },
+      { "name": "Video Tolls", "values": ["2.13", "1.87", "1.40"] }
+    ],
+    "savings": ["1.00", "1.00", "1.00"]
+  },
+  "class2-icc-md97-us29": {
+    "headers": ["Peak", "Off-Peak", "Overnight"],
+    "rates": [
+      { "name": "E-ZPass Maryland", "values": ["1.68", "1.30", "0.53"] },
+      { "name": "Out of State E-ZPass", "values": ["1.68", "1.30", "0.53"] },
+      { "name": "Pay-By-Plate", "values": ["2.10", "1.62", "0.67"] },
+      { "name": "Video Tolls", "values": ["2.68", "2.30", "1.53"] }
+    ],
+    "savings": ["1.00", "1.00", "1.00"]
+  },
+  "class2-icc-md97-i95": {
+    "headers": ["Peak", "Off-Peak", "Overnight"],
+    "rates": [
+      { "name": "E-ZPass Maryland", "values": ["2.28", "1.76", "0.72"] },
+      { "name": "Out of State E-ZPass", "values": ["2.28", "1.76", "0.72"] },
+      { "name": "Pay-By-Plate", "values": ["2.85", "2.20", "0.91"] },
+      { "name": "Video Tolls", "values": ["3.42", "2.76", "1.72"] }
+    ],
+    "savings": ["1.14", "1.00", "1.00"]
+  },
+  "class2-icc-md97-us1": {
+    "headers": ["Peak", "Off-Peak", "Overnight"],
+    "rates": [
+      { "name": "E-ZPass Maryland", "values": ["2.61", "2.02", "0.83"] },
+      { "name": "Out of State E-ZPass", "values": ["2.61", "2.02", "0.83"] },
+      { "name": "Pay-By-Plate", "values": ["3.27", "2.52", "1.04"] },
+      { "name": "Video Tolls", "values": ["3.92", "3.03", "1.83"] }
+    ],
+    "savings": ["1.31", "1.01", "1.00"]
+  },
+  "class2-icc-md97-i370": {
+    "headers": ["Peak", "Off-Peak", "Overnight"],
+    "rates": [
+      { "name": "E-ZPass Maryland", "values": ["1.24", "0.96", "0.40"] },
+      { "name": "Out of State E-ZPass", "values": ["1.24", "0.96", "0.40"] },
+      { "name": "Pay-By-Plate", "values": ["1.55", "1.20", "0.50"] },
+      { "name": "Video Tolls", "values": ["2.24", "1.96", "1.40"] }
+    ],
+    "savings": ["1.00", "1.00", "1.00"]
+  },
+  "class3-icc-md97-md182": {
+    "headers": ["Peak", "Off-Peak", "Overnight"],
+    "rates": [
+      { "name": "E-ZPass Maryland", "values": ["1.00", "0.78", "0.40"] },
+      { "name": "Out of State E-ZPass", "values": ["1.00", "0.78", "0.40"] },
+      { "name": "Pay-By-Plate", "values": ["1.25", "0.97", "0.50"] },
+      { "name": "Video Tolls", "values": ["2.00", "1.78", "1.40"] }
+    ],
+    "savings": ["1.00", "1.00", "1.00"]
+  },
+  "class3-icc-md97-md650": {
+    "headers": ["Peak", "Off-Peak", "Overnight"],
+    "rates": [
+      { "name": "E-ZPass Maryland", "values": ["2.25", "1.74", "0.72"] },
+      { "name": "Out of State E-ZPass", "values": ["2.25", "1.74", "0.72"] },
+      { "name": "Pay-By-Plate", "values": ["2.82", "2.18", "0.90"] },
+      { "name": "Video Tolls", "values": ["3.38", "2.74", "1.72"] }
+    ],
+    "savings": ["1.13", "1.00", "1.00"]
+  },
+  "class3-icc-md97-us29": {
+    "headers": ["Peak", "Off-Peak", "Overnight"],
+    "rates": [
+      { "name": "E-ZPass Maryland", "values": ["3.36", "2.59", "1.07"] },
+      { "name": "Out of State E-ZPass", "values": ["3.36", "2.59", "1.07"] },
+      { "name": "Pay-By-Plate", "values": ["4.20", "3.24", "1.34"] },
+      { "name": "Video Tolls", "values": ["5.04", "3.89", "2.07"] }
+    ],
+    "savings": ["1.68", "1.30", "1.00"]
+  },
+  "class3-icc-md97-i95": {
+    "headers": ["Peak", "Off-Peak", "Overnight"],
+    "rates": [
+      { "name": "E-ZPass Maryland", "values": ["4.55", "3.52", "1.45"] },
+      { "name": "Out of State E-ZPass", "values": ["4.55", "3.52", "1.45"] },
+      { "name": "Pay-By-Plate", "values": ["5.69", "4.40", "1.81"] },
+      { "name": "Video Tolls", "values": ["6.83", "5.28", "2.45"] }
+    ],
+    "savings": ["2.28", "1.76", "1.00"]
+  },
+  "class3-icc-md97-us1": {
+    "headers": ["Peak", "Off-Peak", "Overnight"],
+    "rates": [
+      { "name": "E-ZPass Maryland", "values": ["5.23", "4.04", "1.66"] },
+      { "name": "Out of State E-ZPass", "values": ["5.23", "4.04", "1.66"] },
+      { "name": "Pay-By-Plate", "values": ["6.53", "5.05", "2.08"] },
+      { "name": "Video Tolls", "values": ["7.84", "6.06", "2.66"] }
+    ],
+    "savings": ["2.61", "2.02", "1.00"]
+  },
+  "class3-icc-md97-i370": {
+    "headers": ["Peak", "Off-Peak", "Overnight"],
+    "rates": [
+      { "name": "E-ZPass Maryland", "values": ["2.49", "1.92", "0.79"] },
+      { "name": "Out of State E-ZPass", "values": ["2.49", "1.92", "0.79"] },
+      { "name": "Pay-By-Plate", "values": ["3.11", "2.40", "0.99"] },
+      { "name": "Video Tolls", "values": ["3.73", "2.92", "1.79"] }
+    ],
+    "savings": ["1.24", "1.00", "1.00"]
+  },
+  "class4-icc-md97-md182": {
+    "headers": ["Peak", "Off-Peak", "Overnight"],
+    "rates": [
+      { "name": "E-ZPass Maryland", "values": ["1.50", "1.16", "0.48"] },
+      { "name": "Out of State E-ZPass", "values": ["1.50", "1.16", "0.48"] },
+      { "name": "Pay-By-Plate", "values": ["1.88", "1.45", "0.60"] },
+      { "name": "Video Tolls", "values": ["2.50", "2.16", "1.48"] }
+    ],
+    "savings": ["1.00", "1.00", "1.00"]
+  },
+  "class4-icc-md97-md650": {
+    "headers": ["Peak", "Off-Peak", "Overnight"],
+    "rates": [
+      { "name": "E-ZPass Maryland", "values": ["3.38", "2.61", "1.08"] },
+      { "name": "Out of State E-ZPass", "values": ["3.38", "2.61", "1.08"] },
+      { "name": "Pay-By-Plate", "values": ["4.22", "3.26", "1.34"] },
+      { "name": "Video Tolls", "values": ["5.07", "3.92", "2.08"] }
+    ],
+    "savings": ["1.69", "1.31", "1.00"]
+  },
+  "class4-icc-md97-us29": {
+    "headers": ["Peak", "Off-Peak", "Overnight"],
+    "rates": [
+      { "name": "E-ZPass Maryland", "values": ["5.04", "3.89", "1.60"] },
+      { "name": "Out of State E-ZPass", "values": ["5.04", "3.89", "1.60"] },
+      { "name": "Pay-By-Plate", "values": ["6.29", "4.86", "2.00"] },
+      { "name": "Video Tolls", "values": ["7.55", "5.84", "2.60"] }
+    ],
+    "savings": ["2.51", "1.95", "1.00"]
+  },
+  "class4-icc-md97-i95": {
+    "headers": ["Peak", "Off-Peak", "Overnight"],
+    "rates": [
+      { "name": "E-ZPass Maryland", "values": ["6.83", "5.28", "2.17"] },
+      { "name": "Out of State E-ZPass", "values": ["6.83", "5.28", "2.17"] },
+      { "name": "Pay-By-Plate", "values": ["8.54", "6.60", "2.72"] },
+      { "name": "Video Tolls", "values": ["10.25", "7.92", "3.26"] }
+    ],
+    "savings": ["3.42", "2.64", "1.09"]
+  },
+  "class4-icc-md97-us1": {
+    "headers": ["Peak", "Off-Peak", "Overnight"],
+    "rates": [
+      { "name": "E-ZPass Maryland", "values": ["7.84", "6.06", "2.49"] },
+      { "name": "Out of State E-ZPass", "values": ["7.84", "6.06", "2.49"] },
+      { "name": "Pay-By-Plate", "values": ["9.80", "7.57", "3.12"] },
+      { "name": "Video Tolls", "values": ["11.76", "9.09", "3.74"] }
+    ],
+    "savings": ["3.92", "3.03", "1.25"]
+  },
+  "class4-icc-md97-i370": {
+    "headers": ["Peak", "Off-Peak", "Overnight"],
+    "rates": [
+      { "name": "E-ZPass Maryland", "values": ["3.73", "2.88", "1.19"] },
+      { "name": "Out of State E-ZPass", "values": ["3.73", "2.88", "1.19"] },
+      { "name": "Pay-By-Plate", "values": ["4.66", "3.60", "1.48"] },
+      { "name": "Video Tolls", "values": ["5.59", "4.32", "2.19"] }
+    ],
+    "savings": ["1.86", "1.44", "1.00"]
+  },
+  "class5-icc-md97-md182": {
+    "headers": ["Peak", "Off-Peak", "Overnight"],
+    "rates": [
+      { "name": "E-ZPass Maryland", "values": ["3.01", "2.33", "0.96"] },
+      { "name": "Out of State E-ZPass", "values": ["3.01", "2.33", "0.96"] },
+      { "name": "Pay-By-Plate", "values": ["3.76", "2.91", "1.20"] },
+      { "name": "Video Tolls", "values": ["4.51", "3.49", "1.96"] }
+    ],
+    "savings": ["1.50", "1.16", "1.00"]
+  },
+  "class5-icc-md97-md650": {
+    "headers": ["Peak", "Off-Peak", "Overnight"],
+    "rates": [
+      { "name": "E-ZPass Maryland", "values": ["6.76", "5.22", "2.15"] },
+      { "name": "Out of State E-ZPass", "values": ["6.76", "5.22", "2.15"] },
+      { "name": "Pay-By-Plate", "values": ["8.45", "6.53", "2.69"] },
+      { "name": "Video Tolls", "values": ["10.14", "7.83", "3.23"] }
+    ],
+    "savings": ["3.38", "2.61", "1.08"]
+  },
+  "class5-icc-md97-us29": {
+    "headers": ["Peak", "Off-Peak", "Overnight"],
+    "rates": [
+      { "name": "E-ZPass Maryland", "values": ["10.07", "7.78", "3.20"] },
+      { "name": "Out of State E-ZPass", "values": ["10.07", "7.78", "3.20"] },
+      { "name": "Pay-By-Plate", "values": ["12.59", "9.73", "4.01"] },
+      { "name": "Video Tolls", "values": ["15.11", "11.67", "4.81"] }
+    ],
+    "savings": ["5.04", "3.89", "1.61"]
+  },
+  "class5-icc-md97-i95": {
+    "headers": ["Peak", "Off-Peak", "Overnight"],
+    "rates": [
+      { "name": "E-ZPass Maryland", "values": ["13.66", "10.56", "4.35"] },
+      { "name": "Out of State E-ZPass", "values": ["13.66", "10.56", "4.35"] },
+      { "name": "Pay-By-Plate", "values": ["17.08", "13.20", "5.43"] },
+      { "name": "Video Tolls", "values": ["20.49", "15.84", "6.52"] }
+    ],
+    "savings": ["6.83", "5.28", "2.17"]
+  },
+  "class5-icc-md97-us1": {
+    "headers": ["Peak", "Off-Peak", "Overnight"],
+    "rates": [
+      { "name": "E-ZPass Maryland", "values": ["15.68", "12.12", "4.99"] },
+      { "name": "Out of State E-ZPass", "values": ["15.68", "12.12", "4.99"] },
+      { "name": "Pay-By-Plate", "values": ["19.60", "15.15", "6.24"] },
+      { "name": "Video Tolls", "values": ["23.52", "18.18", "7.48"] }
+    ],
+    "savings": ["7.84", "6.06", "2.49"]
+  },
+  "class5-icc-md97-i370": {
+    "headers": ["Peak", "Off-Peak", "Overnight"],
+    "rates": [
+      { "name": "E-ZPass Maryland", "values": ["7.46", "5.76", "2.37"] },
+      { "name": "Out of State E-ZPass", "values": ["7.46", "5.76", "2.37"] },
+      { "name": "Pay-By-Plate", "values": ["9.32", "7.20", "2.97"] },
+      { "name": "Video Tolls", "values": ["11.19", "8.64", "3.56"] }
+    ],
+    "savings": ["3.73", "2.88", "1.19"]
+  },
+  "class6-icc-md97-md182": {
+    "headers": ["Peak", "Off-Peak", "Overnight"],
+    "rates": [
+      { "name": "E-ZPass Maryland", "values": ["3.76", "2.91", "1.20"] },
+      { "name": "Out of State E-ZPass", "values": ["3.76", "2.91", "1.20"] },
+      { "name": "Pay-By-Plate", "values": ["4.70", "3.63", "1.50"] },
+      { "name": "Video Tolls", "values": ["5.64", "4.36", "2.20"] }
+    ],
+    "savings": ["1.88", "1.45", "1.00"]
+  },
+  "class6-icc-md97-md650": {
+    "headers": ["Peak", "Off-Peak", "Overnight"],
+    "rates": [
+      { "name": "E-ZPass Maryland", "values": ["8.45", "6.53", "2.69"] },
+      { "name": "Out of State E-ZPass", "values": ["8.45", "6.53", "2.69"] },
+      { "name": "Pay-By-Plate", "values": ["10.56", "8.16", "3.36"] },
+      { "name": "Video Tolls", "values": ["12.67", "9.79", "4.03"] }
+    ],
+    "savings": ["4.22", "3.26", "1.34"]
+  },
+  "class6-icc-md97-us29": {
+    "headers": ["Peak", "Off-Peak", "Overnight"],
+    "rates": [
+      { "name": "E-ZPass Maryland", "values": ["12.59", "9.73", "4.01"] },
+      { "name": "Out of State E-ZPass", "values": ["12.59", "9.73", "4.01"] },
+      { "name": "Pay-By-Plate", "values": ["15.74", "12.16", "5.01"] },
+      { "name": "Video Tolls", "values": ["18.88", "14.59", "6.01"] }
+    ],
+    "savings": ["6.29", "4.86", "2.00"]
+  },
+  "class6-icc-md97-i95": {
+    "headers": ["Peak", "Off-Peak", "Overnight"],
+    "rates": [
+      { "name": "E-ZPass Maryland", "values": ["17.08", "13.20", "5.43"] },
+      { "name": "Out of State E-ZPass", "values": ["17.08", "13.20", "5.43"] },
+      { "name": "Pay-By-Plate", "values": ["21.35", "16.50", "6.79"] },
+      { "name": "Video Tolls", "values": ["25.62", "19.79", "8.15"] }
+    ],
+    "savings": ["8.54", "6.59", "2.72"]
+  },
+  "class6-icc-md97-us1": {
+    "headers": ["Peak", "Off-Peak", "Overnight"],
+    "rates": [
+      { "name": "E-ZPass Maryland", "values": ["19.60", "15.15", "6.24"] },
+      { "name": "Out of State E-ZPass", "values": ["19.60", "15.15", "6.24"] },
+      { "name": "Pay-By-Plate", "values": ["24.50", "18.93", "7.80"] },
+      { "name": "Video Tolls", "values": ["29.40", "22.72", "9.36"] }
+    ],
+    "savings": ["9.80", "7.57", "3.12"]
+  },
+  "class6-icc-md97-i370": {
+    "headers": ["Peak", "Off-Peak", "Overnight"],
+    "rates": [
+      { "name": "E-ZPass Maryland", "values": ["9.32", "7.20", "2.97"] },
+      { "name": "Out of State E-ZPass", "values": ["9.32", "7.20", "2.97"] },
+      { "name": "Pay-By-Plate", "values": ["11.65", "9.00", "3.71"] },
+      { "name": "Video Tolls", "values": ["13.98", "10.81", "4.45"] }
+    ],
+    "savings": ["4.66", "3.61", "1.48"]
+  },
+  "class8-icc-md97-md182": {
+    "headers": ["Peak", "Off-Peak", "Overnight"],
+    "rates": [
+      { "name": "E-ZPass Maryland", "values": ["0.50", "0.40", "0.40"] },
+      { "name": "Out of State E-ZPass", "values": ["0.50", "0.40", "0.40"] },
+      { "name": "Pay-By-Plate", "values": ["0.63", "0.50", "0.50"] },
+      { "name": "Video Tolls", "values": ["1.50", "1.40", "1.40"] }
+    ],
+    "savings": ["1.00", "1.00", "1.00"]
+  },
+  "class8-icc-md97-md650": {
+    "headers": ["Peak", "Off-Peak", "Overnight"],
+    "rates": [
+      { "name": "E-ZPass Maryland", "values": ["1.13", "0.87", "0.40"] },
+      { "name": "Out of State E-ZPass", "values": ["1.13", "0.87", "0.40"] },
+      { "name": "Pay-By-Plate", "values": ["1.41", "1.09", "0.50"] },
+      { "name": "Video Tolls", "values": ["2.13", "1.87", "1.40"] }
+    ],
+    "savings": ["1.00", "1.00", "1.00"]
+  },
+  "class8-icc-md97-us29": {
+    "headers": ["Peak", "Off-Peak", "Overnight"],
+    "rates": [
+      { "name": "E-ZPass Maryland", "values": ["1.68", "1.30", "0.53"] },
+      { "name": "Out of State E-ZPass", "values": ["1.68", "1.30", "0.53"] },
+      { "name": "Pay-By-Plate", "values": ["2.10", "1.62", "0.67"] },
+      { "name": "Video Tolls", "values": ["2.68", "2.30", "1.53"] }
+    ],
+    "savings": ["1.00", "1.00", "1.00"]
+  },
+  "class8-icc-md97-i95": {
+    "headers": ["Peak", "Off-Peak", "Overnight"],
+    "rates": [
+      { "name": "E-ZPass Maryland", "values": ["2.28", "1.76", "0.72"] },
+      { "name": "Out of State E-ZPass", "values": ["2.28", "1.76", "0.72"] },
+      { "name": "Pay-By-Plate", "values": ["2.85", "2.20", "0.91"] },
+      { "name": "Video Tolls", "values": ["3.42", "2.76", "1.72"] }
+    ],
+    "savings": ["1.14", "1.00", "1.00"]
+  },
+  "class8-icc-md97-us1": {
+    "headers": ["Peak", "Off-Peak", "Overnight"],
+    "rates": [
+      { "name": "E-ZPass Maryland", "values": ["2.61", "2.02", "0.83"] },
+      { "name": "Out of State E-ZPass", "values": ["2.61", "2.02", "0.83"] },
+      { "name": "Pay-By-Plate", "values": ["3.27", "2.52", "1.04"] },
+      { "name": "Video Tolls", "values": ["3.92", "3.03", "1.83"] }
+    ],
+    "savings": ["1.31", "1.01", "1.00"]
+  },
+  "class8-icc-md97-i370": {
+    "headers": ["Peak", "Off-Peak", "Overnight"],
+    "rates": [
+      { "name": "E-ZPass Maryland", "values": ["1.24", "0.96", "0.40"] },
+      { "name": "Out of State E-ZPass", "values": ["1.24", "0.96", "0.40"] },
+      { "name": "Pay-By-Plate", "values": ["1.55", "1.20", "0.50"] },
+      { "name": "Video Tolls", "values": ["2.24", "1.96", "1.40"] }
+    ],
+    "savings": ["1.00", "1.00", "1.00"]
+  },
+  "class2-icc-md182-md650": {
+    "headers": ["Peak", "Off-Peak", "Overnight"],
+    "rates": [
+      { "name": "E-ZPass Maryland", "values": ["0.62", "0.48", "0.40"] },
+      { "name": "Out of State E-ZPass", "values": ["0.62", "0.48", "0.40"] },
+      { "name": "Pay-By-Plate", "values": ["0.78", "0.60", "0.50"] },
+      { "name": "Video Tolls", "values": ["1.62", "1.48", "1.40"] }
+    ],
+    "savings": ["1.00", "1.00", "1.00"]
+  },
+  "class2-icc-md182-us29": {
+    "headers": ["Peak", "Off-Peak", "Overnight"],
+    "rates": [
+      { "name": "E-ZPass Maryland", "values": ["1.18", "0.91", "0.40"] },
+      { "name": "Out of State E-ZPass", "values": ["1.18", "0.91", "0.40"] },
+      { "name": "Pay-By-Plate", "values": ["1.47", "1.14", "0.50"] },
+      { "name": "Video Tolls", "values": ["2.18", "1.91", "1.40"] }
+    ],
+    "savings": ["1.00", "1.00", "1.00"]
+  },
+  "class2-icc-md182-i95": {
+    "headers": ["Peak", "Off-Peak", "Overnight"],
+    "rates": [
+      { "name": "E-ZPass Maryland", "values": ["1.78", "1.37", "0.56"] },
+      { "name": "Out of State E-ZPass", "values": ["1.78", "1.37", "0.56"] },
+      { "name": "Pay-By-Plate", "values": ["2.22", "1.71", "0.71"] },
+      { "name": "Video Tolls", "values": ["2.78", "2.37", "1.56"] }
+    ],
+    "savings": ["1.00", "1.00", "1.00"]
+  },
+  "class2-icc-md182-us1": {
+    "headers": ["Peak", "Off-Peak", "Overnight"],
+    "rates": [
+      { "name": "E-ZPass Maryland", "values": ["2.11", "1.63", "0.67"] },
+      { "name": "Out of State E-ZPass", "values": ["2.11", "1.63", "0.67"] },
+      { "name": "Pay-By-Plate", "values": ["2.64", "2.04", "0.84"] },
+      { "name": "Video Tolls", "values": ["3.17", "2.63", "1.67"] }
+    ],
+    "savings": ["1.06", "1.00", "1.00"]
+  },
+  "class2-icc-md182-i370": {
+    "headers": ["Peak", "Off-Peak", "Overnight"],
+    "rates": [
+      { "name": "E-ZPass Maryland", "values": ["1.74", "1.35", "0.56"] },
+      { "name": "Out of State E-ZPass", "values": ["1.74", "1.35", "0.56"] },
+      { "name": "Pay-By-Plate", "values": ["2.18", "1.69", "0.69"] },
+      { "name": "Video Tolls", "values": ["2.74", "2.35", "1.56"] }
+    ],
+    "savings": ["1.00", "1.00", "1.00"]
+  },
+  "class2-icc-md182-md97": {
+    "headers": ["Peak", "Off-Peak", "Overnight"],
+    "rates": [
+      { "name": "E-ZPass Maryland", "values": ["0.50", "0.40", "0.40"] },
+      { "name": "Out of State E-ZPass", "values": ["0.50", "0.40", "0.40"] },
+      { "name": "Pay-By-Plate", "values": ["0.63", "0.50", "0.50"] },
+      { "name": "Video Tolls", "values": ["1.50", "1.40", "1.40"] }
+    ],
+    "savings": ["1.00", "1.00", "1.00"]
+  },
+  "class3-icc-md182-md650": {
+    "headers": ["Peak", "Off-Peak", "Overnight"],
+    "rates": [
+      { "name": "E-ZPass Maryland", "values": ["1.25", "0.97", "0.40"] },
+      { "name": "Out of State E-ZPass", "values": ["1.25", "0.97", "0.40"] },
+      { "name": "Pay-By-Plate", "values": ["1.56", "1.21", "0.50"] },
+      { "name": "Video Tolls", "values": ["2.25", "1.97", "1.40"] }
+    ],
+    "savings": ["1.00", "1.00", "1.00"]
+  },
+  "class3-icc-md182-us29": {
+    "headers": ["Peak", "Off-Peak", "Overnight"],
+    "rates": [
+      { "name": "E-ZPass Maryland", "values": ["2.35", "1.82", "0.75"] },
+      { "name": "Out of State E-ZPass", "values": ["2.35", "1.82", "0.75"] },
+      { "name": "Pay-By-Plate", "values": ["2.94", "2.27", "0.94"] },
+      { "name": "Video Tolls", "values": ["3.53", "2.82", "1.75"] }
+    ],
+    "savings": ["1.18", "1.00", "1.00"]
+  },
+  "class3-icc-md182-i95": {
+    "headers": ["Peak", "Off-Peak", "Overnight"],
+    "rates": [
+      { "name": "E-ZPass Maryland", "values": ["3.55", "2.74", "1.13"] },
+      { "name": "Out of State E-ZPass", "values": ["3.55", "2.74", "1.13"] },
+      { "name": "Pay-By-Plate", "values": ["4.44", "3.43", "1.41"] },
+      { "name": "Video Tolls", "values": ["5.33", "4.12", "2.13"] }
+    ],
+    "savings": ["1.78", "1.38", "1.00"]
+  },
+  "class3-icc-md182-us1": {
+    "headers": ["Peak", "Off-Peak", "Overnight"],
+    "rates": [
+      { "name": "E-ZPass Maryland", "values": ["4.22", "3.26", "1.34"] },
+      { "name": "Out of State E-ZPass", "values": ["4.22", "3.26", "1.34"] },
+      { "name": "Pay-By-Plate", "values": ["5.28", "4.08", "1.68"] },
+      { "name": "Video Tolls", "values": ["6.34", "4.90", "2.34"] }
+    ],
+    "savings": ["2.12", "1.64", "1.00"]
+  },
+  "class3-icc-md182-i370": {
+    "headers": ["Peak", "Off-Peak", "Overnight"],
+    "rates": [
+      { "name": "E-ZPass Maryland", "values": ["3.49", "2.70", "1.11"] },
+      { "name": "Out of State E-ZPass", "values": ["3.49", "2.70", "1.11"] },
+      { "name": "Pay-By-Plate", "values": ["4.36", "3.37", "1.39"] },
+      { "name": "Video Tolls", "values": ["5.23", "4.04", "2.11"] }
+    ],
+    "savings": ["1.74", "1.34", "1.00"]
+  },
+  "class3-icc-md182-md97": {
+    "headers": ["Peak", "Off-Peak", "Overnight"],
+    "rates": [
+      { "name": "E-ZPass Maryland", "values": ["1.00", "0.78", "0.40"] },
+      { "name": "Out of State E-ZPass", "values": ["1.00", "0.78", "0.40"] },
+      { "name": "Pay-By-Plate", "values": ["1.25", "0.97", "0.50"] },
+      { "name": "Video Tolls", "values": ["2.00", "1.78", "1.40"] }
+    ],
+    "savings": ["1.00", "1.00", "1.00"]
+  },
+  "class4-icc-md182-md650": {
+    "headers": ["Peak", "Off-Peak", "Overnight"],
+    "rates": [
+      { "name": "E-ZPass Maryland", "values": ["1.87", "1.45", "0.60"] },
+      { "name": "Out of State E-ZPass", "values": ["1.87", "1.45", "0.60"] },
+      { "name": "Pay-By-Plate", "values": ["2.34", "1.81", "0.75"] },
+      { "name": "Video Tolls", "values": ["2.87", "2.45", "1.60"] }
+    ],
+    "savings": ["1.00", "1.00", "1.00"]
+  },
+  "class4-icc-md182-us29": {
+    "headers": ["Peak", "Off-Peak", "Overnight"],
+    "rates": [
+      { "name": "E-ZPass Maryland", "values": ["3.53", "2.73", "1.12"] },
+      { "name": "Out of State E-ZPass", "values": ["3.53", "2.73", "1.12"] },
+      { "name": "Pay-By-Plate", "values": ["4.41", "3.41", "1.40"] },
+      { "name": "Video Tolls", "values": ["5.30", "4.09", "2.12"] }
+    ],
+    "savings": ["1.77", "1.36", "1.00"]
+  },
+  "class4-icc-md182-i95": {
+    "headers": ["Peak", "Off-Peak", "Overnight"],
+    "rates": [
+      { "name": "E-ZPass Maryland", "values": ["5.33", "4.12", "1.69"] },
+      { "name": "Out of State E-ZPass", "values": ["5.33", "4.12", "1.69"] },
+      { "name": "Pay-By-Plate", "values": ["6.66", "5.14", "2.12"] },
+      { "name": "Video Tolls", "values": ["7.99", "6.17", "2.69"] }
+    ],
+    "savings": ["2.66", "2.05", "1.00"]
+  },
+  "class4-icc-md182-us1": {
+    "headers": ["Peak", "Off-Peak", "Overnight"],
+    "rates": [
+      { "name": "E-ZPass Maryland", "values": ["6.34", "4.90", "2.02"] },
+      { "name": "Out of State E-ZPass", "values": ["6.34", "4.90", "2.02"] },
+      { "name": "Pay-By-Plate", "values": ["7.92", "6.12", "2.52"] },
+      { "name": "Video Tolls", "values": ["9.50", "7.34", "3.02"] }
+    ],
+    "savings": ["3.16", "2.44", "1.00"]
+  },
+  "class4-icc-md182-i370": {
+    "headers": ["Peak", "Off-Peak", "Overnight"],
+    "rates": [
+      { "name": "E-ZPass Maryland", "values": ["5.23", "4.04", "1.67"] },
+      { "name": "Out of State E-ZPass", "values": ["5.23", "4.04", "1.67"] },
+      { "name": "Pay-By-Plate", "values": ["6.54", "5.06", "2.08"] },
+      { "name": "Video Tolls", "values": ["7.85", "6.07", "2.67"] }
+    ],
+    "savings": ["2.62", "2.03", "1.00"]
+  },
+  "class4-icc-md182-md97": {
+    "headers": ["Peak", "Off-Peak", "Overnight"],
+    "rates": [
+      { "name": "E-ZPass Maryland", "values": ["1.50", "1.16", "0.48"] },
+      { "name": "Out of State E-ZPass", "values": ["1.50", "1.16", "0.48"] },
+      { "name": "Pay-By-Plate", "values": ["1.88", "1.45", "0.60"] },
+      { "name": "Video Tolls", "values": ["2.50", "2.16", "1.48"] }
+    ],
+    "savings": ["1.00", "1.00", "1.00"]
+  },
+  "class5-icc-md182-md650": {
+    "headers": ["Peak", "Off-Peak", "Overnight"],
+    "rates": [
+      { "name": "E-ZPass Maryland", "values": ["3.75", "2.90", "1.19"] },
+      { "name": "Out of State E-ZPass", "values": ["3.75", "2.90", "1.19"] },
+      { "name": "Pay-By-Plate", "values": ["4.69", "3.62", "1.49"] },
+      { "name": "Video Tolls", "values": ["5.62", "4.35", "2.19"] }
+    ],
+    "savings": ["1.87", "1.45", "1.00"]
+  },
+  "class5-icc-md182-us29": {
+    "headers": ["Peak", "Off-Peak", "Overnight"],
+    "rates": [
+      { "name": "E-ZPass Maryland", "values": ["7.06", "5.46", "2.25"] },
+      { "name": "Out of State E-ZPass", "values": ["7.06", "5.46", "2.25"] },
+      { "name": "Pay-By-Plate", "values": ["8.83", "6.82", "2.81"] },
+      { "name": "Video Tolls", "values": ["10.59", "8.19", "3.37"] }
+    ],
+    "savings": ["3.53", "2.73", "1.12"]
+  },
+  "class5-icc-md182-i95": {
+    "headers": ["Peak", "Off-Peak", "Overnight"],
+    "rates": [
+      { "name": "E-ZPass Maryland", "values": ["10.65", "8.23", "3.39"] },
+      { "name": "Out of State E-ZPass", "values": ["10.65", "8.23", "3.39"] },
+      { "name": "Pay-By-Plate", "values": ["13.32", "10.29", "4.24"] },
+      { "name": "Video Tolls", "values": ["15.98", "12.35", "5.08"] }
+    ],
+    "savings": ["5.33", "4.12", "1.69"]
+  },
+  "class5-icc-md182-us1": {
+    "headers": ["Peak", "Off-Peak", "Overnight"],
+    "rates": [
+      { "name": "E-ZPass Maryland", "values": ["12.67", "9.79", "4.03"] },
+      { "name": "Out of State E-ZPass", "values": ["12.67", "9.79", "4.03"] },
+      { "name": "Pay-By-Plate", "values": ["15.84", "12.24", "5.04"] },
+      { "name": "Video Tolls", "values": ["19.01", "14.69", "6.05"] }
+    ],
+    "savings": ["6.34", "4.90", "2.02"]
+  },
+  "class5-icc-md182-i370": {
+    "headers": ["Peak", "Off-Peak", "Overnight"],
+    "rates": [
+      { "name": "E-ZPass Maryland", "values": ["10.47", "8.09", "3.33"] },
+      { "name": "Out of State E-ZPass", "values": ["10.47", "8.09", "3.33"] },
+      { "name": "Pay-By-Plate", "values": ["13.08", "10.11", "4.16"] },
+      { "name": "Video Tolls", "values": ["15.70", "12.13", "5.00"] }
+    ],
+    "savings": ["5.23", "4.04", "1.67"]
+  },
+  "class5-icc-md182-md97": {
+    "headers": ["Peak", "Off-Peak", "Overnight"],
+    "rates": [
+      { "name": "E-ZPass Maryland", "values": ["3.01", "2.33", "0.96"] },
+      { "name": "Out of State E-ZPass", "values": ["3.01", "2.33", "0.96"] },
+      { "name": "Pay-By-Plate", "values": ["3.76", "2.91", "1.20"] },
+      { "name": "Video Tolls", "values": ["4.51", "3.49", "1.96"] }
+    ],
+    "savings": ["1.50", "1.16", "1.00"]
+  },
+  "class6-icc-md182-md650": {
+    "headers": ["Peak", "Off-Peak", "Overnight"],
+    "rates": [
+      { "name": "E-ZPass Maryland", "values": ["4.69", "3.62", "1.49"] },
+      { "name": "Out of State E-ZPass", "values": ["4.69", "3.62", "1.49"] },
+      { "name": "Pay-By-Plate", "values": ["5.86", "4.53", "1.86"] },
+      { "name": "Video Tolls", "values": ["7.03", "5.43", "2.49"] }
+    ],
+    "savings": ["2.34", "1.81", "1.00"]
+  },
+  "class6-icc-md182-us29": {
+    "headers": ["Peak", "Off-Peak", "Overnight"],
+    "rates": [
+      { "name": "E-ZPass Maryland", "values": ["8.83", "6.82", "2.81"] },
+      { "name": "Out of State E-ZPass", "values": ["8.83", "6.82", "2.81"] },
+      { "name": "Pay-By-Plate", "values": ["11.03", "8.53", "3.51"] },
+      { "name": "Video Tolls", "values": ["13.24", "10.23", "4.21"] }
+    ],
+    "savings": ["4.41", "3.41", "1.40"]
+  },
+  "class6-icc-md182-i95": {
+    "headers": ["Peak", "Off-Peak", "Overnight"],
+    "rates": [
+      { "name": "E-ZPass Maryland", "values": ["13.32", "10.29", "4.24"] },
+      { "name": "Out of State E-ZPass", "values": ["13.32", "10.29", "4.24"] },
+      { "name": "Pay-By-Plate", "values": ["16.64", "12.86", "5.30"] },
+      { "name": "Video Tolls", "values": ["19.97", "15.43", "6.36"] }
+    ],
+    "savings": ["6.65", "5.14", "2.12"]
+  },
+  "class6-icc-md182-us1": {
+    "headers": ["Peak", "Off-Peak", "Overnight"],
+    "rates": [
+      { "name": "E-ZPass Maryland", "values": ["15.84", "12.24", "5.04"] },
+      { "name": "Out of State E-ZPass", "values": ["15.84", "12.24", "5.04"] },
+      { "name": "Pay-By-Plate", "values": ["19.80", "15.30", "6.30"] },
+      { "name": "Video Tolls", "values": ["23.76", "18.36", "7.56"] }
+    ],
+    "savings": ["7.92", "6.12", "2.52"]
+  },
+  "class6-icc-md182-i370": {
+    "headers": ["Peak", "Off-Peak", "Overnight"],
+    "rates": [
+      { "name": "E-ZPass Maryland", "values": ["13.08", "10.11", "4.16"] },
+      { "name": "Out of State E-ZPass", "values": ["13.08", "10.11", "4.16"] },
+      { "name": "Pay-By-Plate", "values": ["16.36", "12.64", "5.20"] },
+      { "name": "Video Tolls", "values": ["19.63", "15.17", "6.24"] }
+    ],
+    "savings": ["6.55", "5.06", "2.08"]
+  },
+  "class6-icc-md182-md97": {
+    "headers": ["Peak", "Off-Peak", "Overnight"],
+    "rates": [
+      { "name": "E-ZPass Maryland", "values": ["3.76", "2.91", "1.20"] },
+      { "name": "Out of State E-ZPass", "values": ["3.76", "2.91", "1.20"] },
+      { "name": "Pay-By-Plate", "values": ["4.70", "3.63", "1.50"] },
+      { "name": "Video Tolls", "values": ["5.64", "4.36", "2.20"] }
+    ],
+    "savings": ["1.88", "1.45", "1.00"]
+  },
+  "class8-icc-md182-md650": {
+    "headers": ["Peak", "Off-Peak", "Overnight"],
+    "rates": [
+      { "name": "E-ZPass Maryland", "values": ["0.62", "0.48", "0.40"] },
+      { "name": "Out of State E-ZPass", "values": ["0.62", "0.48", "0.40"] },
+      { "name": "Pay-By-Plate", "values": ["0.78", "0.60", "0.50"] },
+      { "name": "Video Tolls", "values": ["1.62", "1.48", "1.40"] }
+    ],
+    "savings": ["1.00", "1.00", "1.00"]
+  },
+  "class8-icc-md182-us29": {
+    "headers": ["Peak", "Off-Peak", "Overnight"],
+    "rates": [
+      { "name": "E-ZPass Maryland", "values": ["1.18", "0.91", "0.40"] },
+      { "name": "Out of State E-ZPass", "values": ["1.18", "0.91", "0.40"] },
+      { "name": "Pay-By-Plate", "values": ["1.47", "1.14", "0.50"] },
+      { "name": "Video Tolls", "values": ["2.18", "1.91", "1.40"] }
+    ],
+    "savings": ["1.00", "1.00", "1.00"]
+  },
+  "class8-icc-md182-i95": {
+    "headers": ["Peak", "Off-Peak", "Overnight"],
+    "rates": [
+      { "name": "E-ZPass Maryland", "values": ["1.78", "1.37", "0.56"] },
+      { "name": "Out of State E-ZPass", "values": ["1.78", "1.37", "0.56"] },
+      { "name": "Pay-By-Plate", "values": ["2.22", "1.71", "0.71"] },
+      { "name": "Video Tolls", "values": ["2.78", "2.37", "1.56"] }
+    ],
+    "savings": ["1.00", "1.00", "1.00"]
+  },
+  "class8-icc-md182-us1": {
+    "headers": ["Peak", "Off-Peak", "Overnight"],
+    "rates": [
+      { "name": "E-ZPass Maryland", "values": ["2.11", "1.63", "0.67"] },
+      { "name": "Out of State E-ZPass", "values": ["2.11", "1.63", "0.67"] },
+      { "name": "Pay-By-Plate", "values": ["2.64", "2.04", "0.84"] },
+      { "name": "Video Tolls", "values": ["3.17", "2.63", "1.67"] }
+    ],
+    "savings": ["1.06", "1.00", "1.00"]
+  },
+  "class8-icc-md182-i370": {
+    "headers": ["Peak", "Off-Peak", "Overnight"],
+    "rates": [
+      { "name": "E-ZPass Maryland", "values": ["1.74", "1.35", "0.56"] },
+      { "name": "Out of State E-ZPass", "values": ["1.74", "1.35", "0.56"] },
+      { "name": "Pay-By-Plate", "values": ["2.18", "1.69", "0.69"] },
+      { "name": "Video Tolls", "values": ["2.74", "2.35", "1.56"] }
+    ],
+    "savings": ["1.00", "1.00", "1.00"]
+  },
+  "class8-icc-md182-md97": {
+    "headers": ["Peak", "Off-Peak", "Overnight"],
+    "rates": [
+      { "name": "E-ZPass Maryland", "values": ["0.50", "0.40", "0.40"] },
+      { "name": "Out of State E-ZPass", "values": ["0.50", "0.40", "0.40"] },
+      { "name": "Pay-By-Plate", "values": ["0.63", "0.50", "0.50"] },
+      { "name": "Video Tolls", "values": ["1.50", "1.40", "1.40"] }
+    ],
+    "savings": ["1.00", "1.00", "1.00"]
+  },
+  "class2-icc-md650-us29": {
+    "headers": ["Peak", "Off-Peak", "Overnight"],
+    "rates": [
+      { "name": "E-ZPass Maryland", "values": ["0.55", "0.43", "0.40"] },
+      { "name": "Out of State E-ZPass", "values": ["0.55", "0.43", "0.40"] },
+      { "name": "Pay-By-Plate", "values": ["0.69", "0.53", "0.50"] },
+      { "name": "Video Tolls", "values": ["1.55", "1.43", "1.40"] }
+    ],
+    "savings": ["1.00", "1.00", "1.00"]
+  },
+  "class2-icc-md650-i95": {
+    "headers": ["Peak", "Off-Peak", "Overnight"],
+    "rates": [
+      { "name": "E-ZPass Maryland", "values": ["1.15", "0.89", "0.40"] },
+      { "name": "Out of State E-ZPass", "values": ["1.15", "0.89", "0.40"] },
+      { "name": "Pay-By-Plate", "values": ["1.44", "1.11", "0.50"] },
+      { "name": "Video Tolls", "values": ["2.15", "1.89", "1.40"] }
+    ],
+    "savings": ["1.00", "1.00", "1.00"]
+  },
+  "class2-icc-md650-us1": {
+    "headers": ["Peak", "Off-Peak", "Overnight"],
+    "rates": [
+      { "name": "E-ZPass Maryland", "values": ["1.49", "1.15", "0.47"] },
+      { "name": "Out of State E-ZPass", "values": ["1.49", "1.15", "0.47"] },
+      { "name": "Pay-By-Plate", "values": ["1.86", "1.44", "0.59"] },
+      { "name": "Video Tolls", "values": ["2.49", "2.15", "1.47"] }
+    ],
+    "savings": ["1.00", "1.00", "1.00"]
+  },
+  "class2-icc-md650-i370": {
+    "headers": ["Peak", "Off-Peak", "Overnight"],
+    "rates": [
+      { "name": "E-ZPass Maryland", "values": ["2.37", "1.83", "0.75"] },
+      { "name": "Out of State E-ZPass", "values": ["2.37", "1.83", "0.75"] },
+      { "name": "Pay-By-Plate", "values": ["2.96", "2.29", "0.94"] },
+      { "name": "Video Tolls", "values": ["3.55", "2.83", "1.75"] }
+    ],
+    "savings": ["1.18", "1.00", "1.00"]
+  },
+  "class2-icc-md650-md97": {
+    "headers": ["Peak", "Off-Peak", "Overnight"],
+    "rates": [
+      { "name": "E-ZPass Maryland", "values": ["1.13", "0.87", "0.40"] },
+      { "name": "Out of State E-ZPass", "values": ["1.13", "0.87", "0.40"] },
+      { "name": "Pay-By-Plate", "values": ["1.41", "1.09", "0.50"] },
+      { "name": "Video Tolls", "values": ["2.13", "1.87", "1.40"] }
+    ],
+    "savings": ["1.00", "1.00", "1.00"]
+  },
+  "class2-icc-md650-md182": {
+    "headers": ["Peak", "Off-Peak", "Overnight"],
+    "rates": [
+      { "name": "E-ZPass Maryland", "values": ["0.62", "0.48", "0.40"] },
+      { "name": "Out of State E-ZPass", "values": ["0.62", "0.48", "0.40"] },
+      { "name": "Pay-By-Plate", "values": ["0.78", "0.60", "0.50"] },
+      { "name": "Video Tolls", "values": ["1.62", "1.48", "1.40"] }
+    ],
+    "savings": ["1.00", "1.00", "1.00"]
+  },
+  "class3-icc-md650-us29": {
+    "headers": ["Peak", "Off-Peak", "Overnight"],
+    "rates": [
+      { "name": "E-ZPass Maryland", "values": ["1.10", "0.85", "0.40"] },
+      { "name": "Out of State E-ZPass", "values": ["1.10", "0.85", "0.40"] },
+      { "name": "Pay-By-Plate", "values": ["1.38", "1.07", "0.50"] },
+      { "name": "Video Tolls", "values": ["2.10", "1.85", "1.40"] }
+    ],
+    "savings": ["1.00", "1.00", "1.00"]
+  },
+  "class3-icc-md650-i95": {
+    "headers": ["Peak", "Off-Peak", "Overnight"],
+    "rates": [
+      { "name": "E-ZPass Maryland", "values": ["2.30", "1.78", "0.73"] },
+      { "name": "Out of State E-ZPass", "values": ["2.30", "1.78", "0.73"] },
+      { "name": "Pay-By-Plate", "values": ["2.88", "2.22", "0.92"] },
+      { "name": "Video Tolls", "values": ["3.45", "2.78", "1.73"] }
+    ],
+    "savings": ["1.15", "1.00", "1.00"]
+  },
+  "class3-icc-md650-us1": {
+    "headers": ["Peak", "Off-Peak", "Overnight"],
+    "rates": [
+      { "name": "E-ZPass Maryland", "values": ["2.97", "2.30", "0.95"] },
+      { "name": "Out of State E-ZPass", "values": ["2.97", "2.30", "0.95"] },
+      { "name": "Pay-By-Plate", "values": ["3.72", "2.87", "1.18"] },
+      { "name": "Video Tolls", "values": ["4.46", "3.45", "1.95"] }
+    ],
+    "savings": ["1.49", "1.15", "1.00"]
+  },
+  "class3-icc-md650-i370": {
+    "headers": ["Peak", "Off-Peak", "Overnight"],
+    "rates": [
+      { "name": "E-ZPass Maryland", "values": ["4.74", "3.66", "1.51"] },
+      { "name": "Out of State E-ZPass", "values": ["4.74", "3.66", "1.51"] },
+      { "name": "Pay-By-Plate", "values": ["5.92", "4.58", "1.88"] },
+      { "name": "Video Tolls", "values": ["7.11", "5.49", "2.51"] }
+    ],
+    "savings": ["2.37", "1.83", "1.00"]
+  },
+  "class3-icc-md650-md97": {
+    "headers": ["Peak", "Off-Peak", "Overnight"],
+    "rates": [
+      { "name": "E-ZPass Maryland", "values": ["2.25", "1.74", "0.72"] },
+      { "name": "Out of State E-ZPass", "values": ["2.25", "1.74", "0.72"] },
+      { "name": "Pay-By-Plate", "values": ["2.82", "2.18", "0.90"] },
+      { "name": "Video Tolls", "values": ["3.38", "2.74", "1.72"] }
+    ],
+    "savings": ["1.13", "1.00", "1.00"]
+  },
+  "class3-icc-md650-md182": {
+    "headers": ["Peak", "Off-Peak", "Overnight"],
+    "rates": [
+      { "name": "E-ZPass Maryland", "values": ["1.25", "0.97", "0.40"] },
+      { "name": "Out of State E-ZPass", "values": ["1.25", "0.97", "0.40"] },
+      { "name": "Pay-By-Plate", "values": ["1.56", "1.21", "0.50"] },
+      { "name": "Video Tolls", "values": ["2.25", "1.97", "1.40"] }
+    ],
+    "savings": ["1.00", "1.00", "1.00"]
+  },
+  "class4-icc-md650-us29": {
+    "headers": ["Peak", "Off-Peak", "Overnight"],
+    "rates": [
+      { "name": "E-ZPass Maryland", "values": ["1.66", "1.28", "0.53"] },
+      { "name": "Out of State E-ZPass", "values": ["1.66", "1.28", "0.53"] },
+      { "name": "Pay-By-Plate", "values": ["2.07", "1.60", "0.66"] },
+      { "name": "Video Tolls", "values": ["2.66", "2.28", "1.53"] }
+    ],
+    "savings": ["1.00", "1.00", "1.00"]
+  },
+  "class4-icc-md650-i95": {
+    "headers": ["Peak", "Off-Peak", "Overnight"],
+    "rates": [
+      { "name": "E-ZPass Maryland", "values": ["3.45", "2.67", "1.10"] },
+      { "name": "Out of State E-ZPass", "values": ["3.45", "2.67", "1.10"] },
+      { "name": "Pay-By-Plate", "values": ["4.31", "3.33", "1.37"] },
+      { "name": "Video Tolls", "values": ["5.18", "4.00", "2.10"] }
+    ],
+    "savings": ["1.73", "1.33", "1.00"]
+  },
+  "class4-icc-md650-us1": {
+    "headers": ["Peak", "Off-Peak", "Overnight"],
+    "rates": [
+      { "name": "E-ZPass Maryland", "values": ["4.46", "3.45", "1.42"] },
+      { "name": "Out of State E-ZPass", "values": ["4.46", "3.45", "1.42"] },
+      { "name": "Pay-By-Plate", "values": ["5.58", "4.31", "1.77"] },
+      { "name": "Video Tolls", "values": ["6.69", "5.17", "2.42"] }
+    ],
+    "savings": ["2.23", "1.72", "1.00"]
+  },
+  "class4-icc-md650-i370": {
+    "headers": ["Peak", "Off-Peak", "Overnight"],
+    "rates": [
+      { "name": "E-ZPass Maryland", "values": ["7.11", "5.49", "2.26"] },
+      { "name": "Out of State E-ZPass", "values": ["7.11", "5.49", "2.26"] },
+      { "name": "Pay-By-Plate", "values": ["8.89", "6.87", "2.83"] },
+      { "name": "Video Tolls", "values": ["10.66", "8.24", "3.39"] }
+    ],
+    "savings": ["3.55", "2.75", "1.13"]
+  },
+  "class4-icc-md650-md97": {
+    "headers": ["Peak", "Off-Peak", "Overnight"],
+    "rates": [
+      { "name": "E-ZPass Maryland", "values": ["3.38", "2.61", "1.08"] },
+      { "name": "Out of State E-ZPass", "values": ["3.38", "2.61", "1.08"] },
+      { "name": "Pay-By-Plate", "values": ["4.22", "3.26", "1.34"] },
+      { "name": "Video Tolls", "values": ["5.07", "3.92", "2.08"] }
+    ],
+    "savings": ["1.69", "1.31", "1.00"]
+  },
+  "class4-icc-md650-md182": {
+    "headers": ["Peak", "Off-Peak", "Overnight"],
+    "rates": [
+      { "name": "E-ZPass Maryland", "values": ["1.87", "1.45", "0.60"] },
+      { "name": "Out of State E-ZPass", "values": ["1.87", "1.45", "0.60"] },
+      { "name": "Pay-By-Plate", "values": ["2.34", "1.81", "0.75"] },
+      { "name": "Video Tolls", "values": ["2.87", "2.45", "1.60"] }
+    ],
+    "savings": ["1.00", "1.00", "1.00"]
+  },
+  "class5-icc-md650-us29": {
+    "headers": ["Peak", "Off-Peak", "Overnight"],
+    "rates": [
+      { "name": "E-ZPass Maryland", "values": ["3.31", "2.56", "1.05"] },
+      { "name": "Out of State E-ZPass", "values": ["3.31", "2.56", "1.05"] },
+      { "name": "Pay-By-Plate", "values": ["4.14", "3.20", "1.32"] },
+      { "name": "Video Tolls", "values": ["4.97", "3.84", "2.05"] }
+    ],
+    "savings": ["1.66", "1.28", "1.00"]
+  },
+  "class5-icc-md650-i95": {
+    "headers": ["Peak", "Off-Peak", "Overnight"],
+    "rates": [
+      { "name": "E-ZPass Maryland", "values": ["6.90", "5.33", "2.20"] },
+      { "name": "Out of State E-ZPass", "values": ["6.90", "5.33", "2.20"] },
+      { "name": "Pay-By-Plate", "values": ["8.63", "6.67", "2.75"] },
+      { "name": "Video Tolls", "values": ["10.36", "8.00", "3.29"] }
+    ],
+    "savings": ["3.46", "2.67", "1.09"]
+  },
+  "class5-icc-md650-us1": {
+    "headers": ["Peak", "Off-Peak", "Overnight"],
+    "rates": [
+      { "name": "E-ZPass Maryland", "values": ["8.92", "6.90", "2.84"] },
+      { "name": "Out of State E-ZPass", "values": ["8.92", "6.90", "2.84"] },
+      { "name": "Pay-By-Plate", "values": ["11.15", "8.62", "3.55"] },
+      { "name": "Video Tolls", "values": ["13.38", "10.34", "4.26"] }
+    ],
+    "savings": ["4.46", "3.44", "1.42"]
+  },
+  "class5-icc-md650-i370": {
+    "headers": ["Peak", "Off-Peak", "Overnight"],
+    "rates": [
+      { "name": "E-ZPass Maryland", "values": ["14.22", "10.99", "4.52"] },
+      { "name": "Out of State E-ZPass", "values": ["14.22", "10.99", "4.52"] },
+      { "name": "Pay-By-Plate", "values": ["17.77", "13.73", "5.65"] },
+      { "name": "Video Tolls", "values": ["21.32", "16.48", "6.79"] }
+    ],
+    "savings": ["7.10", "5.49", "2.27"]
+  },
+  "class5-icc-md650-md97": {
+    "headers": ["Peak", "Off-Peak", "Overnight"],
+    "rates": [
+      { "name": "E-ZPass Maryland", "values": ["6.76", "5.22", "2.15"] },
+      { "name": "Out of State E-ZPass", "values": ["6.76", "5.22", "2.15"] },
+      { "name": "Pay-By-Plate", "values": ["8.45", "6.53", "2.69"] },
+      { "name": "Video Tolls", "values": ["10.14", "7.83", "3.23"] }
+    ],
+    "savings": ["3.38", "2.61", "1.08"]
+  },
+  "class5-icc-md650-md182": {
+    "headers": ["Peak", "Off-Peak", "Overnight"],
+    "rates": [
+      { "name": "E-ZPass Maryland", "values": ["3.75", "2.90", "1.19"] },
+      { "name": "Out of State E-ZPass", "values": ["3.75", "2.90", "1.19"] },
+      { "name": "Pay-By-Plate", "values": ["4.69", "3.62", "1.49"] },
+      { "name": "Video Tolls", "values": ["5.62", "4.35", "2.19"] }
+    ],
+    "savings": ["1.87", "1.45", "1.00"]
+  },
+  "class6-icc-md650-us29": {
+    "headers": ["Peak", "Off-Peak", "Overnight"],
+    "rates": [
+      { "name": "E-ZPass Maryland", "values": ["4.14", "3.20", "1.32"] },
+      { "name": "Out of State E-ZPass", "values": ["4.14", "3.20", "1.32"] },
+      { "name": "Pay-By-Plate", "values": ["5.18", "4.00", "1.65"] },
+      { "name": "Video Tolls", "values": ["6.21", "4.80", "2.32"] }
+    ],
+    "savings": ["2.07", "1.60", "1.00"]
+  },
+  "class6-icc-md650-i95": {
+    "headers": ["Peak", "Off-Peak", "Overnight"],
+    "rates": [
+      { "name": "E-ZPass Maryland", "values": ["8.63", "6.67", "2.75"] },
+      { "name": "Out of State E-ZPass", "values": ["8.63", "6.67", "2.75"] },
+      { "name": "Pay-By-Plate", "values": ["10.79", "8.34", "3.43"] },
+      { "name": "Video Tolls", "values": ["12.94", "10.00", "4.12"] }
+    ],
+    "savings": ["4.31", "3.33", "1.37"]
+  },
+  "class6-icc-md650-us1": {
+    "headers": ["Peak", "Off-Peak", "Overnight"],
+    "rates": [
+      { "name": "E-ZPass Maryland", "values": ["11.15", "8.62", "3.55"] },
+      { "name": "Out of State E-ZPass", "values": ["11.15", "8.62", "3.55"] },
+      { "name": "Pay-By-Plate", "values": ["13.94", "10.77", "4.44"] },
+      { "name": "Video Tolls", "values": ["16.73", "12.93", "5.32"] }
+    ],
+    "savings": ["5.58", "4.31", "1.77"]
+  },
+  "class6-icc-md650-i370": {
+    "headers": ["Peak", "Off-Peak", "Overnight"],
+    "rates": [
+      { "name": "E-ZPass Maryland", "values": ["17.77", "13.73", "5.65"] },
+      { "name": "Out of State E-ZPass", "values": ["17.77", "13.73", "5.65"] },
+      { "name": "Pay-By-Plate", "values": ["22.21", "17.16", "7.07"] },
+      { "name": "Video Tolls", "values": ["26.66", "20.60", "8.48"] }
+    ],
+    "savings": ["8.89", "6.87", "2.83"]
+  },
+  "class6-icc-md650-md97": {
+    "headers": ["Peak", "Off-Peak", "Overnight"],
+    "rates": [
+      { "name": "E-ZPass Maryland", "values": ["8.45", "6.53", "2.69"] },
+      { "name": "Out of State E-ZPass", "values": ["8.45", "6.53", "2.69"] },
+      { "name": "Pay-By-Plate", "values": ["10.56", "8.16", "3.36"] },
+      { "name": "Video Tolls", "values": ["12.67", "9.79", "4.03"] }
+    ],
+    "savings": ["4.22", "3.26", "1.34"]
+  },
+  "class6-icc-md650-md182": {
+    "headers": ["Peak", "Off-Peak", "Overnight"],
+    "rates": [
+      { "name": "E-ZPass Maryland", "values": ["4.69", "3.62", "1.49"] },
+      { "name": "Out of State E-ZPass", "values": ["4.69", "3.62", "1.49"] },
+      { "name": "Pay-By-Plate", "values": ["5.86", "4.53", "1.86"] },
+      { "name": "Video Tolls", "values": ["7.03", "5.43", "2.49"] }
+    ],
+    "savings": ["2.34", "1.81", "1.00"]
+  },
+  "class8-icc-md650-us29": {
+    "headers": ["Peak", "Off-Peak", "Overnight"],
+    "rates": [
+      { "name": "E-ZPass Maryland", "values": ["0.55", "0.43", "0.40"] },
+      { "name": "Out of State E-ZPass", "values": ["0.55", "0.43", "0.40"] },
+      { "name": "Pay-By-Plate", "values": ["0.69", "0.53", "0.50"] },
+      { "name": "Video Tolls", "values": ["1.55", "1.43", "1.40"] }
+    ],
+    "savings": ["1.00", "1.00", "1.00"]
+  },
+  "class8-icc-md650-i95": {
+    "headers": ["Peak", "Off-Peak", "Overnight"],
+    "rates": [
+      { "name": "E-ZPass Maryland", "values": ["1.15", "0.89", "0.40"] },
+      { "name": "Out of State E-ZPass", "values": ["1.15", "0.89", "0.40"] },
+      { "name": "Pay-By-Plate", "values": ["1.44", "1.11", "0.50"] },
+      { "name": "Video Tolls", "values": ["2.15", "1.89", "1.40"] }
+    ],
+    "savings": ["1.00", "1.00", "1.00"]
+  },
+  "class8-icc-md650-us1": {
+    "headers": ["Peak", "Off-Peak", "Overnight"],
+    "rates": [
+      { "name": "E-ZPass Maryland", "values": ["1.49", "1.15", "0.47"] },
+      { "name": "Out of State E-ZPass", "values": ["1.49", "1.15", "0.47"] },
+      { "name": "Pay-By-Plate", "values": ["1.86", "1.44", "0.59"] },
+      { "name": "Video Tolls", "values": ["2.49", "2.15", "1.47"] }
+    ],
+    "savings": ["1.00", "1.00", "1.00"]
+  },
+  "class8-icc-md650-i370": {
+    "headers": ["Peak", "Off-Peak", "Overnight"],
+    "rates": [
+      { "name": "E-ZPass Maryland", "values": ["2.37", "1.83", "0.75"] },
+      { "name": "Out of State E-ZPass", "values": ["2.37", "1.83", "0.75"] },
+      { "name": "Pay-By-Plate", "values": ["2.96", "2.29", "0.94"] },
+      { "name": "Video Tolls", "values": ["3.55", "2.83", "1.75"] }
+    ],
+    "savings": ["1.18", "1.00", "1.00"]
+  },
+  "class8-icc-md650-md97": {
+    "headers": ["Peak", "Off-Peak", "Overnight"],
+    "rates": [
+      { "name": "E-ZPass Maryland", "values": ["1.13", "0.87", "0.40"] },
+      { "name": "Out of State E-ZPass", "values": ["1.13", "0.87", "0.40"] },
+      { "name": "Pay-By-Plate", "values": ["1.41", "1.09", "0.50"] },
+      { "name": "Video Tolls", "values": ["2.13", "1.87", "1.40"] }
+    ],
+    "savings": ["1.00", "1.00", "1.00"]
+  },
+  "class8-icc-md650-md182": {
+    "headers": ["Peak", "Off-Peak", "Overnight"],
+    "rates": [
+      { "name": "E-ZPass Maryland", "values": ["0.62", "0.48", "0.40"] },
+      { "name": "Out of State E-ZPass", "values": ["0.62", "0.48", "0.40"] },
+      { "name": "Pay-By-Plate", "values": ["0.78", "0.60", "0.50"] },
+      { "name": "Video Tolls", "values": ["1.62", "1.48", "1.40"] }
+    ],
+    "savings": ["1.00", "1.00", "1.00"]
+  },
+  "class2-icc-us29-i95": {
+    "headers": ["Peak", "Off-Peak", "Overnight"],
+    "rates": [
+      { "name": "E-ZPass Maryland", "values": ["0.60", "0.46", "0.40"] },
+      { "name": "Out of State E-ZPass", "values": ["0.60", "0.46", "0.40"] },
+      { "name": "Pay-By-Plate", "values": ["0.75", "0.58", "0.50"] },
+      { "name": "Video Tolls", "values": ["1.60", "1.46", "1.40"] }
+    ],
+    "savings": ["1.00", "1.00", "1.00"]
+  },
+  "class2-icc-us29-us1": {
+    "headers": ["Peak", "Off-Peak", "Overnight"],
+    "rates": [
+      { "name": "E-ZPass Maryland", "values": ["0.94", "0.72", "0.40"] },
+      { "name": "Out of State E-ZPass", "values": ["0.94", "0.72", "0.40"] },
+      { "name": "Pay-By-Plate", "values": ["1.17", "0.90", "0.50"] },
+      { "name": "Video Tolls", "values": ["1.94", "1.72", "1.40"] }
+    ],
+    "savings": ["1.00", "1.00", "1.00"]
+  },
+  "class2-icc-us29-i370": {
+    "headers": ["Peak", "Off-Peak", "Overnight"],
+    "rates": [
+      { "name": "E-ZPass Maryland", "values": ["2.92", "2.26", "0.93"] },
+      { "name": "Out of State E-ZPass", "values": ["2.92", "2.26", "0.93"] },
+      { "name": "Pay-By-Plate", "values": ["3.65", "2.82", "1.16"] },
+      { "name": "Video Tolls", "values": ["4.38", "3.39", "1.93"] }
+    ],
+    "savings": ["1.46", "1.13", "1.00"]
+  },
+  "class2-icc-us29-md97": {
+    "headers": ["Peak", "Off-Peak", "Overnight"],
+    "rates": [
+      { "name": "E-ZPass Maryland", "values": ["1.68", "1.30", "0.53"] },
+      { "name": "Out of State E-ZPass", "values": ["1.68", "1.30", "0.53"] },
+      { "name": "Pay-By-Plate", "values": ["2.10", "1.62", "0.67"] },
+      { "name": "Video Tolls", "values": ["2.68", "2.30", "1.53"] }
+    ],
+    "savings": ["1.00", "1.00", "1.00"]
+  },
+  "class2-icc-us29-md182": {
+    "headers": ["Peak", "Off-Peak", "Overnight"],
+    "rates": [
+      { "name": "E-ZPass Maryland", "values": ["1.18", "0.91", "0.40"] },
+      { "name": "Out of State E-ZPass", "values": ["1.18", "0.91", "0.40"] },
+      { "name": "Pay-By-Plate", "values": ["1.47", "1.14", "0.50"] },
+      { "name": "Video Tolls", "values": ["2.18", "1.91", "1.40"] }
+    ],
+    "savings": ["1.00", "1.00", "1.00"]
+  },
+  "class2-icc-us29-md650": {
+    "headers": ["Peak", "Off-Peak", "Overnight"],
+    "rates": [
+      { "name": "E-ZPass Maryland", "values": ["0.55", "0.43", "0.40"] },
+      { "name": "Out of State E-ZPass", "values": ["0.55", "0.43", "0.40"] },
+      { "name": "Pay-By-Plate", "values": ["0.69", "0.53", "0.50"] },
+      { "name": "Video Tolls", "values": ["1.55", "1.43", "1.40"] }
+    ],
+    "savings": ["1.00", "1.00", "1.00"]
+  },
+  "class3-icc-us29-i95": {
+    "headers": ["Peak", "Off-Peak", "Overnight"],
+    "rates": [
+      { "name": "E-ZPass Maryland", "values": ["1.20", "0.92", "0.40"] },
+      { "name": "Out of State E-ZPass", "values": ["1.20", "0.92", "0.40"] },
+      { "name": "Pay-By-Plate", "values": ["1.50", "1.16", "0.50"] },
+      { "name": "Video Tolls", "values": ["2.20", "1.92", "1.40"] }
+    ],
+    "savings": ["1.00", "1.00", "1.00"]
+  },
+  "class3-icc-us29-us1": {
+    "headers": ["Peak", "Off-Peak", "Overnight"],
+    "rates": [
+      { "name": "E-ZPass Maryland", "values": ["1.87", "1.45", "0.60"] },
+      { "name": "Out of State E-ZPass", "values": ["1.87", "1.45", "0.60"] },
+      { "name": "Pay-By-Plate", "values": ["2.34", "1.81", "0.74"] },
+      { "name": "Video Tolls", "values": ["2.87", "2.45", "1.60"] }
+    ],
+    "savings": ["1.00", "1.00", "1.00"]
+  },
+  "class3-icc-us29-i370": {
+    "headers": ["Peak", "Off-Peak", "Overnight"],
+    "rates": [
+      { "name": "E-ZPass Maryland", "values": ["5.84", "4.52", "1.86"] },
+      { "name": "Out of State E-ZPass", "values": ["5.84", "4.52", "1.86"] },
+      { "name": "Pay-By-Plate", "values": ["7.30", "5.64", "2.32"] },
+      { "name": "Video Tolls", "values": ["8.76", "6.77", "2.86"] }
+    ],
+    "savings": ["2.92", "2.25", "1.00"]
+  },
+  "class3-icc-us29-md97": {
+    "headers": ["Peak", "Off-Peak", "Overnight"],
+    "rates": [
+      { "name": "E-ZPass Maryland", "values": ["3.36", "2.59", "1.07"] },
+      { "name": "Out of State E-ZPass", "values": ["3.36", "2.59", "1.07"] },
+      { "name": "Pay-By-Plate", "values": ["4.20", "3.24", "1.34"] },
+      { "name": "Video Tolls", "values": ["5.04", "3.89", "2.07"] }
+    ],
+    "savings": ["1.68", "1.30", "1.00"]
+  },
+  "class3-icc-us29-md182": {
+    "headers": ["Peak", "Off-Peak", "Overnight"],
+    "rates": [
+      { "name": "E-ZPass Maryland", "values": ["2.35", "1.82", "0.75"] },
+      { "name": "Out of State E-ZPass", "values": ["2.35", "1.82", "0.75"] },
+      { "name": "Pay-By-Plate", "values": ["2.94", "2.27", "0.94"] },
+      { "name": "Video Tolls", "values": ["3.53", "2.82", "1.75"] }
+    ],
+    "savings": ["1.18", "1.00", "1.00"]
+  },
+  "class3-icc-us29-md650": {
+    "headers": ["Peak", "Off-Peak", "Overnight"],
+    "rates": [
+      { "name": "E-ZPass Maryland", "values": ["1.10", "0.85", "0.40"] },
+      { "name": "Out of State E-ZPass", "values": ["1.10", "0.85", "0.40"] },
+      { "name": "Pay-By-Plate", "values": ["1.38", "1.07", "0.50"] },
+      { "name": "Video Tolls", "values": ["2.10", "1.85", "1.40"] }
+    ],
+    "savings": ["1.00", "1.00", "1.00"]
+  },
+  "class4-icc-us29-i95": {
+    "headers": ["Peak", "Off-Peak", "Overnight"],
+    "rates": [
+      { "name": "E-ZPass Maryland", "values": ["1.80", "1.39", "0.57"] },
+      { "name": "Out of State E-ZPass", "values": ["1.80", "1.39", "0.57"] },
+      { "name": "Pay-By-Plate", "values": ["2.24", "1.73", "0.71"] },
+      { "name": "Video Tolls", "values": ["2.80", "2.39", "1.57"] }
+    ],
+    "savings": ["1.00", "1.00", "1.00"]
+  },
+  "class4-icc-us29-us1": {
+    "headers": ["Peak", "Off-Peak", "Overnight"],
+    "rates": [
+      { "name": "E-ZPass Maryland", "values": ["2.81", "2.17", "0.89"] },
+      { "name": "Out of State E-ZPass", "values": ["2.81", "2.17", "0.89"] },
+      { "name": "Pay-By-Plate", "values": ["3.51", "2.71", "1.12"] },
+      { "name": "Video Tolls", "values": ["4.21", "3.25", "1.89"] }
+    ],
+    "savings": ["1.40", "1.08", "1.00"]
+  },
+  "class4-icc-us29-i370": {
+    "headers": ["Peak", "Off-Peak", "Overnight"],
+    "rates": [
+      { "name": "E-ZPass Maryland", "values": ["8.76", "6.77", "2.79"] },
+      { "name": "Out of State E-ZPass", "values": ["8.76", "6.77", "2.79"] },
+      { "name": "Pay-By-Plate", "values": ["10.96", "8.47", "3.49"] },
+      { "name": "Video Tolls", "values": ["13.15", "10.16", "4.18"] }
+    ],
+    "savings": ["4.39", "3.39", "1.39"]
+  },
+  "class4-icc-us29-md97": {
+    "headers": ["Peak", "Off-Peak", "Overnight"],
+    "rates": [
+      { "name": "E-ZPass Maryland", "values": ["5.04", "3.89", "1.60"] },
+      { "name": "Out of State E-ZPass", "values": ["5.04", "3.89", "1.60"] },
+      { "name": "Pay-By-Plate", "values": ["6.29", "4.86", "2.00"] },
+      { "name": "Video Tolls", "values": ["7.55", "5.84", "2.60"] }
+    ],
+    "savings": ["2.51", "1.95", "1.00"]
+  },
+  "class4-icc-us29-md182": {
+    "headers": ["Peak", "Off-Peak", "Overnight"],
+    "rates": [
+      { "name": "E-ZPass Maryland", "values": ["3.53", "2.73", "1.12"] },
+      { "name": "Out of State E-ZPass", "values": ["3.53", "2.73", "1.12"] },
+      { "name": "Pay-By-Plate", "values": ["4.41", "3.41", "1.40"] },
+      { "name": "Video Tolls", "values": ["5.30", "4.09", "2.12"] }
+    ],
+    "savings": ["1.77", "1.36", "1.00"]
+  },
+  "class4-icc-us29-md650": {
+    "headers": ["Peak", "Off-Peak", "Overnight"],
+    "rates": [
+      { "name": "E-ZPass Maryland", "values": ["1.66", "1.28", "0.53"] },
+      { "name": "Out of State E-ZPass", "values": ["1.66", "1.28", "0.53"] },
+      { "name": "Pay-By-Plate", "values": ["2.07", "1.60", "0.66"] },
+      { "name": "Video Tolls", "values": ["2.66", "2.28", "1.53"] }
+    ],
+    "savings": ["1.00", "1.00", "1.00"]
+  },
+  "class5-icc-us29-i95": {
+    "headers": ["Peak", "Off-Peak", "Overnight"],
+    "rates": [
+      { "name": "E-ZPass Maryland", "values": ["3.59", "2.77", "1.14"] },
+      { "name": "Out of State E-ZPass", "values": ["3.59", "2.77", "1.14"] },
+      { "name": "Pay-By-Plate", "values": ["4.49", "3.47", "1.43"] },
+      { "name": "Video Tolls", "values": ["5.39", "4.16", "2.14"] }
+    ],
+    "savings": ["1.80", "1.39", "1.00"]
+  },
+  "class5-icc-us29-us1": {
+    "headers": ["Peak", "Off-Peak", "Overnight"],
+    "rates": [
+      { "name": "E-ZPass Maryland", "values": ["5.61", "4.34", "1.79"] },
+      { "name": "Out of State E-ZPass", "values": ["5.61", "4.34", "1.79"] },
+      { "name": "Pay-By-Plate", "values": ["7.01", "5.42", "2.23"] },
+      { "name": "Video Tolls", "values": ["8.42", "6.50", "2.79"] }
+    ],
+    "savings": ["2.81", "2.16", "1.00"]
+  },
+  "class5-icc-us29-i370": {
+    "headers": ["Peak", "Off-Peak", "Overnight"],
+    "rates": [
+      { "name": "E-ZPass Maryland", "values": ["17.53", "13.55", "5.58"] },
+      { "name": "Out of State E-ZPass", "values": ["17.53", "13.55", "5.58"] },
+      { "name": "Pay-By-Plate", "values": ["21.91", "16.93", "6.97"] },
+      { "name": "Video Tolls", "values": ["26.29", "20.32", "8.37"] }
+    ],
+    "savings": ["8.76", "6.77", "2.79"]
+  },
+  "class5-icc-us29-md97": {
+    "headers": ["Peak", "Off-Peak", "Overnight"],
+    "rates": [
+      { "name": "E-ZPass Maryland", "values": ["10.07", "7.78", "3.20"] },
+      { "name": "Out of State E-ZPass", "values": ["10.07", "7.78", "3.20"] },
+      { "name": "Pay-By-Plate", "values": ["12.59", "9.73", "4.01"] },
+      { "name": "Video Tolls", "values": ["15.11", "11.67", "4.81"] }
+    ],
+    "savings": ["5.04", "3.89", "1.61"]
+  },
+  "class5-icc-us29-md182": {
+    "headers": ["Peak", "Off-Peak", "Overnight"],
+    "rates": [
+      { "name": "E-ZPass Maryland", "values": ["7.06", "5.46", "2.25"] },
+      { "name": "Out of State E-ZPass", "values": ["7.06", "5.46", "2.25"] },
+      { "name": "Pay-By-Plate", "values": ["8.83", "6.82", "2.81"] },
+      { "name": "Video Tolls", "values": ["10.59", "8.19", "3.37"] }
+    ],
+    "savings": ["3.53", "2.73", "1.12"]
+  },
+  "class5-icc-us29-md650": {
+    "headers": ["Peak", "Off-Peak", "Overnight"],
+    "rates": [
+      { "name": "E-ZPass Maryland", "values": ["3.31", "2.56", "1.05"] },
+      { "name": "Out of State E-ZPass", "values": ["3.31", "2.56", "1.05"] },
+      { "name": "Pay-By-Plate", "values": ["4.14", "3.20", "1.32"] },
+      { "name": "Video Tolls", "values": ["4.97", "3.84", "2.05"] }
+    ],
+    "savings": ["1.66", "1.28", "1.00"]
+  },
+  "class6-icc-us29-i95": {
+    "headers": ["Peak", "Off-Peak", "Overnight"],
+    "rates": [
+      { "name": "E-ZPass Maryland", "values": ["4.49", "3.47", "1.43"] },
+      { "name": "Out of State E-ZPass", "values": ["4.49", "3.47", "1.43"] },
+      { "name": "Pay-By-Plate", "values": ["5.61", "4.34", "1.79"] },
+      { "name": "Video Tolls", "values": ["6.73", "5.20", "2.43"] }
+    ],
+    "savings": ["2.24", "1.73", "1.00"]
+  },
+  "class6-icc-us29-us1": {
+    "headers": ["Peak", "Off-Peak", "Overnight"],
+    "rates": [
+      { "name": "E-ZPass Maryland", "values": ["7.01", "5.42", "2.23"] },
+      { "name": "Out of State E-ZPass", "values": ["7.01", "5.42", "2.23"] },
+      { "name": "Pay-By-Plate", "values": ["8.77", "6.77", "2.79"] },
+      { "name": "Video Tolls", "values": ["10.52", "8.13", "3.35"] }
+    ],
+    "savings": ["3.51", "2.71", "1.12"]
+  },
+  "class6-icc-us29-i370": {
+    "headers": ["Peak", "Off-Peak", "Overnight"],
+    "rates": [
+      { "name": "E-ZPass Maryland", "values": ["21.91", "16.93", "6.97"] },
+      { "name": "Out of State E-ZPass", "values": ["21.91", "16.93", "6.97"] },
+      { "name": "Pay-By-Plate", "values": ["27.39", "21.17", "8.72"] },
+      { "name": "Video Tolls", "values": ["32.87", "25.40", "10.46"] }
+    ],
+    "savings": ["10.96", "8.47", "3.49"]
+  },
+  "class6-icc-us29-md97": {
+    "headers": ["Peak", "Off-Peak", "Overnight"],
+    "rates": [
+      { "name": "E-ZPass Maryland", "values": ["12.59", "9.73", "4.01"] },
+      { "name": "Out of State E-ZPass", "values": ["12.59", "9.73", "4.01"] },
+      { "name": "Pay-By-Plate", "values": ["15.74", "12.16", "5.01"] },
+      { "name": "Video Tolls", "values": ["18.88", "14.59", "6.01"] }
+    ],
+    "savings": ["6.29", "4.86", "2.00"]
+  },
+  "class6-icc-us29-md182": {
+    "headers": ["Peak", "Off-Peak", "Overnight"],
+    "rates": [
+      { "name": "E-ZPass Maryland", "values": ["8.83", "6.82", "2.81"] },
+      { "name": "Out of State E-ZPass", "values": ["8.83", "6.82", "2.81"] },
+      { "name": "Pay-By-Plate", "values": ["11.03", "8.53", "3.51"] },
+      { "name": "Video Tolls", "values": ["13.24", "10.23", "4.21"] }
+    ],
+    "savings": ["4.41", "3.41", "1.40"]
+  },
+  "class6-icc-us29-md650": {
+    "headers": ["Peak", "Off-Peak", "Overnight"],
+    "rates": [
+      { "name": "E-ZPass Maryland", "values": ["4.14", "3.20", "1.32"] },
+      { "name": "Out of State E-ZPass", "values": ["4.14", "3.20", "1.32"] },
+      { "name": "Pay-By-Plate", "values": ["5.18", "4.00", "1.65"] },
+      { "name": "Video Tolls", "values": ["6.21", "4.80", "2.32"] }
+    ],
+    "savings": ["2.07", "1.60", "1.00"]
+  },
+  "class8-icc-us29-i95": {
+    "headers": ["Peak", "Off-Peak", "Overnight"],
+    "rates": [
+      { "name": "E-ZPass Maryland", "values": ["0.60", "0.46", "0.40"] },
+      { "name": "Out of State E-ZPass", "values": ["0.60", "0.46", "0.40"] },
+      { "name": "Pay-By-Plate", "values": ["0.75", "0.58", "0.50"] },
+      { "name": "Video Tolls", "values": ["1.60", "1.46", "1.40"] }
+    ],
+    "savings": ["1.00", "1.00", "1.00"]
+  },
+  "class8-icc-us29-us1": {
+    "headers": ["Peak", "Off-Peak", "Overnight"],
+    "rates": [
+      { "name": "E-ZPass Maryland", "values": ["0.94", "0.72", "0.40"] },
+      { "name": "Out of State E-ZPass", "values": ["0.94", "0.72", "0.40"] },
+      { "name": "Pay-By-Plate", "values": ["1.17", "0.90", "0.50"] },
+      { "name": "Video Tolls", "values": ["1.94", "1.72", "1.40"] }
+    ],
+    "savings": ["1.00", "1.00", "1.00"]
+  },
+  "class8-icc-us29-i370": {
+    "headers": ["Peak", "Off-Peak", "Overnight"],
+    "rates": [
+      { "name": "E-ZPass Maryland", "values": ["2.92", "2.26", "0.93"] },
+      { "name": "Out of State E-ZPass", "values": ["2.92", "2.26", "0.93"] },
+      { "name": "Pay-By-Plate", "values": ["3.65", "2.82", "1.16"] },
+      { "name": "Video Tolls", "values": ["4.38", "3.39", "1.93"] }
+    ],
+    "savings": ["1.46", "1.13", "1.00"]
+  },
+  "class8-icc-us29-md97": {
+    "headers": ["Peak", "Off-Peak", "Overnight"],
+    "rates": [
+      { "name": "E-ZPass Maryland", "values": ["1.68", "1.30", "0.53"] },
+      { "name": "Out of State E-ZPass", "values": ["1.68", "1.30", "0.53"] },
+      { "name": "Pay-By-Plate", "values": ["2.10", "1.62", "0.67"] },
+      { "name": "Video Tolls", "values": ["2.68", "2.30", "1.53"] }
+    ],
+    "savings": ["1.00", "1.00", "1.00"]
+  },
+  "class8-icc-us29-md182": {
+    "headers": ["Peak", "Off-Peak", "Overnight"],
+    "rates": [
+      { "name": "E-ZPass Maryland", "values": ["1.18", "0.91", "0.40"] },
+      { "name": "Out of State E-ZPass", "values": ["1.18", "0.91", "0.40"] },
+      { "name": "Pay-By-Plate", "values": ["1.47", "1.14", "0.50"] },
+      { "name": "Video Tolls", "values": ["2.18", "1.91", "1.40"] }
+    ],
+    "savings": ["1.00", "1.00", "1.00"]
+  },
+  "class8-icc-us29-md650": {
+    "headers": ["Peak", "Off-Peak", "Overnight"],
+    "rates": [
+      { "name": "E-ZPass Maryland", "values": ["0.55", "0.43", "0.40"] },
+      { "name": "Out of State E-ZPass", "values": ["0.55", "0.43", "0.40"] },
+      { "name": "Pay-By-Plate", "values": ["0.69", "0.53", "0.50"] },
+      { "name": "Video Tolls", "values": ["1.55", "1.43", "1.40"] }
+    ],
+    "savings": ["1.00", "1.00", "1.00"]
+  },
+  "class2-icc-i95-us1": {
+    "headers": ["Peak", "Off-Peak", "Overnight"],
+    "rates": [
+      { "name": "E-ZPass Maryland", "values": ["0.44", "0.40", "0.40"] },
+      { "name": "Out of State E-ZPass", "values": ["0.44", "0.40", "0.40"] },
+      { "name": "Pay-By-Plate", "values": ["0.55", "0.50", "0.50"] },
+      { "name": "Video Tolls", "values": ["1.44", "1.40", "1.40"] }
+    ],
+    "savings": ["1.00", "1.00", "1.00"]
+  },
+  "class2-icc-i95-i370": {
+    "headers": ["Peak", "Off-Peak", "Overnight"],
+    "rates": [
+      { "name": "E-ZPass Maryland", "values": ["3.52", "2.72", "1.12"] },
+      { "name": "Out of State E-ZPass", "values": ["3.52", "2.72", "1.12"] },
+      { "name": "Pay-By-Plate", "values": ["4.40", "3.40", "1.40"] },
+      { "name": "Video Tolls", "values": ["5.28", "4.08", "2.12"] }
+    ],
+    "savings": ["1.76", "1.36", "1.00"]
+  },
+  "class2-icc-i95-md97": {
+    "headers": ["Peak", "Off-Peak", "Overnight"],
+    "rates": [
+      { "name": "E-ZPass Maryland", "values": ["2.28", "1.76", "0.72"] },
+      { "name": "Out of State E-ZPass", "values": ["2.28", "1.76", "0.72"] },
+      { "name": "Pay-By-Plate", "values": ["2.85", "2.20", "0.91"] },
+      { "name": "Video Tolls", "values": ["3.42", "2.76", "1.72"] }
+    ],
+    "savings": ["1.14", "1.00", "1.00"]
+  },
+  "class2-icc-i95-md182": {
+    "headers": ["Peak", "Off-Peak", "Overnight"],
+    "rates": [
+      { "name": "E-ZPass Maryland", "values": ["1.78", "1.37", "0.56"] },
+      { "name": "Out of State E-ZPass", "values": ["1.78", "1.37", "0.56"] },
+      { "name": "Pay-By-Plate", "values": ["2.22", "1.71", "0.71"] },
+      { "name": "Video Tolls", "values": ["2.78", "2.37", "1.56"] }
+    ],
+    "savings": ["1.00", "1.00", "1.00"]
+  },
+  "class2-icc-i95-md650": {
+    "headers": ["Peak", "Off-Peak", "Overnight"],
+    "rates": [
+      { "name": "E-ZPass Maryland", "values": ["1.15", "0.89", "0.40"] },
+      { "name": "Out of State E-ZPass", "values": ["1.15", "0.89", "0.40"] },
+      { "name": "Pay-By-Plate", "values": ["1.44", "1.11", "0.50"] },
+      { "name": "Video Tolls", "values": ["2.15", "1.89", "1.40"] }
+    ],
+    "savings": ["1.00", "1.00", "1.00"]
+  },
+  "class2-icc-i95-us29": {
+    "headers": ["Peak", "Off-Peak", "Overnight"],
+    "rates": [
+      { "name": "E-ZPass Maryland", "values": ["0.60", "0.46", "0.40"] },
+      { "name": "Out of State E-ZPass", "values": ["0.60", "0.46", "0.40"] },
+      { "name": "Pay-By-Plate", "values": ["0.75", "0.58", "0.50"] },
+      { "name": "Video Tolls", "values": ["1.60", "1.46", "1.40"] }
+    ],
+    "savings": ["1.00", "1.00", "1.00"]
+  },
+  "class3-icc-i95-us1": {
+    "headers": ["Peak", "Off-Peak", "Overnight"],
+    "rates": [
+      { "name": "E-ZPass Maryland", "values": ["0.88", "0.68", "0.40"] },
+      { "name": "Out of State E-ZPass", "values": ["0.88", "0.68", "0.40"] },
+      { "name": "Pay-By-Plate", "values": ["1.10", "0.85", "0.50"] },
+      { "name": "Video Tolls", "values": ["1.88", "1.68", "1.40"] }
+    ],
+    "savings": ["1.00", "1.00", "1.00"]
+  },
+  "class3-icc-i95-i370": {
+    "headers": ["Peak", "Off-Peak", "Overnight"],
+    "rates": [
+      { "name": "E-ZPass Maryland", "values": ["7.04", "5.44", "2.24"] },
+      { "name": "Out of State E-ZPass", "values": ["7.04", "5.44", "2.24"] },
+      { "name": "Pay-By-Plate", "values": ["8.80", "6.80", "2.80"] },
+      { "name": "Video Tolls", "values": ["10.56", "8.16", "3.36"] }
+    ],
+    "savings": ["3.52", "2.72", "1.12"]
+  },
+  "class3-icc-i95-md97": {
+    "headers": ["Peak", "Off-Peak", "Overnight"],
+    "rates": [
+      { "name": "E-ZPass Maryland", "values": ["4.55", "3.52", "1.45"] },
+      { "name": "Out of State E-ZPass", "values": ["4.55", "3.52", "1.45"] },
+      { "name": "Pay-By-Plate", "values": ["5.69", "4.40", "1.81"] },
+      { "name": "Video Tolls", "values": ["6.83", "5.28", "2.45"] }
+    ],
+    "savings": ["2.28", "1.76", "1.00"]
+  },
+  "class3-icc-i95-md182": {
+    "headers": ["Peak", "Off-Peak", "Overnight"],
+    "rates": [
+      { "name": "E-ZPass Maryland", "values": ["3.55", "2.74", "1.13"] },
+      { "name": "Out of State E-ZPass", "values": ["3.55", "2.74", "1.13"] },
+      { "name": "Pay-By-Plate", "values": ["4.44", "3.43", "1.41"] },
+      { "name": "Video Tolls", "values": ["5.33", "4.12", "2.13"] }
+    ],
+    "savings": ["1.78", "1.38", "1.00"]
+  },
+  "class3-icc-i95-md650": {
+    "headers": ["Peak", "Off-Peak", "Overnight"],
+    "rates": [
+      { "name": "E-ZPass Maryland", "values": ["2.30", "1.78", "0.73"] },
+      { "name": "Out of State E-ZPass", "values": ["2.30", "1.78", "0.73"] },
+      { "name": "Pay-By-Plate", "values": ["2.88", "2.22", "0.92"] },
+      { "name": "Video Tolls", "values": ["3.45", "2.78", "1.73"] }
+    ],
+    "savings": ["1.15", "1.00", "1.00"]
+  },
+  "class3-icc-i95-us29": {
+    "headers": ["Peak", "Off-Peak", "Overnight"],
+    "rates": [
+      { "name": "E-ZPass Maryland", "values": ["1.20", "0.92", "0.40"] },
+      { "name": "Out of State E-ZPass", "values": ["1.20", "0.92", "0.40"] },
+      { "name": "Pay-By-Plate", "values": ["1.50", "1.16", "0.50"] },
+      { "name": "Video Tolls", "values": ["2.20", "1.92", "1.40"] }
+    ],
+    "savings": ["1.00", "1.00", "1.00"]
+  },
+  "class4-icc-i95-us1": {
+    "headers": ["Peak", "Off-Peak", "Overnight"],
+    "rates": [
+      { "name": "E-ZPass Maryland", "values": ["1.32", "1.02", "0.42"] },
+      { "name": "Out of State E-ZPass", "values": ["1.32", "1.02", "0.42"] },
+      { "name": "Pay-By-Plate", "values": ["1.65", "1.28", "0.53"] },
+      { "name": "Video Tolls", "values": ["2.32", "2.02", "1.42"] }
+    ],
+    "savings": ["1.00", "1.00", "1.00"]
+  },
+  "class4-icc-i95-i370": {
+    "headers": ["Peak", "Off-Peak", "Overnight"],
+    "rates": [
+      { "name": "E-ZPass Maryland", "values": ["10.56", "8.16", "3.36"] },
+      { "name": "Out of State E-ZPass", "values": ["10.56", "8.16", "3.36"] },
+      { "name": "Pay-By-Plate", "values": ["13.20", "10.20", "4.20"] },
+      { "name": "Video Tolls", "values": ["15.84", "12.24", "5.04"] }
+    ],
+    "savings": ["5.28", "4.08", "1.68"]
+  },
+  "class4-icc-i95-md97": {
+    "headers": ["Peak", "Off-Peak", "Overnight"],
+    "rates": [
+      { "name": "E-ZPass Maryland", "values": ["6.83", "5.28", "2.17"] },
+      { "name": "Out of State E-ZPass", "values": ["6.83", "5.28", "2.17"] },
+      { "name": "Pay-By-Plate", "values": ["8.54", "6.60", "2.72"] },
+      { "name": "Video Tolls", "values": ["10.25", "7.92", "3.26"] }
+    ],
+    "savings": ["3.42", "2.64", "1.09"]
+  },
+  "class4-icc-i95-md182": {
+    "headers": ["Peak", "Off-Peak", "Overnight"],
+    "rates": [
+      { "name": "E-ZPass Maryland", "values": ["5.33", "4.12", "1.69"] },
+      { "name": "Out of State E-ZPass", "values": ["5.33", "4.12", "1.69"] },
+      { "name": "Pay-By-Plate", "values": ["6.66", "5.14", "2.12"] },
+      { "name": "Video Tolls", "values": ["7.99", "6.17", "2.69"] }
+    ],
+    "savings": ["2.66", "2.05", "1.00"]
+  },
+  "class4-icc-i95-md650": {
+    "headers": ["Peak", "Off-Peak", "Overnight"],
+    "rates": [
+      { "name": "E-ZPass Maryland", "values": ["3.45", "2.67", "1.10"] },
+      { "name": "Out of State E-ZPass", "values": ["3.45", "2.67", "1.10"] },
+      { "name": "Pay-By-Plate", "values": ["4.31", "3.33", "1.37"] },
+      { "name": "Video Tolls", "values": ["5.18", "4.00", "2.10"] }
+    ],
+    "savings": ["1.73", "1.33", "1.00"]
+  },
+  "class4-icc-i95-us29": {
+    "headers": ["Peak", "Off-Peak", "Overnight"],
+    "rates": [
+      { "name": "E-ZPass Maryland", "values": ["1.80", "1.39", "0.57"] },
+      { "name": "Out of State E-ZPass", "values": ["1.80", "1.39", "0.57"] },
+      { "name": "Pay-By-Plate", "values": ["2.24", "1.73", "0.71"] },
+      { "name": "Video Tolls", "values": ["2.80", "2.39", "1.57"] }
+    ],
+    "savings": ["1.00", "1.00", "1.00"]
+  },
+  "class5-icc-i95-us1": {
+    "headers": ["Peak", "Off-Peak", "Overnight"],
+    "rates": [
+      { "name": "E-ZPass Maryland", "values": ["2.64", "2.04", "0.84"] },
+      { "name": "Out of State E-ZPass", "values": ["2.64", "2.04", "0.84"] },
+      { "name": "Pay-By-Plate", "values": ["3.30", "2.55", "1.05"] },
+      { "name": "Video Tolls", "values": ["3.96", "3.06", "1.84"] }
+    ],
+    "savings": ["1.32", "1.02", "1.00"]
+  },
+  "class5-icc-i95-i370": {
+    "headers": ["Peak", "Off-Peak", "Overnight"],
+    "rates": [
+      { "name": "E-ZPass Maryland", "values": ["21.12", "16.32", "6.72"] },
+      { "name": "Out of State E-ZPass", "values": ["21.12", "16.32", "6.72"] },
+      { "name": "Pay-By-Plate", "values": ["26.40", "20.40", "8.40"] },
+      { "name": "Video Tolls", "values": ["31.68", "24.48", "10.08"] }
+    ],
+    "savings": ["10.56", "8.16", "3.36"]
+  },
+  "class5-icc-i95-md97": {
+    "headers": ["Peak", "Off-Peak", "Overnight"],
+    "rates": [
+      { "name": "E-ZPass Maryland", "values": ["13.66", "10.56", "4.35"] },
+      { "name": "Out of State E-ZPass", "values": ["13.66", "10.56", "4.35"] },
+      { "name": "Pay-By-Plate", "values": ["17.08", "13.20", "5.43"] },
+      { "name": "Video Tolls", "values": ["20.49", "15.84", "6.52"] }
+    ],
+    "savings": ["6.83", "5.28", "2.17"]
+  },
+  "class5-icc-i95-md182": {
+    "headers": ["Peak", "Off-Peak", "Overnight"],
+    "rates": [
+      { "name": "E-ZPass Maryland", "values": ["10.65", "8.23", "3.39"] },
+      { "name": "Out of State E-ZPass", "values": ["10.65", "8.23", "3.39"] },
+      { "name": "Pay-By-Plate", "values": ["13.32", "10.29", "4.24"] },
+      { "name": "Video Tolls", "values": ["15.98", "12.35", "5.08"] }
+    ],
+    "savings": ["5.33", "4.12", "1.69"]
+  },
+  "class5-icc-i95-md650": {
+    "headers": ["Peak", "Off-Peak", "Overnight"],
+    "rates": [
+      { "name": "E-ZPass Maryland", "values": ["6.90", "5.33", "2.20"] },
+      { "name": "Out of State E-ZPass", "values": ["6.90", "5.33", "2.20"] },
+      { "name": "Pay-By-Plate", "values": ["8.63", "6.67", "2.75"] },
+      { "name": "Video Tolls", "values": ["10.36", "8.00", "3.29"] }
+    ],
+    "savings": ["3.46", "2.67", "1.09"]
+  },
+  "class5-icc-i95-us29": {
+    "headers": ["Peak", "Off-Peak", "Overnight"],
+    "rates": [
+      { "name": "E-ZPass Maryland", "values": ["3.59", "2.77", "1.14"] },
+      { "name": "Out of State E-ZPass", "values": ["3.59", "2.77", "1.14"] },
+      { "name": "Pay-By-Plate", "values": ["4.49", "3.47", "1.43"] },
+      { "name": "Video Tolls", "values": ["5.39", "4.16", "2.14"] }
+    ],
+    "savings": ["1.80", "1.39", "1.00"]
+  },
+  "class6-icc-i95-us1": {
+    "headers": ["Peak", "Off-Peak", "Overnight"],
+    "rates": [
+      { "name": "E-ZPass Maryland", "values": ["3.30", "2.55", "1.05"] },
+      { "name": "Out of State E-ZPass", "values": ["3.30", "2.55", "1.05"] },
+      { "name": "Pay-By-Plate", "values": ["4.13", "3.19", "1.31"] },
+      { "name": "Video Tolls", "values": ["4.95", "3.83", "2.05"] }
+    ],
+    "savings": ["1.65", "1.28", "1.00"]
+  },
+  "class6-icc-i95-i370": {
+    "headers": ["Peak", "Off-Peak", "Overnight"],
+    "rates": [
+      { "name": "E-ZPass Maryland", "values": ["26.40", "20.40", "8.40"] },
+      { "name": "Out of State E-ZPass", "values": ["26.40", "20.40", "8.40"] },
+      { "name": "Pay-By-Plate", "values": ["33.00", "25.50", "10.50"] },
+      { "name": "Video Tolls", "values": ["39.60", "30.60", "12.60"] }
+    ],
+    "savings": ["13.20", "10.20", "4.20"]
+  },
+  "class6-icc-i95-md97": {
+    "headers": ["Peak", "Off-Peak", "Overnight"],
+    "rates": [
+      { "name": "E-ZPass Maryland", "values": ["17.08", "13.20", "5.43"] },
+      { "name": "Out of State E-ZPass", "values": ["17.08", "13.20", "5.43"] },
+      { "name": "Pay-By-Plate", "values": ["21.35", "16.50", "6.79"] },
+      { "name": "Video Tolls", "values": ["25.62", "19.79", "8.15"] }
+    ],
+    "savings": ["8.54", "6.59", "2.72"]
+  },
+  "class6-icc-i95-md182": {
+    "headers": ["Peak", "Off-Peak", "Overnight"],
+    "rates": [
+      { "name": "E-ZPass Maryland", "values": ["13.32", "10.29", "4.24"] },
+      { "name": "Out of State E-ZPass", "values": ["13.32", "10.29", "4.24"] },
+      { "name": "Pay-By-Plate", "values": ["16.64", "12.86", "5.30"] },
+      { "name": "Video Tolls", "values": ["19.97", "15.43", "6.36"] }
+    ],
+    "savings": ["6.65", "5.14", "2.12"]
+  },
+  "class6-icc-i95-md650": {
+    "headers": ["Peak", "Off-Peak", "Overnight"],
+    "rates": [
+      { "name": "E-ZPass Maryland", "values": ["8.63", "6.67", "2.75"] },
+      { "name": "Out of State E-ZPass", "values": ["8.63", "6.67", "2.75"] },
+      { "name": "Pay-By-Plate", "values": ["10.79", "8.34", "3.43"] },
+      { "name": "Video Tolls", "values": ["12.94", "10.00", "4.12"] }
+    ],
+    "savings": ["4.31", "3.33", "1.37"]
+  },
+  "class6-icc-i95-us29": {
+    "headers": ["Peak", "Off-Peak", "Overnight"],
+    "rates": [
+      { "name": "E-ZPass Maryland", "values": ["4.49", "3.47", "1.43"] },
+      { "name": "Out of State E-ZPass", "values": ["4.49", "3.47", "1.43"] },
+      { "name": "Pay-By-Plate", "values": ["5.61", "4.34", "1.79"] },
+      { "name": "Video Tolls", "values": ["6.73", "5.20", "2.43"] }
+    ],
+    "savings": ["2.24", "1.73", "1.00"]
+  },
+  "class8-icc-i95-us1": {
+    "headers": ["Peak", "Off-Peak", "Overnight"],
+    "rates": [
+      { "name": "E-ZPass Maryland", "values": ["0.44", "0.40", "0.40"] },
+      { "name": "Out of State E-ZPass", "values": ["0.44", "0.40", "0.40"] },
+      { "name": "Pay-By-Plate", "values": ["0.55", "0.50", "0.50"] },
+      { "name": "Video Tolls", "values": ["1.44", "1.40", "1.40"] }
+    ],
+    "savings": ["1.00", "1.00", "1.00"]
+  },
+  "class8-icc-i95-i370": {
+    "headers": ["Peak", "Off-Peak", "Overnight"],
+    "rates": [
+      { "name": "E-ZPass Maryland", "values": ["3.52", "2.72", "1.12"] },
+      { "name": "Out of State E-ZPass", "values": ["3.52", "2.72", "1.12"] },
+      { "name": "Pay-By-Plate", "values": ["4.40", "3.40", "1.40"] },
+      { "name": "Video Tolls", "values": ["5.28", "4.08", "2.12"] }
+    ],
+    "savings": ["1.76", "1.36", "1.00"]
+  },
+  "class8-icc-i95-md97": {
+    "headers": ["Peak", "Off-Peak", "Overnight"],
+    "rates": [
+      { "name": "E-ZPass Maryland", "values": ["2.28", "1.76", "0.72"] },
+      { "name": "Out of State E-ZPass", "values": ["2.28", "1.76", "0.72"] },
+      { "name": "Pay-By-Plate", "values": ["2.85", "2.20", "0.91"] },
+      { "name": "Video Tolls", "values": ["3.42", "2.76", "1.72"] }
+    ],
+    "savings": ["1.14", "1.00", "1.00"]
+  },
+  "class8-icc-i95-md182": {
+    "headers": ["Peak", "Off-Peak", "Overnight"],
+    "rates": [
+      { "name": "E-ZPass Maryland", "values": ["1.78", "1.37", "0.56"] },
+      { "name": "Out of State E-ZPass", "values": ["1.78", "1.37", "0.56"] },
+      { "name": "Pay-By-Plate", "values": ["2.22", "1.71", "0.71"] },
+      { "name": "Video Tolls", "values": ["2.78", "2.37", "1.56"] }
+    ],
+    "savings": ["1.00", "1.00", "1.00"]
+  },
+  "class8-icc-i95-md650": {
+    "headers": ["Peak", "Off-Peak", "Overnight"],
+    "rates": [
+      { "name": "E-ZPass Maryland", "values": ["1.15", "0.89", "0.40"] },
+      { "name": "Out of State E-ZPass", "values": ["1.15", "0.89", "0.40"] },
+      { "name": "Pay-By-Plate", "values": ["1.44", "1.11", "0.50"] },
+      { "name": "Video Tolls", "values": ["2.15", "1.89", "1.40"] }
+    ],
+    "savings": ["1.00", "1.00", "1.00"]
+  },
+  "class8-icc-i95-us29": {
+    "headers": ["Peak", "Off-Peak", "Overnight"],
+    "rates": [
+      { "name": "E-ZPass Maryland", "values": ["0.60", "0.46", "0.40"] },
+      { "name": "Out of State E-ZPass", "values": ["0.60", "0.46", "0.40"] },
+      { "name": "Pay-By-Plate", "values": ["0.75", "0.58", "0.50"] },
+      { "name": "Video Tolls", "values": ["1.60", "1.46", "1.40"] }
+    ],
+    "savings": ["1.00", "1.00", "1.00"]
+  },
+  "class2-icc-us1-i370": {
+    "headers": ["Peak", "Off-Peak", "Overnight"],
+    "rates": [
+      { "name": "E-ZPass Maryland", "values": ["3.86", "2.98", "1.23"] },
+      { "name": "Out of State E-ZPass", "values": ["3.86", "2.98", "1.23"] },
+      { "name": "Pay-By-Plate", "values": ["4.82", "3.73", "1.53"] },
+      { "name": "Video Tolls", "values": ["5.78", "4.47", "2.23"] }
+    ],
+    "savings": ["1.92", "1.49", "1.00"]
+  },
+  "class2-icc-us1-md97": {
+    "headers": ["Peak", "Off-Peak", "Overnight"],
+    "rates": [
+      { "name": "E-ZPass Maryland", "values": ["2.61", "2.02", "0.83"] },
+      { "name": "Out of State E-ZPass", "values": ["2.61", "2.02", "0.83"] },
+      { "name": "Pay-By-Plate", "values": ["3.27", "2.52", "1.04"] },
+      { "name": "Video Tolls", "values": ["3.92", "3.03", "1.83"] }
+    ],
+    "savings": ["1.31", "1.01", "1.00"]
+  },
+  "class2-icc-us1-md182": {
+    "headers": ["Peak", "Off-Peak", "Overnight"],
+    "rates": [
+      { "name": "E-ZPass Maryland", "values": ["2.11", "1.63", "0.67"] },
+      { "name": "Out of State E-ZPass", "values": ["2.11", "1.63", "0.67"] },
+      { "name": "Pay-By-Plate", "values": ["2.64", "2.04", "0.84"] },
+      { "name": "Video Tolls", "values": ["3.17", "2.63", "1.67"] }
+    ],
+    "savings": ["1.06", "1.00", "1.00"]
+  },
+  "class2-icc-us1-md650": {
+    "headers": ["Peak", "Off-Peak", "Overnight"],
+    "rates": [
+      { "name": "E-ZPass Maryland", "values": ["1.49", "1.15", "0.47"] },
+      { "name": "Out of State E-ZPass", "values": ["1.49", "1.15", "0.47"] },
+      { "name": "Pay-By-Plate", "values": ["1.86", "1.44", "0.59"] },
+      { "name": "Video Tolls", "values": ["2.49", "2.15", "1.47"] }
+    ],
+    "savings": ["1.00", "1.00", "1.00"]
+  },
+  "class2-icc-us1-us29": {
+    "headers": ["Peak", "Off-Peak", "Overnight"],
+    "rates": [
+      { "name": "E-ZPass Maryland", "values": ["0.94", "0.72", "0.40"] },
+      { "name": "Out of State E-ZPass", "values": ["0.94", "0.72", "0.40"] },
+      { "name": "Pay-By-Plate", "values": ["1.17", "0.90", "0.50"] },
+      { "name": "Video Tolls", "values": ["1.94", "1.72", "1.40"] }
+    ],
+    "savings": ["1.00", "1.00", "1.00"]
+  },
+  "class2-icc-us1-i95": {
+    "headers": ["Peak", "Off-Peak", "Overnight"],
+    "rates": [
+      { "name": "E-ZPass Maryland", "values": ["0.44", "0.40", "0.40"] },
+      { "name": "Out of State E-ZPass", "values": ["0.44", "0.40", "0.40"] },
+      { "name": "Pay-By-Plate", "values": ["0.55", "0.50", "0.50"] },
+      { "name": "Video Tolls", "values": ["1.44", "1.40", "1.40"] }
+    ],
+    "savings": ["1.00", "1.00", "1.00"]
+  },
+  "class3-icc-us1-i370": {
+    "headers": ["Peak", "Off-Peak", "Overnight"],
+    "rates": [
+      { "name": "E-ZPass Maryland", "values": ["7.71", "5.96", "2.45"] },
+      { "name": "Out of State E-ZPass", "values": ["7.71", "5.96", "2.45"] },
+      { "name": "Pay-By-Plate", "values": ["9.64", "7.45", "3.07"] },
+      { "name": "Video Tolls", "values": ["11.57", "8.94", "3.68"] }
+    ],
+    "savings": ["3.86", "2.98", "1.23"]
+  },
+  "class3-icc-us1-md97": {
+    "headers": ["Peak", "Off-Peak", "Overnight"],
+    "rates": [
+      { "name": "E-ZPass Maryland", "values": ["5.23", "4.04", "1.66"] },
+      { "name": "Out of State E-ZPass", "values": ["5.23", "4.04", "1.66"] },
+      { "name": "Pay-By-Plate", "values": ["6.53", "5.05", "2.08"] },
+      { "name": "Video Tolls", "values": ["7.84", "6.06", "2.66"] }
+    ],
+    "savings": ["2.61", "2.02", "1.00"]
+  },
+  "class3-icc-us1-md182": {
+    "headers": ["Peak", "Off-Peak", "Overnight"],
+    "rates": [
+      { "name": "E-ZPass Maryland", "values": ["4.22", "3.26", "1.34"] },
+      { "name": "Out of State E-ZPass", "values": ["4.22", "3.26", "1.34"] },
+      { "name": "Pay-By-Plate", "values": ["5.28", "4.08", "1.68"] },
+      { "name": "Video Tolls", "values": ["6.34", "4.90", "2.34"] }
+    ],
+    "savings": ["2.12", "1.64", "1.00"]
+  },
+  "class3-icc-us1-md650": {
+    "headers": ["Peak", "Off-Peak", "Overnight"],
+    "rates": [
+      { "name": "E-ZPass Maryland", "values": ["2.97", "2.30", "0.95"] },
+      { "name": "Out of State E-ZPass", "values": ["2.97", "2.30", "0.95"] },
+      { "name": "Pay-By-Plate", "values": ["3.72", "2.87", "1.18"] },
+      { "name": "Video Tolls", "values": ["4.46", "3.45", "1.95"] }
+    ],
+    "savings": ["1.49", "1.15", "1.00"]
+  },
+  "class3-icc-us1-us29": {
+    "headers": ["Peak", "Off-Peak", "Overnight"],
+    "rates": [
+      { "name": "E-ZPass Maryland", "values": ["1.87", "1.45", "0.60"] },
+      { "name": "Out of State E-ZPass", "values": ["1.87", "1.45", "0.60"] },
+      { "name": "Pay-By-Plate", "values": ["2.34", "1.81", "0.74"] },
+      { "name": "Video Tolls", "values": ["2.87", "2.45", "1.60"] }
+    ],
+    "savings": ["1.00", "1.00", "1.00"]
+  },
+  "class3-icc-us1-i95": {
+    "headers": ["Peak", "Off-Peak", "Overnight"],
+    "rates": [
+      { "name": "E-ZPass Maryland", "values": ["0.88", "0.68", "0.40"] },
+      { "name": "Out of State E-ZPass", "values": ["0.88", "0.68", "0.40"] },
+      { "name": "Pay-By-Plate", "values": ["1.10", "0.85", "0.50"] },
+      { "name": "Video Tolls", "values": ["1.88", "1.68", "1.40"] }
+    ],
+    "savings": ["1.00", "1.00", "1.00"]
+  },
+  "class4-icc-us1-i370": {
+    "headers": ["Peak", "Off-Peak", "Overnight"],
+    "rates": [
+      { "name": "E-ZPass Maryland", "values": ["11.57", "8.94", "3.68"] },
+      { "name": "Out of State E-ZPass", "values": ["11.57", "8.94", "3.68"] },
+      { "name": "Pay-By-Plate", "values": ["14.46", "11.18", "4.60"] },
+      { "name": "Video Tolls", "values": ["17.35", "13.41", "5.52"] }
+    ],
+    "savings": ["5.78", "4.47", "1.84"]
+  },
+  "class4-icc-us1-md97": {
+    "headers": ["Peak", "Off-Peak", "Overnight"],
+    "rates": [
+      { "name": "E-ZPass Maryland", "values": ["7.84", "6.06", "2.49"] },
+      { "name": "Out of State E-ZPass", "values": ["7.84", "6.06", "2.49"] },
+      { "name": "Pay-By-Plate", "values": ["9.80", "7.57", "3.12"] },
+      { "name": "Video Tolls", "values": ["11.76", "9.09", "3.74"] }
+    ],
+    "savings": ["3.92", "3.03", "1.25"]
+  },
+  "class4-icc-us1-md182": {
+    "headers": ["Peak", "Off-Peak", "Overnight"],
+    "rates": [
+      { "name": "E-ZPass Maryland", "values": ["6.34", "4.90", "2.02"] },
+      { "name": "Out of State E-ZPass", "values": ["6.34", "4.90", "2.02"] },
+      { "name": "Pay-By-Plate", "values": ["7.92", "6.12", "2.52"] },
+      { "name": "Video Tolls", "values": ["9.50", "7.34", "3.02"] }
+    ],
+    "savings": ["3.16", "2.44", "1.00"]
+  },
+  "class4-icc-us1-md650": {
+    "headers": ["Peak", "Off-Peak", "Overnight"],
+    "rates": [
+      { "name": "E-ZPass Maryland", "values": ["4.46", "3.45", "1.42"] },
+      { "name": "Out of State E-ZPass", "values": ["4.46", "3.45", "1.42"] },
+      { "name": "Pay-By-Plate", "values": ["5.58", "4.31", "1.77"] },
+      { "name": "Video Tolls", "values": ["6.69", "5.17", "2.42"] }
+    ],
+    "savings": ["2.23", "1.72", "1.00"]
+  },
+  "class4-icc-us1-us29": {
+    "headers": ["Peak", "Off-Peak", "Overnight"],
+    "rates": [
+      { "name": "E-ZPass Maryland", "values": ["2.81", "2.17", "0.89"] },
+      { "name": "Out of State E-ZPass", "values": ["2.81", "2.17", "0.89"] },
+      { "name": "Pay-By-Plate", "values": ["3.51", "2.71", "1.12"] },
+      { "name": "Video Tolls", "values": ["4.21", "3.25", "1.89"] }
+    ],
+    "savings": ["1.40", "1.08", "1.00"]
+  },
+  "class4-icc-us1-i95": {
+    "headers": ["Peak", "Off-Peak", "Overnight"],
+    "rates": [
+      { "name": "E-ZPass Maryland", "values": ["1.32", "1.02", "0.42"] },
+      { "name": "Out of State E-ZPass", "values": ["1.32", "1.02", "0.42"] },
+      { "name": "Pay-By-Plate", "values": ["1.65", "1.28", "0.53"] },
+      { "name": "Video Tolls", "values": ["2.32", "2.02", "1.42"] }
+    ],
+    "savings": ["1.00", "1.00", "1.00"]
+  },
+  "class5-icc-us1-i370": {
+    "headers": ["Peak", "Off-Peak", "Overnight"],
+    "rates": [
+      { "name": "E-ZPass Maryland", "values": ["23.14", "17.88", "7.36"] },
+      { "name": "Out of State E-ZPass", "values": ["23.14", "17.88", "7.36"] },
+      { "name": "Pay-By-Plate", "values": ["28.92", "22.35", "9.20"] },
+      { "name": "Video Tolls", "values": ["34.71", "26.82", "11.04"] }
+    ],
+    "savings": ["11.57", "8.94", "3.68"]
+  },
+  "class5-icc-us1-md97": {
+    "headers": ["Peak", "Off-Peak", "Overnight"],
+    "rates": [
+      { "name": "E-ZPass Maryland", "values": ["15.68", "12.12", "4.99"] },
+      { "name": "Out of State E-ZPass", "values": ["15.68", "12.12", "4.99"] },
+      { "name": "Pay-By-Plate", "values": ["19.60", "15.15", "6.24"] },
+      { "name": "Video Tolls", "values": ["23.52", "18.18", "7.48"] }
+    ],
+    "savings": ["7.84", "6.06", "2.49"]
+  },
+  "class5-icc-us1-md182": {
+    "headers": ["Peak", "Off-Peak", "Overnight"],
+    "rates": [
+      { "name": "E-ZPass Maryland", "values": ["12.67", "9.79", "4.03"] },
+      { "name": "Out of State E-ZPass", "values": ["12.67", "9.79", "4.03"] },
+      { "name": "Pay-By-Plate", "values": ["15.84", "12.24", "5.04"] },
+      { "name": "Video Tolls", "values": ["19.01", "14.69", "6.05"] }
+    ],
+    "savings": ["6.34", "4.90", "2.02"]
+  },
+  "class5-icc-us1-md650": {
+    "headers": ["Peak", "Off-Peak", "Overnight"],
+    "rates": [
+      { "name": "E-ZPass Maryland", "values": ["8.92", "6.90", "2.84"] },
+      { "name": "Out of State E-ZPass", "values": ["8.92", "6.90", "2.84"] },
+      { "name": "Pay-By-Plate", "values": ["11.15", "8.62", "3.55"] },
+      { "name": "Video Tolls", "values": ["13.38", "10.34", "4.26"] }
+    ],
+    "savings": ["4.46", "3.44", "1.42"]
+  },
+  "class5-icc-us1-us29": {
+    "headers": ["Peak", "Off-Peak", "Overnight"],
+    "rates": [
+      { "name": "E-ZPass Maryland", "values": ["5.61", "4.34", "1.79"] },
+      { "name": "Out of State E-ZPass", "values": ["5.61", "4.34", "1.79"] },
+      { "name": "Pay-By-Plate", "values": ["7.01", "5.42", "2.23"] },
+      { "name": "Video Tolls", "values": ["8.42", "6.50", "2.79"] }
+    ],
+    "savings": ["2.81", "2.16", "1.00"]
+  },
+  "class5-icc-us1-i95": {
+    "headers": ["Peak", "Off-Peak", "Overnight"],
+    "rates": [
+      { "name": "E-ZPass Maryland", "values": ["2.64", "2.04", "0.84"] },
+      { "name": "Out of State E-ZPass", "values": ["2.64", "2.04", "0.84"] },
+      { "name": "Pay-By-Plate", "values": ["3.30", "2.55", "1.05"] },
+      { "name": "Video Tolls", "values": ["3.96", "3.06", "1.84"] }
+    ],
+    "savings": ["1.32", "1.02", "1.00"]
+  },
+  "class6-icc-us1-i370": {
+    "headers": ["Peak", "Off-Peak", "Overnight"],
+    "rates": [
+      { "name": "E-ZPass Maryland", "values": ["28.92", "22.35", "9.20"] },
+      { "name": "Out of State E-ZPass", "values": ["28.92", "22.35", "9.20"] },
+      { "name": "Pay-By-Plate", "values": ["36.16", "27.94", "11.50"] },
+      { "name": "Video Tolls", "values": ["43.39", "33.53", "13.80"] }
+    ],
+    "savings": ["14.47", "11.18", "4.60"]
+  },
+  "class6-icc-us1-md97": {
+    "headers": ["Peak", "Off-Peak", "Overnight"],
+    "rates": [
+      { "name": "E-ZPass Maryland", "values": ["19.60", "15.15", "6.24"] },
+      { "name": "Out of State E-ZPass", "values": ["19.60", "15.15", "6.24"] },
+      { "name": "Pay-By-Plate", "values": ["24.50", "18.93", "7.80"] },
+      { "name": "Video Tolls", "values": ["29.40", "22.72", "9.36"] }
+    ],
+    "savings": ["9.80", "7.57", "3.12"]
+  },
+  "class6-icc-us1-md182": {
+    "headers": ["Peak", "Off-Peak", "Overnight"],
+    "rates": [
+      { "name": "E-ZPass Maryland", "values": ["15.84", "12.24", "5.04"] },
+      { "name": "Out of State E-ZPass", "values": ["15.84", "12.24", "5.04"] },
+      { "name": "Pay-By-Plate", "values": ["19.80", "15.30", "6.30"] },
+      { "name": "Video Tolls", "values": ["23.76", "18.36", "7.56"] }
+    ],
+    "savings": ["7.92", "6.12", "2.52"]
+  },
+  "class6-icc-us1-md650": {
+    "headers": ["Peak", "Off-Peak", "Overnight"],
+    "rates": [
+      { "name": "E-ZPass Maryland", "values": ["11.15", "8.62", "3.55"] },
+      { "name": "Out of State E-ZPass", "values": ["11.15", "8.62", "3.55"] },
+      { "name": "Pay-By-Plate", "values": ["13.94", "10.77", "4.44"] },
+      { "name": "Video Tolls", "values": ["16.73", "12.93", "5.32"] }
+    ],
+    "savings": ["5.58", "4.31", "1.77"]
+  },
+  "class6-icc-us1-us29": {
+    "headers": ["Peak", "Off-Peak", "Overnight"],
+    "rates": [
+      { "name": "E-ZPass Maryland", "values": ["7.01", "5.42", "2.23"] },
+      { "name": "Out of State E-ZPass", "values": ["7.01", "5.42", "2.23"] },
+      { "name": "Pay-By-Plate", "values": ["8.77", "6.77", "2.79"] },
+      { "name": "Video Tolls", "values": ["10.52", "8.13", "3.35"] }
+    ],
+    "savings": ["3.51", "2.71", "1.12"]
+  },
+  "class6-icc-us1-i95": {
+    "headers": ["Peak", "Off-Peak", "Overnight"],
+    "rates": [
+      { "name": "E-ZPass Maryland", "values": ["3.30", "2.55", "1.05"] },
+      { "name": "Out of State E-ZPass", "values": ["3.30", "2.55", "1.05"] },
+      { "name": "Pay-By-Plate", "values": ["4.13", "3.19", "1.31"] },
+      { "name": "Video Tolls", "values": ["4.95", "3.83", "2.05"] }
+    ],
+    "savings": ["1.65", "1.28", "1.00"]
+  },
+  "class8-icc-us1-i370": {
+    "headers": ["Peak", "Off-Peak", "Overnight"],
+    "rates": [
+      { "name": "E-ZPass Maryland", "values": ["3.86", "2.98", "1.23"] },
+      { "name": "Out of State E-ZPass", "values": ["3.86", "2.98", "1.23"] },
+      { "name": "Pay-By-Plate", "values": ["4.82", "3.73", "1.53"] },
+      { "name": "Video Tolls", "values": ["5.78", "4.47", "2.23"] }
+    ],
+    "savings": ["1.92", "1.49", "1.00"]
+  },
+  "class8-icc-us1-md97": {
+    "headers": ["Peak", "Off-Peak", "Overnight"],
+    "rates": [
+      { "name": "E-ZPass Maryland", "values": ["2.61", "2.02", "0.83"] },
+      { "name": "Out of State E-ZPass", "values": ["2.61", "2.02", "0.83"] },
+      { "name": "Pay-By-Plate", "values": ["3.27", "2.52", "1.04"] },
+      { "name": "Video Tolls", "values": ["3.92", "3.03", "1.83"] }
+    ],
+    "savings": ["1.31", "1.01", "1.00"]
+  },
+  "class8-icc-us1-md182": {
+    "headers": ["Peak", "Off-Peak", "Overnight"],
+    "rates": [
+      { "name": "E-ZPass Maryland", "values": ["2.11", "1.63", "0.67"] },
+      { "name": "Out of State E-ZPass", "values": ["2.11", "1.63", "0.67"] },
+      { "name": "Pay-By-Plate", "values": ["2.64", "2.04", "0.84"] },
+      { "name": "Video Tolls", "values": ["3.17", "2.63", "1.67"] }
+    ],
+    "savings": ["1.06", "1.00", "1.00"]
+  },
+  "class8-icc-us1-md650": {
+    "headers": ["Peak", "Off-Peak", "Overnight"],
+    "rates": [
+      { "name": "E-ZPass Maryland", "values": ["1.49", "1.15", "0.47"] },
+      { "name": "Out of State E-ZPass", "values": ["1.49", "1.15", "0.47"] },
+      { "name": "Pay-By-Plate", "values": ["1.86", "1.44", "0.59"] },
+      { "name": "Video Tolls", "values": ["2.49", "2.15", "1.47"] }
+    ],
+    "savings": ["1.00", "1.00", "1.00"]
+  },
+  "class8-icc-us1-us29": {
+    "headers": ["Peak", "Off-Peak", "Overnight"],
+    "rates": [
+      { "name": "E-ZPass Maryland", "values": ["0.94", "0.72", "0.40"] },
+      { "name": "Out of State E-ZPass", "values": ["0.94", "0.72", "0.40"] },
+      { "name": "Pay-By-Plate", "values": ["1.17", "0.90", "0.50"] },
+      { "name": "Video Tolls", "values": ["1.94", "1.72", "1.40"] }
+    ],
+    "savings": ["1.00", "1.00", "1.00"]
+  },
+  "class8-icc-us1-i95": {
+    "headers": ["Peak", "Off-Peak", "Overnight"],
+    "rates": [
+      { "name": "E-ZPass Maryland", "values": ["0.44", "0.40", "0.40"] },
+      { "name": "Out of State E-ZPass", "values": ["0.44", "0.40", "0.40"] },
+      { "name": "Pay-By-Plate", "values": ["0.55", "0.50", "0.50"] },
+      { "name": "Video Tolls", "values": ["1.44", "1.40", "1.40"] }
+    ],
+    "savings": ["1.00", "1.00", "1.00"]
+  },
+  "class2-etl-i95-md43": {
+    "headers": ["Peak", "Off-Peak", "Overnight"],
+    "rates": [
+      { "name": "E-ZPass Maryland", "values": ["1.43", "1.11", "0.46"] },
+      { "name": "Out of State E-ZPass", "values": ["1.43", "1.11", "0.46"] },
+      { "name": "Pay-By-Plate", "values": ["1.79", "1.38", "0.57"] },
+      { "name": "Video Tolls", "values": ["2.43", "2.11", "1.46"] },
+      {
+        "name": "Discount Plan (if available)",
+        "values": ["n/a", "n/a", "n/a"]
+      }
+    ],
+    "savings": ["1.00", "1.00", "1.00"]
+  },
+  "class2-etl-i95-md152": {
+    "headers": ["Peak", "Off-Peak", "Overnight"],
+    "rates": [
+      { "name": "E-ZPass Maryland", "values": ["3.01", "2.33", "0.96"] },
+      { "name": "Out of State E-ZPass", "values": ["3.01", "2.33", "0.96"] },
+      { "name": "Pay-By-Plate", "values": ["3.77", "2.91", "1.20"] },
+      { "name": "Video Tolls", "values": ["4.52", "3.49", "1.96"] },
+      {
+        "name": "Discount Plan (if available)",
+        "values": ["n/a", "n/a", "n/a"]
+      }
+    ],
+    "savings": ["1.51", "1.16", "1.00"]
+  },
+  "class3-etl-i95-md43": {
+    "headers": ["Peak", "Off-Peak", "Overnight"],
+    "rates": [
+      { "name": "E-ZPass Maryland", "values": ["2.86", "2.21", "0.91"] },
+      { "name": "Out of State E-ZPass", "values": ["2.86", "2.21", "0.91"] },
+      { "name": "Pay-By-Plate", "values": ["3.58", "2.76", "1.14"] },
+      { "name": "Video Tolls", "values": ["4.29", "3.32", "1.91"] }
+    ],
+    "savings": ["1.43", "1.11", "1.00"]
+  },
+  "class3-etl-i95-md152": {
+    "headers": ["Peak", "Off-Peak", "Overnight"],
+    "rates": [
+      { "name": "E-ZPass Maryland", "values": ["6.03", "4.66", "1.92"] },
+      { "name": "Out of State E-ZPass", "values": ["6.03", "4.66", "1.92"] },
+      { "name": "Pay-By-Plate", "values": ["7.54", "5.82", "2.40"] },
+      { "name": "Video Tolls", "values": ["9.04", "6.99", "2.92"] }
+    ],
+    "savings": ["3.01", "2.33", "1.00"]
+  },
+  "class4-etl-i95-md43": {
+    "headers": ["Peak", "Off-Peak", "Overnight"],
+    "rates": [
+      { "name": "E-ZPass Maryland", "values": ["4.29", "3.32", "1.37"] },
+      { "name": "Out of State E-ZPass", "values": ["4.29", "3.32", "1.37"] },
+      { "name": "Pay-By-Plate", "values": ["5.36", "4.14", "1.71"] },
+      { "name": "Video Tolls", "values": ["6.44", "4.97", "2.37"] }
+    ],
+    "savings": ["2.15", "1.65", "1.00"]
+  },
+  "class4-etl-i95-md152": {
+    "headers": ["Peak", "Off-Peak", "Overnight"],
+    "rates": [
+      { "name": "E-ZPass Maryland", "values": ["9.04", "6.99", "2.88"] },
+      { "name": "Out of State E-ZPass", "values": ["9.04", "6.99", "2.88"] },
+      { "name": "Pay-By-Plate", "values": ["11.30", "8.73", "3.60"] },
+      { "name": "Video Tolls", "values": ["13.56", "10.48", "4.32"] }
+    ],
+    "savings": ["4.52", "3.49", "1.44"]
+  },
+  "class5-etl-i95-md43": {
+    "headers": ["Peak", "Off-Peak", "Overnight"],
+    "rates": [
+      { "name": "E-ZPass Maryland", "values": ["8.58", "6.63", "2.73"] },
+      { "name": "Out of State E-ZPass", "values": ["8.58", "6.63", "2.73"] },
+      { "name": "Pay-By-Plate", "values": ["10.73", "8.29", "3.41"] },
+      { "name": "Video Tolls", "values": ["12.87", "9.95", "4.10"] }
+    ],
+    "savings": ["4.29", "3.32", "1.37"]
+  },
+  "class5-etl-i95-md152": {
+    "headers": ["Peak", "Off-Peak", "Overnight"],
+    "rates": [
+      { "name": "E-ZPass Maryland", "values": ["18.08", "13.97", "5.75"] },
+      { "name": "Out of State E-ZPass", "values": ["18.08", "13.97", "5.75"] },
+      { "name": "Pay-By-Plate", "values": ["22.61", "17.47", "7.19"] },
+      { "name": "Video Tolls", "values": ["27.13", "20.96", "8.63"] }
+    ],
+    "savings": ["9.05", "6.99", "2.88"]
+  },
+  "class6-etl-i95-md43": {
+    "headers": ["Peak", "Off-Peak", "Overnight"],
+    "rates": [
+      { "name": "E-ZPass Maryland", "values": ["10.73", "8.29", "3.41"] },
+      { "name": "Out of State E-ZPass", "values": ["10.73", "8.29", "3.41"] },
+      { "name": "Pay-By-Plate", "values": ["13.41", "10.36", "4.27"] },
+      { "name": "Video Tolls", "values": ["16.09", "12.43", "5.12"] }
+    ],
+    "savings": ["5.36", "4.14", "1.71"]
+  },
+  "class6-etl-i95-md152": {
+    "headers": ["Peak", "Off-Peak", "Overnight"],
+    "rates": [
+      { "name": "E-ZPass Maryland", "values": ["22.61", "17.47", "7.19"] },
+      { "name": "Out of State E-ZPass", "values": ["22.61", "17.47", "7.19"] },
+      { "name": "Pay-By-Plate", "values": ["28.26", "21.83", "8.99"] },
+      { "name": "Video Tolls", "values": ["33.91", "26.20", "10.79"] }
+    ],
+    "savings": ["11.30", "8.73", "3.60"]
+  },
+  "class8-etl-i95-md43": {
+    "headers": ["Peak", "Off-Peak", "Overnight"],
+    "rates": [
+      { "name": "E-ZPass Maryland", "values": ["1.43", "1.11", "0.46"] },
+      { "name": "Out of State E-ZPass", "values": ["1.43", "1.11", "0.46"] },
+      { "name": "Pay-By-Plate", "values": ["1.79", "1.38", "0.57"] },
+      { "name": "Video Tolls", "values": ["2.43", "2.11", "1.46"] }
+    ],
+    "savings": ["1.00", "1.00", "1.00"]
+  },
+  "class8-etl-i95-md152": {
+    "headers": ["Peak", "Off-Peak", "Overnight"],
+    "rates": [
+      { "name": "E-ZPass Maryland", "values": ["3.01", "2.33", "0.96"] },
+      { "name": "Out of State E-ZPass", "values": ["3.01", "2.33", "0.96"] },
+      { "name": "Pay-By-Plate", "values": ["3.77", "2.91", "1.20"] },
+      { "name": "Video Tolls", "values": ["4.52", "3.49", "1.96"] }
+    ],
+    "savings": ["1.51", "1.16", "1.00"]
+  },
+  "class2-etl-md43-i95": {
+    "headers": ["Peak", "Off-Peak", "Overnight"],
+    "rates": [
+      { "name": "E-ZPass Maryland", "values": ["1.54", "1.19", "0.49"] },
+      { "name": "Out of State E-ZPass", "values": ["1.54", "1.19", "0.49"] },
+      { "name": "Pay-By-Plate", "values": ["1.93", "1.49", "0.61"] },
+      { "name": "Video Tolls", "values": ["2.54", "2.19", "1.49"] },
+      {
+        "name": "Discount Plan (if available)",
+        "values": ["n/a", "n/a", "n/a"]
+      }
+    ],
+    "savings": ["1.00", "1.00", "1.00"]
+  },
+  "class2-etl-md43-md152": {
+    "headers": ["Peak", "Off-Peak", "Overnight"],
+    "rates": [
+      { "name": "E-ZPass Maryland", "values": ["1.58", "1.22", "0.50"] },
+      { "name": "Out of State E-ZPass", "values": ["1.58", "1.22", "0.50"] },
+      { "name": "Pay-By-Plate", "values": ["1.98", "1.53", "0.63"] },
+      { "name": "Video Tolls", "values": ["2.58", "2.22", "1.50"] },
+      {
+        "name": "Discount Plan (if available)",
+        "values": ["n/a", "n/a", "n/a"]
+      }
+    ],
+    "savings": ["1.00", "1.00", "1.00"]
+  },
+  "class3-etl-md43-i95": {
+    "headers": ["Peak", "Off-Peak", "Overnight"],
+    "rates": [
+      { "name": "E-ZPass Maryland", "values": ["3.08", "2.38", "0.98"] },
+      { "name": "Out of State E-ZPass", "values": ["3.08", "2.38", "0.98"] },
+      { "name": "Pay-By-Plate", "values": ["3.58", "2.98", "1.23"] },
+      { "name": "Video Tolls", "values": ["4.62", "3.57", "1.98"] }
+    ],
+    "savings": ["1.54", "1.19", "1.00"]
+  },
+  "class3-etl-md43-md152": {
+    "headers": ["Peak", "Off-Peak", "Overnight"],
+    "rates": [
+      { "name": "E-ZPass Maryland", "values": ["3.17", "2.45", "1.01"] },
+      { "name": "Out of State E-ZPass", "values": ["3.17", "2.45", "1.01"] },
+      { "name": "Pay-By-Plate", "values": ["3.96", "3.06", "1.26"] },
+      { "name": "Video Tolls", "values": ["4.75", "3.67", "2.01"] }
+    ],
+    "savings": ["1.58", "1.22", "1.00"]
+  },
+  "class4-etl-md43-i95": {
+    "headers": ["Peak", "Off-Peak", "Overnight"],
+    "rates": [
+      { "name": "E-ZPass Maryland", "values": ["4.62", "3.57", "1.47"] },
+      { "name": "Out of State E-ZPass", "values": ["4.62", "3.57", "1.47"] },
+      { "name": "Pay-By-Plate", "values": ["5.78", "4.46", "1.84"] },
+      { "name": "Video Tolls", "values": ["6.93", "5.36", "2.47"] }
+    ],
+    "savings": ["2.31", "1.79", "1.00"]
+  },
+  "class4-etl-md43-md152": {
+    "headers": ["Peak", "Off-Peak", "Overnight"],
+    "rates": [
+      { "name": "E-ZPass Maryland", "values": ["4.75", "3.67", "1.51"] },
+      { "name": "Out of State E-ZPass", "values": ["4.75", "3.67", "1.51"] },
+      { "name": "Pay-By-Plate", "values": ["5.94", "4.59", "1.89"] },
+      { "name": "Video Tolls", "values": ["7.13", "5.51", "2.51"] }
+    ],
+    "savings": ["2.38", "1.84", "1.00"]
+  },
+  "class5-etl-md43-i95": {
+    "headers": ["Peak", "Off-Peak", "Overnight"],
+    "rates": [
+      { "name": "E-ZPass Maryland", "values": ["9.24", "7.14", "2.94"] },
+      { "name": "Out of State E-ZPass", "values": ["9.24", "7.14", "2.94"] },
+      { "name": "Pay-By-Plate", "values": ["11.55", "8.93", "3.68"] },
+      { "name": "Video Tolls", "values": ["13.86", "10.71", "4.41"] }
+    ],
+    "savings": ["4.62", "3.57", "1.47"]
+  },
+  "class5-etl-md43-md152": {
+    "headers": ["Peak", "Off-Peak", "Overnight"],
+    "rates": [
+      { "name": "E-ZPass Maryland", "values": ["9.50", "7.34", "3.02"] },
+      { "name": "Out of State E-ZPass", "values": ["9.50", "7.34", "3.02"] },
+      { "name": "Pay-By-Plate", "values": ["11.88", "9.18", "3.78"] },
+      { "name": "Video Tolls", "values": ["14.26", "11.02", "4.54"] }
+    ],
+    "savings": ["4.76", "3.68", "1.52"]
+  },
+  "class6-etl-md43-i95": {
+    "headers": ["Peak", "Off-Peak", "Overnight"],
+    "rates": [
+      { "name": "E-ZPass Maryland", "values": ["11.55", "8.93", "3.68"] },
+      { "name": "Out of State E-ZPass", "values": ["11.55", "8.93", "3.68"] },
+      { "name": "Pay-By-Plate", "values": ["14.44", "11.16", "4.59"] },
+      { "name": "Video Tolls", "values": ["17.33", "13.39", "5.51"] }
+    ],
+    "savings": ["5.78", "4.46", "1.83"]
+  },
+  "class6-etl-md43-md152": {
+    "headers": ["Peak", "Off-Peak", "Overnight"],
+    "rates": [
+      { "name": "E-ZPass Maryland", "values": ["11.88", "9.18", "3.78"] },
+      { "name": "Out of State E-ZPass", "values": ["11.88", "9.18", "3.78"] },
+      { "name": "Pay-By-Plate", "values": ["14.85", "11.48", "4.73"] },
+      { "name": "Video Tolls", "values": ["17.82", "13.77", "5.67"] }
+    ],
+    "savings": ["5.94", "4.59", "1.89"]
+  },
+  "class8-etl-md43-i95": {
+    "headers": ["Peak", "Off-Peak", "Overnight"],
+    "rates": [
+      { "name": "E-ZPass Maryland", "values": ["0.44", "0.40", "0.40"] },
+      { "name": "Out of State E-ZPass", "values": ["0.44", "0.40", "0.40"] },
+      { "name": "Pay-By-Plate", "values": ["0.55", "0.50", "0.50"] },
+      { "name": "Video Tolls", "values": ["1.44", "1.40", "1.40"] }
+    ],
+    "savings": ["1.00", "1.00", "1.00"]
+  },
+  "class8-etl-md43-md152": {
+    "headers": ["Peak", "Off-Peak", "Overnight"],
+    "rates": [
+      { "name": "E-ZPass Maryland", "values": ["0.44", "0.40", "0.40"] },
+      { "name": "Out of State E-ZPass", "values": ["0.44", "0.40", "0.40"] },
+      { "name": "Pay-By-Plate", "values": ["0.55", "0.50", "0.50"] },
+      { "name": "Video Tolls", "values": ["1.44", "1.40", "1.40"] }
+    ],
+    "savings": ["1.00", "1.00", "1.00"]
+  }
+}

@@ -1,0 +1,181 @@
+{
+  "toll_locations": [
+    {
+      "name": "Cameron Rd.",
+      "5 Axle": {
+        "TxTag": "$6.54",
+        "Pay by Mail": "$9.81"
+      },
+      "6 Axle": {
+        "TxTag": "$6.54",
+        "Pay by Mail": "$9.81"
+      }
+    },
+    {
+      "name": "SH 29",
+      "5 Axle": {
+        "TxTag": "$1.77",
+        "Pay by Mail": "$2.67"
+      },
+      "6 Axle": {
+        "TxTag": "$1.77",
+        "Pay by Mail": "$2.67"
+      }
+    },
+    {
+      "name": "Blue Bluff",
+      "5 Axle": {
+        "TxTag": "$1.77",
+        "Pay by Mail": "$2.67"
+      },
+      "6 Axle": {
+        "TxTag": "$1.77",
+        "Pay by Mail": "$2.67"
+      }
+    },
+    {
+      "name": "Tesla Rd.",
+      "5 Axle": {
+        "TxTag": "$1.77",
+        "Pay by Mail": "$2.67"
+      },
+      "6 Axle": {
+        "TxTag": "$1.77",
+        "Pay by Mail": "$2.67"
+      }
+    },
+    {
+      "name": "Moore Rd.",
+      "5 Axle": {
+        "TxTag": "$1.77",
+        "Pay by Mail": "$2.67"
+      },
+      "6 Axle": {
+        "TxTag": "$1.77",
+        "Pay by Mail": "$2.67"
+      }
+    },
+    {
+      "name": "CR 104",
+      "5 Axle": {
+        "TxTag": "$2.22",
+        "Pay by Mail": "$3.33"
+      },
+      "6 Axle": {
+        "TxTag": "$2.22",
+        "Pay by Mail": "$3.33"
+      }
+    },
+    {
+      "name": "Pecan St./Pflugerville",
+      "5 Axle": {
+        "TxTag": "$2.22",
+        "Pay by Mail": "$3.33"
+      },
+      "6 Axle": {
+        "TxTag": "$2.22",
+        "Pay by Mail": "$3.33"
+      }
+    },
+    {
+      "name": "Gregg Manor",
+      "5 Axle": {
+        "TxTag": "$2.22",
+        "Pay by Mail": "$3.33"
+      },
+      "6 Axle": {
+        "TxTag": "$2.22",
+        "Pay by Mail": "$3.33"
+      }
+    },
+    {
+      "name": "FM 973",
+      "5 Axle": {
+        "TxTag": "$2.22",
+        "Pay by Mail": "$3.33"
+      },
+      "6 Axle": {
+        "TxTag": "$2.22",
+        "Pay by Mail": "$3.33"
+      }
+    },
+    {
+      "name": "FM 969",
+      "5 Axle": {
+        "TxTag": "$2.22",
+        "Pay by Mail": "$3.33"
+      },
+      "6 Axle": {
+        "TxTag": "$2.22",
+        "Pay by Mail": "$3.33"
+      }
+    },
+    {
+      "name": "Pearce Ln.",
+      "5 Axle": {
+        "TxTag": "$2.22",
+        "Pay by Mail": "$3.33"
+      },
+      "6 Axle": {
+        "TxTag": "$2.22",
+        "Pay by Mail": "$3.33"
+      }
+    },
+    {
+      "name": "FM 812",
+      "5 Axle": {
+        "TxTag": "$2.22",
+        "Pay by Mail": "$3.33"
+      },
+      "6 Axle": {
+        "TxTag": "$2.22",
+        "Pay by Mail": "$3.33"
+      }
+    },
+    {
+      "name": "US 79",
+      "5 Axle": {
+        "TxTag": "$2.76",
+        "Pay by Mail": "$4.14"
+      },
+      "6 Axle": {
+        "TxTag": "$2.76",
+        "Pay by Mail": "$4.14"
+      }
+    },
+    {
+      "name": "CR 138",
+      "5 Axle": {
+        "TxTag": "$2.76",
+        "Pay by Mail": "$4.14"
+      },
+      "6 Axle": {
+        "TxTag": "$2.76",
+        "Pay by Mail": "$4.14"
+      }
+    },
+    {
+      "name": "Chandler Rd.",
+      "5 Axle": {
+        "TxTag": "$2.76",
+        "Pay by Mail": "$4.14"
+      },
+      "6 Axle": {
+        "TxTag": "$2.76",
+        "Pay by Mail": "$4.14"
+      }
+    },
+    {
+      "name": "Elroy Rd.",
+      "5 Axle": {
+        "TxTag": "$2.76",
+        "Pay by Mail": "$4.14"
+      },
+      "6 Axle": {
+        "TxTag": "$2.76",
+        "Pay by Mail": "$4.14"
+      }
+    }
+  ],
+  "link": "https://www.txdot.gov/content/dam/docs/division/pfd/toll-roads/2025-txdot-austin-area-toll-rates.pdf"
+}

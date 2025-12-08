@@ -1,27 +1,29 @@
 using System;
 using System.Linq;
 using System.Text.Json;
+using System.Text.Json.Serialization;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
 using NetTopologySuite.Geometries;
+using TollService.Application.Common;
 using TollService.Application.Common.Interfaces;
 using TollService.Domain;
 
 namespace TollService.Application.TollPriceParser.NH;
 
 public record NewHampshireTollPlaza(
-    [property: System.Text.Json.Serialization.JsonPropertyName("name")] string Name,
-    [property: System.Text.Json.Serialization.JsonPropertyName("highway")] string? Highway,
-    [property: System.Text.Json.Serialization.JsonPropertyName("tolls")] Dictionary<string, Dictionary<string, double>>? Tolls);
+    [property: JsonPropertyName("name")] string Name,
+    [property: JsonPropertyName("highway")] string? Highway,
+    [property: JsonPropertyName("tolls")] Dictionary<string, Dictionary<string, double>>? Tolls);
 
 public record NewHampshirePricesData(
-    [property: System.Text.Json.Serialization.JsonPropertyName("new_hampshire_turnpike_system_tolls")] NewHampshireTurnpikeSystem? NewHampshireTurnpikeSystemTolls);
+    [property: JsonPropertyName("new_hampshire_turnpike_system_tolls")] NewHampshireTurnpikeSystem? NewHampshireTurnpikeSystemTolls);
 
 public record NewHampshireTurnpikeSystem(
-    [property: System.Text.Json.Serialization.JsonPropertyName("currency")] string? Currency,
-    [property: System.Text.Json.Serialization.JsonPropertyName("vehicle_classes")] Dictionary<string, string>? VehicleClasses,
-    [property: System.Text.Json.Serialization.JsonPropertyName("toll_plazas")] List<NewHampshireTollPlaza>? TollPlazas,
-    [property: System.Text.Json.Serialization.JsonPropertyName("summary")] Dictionary<string, object>? Summary);
+    [property: JsonPropertyName("currency")] string? Currency,
+    [property: JsonPropertyName("vehicle_classes")] Dictionary<string, string>? VehicleClasses,
+    [property: JsonPropertyName("toll_plazas")] List<NewHampshireTollPlaza>? TollPlazas,
+    [property: JsonPropertyName("summary")] Dictionary<string, object>? Summary);
 
 public record LinkNewHampshireTollsCommand(string JsonPayload)
     : IRequest<LinkNewHampshireTollsResult>;
@@ -36,14 +38,15 @@ public record NewHampshireFoundTollInfo(
 public record LinkNewHampshireTollsResult(
     List<NewHampshireFoundTollInfo> FoundTolls,
     List<string> NotFoundPlazas,
-    int UpdatedCount,
-    int CreatedCount,
+    int UpdatedTollsCount,
     string? Error = null);
 
+// New Hampshire bounds: approximate (south, west, north, east) = (42.7, -72.6, 45.3, -70.6)
 public class LinkNewHampshireTollsCommandHandler(
-    ITollDbContext _context) : IRequestHandler<LinkNewHampshireTollsCommand, LinkNewHampshireTollsResult>
+    ITollDbContext _context,
+    TollSearchService _tollSearchService,
+    CalculatePriceService _calculatePriceService) : IRequestHandler<LinkNewHampshireTollsCommand, LinkNewHampshireTollsResult>
 {
-    // New Hampshire bounds: approximate (south, west, north, east) = (42.7, -72.6, 45.3, -70.6)
     private static readonly double NhMinLatitude = 42.7;
     private static readonly double NhMinLongitude = -72.6;
     private static readonly double NhMaxLatitude = 45.3;
@@ -53,7 +56,7 @@ public class LinkNewHampshireTollsCommandHandler(
     {
         if (string.IsNullOrWhiteSpace(request.JsonPayload))
         {
-            return new LinkNewHampshireTollsResult(new(), new(), 0, 0, "JSON payload is empty");
+            return new LinkNewHampshireTollsResult(new(), new(), 0, "JSON payload is empty");
         }
 
         NewHampshirePricesData? data = null;
@@ -86,7 +89,7 @@ public class LinkNewHampshireTollsCommandHandler(
             }
             catch (JsonException jsonEx)
             {
-                return new LinkNewHampshireTollsResult(new(), new(), 0, 0, $"Ошибка парсинга JSON: {jsonEx.Message}. Убедитесь, что JSON содержит поле 'new_hampshire_turnpike_system_tolls' с массивом 'toll_plazas'.");
+                return new LinkNewHampshireTollsResult(new(), new(), 0, $"Ошибка парсинга JSON: {jsonEx.Message}. Убедитесь, что JSON содержит поле 'new_hampshire_turnpike_system_tolls' с массивом 'toll_plazas'.");
             }
         }
 
@@ -95,30 +98,48 @@ public class LinkNewHampshireTollsCommandHandler(
             // Проверяем, что вообще было распарсено
             if (data == null)
             {
-                return new LinkNewHampshireTollsResult(new(), new(), 0, 0, "Не удалось распарсить JSON. Проверьте структуру данных.");
+                return new LinkNewHampshireTollsResult(new(), new(), 0, "Не удалось распарсить JSON. Проверьте структуру данных.");
             }
             if (data.NewHampshireTurnpikeSystemTolls == null)
             {
-                return new LinkNewHampshireTollsResult(new(), new(), 0, 0, "Поле 'new_hampshire_turnpike_system_tolls' не найдено в JSON.");
+                return new LinkNewHampshireTollsResult(new(), new(), 0, "Поле 'new_hampshire_turnpike_system_tolls' не найдено в JSON.");
             }
-            return new LinkNewHampshireTollsResult(new(), new(), 0, 0, "Плазы не найдены в ответе (массив 'toll_plazas' пуст или отсутствует).");
+            return new LinkNewHampshireTollsResult(new(), new(), 0, "Плазы не найдены в ответе (массив 'toll_plazas' пуст или отсутствует).");
         }
 
         // Создаем bounding box для New Hampshire
-        var nhBoundingBox = new Polygon(new LinearRing(new[]
+        var nhBoundingBox = BoundingBoxHelper.CreateBoundingBox(
+            NhMinLongitude,
+            NhMinLatitude,
+            NhMaxLongitude,
+            NhMaxLatitude);
+
+        // Собираем все уникальные имена плаз для оптимизированного поиска
+        var allPlazaNames = data.NewHampshireTurnpikeSystemTolls.TollPlazas
+            .Where(p => !string.IsNullOrWhiteSpace(p.Name))
+            .Select(p => p.Name)
+            .Distinct()
+            .ToList();
+
+        if (allPlazaNames.Count == 0)
         {
-            new Coordinate(NhMinLongitude, NhMinLatitude),
-            new Coordinate(NhMaxLongitude, NhMinLatitude),
-            new Coordinate(NhMaxLongitude, NhMaxLatitude),
-            new Coordinate(NhMinLongitude, NhMaxLatitude),
-            new Coordinate(NhMinLongitude, NhMinLatitude)
-        }))
-        { SRID = 4326 };
+            return new LinkNewHampshireTollsResult(
+                new(),
+                new(),
+                0,
+                "Не найдено ни одного имени плазы");
+        }
+
+        // Оптимизированный поиск tolls: один запрос к БД
+        var tollsByPlazaName = await _tollSearchService.FindMultipleTollsInBoundingBoxAsync(
+            allPlazaNames,
+            nhBoundingBox,
+            TollSearchOptions.Key,
+            ct);
 
         var foundTolls = new List<NewHampshireFoundTollInfo>();
         var notFoundPlazas = new List<string>();
-        int updatedCount = 0;
-        int createdCount = 0;
+        var tollsToUpdatePrices = new Dictionary<Guid, List<TollPriceData>>();
 
         // Функция для маппинга класса на AxelType
         static AxelType MapClassToAxelType(string className)
@@ -139,43 +160,15 @@ public class LinkNewHampshireTollsCommandHandler(
                 continue;
             }
 
-            // Ищем ВСЕ tolls по полю key в пределах New Hampshire
-            // Сначала ищем точное совпадение (без учета регистра)
-            var plazaNameLower = plaza.Name.ToLower();
-            var tolls = await _context.Tolls
-                .Where(t =>
-                    t.Location != null &&
-                    nhBoundingBox.Contains(t.Location) &&
-                    t.Key != null &&
-                    t.Key.ToLower() == plazaNameLower)
-                .ToListAsync(ct);
-
-            // Если не нашли точное совпадение, пробуем частичное совпадение
-            if (tolls.Count == 0)
-            {
-                // Загружаем все tolls в пределах bounding box и фильтруем в памяти
-                var allTollsInBox = await _context.Tolls
-                    .Where(t =>
-                        t.Location != null &&
-                        nhBoundingBox.Contains(t.Location) &&
-                        t.Key != null)
-                    .ToListAsync(ct);
-
-                tolls = allTollsInBox
-                    .Where(t => 
-                        t.Key!.ToLower().Contains(plazaNameLower) ||
-                        plazaNameLower.Contains(t.Key.ToLower()))
-                    .ToList();
-            }
-
-            if (tolls.Count == 0)
+            // Ищем tolls по имени плазы
+            if (!tollsByPlazaName.TryGetValue(plaza.Name.ToLower(), out var plazaTolls) || plazaTolls.Count == 0)
             {
                 notFoundPlazas.Add(plaza.Name);
                 continue;
             }
 
-            // Обрабатываем цены для всех найденных tolls
-            foreach (var toll in tolls)
+            // Обрабатываем цены для каждой найденной плазы
+            foreach (var toll in plazaTolls)
             {
                 // Обрабатываем цены из plaza.Tolls
                 if (plaza.Tolls != null && plaza.Tolls.Count > 0)
@@ -195,71 +188,39 @@ public class LinkNewHampshireTollsCommandHandler(
                         }
 
                         // Обрабатываем Cash цены (case-insensitive поиск)
-                        var cashPrice = classPrices.FirstOrDefault(kvp => 
+                        var cashPrice = classPrices.FirstOrDefault(kvp =>
                             kvp.Key.Equals("cash", StringComparison.OrdinalIgnoreCase)).Value;
                         if (cashPrice > 0)
                         {
-                            var existingCashPrice = await _context.TollPrices
-                                .FirstOrDefaultAsync(tp =>
-                                    tp.TollId == toll.Id &&
-                                    tp.PaymentType == TollPaymentType.Cash &&
-                                    tp.AxelType == axelType,
-                                    ct);
+                            if (!tollsToUpdatePrices.ContainsKey(toll.Id))
+                            {
+                                tollsToUpdatePrices[toll.Id] = new List<TollPriceData>();
+                            }
 
-                            if (existingCashPrice != null)
-                            {
-                                existingCashPrice.Amount = cashPrice;
-                                updatedCount++;
-                            }
-                            else
-                            {
-                                var newCashPrice = new TollPrice
-                                {
-                                    Id = Guid.NewGuid(),
-                                    TollId = toll.Id,
-                                    PaymentType = TollPaymentType.Cash,
-                                    AxelType = axelType,
-                                    Amount = cashPrice,
-                                    Description = $"{plaza.Name} - {vehicleClass.Key}"
-                                };
-                                toll.TollPrices.Add(newCashPrice);
-                                _context.TollPrices.Add(newCashPrice);
-                                createdCount++;
-                            }
+                            tollsToUpdatePrices[toll.Id].Add(new TollPriceData(
+                                TollId: toll.Id,
+                                Amount: cashPrice,
+                                PaymentType: TollPaymentType.Cash,
+                                AxelType: axelType,
+                                Description: $"New Hampshire {plaza.Name} - {vehicleClass.Key} - Cash"));
                         }
 
                         // Обрабатываем EZPass цены (case-insensitive поиск)
-                        var ezpassPrice = classPrices.FirstOrDefault(kvp => 
+                        var ezpassPrice = classPrices.FirstOrDefault(kvp =>
                             kvp.Key.Equals("ezpass", StringComparison.OrdinalIgnoreCase)).Value;
                         if (ezpassPrice > 0)
                         {
-                            var existingEzPassPrice = await _context.TollPrices
-                                .FirstOrDefaultAsync(tp =>
-                                    tp.TollId == toll.Id &&
-                                    tp.PaymentType == TollPaymentType.EZPass &&
-                                    tp.AxelType == axelType,
-                                    ct);
+                            if (!tollsToUpdatePrices.ContainsKey(toll.Id))
+                            {
+                                tollsToUpdatePrices[toll.Id] = new List<TollPriceData>();
+                            }
 
-                            if (existingEzPassPrice != null)
-                            {
-                                existingEzPassPrice.Amount = ezpassPrice;
-                                updatedCount++;
-                            }
-                            else
-                            {
-                                var newEzPassPrice = new TollPrice
-                                {
-                                    Id = Guid.NewGuid(),
-                                    TollId = toll.Id,
-                                    PaymentType = TollPaymentType.EZPass,
-                                    AxelType = axelType,
-                                    Amount = ezpassPrice,
-                                    Description = $"{plaza.Name} - {vehicleClass.Key}"
-                                };
-                                toll.TollPrices.Add(newEzPassPrice);
-                                _context.TollPrices.Add(newEzPassPrice);
-                                createdCount++;
-                            }
+                            tollsToUpdatePrices[toll.Id].Add(new TollPriceData(
+                                TollId: toll.Id,
+                                Amount: ezpassPrice,
+                                PaymentType: TollPaymentType.EZPass,
+                                AxelType: axelType,
+                                Description: $"New Hampshire {plaza.Name} - {vehicleClass.Key} - EZPass"));
                         }
                     }
                 }
@@ -273,13 +234,28 @@ public class LinkNewHampshireTollsCommandHandler(
             }
         }
 
+        // Батч-установка цен
+        int updatedTollsCount = 0;
+        if (tollsToUpdatePrices.Count > 0)
+        {
+            // Конвертируем List в IEnumerable для метода
+            var tollsToUpdatePricesEnumerable = tollsToUpdatePrices.ToDictionary(
+                kvp => kvp.Key,
+                kvp => (IEnumerable<TollPriceData>)kvp.Value);
+
+            var updatedPricesResult = await _calculatePriceService.SetTollPricesDirectlyBatchAsync(
+                tollsToUpdatePricesEnumerable,
+                ct);
+            updatedTollsCount = updatedPricesResult.Count;
+        }
+
+        // Сохраняем все изменения
         await _context.SaveChangesAsync(ct);
 
         return new LinkNewHampshireTollsResult(
             foundTolls,
-            notFoundPlazas,
-            updatedCount,
-            createdCount);
+            notFoundPlazas.Distinct().ToList(),
+            updatedTollsCount);
     }
 }
 

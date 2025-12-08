@@ -1,0 +1,82 @@
+{
+  "toll_locations": [
+    {
+      "name": "U.S. 183 Ramps (Direct Connectors)",
+      "5 Axle": {
+        "TxTag": "$2.92",
+        "Pay by Mail": "$4.40"
+      },
+      "6 Axle": {
+        "TxTag": "$3.65",
+        "Pay by Mail": "$5.50"
+      }
+    },
+    {
+      "name": "Springdale Road Ramps",
+      "5 Axle": {
+        "TxTag": "$2.92",
+        "Pay by Mail": "$4.40"
+      },
+      "6 Axle": {
+        "TxTag": "$3.65",
+        "Pay by Mail": "$5.50"
+      }
+    },
+    {
+      "name": "Giles Lane Ramps",
+      "5 Axle": {
+        "TxTag": "$2.92",
+        "Pay by Mail": "$4.40"
+      },
+      "6 Axle": {
+        "TxTag": "$3.65",
+        "Pay by Mail": "$5.50"
+      }
+    },
+    {
+      "name": "Giles Lane Mainline Plaza",
+      "5 Axle": {
+        "TxTag": "$5.96",
+        "Pay by Mail": "$8.96"
+      },
+      "6 Axle": {
+        "TxTag": "$7.45",
+        "Pay by Mail": "$11.20"
+      }
+    },
+    {
+      "name": "Harris Branch Parkway Ramps",
+      "5 Axle": {
+        "TxTag": "$2.92",
+        "Pay by Mail": "$4.40"
+      },
+      "6 Axle": {
+        "TxTag": "$3.65",
+        "Pay by Mail": "$5.50"
+      }
+    },
+    {
+      "name": "Parmer Lane Mainline Plaza",
+      "5 Axle": {
+        "TxTag": "$2.92",
+        "Pay by Mail": "$4.40"
+      },
+      "6 Axle": {
+        "TxTag": "$3.65",
+        "Pay by Mail": "$5.50"
+      }
+    },
+    {
+      "name": "290/130 Flyover",
+      "5 Axle": {
+        "TxTag": "$3.00",
+        "Pay by Mail": "$4.52"
+      },
+      "6 Axle": {
+        "TxTag": "$3.75",
+        "Pay by Mail": "$5.65"
+      }
+    }
+  ],
+  "link": "https://www.mobilityauthority.com/traveler-info/open-roads/290-toll/"
+}

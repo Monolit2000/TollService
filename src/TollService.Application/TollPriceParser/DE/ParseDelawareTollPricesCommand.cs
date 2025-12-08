@@ -2,6 +2,7 @@ using System.Text.Json;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
 using NetTopologySuite.Geometries;
+using TollService.Application.Common;
 using TollService.Application.Common.Interfaces;
 using TollService.Domain;
 
@@ -25,25 +26,34 @@ public record DelawareTollResponse(
     [property: System.Text.Json.Serialization.JsonPropertyName("routes")] List<DelawareTollRoute>? Routes);
 
 public record ParseDelawareTollPricesResult(
-    List<string> Lines,
-    int UpdatedCount,
-    int CreatedCount,
+    List<FoundTollInfo> FoundTolls,
     List<string> NotFoundPlazas,
     string? Error = null);
 
+public record FoundTollInfo(
+    Guid TollId,
+    string? TollName,
+    string? TollKey,
+    string? TollNumber,
+    string SearchKey);
+
 public class ParseDelawareTollPricesCommandHandler(
-    ITollDbContext _context) : IRequestHandler<ParseDelawareTollPricesCommand, ParseDelawareTollPricesResult>
+    ITollDbContext _context,
+    StateCalculatorService _stateCalculatorService,
+    TollSearchService _tollSearchService,
+    TollNumberService _tollNumberService) : IRequestHandler<ParseDelawareTollPricesCommand, ParseDelawareTollPricesResult>
 {
     // Delaware bounds: (south, west, north, east) = (38.4, -75.8, 39.7, -75.0)
     private static readonly double DeMinLatitude = 38.4;
     private static readonly double DeMinLongitude = -75.8;
     private static readonly double DeMaxLatitude = 39.7;
     private static readonly double DeMaxLongitude = -75.0;
+
     public async Task<ParseDelawareTollPricesResult> Handle(ParseDelawareTollPricesCommand request, CancellationToken ct)
     {
         if (string.IsNullOrWhiteSpace(request.JsonPayload))
         {
-            return new ParseDelawareTollPricesResult(new(), 0, 0, new(), "JSON payload is empty");
+            return new ParseDelawareTollPricesResult(new(), new(), "JSON payload is empty");
         }
 
         DelawareTollResponse? data;
@@ -57,227 +67,133 @@ public class ParseDelawareTollPricesCommandHandler(
         }
         catch (JsonException jsonEx)
         {
-            return new ParseDelawareTollPricesResult(new(), 0, 0, new(), $"Ошибка парсинга JSON: {jsonEx.Message}");
+            return new ParseDelawareTollPricesResult(new(), new(), $"Ошибка парсинга JSON: {jsonEx.Message}");
         }
 
         if (data?.Routes == null || data.Routes.Count == 0)
         {
-            return new ParseDelawareTollPricesResult(new(), 0, 0, new(), "Маршруты не найдены в ответе");
+            return new ParseDelawareTollPricesResult(new(), new(), "Маршруты не найдены в ответе");
         }
 
         // Получаем или создаем StateCalculator для Delaware
-        var delawareCalculator = await _context.StateCalculators
-            .FirstOrDefaultAsync(sc => sc.StateCode == "DE", ct);
-
-        if (delawareCalculator == null)
-        {
-            delawareCalculator = new StateCalculator
-            {
-                Id = Guid.NewGuid(),
-                Name = "Delaware Turnpike",
-                StateCode = "DE"
-            };
-            _context.StateCalculators.Add(delawareCalculator);
-            await _context.SaveChangesAsync(ct);
-        }
+        var delawareCalculator = await _stateCalculatorService.GetOrCreateStateCalculatorAsync(
+            stateCode: "DE",
+            calculatorName: "Delaware Turnpike",
+            ct);
 
         // Создаем bounding box для Delaware
-        var delawareBoundingBox = new Polygon(new LinearRing(new[]
-        {
-            new Coordinate(DeMinLongitude, DeMinLatitude),
-            new Coordinate(DeMaxLongitude, DeMinLatitude),
-            new Coordinate(DeMaxLongitude, DeMaxLatitude),
-            new Coordinate(DeMinLongitude, DeMaxLatitude),
-            new Coordinate(DeMinLongitude, DeMinLatitude)
-        }))
-        { SRID = 4326 };
+        var delawareBoundingBox = BoundingBoxHelper.CreateBoundingBox(
+            DeMinLongitude,
+            DeMinLatitude,
+            DeMaxLongitude,
+            DeMaxLatitude);
 
-        // Сначала проходимся по всем toll'ам в пределах Delaware и устанавливаем им Number из Name или Key
-        // Формат: "165-Southbound" -> Number = "165" или просто "129" -> Number = "129"
-        var allTolls = await _context.Tolls
-            .Where(t => t.Location != null && delawareBoundingBox.Contains(t.Location))
-            .ToListAsync(ct);
+        // Собираем все уникальные номера плаз из JSON (entry и exit)
+        var allPlazaNumbers = new HashSet<string>();
 
-        // Фильтруем в памяти: toll'ы с форматом "number-direction" или просто число
-        var tollsToProcess = allTolls
-            .Where(t =>
-                // Toll'ы с форматом "number-direction"
-                (t.Name != null && (t.Name.Contains("-Northbound") || t.Name.Contains("-Southbound"))) ||
-                (t.Key != null && (t.Key.Contains("-Northbound") || t.Key.Contains("-Southbound"))) ||
-                // Или toll'ы, у которых Name/Key - просто число
-                (t.Name != null && int.TryParse(t.Name.Trim(), out _)) ||
-                (t.Key != null && int.TryParse(t.Key.Trim(), out _)))
-            .ToList();
-
-        foreach (var toll in tollsToProcess)
-        {
-            if (string.IsNullOrWhiteSpace(toll.Number))
-            {
-                // Извлекаем номер из Name или Key
-                var source = toll.Name ?? toll.Key ?? string.Empty;
-                var number = ExtractPlazaNumber(source);
-                
-                // Если не получилось извлечь (нет дефиса), пробуем как число
-                if (string.IsNullOrWhiteSpace(number) && int.TryParse(source.Trim(), out _))
-                {
-                    number = source.Trim();
-                }
-                
-                if (!string.IsNullOrWhiteSpace(number))
-                {
-                    toll.Number = number;
-                }
-            }
-        }
-
-        await _context.SaveChangesAsync(ct);
-
-        var resultLines = new List<string>();
-        var notFoundPlazas = new List<string>();
-        int updatedCount = 0;
-        int createdCount = 0;
-
-        // Создаем словарь для кэширования найденных tolls по номеру плазы
-        var tollCache = new Dictionary<string, Toll?>();
-
-        // Обрабатываем каждый маршрут
         foreach (var route in data.Routes)
         {
-            // Ищем toll'ы по номеру плазы (без учета направления)
-            var entryNumber = route.Entry.ToString();
-            var exitNumber = route.Exit.ToString();
-
-            // Находим toll для entry (точка входа)
-            var fromToll = await FindOrCacheTollByNumber(entryNumber, tollCache, delawareCalculator.Id, delawareBoundingBox, ct);
-            if (fromToll == null)
-            {
-                notFoundPlazas.Add($"Entry: {entryNumber}");
-                resultLines.Add($"{route.Entry}-{route.Direction} в {route.Exit}-{route.Direction} - НЕ НАЙДЕНО");
-                continue;
-            }
-
-            // Находим toll для exit (точка выхода)
-            var toToll = await FindOrCacheTollByNumber(exitNumber, tollCache, delawareCalculator.Id, delawareBoundingBox, ct);
-            if (toToll == null)
-            {
-                notFoundPlazas.Add($"Exit: {exitNumber}");
-                resultLines.Add($"{route.Entry}-{route.Direction} в {route.Exit}-{route.Direction} - НЕ НАЙДЕНО");
-                continue;
-            }
-
-            // Проверяем, существует ли уже CalculatePrice для этой пары
-            var existingPrice = await _context.CalculatePrices
-                .FirstOrDefaultAsync(cp =>
-                    cp.FromId == fromToll.Id &&
-                    cp.ToId == toToll.Id &&
-                    cp.StateCalculatorId == delawareCalculator.Id, ct);
-
-            if (existingPrice != null)
-            {
-                // Обновляем существующую запись
-                existingPrice.Cash = route.Cash;
-                existingPrice.IPass = route.EzPass;
-                existingPrice.Online = route.Cash; // Online обычно равно Cash
-                updatedCount++;
-            }
-            else
-            {
-                // Создаем новую запись
-                var calculatePrice = new CalculatePrice
-                {
-                    Id = Guid.NewGuid(),
-                    StateCalculatorId = delawareCalculator.Id,
-                    FromId = fromToll.Id,
-                    ToId = toToll.Id,
-                    Cash = route.Cash,
-                    IPass = route.EzPass,
-                    Online = route.Cash
-                };
-                _context.CalculatePrices.Add(calculatePrice);
-                createdCount++;
-            }
-
-            // Добавляем строку в результат
-            resultLines.Add($"{route.Entry}-{route.Direction} в {route.Exit}-{route.Direction} - {route.EzPass:0.00}/{route.Cash:0.00}");
+            allPlazaNumbers.Add(route.Entry.ToString());
+            allPlazaNumbers.Add(route.Exit.ToString());
         }
 
+        // Один батч-запрос для поиска всех толлов по номерам
+        var tollsByNumber = await _tollSearchService.FindMultipleTollsInBoundingBoxAsync(
+            allPlazaNumbers,
+            delawareBoundingBox,
+            TollSearchOptions.NameOrKey,
+            ct);
+
+        // Фильтруем результаты: оставляем только точные совпадения по Key или Name
+        var exactMatchesByNumber = new Dictionary<string, List<Toll>>();
+        var allFoundTolls = new HashSet<Toll>(new TollIdComparer());
+
+        foreach (var kvp in tollsByNumber)
+        {
+            var searchNumber = kvp.Key;
+            var tollsForKey = kvp.Value;
+
+            // Фильтруем: должны точно совпадать по Key или Name с номером
+            var exactMatches = tollsForKey
+                .Where(t =>
+                    (t.Key != null && (t.Key == searchNumber || t.Key.Equals(searchNumber, StringComparison.OrdinalIgnoreCase))) ||
+                    (t.Name != null && (t.Name == searchNumber || t.Name.Equals(searchNumber, StringComparison.OrdinalIgnoreCase))) ||
+                    (t.Number != null && t.Number == searchNumber))
+                .ToList();
+
+            if (exactMatches.Count > 0)
+            {
+                exactMatchesByNumber[searchNumber] = exactMatches;
+                foreach (var toll in exactMatches)
+                {
+                    allFoundTolls.Add(toll);
+                }
+            }
+        }
+
+        // Устанавливаем Number и StateCalculatorId для всех найденных толлов через сервис
+        foreach (var kvp in exactMatchesByNumber)
+        {
+            var number = kvp.Key;
+            var tolls = kvp.Value;
+
+            _tollNumberService.SetNumberAndCalculatorId(
+                tolls,
+                number,
+                delawareCalculator.Id,
+                updateNumberIfDifferent: false);
+        }
+
+        // Формируем результат: найденные толлы
+        var foundTolls = allFoundTolls.Select(toll =>
+        {
+            // Находим номер плазы, по которому был найден этот толл
+            var searchNumber = exactMatchesByNumber
+                .FirstOrDefault(kvp => kvp.Value.Contains(toll, new TollIdComparer()))
+                .Key ?? toll.Number ?? "unknown";
+
+            return new FoundTollInfo(
+                toll.Id,
+                toll.Name,
+                toll.Key,
+                toll.Number,
+                searchNumber);
+        }).ToList();
+
+        // Формируем список ненайденных плаз
+        var notFoundPlazas = new List<string>();
+        foreach (var plazaNumber in allPlazaNumbers)
+        {
+            if (!exactMatchesByNumber.ContainsKey(plazaNumber))
+            {
+                notFoundPlazas.Add($"Plaza: {plazaNumber}");
+            }
+        }
+
+        // Сохраняем все изменения
         await _context.SaveChangesAsync(ct);
 
         return new ParseDelawareTollPricesResult(
-            resultLines,
-            updatedCount,
-            createdCount,
+            foundTolls,
             notFoundPlazas.Distinct().ToList());
     }
 
     /// <summary>
-    /// Извлекает номер плазы из строки формата "{number}-{direction}"
+    /// Компаратор для сравнения толлов по Id
     /// </summary>
-    private static string ExtractPlazaNumber(string source)
+    private class TollIdComparer : IEqualityComparer<Toll>
     {
-        if (string.IsNullOrWhiteSpace(source))
-            return string.Empty;
-
-        // Ищем паттерн: число перед дефисом
-        var parts = source.Split('-');
-        if (parts.Length > 0)
+        public bool Equals(Toll? x, Toll? y)
         {
-            return parts[0].Trim();
+            if (x == null && y == null) return true;
+            if (x == null || y == null) return false;
+            return x.Id == y.Id;
         }
 
-        return string.Empty;
-    }
-
-    /// <summary>
-    /// Находит Toll по номеру плазы, используя кэш для оптимизации, и устанавливает StateCalculatorId
-    /// Сначала ищет по Key/Name, затем по Number, в пределах bounding box штата Delaware
-    /// </summary>
-    private async Task<Toll?> FindOrCacheTollByNumber(string number, Dictionary<string, Toll?> cache, Guid stateCalculatorId, Polygon delawareBoundingBox, CancellationToken ct)
-    {
-        if (cache.TryGetValue(number, out var cachedToll))
+        public int GetHashCode(Toll obj)
         {
-            // Если toll уже найден, но StateCalculatorId не установлен, обновляем его
-            if (cachedToll != null && cachedToll.StateCalculatorId != stateCalculatorId)
-            {
-                cachedToll.StateCalculatorId = stateCalculatorId;
-            }
-            return cachedToll;
+            return obj.Id.GetHashCode();
         }
-
-        // Сначала ищем по Key или Name, которые содержат этот номер, в пределах Delaware
-        var toll = await _context.Tolls
-            .FirstOrDefaultAsync(t => 
-                t.Location != null &&
-                delawareBoundingBox.Contains(t.Location) &&
-                (
-                    (t.Key != null && (t.Key == number || t.Key.StartsWith(number + "-") || t.Key.EndsWith("-" + number))) ||
-                    (t.Name != null && (t.Name == number || t.Name.StartsWith(number + "-") || t.Name.EndsWith("-" + number)))
-                ), ct);
-
-        // Если не нашли по Key/Name, ищем по Number в пределах Delaware
-        if (toll == null)
-        {
-            toll = await _context.Tolls
-                .FirstOrDefaultAsync(t => 
-                    t.Number == number &&
-                    t.Location != null &&
-                    delawareBoundingBox.Contains(t.Location), ct);
-        }
-
-        // Если нашли по Key/Name, устанавливаем Number для будущих поисков
-        if (toll != null && string.IsNullOrWhiteSpace(toll.Number))
-        {
-            toll.Number = number;
-        }
-
-        // Если toll найден, устанавливаем StateCalculatorId
-        if (toll != null)
-        {
-            toll.StateCalculatorId = stateCalculatorId;
-        }
-
-        cache[number] = toll;
-        return toll;
     }
 }
 

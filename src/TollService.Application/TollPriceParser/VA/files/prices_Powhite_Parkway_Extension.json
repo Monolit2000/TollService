@@ -1,0 +1,76 @@
+{
+  "payment_types": {
+    "Tag": true,
+    "No plate": false,
+    "Cash": true,
+    "No card": false,
+    "App": true
+  },
+  "toll_plazas": [
+    {
+      "name": "Main Line Plaza",
+      "rates": {
+        "5_axles": {
+          "cash_out_of_state_ezpass": 1.5,
+          "va_ezpass": 1.5
+        },
+        "6_axles": {
+          "cash_out_of_state_ezpass": 1.5,
+          "va_ezpass": 1.5
+        }
+      }
+    },
+    {
+      "name": "Main Line Plaza - East & West Ramp",
+      "rates": {
+        "5_axles": {
+          "cash_out_of_state_ezpass": 0.55,
+          "va_ezpass": 0.55
+        },
+        "6_axles": {
+          "cash_out_of_state_ezpass": 0.55,
+          "va_ezpass": 0.55
+        }
+      }
+    },
+    {
+      "name": "Ramp - Route 60",
+      "rates": {
+        "5_axles": {
+          "cash_out_of_state_ezpass": 0.55,
+          "va_ezpass": 0.55
+        },
+        "6_axles": {
+          "cash_out_of_state_ezpass": 0.55,
+          "va_ezpass": 0.55
+        }
+      }
+    },
+    {
+      "name": "Ramp - Courthouse Road",
+      "rates": {
+        "5_axles": {
+          "cash_out_of_state_ezpass": 0.8,
+          "va_ezpass": 0.8
+        },
+        "6_axles": {
+          "cash_out_of_state_ezpass": 0.8,
+          "va_ezpass": 0.8
+        }
+      }
+    },
+    {
+      "name": "George P. Coleman Bridge",
+      "rates": {
+        "5_axles": {
+          "cash_out_of_state_ezpass": 4.0,
+          "va_ezpass": 4.0
+        },
+        "6_axles": {
+          "cash_out_of_state_ezpass": 4.0,
+          "va_ezpass": 4.0
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "toll_locations": [
+    {
+      "name": "Bear Creek Mainline Plaza",
+      "5 Axle": {
+        "TxTag": "$4.88",
+        "Pay by Mail": "$7.32"
+      },
+      "6 Axle": {
+        "TxTag": "$6.10",
+        "Pay by Mail": "$9.15"
+      }
+    }
+  ],
+  "link": "https://www.mobilityauthority.com/traveler-info/open-roads/45sw-toll/"
+}

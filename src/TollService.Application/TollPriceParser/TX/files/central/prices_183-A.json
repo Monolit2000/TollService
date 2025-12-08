@@ -1,0 +1,126 @@
+{
+  "toll_locations": [
+    {
+      "name": "Lakeline Mainline",
+      "5 Axle": {
+        "TxTag": "$3.12",
+        "Pay by Mail": "$4.68"
+      },
+      "6 Axle": {
+        "TxTag": "$3.90",
+        "Pay by Mail": "$5.85"
+      }
+    },
+    {
+      "name": "Brushy Creek Ramps",
+      "5 Axle": {
+        "TxTag": "$3.04",
+        "Pay by Mail": "$4.56"
+      },
+      "6 Axle": {
+        "TxTag": "$3.80",
+        "Pay by Mail": "$5.70"
+      }
+    },
+    {
+      "name": "Park Street Mainline",
+      "5 Axle": {
+        "TxTag": "$7.76",
+        "Pay by Mail": "$11.64"
+      },
+      "6 Axle": {
+        "TxTag": "$9.70",
+        "Pay by Mail": "$14.55"
+      }
+    },
+    {
+      "name": "Scottsdale Drive Ramps",
+      "5 Axle": {
+        "TxTag": "$3.04",
+        "Pay by Mail": "$4.56"
+      },
+      "6 Axle": {
+        "TxTag": "$3.80",
+        "Pay by Mail": "$5.70"
+      }
+    },
+    {
+      "name": "Crystal Falls Mainline",
+      "5 Axle": {
+        "TxTag": "$5.72",
+        "Pay by Mail": "$8.60"
+      },
+      "6 Axle": {
+        "TxTag": "$7.15",
+        "Pay by Mail": "$10.75"
+      }
+    },
+    {
+      "name": "Crystal Falls Ramps",
+      "5 Axle": {
+        "TxTag": "$2.48",
+        "Pay by Mail": "$3.72"
+      },
+      "6 Axle": {
+        "TxTag": "$3.10",
+        "Pay by Mail": "$4.65"
+      }
+    },
+    {
+      "name": "San Gabriel Mainline",
+      "5 Axle": {
+        "TxTag": "$4.36",
+        "Pay by Mail": "$6.54"
+      },
+      "6 Axle": {
+        "TxTag": "$5.45",
+        "Pay by Mail": "$8.18"
+      }
+    },
+    {
+      "name": "San Gabriel Ramps",
+      "5 Axle": {
+        "TxTag": "$3.04",
+        "Pay by Mail": "$4.56"
+      },
+      "6 Axle": {
+        "TxTag": "$3.80",
+        "Pay by Mail": "$5.70"
+      }
+    },
+    {
+      "name": "South Whitewing Ramps",
+      "5 Axle": {
+        "TxTag": "$3.04",
+        "Pay by Mail": "$4.56"
+      },
+      "6 Axle": {
+        "TxTag": "$3.80",
+        "Pay by Mail": "$5.70"
+      }
+    },
+    {
+      "name": "Whitewing Mainline",
+      "5 Axle": {
+        "TxTag": "$5.16",
+        "Pay by Mail": "$7.74"
+      },
+      "6 Axle": {
+        "TxTag": "$6.45",
+        "Pay by Mail": "$9.68"
+      }
+    },
+    {
+      "name": "North Whitewing Ramps",
+      "5 Axle": {
+        "TxTag": "$4.08",
+        "Pay by Mail": "$6.12"
+      },
+      "6 Axle": {
+        "TxTag": "$5.10",
+        "Pay by Mail": "$7.65"
+      }
+    }
+  ],
+  "link": "https://www.mobilityauthority.com/traveler-info/open-roads/183a-toll/"
+}

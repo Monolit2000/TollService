@@ -1,0 +1,166 @@
+{
+  "toll_locations": [
+    {
+      "Toll_Plaza": "Wycliff Main Lane Gantry (MLP1)",
+      "rates": {
+        "5_Axle": { "TollTag": 7.76, "ZipCash": 15.52 },
+        "6_Axle": { "TollTag": 9.7, "ZipCash": 19.4 }
+      }
+    },
+    {
+      "Toll_Plaza": "Mockingbird Lane (MOCLN)",
+      "rates": {
+        "5_Axle": { "TollTag": 5.64, "ZipCash": 11.28 },
+        "6_Axle": { "TollTag": 7.05, "ZipCash": 14.1 }
+      }
+    },
+    {
+      "Toll_Plaza": "Northwest Highway (NORHY)",
+      "rates": {
+        "5_Axle": { "TollTag": 3.84, "ZipCash": 7.68 },
+        "6_Axle": { "TollTag": 4.8, "ZipCash": 9.6 }
+      }
+    },
+    {
+      "Toll_Plaza": "Royal Lane (ROYLN)",
+      "rates": {
+        "5_Axle": { "TollTag": 2.04, "ZipCash": 4.08 },
+        "6_Axle": { "TollTag": 2.55, "ZipCash": 5.1 }
+      }
+    },
+    {
+      "Toll_Plaza": "Spring Valley Road (SPVRD)",
+      "rates": {
+        "5_Axle": { "TollTag": 1.36, "ZipCash": 2.72 },
+        "6_Axle": { "TollTag": 1.7, "ZipCash": 3.4 }
+      }
+    },
+    {
+      "Toll_Plaza": "Belt Line Road (BELRD)",
+      "rates": {
+        "5_Axle": { "TollTag": 1.8, "ZipCash": 3.6 },
+        "6_Axle": { "TollTag": 2.25, "ZipCash": 4.5 }
+      }
+    },
+    {
+      "Toll_Plaza": "Keller Springs Road (KESRD)",
+      "rates": {
+        "5_Axle": { "TollTag": 2.68, "ZipCash": 5.36 },
+        "6_Axle": { "TollTag": 3.35, "ZipCash": 6.7 }
+      }
+    },
+    {
+      "Toll_Plaza": "Trinity Mills Main Lane Gantry (MLP2) / Frankford Road",
+      "rates": {
+        "5_Axle": { "TollTag": 5.56, "ZipCash": 11.12 },
+        "6_Axle": { "TollTag": 6.95, "ZipCash": 13.9 }
+      }
+    },
+    {
+      "Toll_Plaza": "Park Boulevard (PARBD)",
+      "rates": {
+        "5_Axle": { "TollTag": 1.36, "ZipCash": 2.72 },
+        "6_Axle": { "TollTag": 1.7, "ZipCash": 3.4 }
+      }
+    },
+    {
+      "Toll_Plaza": "Parker Main Lane Gantry (MLP3)",
+      "rates": {
+        "5_Axle": { "TollTag": 4.92, "ZipCash": 9.84 },
+        "6_Axle": { "TollTag": 6.15, "ZipCash": 12.3 }
+      }
+    },
+    {
+      "Toll_Plaza": "Parker Road (PARRD)",
+      "rates": {
+        "5_Axle": { "TollTag": 2.92, "ZipCash": 5.84 },
+        "6_Axle": { "TollTag": 3.65, "ZipCash": 7.3 }
+      }
+    },
+    {
+      "Toll_Plaza": "Windhaven Parkway (WINPY)",
+      "rates": {
+        "5_Axle": { "TollTag": 2.32, "ZipCash": 4.64 },
+        "6_Axle": { "TollTag": 2.9, "ZipCash": 5.8 }
+      }
+    },
+    {
+      "Toll_Plaza": "Spring Creek Parkway (SPCPY)",
+      "rates": {
+        "5_Axle": { "TollTag": 1.6, "ZipCash": 3.2 },
+        "6_Axle": { "TollTag": 2.0, "ZipCash": 4.0 }
+      }
+    },
+    {
+      "Toll_Plaza": "Legacy Drive (LEGDR)",
+      "rates": {
+        "5_Axle": { "TollTag": 1.36, "ZipCash": 2.72 },
+        "6_Axle": { "TollTag": 1.7, "ZipCash": 3.4 }
+      }
+    },
+    {
+      "Toll_Plaza": "Headquarters Drive (HEADR)",
+      "rates": {
+        "5_Axle": { "TollTag": 1.36, "ZipCash": 2.72 },
+        "6_Axle": { "TollTag": 1.7, "ZipCash": 3.4 }
+      }
+    },
+    {
+      "Toll_Plaza": "Gaylord Parkway (GAYPY)",
+      "rates": {
+        "5_Axle": { "TollTag": 1.36, "ZipCash": 2.72 },
+        "6_Axle": { "TollTag": 1.7, "ZipCash": 3.4 }
+      }
+    },
+    {
+      "Toll_Plaza": "Lebanon Road (LEBRD)",
+      "rates": {
+        "5_Axle": { "TollTag": 2.04, "ZipCash": 4.08 },
+        "6_Axle": { "TollTag": 2.55, "ZipCash": 5.1 }
+      }
+    },
+    {
+      "Toll_Plaza": "Stone Brook Parkway (STOPY)",
+      "rates": {
+        "5_Axle": { "TollTag": 2.56, "ZipCash": 5.12 },
+        "6_Axle": { "TollTag": 3.2, "ZipCash": 6.4 }
+      }
+    },
+    {
+      "Toll_Plaza": "Main Street (MAIST)",
+      "rates": {
+        "5_Axle": { "TollTag": 4.2, "ZipCash": 8.4 },
+        "6_Axle": { "TollTag": 5.25, "ZipCash": 10.5 }
+      }
+    },
+    {
+      "Toll_Plaza": "Eldorado Main Lane Gantry (MLP4)",
+      "rates": {
+        "5_Axle": { "TollTag": 8.76, "ZipCash": 17.52 },
+        "6_Axle": { "TollTag": 10.95, "ZipCash": 21.9 }
+      }
+    },
+    {
+      "Toll_Plaza": "Eldorado Parkway (ELDPY)",
+      "rates": {
+        "5_Axle": { "TollTag": 3.16, "ZipCash": 6.32 },
+        "6_Axle": { "TollTag": 3.95, "ZipCash": 7.9 }
+      }
+    },
+    {
+      "Toll_Plaza": "Fields Parkway (FLSPY)",
+      "rates": {
+        "5_Axle": { "TollTag": 1.76, "ZipCash": 3.52 },
+        "6_Axle": { "TollTag": 2.2, "ZipCash": 4.4 }
+      }
+    },
+    {
+      "Toll_Plaza": "First Street (FIRST)",
+      "rates": {
+        "5_Axle": { "TollTag": 1.36, "ZipCash": 2.72 },
+        "6_Axle": { "TollTag": 1.7, "ZipCash": 3.4 }
+      }
+    }
+  ],
+  "link": "https://www.ntta.org/sites/default/files/2025-06/NTTAS_2025-2027_Toll%20Rate%20Tables.pdf"
+}

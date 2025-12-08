@@ -1,0 +1,159 @@
+{
+  "toll_locations": [
+    {
+      "Toll_Plaza": "Denton Tap Main Lane Gantry (MLG1)",
+      "rates": {
+        "5_Axle": { "TollTag": 2.96, "ZipCash": 5.92 },
+        "6_Axle": { "TollTag": 3.7, "ZipCash": 7.4 }
+      }
+    },
+    {
+      "Toll_Plaza": "MacArthur Boulevard (MACBD)",
+      "rates": {
+        "5_Axle": { "TollTag": 1.36, "ZipCash": 2.72 },
+        "6_Axle": { "TollTag": 1.7, "ZipCash": 3.4 }
+      }
+    },
+    {
+      "Toll_Plaza": "Carrollton Parkway (CARPY)",
+      "rates": {
+        "5_Axle": { "TollTag": 1.36, "ZipCash": 2.72 },
+        "6_Axle": { "TollTag": 1.7, "ZipCash": 3.4 }
+      }
+    },
+    {
+      "Toll_Plaza": "Parker Road (PARRD)",
+      "rates": {
+        "5_Axle": { "TollTag": 1.92, "ZipCash": 3.84 },
+        "6_Axle": { "TollTag": 2.4, "ZipCash": 4.8 }
+      }
+    },
+    {
+      "Toll_Plaza": "Old Denton Road (OLDRD)",
+      "rates": {
+        "5_Axle": { "TollTag": 2.2, "ZipCash": 4.4 },
+        "6_Axle": { "TollTag": 2.75, "ZipCash": 5.5 }
+      }
+    },
+    {
+      "Toll_Plaza": "Standridge Drive-South (SSTDR)",
+      "rates": {
+        "5_Axle": { "TollTag": 3.36, "ZipCash": 6.72 },
+        "6_Axle": { "TollTag": 4.2, "ZipCash": 8.4 }
+      }
+    },
+    {
+      "Toll_Plaza": "Josey Lane South (SJOLN)",
+      "rates": {
+        "5_Axle": { "TollTag": 4.08, "ZipCash": 8.16 },
+        "6_Axle": { "TollTag": 5.1, "ZipCash": 10.2 }
+      }
+    },
+    {
+      "Toll_Plaza": "Josey Main Lane Gantry (MLG2)",
+      "rates": {
+        "5_Axle": { "TollTag": 7.64, "ZipCash": 15.28 },
+        "6_Axle": { "TollTag": 9.55, "ZipCash": 19.1 }
+      }
+    },
+    {
+      "Toll_Plaza": "Standridge Drive - North (NSTDR)",
+      "rates": {
+        "5_Axle": { "TollTag": 4.32, "ZipCash": 8.64 },
+        "6_Axle": { "TollTag": 5.4, "ZipCash": 10.8 }
+      }
+    },
+    {
+      "Toll_Plaza": "Josey Lane - North (NJOLN)",
+      "rates": {
+        "5_Axle": { "TollTag": 3.56, "ZipCash": 7.12 },
+        "6_Axle": { "TollTag": 4.45, "ZipCash": 8.9 }
+      }
+    },
+    {
+      "Toll_Plaza": "Plano Parkway (PLAPY)",
+      "rates": {
+        "5_Axle": { "TollTag": 2.8, "ZipCash": 5.6 },
+        "6_Axle": { "TollTag": 3.5, "ZipCash": 7.0 }
+      }
+    },
+    {
+      "Toll_Plaza": "Spring Creek Parkway (SPCPY)",
+      "rates": {
+        "5_Axle": { "TollTag": 1.4, "ZipCash": 2.8 },
+        "6_Axle": { "TollTag": 1.75, "ZipCash": 3.5 }
+      }
+    },
+    {
+      "Toll_Plaza": "Preston Road (PRERD)",
+      "rates": {
+        "5_Axle": { "TollTag": 1.36, "ZipCash": 2.72 },
+        "6_Axle": { "TollTag": 1.7, "ZipCash": 3.4 }
+      }
+    },
+    {
+      "Toll_Plaza": "Hillcrest Road (HILRD)",
+      "rates": {
+        "5_Axle": { "TollTag": 1.4, "ZipCash": 2.8 },
+        "6_Axle": { "TollTag": 1.75, "ZipCash": 3.5 }
+      }
+    },
+    {
+      "Toll_Plaza": "Coit Road (COIRD)",
+      "rates": {
+        "5_Axle": { "TollTag": 3.12, "ZipCash": 6.24 },
+        "6_Axle": { "TollTag": 3.9, "ZipCash": 7.8 }
+      }
+    },
+    {
+      "Toll_Plaza": "Independence Parkway (INDPY)",
+      "rates": {
+        "5_Axle": { "TollTag": 4.08, "ZipCash": 8.16 },
+        "6_Axle": { "TollTag": 5.1, "ZipCash": 10.2 }
+      }
+    },
+    {
+      "Toll_Plaza": "Custer Main Lane Gantry (MLG3)",
+      "rates": {
+        "5_Axle": { "TollTag": 10.56, "ZipCash": 21.12 },
+        "6_Axle": { "TollTag": 13.2, "ZipCash": 26.4 }
+      }
+    },
+    {
+      "Toll_Plaza": "Exchange Parkway (SALDR)",
+      "rates": {
+        "5_Axle": { "TollTag": 5.48, "ZipCash": 10.96 },
+        "6_Axle": { "TollTag": 6.85, "ZipCash": 13.7 }
+      }
+    },
+    {
+      "Toll_Plaza": "Alma Drive (NALDR)",
+      "rates": {
+        "5_Axle": { "TollTag": 4.0, "ZipCash": 8.0 },
+        "6_Axle": { "TollTag": 5.0, "ZipCash": 10.0 }
+      }
+    },
+    {
+      "Toll_Plaza": "Stacy Road (STARD)",
+      "rates": {
+        "5_Axle": { "TollTag": 3.12, "ZipCash": 6.24 },
+        "6_Axle": { "TollTag": 3.9, "ZipCash": 7.8 }
+      }
+    },
+    {
+      "Toll_Plaza": "Lake Forest Drive (LAFDR)",
+      "rates": {
+        "5_Axle": { "TollTag": 2.44, "ZipCash": 4.88 },
+        "6_Axle": { "TollTag": 3.05, "ZipCash": 6.1 }
+      }
+    },
+    {
+      "Toll_Plaza": "Hardin Boulevard (HARBD)",
+      "rates": {
+        "5_Axle": { "TollTag": 1.56, "ZipCash": 3.12 },
+        "6_Axle": { "TollTag": 1.95, "ZipCash": 3.9 }
+      }
+    }
+  ],
+  "link": "https://www.ntta.org/sites/default/files/2025-06/NTTAS_2025-2027_Toll%20Rate%20Tables.pdf"
+}

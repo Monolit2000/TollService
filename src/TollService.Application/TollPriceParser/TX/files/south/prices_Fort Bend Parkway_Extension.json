@@ -1,0 +1,73 @@
+{
+  "toll_rates": {
+    "standard_toll_rates": [
+      {
+        "Toll_Plaza": "Fondren",
+        "2-Axle": 0.75,
+        "3-Axle": 1.5,
+        "4-Axle": 2.25,
+        "5-Axle": 3.0,
+        "6-Axle": 3.75
+      },
+      {
+        "Toll_Plaza": "McHard",
+        "2-Axle": 0.5,
+        "3-Axle": 1.0,
+        "4-Axle": 1.5,
+        "5-Axle": 2.0,
+        "6-Axle": 2.5
+      },
+      {
+        "Toll_Plaza": "Lake Olympia",
+        "2-Axle": 0.5,
+        "3-Axle": 1.0,
+        "4-Axle": 1.5,
+        "5-Axle": 2.0,
+        "6-Axle": 2.5
+      },
+      {
+        "Toll_Plaza": "Sienna Parkway Main Lane Plazas and Sienna Ranch Ramp Plazas",
+        "2-Axle": 0.5,
+        "3-Axle": 1.0,
+        "4-Axle": 1.5,
+        "5-Axle": 2.0,
+        "6-Axle": 2.5
+      }
+    ],
+    "invalid_transaction_fleet_rates": [
+      {
+        "Toll_Plaza": "Fondren",
+        "2-Axle": 0.99,
+        "3-Axle": 1.73,
+        "4-Axle": 2.47,
+        "5-Axle": 3.21,
+        "6-Axle": 3.95
+      },
+      {
+        "Toll_Plaza": "McHard",
+        "2-Axle": 0.74,
+        "3-Axle": 1.23,
+        "4-Axle": 1.72,
+        "5-Axle": 2.21,
+        "6-Axle": 2.7
+      },
+      {
+        "Toll_Plaza": "Lake Olympia",
+        "2-Axle": 0.74,
+        "3-Axle": 1.23,
+        "4-Axle": 1.72,
+        "5-Axle": 2.21,
+        "6-Axle": 2.7
+      },
+      {
+        "Toll_Plaza": "Sienna Parkway Main Lane Plazas and Sienna Ranch Ramp Plazas",
+        "2-Axle": 0.74,
+        "3-Axle": 1.23,
+        "4-Axle": 1.72,
+        "5-Axle": 2.21,
+        "6-Axle": 2.7
+      }
+    ]
+  },
+  "link": "https://www.fbctra.com/toll-roads/"
+}

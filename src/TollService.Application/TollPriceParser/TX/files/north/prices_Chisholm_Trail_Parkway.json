@@ -1,0 +1,110 @@
+{
+  "toll_locations": [
+    {
+      "Toll_Plaza": "Gantry 1 (Montgomery) (MLG1)",
+      "rates": {
+        "5_Axle": { "TollTag": 7.12, "ZipCash": 14.24 },
+        "6_Axle": { "TollTag": 8.9, "ZipCash": 17.8 }
+      }
+    },
+    {
+      "Toll_Plaza": "Edwards Ranch Rd (EDWRD)",
+      "rates": {
+        "5_Axle": { "TollTag": 3.0, "ZipCash": 6.0 },
+        "6_Axle": { "TollTag": 3.75, "ZipCash": 7.5 }
+      }
+    },
+    {
+      "Toll_Plaza": "Arborlawn Drive (ARBDR)",
+      "rates": {
+        "5_Axle": { "TollTag": 1.72, "ZipCash": 3.44 },
+        "6_Axle": { "TollTag": 2.15, "ZipCash": 4.3 }
+      }
+    },
+    {
+      "Toll_Plaza": "Oakmont Blvd (OAKBD)",
+      "rates": {
+        "5_Axle": { "TollTag": 2.52, "ZipCash": 5.04 },
+        "6_Axle": { "TollTag": 3.15, "ZipCash": 6.3 }
+      }
+    },
+    {
+      "Toll_Plaza": "Altamesa Bivd (ALTBD)",
+      "rates": {
+        "5_Axle": { "TollTag": 3.92, "ZipCash": 7.84 },
+        "6_Axle": { "TollTag": 4.9, "ZipCash": 9.8 }
+      }
+    },
+    {
+      "Toll_Plaza": "Sycamore School Rd (SYCRD)",
+      "rates": {
+        "5_Axle": { "TollTag": 4.08, "ZipCash": 8.16 },
+        "6_Axle": { "TollTag": 5.1, "ZipCash": 10.2 }
+      }
+    },
+    {
+      "Toll_Plaza": "McPherson Blvd (MCPBO)",
+      "rates": {
+        "5_Axle": { "TollTag": 5.52, "ZipCash": 11.04 },
+        "6_Axle": { "TollTag": 6.9, "ZipCash": 13.8 }
+      }
+    },
+    {
+      "Toll_Plaza": "Gantry 2 (Stewart Feltz) (MLG2)",
+      "rates": {
+        "5_Axle": { "TollTag": 11.52, "ZipCash": 23.04 },
+        "6_Axle": { "TollTag": 14.4, "ZipCash": 28.8 }
+      }
+    },
+    {
+      "Toll_Plaza": "Farm Market 1187 (F1187)",
+      "rates": {
+        "5_Axle": { "TollTag": 3.16, "ZipCash": 6.32 },
+        "6_Axle": { "TollTag": 3.95, "ZipCash": 7.9 }
+      }
+    },
+    {
+      "Toll_Plaza": "County Rd 920 (CR920)",
+      "rates": {
+        "5_Axle": { "TollTag": 1.88, "ZipCash": 3.76 },
+        "6_Axle": { "TollTag": 2.35, "ZipCash": 4.7 }
+      }
+    },
+    {
+      "Toll_Plaza": "County Rd 913 (CR913)",
+      "rates": {
+        "5_Axle": { "TollTag": 1.92, "ZipCash": 3.84 },
+        "6_Axle": { "TollTag": 2.4, "ZipCash": 4.8 }
+      }
+    },
+    {
+      "Toll_Plaza": "Farm Market 917 (FM917)",
+      "rates": {
+        "5_Axle": { "TollTag": 3.48, "ZipCash": 6.96 },
+        "6_Axle": { "TollTag": 4.35, "ZipCash": 8.7 }
+      }
+    },
+    {
+      "Toll_Plaza": "County Rd 904 (CR904)",
+      "rates": {
+        "5_Axle": { "TollTag": 5.24, "ZipCash": 10.48 },
+        "6_Axle": { "TollTag": 6.55, "ZipCash": 13.1 }
+      }
+    },
+    {
+      "Toll_Plaza": "Gantry 3 (CR 904Sparks -Rd) (MLG3)",
+      "rates": {
+        "5_Axle": { "TollTag": 8.6, "ZipCash": 17.2 },
+        "6_Axle": { "TollTag": 10.75, "ZipCash": 21.5 }
+      }
+    },
+    {
+      "Toll_Plaza": "Sparks Rd (SPARD)",
+      "rates": {
+        "5_Axle": { "TollTag": 1.52, "ZipCash": 3.04 },
+        "6_Axle": { "TollTag": 1.9, "ZipCash": 3.8 }
+      }
+    }
+  ],
+  "link": "https://www.ntta.org/sites/default/files/2025-06/NTTAS_2025-2027_Toll%20Rate%20Tables.pdf"
+}

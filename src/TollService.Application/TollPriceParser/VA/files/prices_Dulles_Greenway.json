@@ -1,0 +1,268 @@
+{
+  "tolls": {
+    "exit-1": {
+      "name": "Leesburg Bypass (Rte15)",
+
+      "congested-ez-2axle": "NO TOLL",
+      "congested-ez-3axle": "NO TOLL",
+      "congested-ez-4axle": "NO TOLL",
+      "congested-ez-5axle": "NO TOLL",
+      "congested-ez-6axle": "NO TOLL",
+      "congested-cc-2axle": "NO TOLL",
+      "congested-cc-3axle": "NO TOLL",
+      "congested-cc-4axle": "NO TOLL",
+      "congested-cc-5axle": "NO TOLL",
+      "congested-cc-6axle": "NO TOLL",
+
+      "notcongested-ez-2axle": "NO TOLL",
+      "notcongested-ez-3axle": "NO TOLL",
+      "notcongested-ez-4axle": "NO TOLL",
+      "notcongested-ez-5axle": "NO TOLL",
+      "notcongested-ez-6axle": "NO TOLL",
+      "notcongested-cc-2axle": "NO TOLL",
+      "notcongested-cc-3axle": "NO TOLL",
+      "notcongested-cc-4axle": "NO TOLL",
+      "notcongested-cc-5axle": "NO TOLL",
+      "notcongested-cc-6axle": "NO TOLL"
+    },
+    "exit-2": {
+      "name": "Battlefield Parkway",
+
+      "congested-ez-2axle": "NO TOLL",
+      "congested-ez-3axle": "NO TOLL",
+      "congested-ez-4axle": "NO TOLL",
+      "congested-ez-5axle": "NO TOLL",
+      "congested-ez-6axle": "NO TOLL",
+      "congested-cc-2axle": "NO TOLL",
+      "congested-cc-3axle": "NO TOLL",
+      "congested-cc-4axle": "NO TOLL",
+      "congested-cc-5axle": "NO TOLL",
+      "congested-cc-6axle": "NO TOLL",
+
+      "notcongested-ez-2axle": "NO TOLL",
+      "notcongested-ez-3axle": "NO TOLL",
+      "notcongested-ez-4axle": "NO TOLL",
+      "notcongested-ez-5axle": "NO TOLL",
+      "notcongested-ez-6axle": "NO TOLL",
+      "notcongested-cc-2axle": "NO TOLL",
+      "notcongested-cc-3axle": "NO TOLL",
+      "notcongested-cc-4axle": "NO TOLL",
+      "notcongested-cc-5axle": "NO TOLL",
+      "notcongested-cc-6axle": "NO TOLL"
+    },
+    "exit-3": {
+      "name": "Shreve Mill Rd",
+
+      "congested-ez-2axle": 4.1,
+      "congested-ez-3axle": 8.2,
+      "congested-ez-4axle": 10.25,
+      "congested-ez-5axle": 12.3,
+      "congested-ez-6axle": 12.3,
+
+      "notcongested-ez-2axle": 4.1,
+      "notcongested-ez-3axle": 8.2,
+      "notcongested-ez-4axle": 10.25,
+      "notcongested-ez-5axle": 12.3,
+      "notcongested-ez-6axle": 12.3,
+
+      "congested-cc-2axle": 4.1,
+      "congested-cc-3axle": 8.2,
+      "congested-cc-4axle": 10.25,
+      "congested-cc-5axle": 12.3,
+      "congested-cc-6axle": 12.3,
+
+      "notcongested-cc-2axle": 4.1,
+      "notcongested-cc-3axle": 8.2,
+      "notcongested-cc-4axle": 10.25,
+      "notcongested-cc-5axle": 12.3,
+      "notcongested-cc-6axle": 12.3
+    },
+    "exit-4": {
+      "name": "Belmont Ridge Rte 659",
+
+      "congested-ez-2axle": 5.1,
+      "congested-ez-3axle": 10.2,
+      "congested-ez-4axle": 12.75,
+      "congested-ez-5axle": 15.3,
+      "congested-ez-6axle": 15.3,
+
+      "notcongested-ez-2axle": 4.55,
+      "notcongested-ez-3axle": 9.1,
+      "notcongested-ez-4axle": 11.35,
+      "notcongested-ez-5axle": 13.65,
+      "notcongested-ez-6axle": 13.65,
+
+      "congested-cc-2axle": 5.1,
+      "congested-cc-3axle": 10.2,
+      "congested-cc-4axle": 12.75,
+      "congested-cc-5axle": 15.3,
+      "congested-cc-6axle": 15.3,
+
+      "notcongested-cc-2axle": 4.55,
+      "notcongested-cc-3axle": 9.1,
+      "notcongested-cc-4axle": 11.35,
+      "notcongested-cc-5axle": 13.65,
+      "notcongested-cc-6axle": 13.65
+    },
+    "exit-5": {
+      "name": "Claiborne Parkway",
+
+      "congested-ez-2axle": 5.1,
+      "congested-ez-3axle": 10.2,
+      "congested-ez-4axle": 12.75,
+      "congested-ez-5axle": 15.3,
+      "congested-ez-6axle": 15.3,
+
+      "notcongested-ez-2axle": 4.55,
+      "notcongested-ez-3axle": 9.1,
+      "notcongested-ez-4axle": 11.35,
+      "notcongested-ez-5axle": 13.65,
+      "notcongested-ez-6axle": 13.65,
+
+      "congested-cc-2axle": 5.1,
+      "congested-cc-3axle": 10.2,
+      "congested-cc-4axle": 12.75,
+      "congested-cc-5axle": 15.3,
+      "congested-cc-6axle": 15.3,
+
+      "notcongested-cc-2axle": 4.55,
+      "notcongested-cc-3axle": 9.1,
+      "notcongested-cc-4axle": 11.35,
+      "notcongested-cc-5axle": 13.65,
+      "notcongested-cc-6axle": 13.65
+    },
+    "exit-6": {
+      "name": "Ryan Road / Route 772",
+
+      "congested-ez-2axle": 5.1,
+      "congested-ez-3axle": 10.2,
+      "congested-ez-4axle": 12.75,
+      "congested-ez-5axle": 15.3,
+      "congested-ez-6axle": 15.3,
+
+      "notcongested-ez-2axle": 4.55,
+      "notcongested-ez-3axle": 9.1,
+      "notcongested-ez-4axle": 11.35,
+      "notcongested-ez-5axle": 13.65,
+      "notcongested-ez-6axle": 13.65,
+
+      "congested-cc-2axle": 5.1,
+      "congested-cc-3axle": 10.2,
+      "congested-cc-4axle": 12.75,
+      "congested-cc-5axle": 15.3,
+      "congested-cc-6axle": 15.3,
+
+      "notcongested-cc-2axle": 4.55,
+      "notcongested-cc-3axle": 9.1,
+      "notcongested-cc-4axle": 11.35,
+      "notcongested-cc-5axle": 13.65,
+      "notcongested-cc-6axle": 13.65
+    },
+    "exit-7": {
+      "name": "Loudoun County Pkwy Rte 607",
+
+      "congested-ez-2axle": 5.8,
+      "congested-ez-3axle": 11.55,
+      "congested-ez-4axle": 14.6,
+      "congested-ez-5axle": 17.5,
+      "congested-ez-6axle": 17.5,
+
+      "notcongested-ez-2axle": 5.25,
+      "notcongested-ez-3axle": 10.5,
+      "notcongested-ez-4axle": 13.1,
+      "notcongested-ez-5axle": 15.75,
+      "notcongested-ez-6axle": 15.75,
+
+      "congested-cc-2axle": 5.8,
+      "congested-cc-3axle": 11.55,
+      "congested-cc-4axle": 14.6,
+      "congested-cc-5axle": 17.5,
+      "congested-cc-6axle": 17.5,
+
+      "notcongested-cc-2axle": 5.25,
+      "notcongested-cc-3axle": 10.5,
+      "notcongested-cc-4axle": 13.1,
+      "notcongested-cc-5axle": 15.75,
+      "notcongested-cc-6axle": 15.75
+    },
+    "exit-8": {
+      "name": "Ox Rd 606",
+
+      "congested-ez-2axle": 5.8,
+      "congested-ez-3axle": 11.55,
+      "congested-ez-4axle": 14.6,
+      "congested-ez-5axle": 17.5,
+      "congested-ez-6axle": 17.5,
+
+      "notcongested-ez-2axle": 5.25,
+      "notcongested-ez-3axle": 10.5,
+      "notcongested-ez-4axle": 13.1,
+      "notcongested-ez-5axle": 15.75,
+      "notcongested-ez-6axle": 15.75,
+
+      "congested-cc-2axle": 5.8,
+      "congested-cc-3axle": 11.55,
+      "congested-cc-4axle": 14.6,
+      "congested-cc-5axle": 17.5,
+      "congested-cc-6axle": 17.5,
+
+      "notcongested-cc-2axle": 5.25,
+      "notcongested-cc-3axle": 10.5,
+      "notcongested-cc-4axle": 13.1,
+      "notcongested-cc-5axle": 15.75,
+      "notcongested-cc-6axle": 15.75
+    },
+    "exit-9": {
+      "name": "Dulles Airport (Rte28)",
+      "congested-ez-2axle": 5.8,
+      "congested-ez-3axle": 11.55,
+      "congested-ez-4axle": 14.6,
+      "congested-ez-5axle": 17.5,
+      "congested-ez-6axle": 17.5,
+
+      "notcongested-ez-2axle": 5.25,
+      "notcongested-ez-3axle": 10.5,
+      "notcongested-ez-4axle": 13.1,
+      "notcongested-ez-5axle": 15.75,
+      "notcongested-ez-6axle": 15.75,
+
+      "congested-cc-2axle": 5.8,
+      "congested-cc-3axle": 11.55,
+      "congested-cc-4axle": 14.6,
+      "congested-cc-5axle": 17.5,
+      "congested-cc-6axle": 17.5,
+
+      "notcongested-cc-2axle": 5.25,
+      "notcongested-cc-3axle": 10.5,
+      "notcongested-cc-4axle": 13.1,
+      "notcongested-cc-5axle": 15.75,
+      "notcongested-cc-6axle": 15.75
+    },
+    "exit-10": {
+      "name": "Mainline Plaza",
+      "congested-ez-2axle": 5.8,
+      "congested-ez-3axle": 11.55,
+      "congested-ez-4axle": 14.6,
+      "congested-ez-5axle": 17.5,
+      "congested-ez-6axle": 17.5,
+
+      "notcongested-ez-2axle": 5.25,
+      "notcongested-ez-3axle": 10.5,
+      "notcongested-ez-4axle": 13.1,
+      "notcongested-ez-5axle": 15.75,
+      "notcongested-ez-6axle": 15.75,
+
+      "congested-cc-2axle": 5.8,
+      "congested-cc-3axle": 11.55,
+      "congested-cc-4axle": 14.6,
+      "congested-cc-5axle": 17.5,
+      "congested-cc-6axle": 17.5,
+
+      "notcongested-cc-2axle": 5.25,
+      "notcongested-cc-3axle": 10.5,
+      "notcongested-cc-4axle": 13.1,
+      "notcongested-cc-5axle": 15.75,
+      "notcongested-cc-6axle": 15.75
+    }
+  }
+}

@@ -1,0 +1,82 @@
+{
+  "toll_locations": [
+    {
+      "name": "Lake Creek",
+      "5 Axle": {
+        "TxTag": "$5.28",
+        "Pay by Mail": "$7.92"
+      },
+      "6 Axle": {
+        "TxTag": "$6.60",
+        "Pay by Mail": "$9.90"
+      }
+    },
+    {
+      "name": "Heatherwilde",
+      "5 Axle": {
+        "TxTag": "$5.28",
+        "Pay by Mail": "$7.92"
+      },
+      "6 Axle": {
+        "TxTag": "$6.60",
+        "Pay by Mail": "$9.90"
+      }
+    },
+    {
+      "name": "RM 620",
+      "5 Axle": {
+        "TxTag": "$4.60",
+        "Pay by Mail": "$6.92"
+      },
+      "6 Axle": {
+        "TxTag": "$5.75",
+        "Pay by Mail": "$8.65"
+      }
+    },
+    {
+      "name": "AW Grimes",
+      "5 Axle": {
+        "TxTag": "$3.48",
+        "Pay by Mail": "$5.24"
+      },
+      "6 Axle": {
+        "TxTag": "$4.35",
+        "Pay by Mail": "$6.55"
+      }
+    },
+    {
+      "name": "Greenlawn",
+      "5 Axle": {
+        "TxTag": "$3.48",
+        "Pay by Mail": "$5.24"
+      },
+      "6 Axle": {
+        "TxTag": "$4.35",
+        "Pay by Mail": "$6.55"
+      }
+    },
+    {
+      "name": "O'Connor Dr.",
+      "5 Axle": {
+        "TxTag": "$4.68",
+        "Pay by Mail": "$7.04"
+      },
+      "6 Axle": {
+        "TxTag": "$5.85",
+        "Pay by Mail": "$8.80"
+      }
+    },
+    {
+      "name": "Entrance and Exit Ramps at: Schultz Ln., Wilke Ln. (Heatherwilde)",
+      "5 Axle": {
+        "TxTag": "$5.28",
+        "Pay by Mail": "$7.92"
+      },
+      "6 Axle": {
+        "TxTag": "$6.60",
+        "Pay by Mail": "$9.90"
+      }
+    }
+  ],
+  "link": "https://www.txdot.gov/content/dam/docs/division/pfd/toll-roads/2025-txdot-austin-area-toll-rates.pdf"
+}

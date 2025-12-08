@@ -1,0 +1,41 @@
+{
+  "payment_types": {
+    "Tag": true,
+    "No plate": false,
+    "Cash": true,
+    "No card": false,
+    "App": true
+  },
+  "toll_plazas": [
+    {
+      "name": "Downtown Expressway Mainline",
+      "rates": {
+        "5_axles": {
+          "cash_out_of_state_ezpass": 1.3,
+          "va_ezpass": 1.3
+        },
+        "6_axles": null
+      }
+    },
+    {
+      "name": "Second Street",
+      "rates": {
+        "5_axles": {
+          "cash_out_of_state_ezpass": 1.2,
+          "va_ezpass": 1.2
+        },
+        "6_axles": null
+      }
+    },
+    {
+      "name": "Eleventh Street",
+      "rates": {
+        "5_axles": {
+          "cash_out_of_state_ezpass": 1.2,
+          "va_ezpass": 1.2
+        },
+        "6_axles": null
+      }
+    }
+  ]
+}

@@ -6,107 +6,107 @@ using TollService.Application.Common;
 using TollService.Application.Common.Interfaces;
 using TollService.Domain;
 
-namespace TollService.Application.TollPriceParser.NJ;
+namespace TollService.Application.TollPriceParser.SC;
 
-public record AtlanticExpresswayTollRate(
-    [property: JsonPropertyName("plaza_name")] string PlazaName,
-    [property: JsonPropertyName("entry_name")] string? EntryName,
-    [property: JsonPropertyName("classification")] string? Classification,
-    [property: JsonPropertyName("cash")] double? Cash,
-    [property: JsonPropertyName("ez_pass_frequent_user")] double? EzPassFrequentUser);
+public record SouthCarolinaTollPlaza(
+    string Name,
+    SouthCarolinaRates? Rates);
 
-public record AtlanticExpresswayPricesData(
-    [property: JsonPropertyName("state")] string? State,
-    [property: JsonPropertyName("road")] string? Road,
-    [property: JsonPropertyName("vehicle_class_id")] int? VehicleClassId,
-    [property: JsonPropertyName("description")] string? Description,
-    [property: JsonPropertyName("total_checked")] int? TotalChecked,
-    [property: JsonPropertyName("toll_rates")] List<AtlanticExpresswayTollRate>? TollRates);
+public record SouthCarolinaRates(
+    [property: JsonPropertyName("5_axles")] SouthCarolinaAxleRates? Axles5,
+    [property: JsonPropertyName("6_axles")] SouthCarolinaAxleRates? Axles6);
 
-public record AtlanticExpresswayTollPriceInfo(
+public record SouthCarolinaAxleRates(
+    [property: JsonPropertyName("toll_rate")] double? TollRate);
+
+public record SouthCarolinaPricesData(
+    [property: JsonPropertyName("toll_plazas")] List<SouthCarolinaTollPlaza> TollPlazas);
+
+public record SouthCarolinaTollPriceInfo(
     string PaymentType,
-    double Amount);
+    double Amount,
+    int Axles);
 
-public record AtlanticExpresswayLinkedTollInfo(
+public record SouthCarolinaLinkedTollInfo(
     string PlazaName,
     Guid TollId,
     string? TollName,
     string? TollKey,
-    List<AtlanticExpresswayTollPriceInfo> Prices);
+    List<SouthCarolinaTollPriceInfo> Prices);
 
-public record LinkAtlanticExpresswayPricesCommand(string JsonPayload)
-    : IRequest<LinkAtlanticExpresswayPricesResult>;
+public record ParseSouthCarolinaTollPricesCommand(
+    string JsonPayload) : IRequest<ParseSouthCarolinaTollPricesResult>;
 
-public record LinkAtlanticExpresswayPricesResult(
-    List<AtlanticExpresswayLinkedTollInfo> LinkedTolls,
+public record ParseSouthCarolinaTollPricesResult(
+    List<SouthCarolinaLinkedTollInfo> LinkedTolls,
     List<string> NotFoundPlazas,
     int UpdatedTollsCount,
     string? Error = null);
 
-// New Jersey bounds: (south, west, north, east) = (38.9, -75.6, 41.4, -73.9)
-public class LinkAtlanticExpresswayPricesCommandHandler(
+// South Carolina bounds: (south, west, north, east) = (32.0, -83.4, 35.2, -78.5)
+public class ParseSouthCarolinaTollPricesCommandHandler(
     ITollDbContext _context,
     TollSearchService _tollSearchService,
-    CalculatePriceService _calculatePriceService) : IRequestHandler<LinkAtlanticExpresswayPricesCommand, LinkAtlanticExpresswayPricesResult>
+    CalculatePriceService _calculatePriceService) : IRequestHandler<ParseSouthCarolinaTollPricesCommand, ParseSouthCarolinaTollPricesResult>
 {
-    private static readonly double NjMinLatitude = 38.9;
-    private static readonly double NjMinLongitude = -75.6;
-    private static readonly double NjMaxLatitude = 41.4;
-    private static readonly double NjMaxLongitude = -73.9;
+    private static readonly double ScMinLatitude = 32.0;
+    private static readonly double ScMinLongitude = -83.4;
+    private static readonly double ScMaxLatitude = 35.2;
+    private static readonly double ScMaxLongitude = -78.5;
 
-    public async Task<LinkAtlanticExpresswayPricesResult> Handle(LinkAtlanticExpresswayPricesCommand request, CancellationToken ct)
+    public async Task<ParseSouthCarolinaTollPricesResult> Handle(ParseSouthCarolinaTollPricesCommand request, CancellationToken ct)
     {
         try
         {
             if (string.IsNullOrWhiteSpace(request.JsonPayload))
             {
-                return new LinkAtlanticExpresswayPricesResult(
+                return new ParseSouthCarolinaTollPricesResult(
                     new(),
                     new(),
                     0,
                     "JSON payload is empty");
             }
 
-            AtlanticExpresswayPricesData? data;
+            SouthCarolinaPricesData? data;
             try
             {
-                data = JsonSerializer.Deserialize<AtlanticExpresswayPricesData>(request.JsonPayload, new JsonSerializerOptions
+                data = JsonSerializer.Deserialize<SouthCarolinaPricesData>(request.JsonPayload, new JsonSerializerOptions
                 {
                     PropertyNameCaseInsensitive = true
                 });
             }
             catch (JsonException jsonEx)
             {
-                return new LinkAtlanticExpresswayPricesResult(
+                return new ParseSouthCarolinaTollPricesResult(
                     new(),
                     new(),
                     0,
                     $"Ошибка парсинга JSON: {jsonEx.Message}");
             }
 
-            if (data?.TollRates == null || data.TollRates.Count == 0)
+            if (data?.TollPlazas == null || data.TollPlazas.Count == 0)
             {
-                return new LinkAtlanticExpresswayPricesResult(
+                return new ParseSouthCarolinaTollPricesResult(
                     new(),
                     new(),
                     0,
                     "Плазы не найдены в JSON");
             }
 
-            // Создаем bounding box для New Jersey
-            var njBoundingBox = BoundingBoxHelper.CreateBoundingBox(
-                NjMinLongitude, NjMinLatitude, NjMaxLongitude, NjMaxLatitude);
+            // Создаем bounding box для South Carolina
+            var scBoundingBox = BoundingBoxHelper.CreateBoundingBox(
+                ScMinLongitude, ScMinLatitude, ScMaxLongitude, ScMaxLatitude);
 
             // Собираем все уникальные имена плаз для оптимизированного поиска
-            var allPlazaNames = data.TollRates
-                .Where(p => !string.IsNullOrWhiteSpace(p.PlazaName))
-                .Select(p => p.PlazaName)
+            var allPlazaNames = data.TollPlazas
+                .Where(p => !string.IsNullOrWhiteSpace(p.Name))
+                .Select(p => p.Name)
                 .Distinct()
                 .ToList();
 
             if (allPlazaNames.Count == 0)
             {
-                return new LinkAtlanticExpresswayPricesResult(
+                return new ParseSouthCarolinaTollPricesResult(
                     new(),
                     new(),
                     0,
@@ -116,40 +116,37 @@ public class LinkAtlanticExpresswayPricesCommandHandler(
             // Оптимизированный поиск tolls: один запрос к БД
             var tollsByPlazaName = await _tollSearchService.FindMultipleTollsInBoundingBoxAsync(
                 allPlazaNames,
-                njBoundingBox,
+                scBoundingBox,
                 TollSearchOptions.NameOrKey,
                 ct);
 
-            var linkedTolls = new List<AtlanticExpresswayLinkedTollInfo>();
+            var linkedTolls = new List<SouthCarolinaLinkedTollInfo>();
             var notFoundPlazas = new List<string>();
             var tollsToUpdatePrices = new Dictionary<Guid, List<TollPriceData>>();
 
-            foreach (var rate in data.TollRates)
+            foreach (var plaza in data.TollPlazas)
             {
-                if (string.IsNullOrWhiteSpace(rate.PlazaName))
-                {
-                    notFoundPlazas.Add("Plaza with empty name");
+                if (string.IsNullOrWhiteSpace(plaza.Name))
                     continue;
-                }
 
                 // Ищем tolls по имени плазы
-                if (!tollsByPlazaName.TryGetValue(rate.PlazaName.ToLower(), out var foundTolls) || foundTolls.Count == 0)
+                if (!tollsByPlazaName.TryGetValue(plaza.Name.ToLower(), out var foundTolls) || foundTolls.Count == 0)
                 {
-                    notFoundPlazas.Add(rate.PlazaName);
+                    notFoundPlazas.Add(plaza.Name);
                     continue;
                 }
 
                 // Обрабатываем цены для каждой найденной плазы
                 foreach (var toll in foundTolls)
                 {
-                    var prices = new List<AtlanticExpresswayTollPriceInfo>();
+                    var prices = new List<SouthCarolinaTollPriceInfo>();
 
-                    // Обрабатываем Cash
-                    if (rate.Cash.HasValue && rate.Cash.Value > 0)
+                    // Обрабатываем 5 осей
+                    if (plaza.Rates?.Axles5 != null && plaza.Rates.Axles5.TollRate.HasValue && plaza.Rates.Axles5.TollRate.Value > 0)
                     {
-                        var paymentType = TollPaymentType.Cash;
-                        var amount = rate.Cash.Value;
-                        prices.Add(new AtlanticExpresswayTollPriceInfo("Cash", amount));
+                        var amount = plaza.Rates.Axles5.TollRate.Value;
+                        var paymentType = TollPaymentType.Cash; // Используем Cash как основной тип для toll_rate
+                        prices.Add(new SouthCarolinaTollPriceInfo("Toll Rate", amount, 5));
 
                         if (!tollsToUpdatePrices.ContainsKey(toll.Id))
                         {
@@ -161,15 +158,15 @@ public class LinkAtlanticExpresswayPricesCommandHandler(
                             Amount: amount,
                             PaymentType: paymentType,
                             AxelType: AxelType._5L,
-                            Description: $"New Jersey Atlantic Expressway {rate.PlazaName} - Cash"));
+                            Description: $"South Carolina {plaza.Name} - Toll Rate (5 axles)"));
                     }
 
-                    // Обрабатываем EZPass Frequent User
-                    if (rate.EzPassFrequentUser.HasValue && rate.EzPassFrequentUser.Value > 0)
+                    // Обрабатываем 6 осей
+                    if (plaza.Rates?.Axles6 != null && plaza.Rates.Axles6.TollRate.HasValue && plaza.Rates.Axles6.TollRate.Value > 0)
                     {
-                        var paymentType = TollPaymentType.EZPass;
-                        var amount = rate.EzPassFrequentUser.Value;
-                        prices.Add(new AtlanticExpresswayTollPriceInfo("EZPass Frequent User", amount));
+                        var amount = plaza.Rates.Axles6.TollRate.Value;
+                        var paymentType = TollPaymentType.Cash; // Используем Cash как основной тип для toll_rate
+                        prices.Add(new SouthCarolinaTollPriceInfo("Toll Rate", amount, 6));
 
                         if (!tollsToUpdatePrices.ContainsKey(toll.Id))
                         {
@@ -180,15 +177,15 @@ public class LinkAtlanticExpresswayPricesCommandHandler(
                             TollId: toll.Id,
                             Amount: amount,
                             PaymentType: paymentType,
-                            AxelType: AxelType._5L,
-                            Description: $"New Jersey Atlantic Expressway {rate.PlazaName} - EZPass Frequent User"));
+                            AxelType: AxelType._6L,
+                            Description: $"South Carolina {plaza.Name} - Toll Rate (6 axles)"));
                     }
 
                     // Добавляем информацию о связанном toll с ценами
                     if (prices.Count > 0)
                     {
-                        linkedTolls.Add(new AtlanticExpresswayLinkedTollInfo(
-                            PlazaName: rate.PlazaName,
+                        linkedTolls.Add(new SouthCarolinaLinkedTollInfo(
+                            PlazaName: plaza.Name,
                             TollId: toll.Id,
                             TollName: toll.Name,
                             TollKey: toll.Key,
@@ -215,14 +212,14 @@ public class LinkAtlanticExpresswayPricesCommandHandler(
             // Сохраняем все изменения
             await _context.SaveChangesAsync(ct);
 
-            return new LinkAtlanticExpresswayPricesResult(
+            return new ParseSouthCarolinaTollPricesResult(
                 linkedTolls,
                 notFoundPlazas.Distinct().ToList(),
                 updatedTollsCount);
         }
         catch (Exception ex)
         {
-            return new LinkAtlanticExpresswayPricesResult(
+            return new ParseSouthCarolinaTollPricesResult(
                 new(),
                 new(),
                 0,

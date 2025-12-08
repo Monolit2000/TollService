@@ -1,0 +1,36 @@
+{
+  "payment_types": {
+    "Tag": true,
+    "No plate": false,
+    "Cash": true,
+    "No card": false,
+    "App": true
+  },
+  "toll_plazas": [
+    {
+      "name": "Chesapeake Expressway",
+      "rates": {
+        "5_axles": {
+          "cash_out_of_state_ezpass": 5.0,
+          "va_ezpass": 2.25
+        },
+        "6_axles": {
+          "cash_out_of_state_ezpass": 5.0,
+          "va_ezpass": 2.25
+        }
+      },
+      "peak_weekend_rates": {
+        "5_axles": {
+          "cash_out_of_state_ezpass": 10.0,
+          "va_ezpass": 2.25
+        },
+        "6_axles": {
+          "cash_out_of_state_ezpass": 10.0,
+          "va_ezpass": 2.25
+        }
+      },
+      "peak_weekend_note": "Peak Weekend: The period beginning 12:01 a.m. on Saturday through 12:00 midnight Sunday beginning the weekend before Memorial Day weekend to the weekend after Labor Day weekend.",
+      "link": "https://www.cityofchesapeake.net/2982/Chesapeake-Expressway/"
+    }
+  ]
+}

@@ -1,0 +1,57 @@
+{
+  "toll_rates": {
+    "standard_toll_rates": [
+      {
+        "Toll_Plaza": "Westmoor",
+        "2-Axle": 0.82,
+        "3-Axle": 1.64,
+        "4-Axle": 2.46,
+        "5-Axle": 3.28,
+        "6-Axle": 4.1
+      },
+      {
+        "Toll_Plaza": "Peek",
+        "2-Axle": 0.82,
+        "3-Axle": 1.64,
+        "4-Axle": 2.46,
+        "5-Axle": 3.28,
+        "6-Axle": 4.1
+      },
+      {
+        "Toll_Plaza": "Katy Gaston",
+        "2-Axle": 0.82,
+        "3-Axle": 1.64,
+        "4-Axle": 2.46,
+        "5-Axle": 3.28,
+        "6-Axle": 4.1
+      }
+    ],
+    "invalid_transaction_fleet_rates": [
+      {
+        "Toll_Plaza": "Westmoor",
+        "2-Axle": 1.06,
+        "3-Axle": 1.87,
+        "4-Axle": 2.68,
+        "5-Axle": 3.49,
+        "6-Axle": 4.3
+      },
+      {
+        "Toll_Plaza": "Peek",
+        "2-Axle": 1.06,
+        "3-Axle": 1.87,
+        "4-Axle": 2.68,
+        "5-Axle": 3.49,
+        "6-Axle": 4.3
+      },
+      {
+        "Toll_Plaza": "Katy Gaston",
+        "2-Axle": 1.06,
+        "3-Axle": 1.87,
+        "4-Axle": 2.68,
+        "5-Axle": 3.49,
+        "6-Axle": 4.3
+      }
+    ]
+  },
+  "link": "https://www.fbctra.com/toll-roads/"
+}

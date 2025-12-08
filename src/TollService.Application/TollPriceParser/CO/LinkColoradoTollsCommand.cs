@@ -1,11 +1,11 @@
 using System;
 using System.Collections.Generic;
-using System.IO;
 using System.Linq;
 using System.Text.Json;
+using System.Text.Json.Serialization;
 using MediatR;
-using Microsoft.EntityFrameworkCore;
 using NetTopologySuite.Geometries;
+using TollService.Application.Common;
 using TollService.Application.Common.Interfaces;
 using TollService.Domain;
 
@@ -13,27 +13,27 @@ namespace TollService.Application.TollPriceParser.CO;
 
 // Формат E470: license_plate_all_hours, expresstoll_12pm_to_9am, expresstoll_9am_to_12pm
 public record ColoradoPlazaRatesE470(
-    [property: System.Text.Json.Serialization.JsonPropertyName("license_plate_all_hours")] double? LicensePlateAllHours,
-    [property: System.Text.Json.Serialization.JsonPropertyName("expresstoll_12pm_to_9am")] double? ExpressToll12pmTo9am,
-    [property: System.Text.Json.Serialization.JsonPropertyName("expresstoll_9am_to_12pm")] double? ExpressToll9amTo12pm);
+    [property: JsonPropertyName("license_plate_all_hours")] double? LicensePlateAllHours,
+    [property: JsonPropertyName("expresstoll_12pm_to_9am")] double? ExpressToll12pmTo9am,
+    [property: JsonPropertyName("expresstoll_9am_to_12pm")] double? ExpressToll9amTo12pm);
 
 // Формат Northway: rate_6am_to_9pm, rate_9pm_to_6am
 public record ColoradoPlazaRatesNorthway(
-    [property: System.Text.Json.Serialization.JsonPropertyName("rate_6am_to_9pm")] double? Rate6amTo9pm,
-    [property: System.Text.Json.Serialization.JsonPropertyName("rate_9pm_to_6am")] double? Rate9pmTo6am);
+    [property: JsonPropertyName("rate_6am_to_9pm")] double? Rate6amTo9pm,
+    [property: JsonPropertyName("rate_9pm_to_6am")] double? Rate9pmTo6am);
 
 public record ColoradoAxelRatesE470(
-    [property: System.Text.Json.Serialization.JsonPropertyName("5_axles")] ColoradoPlazaRatesE470? Axles5,
-    [property: System.Text.Json.Serialization.JsonPropertyName("6_axles")] ColoradoPlazaRatesE470? Axles6);
+    [property: JsonPropertyName("5_axles")] ColoradoPlazaRatesE470? Axles5,
+    [property: JsonPropertyName("6_axles")] ColoradoPlazaRatesE470? Axles6);
 
 public record ColoradoAxelRatesNorthway(
-    [property: System.Text.Json.Serialization.JsonPropertyName("5_axles")] ColoradoPlazaRatesNorthway? Axles5,
-    [property: System.Text.Json.Serialization.JsonPropertyName("6_axles")] ColoradoPlazaRatesNorthway? Axles6);
+    [property: JsonPropertyName("5_axles")] ColoradoPlazaRatesNorthway? Axles5,
+    [property: JsonPropertyName("6_axles")] ColoradoPlazaRatesNorthway? Axles6);
 
 // Универсальная структура для обоих форматов
 public record ColoradoPlaza(
-    [property: System.Text.Json.Serialization.JsonPropertyName("plaza_name")] string PlazaName,
-    [property: System.Text.Json.Serialization.JsonPropertyName("rates")] JsonElement? Rates);
+    [property: JsonPropertyName("plaza_name")] string PlazaName,
+    [property: JsonPropertyName("rates")] JsonElement? Rates);
 
 public record LinkColoradoTollsCommand(string JsonPayload) : IRequest<LinkColoradoTollsResult>;
 
@@ -49,10 +49,12 @@ public record LinkColoradoTollsResult(
     List<string> NotFoundPlazas,
     string? Error = null);
 
+// Colorado bounds: (south, west, north, east) = (36.9, -109.0, 41.0, -102.0)
 public class LinkColoradoTollsCommandHandler(
-    ITollDbContext _context) : IRequestHandler<LinkColoradoTollsCommand, LinkColoradoTollsResult>
+    ITollDbContext _context,
+    TollSearchService _tollSearchService,
+    CalculatePriceService _calculatePriceService) : IRequestHandler<LinkColoradoTollsCommand, LinkColoradoTollsResult>
 {
-    // Colorado bounds: (south, west, north, east) = (36.9, -109.0, 41.0, -102.0)
     private static readonly double CoMinLatitude = 36.9;
     private static readonly double CoMinLongitude = -109.0;
     private static readonly double CoMaxLatitude = 41.0;
@@ -68,7 +70,6 @@ public class LinkColoradoTollsCommandHandler(
         List<ColoradoPlaza>? plazas;
         try
         {
-            await Task.Yield();
             plazas = JsonSerializer.Deserialize<List<ColoradoPlaza>>(request.JsonPayload, new JsonSerializerOptions
             {
                 PropertyNameCaseInsensitive = true
@@ -85,73 +86,92 @@ public class LinkColoradoTollsCommandHandler(
         }
 
         // Создаем bounding box для Colorado
-        var coBoundingBox = new Polygon(new LinearRing(new[]
+        var coBoundingBox = BoundingBoxHelper.CreateBoundingBox(
+            CoMinLongitude,
+            CoMinLatitude,
+            CoMaxLongitude,
+            CoMaxLatitude);
+
+        // Собираем все уникальные имена плаз для оптимизированного поиска
+        var allPlazaNames = plazas
+            .Where(p => !string.IsNullOrWhiteSpace(p.PlazaName))
+            .Select(p => p.PlazaName)
+            .Distinct()
+            .ToList();
+
+        if (allPlazaNames.Count == 0)
         {
-            new Coordinate(CoMinLongitude, CoMinLatitude),
-            new Coordinate(CoMaxLongitude, CoMinLatitude),
-            new Coordinate(CoMaxLongitude, CoMaxLatitude),
-            new Coordinate(CoMinLongitude, CoMaxLatitude),
-            new Coordinate(CoMinLongitude, CoMinLatitude)
-        }))
-        { SRID = 4326 };
+            return new LinkColoradoTollsResult(
+                new(),
+                new(),
+                "Не найдено ни одного имени плазы");
+        }
+
+        // Оптимизированный поиск tolls: один запрос к БД
+        var tollsByPlazaName = await _tollSearchService.FindMultipleTollsInBoundingBoxAsync(
+            allPlazaNames,
+            coBoundingBox,
+            TollSearchOptions.NameOrKey,
+            ct);
 
         var foundTolls = new List<ColoradoFoundTollInfo>();
         var notFoundPlazas = new List<string>();
+        var tollsToUpdatePrices = new Dictionary<Guid, List<TollPriceData>>();
 
         foreach (var plaza in plazas)
         {
             if (string.IsNullOrWhiteSpace(plaza.PlazaName))
             {
+                notFoundPlazas.Add("Plaza with empty name");
                 continue;
             }
 
-            // Ищем tolls по точному совпадению plaza_name с Name (один в один) в пределах Colorado
-            var tolls = await FindTollsInColorado(plaza.PlazaName, coBoundingBox, ct);
-
-            if (tolls.Count == 0)
+            // Ищем tolls по имени плазы
+            if (!tollsByPlazaName.TryGetValue(plaza.PlazaName.ToLower(), out var foundTollsForPlaza) || foundTollsForPlaza.Count == 0)
             {
                 notFoundPlazas.Add(plaza.PlazaName);
+                continue;
             }
-            else
-            {
-                foreach (var toll in tolls)
-                {
-                    // Устанавливаем цены из JSON
-                    SetPricesFromJson(toll, plaza.Rates);
 
-                    foundTolls.Add(new ColoradoFoundTollInfo(
-                        PlazaName: plaza.PlazaName,
-                        TollId: toll.Id,
-                        TollName: toll.Name,
-                        TollKey: toll.Key,
-                        TollNumber: toll.Number));
-                }
+            // Обрабатываем цены для каждой найденной плазы
+            foreach (var toll in foundTollsForPlaza)
+            {
+                // Собираем цены из JSON
+                CollectPricesFromJson(toll, plaza.Rates, tollsToUpdatePrices, plaza.PlazaName);
+
+                foundTolls.Add(new ColoradoFoundTollInfo(
+                    PlazaName: plaza.PlazaName,
+                    TollId: toll.Id,
+                    TollName: toll.Name,
+                    TollKey: toll.Key,
+                    TollNumber: toll.Number));
             }
         }
 
-        // Сохраняем изменения в БД
-       await _context.SaveChangesAsync(ct);
+        // Батч-установка цен
+        int updatedTollsCount = 0;
+        if (tollsToUpdatePrices.Count > 0)
+        {
+            // Конвертируем List в IEnumerable для метода
+            var tollsToUpdatePricesEnumerable = tollsToUpdatePrices.ToDictionary(
+                kvp => kvp.Key,
+                kvp => (IEnumerable<TollPriceData>)kvp.Value);
 
-        return new LinkColoradoTollsResult(foundTolls, notFoundPlazas);
+            var updatedPricesResult = await _calculatePriceService.SetTollPricesDirectlyBatchAsync(
+                tollsToUpdatePricesEnumerable,
+                ct);
+            updatedTollsCount = updatedPricesResult.Count;
+        }
+
+        // Сохраняем все изменения
+        await _context.SaveChangesAsync(ct);
+
+        return new LinkColoradoTollsResult(
+            foundTolls,
+            notFoundPlazas.Distinct().ToList());
     }
 
-    private async Task<List<Toll>> FindTollsInColorado(string plazaName, Polygon boundingBox, CancellationToken ct)
-    {
-        // Ищем точное совпадение plaza_name с Name (один в один, без учета регистра)
-        var plazaNameLower = plazaName.ToLower();
-        var tolls = await _context.Tolls
-            .Include(t => t.TollPrices)
-            .Where(t =>
-                t.Location != null &&
-                boundingBox.Contains(t.Location) &&
-                t.Name != null &&
-                t.Name.ToLower() == plazaNameLower)
-            .ToListAsync(ct);
-
-        return tolls;
-    }
-
-    private void SetPricesFromJson(Toll toll, JsonElement? ratesElement)
+    private void CollectPricesFromJson(Toll toll, JsonElement? ratesElement, Dictionary<Guid, List<TollPriceData>> tollsToUpdatePrices, string plazaName)
     {
         if (!ratesElement.HasValue || ratesElement.Value.ValueKind != JsonValueKind.Object)
         {
@@ -163,21 +183,21 @@ public class LinkColoradoTollsCommandHandler(
         // Определяем формат JSON: проверяем наличие полей для E470 или Northway
         bool isE470Format = rates.TryGetProperty("5_axles", out var axles5E470) &&
                            axles5E470.TryGetProperty("license_plate_all_hours", out _);
-        
+
         bool isNorthwayFormat = rates.TryGetProperty("5_axles", out var axles5Northway) &&
                                axles5Northway.TryGetProperty("rate_6am_to_9pm", out _);
 
         if (isE470Format)
         {
-            SetPricesFromE470Format(toll, rates);
+            CollectPricesFromE470Format(toll, rates, tollsToUpdatePrices, plazaName);
         }
         else if (isNorthwayFormat)
         {
-            SetPricesFromNorthwayFormat(toll, rates);
+            CollectPricesFromNorthwayFormat(toll, rates, tollsToUpdatePrices, plazaName);
         }
     }
 
-    private void SetPricesFromE470Format(Toll toll, JsonElement rates)
+    private void CollectPricesFromE470Format(Toll toll, JsonElement rates, Dictionary<Guid, List<TollPriceData>> tollsToUpdatePrices, string plazaName)
     {
         // Обрабатываем 5_axles и 6_axles
         foreach (var axlesKey in new[] { "5_axles", "6_axles" })
@@ -196,37 +216,72 @@ public class LinkColoradoTollsCommandHandler(
                 var amount = licensePlateAllHours.GetDouble();
                 if (amount > 0)
                 {
-                    toll.SetPriceByPaymentType(amount, TollPaymentType.PayOnline, axelType);
+                    if (!tollsToUpdatePrices.ContainsKey(toll.Id))
+                    {
+                        tollsToUpdatePrices[toll.Id] = new List<TollPriceData>();
+                    }
+
+                    tollsToUpdatePrices[toll.Id].Add(new TollPriceData(
+                        TollId: toll.Id,
+                        Amount: amount,
+                        PaymentType: TollPaymentType.PayOnline,
+                        AxelType: axelType,
+                        TimeOfDay: TollPriceTimeOfDay.Any,
+                        Description: $"Colorado E470 {plazaName} - License Plate All Hours ({axlesKey})"));
                 }
             }
 
-            // expresstoll_12pm_to_9am -> IPass, Night (12pm-9am это ночь)
+            // expresstoll_12pm_to_9am -> IPass, Night (12pm-9am это ночь, 12:00 до 9:00 следующего дня)
             if (axlesRates.TryGetProperty("expresstoll_12pm_to_9am", out var expressToll12pmTo9am) &&
                 expressToll12pmTo9am.ValueKind == JsonValueKind.Number)
             {
                 var amount = expressToll12pmTo9am.GetDouble();
                 if (amount > 0)
                 {
-                    toll.SetPriceByPaymentType(amount, TollPaymentType.IPass, axelType, 
-                        TollPriceDayOfWeek.Any, TollPriceDayOfWeek.Any, TollPriceTimeOfDay.Night);
+                    if (!tollsToUpdatePrices.ContainsKey(toll.Id))
+                    {
+                        tollsToUpdatePrices[toll.Id] = new List<TollPriceData>();
+                    }
+
+                    tollsToUpdatePrices[toll.Id].Add(new TollPriceData(
+                        TollId: toll.Id,
+                        Amount: amount,
+                        PaymentType: TollPaymentType.IPass,
+                        AxelType: axelType,
+                        TimeOfDay: TollPriceTimeOfDay.Night,
+                        TimeFrom: new TimeOnly(12, 0), // 12:00 PM
+                        TimeTo: new TimeOnly(9, 0),    // 9:00 AM следующего дня
+                        Description: $"Colorado E470 {plazaName} - ExpressToll 12pm-9am ({axlesKey})"));
                 }
             }
 
-            // expresstoll_9am_to_12pm -> IPass, Day (9am-12pm это день)
+            // expresstoll_9am_to_12pm -> IPass, Day (9am-12pm это день, 9:00 до 12:00)
             if (axlesRates.TryGetProperty("expresstoll_9am_to_12pm", out var expressToll9amTo12pm) &&
                 expressToll9amTo12pm.ValueKind == JsonValueKind.Number)
             {
                 var amount = expressToll9amTo12pm.GetDouble();
                 if (amount > 0)
                 {
-                    toll.SetPriceByPaymentType(amount, TollPaymentType.IPass, axelType,
-                        TollPriceDayOfWeek.Any, TollPriceDayOfWeek.Any, TollPriceTimeOfDay.Day);
+                    if (!tollsToUpdatePrices.ContainsKey(toll.Id))
+                    {
+                        tollsToUpdatePrices[toll.Id] = new List<TollPriceData>();
+                    }
+
+                    tollsToUpdatePrices[toll.Id].Add(new TollPriceData(
+                        TollId: toll.Id,
+                        Amount: amount,
+                        PaymentType: TollPaymentType.IPass,
+                        AxelType: axelType,
+                        TimeOfDay: TollPriceTimeOfDay.Day,
+                        TimeFrom: new TimeOnly(9, 0),  // 9:00 AM
+                        TimeTo: new TimeOnly(12, 0),   // 12:00 PM
+                        Description: $"Colorado E470 {plazaName} - ExpressToll 9am-12pm ({axlesKey})"));
                 }
             }
         }
     }
 
-    private void SetPricesFromNorthwayFormat(Toll toll, JsonElement rates)
+    private void CollectPricesFromNorthwayFormat(Toll toll, JsonElement rates, Dictionary<Guid, List<TollPriceData>> tollsToUpdatePrices, string plazaName)
     {
         // Обрабатываем 5_axles и 6_axles
         foreach (var axlesKey in new[] { "5_axles", "6_axles" })
@@ -238,27 +293,51 @@ public class LinkColoradoTollsCommandHandler(
 
             var axelType = axlesKey == "5_axles" ? AxelType._5L : AxelType._6L;
 
-            // rate_6am_to_9pm -> PayOnline, Day
+            // rate_6am_to_9pm -> PayOnline, Day (6:00 до 21:00)
             if (axlesRates.TryGetProperty("rate_6am_to_9pm", out var rate6amTo9pm) &&
                 rate6amTo9pm.ValueKind == JsonValueKind.Number)
             {
                 var amount = rate6amTo9pm.GetDouble();
                 if (amount > 0)
                 {
-                    toll.SetPriceByPaymentType(amount, TollPaymentType.PayOnline, axelType,
-                        TollPriceDayOfWeek.Any, TollPriceDayOfWeek.Any, TollPriceTimeOfDay.Day);
+                    if (!tollsToUpdatePrices.ContainsKey(toll.Id))
+                    {
+                        tollsToUpdatePrices[toll.Id] = new List<TollPriceData>();
+                    }
+
+                    tollsToUpdatePrices[toll.Id].Add(new TollPriceData(
+                        TollId: toll.Id,
+                        Amount: amount,
+                        PaymentType: TollPaymentType.PayOnline,
+                        AxelType: axelType,
+                        TimeOfDay: TollPriceTimeOfDay.Day,
+                        TimeFrom: new TimeOnly(6, 0),   // 6:00 AM
+                        TimeTo: new TimeOnly(21, 0),    // 9:00 PM (21:00)
+                        Description: $"Colorado Northway {plazaName} - Rate 6am-9pm ({axlesKey})"));
                 }
             }
 
-            // rate_9pm_to_6am -> PayOnline, Night
+            // rate_9pm_to_6am -> PayOnline, Night (21:00 до 6:00 следующего дня)
             if (axlesRates.TryGetProperty("rate_9pm_to_6am", out var rate9pmTo6am) &&
                 rate9pmTo6am.ValueKind == JsonValueKind.Number)
             {
                 var amount = rate9pmTo6am.GetDouble();
                 if (amount > 0)
                 {
-                    toll.SetPriceByPaymentType(amount, TollPaymentType.PayOnline, axelType,
-                        TollPriceDayOfWeek.Any, TollPriceDayOfWeek.Any, TollPriceTimeOfDay.Night);
+                    if (!tollsToUpdatePrices.ContainsKey(toll.Id))
+                    {
+                        tollsToUpdatePrices[toll.Id] = new List<TollPriceData>();
+                    }
+
+                    tollsToUpdatePrices[toll.Id].Add(new TollPriceData(
+                        TollId: toll.Id,
+                        Amount: amount,
+                        PaymentType: TollPaymentType.PayOnline,
+                        AxelType: axelType,
+                        TimeOfDay: TollPriceTimeOfDay.Night,
+                        TimeFrom: new TimeOnly(21, 0),  // 9:00 PM (21:00)
+                        TimeTo: new TimeOnly(6, 0),     // 6:00 AM следующего дня
+                        Description: $"Colorado Northway {plazaName} - Rate 9pm-6am ({axlesKey})"));
                 }
             }
         }

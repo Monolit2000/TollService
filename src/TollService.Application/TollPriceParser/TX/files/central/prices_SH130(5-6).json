@@ -1,0 +1,93 @@
+{
+  "toll_locations": [
+    {
+      "name": "SH21 – NB Entrance & SB Exit",
+      "5 Axle": {
+        "TxTag": "N/A",
+        "Pay by Mail": "N/A"
+      },
+      "6 Axle": {
+        "TxTag": "$4.95",
+        "Pay by Mail": "$6.58"
+      }
+    },
+    {
+      "name": "Skyline Plaza NB & SB",
+      "5 Axle": {
+        "TxTag": "N/A",
+        "Pay by Mail": "N/A"
+      },
+      "6 Axle": {
+        "TxTag": "$13.12",
+        "Pay by Mail": "$16.18"
+      }
+    },
+    {
+      "name": "FM1185 – NB Exit & SB Entrance",
+      "5 Axle": {
+        "TxTag": "N/A",
+        "Pay by Mail": "N/A"
+      },
+      "6 Axle": {
+        "TxTag": "$2.72",
+        "Pay by Mail": "$3.62"
+      }
+    },
+    {
+      "name": "SH142 – NB Entrance & SB Exit",
+      "5 Axle": {
+        "TxTag": "N/A",
+        "Pay by Mail": "N/A"
+      },
+      "6 Axle": {
+        "TxTag": "$4.22",
+        "Pay by Mail": "$5.61"
+      }
+    },
+    {
+      "name": "Bluebonnet Plaza NB & SB",
+      "5 Axle": {
+        "TxTag": "N/A",
+        "Pay by Mail": "N/A"
+      },
+      "6 Axle": {
+        "TxTag": "$28.66",
+        "Pay by Mail": "$31.72"
+      }
+    },
+    {
+      "name": "SH80 – NB Exit & SB Entrance",
+      "5 Axle": {
+        "TxTag": "N/A",
+        "Pay by Mail": "N/A"
+      },
+      "6 Axle": {
+        "TxTag": "$16.51",
+        "Pay by Mail": "$19.57"
+      }
+    },
+    {
+      "name": "FM621 – NB Exit & SB Entrance",
+      "5 Axle": {
+        "TxTag": "N/A",
+        "Pay by Mail": "N/A"
+      },
+      "6 Axle": {
+        "TxTag": "$13.74",
+        "Pay by Mail": "$16.80"
+      }
+    },
+    {
+      "name": "FM20 – NB Exit & SB Entrance",
+      "5 Axle": {
+        "TxTag": "N/A",
+        "Pay by Mail": "N/A"
+      },
+      "6 Axle": {
+        "TxTag": "$7.04",
+        "Pay by Mail": "$9.36"
+      }
+    }
+  ],
+  "link": "https://www.mysh130.com/about/toll-rates/"
+}

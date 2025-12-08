@@ -77,7 +77,7 @@ public class TollPrice
         TimeOnly timeTo = default,
         string? description = null)
     {
-        Id =Guid.NewGuid();
+        Id = Guid.NewGuid();
         CalculatePriceId = calculatePriceId;
         Amount = amount;
         PaymentType = paymentType;
@@ -104,7 +104,9 @@ public enum TollPaymentType
     PayOnline = 2,
     Cash = 3,
     EZPass = 4,
-    SunPass = 5,
+    OutOfStateEZPass = 5,
+    VideoTolls = 6,
+    SunPass = 7,
 }
 
 public enum TollPriceTimeOfDay
