@@ -279,10 +279,11 @@ public class ParseNewYorkTollPricesCommandHandler(
         AxelType axelType)
     {
         var tollPrice = new TollPrice(
-            calculatePriceId,
-            amount,
-            paymentType,
-            axelType);
+            calculatePriceId: calculatePriceId,
+            amount: amount,
+            paymentType: paymentType,
+            paymentMethod: null,
+            axelType: axelType);
 
         tollPrice.TollId = tollId;
         return tollPrice;

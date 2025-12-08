@@ -12,7 +12,8 @@ public class Toll
     public Road? Road { get; set; }
     public long? NodeId { get; set; }
     public string? Key { get; set; }
-    public string? Comment { get; set; }    
+    public string? Comment { get; set; }
+    public string? WebsiteUrl { get; set; }
     public bool isDynamic { get; set; } = false;
 
     //public List<Toll> TollsGoTo { get; set; }

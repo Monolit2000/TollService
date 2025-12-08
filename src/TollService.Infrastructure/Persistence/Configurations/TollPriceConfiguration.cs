@@ -19,6 +19,26 @@ public class TollPriceConfiguration : IEntityTypeConfiguration<TollPrice>
         builder.Property(x => x.PaymentType)
             .HasConversion<int>();
 
+        // Настройка PaymentMethod как owned entity с отдельными колонками
+        builder.OwnsOne(x => x.PaymentMethod, pm =>
+        {
+            pm.Property(p => p.Tag)
+                .HasColumnName("PaymentMethod_Tag")
+                .HasDefaultValue(false);
+            pm.Property(p => p.NoPlate)
+                .HasColumnName("PaymentMethod_NoPlate")
+                .HasDefaultValue(false);
+            pm.Property(p => p.Cash)
+                .HasColumnName("PaymentMethod_Cash")
+                .HasDefaultValue(false);
+            pm.Property(p => p.NoCard)
+                .HasColumnName("PaymentMethod_NoCard")
+                .HasDefaultValue(false);
+            pm.Property(p => p.App)
+                .HasColumnName("PaymentMethod_App")
+                .HasDefaultValue(false);
+        });
+
         builder.Property(x => x.TimeOfDay)
             .HasConversion<int>();
 

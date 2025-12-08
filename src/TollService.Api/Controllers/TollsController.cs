@@ -27,6 +27,7 @@ using TollService.Infrastructure.Integrations;
 using TollService.Application.TollPriceParser.NY;
 using TollService.Application.TollPriceParser.FL;
 using static TollService.Application.TollPriceParser.NY.ParseNewYorkTollPricesCommandHandler;
+using TollService.Domain;
 
 namespace TollService.Api.Controllers;
 
@@ -1113,6 +1114,169 @@ public class TollsController : ControllerBase
         {
             return BadRequest($"Error syncing Florida tolls: {ex.Message}");
         }
+    }
+
+    [HttpPost("{tollId}/prices")]
+    [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(TollWithPriceDto))]
+    [ProducesResponseType(StatusCodes.Status400BadRequest)]
+    [ProducesResponseType(StatusCodes.Status404NotFound)]
+    public async Task<IActionResult> CreateTollPrice(
+        Guid tollId,
+        [FromBody] CreateTollPriceDto request,
+        CancellationToken ct = default)
+    {
+        if (request == null)
+        {
+            return BadRequest("Request body cannot be null");
+        }
+
+        // Устанавливаем TollId из URL параметра, если не указан в теле запроса
+        var finalTollId = request.TollId ?? tollId;
+        
+        var paymentMethod = request.PaymentMethod != null
+            ? new PaymentMethod(
+                tag: request.PaymentMethod.Tag,
+                noPlate: request.PaymentMethod.NoPlate,
+                cash: request.PaymentMethod.Cash,
+                noCard: request.PaymentMethod.NoCard,
+                app: request.PaymentMethod.App)
+            : null;
+
+        var command = new CreateTollPriceCommand(
+            TollId: finalTollId != Guid.Empty ? finalTollId : null,
+            CalculatePriceId: request.CalculatePriceId,
+            Amount: request.Amount,
+            PaymentType: request.PaymentType,
+            PaymentMethod: paymentMethod,
+            AxelType: request.AxelType,
+            DayOfWeekFrom: request.DayOfWeekFrom,
+            DayOfWeekTo: request.DayOfWeekTo,
+            TimeOfDay: request.TimeOfDay,
+            TimeFrom: request.TimeFrom,
+            TimeTo: request.TimeTo,
+            Description: request.Description);
+
+        var result = await _mediator.Send(command, ct);
+        
+        if (result == null)
+        {
+            return NotFound("Toll or CalculatePrice not found, or invalid request");
+        }
+
+        return Ok(result);
+    }
+
+    [HttpPost("prices")]
+    [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(TollWithPriceDto))]
+    [ProducesResponseType(StatusCodes.Status400BadRequest)]
+    [ProducesResponseType(StatusCodes.Status404NotFound)]
+    public async Task<IActionResult> CreateTollPriceForCalculatePrice(
+        [FromBody] CreateTollPriceDto request,
+        CancellationToken ct = default)
+    {
+        if (request == null)
+        {
+            return BadRequest("Request body cannot be null");
+        }
+
+        if (!request.TollId.HasValue && !request.CalculatePriceId.HasValue)
+        {
+            return BadRequest("Either TollId or CalculatePriceId must be provided");
+        }
+
+        var paymentMethod = request.PaymentMethod != null
+            ? new PaymentMethod(
+                tag: request.PaymentMethod.Tag,
+                noPlate: request.PaymentMethod.NoPlate,
+                cash: request.PaymentMethod.Cash,
+                noCard: request.PaymentMethod.NoCard,
+                app: request.PaymentMethod.App)
+            : null;
+
+        var command = new CreateTollPriceCommand(
+            TollId: request.TollId,
+            CalculatePriceId: request.CalculatePriceId,
+            Amount: request.Amount,
+            PaymentType: request.PaymentType,
+            PaymentMethod: paymentMethod,
+            AxelType: request.AxelType,
+            DayOfWeekFrom: request.DayOfWeekFrom,
+            DayOfWeekTo: request.DayOfWeekTo,
+            TimeOfDay: request.TimeOfDay,
+            TimeFrom: request.TimeFrom,
+            TimeTo: request.TimeTo,
+            Description: request.Description);
+
+        var result = await _mediator.Send(command, ct);
+        
+        if (result == null)
+        {
+            return NotFound("Toll or CalculatePrice not found, or invalid request");
+        }
+
+        return Ok(result);
+    }
+
+    [HttpPut("prices/{id}")]
+    [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(TollWithPriceDto))]
+    [ProducesResponseType(StatusCodes.Status404NotFound)]
+    public async Task<IActionResult> UpdateTollPrice(
+        Guid id,
+        [FromBody] UpdateTollPriceDto request,
+        CancellationToken ct = default)
+    {
+        if (request == null)
+        {
+            return BadRequest("Request body cannot be null");
+        }
+
+        var paymentMethod = request.PaymentMethod != null
+            ? new PaymentMethod(
+                tag: request.PaymentMethod.Tag,
+                noPlate: request.PaymentMethod.NoPlate,
+                cash: request.PaymentMethod.Cash,
+                noCard: request.PaymentMethod.NoCard,
+                app: request.PaymentMethod.App)
+            : null;
+
+        var command = new UpdateTollPriceCommand(
+            Id: id,
+            Amount: request.Amount,
+            PaymentType: request.PaymentType,
+            PaymentMethod: paymentMethod,
+            AxelType: request.AxelType,
+            TimeOfDay: request.TimeOfDay,
+            DayOfWeekFrom: request.DayOfWeekFrom,
+            DayOfWeekTo: request.DayOfWeekTo,
+            TimeFrom: request.TimeFrom,
+            TimeTo: request.TimeTo,
+            Description: request.Description);
+
+        var result = await _mediator.Send(command, ct);
+        
+        if (result == null)
+        {
+            return NotFound($"TollPrice with id {id} not found");
+        }
+
+        return Ok(result);
+    }
+
+    [HttpDelete("prices/{id}")]
+    [ProducesResponseType(StatusCodes.Status200OK)]
+    [ProducesResponseType(StatusCodes.Status404NotFound)]
+    public async Task<IActionResult> DeleteTollPrice(
+        Guid id,
+        CancellationToken ct = default)
+    {
+        var result = await _mediator.Send(new DeleteTollPriceCommand(id), ct);
+        
+        if (!result)
+        {
+            return NotFound($"TollPrice with id {id} not found");
+        }
+
+        return Ok();
     }
 }
 
