@@ -47,7 +47,7 @@ public class ParseMassachusettsTollsCommandHandler(
                     var tollPoint = new Point(maToll.coordinates.longitude, maToll.coordinates.latitude) { SRID = 4326 };
 
                     // Ищем все существующие Toll в радиусе 100 метров
-                    var existingTolls = await FindTollsInRadiusAsync(_context, maToll.coordinates.latitude, maToll.coordinates.longitude, 100, ct);
+                    List<Toll> existingTolls = null;/*await FindTollsInRadiusAsync(_context, maToll.coordinates.latitude, maToll.coordinates.longitude, 100, ct);*/
 
                     if (/*existingTolls.Count > 0 */ false)
                     {
