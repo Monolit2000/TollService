@@ -18,7 +18,7 @@ public record NewJerseyPlaza(
 public record LinkNewJerseyTollsCommand(string JsonPayload)
     : IRequest<LinkNewJerseyTollsResult>;
 
-public record FoundTollInfo(
+public record NewJerseyFoundTollInfo(
     string PlazaId,
     string PlazaName,
     Guid? TollId,
@@ -28,7 +28,7 @@ public record FoundTollInfo(
     double? DistanceMeters);
 
 public record LinkNewJerseyTollsResult(
-    List<FoundTollInfo> FoundTolls,
+    List<NewJerseyFoundTollInfo> FoundTolls,
     List<string> NotFoundPlazas,
     string? Error = null);
 
@@ -94,7 +94,7 @@ public class LinkNewJerseyTollsCommandHandler(
             NjMaxLongitude,
             NjMaxLatitude);
 
-        var foundTolls = new List<FoundTollInfo>();
+        var foundTolls = new List<NewJerseyFoundTollInfo>();
         var notFoundPlazas = new List<string>();
 
         foreach (var plaza in plazas)
@@ -139,7 +139,7 @@ public class LinkNewJerseyTollsCommandHandler(
                     toll.Name = plaza.Name;
                 }
 
-                foundTolls.Add(new FoundTollInfo(
+                foundTolls.Add(new NewJerseyFoundTollInfo(
                     PlazaId: plaza.Id,
                     PlazaName: plaza.Name,
                     TollId: toll.Id,

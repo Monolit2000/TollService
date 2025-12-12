@@ -139,5 +139,13 @@
       "lat": 44.309222,
       "lng": -69.808085
     }
-  ]
+  ],
+  "link": "https://www.maineturnpike.com/traveler-services/tolls",
+  "payment_methods": {
+    "tag": true,
+    "plate": false,
+    "cash": true,
+    "card": false,
+    "app": true
+  }
 }

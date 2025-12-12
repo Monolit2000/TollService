@@ -1,92 +1,102 @@
-[
-  {
-    "plaza_name": "Plaza A",
-    "rates": {
-      "5_axles": {
-        "license_plate_all_hours": 16.8,
-        "expresstoll_12pm_to_9am": 9.95,
-        "expresstoll_9am_to_12pm": 7.95
-      },
-      "6_axles": {
-        "license_plate_all_hours": 21.0,
-        "expresstoll_12pm_to_9am": 12.45,
-        "expresstoll_9am_to_12pm": 9.95
+{
+  "plazas": [
+    {
+      "plaza_name": "Plaza A",
+      "rates": {
+        "5_axles": {
+          "license_plate_all_hours": 16.8,
+          "expresstoll_12pm_to_9am": 9.95,
+          "expresstoll_9am_to_12pm": 7.95
+        },
+        "6_axles": {
+          "license_plate_all_hours": 21.0,
+          "expresstoll_12pm_to_9am": 12.45,
+          "expresstoll_9am_to_12pm": 9.95
+        }
+      }
+    },
+    {
+      "plaza_name": "Plaza C",
+      "rates": {
+        "5_axles": {
+          "license_plate_all_hours": 17.0,
+          "expresstoll_12pm_to_9am": 10.15,
+          "expresstoll_9am_to_12pm": 8.05
+        },
+        "6_axles": {
+          "license_plate_all_hours": 21.25,
+          "expresstoll_12pm_to_9am": 12.7,
+          "expresstoll_9am_to_12pm": 10.05
+        }
+      }
+    },
+    {
+      "plaza_name": "Plaza B",
+      "rates": {
+        "5_axles": {
+          "license_plate_all_hours": 18.4,
+          "expresstoll_12pm_to_9am": 11.0,
+          "expresstoll_9am_to_12pm": 8.8
+        },
+        "6_axles": {
+          "license_plate_all_hours": 23.0,
+          "expresstoll_12pm_to_9am": 13.75,
+          "expresstoll_9am_to_12pm": 11.0
+        }
+      }
+    },
+    {
+      "plaza_name": "Plaza D",
+      "rates": {
+        "5_axles": {
+          "license_plate_all_hours": 18.4,
+          "expresstoll_12pm_to_9am": 11.0,
+          "expresstoll_9am_to_12pm": 8.8
+        },
+        "6_axles": {
+          "license_plate_all_hours": 23.0,
+          "expresstoll_12pm_to_9am": 13.75,
+          "expresstoll_9am_to_12pm": 11.0
+        }
+      }
+    },
+    {
+      "plaza_name": "Plaza E",
+      "rates": {
+        "5_axles": {
+          "license_plate_all_hours": 18.4,
+          "expresstoll_12pm_to_9am": 11.0,
+          "expresstoll_9am_to_12pm": 8.8
+        },
+        "6_axles": {
+          "license_plate_all_hours": 23.0,
+          "expresstoll_12pm_to_9am": 13.75,
+          "expresstoll_9am_to_12pm": 11.0
+        }
+      }
+    },
+    {
+      "plaza_name": "Toll Ramps",
+      "rates": {
+        "5_axles": {
+          "license_plate_all_hours": 2.05,
+          "expresstoll_12pm_to_9am": 1.25,
+          "expresstoll_9am_to_12pm": 1.25
+        },
+        "6_axles": {
+          "license_plate_all_hours": 2.05,
+          "expresstoll_12pm_to_9am": 1.25,
+          "expresstoll_9am_to_12pm": 1.25
+        }
       }
     }
-  },
-  {
-    "plaza_name": "Plaza C",
-    "rates": {
-      "5_axles": {
-        "license_plate_all_hours": 17.0,
-        "expresstoll_12pm_to_9am": 10.15,
-        "expresstoll_9am_to_12pm": 8.05
-      },
-      "6_axles": {
-        "license_plate_all_hours": 21.25,
-        "expresstoll_12pm_to_9am": 12.7,
-        "expresstoll_9am_to_12pm": 10.05
-      }
-    }
-  },
-  {
-    "plaza_name": "Plaza B",
-    "rates": {
-      "5_axles": {
-        "license_plate_all_hours": 18.4,
-        "expresstoll_12pm_to_9am": 11.0,
-        "expresstoll_9am_to_12pm": 8.8
-      },
-      "6_axles": {
-        "license_plate_all_hours": 23.0,
-        "expresstoll_12pm_to_9am": 13.75,
-        "expresstoll_9am_to_12pm": 11.0
-      }
-    }
-  },
-  {
-    "plaza_name": "Plaza D",
-    "rates": {
-      "5_axles": {
-        "license_plate_all_hours": 18.4,
-        "expresstoll_12pm_to_9am": 11.0,
-        "expresstoll_9am_to_12pm": 8.8
-      },
-      "6_axles": {
-        "license_plate_all_hours": 23.0,
-        "expresstoll_12pm_to_9am": 13.75,
-        "expresstoll_9am_to_12pm": 11.0
-      }
-    }
-  },
-  {
-    "plaza_name": "Plaza E",
-    "rates": {
-      "5_axles": {
-        "license_plate_all_hours": 18.4,
-        "expresstoll_12pm_to_9am": 11.0,
-        "expresstoll_9am_to_12pm": 8.8
-      },
-      "6_axles": {
-        "license_plate_all_hours": 23.0,
-        "expresstoll_12pm_to_9am": 13.75,
-        "expresstoll_9am_to_12pm": 11.0
-      }
-    }
-  },
-  {
-    "plaza_name": "Toll Ramps",
-    "rates": {
-      "5_axles": {
-        "license_plate_all_hours": 2.05,
-        "expresstoll_12pm_to_9am": 1.25,
-        "expresstoll_9am_to_12pm": 1.25
-      },
-      "6_axles": {
-        "license_plate_all_hours": 2.05,
-        "expresstoll_12pm_to_9am": 1.25,
-        "expresstoll_9am_to_12pm": 1.25
-      }
-    }
+  ],
+  "link": "https://www.e-470.com/toll-rates/calculator/",
+  "payment_methods": {
+    "tag": true,
+    "plate": true,
+    "cash": false,
+    "card": false,
+    "app": false
   }
-]
+}

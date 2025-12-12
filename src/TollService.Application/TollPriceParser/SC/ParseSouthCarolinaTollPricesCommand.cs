@@ -70,10 +70,26 @@ public class ParseSouthCarolinaTollPricesCommandHandler(
             SouthCarolinaPricesData? data;
             try
             {
-                data = JsonSerializer.Deserialize<SouthCarolinaPricesData>(request.JsonPayload, new JsonSerializerOptions
+                var options = new JsonSerializerOptions
                 {
                     PropertyNameCaseInsensitive = true
-                });
+                };
+
+                // Используем JsonDocument для обработки новых полей link и payment_methods
+                using (JsonDocument doc = JsonDocument.Parse(request.JsonPayload))
+                {
+                    // Извлекаем только поле toll_plazas для десериализации
+                    if (doc.RootElement.TryGetProperty("toll_plazas", out var tollPlazasElement))
+                    {
+                        var tollPlazas = JsonSerializer.Deserialize<List<SouthCarolinaTollPlaza>>(tollPlazasElement.GetRawText(), options);
+                        data = new SouthCarolinaPricesData(tollPlazas ?? new());
+                    }
+                    else
+                    {
+                        // Fallback: пробуем десериализовать напрямую
+                        data = JsonSerializer.Deserialize<SouthCarolinaPricesData>(request.JsonPayload, options);
+                    }
+                }
             }
             catch (JsonException jsonEx)
             {
@@ -129,8 +145,8 @@ public class ParseSouthCarolinaTollPricesCommandHandler(
                 if (string.IsNullOrWhiteSpace(plaza.Name))
                     continue;
 
-                // Ищем tolls по имени плазы
-                if (!tollsByPlazaName.TryGetValue(plaza.Name.ToLower(), out var foundTolls) || foundTolls.Count == 0)
+                // Ищем tolls по имени плазы (ключи в словаре хранятся в оригинальном регистре)
+                if (!tollsByPlazaName.TryGetValue(plaza.Name, out var foundTolls) || foundTolls.Count == 0)
                 {
                     notFoundPlazas.Add(plaza.Name);
                     continue;

@@ -7025,5 +7025,13 @@
       "ez_pass_off_peak": 0,
       "status": "OK"
     }
-  ]
+  ],
+  "link": "https://www.njta.gov/travel-resources/toll-calculator/?tab=turnpike&entrance=01&method=exits",
+  "payment_methods": {
+    "tag": true,
+    "plate": false,
+    "cash": true,
+    "card": false,
+    "app": true
+  }
 }

@@ -27,5 +27,12 @@
       }
     }
   ],
-  "link": "https://www.dullestollroad.com/toll-rates-electronic-payment-and-pay-plate"
+  "link": "https://www.dullestollroad.com/toll-rates-electronic-payment-and-pay-plate",
+  "payment_methods": {
+    "tag": true,
+    "plate": true,
+    "cash": false,
+    "card": false,
+    "app": true
+  }
 }

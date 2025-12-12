@@ -137,8 +137,8 @@ public class LinkParkwayPricesCommandHandler(
                     continue;
                 }
 
-                // Ищем tolls по имени плазы
-                if (!tollsByPlazaName.TryGetValue(plaza.Name.ToLower(), out var foundTolls) || foundTolls.Count == 0)
+                // Ищем tolls по имени плазы (ключи в словаре хранятся в оригинальном регистре)
+                if (!tollsByPlazaName.TryGetValue(plaza.Name, out var foundTolls) || foundTolls.Count == 0)
                 {
                     notFoundPlazas.Add(plaza.Name);
                     continue;

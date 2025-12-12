@@ -70,10 +70,22 @@ public class LinkColoradoTollsCommandHandler(
         List<ColoradoPlaza>? plazas;
         try
         {
-            plazas = JsonSerializer.Deserialize<List<ColoradoPlaza>>(request.JsonPayload, new JsonSerializerOptions
+            var options = new JsonSerializerOptions
             {
                 PropertyNameCaseInsensitive = true
-            });
+            };
+
+            // Пробуем распарсить как объект с полем "plazas"
+            var jsonDoc = JsonDocument.Parse(request.JsonPayload);
+            if (jsonDoc.RootElement.ValueKind == JsonValueKind.Object && jsonDoc.RootElement.TryGetProperty("plazas", out var plazasElement))
+            {
+                plazas = JsonSerializer.Deserialize<List<ColoradoPlaza>>(plazasElement.GetRawText(), options);
+            }
+            else
+            {
+                // Пробуем распарсить как массив напрямую
+                plazas = JsonSerializer.Deserialize<List<ColoradoPlaza>>(request.JsonPayload, options);
+            }
         }
         catch (JsonException jsonEx)
         {
@@ -126,8 +138,8 @@ public class LinkColoradoTollsCommandHandler(
                 continue;
             }
 
-            // Ищем tolls по имени плазы
-            if (!tollsByPlazaName.TryGetValue(plaza.PlazaName.ToLower(), out var foundTollsForPlaza) || foundTollsForPlaza.Count == 0)
+            // Ищем tolls по имени плазы (ключи в словаре хранятся в оригинальном регистре)
+            if (!tollsByPlazaName.TryGetValue(plaza.PlazaName, out var foundTollsForPlaza) || foundTollsForPlaza.Count == 0)
             {
                 notFoundPlazas.Add(plaza.PlazaName);
                 continue;

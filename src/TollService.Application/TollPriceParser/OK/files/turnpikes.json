@@ -2,55 +2,159 @@
   "turnpikes": [
     {
       "id": 8,
-      "name": "CHEROKEE TURNPIKE"
+      "name": "CHEROKEE TURNPIKE",
+      "link": "https://pikepass.com/plan-your-trip/toll-calculator",
+      "payment_methods": {
+        "tag": true,
+        "plate": true,
+        "cash": false,
+        "card": false,
+        "app": true
+      }
     },
     {
       "id": 9,
-      "name": "CHICKASAW TURNPIKE"
+      "name": "CHICKASAW TURNPIKE",
+      "link": "https://pikepass.com/plan-your-trip/toll-calculator",
+      "payment_methods": {
+        "tag": true,
+        "plate": true,
+        "cash": false,
+        "card": false,
+        "app": true
+      }
     },
     {
       "id": 6,
-      "name": "CIMARRON TURNPIKE"
+      "name": "CIMARRON TURNPIKE",
+      "link": "https://pikepass.com/plan-your-trip/toll-calculator",
+      "payment_methods": {
+        "tag": true,
+        "plate": true,
+        "cash": false,
+        "card": false,
+        "app": true
+      }
     },
     {
       "id": 10,
-      "name": "CREEK TURNPIKE"
+      "name": "CREEK TURNPIKE",
+      "link": "https://pikepass.com/plan-your-trip/toll-calculator",
+      "payment_methods": {
+        "tag": true,
+        "plate": true,
+        "cash": false,
+        "card": false,
+        "app": true
+      }
     },
     {
       "id": 13,
-      "name": "GILCREASE TURNPIKE"
+      "name": "GILCREASE TURNPIKE",
+      "link": "https://pikepass.com/plan-your-trip/toll-calculator",
+      "payment_methods": {
+        "tag": true,
+        "plate": true,
+        "cash": false,
+        "card": false,
+        "app": true
+      }
     },
     {
       "id": 3,
-      "name": "H.E.BAILEY TURNPIKE"
+      "name": "H.E.BAILEY TURNPIKE",
+      "link": "https://pikepass.com/plan-your-trip/toll-calculator",
+      "payment_methods": {
+        "tag": true,
+        "plate": true,
+        "cash": false,
+        "card": false,
+        "app": true
+      }
     },
     {
       "id": 5,
-      "name": "INDIAN NATION TURNPIKE"
+      "name": "INDIAN NATION TURNPIKE",
+      "link": "https://pikepass.com/plan-your-trip/toll-calculator",
+      "payment_methods": {
+        "tag": true,
+        "plate": true,
+        "cash": false,
+        "card": false,
+        "app": true
+      }
     },
     {
       "id": 11,
-      "name": "KICKAPOO TURNPIKE"
+      "name": "KICKAPOO TURNPIKE",
+      "link": "https://pikepass.com/plan-your-trip/toll-calculator",
+      "payment_methods": {
+        "tag": true,
+        "plate": true,
+        "cash": false,
+        "card": false,
+        "app": true
+      }
     },
     {
       "id": 7,
-      "name": "KILPATRICK TURNPIKE"
+      "name": "KILPATRICK TURNPIKE",
+      "link": "https://pikepass.com/plan-your-trip/toll-calculator",
+      "payment_methods": {
+        "tag": true,
+        "plate": true,
+        "cash": false,
+        "card": false,
+        "app": true
+      }
     },
     {
       "id": 4,
-      "name": "MUSKOGEE TURNPIKE"
+      "name": "MUSKOGEE TURNPIKE",
+      "link": "https://pikepass.com/plan-your-trip/toll-calculator",
+      "payment_methods": {
+        "tag": true,
+        "plate": true,
+        "cash": false,
+        "card": false,
+        "app": true
+      }
     },
     {
       "id": 12,
-      "name": "SOUTHWEST JKT TURNPIKE"
+      "name": "SOUTHWEST JKT TURNPIKE",
+      "link": "https://pikepass.com/plan-your-trip/toll-calculator",
+      "payment_methods": {
+        "tag": true,
+        "plate": true,
+        "cash": false,
+        "card": false,
+        "app": true
+      }
     },
     {
       "id": 1,
-      "name": "TURNER TURNPIKE"
+      "name": "TURNER TURNPIKE",
+      "link": "https://pikepass.com/plan-your-trip/toll-calculator",
+      "payment_methods": {
+        "tag": true,
+        "plate": true,
+        "cash": false,
+        "card": false,
+        "app": true
+      }
     },
     {
       "id": 2,
-      "name": "WILL ROGERS TURNPIKE"
+      "name": "WILL ROGERS TURNPIKE",
+      "link": "https://pikepass.com/plan-your-trip/toll-calculator",
+      "payment_methods": {
+        "tag": true,
+        "plate": true,
+        "cash": false,
+        "card": false,
+        "app": true
+      }
     }
   ]
 }

@@ -22,7 +22,7 @@
       }
     },
     {
-      "Toll_Plaza": "Merritt Main Lane Gantry (MLGS)",
+      "Toll_Plaza": "Merritt Main Lane Gantry (MLG5)",
       "rates": {
         "5_Axle": { "TollTag": 8.92, "ZipCash": 17.84 },
         "6_Axle": { "TollTag": 11.15, "ZipCash": 22.3 }
@@ -71,7 +71,7 @@
       }
     },
     {
-      "Toll_Plaza": "Shiloh Main Lane Gantry (MLPG)",
+      "Toll_Plaza": "Shiloh Main Lane Gantry (MLP6)",
       "rates": {
         "5_Axle": { "TollTag": 6.16, "ZipCash": 12.32 },
         "6_Axle": { "TollTag": 7.7, "ZipCash": 15.4 }
@@ -162,7 +162,7 @@
       }
     },
     {
-      "Toll_Plaza": "Belt Line-Luna Road (NBERD)",
+      "Toll_Plaza": "Belt Line - Luna Road (NBERD)",
       "rates": {
         "5_Axle": { "TollTag": 2.84, "ZipCash": 5.68 },
         "6_Axle": { "TollTag": 3.55, "ZipCash": 7.1 }
@@ -204,7 +204,7 @@
       }
     },
     {
-      "Toll_Plaza": "Lower Tarrant-North (NLTRD)",
+      "Toll_Plaza": "Lower Tarrant - North (NLTRD)",
       "rates": {
         "5_Axle": { "TollTag": 2.36, "ZipCash": 4.72 },
         "6_Axle": { "TollTag": 2.95, "ZipCash": 5.9 }
@@ -218,7 +218,7 @@
       }
     },
     {
-      "Toll_Plaza": "Lower Tarrant South (SLTRD)",
+      "Toll_Plaza": "Lower Tarrant - South (SLTRD)",
       "rates": {
         "5_Axle": { "TollTag": 1.36, "ZipCash": 2.72 },
         "6_Axle": { "TollTag": 1.7, "ZipCash": 3.4 }

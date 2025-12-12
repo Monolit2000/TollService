@@ -50,7 +50,14 @@
       }
     },
     {
-      "Toll_Plaza": "Trinity Mills Main Lane Gantry (MLP2) / Frankford Road",
+      "Toll_Plaza": "Trinity Mills Main Lane Gantry (MLP2)",
+      "rates": {
+        "5_Axle": { "TollTag": 5.56, "ZipCash": 11.12 },
+        "6_Axle": { "TollTag": 6.95, "ZipCash": 13.9 }
+      }
+    },
+    {
+      "Toll_Plaza": "Frankford Road",
       "rates": {
         "5_Axle": { "TollTag": 5.56, "ZipCash": 11.12 },
         "6_Axle": { "TollTag": 6.95, "ZipCash": 13.9 }

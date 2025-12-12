@@ -29,7 +29,7 @@
       }
     },
     {
-      "Toll_Plaza": "Altamesa Bivd (ALTBD)",
+      "Toll_Plaza": "Altamesa Blvd (ALTBD)",
       "rates": {
         "5_Axle": { "TollTag": 3.92, "ZipCash": 7.84 },
         "6_Axle": { "TollTag": 4.9, "ZipCash": 9.8 }
@@ -43,7 +43,7 @@
       }
     },
     {
-      "Toll_Plaza": "McPherson Blvd (MCPBO)",
+      "Toll_Plaza": "McPherson Blvd (MCPBD)",
       "rates": {
         "5_Axle": { "TollTag": 5.52, "ZipCash": 11.04 },
         "6_Axle": { "TollTag": 6.9, "ZipCash": 13.8 }
@@ -92,7 +92,7 @@
       }
     },
     {
-      "Toll_Plaza": "Gantry 3 (CR 904Sparks -Rd) (MLG3)",
+      "Toll_Plaza": "Gantry 3 (CR 904-Sparks Rd) (MLG3)",
       "rates": {
         "5_Axle": { "TollTag": 8.6, "ZipCash": 17.2 },
         "6_Axle": { "TollTag": 10.75, "ZipCash": 21.5 }

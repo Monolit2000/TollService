@@ -26,7 +26,15 @@
         "6-Axle": 2.5
       },
       {
-        "Toll_Plaza": "Sienna Parkway Main Lane Plazas and Sienna Ranch Ramp Plazas",
+        "Toll_Plaza": "Sienna Ranch",
+        "2-Axle": 0.5,
+        "3-Axle": 1.0,
+        "4-Axle": 1.5,
+        "5-Axle": 2.0,
+        "6-Axle": 2.5
+      },
+      {
+        "Toll_Plaza": "Sienna Parkway",
         "2-Axle": 0.5,
         "3-Axle": 1.0,
         "4-Axle": 1.5,
@@ -60,7 +68,15 @@
         "6-Axle": 2.7
       },
       {
-        "Toll_Plaza": "Sienna Parkway Main Lane Plazas and Sienna Ranch Ramp Plazas",
+        "Toll_Plaza": "Sienna Ranch",
+        "2-Axle": 0.74,
+        "3-Axle": 1.23,
+        "4-Axle": 1.72,
+        "5-Axle": 2.21,
+        "6-Axle": 2.7
+      },
+      {
+        "Toll_Plaza": "Sienna Parkway",
         "2-Axle": 0.74,
         "3-Axle": 1.23,
         "4-Axle": 1.72,

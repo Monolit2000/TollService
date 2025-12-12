@@ -1,0 +1,10 @@
+{
+  "link": "https://transportation.wv.gov/Turnpike/travel_resources/Pages/Toll-Rates-2025.aspx",
+  "payment_methods": {
+    "tag": true,
+    "plate": true,
+    "cash": true,
+    "card": false,
+    "app": false
+  }
+}

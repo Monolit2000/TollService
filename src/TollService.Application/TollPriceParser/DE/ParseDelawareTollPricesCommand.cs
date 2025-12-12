@@ -26,11 +26,11 @@ public record DelawareTollResponse(
     [property: System.Text.Json.Serialization.JsonPropertyName("routes")] List<DelawareTollRoute>? Routes);
 
 public record ParseDelawareTollPricesResult(
-    List<FoundTollInfo> FoundTolls,
+    List<DelawareFoundTollInfo> FoundTolls,
     List<string> NotFoundPlazas,
     string? Error = null);
 
-public record FoundTollInfo(
+public record DelawareFoundTollInfo(
     Guid TollId,
     string? TollName,
     string? TollKey,
@@ -238,7 +238,7 @@ public class ParseDelawareTollPricesCommandHandler(
                 .FirstOrDefault(kvp => kvp.Value.Contains(toll, new TollIdComparer()))
                 .Key ?? toll.Number ?? "unknown";
 
-            return new FoundTollInfo(
+            return new DelawareFoundTollInfo(
                 toll.Id,
                 toll.Name,
                 toll.Key,
