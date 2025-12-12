@@ -26,6 +26,7 @@ using TollService.Contracts;
 using TollService.Infrastructure.Integrations;
 using TollService.Application.TollPriceParser.NY;
 using TollService.Application.TollPriceParser.FL;
+using TollService.Application.TollPriceParser.MA;
 using static TollService.Application.TollPriceParser.NY.ParseNewYorkTollPricesCommandHandler;
 using TollService.Domain;
 
@@ -1113,6 +1114,34 @@ public class TollsController : ControllerBase
         catch (Exception ex)
         {
             return BadRequest($"Error syncing Florida tolls: {ex.Message}");
+        }
+    }
+
+    [HttpPost("parse-massachusetts-tolls")]
+    [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(ParseMassachusettsTollsResult))]
+    [ProducesResponseType(StatusCodes.Status400BadRequest)]
+    public async Task<IActionResult> ParseMassachusettsTolls(
+        [FromBody] List<MassachusettsTollRequestDto>? request,
+        CancellationToken ct = default)
+    {
+        if (request == null || request.Count == 0)
+        {
+            return BadRequest("Request body cannot be empty");
+        }
+
+        try
+        {
+            var command = new ParseMassachusettsTollsCommand(request);
+            var result = await _mediator.Send(command, ct);
+            return Ok(result);
+        }
+        catch (System.Text.Json.JsonException ex)
+        {
+            return BadRequest($"Invalid JSON format: {ex.Message}");
+        }
+        catch (Exception ex)
+        {
+            return BadRequest($"Error processing request: {ex.Message}");
         }
     }
 
