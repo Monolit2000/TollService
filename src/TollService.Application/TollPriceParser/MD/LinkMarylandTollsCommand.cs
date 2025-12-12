@@ -79,11 +79,34 @@ public class LinkMarylandTollsCommandHandler(
     {
         try
         {
-            // Парсим prices.json из строки
-            var pricesDict = JsonSerializer.Deserialize<Dictionary<string, MarylandPriceData>>(request.PricesJson, new JsonSerializerOptions
+            // Парсим prices.json из строки, игнорируя поля link и payment_methods
+            var jsonDoc = JsonDocument.Parse(request.PricesJson);
+            var pricesDict = new Dictionary<string, MarylandPriceData>();
+
+            // Извлекаем только те свойства, которые являются объектами с ценами (игнорируем link и payment_methods)
+            foreach (var property in jsonDoc.RootElement.EnumerateObject())
             {
-                PropertyNameCaseInsensitive = true
-            });
+                if (property.Name == "link" || property.Name == "payment_methods")
+                {
+                    continue; // Пропускаем эти поля
+                }
+
+                try
+                {
+                    var priceData = JsonSerializer.Deserialize<MarylandPriceData>(property.Value.GetRawText(), new JsonSerializerOptions
+                    {
+                        PropertyNameCaseInsensitive = true
+                    });
+                    if (priceData != null)
+                    {
+                        pricesDict[property.Name] = priceData;
+                    }
+                }
+                catch
+                {
+                    // Игнорируем свойства, которые не являются объектами с ценами
+                }
+            }
 
             if (pricesDict == null || pricesDict.Count == 0)
             {
@@ -396,6 +419,6 @@ public class LinkMarylandTollsCommandHandler(
         return null;
     }
 
-   
+
 }
 

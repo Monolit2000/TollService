@@ -44,5 +44,13 @@
         }
       }
     }
-  ]
+  ],
+  "link": "https://southernconnector.com/rates-palpass.html",
+  "payment_methods": {
+    "tag": true,
+    "plate": false,
+    "cash": true,
+    "card": true,
+    "app": false
+  }
 }

@@ -36,14 +36,14 @@
       }
     },
     {
-      "Toll_Plaza": "Standridge Drive-South (SSTDR)",
+      "Toll_Plaza": "Standridge Drive - South (SSTDR)",
       "rates": {
         "5_Axle": { "TollTag": 3.36, "ZipCash": 6.72 },
         "6_Axle": { "TollTag": 4.2, "ZipCash": 8.4 }
       }
     },
     {
-      "Toll_Plaza": "Josey Lane South (SJOLN)",
+      "Toll_Plaza": "Josey Lane - South (SJOLN)",
       "rates": {
         "5_Axle": { "TollTag": 4.08, "ZipCash": 8.16 },
         "6_Axle": { "TollTag": 5.1, "ZipCash": 10.2 }

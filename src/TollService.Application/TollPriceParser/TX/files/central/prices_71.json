@@ -1,14 +1,14 @@
 {
   "toll_locations": [
     {
-      "name": "Bear Creek Mainline Plaza",
+      "name": "FM 973 Mainline",
       "5 Axle": {
-        "TxTag": "$4.88",
-        "Pay by Mail": "$7.32"
+        "TxTag": "$4.56",
+        "Pay by Mail": "$6.84"
       },
       "6 Axle": {
-        "TxTag": "$6.10",
-        "Pay by Mail": "$9.15"
+        "TxTag": "$5.70",
+        "Pay by Mail": "$8.55"
       }
     }
   ],

@@ -1,0 +1,51 @@
+{
+  "new_hampshire_turnpike_system_tolls": {
+    "currency": "USD",
+    "vehicle_classes": {
+      "class_5": "2-axle truck",
+      "class_6": "3-axle truck"
+    },
+    "toll_plazas": [
+      {
+        "name": "Dover Toll",
+        "highway": "Route 16/Spaulding Turnpike",
+        "tolls": {
+          "class_5": {
+            "cash": 1.5,
+            "ezpass": 1.35
+          },
+          "class_6": {
+            "cash": 2.0,
+            "ezpass": 1.8
+          }
+        }
+      },
+      {
+        "name": "Rochester Toll",
+        "highway": "Route 16/Spaulding Turnpike",
+        "tolls": {
+          "class_5": {
+            "cash": 1.5,
+            "ezpass": 1.35
+          },
+          "class_6": {
+            "cash": 2.0,
+            "ezpass": 1.8
+          }
+        }
+      }
+    ],
+    "summary": {
+      "cheapest_plazas": ["Dover Toll", "Rochester Toll"],
+      "ezpass_discount_note": "E-ZPass provides approximately 10% discount compared to cash payments"
+    }
+  },
+  "link": "https://mm.nh.gov/files/uploads/dot/remote-docs/new-toll-rates-january-1-2020-no-merrimack-exit11.pdf",
+  "payment_methods": {
+    "tag": true,
+    "plate": true,
+    "cash": true,
+    "card": false,
+    "app": false
+  }
+}

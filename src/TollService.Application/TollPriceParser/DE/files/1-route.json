@@ -1143,5 +1143,13 @@
       "ez_pass": 5.5,
       "cash": 6.5
     }
-  ]
+  ],
+  "link": "https://deldot.gov/public.ejs?command=PublicTollRateCalc",
+  "payment_methods": {
+    "tag": true,
+    "plate": false,
+    "cash": true,
+    "card": false,
+    "app": true
+  }
 }

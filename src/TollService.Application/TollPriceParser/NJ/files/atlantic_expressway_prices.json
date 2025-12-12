@@ -75,5 +75,13 @@
       "cash": 0.8,
       "ez_pass_frequent_user": 0.8
     }
-  ]
+  ],
+  "link": "https://www.sjta.com/maps-tolls-esp",
+  "payment_methods": {
+    "tag": true,
+    "plate": false,
+    "cash": true,
+    "card": false,
+    "app": false
+  }
 }

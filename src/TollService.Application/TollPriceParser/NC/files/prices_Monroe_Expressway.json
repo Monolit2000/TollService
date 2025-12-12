@@ -1,282 +1,292 @@
-[
-  {
-    "from": "U.S. 74 (West) (Exit 255)",
-    "to": "Indian Trail-Fairview Rd. (Exit 257)",
-    "rate_x4": 1.2
-  },
-  {
-    "from": "U.S. 74 (West) (Exit 255)",
-    "to": "Unionville-Indian Trail Rd. (Exit 259)",
-    "rate_x4": 2.64
-  },
-  {
-    "from": "U.S. 74 (West) (Exit 255)",
-    "to": "Rocky River Rd. (Exit 260)",
-    "rate_x4": 3.52
-  },
-  {
-    "from": "U.S. 74 (West) (Exit 255)",
-    "to": "U.S. 601 (Exit 264)",
-    "rate_x4": 6.04
-  },
-  {
-    "from": "U.S. 74 (West) (Exit 255)",
-    "to": "Morgan Mill Rd. (Exit 266)",
-    "rate_x4": 7.2
-  },
-  {
-    "from": "U.S. 74 (West) (Exit 255)",
-    "to": "Austin Chaney Rd. (Exit 270)",
-    "rate_x4": 9.76
-  },
-  {
-    "from": "U.S. 74 (West) (Exit 255)",
-    "to": "U.S. 74 (East) (Exit 273)",
-    "rate_x4": 11.68
-  },
-  {
-    "from": "Indian Trail-Fairview Rd. (Exit 257)",
-    "to": "U.S. 74 (West) (Exit 255)",
-    "rate_x4": 1.2
-  },
-  {
-    "from": "Indian Trail-Fairview Rd. (Exit 257)",
-    "to": "Unionville-Indian Trail Rd. (Exit 259)",
-    "rate_x4": 1.44
-  },
-  {
-    "from": "Indian Trail-Fairview Rd. (Exit 257)",
-    "to": "Rocky River Rd. (Exit 260)",
-    "rate_x4": 2.32
-  },
-  {
-    "from": "Indian Trail-Fairview Rd. (Exit 257)",
-    "to": "U.S. 601 (Exit 264)",
-    "rate_x4": 4.84
-  },
-  {
-    "from": "Indian Trail-Fairview Rd. (Exit 257)",
-    "to": "Morgan Mill Rd. (Exit 266)",
-    "rate_x4": 6.0
-  },
-  {
-    "from": "Indian Trail-Fairview Rd. (Exit 257)",
-    "to": "Austin Chaney Rd. (Exit 270)",
-    "rate_x4": 8.56
-  },
-  {
-    "from": "Indian Trail-Fairview Rd. (Exit 257)",
-    "to": "U.S. 74 (East) (Exit 273)",
-    "rate_x4": 10.48
-  },
-  {
-    "from": "Unionville-Indian Trail Rd. (Exit 259)",
-    "to": "U.S. 74 (West) (Exit 255)",
-    "rate_x4": 2.64
-  },
-  {
-    "from": "Unionville-Indian Trail Rd. (Exit 259)",
-    "to": "Indian Trail-Fairview Rd. (Exit 257)",
-    "rate_x4": 1.44
-  },
-  {
-    "from": "Unionville-Indian Trail Rd. (Exit 259)",
-    "to": "Rocky River Rd. (Exit 260)",
-    "rate_x4": 0.88
-  },
-  {
-    "from": "Unionville-Indian Trail Rd. (Exit 259)",
-    "to": "U.S. 601 (Exit 264)",
-    "rate_x4": 3.4
-  },
-  {
-    "from": "Unionville-Indian Trail Rd. (Exit 259)",
-    "to": "Morgan Mill Rd. (Exit 266)",
-    "rate_x4": 4.56
-  },
-  {
-    "from": "Unionville-Indian Trail Rd. (Exit 259)",
-    "to": "Austin Chaney Rd. (Exit 270)",
-    "rate_x4": 7.12
-  },
-  {
-    "from": "Unionville-Indian Trail Rd. (Exit 259)",
-    "to": "U.S. 74 (East) (Exit 273)",
-    "rate_x4": 9.04
-  },
-  {
-    "from": "Rocky River Rd. (Exit 260)",
-    "to": "U.S. 74 (West) (Exit 255)",
-    "rate_x4": 3.52
-  },
-  {
-    "from": "Rocky River Rd. (Exit 260)",
-    "to": "Indian Trail-Fairview Rd. (Exit 257)",
-    "rate_x4": 2.32
-  },
-  {
-    "from": "Rocky River Rd. (Exit 260)",
-    "to": "Unionville-Indian Trail Rd. (Exit 259)",
-    "rate_x4": 0.88
-  },
-  {
-    "from": "Rocky River Rd. (Exit 260)",
-    "to": "U.S. 601 (Exit 264)",
-    "rate_x4": 2.52
-  },
-  {
-    "from": "Rocky River Rd. (Exit 260)",
-    "to": "Morgan Mill Rd. (Exit 266)",
-    "rate_x4": 3.68
-  },
-  {
-    "from": "Rocky River Rd. (Exit 260)",
-    "to": "Austin Chaney Rd. (Exit 270)",
-    "rate_x4": 6.24
-  },
-  {
-    "from": "Rocky River Rd. (Exit 260)",
-    "to": "U.S. 74 (East) (Exit 273)",
-    "rate_x4": 8.16
-  },
-  {
-    "from": "U.S. 601 (Exit 264)",
-    "to": "U.S. 74 (West) (Exit 255)",
-    "rate_x4": 6.04
-  },
-  {
-    "from": "U.S. 601 (Exit 264)",
-    "to": "Indian Trail-Fairview Rd. (Exit 257)",
-    "rate_x4": 4.84
-  },
-  {
-    "from": "U.S. 601 (Exit 264)",
-    "to": "Unionville-Indian Trail Rd. (Exit 259)",
-    "rate_x4": 3.4
-  },
-  {
-    "from": "U.S. 601 (Exit 264)",
-    "to": "Rocky River Rd. (Exit 260)",
-    "rate_x4": 2.52
-  },
-  {
-    "from": "U.S. 601 (Exit 264)",
-    "to": "Morgan Mill Rd. (Exit 266)",
-    "rate_x4": 1.16
-  },
-  {
-    "from": "U.S. 601 (Exit 264)",
-    "to": "Austin Chaney Rd. (Exit 270)",
-    "rate_x4": 3.72
-  },
-  {
-    "from": "U.S. 601 (Exit 264)",
-    "to": "U.S. 74 (East) (Exit 273)",
-    "rate_x4": 5.64
-  },
-  {
-    "from": "Morgan Mill Rd. (Exit 266)",
-    "to": "U.S. 74 (West) (Exit 255)",
-    "rate_x4": 7.2
-  },
-  {
-    "from": "Morgan Mill Rd. (Exit 266)",
-    "to": "Indian Trail-Fairview Rd. (Exit 257)",
-    "rate_x4": 6.0
-  },
-  {
-    "from": "Morgan Mill Rd. (Exit 266)",
-    "to": "Unionville-Indian Trail Rd. (Exit 259)",
-    "rate_x4": 4.56
-  },
-  {
-    "from": "Morgan Mill Rd. (Exit 266)",
-    "to": "Rocky River Rd. (Exit 260)",
-    "rate_x4": 3.68
-  },
-  {
-    "from": "Morgan Mill Rd. (Exit 266)",
-    "to": "U.S. 601 (Exit 264)",
-    "rate_x4": 1.16
-  },
-  {
-    "from": "Morgan Mill Rd. (Exit 266)",
-    "to": "Austin Chaney Rd. (Exit 270)",
-    "rate_x4": 2.56
-  },
-  {
-    "from": "Morgan Mill Rd. (Exit 266)",
-    "to": "U.S. 74 (East) (Exit 273)",
-    "rate_x4": 4.48
-  },
-  {
-    "from": "Austin Chaney Rd. (Exit 270)",
-    "to": "U.S. 74 (West) (Exit 255)",
-    "rate_x4": 9.76
-  },
-  {
-    "from": "Austin Chaney Rd. (Exit 270)",
-    "to": "Indian Trail-Fairview Rd. (Exit 257)",
-    "rate_x4": 8.56
-  },
-  {
-    "from": "Austin Chaney Rd. (Exit 270)",
-    "to": "Unionville-Indian Trail Rd. (Exit 259)",
-    "rate_x4": 7.12
-  },
-  {
-    "from": "Austin Chaney Rd. (Exit 270)",
-    "to": "Rocky River Rd. (Exit 260)",
-    "rate_x4": 6.24
-  },
-  {
-    "from": "Austin Chaney Rd. (Exit 270)",
-    "to": "U.S. 601 (Exit 264)",
-    "rate_x4": 3.72
-  },
-  {
-    "from": "Austin Chaney Rd. (Exit 270)",
-    "to": "Morgan Mill Rd. (Exit 266)",
-    "rate_x4": 2.56
-  },
-  {
-    "from": "Austin Chaney Rd. (Exit 270)",
-    "to": "U.S. 74 (East) (Exit 273)",
-    "rate_x4": 1.92
-  },
-  {
-    "from": "U.S. 74 (East) (Exit 273)",
-    "to": "U.S. 74 (West) (Exit 255)",
-    "rate_x4": 11.68
-  },
-  {
-    "from": "U.S. 74 (East) (Exit 273)",
-    "to": "Indian Trail-Fairview Rd. (Exit 257)",
-    "rate_x4": 10.48
-  },
-  {
-    "from": "U.S. 74 (East) (Exit 273)",
-    "to": "Unionville-Indian Trail Rd. (Exit 259)",
-    "rate_x4": 9.04
-  },
-  {
-    "from": "U.S. 74 (East) (Exit 273)",
-    "to": "Rocky River Rd. (Exit 260)",
-    "rate_x4": 8.16
-  },
-  {
-    "from": "U.S. 74 (East) (Exit 273)",
-    "to": "U.S. 601 (Exit 264)",
-    "rate_x4": 5.64
-  },
-  {
-    "from": "U.S. 74 (East) (Exit 273)",
-    "to": "Morgan Mill Rd. (Exit 266)",
-    "rate_x4": 4.48
-  },
-  {
-    "from": "U.S. 74 (East) (Exit 273)",
-    "to": "Austin Chaney Rd. (Exit 270)",
-    "rate_x4": 1.92
+{
+  "routes": [
+    {
+      "from": "U.S. 74 (West) (Exit 255)",
+      "to": "Indian Trail-Fairview Rd. (Exit 257)",
+      "rate_x4": 1.2
+    },
+    {
+      "from": "U.S. 74 (West) (Exit 255)",
+      "to": "Unionville-Indian Trail Rd. (Exit 259)",
+      "rate_x4": 2.64
+    },
+    {
+      "from": "U.S. 74 (West) (Exit 255)",
+      "to": "Rocky River Rd. (Exit 260)",
+      "rate_x4": 3.52
+    },
+    {
+      "from": "U.S. 74 (West) (Exit 255)",
+      "to": "U.S. 601 (Exit 264)",
+      "rate_x4": 6.04
+    },
+    {
+      "from": "U.S. 74 (West) (Exit 255)",
+      "to": "Morgan Mill Rd. (Exit 266)",
+      "rate_x4": 7.2
+    },
+    {
+      "from": "U.S. 74 (West) (Exit 255)",
+      "to": "Austin Chaney Rd. (Exit 270)",
+      "rate_x4": 9.76
+    },
+    {
+      "from": "U.S. 74 (West) (Exit 255)",
+      "to": "U.S. 74 (East) (Exit 273)",
+      "rate_x4": 11.68
+    },
+    {
+      "from": "Indian Trail-Fairview Rd. (Exit 257)",
+      "to": "U.S. 74 (West) (Exit 255)",
+      "rate_x4": 1.2
+    },
+    {
+      "from": "Indian Trail-Fairview Rd. (Exit 257)",
+      "to": "Unionville-Indian Trail Rd. (Exit 259)",
+      "rate_x4": 1.44
+    },
+    {
+      "from": "Indian Trail-Fairview Rd. (Exit 257)",
+      "to": "Rocky River Rd. (Exit 260)",
+      "rate_x4": 2.32
+    },
+    {
+      "from": "Indian Trail-Fairview Rd. (Exit 257)",
+      "to": "U.S. 601 (Exit 264)",
+      "rate_x4": 4.84
+    },
+    {
+      "from": "Indian Trail-Fairview Rd. (Exit 257)",
+      "to": "Morgan Mill Rd. (Exit 266)",
+      "rate_x4": 6.0
+    },
+    {
+      "from": "Indian Trail-Fairview Rd. (Exit 257)",
+      "to": "Austin Chaney Rd. (Exit 270)",
+      "rate_x4": 8.56
+    },
+    {
+      "from": "Indian Trail-Fairview Rd. (Exit 257)",
+      "to": "U.S. 74 (East) (Exit 273)",
+      "rate_x4": 10.48
+    },
+    {
+      "from": "Unionville-Indian Trail Rd. (Exit 259)",
+      "to": "U.S. 74 (West) (Exit 255)",
+      "rate_x4": 2.64
+    },
+    {
+      "from": "Unionville-Indian Trail Rd. (Exit 259)",
+      "to": "Indian Trail-Fairview Rd. (Exit 257)",
+      "rate_x4": 1.44
+    },
+    {
+      "from": "Unionville-Indian Trail Rd. (Exit 259)",
+      "to": "Rocky River Rd. (Exit 260)",
+      "rate_x4": 0.88
+    },
+    {
+      "from": "Unionville-Indian Trail Rd. (Exit 259)",
+      "to": "U.S. 601 (Exit 264)",
+      "rate_x4": 3.4
+    },
+    {
+      "from": "Unionville-Indian Trail Rd. (Exit 259)",
+      "to": "Morgan Mill Rd. (Exit 266)",
+      "rate_x4": 4.56
+    },
+    {
+      "from": "Unionville-Indian Trail Rd. (Exit 259)",
+      "to": "Austin Chaney Rd. (Exit 270)",
+      "rate_x4": 7.12
+    },
+    {
+      "from": "Unionville-Indian Trail Rd. (Exit 259)",
+      "to": "U.S. 74 (East) (Exit 273)",
+      "rate_x4": 9.04
+    },
+    {
+      "from": "Rocky River Rd. (Exit 260)",
+      "to": "U.S. 74 (West) (Exit 255)",
+      "rate_x4": 3.52
+    },
+    {
+      "from": "Rocky River Rd. (Exit 260)",
+      "to": "Indian Trail-Fairview Rd. (Exit 257)",
+      "rate_x4": 2.32
+    },
+    {
+      "from": "Rocky River Rd. (Exit 260)",
+      "to": "Unionville-Indian Trail Rd. (Exit 259)",
+      "rate_x4": 0.88
+    },
+    {
+      "from": "Rocky River Rd. (Exit 260)",
+      "to": "U.S. 601 (Exit 264)",
+      "rate_x4": 2.52
+    },
+    {
+      "from": "Rocky River Rd. (Exit 260)",
+      "to": "Morgan Mill Rd. (Exit 266)",
+      "rate_x4": 3.68
+    },
+    {
+      "from": "Rocky River Rd. (Exit 260)",
+      "to": "Austin Chaney Rd. (Exit 270)",
+      "rate_x4": 6.24
+    },
+    {
+      "from": "Rocky River Rd. (Exit 260)",
+      "to": "U.S. 74 (East) (Exit 273)",
+      "rate_x4": 8.16
+    },
+    {
+      "from": "U.S. 601 (Exit 264)",
+      "to": "U.S. 74 (West) (Exit 255)",
+      "rate_x4": 6.04
+    },
+    {
+      "from": "U.S. 601 (Exit 264)",
+      "to": "Indian Trail-Fairview Rd. (Exit 257)",
+      "rate_x4": 4.84
+    },
+    {
+      "from": "U.S. 601 (Exit 264)",
+      "to": "Unionville-Indian Trail Rd. (Exit 259)",
+      "rate_x4": 3.4
+    },
+    {
+      "from": "U.S. 601 (Exit 264)",
+      "to": "Rocky River Rd. (Exit 260)",
+      "rate_x4": 2.52
+    },
+    {
+      "from": "U.S. 601 (Exit 264)",
+      "to": "Morgan Mill Rd. (Exit 266)",
+      "rate_x4": 1.16
+    },
+    {
+      "from": "U.S. 601 (Exit 264)",
+      "to": "Austin Chaney Rd. (Exit 270)",
+      "rate_x4": 3.72
+    },
+    {
+      "from": "U.S. 601 (Exit 264)",
+      "to": "U.S. 74 (East) (Exit 273)",
+      "rate_x4": 5.64
+    },
+    {
+      "from": "Morgan Mill Rd. (Exit 266)",
+      "to": "U.S. 74 (West) (Exit 255)",
+      "rate_x4": 7.2
+    },
+    {
+      "from": "Morgan Mill Rd. (Exit 266)",
+      "to": "Indian Trail-Fairview Rd. (Exit 257)",
+      "rate_x4": 6.0
+    },
+    {
+      "from": "Morgan Mill Rd. (Exit 266)",
+      "to": "Unionville-Indian Trail Rd. (Exit 259)",
+      "rate_x4": 4.56
+    },
+    {
+      "from": "Morgan Mill Rd. (Exit 266)",
+      "to": "Rocky River Rd. (Exit 260)",
+      "rate_x4": 3.68
+    },
+    {
+      "from": "Morgan Mill Rd. (Exit 266)",
+      "to": "U.S. 601 (Exit 264)",
+      "rate_x4": 1.16
+    },
+    {
+      "from": "Morgan Mill Rd. (Exit 266)",
+      "to": "Austin Chaney Rd. (Exit 270)",
+      "rate_x4": 2.56
+    },
+    {
+      "from": "Morgan Mill Rd. (Exit 266)",
+      "to": "U.S. 74 (East) (Exit 273)",
+      "rate_x4": 4.48
+    },
+    {
+      "from": "Austin Chaney Rd. (Exit 270)",
+      "to": "U.S. 74 (West) (Exit 255)",
+      "rate_x4": 9.76
+    },
+    {
+      "from": "Austin Chaney Rd. (Exit 270)",
+      "to": "Indian Trail-Fairview Rd. (Exit 257)",
+      "rate_x4": 8.56
+    },
+    {
+      "from": "Austin Chaney Rd. (Exit 270)",
+      "to": "Unionville-Indian Trail Rd. (Exit 259)",
+      "rate_x4": 7.12
+    },
+    {
+      "from": "Austin Chaney Rd. (Exit 270)",
+      "to": "Rocky River Rd. (Exit 260)",
+      "rate_x4": 6.24
+    },
+    {
+      "from": "Austin Chaney Rd. (Exit 270)",
+      "to": "U.S. 601 (Exit 264)",
+      "rate_x4": 3.72
+    },
+    {
+      "from": "Austin Chaney Rd. (Exit 270)",
+      "to": "Morgan Mill Rd. (Exit 266)",
+      "rate_x4": 2.56
+    },
+    {
+      "from": "Austin Chaney Rd. (Exit 270)",
+      "to": "U.S. 74 (East) (Exit 273)",
+      "rate_x4": 1.92
+    },
+    {
+      "from": "U.S. 74 (East) (Exit 273)",
+      "to": "U.S. 74 (West) (Exit 255)",
+      "rate_x4": 11.68
+    },
+    {
+      "from": "U.S. 74 (East) (Exit 273)",
+      "to": "Indian Trail-Fairview Rd. (Exit 257)",
+      "rate_x4": 10.48
+    },
+    {
+      "from": "U.S. 74 (East) (Exit 273)",
+      "to": "Unionville-Indian Trail Rd. (Exit 259)",
+      "rate_x4": 9.04
+    },
+    {
+      "from": "U.S. 74 (East) (Exit 273)",
+      "to": "Rocky River Rd. (Exit 260)",
+      "rate_x4": 8.16
+    },
+    {
+      "from": "U.S. 74 (East) (Exit 273)",
+      "to": "U.S. 601 (Exit 264)",
+      "rate_x4": 5.64
+    },
+    {
+      "from": "U.S. 74 (East) (Exit 273)",
+      "to": "Morgan Mill Rd. (Exit 266)",
+      "rate_x4": 4.48
+    },
+    {
+      "from": "U.S. 74 (East) (Exit 273)",
+      "to": "Austin Chaney Rd. (Exit 270)",
+      "rate_x4": 1.92
+    }
+  ],
+  "link": "https://www.ncquickpass.com/app/uploads/2025/01/Monroe-Expressway-Toll-Schedule-2025.pdf",
+  "payment_methods": {
+    "tag": true,
+    "plate": true,
+    "cash": false,
+    "card": false,
+    "app": false
   }
-]
+}

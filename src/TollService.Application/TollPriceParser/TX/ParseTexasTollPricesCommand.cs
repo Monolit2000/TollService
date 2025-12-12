@@ -24,6 +24,19 @@ public record TexasAxleRateV1(
     [property: JsonPropertyName("TollTag")] double? TollTag,
     [property: JsonPropertyName("ZipCash")] double? ZipCash);
 
+// Формат 7: toll_locations с Toll_Gantry_Location и rates (Transponder_Rate, Pay_by_Mail_Rate)
+public record TexasTollLocationV7(
+    [property: JsonPropertyName("Toll_Gantry_Location")] string TollGantryLocation,
+    [property: JsonPropertyName("rates")] TexasRatesV7? Rates);
+
+public record TexasRatesV7(
+    [property: JsonPropertyName("5_Axles")] TexasAxleRateV7? Axles5,
+    [property: JsonPropertyName("6_Axles_and_above")] TexasAxleRateV7? Axles6AndAbove);
+
+public record TexasAxleRateV7(
+    [property: JsonPropertyName("Transponder_Rate")] double? TransponderRate,
+    [property: JsonPropertyName("Pay_by_Mail_Rate")] double? PayByMailRate);
+
 // Формат 2: toll_locations с name и 5 Axle/6 Axle (TxTag, Pay by Mail)
 public record TexasTollLocationV2(
     [property: JsonPropertyName("name")] string Name,
@@ -43,6 +56,45 @@ public record TexasTollRatesV3(
     [property: JsonPropertyName("5-Axle")] double? Axle5,
     [property: JsonPropertyName("6-Axle")] double? Axle6);
 
+// Формат 4: toll_locations с name и rates (2_axles_tag, 3_axles_tag, и т.д.)
+public record TexasTollLocationV4(
+    [property: JsonPropertyName("name")] string Name,
+    [property: JsonPropertyName("type")] string? Type,
+    [property: JsonPropertyName("rates")] TexasRatesV4? Rates);
+
+// Формат 5: toll_locations с location_name и rates_by_axle (массив)
+public record TexasTollLocationV5(
+    [property: JsonPropertyName("location_name")] string LocationName,
+    [property: JsonPropertyName("rates_by_axle")] List<TexasAxleRateV5>? RatesByAxle);
+
+public record TexasAxleRateV5(
+    [property: JsonPropertyName("axle_count")] int AxleCount,
+    [property: JsonPropertyName("Tag*")] double? Tag,
+    [property: JsonPropertyName("Non-Tag†")] double? NonTag);
+
+// Формат 6: toll_locations с location_name, schedule_type и rates (с time_range)
+public record TexasTollLocationV6(
+    [property: JsonPropertyName("location_id")] int? LocationId,
+    [property: JsonPropertyName("location_name")] string LocationName,
+    [property: JsonPropertyName("schedule_type")] string? ScheduleType,
+    [property: JsonPropertyName("rates")] List<TexasRateV6>? Rates);
+
+public record TexasRateV6(
+    [property: JsonPropertyName("time_range")] string? TimeRange,
+    [property: JsonPropertyName("base_price")] double? BasePrice, // Игнорируем
+    [property: JsonPropertyName("price_5_axle")] double? Price5Axle,
+    [property: JsonPropertyName("price_6_axle")] double? Price6Axle);
+
+public record TexasRatesV4(
+    [property: JsonPropertyName("2_axles_ez_tag_discount")] double? Axles2EzTagDiscount,
+    [property: JsonPropertyName("2_axles_tag")] double? Axles2Tag,
+    [property: JsonPropertyName("3_axles_tag")] double? Axles3Tag,
+    [property: JsonPropertyName("4_axles_tag")] double? Axles4Tag,
+    [property: JsonPropertyName("5_axles_tag")] double? Axles5Tag,
+    [property: JsonPropertyName("6_axles_tag")] double? Axles6Tag,
+    [property: JsonPropertyName("7_axles_tag")] double? Axles7Tag,
+    [property: JsonPropertyName("8_axles_tag")] double? Axles8Tag);
+
 // Модели для JSON структур
 public record TexasPricesDataV1(
     [property: JsonPropertyName("toll_locations")] List<TexasTollLocationV1>? TollLocations);
@@ -52,6 +104,18 @@ public record TexasPricesDataV2(
 
 public record TexasPricesDataV3(
     [property: JsonPropertyName("toll_rates")] TexasTollRatesContainer? TollRates);
+
+public record TexasPricesDataV4(
+    [property: JsonPropertyName("toll_locations")] List<TexasTollLocationV4>? TollLocations);
+
+public record TexasPricesDataV5(
+    [property: JsonPropertyName("toll_locations")] List<TexasTollLocationV5>? TollLocations);
+
+public record TexasPricesDataV6(
+    [property: JsonPropertyName("toll_locations")] List<TexasTollLocationV6>? TollLocations);
+
+public record TexasPricesDataV7(
+    [property: JsonPropertyName("toll_locations")] List<TexasTollLocationV7>? TollLocations);
 
 public record TexasTollRatesContainer(
     [property: JsonPropertyName("standard_toll_rates")] List<TexasTollRatesV3>? StandardTollRates);
@@ -117,7 +181,7 @@ public class ParseTexasTollPricesCommandHandler(
 
             // Определяем формат данных
             var format = DetectFormat(jsonDoc.RootElement);
-            
+
             // Создаем bounding box для Texas
             var txBoundingBox = BoundingBoxHelper.CreateBoundingBox(
                 TxMinLongitude, TxMinLatitude, TxMaxLongitude, TxMaxLatitude);
@@ -136,6 +200,18 @@ public class ParseTexasTollPricesCommandHandler(
                     break;
                 case TexasJsonFormat.Format3:
                     await ProcessFormat3(jsonDoc, txBoundingBox, linkedTolls, notFoundPlazas, tollsToUpdatePrices, ct);
+                    break;
+                case TexasJsonFormat.Format4:
+                    await ProcessFormat4(jsonDoc, txBoundingBox, linkedTolls, notFoundPlazas, tollsToUpdatePrices, ct);
+                    break;
+                case TexasJsonFormat.Format5:
+                    await ProcessFormat5(jsonDoc, txBoundingBox, linkedTolls, notFoundPlazas, tollsToUpdatePrices, ct);
+                    break;
+                case TexasJsonFormat.Format6:
+                    await ProcessFormat6(jsonDoc, txBoundingBox, linkedTolls, notFoundPlazas, tollsToUpdatePrices, ct);
+                    break;
+                case TexasJsonFormat.Format7:
+                    await ProcessFormat7(jsonDoc, txBoundingBox, linkedTolls, notFoundPlazas, tollsToUpdatePrices, ct);
                     break;
                 default:
                     return new ParseTexasTollPricesResult(
@@ -181,8 +257,12 @@ public class ParseTexasTollPricesCommandHandler(
     {
         Unknown,
         Format1, // toll_locations с Toll_Plaza и rates
-        Format2, // toll_locations с name и 5 Axle/6 Axle
-        Format3  // toll_rates с standard_toll_rates
+        Format2, // toll_locations с name и 5 Axle/6 Axle (TxTag, Pay by Mail)
+        Format3, // toll_rates с standard_toll_rates
+        Format4, // toll_locations с name и rates (2_axles_tag, 3_axles_tag, и т.д.)
+        Format5, // toll_locations с location_name и rates_by_axle (массив)
+        Format6, // toll_locations с location_name, schedule_type и rates (с time_range)
+        Format7  // toll_locations с Toll_Gantry_Location и rates (Transponder_Rate, Pay_by_Mail_Rate)
     }
 
     private static TexasJsonFormat DetectFormat(JsonElement root)
@@ -193,20 +273,62 @@ public class ParseTexasTollPricesCommandHandler(
             return TexasJsonFormat.Format3;
         }
 
-        // Проверяем формат 1 или 2: наличие toll_locations
+        // Проверяем формат 1, 2 или 4: наличие toll_locations
         if (root.TryGetProperty("toll_locations", out var tollLocations) && tollLocations.ValueKind == JsonValueKind.Array)
         {
             if (tollLocations.GetArrayLength() > 0)
             {
                 var firstItem = tollLocations[0];
-                
+
+                // Формат 7: есть Toll_Gantry_Location
+                if (firstItem.TryGetProperty("Toll_Gantry_Location", out _))
+                {
+                    return TexasJsonFormat.Format7;
+                }
+
                 // Формат 1: есть Toll_Plaza
                 if (firstItem.TryGetProperty("Toll_Plaza", out _))
                 {
                     return TexasJsonFormat.Format1;
                 }
-                
-                // Формат 2: есть name
+
+                // Формат 6: есть location_name, schedule_type и rates (массив с time_range)
+                if (firstItem.TryGetProperty("location_name", out _) &&
+                    firstItem.TryGetProperty("schedule_type", out _) &&
+                    firstItem.TryGetProperty("rates", out var ratesV6) &&
+                    ratesV6.ValueKind == JsonValueKind.Array &&
+                    ratesV6.GetArrayLength() > 0)
+                {
+                    var firstRate = ratesV6[0];
+                    if (firstRate.TryGetProperty("time_range", out _) &&
+                        firstRate.TryGetProperty("price_5_axle", out _))
+                    {
+                        return TexasJsonFormat.Format6;
+                    }
+                }
+
+                // Формат 5: есть location_name и rates_by_axle
+                if (firstItem.TryGetProperty("location_name", out _) && firstItem.TryGetProperty("rates_by_axle", out _))
+                {
+                    return TexasJsonFormat.Format5;
+                }
+
+                // Формат 4: есть name и rates (с полями типа 2_axles_tag)
+                if (firstItem.TryGetProperty("name", out _) && firstItem.TryGetProperty("rates", out var rates))
+                {
+                    if (rates.ValueKind == JsonValueKind.Object)
+                    {
+                        // Проверяем наличие полей типа 2_axles_tag
+                        if (rates.TryGetProperty("2_axles_tag", out _) ||
+                            rates.TryGetProperty("5_axles_tag", out _) ||
+                            rates.TryGetProperty("2_axles_ez_tag_discount", out _))
+                        {
+                            return TexasJsonFormat.Format4;
+                        }
+                    }
+                }
+
+                // Формат 2: есть name (без rates или с другим форматом rates)
                 if (firstItem.TryGetProperty("name", out _))
                 {
                     return TexasJsonFormat.Format2;
@@ -259,7 +381,8 @@ public class ParseTexasTollPricesCommandHandler(
             if (string.IsNullOrWhiteSpace(plaza.TollPlaza))
                 continue;
 
-            if (!tollsByPlazaName.TryGetValue(plaza.TollPlaza.ToLower(), out var foundTolls) || foundTolls.Count == 0)
+            // Ключи в словаре хранятся в оригинальном регистре
+            if (!tollsByPlazaName.TryGetValue(plaza.TollPlaza, out var foundTolls) || foundTolls.Count == 0)
             {
                 notFoundPlazas.Add(plaza.TollPlaza);
                 continue;
@@ -406,7 +529,8 @@ public class ParseTexasTollPricesCommandHandler(
             if (string.IsNullOrWhiteSpace(plaza.Name))
                 continue;
 
-            if (!tollsByPlazaName.TryGetValue(plaza.Name.ToLower(), out var foundTolls) || foundTolls.Count == 0)
+            // Ключи в словаре хранятся в оригинальном регистре
+            if (!tollsByPlazaName.TryGetValue(plaza.Name, out var foundTolls) || foundTolls.Count == 0)
             {
                 notFoundPlazas.Add(plaza.Name);
                 continue;
@@ -563,7 +687,8 @@ public class ParseTexasTollPricesCommandHandler(
             if (string.IsNullOrWhiteSpace(plaza.TollPlaza))
                 continue;
 
-            if (!tollsByPlazaName.TryGetValue(plaza.TollPlaza.ToLower(), out var foundTolls) || foundTolls.Count == 0)
+            // Ключи в словаре хранятся в оригинальном регистре
+            if (!tollsByPlazaName.TryGetValue(plaza.TollPlaza, out var foundTolls) || foundTolls.Count == 0)
             {
                 notFoundPlazas.Add(plaza.TollPlaza);
                 continue;
@@ -615,6 +740,568 @@ public class ParseTexasTollPricesCommandHandler(
                 {
                     linkedTolls.Add(new TexasLinkedTollInfo(
                         PlazaName: plaza.TollPlaza,
+                        TollId: toll.Id,
+                        TollName: toll.Name,
+                        TollKey: toll.Key,
+                        Prices: prices));
+                }
+            }
+        }
+    }
+
+    private async Task ProcessFormat4(
+        JsonDocument jsonDoc,
+        Polygon boundingBox,
+        List<TexasLinkedTollInfo> linkedTolls,
+        List<string> notFoundPlazas,
+        Dictionary<Guid, List<TollPriceData>> tollsToUpdatePrices,
+        CancellationToken ct)
+    {
+        var data = JsonSerializer.Deserialize<TexasPricesDataV4>(jsonDoc.RootElement.GetRawText(), new JsonSerializerOptions
+        {
+            PropertyNameCaseInsensitive = true
+        });
+
+        if (data?.TollLocations == null || data.TollLocations.Count == 0)
+        {
+            return;
+        }
+
+        // Собираем все уникальные имена плаз
+        var allPlazaNames = data.TollLocations
+            .Where(p => !string.IsNullOrWhiteSpace(p.Name))
+            .Select(p => p.Name)
+            .Distinct()
+            .ToList();
+
+        if (allPlazaNames.Count == 0)
+        {
+            return;
+        }
+
+        // Оптимизированный поиск tolls
+        var tollsByPlazaName = await _tollSearchService.FindMultipleTollsInBoundingBoxAsync(
+            allPlazaNames,
+            boundingBox,
+            TollSearchOptions.NameOrKey,
+            ct);
+
+        foreach (var plaza in data.TollLocations)
+        {
+            if (string.IsNullOrWhiteSpace(plaza.Name))
+                continue;
+
+            // Ключи в словаре хранятся в оригинальном регистре
+            if (!tollsByPlazaName.TryGetValue(plaza.Name, out var foundTolls) || foundTolls.Count == 0)
+            {
+                notFoundPlazas.Add(plaza.Name);
+                continue;
+            }
+
+            foreach (var toll in foundTolls)
+            {
+                var prices = new List<TexasTollPriceInfo>();
+
+                if (plaza.Rates == null)
+                    continue;
+
+
+                // Обрабатываем 5 осей
+                if (plaza.Rates.Axles5Tag.HasValue && plaza.Rates.Axles5Tag.Value > 0)
+                {
+                    var amount = plaza.Rates.Axles5Tag.Value;
+                    prices.Add(new TexasTollPriceInfo("Tag", amount, 5));
+
+                    if (!tollsToUpdatePrices.ContainsKey(toll.Id))
+                    {
+                        tollsToUpdatePrices[toll.Id] = new List<TollPriceData>();
+                    }
+
+                    tollsToUpdatePrices[toll.Id].Add(new TollPriceData(
+                        TollId: toll.Id,
+                        Amount: amount,
+                        PaymentType: TollPaymentType.EZPass,
+                        AxelType: AxelType._5L,
+                        Description: $"Texas {plaza.Name} - Tag (5 axles)"));
+                }
+
+                // Обрабатываем 6 осей
+                if (plaza.Rates.Axles6Tag.HasValue && plaza.Rates.Axles6Tag.Value > 0)
+                {
+                    var amount = plaza.Rates.Axles6Tag.Value;
+                    prices.Add(new TexasTollPriceInfo("Tag", amount, 6));
+
+                    if (!tollsToUpdatePrices.ContainsKey(toll.Id))
+                    {
+                        tollsToUpdatePrices[toll.Id] = new List<TollPriceData>();
+                    }
+
+                    tollsToUpdatePrices[toll.Id].Add(new TollPriceData(
+                        TollId: toll.Id,
+                        Amount: amount,
+                        PaymentType: TollPaymentType.EZPass,
+                        AxelType: AxelType._6L,
+                        Description: $"Texas {plaza.Name} - Tag (6 axles)"));
+                }
+
+
+                if (prices.Count > 0)
+                {
+                    linkedTolls.Add(new TexasLinkedTollInfo(
+                        PlazaName: plaza.Name,
+                        TollId: toll.Id,
+                        TollName: toll.Name,
+                        TollKey: toll.Key,
+                        Prices: prices));
+                }
+            }
+        }
+    }
+
+    private async Task ProcessFormat5(
+        JsonDocument jsonDoc,
+        Polygon boundingBox,
+        List<TexasLinkedTollInfo> linkedTolls,
+        List<string> notFoundPlazas,
+        Dictionary<Guid, List<TollPriceData>> tollsToUpdatePrices,
+        CancellationToken ct)
+    {
+        var data = JsonSerializer.Deserialize<TexasPricesDataV5>(jsonDoc.RootElement.GetRawText(), new JsonSerializerOptions
+        {
+            PropertyNameCaseInsensitive = true
+        });
+
+        if (data?.TollLocations == null || data.TollLocations.Count == 0)
+        {
+            return;
+        }
+
+        // Собираем все уникальные имена плаз
+        var allPlazaNames = data.TollLocations
+            .Where(p => !string.IsNullOrWhiteSpace(p.LocationName))
+            .Select(p => p.LocationName)
+            .Distinct()
+            .ToList();
+
+        if (allPlazaNames.Count == 0)
+        {
+            return;
+        }
+
+        // Оптимизированный поиск tolls
+        var tollsByPlazaName = await _tollSearchService.FindMultipleTollsInBoundingBoxAsync(
+            allPlazaNames,
+            boundingBox,
+            TollSearchOptions.NameOrKey,
+            ct);
+
+        foreach (var plaza in data.TollLocations)
+        {
+            if (string.IsNullOrWhiteSpace(plaza.LocationName))
+                continue;
+
+            // Ключи в словаре хранятся в оригинальном регистре
+            if (!tollsByPlazaName.TryGetValue(plaza.LocationName, out var foundTolls) || foundTolls.Count == 0)
+            {
+                notFoundPlazas.Add(plaza.LocationName);
+                continue;
+            }
+
+            if (plaza.RatesByAxle == null || plaza.RatesByAxle.Count == 0)
+                continue;
+
+            foreach (var toll in foundTolls)
+            {
+                var prices = new List<TexasTollPriceInfo>();
+
+                foreach (var rate in plaza.RatesByAxle)
+                {
+                    var axleCount = rate.AxleCount;
+
+                    // Обрабатываем только 5 и 6 осей
+                    if (axleCount != 5 && axleCount != 6)
+                        continue;
+
+                    // Обрабатываем Tag*
+                    if (rate.Tag.HasValue && rate.Tag.Value > 0)
+                    {
+                        var amount = rate.Tag.Value;
+                        prices.Add(new TexasTollPriceInfo("Tag", amount, axleCount));
+
+                        if (!tollsToUpdatePrices.ContainsKey(toll.Id))
+                        {
+                            tollsToUpdatePrices[toll.Id] = new List<TollPriceData>();
+                        }
+
+                        var axelType = axleCount == 5 ? AxelType._5L : AxelType._6L;
+
+                        tollsToUpdatePrices[toll.Id].Add(new TollPriceData(
+                            TollId: toll.Id,
+                            Amount: amount,
+                            PaymentType: TollPaymentType.EZPass,
+                            AxelType: axelType,
+                            Description: $"Texas {plaza.LocationName} - Tag ({axleCount} axles)"));
+                    }
+
+                    // Обрабатываем Non-Tag†
+                    if (rate.NonTag.HasValue && rate.NonTag.Value > 0)
+                    {
+                        var amount = rate.NonTag.Value;
+                        prices.Add(new TexasTollPriceInfo("Non-Tag", amount, axleCount));
+
+                        if (!tollsToUpdatePrices.ContainsKey(toll.Id))
+                        {
+                            tollsToUpdatePrices[toll.Id] = new List<TollPriceData>();
+                        }
+
+                        var axelType = axleCount == 5 ? AxelType._5L : AxelType._6L;
+
+                        tollsToUpdatePrices[toll.Id].Add(new TollPriceData(
+                            TollId: toll.Id,
+                            Amount: amount,
+                            PaymentType: TollPaymentType.PayOnline,
+                            AxelType: axelType,
+                            Description: $"Texas {plaza.LocationName} - Non-Tag ({axleCount} axles)"));
+                    }
+                }
+
+                if (prices.Count > 0)
+                {
+                    linkedTolls.Add(new TexasLinkedTollInfo(
+                        PlazaName: plaza.LocationName,
+                        TollId: toll.Id,
+                        TollName: toll.Name,
+                        TollKey: toll.Key,
+                        Prices: prices));
+                }
+            }
+        }
+    }
+
+    private async Task ProcessFormat6(
+        JsonDocument jsonDoc,
+        Polygon boundingBox,
+        List<TexasLinkedTollInfo> linkedTolls,
+        List<string> notFoundPlazas,
+        Dictionary<Guid, List<TollPriceData>> tollsToUpdatePrices,
+        CancellationToken ct)
+    {
+        var data = JsonSerializer.Deserialize<TexasPricesDataV6>(jsonDoc.RootElement.GetRawText(), new JsonSerializerOptions
+        {
+            PropertyNameCaseInsensitive = true
+        });
+
+        if (data?.TollLocations == null || data.TollLocations.Count == 0)
+        {
+            return;
+        }
+
+        // Собираем все уникальные имена плаз
+        var allPlazaNames = data.TollLocations
+            .Where(p => !string.IsNullOrWhiteSpace(p.LocationName))
+            .Select(p => p.LocationName)
+            .Distinct()
+            .ToList();
+
+        if (allPlazaNames.Count == 0)
+        {
+            return;
+        }
+
+        // Оптимизированный поиск tolls
+        var tollsByPlazaName = await _tollSearchService.FindMultipleTollsInBoundingBoxAsync(
+            allPlazaNames,
+            boundingBox,
+            TollSearchOptions.NameOrKey,
+            ct);
+
+        foreach (var plaza in data.TollLocations)
+        {
+            if (string.IsNullOrWhiteSpace(plaza.LocationName))
+                continue;
+
+            // Ключи в словаре хранятся в оригинальном регистре
+            if (!tollsByPlazaName.TryGetValue(plaza.LocationName, out var foundTolls) || foundTolls.Count == 0)
+            {
+                notFoundPlazas.Add(plaza.LocationName);
+                continue;
+            }
+
+            if (plaza.Rates == null || plaza.Rates.Count == 0)
+                continue;
+
+            // Парсим schedule_type
+            var (dayOfWeekFrom, dayOfWeekTo) = ParseScheduleType(plaza.ScheduleType);
+
+            foreach (var toll in foundTolls)
+            {
+                var prices = new List<TexasTollPriceInfo>();
+
+                foreach (var rate in plaza.Rates)
+                {
+                    // Парсим time_range
+                    var (timeFrom, timeTo) = ParseTimeRange(rate.TimeRange);
+
+                    // Обрабатываем 5 осей
+                    if (rate.Price5Axle.HasValue && rate.Price5Axle.Value > 0)
+                    {
+                        var amount = rate.Price5Axle.Value;
+                        prices.Add(new TexasTollPriceInfo("Standard", amount, 5));
+
+                        if (!tollsToUpdatePrices.ContainsKey(toll.Id))
+                        {
+                            tollsToUpdatePrices[toll.Id] = new List<TollPriceData>();
+                        }
+
+                        tollsToUpdatePrices[toll.Id].Add(new TollPriceData(
+                            TollId: toll.Id,
+                            Amount: amount,
+                            PaymentType: TollPaymentType.Cash,
+                            AxelType: AxelType._5L,
+                            DayOfWeekFrom: dayOfWeekFrom,
+                            DayOfWeekTo: dayOfWeekTo,
+                            TimeFrom: timeFrom,
+                            TimeTo: timeTo,
+                            Description: $"Texas {plaza.LocationName} - Standard Rate (5 axles, {plaza.ScheduleType})"));
+                    }
+
+                    // Обрабатываем 6 осей
+                    if (rate.Price6Axle.HasValue && rate.Price6Axle.Value > 0)
+                    {
+                        var amount = rate.Price6Axle.Value;
+                        prices.Add(new TexasTollPriceInfo("Standard", amount, 6));
+
+                        if (!tollsToUpdatePrices.ContainsKey(toll.Id))
+                        {
+                            tollsToUpdatePrices[toll.Id] = new List<TollPriceData>();
+                        }
+
+                        tollsToUpdatePrices[toll.Id].Add(new TollPriceData(
+                            TollId: toll.Id,
+                            Amount: amount,
+                            PaymentType: TollPaymentType.Cash,
+                            AxelType: AxelType._6L,
+                            DayOfWeekFrom: dayOfWeekFrom,
+                            DayOfWeekTo: dayOfWeekTo,
+                            TimeFrom: timeFrom,
+                            TimeTo: timeTo,
+                            Description: $"Texas {plaza.LocationName} - Standard Rate (6 axles, {plaza.ScheduleType})"));
+                    }
+                }
+
+                if (prices.Count > 0)
+                {
+                    linkedTolls.Add(new TexasLinkedTollInfo(
+                        PlazaName: plaza.LocationName,
+                        TollId: toll.Id,
+                        TollName: toll.Name,
+                        TollKey: toll.Key,
+                        Prices: prices));
+                }
+            }
+        }
+    }
+
+    private static (TollPriceDayOfWeek from, TollPriceDayOfWeek to) ParseScheduleType(string? scheduleType)
+    {
+        if (string.IsNullOrWhiteSpace(scheduleType))
+            return (TollPriceDayOfWeek.Any, TollPriceDayOfWeek.Any);
+
+        var scheduleLower = scheduleType.ToLower();
+
+        if (scheduleLower.Contains("weekday"))
+            return (TollPriceDayOfWeek.Monday, TollPriceDayOfWeek.Friday);
+
+        if (scheduleLower.Contains("weekend"))
+            return (TollPriceDayOfWeek.Saturday, TollPriceDayOfWeek.Sunday);
+
+        return (TollPriceDayOfWeek.Any, TollPriceDayOfWeek.Any);
+    }
+
+    private static (TimeOnly from, TimeOnly to) ParseTimeRange(string? timeRange)
+    {
+        if (string.IsNullOrWhiteSpace(timeRange))
+            return (default, default);
+
+        // Формат: "12:00 AM - 04:30 AM" или "05:00 AM - 06:30 PM"
+        var pattern = @"(\d{1,2}):(\d{2})\s*(AM|PM)\s*-\s*(\d{1,2}):(\d{2})\s*(AM|PM)";
+        var match = Regex.Match(timeRange, pattern, RegexOptions.IgnoreCase);
+
+        if (match.Success)
+        {
+            try
+            {
+                var fromHour = int.Parse(match.Groups[1].Value);
+                var fromMinute = int.Parse(match.Groups[2].Value);
+                var fromPeriod = match.Groups[3].Value.ToUpper();
+                var toHour = int.Parse(match.Groups[4].Value);
+                var toMinute = int.Parse(match.Groups[5].Value);
+                var toPeriod = match.Groups[6].Value.ToUpper();
+
+                // Конвертируем в 24-часовой формат
+                if (fromPeriod == "PM" && fromHour != 12)
+                    fromHour += 12;
+                if (fromPeriod == "AM" && fromHour == 12)
+                    fromHour = 0;
+
+                if (toPeriod == "PM" && toHour != 12)
+                    toHour += 12;
+                if (toPeriod == "AM" && toHour == 12)
+                    toHour = 0;
+
+                var timeFrom = new TimeOnly(fromHour, fromMinute);
+                var timeTo = new TimeOnly(toHour, toMinute);
+
+                return (timeFrom, timeTo);
+            }
+            catch
+            {
+                // Если не удалось распарсить, возвращаем default
+            }
+        }
+
+        return (default, default);
+    }
+
+    private async Task ProcessFormat7(
+        JsonDocument jsonDoc,
+        Polygon boundingBox,
+        List<TexasLinkedTollInfo> linkedTolls,
+        List<string> notFoundPlazas,
+        Dictionary<Guid, List<TollPriceData>> tollsToUpdatePrices,
+        CancellationToken ct)
+    {
+        var data = JsonSerializer.Deserialize<TexasPricesDataV7>(jsonDoc.RootElement.GetRawText(), new JsonSerializerOptions
+        {
+            PropertyNameCaseInsensitive = true
+        });
+
+        if (data?.TollLocations == null || data.TollLocations.Count == 0)
+        {
+            return;
+        }
+
+        // Собираем все уникальные имена плаз
+        var allPlazaNames = data.TollLocations
+            .Where(p => !string.IsNullOrWhiteSpace(p.TollGantryLocation))
+            .Select(p => p.TollGantryLocation)
+            .Distinct()
+            .ToList();
+
+        if (allPlazaNames.Count == 0)
+        {
+            return;
+        }
+
+        // Оптимизированный поиск tolls
+        var tollsByPlazaName = await _tollSearchService.FindMultipleTollsInBoundingBoxAsync(
+            allPlazaNames,
+            boundingBox,
+            TollSearchOptions.NameOrKey,
+            ct);
+
+        foreach (var plaza in data.TollLocations)
+        {
+            if (string.IsNullOrWhiteSpace(plaza.TollGantryLocation))
+                continue;
+
+            // Ключи в словаре хранятся в оригинальном регистре
+            if (!tollsByPlazaName.TryGetValue(plaza.TollGantryLocation, out var foundTolls) || foundTolls.Count == 0)
+            {
+                notFoundPlazas.Add(plaza.TollGantryLocation);
+                continue;
+            }
+
+            foreach (var toll in foundTolls)
+            {
+                var prices = new List<TexasTollPriceInfo>();
+
+                // Обрабатываем 5 осей
+                var axles5 = plaza.Rates?.Axles5;
+                if (axles5 != null)
+                {
+                    if (axles5.TransponderRate.HasValue && axles5.TransponderRate.Value > 0)
+                    {
+                        var amount = axles5.TransponderRate.Value;
+                        prices.Add(new TexasTollPriceInfo("Transponder", amount, 5));
+
+                        if (!tollsToUpdatePrices.ContainsKey(toll.Id))
+                        {
+                            tollsToUpdatePrices[toll.Id] = new List<TollPriceData>();
+                        }
+
+                        tollsToUpdatePrices[toll.Id].Add(new TollPriceData(
+                            TollId: toll.Id,
+                            Amount: amount,
+                            PaymentType: TollPaymentType.EZPass,
+                            AxelType: AxelType._5L,
+                            Description: $"Texas {plaza.TollGantryLocation} - Transponder (5 axles)"));
+                    }
+
+                    if (axles5.PayByMailRate.HasValue && axles5.PayByMailRate.Value > 0)
+                    {
+                        var amount = axles5.PayByMailRate.Value;
+                        prices.Add(new TexasTollPriceInfo("Pay by Mail", amount, 5));
+
+                        if (!tollsToUpdatePrices.ContainsKey(toll.Id))
+                        {
+                            tollsToUpdatePrices[toll.Id] = new List<TollPriceData>();
+                        }
+
+                        tollsToUpdatePrices[toll.Id].Add(new TollPriceData(
+                            TollId: toll.Id,
+                            Amount: amount,
+                            PaymentType: TollPaymentType.PayOnline,
+                            AxelType: AxelType._5L,
+                            Description: $"Texas {plaza.TollGantryLocation} - Pay by Mail (5 axles)"));
+                    }
+                }
+
+                // Обрабатываем 6 осей
+                var axles6 = plaza.Rates?.Axles6AndAbove;
+                if (axles6 != null)
+                {
+                    if (axles6.TransponderRate.HasValue && axles6.TransponderRate.Value > 0)
+                    {
+                        var amount = axles6.TransponderRate.Value;
+                        prices.Add(new TexasTollPriceInfo("Transponder", amount, 6));
+
+                        if (!tollsToUpdatePrices.ContainsKey(toll.Id))
+                        {
+                            tollsToUpdatePrices[toll.Id] = new List<TollPriceData>();
+                        }
+
+                        tollsToUpdatePrices[toll.Id].Add(new TollPriceData(
+                            TollId: toll.Id,
+                            Amount: amount,
+                            PaymentType: TollPaymentType.EZPass,
+                            AxelType: AxelType._6L,
+                            Description: $"Texas {plaza.TollGantryLocation} - Transponder (6 axles)"));
+                    }
+
+                    if (axles6.PayByMailRate.HasValue && axles6.PayByMailRate.Value > 0)
+                    {
+                        var amount = axles6.PayByMailRate.Value;
+                        prices.Add(new TexasTollPriceInfo("Pay by Mail", amount, 6));
+
+                        if (!tollsToUpdatePrices.ContainsKey(toll.Id))
+                        {
+                            tollsToUpdatePrices[toll.Id] = new List<TollPriceData>();
+                        }
+
+                        tollsToUpdatePrices[toll.Id].Add(new TollPriceData(
+                            TollId: toll.Id,
+                            Amount: amount,
+                            PaymentType: TollPaymentType.PayOnline,
+                            AxelType: AxelType._6L,
+                            Description: $"Texas {plaza.TollGantryLocation} - Pay by Mail (6 axles)"));
+                    }
+                }
+
+                if (prices.Count > 0)
+                {
+                    linkedTolls.Add(new TexasLinkedTollInfo(
+                        PlazaName: plaza.TollGantryLocation,
                         TollId: toll.Id,
                         TollName: toll.Name,
                         TollKey: toll.Key,

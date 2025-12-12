@@ -56,7 +56,7 @@ public class LinkOklahomaTollsCommandHandler(
     private static readonly double OkMaxLongitude = -94.4;
 
     private const string BaseApiUrl = "https://ppentapi.pikepass.com/api/sharedlookuppublic/turnpikes";
-    // {"turnpikeIds": [8]} json example 
+
     public async Task<LinkOklahomaTollsResult> Handle(LinkOklahomaTollsCommand request, CancellationToken ct)
     {
         if (request.TurnpikeIds == null || request.TurnpikeIds.Count == 0)
@@ -96,7 +96,10 @@ public class LinkOklahomaTollsCommandHandler(
         // Обрабатываем запросы для классов 5 и 6 (аксели)
         var vehicleClasses = new[] { 5, 6 };
 
-        // Обрабатываем все данные в одном проходе
+        // Структура для хранения всех данных о тарифах перед обработкой
+        var allTollRatesData = new List<(int TurnpikeId, int VehicleClass, List<OklahomaTollRate> TollRates)>();
+
+        // Сначала собираем все данные из API
         foreach (var turnpikeId in request.TurnpikeIds)
         {
             foreach (var vehicleClass in vehicleClasses)
@@ -117,137 +120,7 @@ public class LinkOklahomaTollsCommandHandler(
                         continue;
                     }
 
-                    // Получаем название дороги из кэша
-                    string? turnpikeName = GetTurnpikeName(turnpikeId);
-
-                    // Определяем AxelType из vehicleClass
-                    var axelType = vehicleClass switch
-                    {
-                        5 => AxelType._5L,
-                        6 => AxelType._6L,
-                        _ => throw new InvalidOperationException($"Неподдерживаемый класс транспортного средства: {vehicleClass}. Поддерживаются только классы 5 и 6.")
-                    };
-
-                    foreach (var rate in tollRates)
-                    {
-                        if (string.IsNullOrWhiteSpace(rate.EntryName) || string.IsNullOrWhiteSpace(rate.ExitName))
-                        {
-                            continue;
-                        }
-
-                        // Ищем entry toll
-                        var entryTolls = await _tollSearchService.FindTollsInBoundingBoxAsync(
-                            rate.EntryName,
-                            okBoundingBox,
-                            TollSearchOptions.NameOrKey,
-                            ct);
-
-                        if (entryTolls.Count == 0)
-                        {
-                            var entryKey = $"{rate.EntryName} (Turnpike {turnpikeId}, Class {vehicleClass})";
-                            if (!notFoundEntries.Contains(entryKey))
-                            {
-                                notFoundEntries.Add(entryKey);
-                            }
-                        }
-
-                        // Ищем exit toll
-                        var exitTolls = await _tollSearchService.FindTollsInBoundingBoxAsync(
-                            rate.ExitName,
-                            okBoundingBox,
-                            TollSearchOptions.NameOrKey,
-                            ct);
-
-                        if (exitTolls.Count == 0)
-                        {
-                            var exitKey = $"{rate.ExitName} (Turnpike {turnpikeId}, Class {vehicleClass})";
-                            if (!notFoundExits.Contains(exitKey))
-                            {
-                                notFoundExits.Add(exitKey);
-                            }
-                        }
-
-                        // Если нашли оба toll, обрабатываем сразу
-                        if (entryTolls.Count > 0 && exitTolls.Count > 0)
-                        {
-                            // Устанавливаем Number и StateCalculatorId для найденных tolls
-                            _tollNumberService.SetNumberAndCalculatorId(
-                                entryTolls,
-                                rate.EntryName,
-                                oklahomaCalculator.Id,
-                                updateNumberIfDifferent: true);
-
-                            _tollNumberService.SetNumberAndCalculatorId(
-                                exitTolls,
-                                rate.ExitName,
-                                oklahomaCalculator.Id,
-                                updateNumberIfDifferent: true);
-
-                            var description = $"{rate.EntryName} -> {rate.ExitName} ({turnpikeName}, Class {vehicleClass})";
-
-                            // Обрабатываем все комбинации entry -> exit толлов
-                            var pairResults = TollPairProcessor.ProcessAllPairsToDictionaryList(
-                                entryTolls,
-                                exitTolls,
-                                (entryToll, exitToll) =>
-                                {
-                                    var tollPrices = new List<TollPrice>();
-
-                                    // Создаем TollPrice для EZPass (pikePassRate)
-                                    if (rate.PikePassRate > 0)
-                                    {
-                                        tollPrices.Add(new TollPrice
-                                        {
-                                            TollId = entryToll.Id,
-                                            PaymentType = TollPaymentType.EZPass,
-                                            AxelType = axelType,
-                                            Amount = rate.PikePassRate,
-                                            Description = description
-                                        });
-                                    }
-
-                                    // Создаем TollPrice для Cash (cashCashlessRate)
-                                    if (rate.CashCashlessRate > 0)
-                                    {
-                                        tollPrices.Add(new TollPrice
-                                        {
-                                            TollId = entryToll.Id,
-                                            PaymentType = TollPaymentType.Cash,
-                                            AxelType = axelType,
-                                            Amount = rate.CashCashlessRate,
-                                            Description = description
-                                        });
-                                    }
-
-                                    // Добавляем в foundTolls
-                                    foundTolls.Add(new OklahomaFoundTollInfo(
-                                        EntryName: rate.EntryName,
-                                        ExitName: rate.ExitName,
-                                        FromTollId: entryToll.Id,
-                                        FromTollName: entryToll.Name,
-                                        FromTollKey: entryToll.Key,
-                                        ToTollId: exitToll.Id,
-                                        ToTollName: exitToll.Name,
-                                        ToTollKey: exitToll.Key,
-                                        TurnpikeId: turnpikeId,
-                                        TurnpikeName: turnpikeName,
-                                        VehicleClass: vehicleClass));
-
-                                    return tollPrices;
-                                });
-
-                            // Объединяем результаты с общим словарем
-                            foreach (var kvp in pairResults)
-                            {
-                                if (!tollPairsWithPrices.TryGetValue(kvp.Key, out var existingList))
-                                {
-                                    existingList = new List<TollPrice>();
-                                    tollPairsWithPrices[kvp.Key] = existingList;
-                                }
-                                existingList.AddRange(kvp.Value);
-                            }
-                        }
-                    }
+                    allTollRatesData.Add((turnpikeId, vehicleClass, tollRates));
                 }
                 catch (HttpRequestException httpEx)
                 {
@@ -260,6 +133,152 @@ public class LinkOklahomaTollsCommandHandler(
                 catch (Exception ex)
                 {
                     errors.Add($"Turnpike ID {turnpikeId}, Class {vehicleClass}: Ошибка - {ex.Message}");
+                }
+            }
+        }
+
+        // Собираем все уникальные имена entry и exit для оптимизированного поиска
+        var allTollNames = new HashSet<string>();
+        foreach (var (_, _, tollRates) in allTollRatesData)
+        {
+            foreach (var rate in tollRates)
+            {
+                if (!string.IsNullOrWhiteSpace(rate.EntryName))
+                {
+                    allTollNames.Add(rate.EntryName);
+                }
+                if (!string.IsNullOrWhiteSpace(rate.ExitName))
+                {
+                    allTollNames.Add(rate.ExitName);
+                }
+            }
+        }
+
+        // Один батч-запрос для поиска всех толлов
+        var tollsByName = await _tollSearchService.FindMultipleTollsInBoundingBoxAsync(
+            allTollNames,
+            okBoundingBox,
+            TollSearchOptions.NameOrKey,
+            ct);
+
+        // Устанавливаем Number и StateCalculatorId для всех найденных толлов
+        foreach (var tollName in allTollNames)
+        {
+            if (tollsByName.TryGetValue(tollName, out var foundTollsForName) && foundTollsForName.Count > 0)
+            {
+                _tollNumberService.SetNumberAndCalculatorId(
+                    foundTollsForName,
+                    tollName,
+                    oklahomaCalculator.Id,
+                    updateNumberIfDifferent: true);
+            }
+        }
+
+        // Теперь обрабатываем все собранные данные
+        foreach (var (turnpikeId, vehicleClass, tollRates) in allTollRatesData)
+        {
+            // Получаем название дороги из кэша
+            string? turnpikeName = GetTurnpikeName(turnpikeId);
+
+            // Определяем AxelType из vehicleClass
+            var axelType = vehicleClass switch
+            {
+                5 => AxelType._5L,
+                6 => AxelType._6L,
+                _ => throw new InvalidOperationException($"Неподдерживаемый класс транспортного средства: {vehicleClass}. Поддерживаются только классы 5 и 6.")
+            };
+
+            foreach (var rate in tollRates)
+            {
+                if (string.IsNullOrWhiteSpace(rate.EntryName) || string.IsNullOrWhiteSpace(rate.ExitName))
+                {
+                    continue;
+                }
+
+                // Получаем entry tolls из словаря
+                if (!tollsByName.TryGetValue(rate.EntryName, out var entryTolls) || entryTolls.Count == 0)
+                {
+                    var entryKey = $"{rate.EntryName} (Turnpike {turnpikeId}, Class {vehicleClass})";
+                    if (!notFoundEntries.Contains(entryKey))
+                    {
+                        notFoundEntries.Add(entryKey);
+                    }
+                    continue;
+                }
+
+                // Получаем exit tolls из словаря
+                if (!tollsByName.TryGetValue(rate.ExitName, out var exitTolls) || exitTolls.Count == 0)
+                {
+                    var exitKey = $"{rate.ExitName} (Turnpike {turnpikeId}, Class {vehicleClass})";
+                    if (!notFoundExits.Contains(exitKey))
+                    {
+                        notFoundExits.Add(exitKey);
+                    }
+                    continue;
+                }
+
+                var description = $"{rate.EntryName} -> {rate.ExitName} ({turnpikeName}, Class {vehicleClass})";
+
+                // Обрабатываем все комбинации entry -> exit толлов
+                var pairResults = TollPairProcessor.ProcessAllPairsToDictionaryList(
+                    entryTolls,
+                    exitTolls,
+                    (entryToll, exitToll) =>
+                    {
+                        var tollPrices = new List<TollPrice>();
+
+                        // Создаем TollPrice для EZPass (pikePassRate)
+                        if (rate.PikePassRate > 0)
+                        {
+                            tollPrices.Add(new TollPrice
+                            {
+                                TollId = entryToll.Id,
+                                PaymentType = TollPaymentType.EZPass,
+                                AxelType = axelType,
+                                Amount = rate.PikePassRate,
+                                Description = description
+                            });
+                        }
+
+                        // Создаем TollPrice для Cash (cashCashlessRate)
+                        if (rate.CashCashlessRate > 0)
+                        {
+                            tollPrices.Add(new TollPrice
+                            {
+                                TollId = entryToll.Id,
+                                PaymentType = TollPaymentType.Cash,
+                                AxelType = axelType,
+                                Amount = rate.CashCashlessRate,
+                                Description = description
+                            });
+                        }
+
+                        // Добавляем в foundTolls
+                        foundTolls.Add(new OklahomaFoundTollInfo(
+                            EntryName: rate.EntryName,
+                            ExitName: rate.ExitName,
+                            FromTollId: entryToll.Id,
+                            FromTollName: entryToll.Name,
+                            FromTollKey: entryToll.Key,
+                            ToTollId: exitToll.Id,
+                            ToTollName: exitToll.Name,
+                            ToTollKey: exitToll.Key,
+                            TurnpikeId: turnpikeId,
+                            TurnpikeName: turnpikeName,
+                            VehicleClass: vehicleClass));
+
+                        return tollPrices;
+                    });
+
+                // Объединяем результаты с общим словарем
+                foreach (var kvp in pairResults)
+                {
+                    if (!tollPairsWithPrices.TryGetValue(kvp.Key, out var existingList))
+                    {
+                        existingList = new List<TollPrice>();
+                        tollPairsWithPrices[kvp.Key] = existingList;
+                    }
+                    existingList.AddRange(kvp.Value);
                 }
             }
         }
@@ -291,6 +310,7 @@ public class LinkOklahomaTollsCommandHandler(
 
     private static readonly Dictionary<int, string> TurnpikeNames = new()
     {
+        // {"turnpikeIds": [8]} json example 
         { 1, "TURNER TURNPIKE" },
         { 2, "WILL ROGERS TURNPIKE" },
         { 3, "H.E.BAILEY TURNPIKE" },

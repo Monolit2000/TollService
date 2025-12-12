@@ -18,7 +18,9 @@ public record VirginiaRates(
 
 public record VirginiaAxleRates(
     [property: JsonPropertyName("cash_out_of_state_ezpass")] double? CashOutOfStateEzpass,
-    [property: JsonPropertyName("va_ezpass")] double? VaEzpass);
+    [property: JsonPropertyName("va_ezpass")] double? VaEzpass,
+    [property: JsonPropertyName("ezpass_rate")] double? EzpassRate,
+    [property: JsonPropertyName("pay_by_plate_rate")] double? PayByPlateRate);
 
 public record VirginiaPricesData(
     [property: JsonPropertyName("toll_plazas")] List<VirginiaTollPlaza> TollPlazas);
@@ -71,10 +73,32 @@ public class ParseVirginiaTollPricesCommandHandler(
             VirginiaPricesData? data;
             try
             {
-                data = JsonSerializer.Deserialize<VirginiaPricesData>(request.JsonPayload, new JsonSerializerOptions
+                var options = new JsonSerializerOptions
                 {
                     PropertyNameCaseInsensitive = true
-                });
+                };
+
+                // Используем JsonDocument для обработки новых полей link и payment_methods
+                using (JsonDocument doc = JsonDocument.Parse(request.JsonPayload))
+                {
+                    // Проверяем формат Dulles Greenway (с полем "tolls")
+                    if (doc.RootElement.TryGetProperty("tolls", out var tollsElement))
+                    {
+                        // Конвертируем формат Dulles Greenway в стандартный формат
+                        data = ConvertDullesGreenwayFormat(tollsElement, options);
+                    }
+                    // Стандартный формат с toll_plazas
+                    else if (doc.RootElement.TryGetProperty("toll_plazas", out var tollPlazasElement))
+                    {
+                        var tollPlazas = JsonSerializer.Deserialize<List<VirginiaTollPlaza>>(tollPlazasElement.GetRawText(), options);
+                        data = new VirginiaPricesData(tollPlazas ?? new());
+                    }
+                    else
+                    {
+                        // Fallback: пробуем десериализовать напрямую
+                        data = JsonSerializer.Deserialize<VirginiaPricesData>(request.JsonPayload, options);
+                    }
+                }
             }
             catch (JsonException jsonEx)
             {
@@ -130,8 +154,8 @@ public class ParseVirginiaTollPricesCommandHandler(
                 if (string.IsNullOrWhiteSpace(plaza.Name))
                     continue;
 
-                // Ищем tolls по имени плазы
-                if (!tollsByPlazaName.TryGetValue(plaza.Name.ToLower(), out var foundTolls) || foundTolls.Count == 0)
+                // Ищем tolls по имени плазы (ключи в словаре хранятся в оригинальном регистре)
+                if (!tollsByPlazaName.TryGetValue(plaza.Name, out var foundTolls) || foundTolls.Count == 0)
                 {
                     notFoundPlazas.Add(plaza.Name);
                     continue;
@@ -186,6 +210,46 @@ public class ParseVirginiaTollPricesCommandHandler(
                                 AxelType: AxelType._5L,
                                 Description: $"Virginia {plaza.Name} - VA E-ZPass (5 axles)"));
                         }
+
+                        // E-ZPass Rate (для Dulles Toll Road)
+                        if (rates5.EzpassRate.HasValue && rates5.EzpassRate.Value > 0)
+                        {
+                            var paymentType = TollPaymentType.EZPass;
+                            var amount = rates5.EzpassRate.Value;
+                            prices.Add(new VirginiaTollPriceInfo("E-ZPass", amount, 5));
+
+                            if (!tollsToUpdatePrices.ContainsKey(toll.Id))
+                            {
+                                tollsToUpdatePrices[toll.Id] = new List<TollPriceData>();
+                            }
+
+                            tollsToUpdatePrices[toll.Id].Add(new TollPriceData(
+                                TollId: toll.Id,
+                                Amount: amount,
+                                PaymentType: paymentType,
+                                AxelType: AxelType._5L,
+                                Description: $"Virginia {plaza.Name} - E-ZPass (5 axles)"));
+                        }
+
+                        // Pay-by-Plate Rate (для Dulles Toll Road)
+                        if (rates5.PayByPlateRate.HasValue && rates5.PayByPlateRate.Value > 0)
+                        {
+                            var paymentType = TollPaymentType.PayOnline;
+                            var amount = rates5.PayByPlateRate.Value;
+                            prices.Add(new VirginiaTollPriceInfo("Pay-by-Plate", amount, 5));
+
+                            if (!tollsToUpdatePrices.ContainsKey(toll.Id))
+                            {
+                                tollsToUpdatePrices[toll.Id] = new List<TollPriceData>();
+                            }
+
+                            tollsToUpdatePrices[toll.Id].Add(new TollPriceData(
+                                TollId: toll.Id,
+                                Amount: amount,
+                                PaymentType: paymentType,
+                                AxelType: AxelType._5L,
+                                Description: $"Virginia {plaza.Name} - Pay-by-Plate (5 axles)"));
+                        }
                     }
 
                     // Обрабатываем 6 осей
@@ -231,6 +295,46 @@ public class ParseVirginiaTollPricesCommandHandler(
                                 PaymentType: paymentType,
                                 AxelType: AxelType._6L,
                                 Description: $"Virginia {plaza.Name} - VA E-ZPass (6 axles)"));
+                        }
+
+                        // E-ZPass Rate (для Dulles Toll Road)
+                        if (rates6.EzpassRate.HasValue && rates6.EzpassRate.Value > 0)
+                        {
+                            var paymentType = TollPaymentType.EZPass;
+                            var amount = rates6.EzpassRate.Value;
+                            prices.Add(new VirginiaTollPriceInfo("E-ZPass", amount, 6));
+
+                            if (!tollsToUpdatePrices.ContainsKey(toll.Id))
+                            {
+                                tollsToUpdatePrices[toll.Id] = new List<TollPriceData>();
+                            }
+
+                            tollsToUpdatePrices[toll.Id].Add(new TollPriceData(
+                                TollId: toll.Id,
+                                Amount: amount,
+                                PaymentType: paymentType,
+                                AxelType: AxelType._6L,
+                                Description: $"Virginia {plaza.Name} - E-ZPass (6 axles)"));
+                        }
+
+                        // Pay-by-Plate Rate (для Dulles Toll Road)
+                        if (rates6.PayByPlateRate.HasValue && rates6.PayByPlateRate.Value > 0)
+                        {
+                            var paymentType = TollPaymentType.PayOnline;
+                            var amount = rates6.PayByPlateRate.Value;
+                            prices.Add(new VirginiaTollPriceInfo("Pay-by-Plate", amount, 6));
+
+                            if (!tollsToUpdatePrices.ContainsKey(toll.Id))
+                            {
+                                tollsToUpdatePrices[toll.Id] = new List<TollPriceData>();
+                            }
+
+                            tollsToUpdatePrices[toll.Id].Add(new TollPriceData(
+                                TollId: toll.Id,
+                                Amount: amount,
+                                PaymentType: paymentType,
+                                AxelType: AxelType._6L,
+                                Description: $"Virginia {plaza.Name} - Pay-by-Plate (6 axles)"));
                         }
                     }
 
@@ -278,6 +382,78 @@ public class ParseVirginiaTollPricesCommandHandler(
                 0,
                 $"Ошибка при обработке: {ex.Message}");
         }
+    }
+
+    /// <summary>
+    /// Конвертирует формат Dulles Greenway (tolls с exit-1, exit-2 и т.д.) в стандартный формат VirginiaPricesData
+    /// </summary>
+    private static VirginiaPricesData ConvertDullesGreenwayFormat(JsonElement tollsElement, JsonSerializerOptions options)
+    {
+        var tollPlazas = new List<VirginiaTollPlaza>();
+
+        foreach (var exitProperty in tollsElement.EnumerateObject())
+        {
+            var exitData = exitProperty.Value;
+            if (!exitData.TryGetProperty("name", out var nameElement))
+                continue;
+
+            var name = nameElement.GetString();
+            if (string.IsNullOrWhiteSpace(name))
+                continue;
+
+            // Извлекаем цены для 5 и 6 осей
+            // Используем notcongested-ez-5axle и notcongested-ez-6axle как основные цены E-ZPass
+            // Используем notcongested-cc-5axle и notcongested-cc-6axle как цены для кредитных карт
+            var rates5 = new VirginiaAxleRates(
+                CashOutOfStateEzpass: null,
+                VaEzpass: ParsePriceValue(exitData, "notcongested-ez-5axle"),
+                EzpassRate: ParsePriceValue(exitData, "notcongested-ez-5axle"),
+                PayByPlateRate: ParsePriceValue(exitData, "notcongested-cc-5axle"));
+
+            var rates6 = new VirginiaAxleRates(
+                CashOutOfStateEzpass: null,
+                VaEzpass: ParsePriceValue(exitData, "notcongested-ez-6axle"),
+                EzpassRate: ParsePriceValue(exitData, "notcongested-ez-6axle"),
+                PayByPlateRate: ParsePriceValue(exitData, "notcongested-cc-6axle"));
+
+            var rates = new VirginiaRates(rates5, rates6);
+            tollPlazas.Add(new VirginiaTollPlaza(name, rates));
+        }
+
+        return new VirginiaPricesData(tollPlazas);
+    }
+
+    /// <summary>
+    /// Парсит значение цены из JSON элемента, обрабатывая "NO TOLL" как null
+    /// </summary>
+    private static double? ParsePriceValue(JsonElement element, string propertyName)
+    {
+        if (!element.TryGetProperty(propertyName, out var priceElement))
+            return null;
+
+        if (priceElement.ValueKind == JsonValueKind.String)
+        {
+            var stringValue = priceElement.GetString();
+            if (string.IsNullOrWhiteSpace(stringValue) || stringValue.Equals("NO TOLL", StringComparison.OrdinalIgnoreCase))
+                return null;
+        }
+
+        if (priceElement.ValueKind == JsonValueKind.Number)
+        {
+            return priceElement.GetDouble();
+        }
+
+        if (priceElement.ValueKind == JsonValueKind.String)
+        {
+            var stringValue = priceElement.GetString();
+            if (double.TryParse(stringValue, System.Globalization.NumberStyles.Any,
+                System.Globalization.CultureInfo.InvariantCulture, out var parsedValue))
+            {
+                return parsedValue;
+            }
+        }
+
+        return null;
     }
 }
 

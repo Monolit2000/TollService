@@ -1,4 +1,5 @@
 using System.Text.Json;
+using System.Text.Json.Serialization;
 using MediatR;
 using NetTopologySuite.Geometries;
 using TollService.Application.Common;
@@ -8,9 +9,9 @@ using TollService.Domain;
 namespace TollService.Application.TollPriceParser.NC;
 
 public record NorthCarolinaTollRate(
-    string From,
-    string To,
-    double RateX4);
+    [property: JsonPropertyName("from")] string From,
+    [property: JsonPropertyName("to")] string To,
+    [property: JsonPropertyName("rate_x4")] double RateX4);
 
 public record NorthCarolinaTollPriceInfo(
     string PaymentType,
@@ -44,6 +45,7 @@ public class LinkNorthCarolinaTollsCommandHandler(
     ITollDbContext _context,
     StateCalculatorService _stateCalculatorService,
     TollSearchService _tollSearchService,
+    TollNumberService _tollNumberService,
     CalculatePriceService _calculatePriceService) : IRequestHandler<LinkNorthCarolinaTollsCommand, LinkNorthCarolinaTollsResult>
 {
     private static readonly double NcMinLatitude = 33.8;
@@ -68,10 +70,22 @@ public class LinkNorthCarolinaTollsCommandHandler(
             List<NorthCarolinaTollRate>? tollRates;
             try
             {
-                tollRates = JsonSerializer.Deserialize<List<NorthCarolinaTollRate>>(request.JsonPayload, new JsonSerializerOptions
+                var options = new JsonSerializerOptions
                 {
                     PropertyNameCaseInsensitive = true
-                });
+                };
+
+                // Пробуем распарсить как объект с полем "routes"
+                var jsonDoc = JsonDocument.Parse(request.JsonPayload);
+                if (jsonDoc.RootElement.ValueKind == JsonValueKind.Object && jsonDoc.RootElement.TryGetProperty("routes", out var routesElement))
+                {
+                    tollRates = JsonSerializer.Deserialize<List<NorthCarolinaTollRate>>(routesElement.GetRawText(), options);
+                }
+                else
+                {
+                    // Пробуем распарсить как массив напрямую
+                    tollRates = JsonSerializer.Deserialize<List<NorthCarolinaTollRate>>(request.JsonPayload, options);
+                }
             }
             catch (JsonException jsonEx)
             {
@@ -134,6 +148,38 @@ public class LinkNorthCarolinaTollsCommandHandler(
                 TollSearchOptions.NameOrKey,
                 ct);
 
+            // Устанавливаем Number и StateCalculatorId для всех найденных толлов
+            var allFoundTolls = new HashSet<Toll>();
+            foreach (var tolls in tollsByPlazaName.Values)
+            {
+                foreach (var toll in tolls)
+                {
+                    allFoundTolls.Add(toll);
+                }
+            }
+
+            // Устанавливаем Number и StateCalculatorId для каждого найденного толла
+            // Используем имя плазы как Number (или извлекаем номер из скобок, если есть)
+            foreach (var plazaName in allPlazaNames)
+            {
+                if (!tollsByPlazaName.TryGetValue(plazaName, out var tolls) || tolls.Count == 0)
+                    continue;
+
+                // Пытаемся извлечь номер из скобок "(Exit 255)" -> "255"
+                var number = ExtractExitNumber(plazaName);
+                if (string.IsNullOrWhiteSpace(number))
+                {
+                    // Если не удалось извлечь номер, используем само имя плазы
+                    number = plazaName;
+                }
+
+                _tollNumberService.SetNumberAndCalculatorId(
+                    tolls,
+                    number,
+                    northCarolinaCalculator.Id,
+                    updateNumberIfDifferent: false);
+            }
+
             var linkedTolls = new List<NorthCarolinaLinkedTollInfo>();
             var notFoundFromPlazas = new List<string>();
             var notFoundToPlazas = new List<string>();
@@ -146,14 +192,14 @@ public class LinkNorthCarolinaTollsCommandHandler(
                 if (string.IsNullOrWhiteSpace(rate.From) || string.IsNullOrWhiteSpace(rate.To))
                     continue;
 
-                // Ищем tolls по имени плазы
-                if (!tollsByPlazaName.TryGetValue(rate.From.ToLower(), out var fromTolls) || fromTolls.Count == 0)
+                // Ищем tolls по имени плазы (ключи в словаре хранятся в оригинальном регистре)
+                if (!tollsByPlazaName.TryGetValue(rate.From, out var fromTolls) || fromTolls.Count == 0)
                 {
                     notFoundFromPlazas.Add(rate.From);
                     continue;
                 }
 
-                if (!tollsByPlazaName.TryGetValue(rate.To.ToLower(), out var toTolls) || toTolls.Count == 0)
+                if (!tollsByPlazaName.TryGetValue(rate.To, out var toTolls) || toTolls.Count == 0)
                 {
                     notFoundToPlazas.Add(rate.To);
                     continue;
@@ -259,6 +305,24 @@ public class LinkNorthCarolinaTollsCommandHandler(
                 0,
                 $"Ошибка при обработке: {ex.Message}");
         }
+    }
+
+    /// <summary>
+    /// Извлекает номер выхода из имени плазы, например "U.S. 74 (West) (Exit 255)" -> "255"
+    /// </summary>
+    private static string? ExtractExitNumber(string plazaName)
+    {
+        if (string.IsNullOrWhiteSpace(plazaName))
+            return null;
+
+        // Ищем паттерн "(Exit 255)" или "(Exit 255)" и извлекаем число
+        var match = System.Text.RegularExpressions.Regex.Match(plazaName, @"\(Exit\s+(\d+)\)", System.Text.RegularExpressions.RegexOptions.IgnoreCase);
+        if (match.Success && match.Groups.Count > 1)
+        {
+            return match.Groups[1].Value;
+        }
+
+        return null;
     }
 }
 

@@ -118,6 +118,41 @@ public class ParseMaineTollPricesCommandHandler(
             MeMaxLongitude,
             MeMaxLatitude);
 
+        // Собираем все уникальные коды из всех записей для батч-поиска
+        var allCodes = new HashSet<string>();
+        foreach (var priceData in validPrices)
+        {
+            allCodes.Add(priceData.FromId.ToString());
+            allCodes.Add(priceData.ToId.ToString());
+        }
+
+        // Один батч-запрос для поиска всех толлов по кодам
+        var tollsByCode = await _tollSearchService.FindMultipleTollsInBoundingBoxAsync(
+            allCodes,
+            meBoundingBox,
+            TollSearchOptions.NameOrKey,
+            ct);
+
+        // Фильтруем результаты: оставляем только точные совпадения по Key, Name или Number
+        var exactMatchesByCode = new Dictionary<string, List<Toll>>();
+        foreach (var kvp in tollsByCode)
+        {
+            var searchCode = kvp.Key;
+            var tollsForKey = kvp.Value;
+
+            var exactMatches = tollsForKey
+                .Where(t =>
+                    (t.Key != null && (t.Key == searchCode || t.Key.Equals(searchCode, StringComparison.OrdinalIgnoreCase))) ||
+                    (t.Name != null && (t.Name == searchCode || t.Name.Equals(searchCode, StringComparison.OrdinalIgnoreCase))) ||
+                    (t.Number != null && t.Number == searchCode))
+                .ToList();
+
+            if (exactMatches.Count > 0)
+            {
+                exactMatchesByCode[searchCode] = exactMatches;
+            }
+        }
+
         var tollPairsWithPrices = new Dictionary<(Guid FromId, Guid ToId), List<TollPrice>>();
 
         foreach (var priceData in validPrices)
@@ -127,68 +162,16 @@ public class ParseMaineTollPricesCommandHandler(
                 var fromCode = priceData.FromId.ToString(); // "7", "102" и т.п.
                 var toCode = priceData.ToId.ToString();
 
-                // Ищем entry toll
-                var entryTolls = await _tollSearchService.FindTollsInBoundingBoxAsync(
-                    fromCode,
-                    meBoundingBox,
-                    TollSearchOptions.NameOrKey,
-                    ct);
-
-                // Фильтруем результаты: должны точно совпадать с кодом
-                var filteredEntryTolls = entryTolls
-                    .Where(t =>
-                        (t.Key != null && t.Key == fromCode) ||
-                        (t.Name != null && t.Name == fromCode) ||
-                        (t.Number != null && t.Number == fromCode))
-                    .ToList();
-
-                // Если не нашли по Key/Name, ищем по Number в пределах Maine
-                if (filteredEntryTolls.Count == 0)
-                {
-                    var tollsByNumber = await _context.Tolls
-                        .Where(t =>
-                            t.Number == fromCode &&
-                            t.Location != null &&
-                            meBoundingBox.Contains(t.Location))
-                        .ToListAsync(ct);
-                    filteredEntryTolls.AddRange(tollsByNumber);
-                }
-
-                if (filteredEntryTolls.Count == 0)
+                // Получаем entry tolls из кэша
+                if (!exactMatchesByCode.TryGetValue(fromCode, out var filteredEntryTolls) || filteredEntryTolls.Count == 0)
                 {
                     notFoundPlazas.Add($"FromCode: {fromCode} ({priceData.FromName})");
                     resultLines.Add($"FromCode {fromCode} ({priceData.FromName}): НЕ НАЙДЕНО");
                     continue;
                 }
 
-                // Ищем exit toll
-                var exitTolls = await _tollSearchService.FindTollsInBoundingBoxAsync(
-                    toCode,
-                    meBoundingBox,
-                    TollSearchOptions.NameOrKey,
-                    ct);
-
-                // Фильтруем результаты: должны точно совпадать с кодом
-                var filteredExitTolls = exitTolls
-                    .Where(t =>
-                        (t.Key != null && t.Key == toCode) ||
-                        (t.Name != null && t.Name == toCode) ||
-                        (t.Number != null && t.Number == toCode))
-                    .ToList();
-
-                // Если не нашли по Key/Name, ищем по Number в пределах Maine
-                if (filteredExitTolls.Count == 0)
-                {
-                    var tollsByNumber = await _context.Tolls
-                        .Where(t =>
-                            t.Number == toCode &&
-                            t.Location != null &&
-                            meBoundingBox.Contains(t.Location))
-                        .ToListAsync(ct);
-                    filteredExitTolls.AddRange(tollsByNumber);
-                }
-
-                if (filteredExitTolls.Count == 0)
+                // Получаем exit tolls из кэша
+                if (!exactMatchesByCode.TryGetValue(toCode, out var filteredExitTolls) || filteredExitTolls.Count == 0)
                 {
                     notFoundPlazas.Add($"ToCode: {toCode} ({priceData.ToName})");
                     resultLines.Add($"ToCode {toCode} ({priceData.ToName}): НЕ НАЙДЕНО");

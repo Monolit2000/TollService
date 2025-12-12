@@ -1,10 +1,11 @@
 {
-  "payment_types": {
-    "Tag": true,
-    "No plate": false,
-    "Cash": true,
-    "No card": false,
-    "App": true
+  "link": "https://www.cityofchesapeake.net/2982/Chesapeake-Expressway/",
+  "payment_methods": {
+    "tag": true,
+    "plate": false,
+    "cash": true,
+    "card": false,
+    "app": true
   },
   "toll_plazas": [
     {
@@ -29,8 +30,7 @@
           "va_ezpass": 2.25
         }
       },
-      "peak_weekend_note": "Peak Weekend: The period beginning 12:01 a.m. on Saturday through 12:00 midnight Sunday beginning the weekend before Memorial Day weekend to the weekend after Labor Day weekend.",
-      "link": "https://www.cityofchesapeake.net/2982/Chesapeake-Expressway/"
+      "peak_weekend_note": "Peak Weekend: The period beginning 12:01 a.m. on Saturday through 12:00 midnight Sunday beginning the weekend before Memorial Day weekend to the weekend after Labor Day weekend."
     }
   ]
 }

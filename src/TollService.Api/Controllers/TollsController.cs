@@ -14,18 +14,18 @@ using TollService.Application.TollPriceParser.PA;
 using TollService.Application.TollPriceParser.CA;
 using TollService.Application.TollPriceParser.OK;
 using TollService.Application.TollPriceParser.CO;
-using TollService.Application.TollPriceParser.WV;
 using TollService.Application.TollPriceParser.MD;
-using TollService.Application.TollPriceParser.VA;
-using TollService.Application.TollPriceParser.SC;
 using TollService.Application.TollPriceParser.NC;
-using TollService.Application.TollPriceParser.TX;
+using TollService.Application.TollPriceParser.SC;
+using TollService.Application.TollPriceParser.WV;
+using TollService.Application.TollPriceParser.VA;
 using TollService.Application.Tolls.Commands;
 using TollService.Application.Tolls.Queries;
 using TollService.Contracts;
 using TollService.Infrastructure.Integrations;
 using TollService.Application.TollPriceParser.NY;
 using TollService.Application.TollPriceParser.FL;
+using TollService.Application.TollPriceParser.TX;
 using static TollService.Application.TollPriceParser.NY.ParseNewYorkTollPricesCommandHandler;
 
 namespace TollService.Api.Controllers;
@@ -831,7 +831,97 @@ public class TollsController : ControllerBase
         return Ok(result);
     }
 
-    [HttpPost("parse-west-virginia-prices")]
+    [HttpPost("link-maryland-tolls")]
+    [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(LinkMarylandTollsResult))]
+    [ProducesResponseType(StatusCodes.Status400BadRequest)]
+    public async Task<IActionResult> LinkMarylandTolls(
+        [FromBody] object payload,
+        CancellationToken ct = default)
+    {
+        if (payload == null)
+        {
+            return BadRequest("Payload cannot be null");
+        }
+
+        var json = payload switch
+        {
+            JsonElement element => element.GetRawText(),
+            string str => str,
+            _ => System.Text.Json.JsonSerializer.Serialize(payload)
+        };
+
+        var command = new LinkMarylandTollsCommand(json);
+        var result = await _mediator.Send(command, ct);
+
+        if (!string.IsNullOrWhiteSpace(result.Error))
+        {
+            return BadRequest(result.Error);
+        }
+
+        return Ok(result);
+    }
+
+    [HttpPost("link-north-carolina-tolls")]
+    [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(LinkNorthCarolinaTollsResult))]
+    [ProducesResponseType(StatusCodes.Status400BadRequest)]
+    public async Task<IActionResult> LinkNorthCarolinaTolls(
+        [FromBody] object payload,
+        CancellationToken ct = default)
+    {
+        if (payload == null)
+        {
+            return BadRequest("Payload cannot be null");
+        }
+
+        var json = payload switch
+        {
+            JsonElement element => element.GetRawText(),
+            string str => str,
+            _ => System.Text.Json.JsonSerializer.Serialize(payload)
+        };
+1
+        var command = new LinkNorthCarolinaTollsCommand(json);
+        var result = await _mediator.Send(command, ct);
+
+        if (!string.IsNullOrWhiteSpace(result.Error))
+        {
+            return BadRequest(result.Error);
+        }
+
+        return Ok(result);
+    }
+
+    [HttpPost("parse-south-carolina-toll-prices")]
+    [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(ParseSouthCarolinaTollPricesResult))]
+    [ProducesResponseType(StatusCodes.Status400BadRequest)]
+    public async Task<IActionResult> ParseSouthCarolinaTollPrices(
+        [FromBody] object payload,
+        CancellationToken ct = default)
+    {
+        if (payload == null)
+        {
+            return BadRequest("Payload cannot be null");
+        }
+
+        var json = payload switch
+        {
+            JsonElement element => element.GetRawText(),
+            string str => str,
+            _ => System.Text.Json.JsonSerializer.Serialize(payload)
+        };
+
+        var command = new ParseSouthCarolinaTollPricesCommand(json);
+        var result = await _mediator.Send(command, ct);
+
+        if (!string.IsNullOrWhiteSpace(result.Error))
+        {
+            return BadRequest(result.Error);
+        }
+
+        return Ok(result);
+    }
+
+    [HttpPost("parse-west-virginia-toll-prices")]
     [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(ParseWestVirginiaTollPricesResult))]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
     public async Task<IActionResult> ParseWestVirginiaTollPrices(
@@ -853,218 +943,38 @@ public class TollsController : ControllerBase
         }
         catch (Exception ex)
         {
-            return BadRequest($"Error processing request: {ex.Message}");
+            return BadRequest($"Error processing West Virginia toll prices: {ex.Message}");
         }
     }
 
-    [HttpPost("link-maryland-tolls")]
-    [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(LinkMarylandTollsResult))]
-    [ProducesResponseType(StatusCodes.Status400BadRequest)]
-    public async Task<IActionResult> LinkMarylandTolls(
-        [FromBody] object payload,
-        CancellationToken ct = default)
-    {
-        try
-        {
-            if (payload == null)
-            {
-                return BadRequest("Payload cannot be null");
-            }
-
-            var json = payload switch
-            {
-                JsonElement element => element.GetRawText(),
-                string str => str,
-                _ => System.Text.Json.JsonSerializer.Serialize(payload)
-            };
-
-            if (string.IsNullOrWhiteSpace(json))
-            {
-                return BadRequest("JSON payload cannot be empty");
-            }
-
-            var command = new LinkMarylandTollsCommand(json);
-            var result = await _mediator.Send(command, ct);
-
-            if (!string.IsNullOrWhiteSpace(result.Error))
-            {
-                return BadRequest(result.Error);
-            }
-
-            return Ok(result);
-        }
-        catch (Exception ex)
-        {
-            return BadRequest($"Error processing request: {ex.Message}");
-        }
-    }
-
-    [HttpPost("parse-virginia-prices")]
+    [HttpPost("parse-virginia-toll-prices")]
     [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(ParseVirginiaTollPricesResult))]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
     public async Task<IActionResult> ParseVirginiaTollPrices(
         [FromBody] object payload,
         CancellationToken ct = default)
     {
-        try
+        if (payload == null)
         {
-            if (payload == null)
-            {
-                return BadRequest("Payload cannot be null");
-            }
-
-            var json = payload switch
-            {
-                JsonElement element => element.GetRawText(),
-                string str => str,
-                _ => System.Text.Json.JsonSerializer.Serialize(payload)
-            };
-
-            if (string.IsNullOrWhiteSpace(json))
-            {
-                return BadRequest("JSON payload cannot be empty");
-            }
-
-            var command = new ParseVirginiaTollPricesCommand(json);
-            var result = await _mediator.Send(command, ct);
-
-            if (!string.IsNullOrWhiteSpace(result.Error))
-            {
-                return BadRequest(result.Error);
-            }
-
-            return Ok(result);
+            return BadRequest("Payload cannot be null");
         }
-        catch (Exception ex)
+
+        var json = payload switch
         {
-            return BadRequest($"Error processing request: {ex.Message}");
-        }
-    }
+            JsonElement element => element.GetRawText(),
+            string str => str,
+            _ => System.Text.Json.JsonSerializer.Serialize(payload)
+        };
 
-    [HttpPost("parse-south-carolina-prices")]
-    [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(ParseSouthCarolinaTollPricesResult))]
-    [ProducesResponseType(StatusCodes.Status400BadRequest)]
-    public async Task<IActionResult> ParseSouthCarolinaTollPrices(
-        [FromBody] object payload,
-        CancellationToken ct = default)
-    {
-        try
+        var command = new ParseVirginiaTollPricesCommand(json);
+        var result = await _mediator.Send(command, ct);
+
+        if (!string.IsNullOrWhiteSpace(result.Error))
         {
-            if (payload == null)
-            {
-                return BadRequest("Payload cannot be null");
-            }
-
-            var json = payload switch
-            {
-                JsonElement element => element.GetRawText(),
-                string str => str,
-                _ => System.Text.Json.JsonSerializer.Serialize(payload)
-            };
-
-            if (string.IsNullOrWhiteSpace(json))
-            {
-                return BadRequest("JSON payload cannot be empty");
-            }
-
-            var command = new ParseSouthCarolinaTollPricesCommand(json);
-            var result = await _mediator.Send(command, ct);
-
-            if (!string.IsNullOrWhiteSpace(result.Error))
-            {
-                return BadRequest(result.Error);
-            }
-
-            return Ok(result);
+            return BadRequest(result.Error);
         }
-        catch (Exception ex)
-        {
-            return BadRequest($"Error processing request: {ex.Message}");
-        }
-    }
 
-    [HttpPost("parse-texas-prices")]
-    [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(ParseTexasTollPricesResult))]
-    [ProducesResponseType(StatusCodes.Status400BadRequest)]
-    public async Task<IActionResult> ParseTexasTollPrices(
-        [FromBody] object payload,
-        CancellationToken ct = default)
-    {
-        try
-        {
-            if (payload == null)
-            {
-                return BadRequest("Payload cannot be null");
-            }
-
-            var json = payload switch
-            {
-                JsonElement element => element.GetRawText(),
-                string str => str,
-                _ => System.Text.Json.JsonSerializer.Serialize(payload)
-            };
-
-            if (string.IsNullOrWhiteSpace(json))
-            {
-                return BadRequest("JSON payload cannot be empty");
-            }
-
-            var command = new ParseTexasTollPricesCommand(json);
-            var result = await _mediator.Send(command, ct);
-
-            if (!string.IsNullOrWhiteSpace(result.Error))
-            {
-                return BadRequest(result.Error);
-            }
-
-            return Ok(result);
-        }
-        catch (Exception ex)
-        {
-            return BadRequest($"Error processing request: {ex.Message}");
-        }
-    }
-
-    [HttpPost("link-north-carolina-tolls")]
-    [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(LinkNorthCarolinaTollsResult))]
-    [ProducesResponseType(StatusCodes.Status400BadRequest)]
-    public async Task<IActionResult> LinkNorthCarolinaTolls(
-        [FromBody] object payload,
-        CancellationToken ct = default)
-    {
-        try
-        {
-            if (payload == null)
-            {
-                return BadRequest("Payload cannot be null");
-            }
-
-            var json = payload switch
-            {
-                JsonElement element => element.GetRawText(),
-                string str => str,
-                _ => System.Text.Json.JsonSerializer.Serialize(payload)
-            };
-
-            if (string.IsNullOrWhiteSpace(json))
-            {
-                return BadRequest("JSON payload cannot be empty");
-            }
-
-            var command = new LinkNorthCarolinaTollsCommand(json);
-            var result = await _mediator.Send(command, ct);
-
-            if (!string.IsNullOrWhiteSpace(result.Error))
-            {
-                return BadRequest(result.Error);
-            }
-
-            return Ok(result);
-        }
-        catch (Exception ex)
-        {
-            return BadRequest($"Error processing request: {ex.Message}");
-        }
+        return Ok(result);
     }
 
     [HttpPost("link-florida-tolls")]
@@ -1112,6 +1022,43 @@ public class TollsController : ControllerBase
         catch (Exception ex)
         {
             return BadRequest($"Error syncing Florida tolls: {ex.Message}");
+        }
+    }
+
+    [HttpPost("parse-texas-prices")]
+    [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(ParseTexasTollPricesResult))]
+    [ProducesResponseType(StatusCodes.Status400BadRequest)]
+    public async Task<IActionResult> ParseTexasTollPrices(
+        [FromBody] object payload,
+        CancellationToken ct = default)
+    {
+        if (payload == null)
+        {
+            return BadRequest("Payload cannot be null");
+        }
+
+        try
+        {
+            var json = payload switch
+            {
+                JsonElement element => element.GetRawText(),
+                string str => str,
+                _ => System.Text.Json.JsonSerializer.Serialize(payload)
+            };
+
+            var command = new ParseTexasTollPricesCommand(json);
+            var result = await _mediator.Send(command, ct);
+
+            if (!string.IsNullOrWhiteSpace(result.Error))
+            {
+                return BadRequest(result.Error);
+            }
+
+            return Ok(result);
+        }
+        catch (Exception ex)
+        {
+            return BadRequest($"Error processing Texas toll prices: {ex.Message}");
         }
     }
 }

@@ -1,11 +1,11 @@
 {
-  "payment_types": {
-    "Tag": true,
-    "No plate": false,
-    "Cash": true,
-    "No card": false,
-    "App": true,
-    "Card": true
+  "link": "https://pocahontas895.com/toll-rates/",
+  "payment_methods": {
+    "tag": true,
+    "plate": false,
+    "cash": true,
+    "card": true,
+    "app": true
   },
   "toll_plazas": [
     {

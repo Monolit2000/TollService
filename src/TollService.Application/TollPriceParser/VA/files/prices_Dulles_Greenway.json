@@ -264,5 +264,13 @@
       "notcongested-cc-5axle": 15.75,
       "notcongested-cc-6axle": 15.75
     }
+  },
+  "link": "https://www.dullesgreenway.com/toll-calculator/",
+  "payment_methods": {
+    "tag": true,
+    "plate": false,
+    "cash": true,
+    "card": true,
+    "app": true
   }
 }

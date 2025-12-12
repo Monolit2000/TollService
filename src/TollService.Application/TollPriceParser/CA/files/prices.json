@@ -798,5 +798,13 @@
         }
       ]
     }
-  ]
+  ],
+  "link": "https://thetollroads.com/media/0nybilxr/ratecard.pdf",
+  "payment_methods": {
+    "tag": true,
+    "plate": true,
+    "cash": false,
+    "card": false,
+    "app": true
+  }
 }

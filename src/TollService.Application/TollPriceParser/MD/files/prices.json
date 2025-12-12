@@ -3276,5 +3276,13 @@
       { "name": "Video Tolls", "values": ["1.44", "1.40", "1.40"] }
     ],
     "savings": ["1.00", "1.00", "1.00"]
+  },
+  "link": "https://driveezmd.com/toll-rate-calculator/",
+  "payment_methods": {
+    "tag": true,
+    "plate": true,
+    "cash": false,
+    "card": false,
+    "app": true
   }
 }

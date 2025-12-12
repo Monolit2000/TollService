@@ -4634,5 +4634,13 @@
     "Ошибка API для 109->44: Exit 44 serves Northbound direction only.",
     "Ошибка API для 109->102: Exit 102 serves Northbound direction only."
   ],
-  "error": null
+  "error": null,
+  "link": "https://www.maineturnpike.com/traveler-services/tolls",
+  "payment_methods": {
+    "tag": true,
+    "plate": false,
+    "cash": true,
+    "card": false,
+    "app": true
+  }
 }

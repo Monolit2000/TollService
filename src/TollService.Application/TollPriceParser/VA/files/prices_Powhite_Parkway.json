@@ -1,10 +1,11 @@
 {
-  "payment_types": {
-    "Tag": true,
-    "No plate": false,
-    "Cash": true,
-    "No card": false,
-    "App": true
+  "link": "https://www.rmtaonline.org/roadways/powhite-parkway/",
+  "payment_methods": {
+    "tag": true,
+    "plate": false,
+    "cash": true,
+    "card": false,
+    "app": true
   },
   "toll_plazas": [
     {
