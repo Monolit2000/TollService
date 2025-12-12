@@ -41,7 +41,8 @@ public class ParseDelawareTollPricesCommandHandler(
     ITollDbContext _context,
     StateCalculatorService _stateCalculatorService,
     TollSearchService _tollSearchService,
-    TollNumberService _tollNumberService) : IRequestHandler<ParseDelawareTollPricesCommand, ParseDelawareTollPricesResult>
+    TollNumberService _tollNumberService,
+    CalculatePriceService _calculatePriceService) : IRequestHandler<ParseDelawareTollPricesCommand, ParseDelawareTollPricesResult>
 {
     // Delaware bounds: (south, west, north, east) = (38.4, -75.8, 39.7, -75.0)
     private static readonly double DeMinLatitude = 38.4;
@@ -144,6 +145,91 @@ public class ParseDelawareTollPricesCommandHandler(
                 updateNumberIfDifferent: false);
         }
 
+        // Создаем словарь для пар толлов с ценами: ключ - (FromId, ToId), значение - список TollPrice
+        var tollPairsWithPrices = new Dictionary<(Guid FromId, Guid ToId), List<TollPrice>>();
+
+        // Обрабатываем каждый маршрут для создания CalculatePrice и TollPrice
+        foreach (var route in data.Routes)
+        {
+            var entryNumber = route.Entry.ToString();
+            var exitNumber = route.Exit.ToString();
+
+            // Получаем толлы для entry и exit
+            if (!exactMatchesByNumber.TryGetValue(entryNumber, out var entryTolls) || entryTolls.Count == 0)
+            {
+                continue; // Пропускаем, если entry не найден
+            }
+
+            if (!exactMatchesByNumber.TryGetValue(exitNumber, out var exitTolls) || exitTolls.Count == 0)
+            {
+                continue; // Пропускаем, если exit не найден
+            }
+
+            var description = $"{route.Entry}-{route.Direction} в {route.Exit}-{route.Direction}";
+
+            // Обрабатываем все комбинации entry -> exit толлов
+            var pairResults = TollPairProcessor.ProcessAllPairsToDictionaryList(
+                entryTolls,
+                exitTolls,
+                (entryToll, exitToll) =>
+                {
+                    var tollPrices = new List<TollPrice>();
+
+                    // Создаем TollPrice для EZPass
+                    if (route.EzPass > 0)
+                    {
+                        tollPrices.Add(new TollPrice
+                        {
+                            TollId = entryToll.Id,
+                            PaymentType = TollPaymentType.EZPass,
+                            AxelType = AxelType._5L,
+                            Amount = route.EzPass,
+                            Description = description
+                        });
+                    }
+
+                    // Создаем TollPrice для Cash
+                    if (route.Cash > 0)
+                    {
+                        tollPrices.Add(new TollPrice
+                        {
+                            TollId = entryToll.Id,
+                            PaymentType = TollPaymentType.Cash,
+                            AxelType = AxelType._5L,
+                            Amount = route.Cash,
+                            Description = description
+                        });
+                    }
+
+                    return tollPrices;
+                });
+
+            // Объединяем результаты с общим словарем
+            foreach (var kvp in pairResults)
+            {
+                if (!tollPairsWithPrices.TryGetValue(kvp.Key, out var existingList))
+                {
+                    existingList = new List<TollPrice>();
+                    tollPairsWithPrices[kvp.Key] = existingList;
+                }
+                existingList.AddRange(kvp.Value);
+            }
+        }
+
+        // Батч-создание/обновление CalculatePrice с TollPrice
+        if (tollPairsWithPrices.Count > 0)
+        {
+            var tollPairsWithPricesEnumerable = tollPairsWithPrices.ToDictionary(
+                kvp => kvp.Key,
+                kvp => (IEnumerable<TollPrice>?)kvp.Value);
+
+            await _calculatePriceService.GetOrCreateCalculatePricesBatchAsync(
+                tollPairsWithPricesEnumerable,
+                delawareCalculator.Id,
+                includeTollPrices: true,
+                ct);
+        }
+
         // Формируем результат: найденные толлы
         var foundTolls = allFoundTolls.Select(toll =>
         {
@@ -170,7 +256,7 @@ public class ParseDelawareTollPricesCommandHandler(
             }
         }
 
-        // Сохраняем все изменения
+        // Сохраняем все изменения (Toll, CalculatePrice, TollPrice)
         await _context.SaveChangesAsync(ct);
 
         return new ParseDelawareTollPricesResult(
