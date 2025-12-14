@@ -1,0 +1,668 @@
+[
+  {
+    "type": "entry",
+    "value": "Entry_1",
+    "new_number": "003",
+    "old_number": "01",
+    "name": "West Stockbridge",
+    "coordinates": {
+      "latitude": 42.326494,
+      "longitude": -73.364093
+    }
+  },
+  {
+    "type": "entry",
+    "value": "Entry_2",
+    "new_number": "010",
+    "old_number": "02",
+    "name": "Lee",
+    "coordinates": {
+      "latitude": 42.29847,
+      "longitude": -73.234934
+    }
+  },
+  {
+    "type": "entry",
+    "value": "Entry_3",
+    "new_number": "041",
+    "old_number": "03",
+    "name": "Westfield",
+    "coordinates": {
+      "latitude": 42.144877,
+      "longitude": -72.735204,
+      "note": "note"
+    }
+  },
+  {
+    "type": "entry",
+    "value": "Entry_4",
+    "new_number": "045",
+    "old_number": "04",
+    "name": "West Springfield (I-91)",
+    "coordinates": {
+      "latitude": 42.153666,
+      "longitude": -72.638588
+    }
+  },
+  {
+    "type": "entry",
+    "value": "Entry_5",
+    "new_number": "049",
+    "old_number": "05",
+    "name": "Chicopee",
+    "coordinates": {
+      "latitude": 42.169547,
+      "longitude": -72.580975
+    }
+  },
+  {
+    "type": "entry",
+    "value": "Entry_6",
+    "new_number": "051",
+    "old_number": "06",
+    "name": "Springfield (I-291)",
+    "coordinates": {
+      "latitude": 42.161994,
+      "longitude": -72.547348,
+      "note": "note"
+    }
+  },
+  {
+    "type": "entry",
+    "value": "Entry_7",
+    "new_number": "054",
+    "old_number": "07",
+    "name": "Ludlow",
+    "coordinates": {
+      "latitude": 42.167957,
+      "longitude": -72.471908,
+      "note": "note"
+    }
+  },
+  {
+    "type": "entry",
+    "value": "Entry_8",
+    "new_number": "063",
+    "old_number": "08",
+    "name": "Palmer",
+    "coordinates": {
+      "latitude": 42.17226,
+      "longitude": -72.331878,
+      "note": "note"
+    }
+  },
+  {
+    "type": "entry",
+    "value": "Entry_9",
+    "new_number": "078",
+    "old_number": "09",
+    "name": "Sturbridge (I-84)",
+    "coordinates": {
+      "latitude": 42.129467,
+      "longitude": -72.063026
+    }
+  },
+  {
+    "type": "entry",
+    "value": "Entry_10",
+    "new_number": "090",
+    "old_number": "10",
+    "name": "Auburn/Worcester (I-290/I-395)",
+    "coordinates": {
+      "latitude": 42.195412231,
+      "longitude": -71.845511517
+    }
+  },
+  {
+    "type": "entry",
+    "value": "Entry_10A",
+    "new_number": "094",
+    "old_number": "10A",
+    "name": "Worcester (Route 146)",
+    "coordinates": {
+      "latitude": 42.210029614,
+      "longitude": -71.781294316
+    }
+  },
+  {
+    "type": "entry",
+    "value": "Entry_11",
+    "new_number": "096",
+    "old_number": "11",
+    "name": "Millbury/Worcester",
+    "coordinates": {
+      "latitude": 42.22250671,
+      "longitude": -71.740203388,
+      "note": "note"
+    }
+  },
+  {
+    "type": "entry",
+    "value": "Entry_11A",
+    "new_number": "106",
+    "old_number": "11A",
+    "name": "Westborough (I-495)",
+    "coordinates": {
+      "latitude": 42.266635625,
+      "longitude": -71.564360126
+    }
+  },
+  {
+    "type": "entry",
+    "value": "Entry_12",
+    "new_number": "111",
+    "old_number": "12",
+    "name": "Framingham",
+    "coordinates": {
+      "latitude": 42.296832251,
+      "longitude": -71.478479273
+    }
+  },
+  {
+    "type": "entry",
+    "value": "Entry_13",
+    "new_number": "117",
+    "old_number": "13",
+    "name": "Natick",
+    "coordinates": {
+      "latitude": 42.312823,
+      "longitude": -71.385111
+    }
+  },
+  {
+    "type": "entry",
+    "value": "Entry_14WB",
+    "new_number": "123",
+    "old_number": "14",
+    "name": "Weston (Route 128/I-95/Route 30) (Westbound only)",
+    "coordinates": {
+      "latitude": 42.338829,
+      "longitude": -71.276492
+    }
+  },
+  {
+    "type": "entry",
+    "value": "Entry_15EB",
+    "new_number": "123A/B",
+    "old_number": "15",
+    "name": "Weston (Route 128/I-95/Route 30) (Eastbound only)",
+    "coordinates": {
+      "latitude": 42.339874,
+      "longitude": -71.263159
+    }
+  },
+  {
+    "type": "entry",
+    "value": "Entry_16EB",
+    "new_number": "125",
+    "old_number": "16",
+    "name": "West Newton (Eastbound only)",
+    "coordinates": {
+      "latitude": 42.347359,
+      "longitude": -71.232314
+    }
+  },
+  {
+    "type": "entry",
+    "value": "Entry_17",
+    "new_number": "127",
+    "old_number": "17",
+    "name": "Newton Corner",
+    "coordinates": {
+      "latitude": 42.355337,
+      "longitude": -71.190339,
+      "note": "note"
+    }
+  },
+  {
+    "type": "entry",
+    "value": "Entry_18WB",
+    "new_number": "131",
+    "old_number": "18",
+    "name": "Allston/Brighton (Westbound only)",
+    "coordinates": {
+      "latitude": 42.356890021,
+      "longitude": -71.126681454,
+      "note": "note"
+    }
+  },
+  {
+    "type": "entry",
+    "value": "Entry_19",
+    "new_number": "131",
+    "old_number": "19",
+    "name": "Beacon Park (No entry)",
+    "coordinates": {
+      "latitude": 42.356890021,
+      "longitude": -71.126681454,
+      "note": "note"
+    }
+  },
+  {
+    "type": "entry",
+    "value": "Entry_20EB",
+    "new_number": "131",
+    "old_number": "20",
+    "name": "Brighton/Cambridge (Eastbound only)",
+    "coordinates": {
+      "latitude": 42.356890021,
+      "longitude": -71.126681454,
+      "note": "note"
+    }
+  },
+  {
+    "type": "entry",
+    "value": "Entry_21WB",
+    "new_number": "133",
+    "old_number": "21",
+    "name": "Massachusetts Avenue (Westbound only)",
+    "coordinates": {
+      "latitude": 42.347974,
+      "longitude": -71.089853,
+      "note": "note"
+    }
+  },
+  {
+    "type": "entry",
+    "value": "Entry_22WB",
+    "new_number": "133",
+    "old_number": "22",
+    "name": "Copley/Prudential (Westbound only)",
+    "coordinates": {
+      "latitude": 42.347974,
+      "longitude": -71.089853,
+      "note": "note"
+    }
+  },
+  {
+    "type": "entry",
+    "value": "Entry_22AWB",
+    "new_number": "133",
+    "old_number": "22A",
+    "name": "Clarendon St. (Westbound only)",
+    "coordinates": {
+      "latitude": 42.347974,
+      "longitude": -71.089853,
+      "note": "note"
+    }
+  },
+  {
+    "type": "entry",
+    "value": "Entry_23WB",
+    "new_number": "133",
+    "old_number": "23",
+    "name": "Arlington St. (Westbound only)",
+    "coordinates": {
+      "latitude": 42.347974,
+      "longitude": -71.089853,
+      "note": "note"
+    }
+  },
+  {
+    "type": "entry",
+    "value": "Entry_24",
+    "new_number": "134A/B/C",
+    "old_number": "24A/B/C",
+    "name": "I-93 N/S - South Station",
+    "coordinates": {
+      "latitude": 42.346358,
+      "longitude": -71.060297
+    }
+  },
+  {
+    "type": "entry",
+    "value": "Entry_25",
+    "new_number": "135",
+    "old_number": "25",
+    "name": "South Boston",
+    "coordinates": {
+      "latitude": 42.34679,
+      "longitude": -71.03906
+    }
+  },
+  {
+    "type": "entry",
+    "value": "Entry_26",
+    "new_number": "137",
+    "old_number": "26",
+    "name": "Logan Airport / Ted Williams Tunnel",
+    "coordinates": {
+      "latitude": 42.36,
+      "longitude": -71.02,
+      "note": "note"
+    }
+  },
+  {
+    "type": "exit",
+    "value": "Exit_1WB",
+    "new_number": "003",
+    "old_number": "01",
+    "name": "West Stockbridge",
+    "coordinates": {
+      "latitude": 42.326494,
+      "longitude": -73.364093
+    }
+  },
+  {
+    "type": "exit",
+    "value": "Exit_2",
+    "new_number": "010",
+    "old_number": "02",
+    "name": "Lee",
+    "coordinates": {
+      "latitude": 42.29847,
+      "longitude": -73.234934
+    }
+  },
+  {
+    "type": "exit",
+    "value": "Exit_3",
+    "new_number": "041",
+    "old_number": "03",
+    "name": "Westfield",
+    "coordinates": {
+      "latitude": 42.144877,
+      "longitude": -72.735204,
+      "note": "note"
+    }
+  },
+  {
+    "type": "exit",
+    "value": "Exit_4",
+    "new_number": "045",
+    "old_number": "04",
+    "name": "West Springfield (I-91)",
+    "coordinates": {
+      "latitude": 42.153666,
+      "longitude": -72.638588
+    }
+  },
+  {
+    "type": "exit",
+    "value": "Exit_5",
+    "new_number": "049",
+    "old_number": "05",
+    "name": "Chicopee",
+    "coordinates": {
+      "latitude": 42.169547,
+      "longitude": -72.580975
+    }
+  },
+  {
+    "type": "exit",
+    "value": "Exit_6",
+    "new_number": "051",
+    "old_number": "06",
+    "name": "Springfield (I-291)",
+    "coordinates": {
+      "latitude": 42.161994,
+      "longitude": -72.547348,
+      "note": "note"
+    }
+  },
+  {
+    "type": "exit",
+    "value": "Exit_7",
+    "new_number": "054",
+    "old_number": "07",
+    "name": "Ludlow",
+    "coordinates": {
+      "latitude": 42.167957,
+      "longitude": -72.471908,
+      "note": "note"
+    }
+  },
+  {
+    "type": "exit",
+    "value": "Exit_8",
+    "new_number": "063",
+    "old_number": "08",
+    "name": "Palmer",
+    "coordinates": {
+      "latitude": 42.17226,
+      "longitude": -72.331878,
+      "note": "note"
+    }
+  },
+  {
+    "type": "exit",
+    "value": "Exit_9",
+    "new_number": "078",
+    "old_number": "09",
+    "name": "Sturbridge (I-84)",
+    "coordinates": {
+      "latitude": 42.129467,
+      "longitude": -72.063026
+    }
+  },
+  {
+    "type": "exit",
+    "value": "Exit_10",
+    "new_number": "090",
+    "old_number": "10",
+    "name": "Auburn/Worcester (I-290/I-395)",
+    "coordinates": {
+      "latitude": 42.195412231,
+      "longitude": -71.845511517
+    }
+  },
+  {
+    "type": "exit",
+    "value": "Exit_10A",
+    "new_number": "094",
+    "old_number": "10A",
+    "name": "Worcester (Route 146)",
+    "coordinates": {
+      "latitude": 42.210029614,
+      "longitude": -71.781294316
+    }
+  },
+  {
+    "type": "exit",
+    "value": "Exit_11",
+    "new_number": "096",
+    "old_number": "11",
+    "name": "Millbury/Worcester",
+    "coordinates": {
+      "latitude": 42.22250671,
+      "longitude": -71.740203388,
+      "note": "note"
+    }
+  },
+  {
+    "type": "exit",
+    "value": "Exit_11A",
+    "new_number": "106",
+    "old_number": "11A",
+    "name": "Westborough (I-495)",
+    "coordinates": {
+      "latitude": 42.266635625,
+      "longitude": -71.564360126
+    }
+  },
+  {
+    "type": "exit",
+    "value": "Exit_12",
+    "new_number": "111",
+    "old_number": "12",
+    "name": "Framingham",
+    "coordinates": {
+      "latitude": 42.296832251,
+      "longitude": -71.478479273
+    }
+  },
+  {
+    "type": "exit",
+    "value": "Exit_13",
+    "new_number": "117",
+    "old_number": "13",
+    "name": "Natick",
+    "coordinates": {
+      "latitude": 42.312823,
+      "longitude": -71.385111
+    }
+  },
+  {
+    "type": "exit",
+    "value": "Exit_14EB",
+    "new_number": "123",
+    "old_number": "14",
+    "name": "Weston (Route 128/I-95/Route 30) (Eastbound only)",
+    "coordinates": {
+      "latitude": 42.338829,
+      "longitude": -71.276492
+    }
+  },
+  {
+    "type": "exit",
+    "value": "Exit_15WB",
+    "new_number": "123A/B",
+    "old_number": "15",
+    "name": "Weston (Route 128/I-95/Route 30) (Westbound only)",
+    "coordinates": {
+      "latitude": 42.339874,
+      "longitude": -71.263159
+    }
+  },
+  {
+    "type": "exit",
+    "value": "Exit_16WB",
+    "new_number": "125",
+    "old_number": "16",
+    "name": "West Newton (Westbound only)",
+    "coordinates": {
+      "latitude": 42.347359,
+      "longitude": -71.232314
+    }
+  },
+  {
+    "type": "exit",
+    "value": "Exit_17",
+    "new_number": "127",
+    "old_number": "17",
+    "name": "Newton Corner",
+    "coordinates": {
+      "latitude": 42.355337,
+      "longitude": -71.190339,
+      "note": "note"
+    }
+  },
+  {
+    "type": "exit",
+    "value": "Exit_18EB",
+    "new_number": "131",
+    "old_number": "18",
+    "name": "Allston/Brighton (Eastbound only)",
+    "coordinates": {
+      "latitude": 42.356890021,
+      "longitude": -71.126681454,
+      "note": "note"
+    }
+  },
+  {
+    "type": "exit",
+    "value": "Exit_19",
+    "new_number": "131",
+    "old_number": "19",
+    "name": "Beacon Park (No exit)",
+    "coordinates": {
+      "latitude": 42.356890021,
+      "longitude": -71.126681454,
+      "note": "note"
+    }
+  },
+  {
+    "type": "exit",
+    "value": "Exit_20WB",
+    "new_number": "131",
+    "old_number": "20",
+    "name": "Brighton/Cambridge (Westbound only)",
+    "coordinates": {
+      "latitude": 42.356890021,
+      "longitude": -71.126681454,
+      "note": "note"
+    }
+  },
+  {
+    "type": "exit",
+    "value": "Exit_21_NX",
+    "new_number": "133",
+    "old_number": "21",
+    "name": "Massachusetts Avenue (No exit)",
+    "coordinates": {
+      "latitude": 42.347974,
+      "longitude": -71.089853,
+      "note": "note"
+    }
+  },
+  {
+    "type": "exit",
+    "value": "Exit_22EB",
+    "new_number": "133",
+    "old_number": "22",
+    "name": "Copley/Prudential (Eastbound only)",
+    "coordinates": {
+      "latitude": 42.347974,
+      "longitude": -71.089853,
+      "note": "note"
+    }
+  },
+  {
+    "type": "exit",
+    "value": "Exit_22A_NX",
+    "new_number": "133",
+    "old_number": "22A",
+    "name": "Clarendon St. (No exit)",
+    "coordinates": {
+      "latitude": 42.347974,
+      "longitude": -71.089853,
+      "note": "note"
+    }
+  },
+  {
+    "type": "exit",
+    "value": "Exit_23_NX",
+    "new_number": "133",
+    "old_number": "23",
+    "name": "Arlington St. (No exit)",
+    "coordinates": {
+      "latitude": 42.347974,
+      "longitude": -71.089853,
+      "note": "note"
+    }
+  },
+  {
+    "type": "exit",
+    "value": "Exit_24",
+    "new_number": "134A/B/C",
+    "old_number": "24A/B/C",
+    "name": "I-93 N/S - South Station",
+    "coordinates": {
+      "latitude": 42.346358,
+      "longitude": -71.060297
+    }
+  },
+  {
+    "type": "exit",
+    "value": "Exit_25",
+    "new_number": "135",
+    "old_number": "25",
+    "name": "South Boston",
+    "coordinates": {
+      "latitude": 42.34679,
+      "longitude": -71.03906
+    }
+  },
+  {
+    "type": "exit",
+    "value": "Exit_26",
+    "new_number": "137",
+    "old_number": "26",
+    "name": "Logan Airport / Ted Williams Tunnel",
+    "coordinates": {
+      "latitude": 42.36,
+      "longitude": -71.02,
+      "note": "note"
+    }
+  }
+]

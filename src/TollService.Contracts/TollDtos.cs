@@ -211,3 +211,16 @@ public record UpdateTollPriceDto(
     TimeOnly? TimeFrom = null,
     TimeOnly? TimeTo = null,
     string? Description = null);
+
+public record MassachusettsTollRequestDto(
+    string type,
+    string value,
+    string? new_number,
+    string? old_number,
+    string? name,
+    MassachusettsCoordinatesDto? coordinates);
+
+public record MassachusettsCoordinatesDto(
+    double latitude,
+    double longitude,
+    string? note);

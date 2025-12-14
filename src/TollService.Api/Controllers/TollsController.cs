@@ -26,6 +26,7 @@ using TollService.Infrastructure.Integrations;
 using TollService.Application.TollPriceParser.NY;
 using TollService.Application.TollPriceParser.FL;
 using TollService.Application.TollPriceParser.TX;
+using TollService.Application.TollPriceParser.MA;
 using static TollService.Application.TollPriceParser.NY.ParseNewYorkTollPricesCommandHandler;
 using TollService.Domain;
 
@@ -1060,6 +1061,71 @@ public class TollsController : ControllerBase
         catch (Exception ex)
         {
             return BadRequest($"Error processing Texas toll prices: {ex.Message}");
+        }
+    }
+
+    [HttpPost("parse-massachusetts-tolls")]
+    [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(ParseMassachusettsTollsResult))]
+    [ProducesResponseType(StatusCodes.Status400BadRequest)]
+    public async Task<IActionResult> ParseMassachusettsTolls(
+        [FromBody] List<MassachusettsTollRequestDto>? request,
+        CancellationToken ct = default)
+    {
+        if (request == null || request.Count == 0)
+        {
+            return BadRequest("Request body cannot be empty");
+        }
+
+        try
+        {
+            var command = new ParseMassachusettsTollsCommand(request);
+            var result = await _mediator.Send(command, ct);
+            return Ok(result);
+        }
+        catch (System.Text.Json.JsonException ex)
+        {
+            return BadRequest($"Invalid JSON format: {ex.Message}");
+        }
+        catch (Exception ex)
+        {
+            return BadRequest($"Error processing request: {ex.Message}");
+        }
+    }
+
+    [HttpPost("parse-massachusetts-prices")]
+    [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(ParseMassachusettsTollPricesResult))]
+    [ProducesResponseType(StatusCodes.Status400BadRequest)]
+    public async Task<IActionResult> ParseMassachusettsTollPrices(
+        [FromBody] object payload,
+        CancellationToken ct = default)
+    {
+        if (payload == null)
+        {
+            return BadRequest("Payload cannot be null");
+        }
+
+        try
+        {
+            var json = payload switch
+            {
+                JsonElement element => element.GetRawText(),
+                string str => str,
+                _ => System.Text.Json.JsonSerializer.Serialize(payload)
+            };
+
+            var command = new ParseMassachusettsTollPricesCommand(json);
+            var result = await _mediator.Send(command, ct);
+
+            if (!string.IsNullOrWhiteSpace(result.Error))
+            {
+                return BadRequest(result.Error);
+            }
+
+            return Ok(result);
+        }
+        catch (Exception ex)
+        {
+            return BadRequest($"Error processing Massachusetts toll prices: {ex.Message}");
         }
     }
 

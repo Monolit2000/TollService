@@ -22,7 +22,6 @@
 
   <ItemGroup>
     <Folder Include="TollPriceParser\IL\" />
-    <Folder Include="TollPriceParser\MA\" />
   </ItemGroup>
 
 
