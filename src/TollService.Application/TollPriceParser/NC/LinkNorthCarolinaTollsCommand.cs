@@ -30,6 +30,13 @@ public record NorthCarolinaLinkedTollInfo(
     double RateX4,
     List<NorthCarolinaTollPriceInfo> Prices);
 
+public record NorthCarolinaPaymentMethods(
+    [property: JsonPropertyName("tag")] bool Tag,
+    [property: JsonPropertyName("plate")] bool Plate,
+    [property: JsonPropertyName("cash")] bool Cash,
+    [property: JsonPropertyName("card")] bool Card,
+    [property: JsonPropertyName("app")] bool App);
+
 public record LinkNorthCarolinaTollsCommand(
     string JsonPayload) : IRequest<LinkNorthCarolinaTollsResult>;
 
@@ -67,24 +74,51 @@ public class LinkNorthCarolinaTollsCommandHandler(
                     "JSON payload is empty");
             }
 
-            List<NorthCarolinaTollRate>? tollRates;
+            List<NorthCarolinaTollRate>? tollRates = null;
+            string? link = null;
+            PaymentMethod? paymentMethod = null;
+            var options = new JsonSerializerOptions
+            {
+                PropertyNameCaseInsensitive = true
+            };
+
             try
             {
-                var options = new JsonSerializerOptions
+                // Используем JsonDocument для обработки полей link и payment_methods
+                using (var jsonDoc = JsonDocument.Parse(request.JsonPayload))
                 {
-                    PropertyNameCaseInsensitive = true
-                };
+                    // Пробуем распарсить как объект с полем "routes"
+                    if (jsonDoc.RootElement.ValueKind == JsonValueKind.Object && jsonDoc.RootElement.TryGetProperty("routes", out var routesElement))
+                    {
+                        tollRates = JsonSerializer.Deserialize<List<NorthCarolinaTollRate>>(routesElement.GetRawText(), options);
+                    }
+                    else
+                    {
+                        // Пробуем распарсить как массив напрямую
+                        tollRates = JsonSerializer.Deserialize<List<NorthCarolinaTollRate>>(request.JsonPayload, options);
+                    }
 
-                // Пробуем распарсить как объект с полем "routes"
-                var jsonDoc = JsonDocument.Parse(request.JsonPayload);
-                if (jsonDoc.RootElement.ValueKind == JsonValueKind.Object && jsonDoc.RootElement.TryGetProperty("routes", out var routesElement))
-                {
-                    tollRates = JsonSerializer.Deserialize<List<NorthCarolinaTollRate>>(routesElement.GetRawText(), options);
-                }
-                else
-                {
-                    // Пробуем распарсить как массив напрямую
-                    tollRates = JsonSerializer.Deserialize<List<NorthCarolinaTollRate>>(request.JsonPayload, options);
+                    // Читаем link
+                    if (jsonDoc.RootElement.TryGetProperty("link", out var linkElement) && linkElement.ValueKind == JsonValueKind.String)
+                    {
+                        link = linkElement.GetString();
+                    }
+
+                    // Читаем payment_methods
+                    if (jsonDoc.RootElement.TryGetProperty("payment_methods", out var paymentMethodsElement))
+                    {
+                        var paymentMethods = JsonSerializer.Deserialize<NorthCarolinaPaymentMethods>(paymentMethodsElement.GetRawText(), options);
+                        if (paymentMethods != null)
+                        {
+                            // Маппинг: plate -> NoPlate (обратная логика), card -> NoCard (обратная логика)
+                            paymentMethod = new PaymentMethod(
+                                tag: paymentMethods.Tag,
+                                noPlate: !paymentMethods.Plate,
+                                cash: paymentMethods.Cash,
+                                noCard: !paymentMethods.Card,
+                                app: paymentMethods.App);
+                        }
+                    }
                 }
             }
             catch (JsonException jsonEx)
@@ -146,8 +180,8 @@ public class LinkNorthCarolinaTollsCommandHandler(
                 allPlazaNames,
                 ncBoundingBox,
                 TollSearchOptions.NameOrKey,
-                websiteUrl: null,
-                paymentMethod: null,
+                websiteUrl: link,
+                paymentMethod: paymentMethod,
                 ct);
 
             // Устанавливаем Number и StateCalculatorId для всех найденных толлов

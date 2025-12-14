@@ -197,7 +197,7 @@ public class ParseSouthCarolinaTollPricesCommandHandler(
                     if (plaza.Rates?.Axles5 != null && plaza.Rates.Axles5.TollRate.HasValue && plaza.Rates.Axles5.TollRate.Value > 0)
                     {
                         var amount = plaza.Rates.Axles5.TollRate.Value;
-                        var paymentType = TollPaymentType.Cash; // Используем Cash как основной тип для toll_rate
+                        var paymentType = TollPaymentType.PalPass; // Используем Cash как основной тип для toll_rate
                         prices.Add(new SouthCarolinaTollPriceInfo("Toll Rate", amount, 5));
 
                         if (!tollsToUpdatePrices.ContainsKey(toll.Id))
@@ -217,7 +217,7 @@ public class ParseSouthCarolinaTollPricesCommandHandler(
                     if (plaza.Rates?.Axles6 != null && plaza.Rates.Axles6.TollRate.HasValue && plaza.Rates.Axles6.TollRate.Value > 0)
                     {
                         var amount = plaza.Rates.Axles6.TollRate.Value;
-                        var paymentType = TollPaymentType.Cash; // Используем Cash как основной тип для toll_rate
+                        var paymentType = TollPaymentType.PalPass; // Используем Cash как основной тип для toll_rate
                         prices.Add(new SouthCarolinaTollPriceInfo("Toll Rate", amount, 6));
 
                         if (!tollsToUpdatePrices.ContainsKey(toll.Id))

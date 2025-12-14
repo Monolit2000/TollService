@@ -154,13 +154,22 @@ public class LinkOklahomaTollsCommandHandler(
             }
         }
 
+        // Хардкоженные метаданные для Oklahoma
+        const string oklahomaLink = "https://pikepass.com/plan-your-trip/toll-calculator";
+        var oklahomaPaymentMethod = new PaymentMethod(
+            tag: true,
+            noPlate: false, // plate: true -> noPlate: false
+            cash: false,
+            noCard: false, // card: false -> noCard: false
+            app: true);
+
         // Один батч-запрос для поиска всех толлов
         var tollsByName = await _tollSearchService.FindMultipleTollsInBoundingBoxAsync(
             allTollNames,
             okBoundingBox,
             TollSearchOptions.NameOrKey,
-            websiteUrl: null,
-            paymentMethod: null,
+            websiteUrl: oklahomaLink,
+            paymentMethod: oklahomaPaymentMethod,
             ct);
 
         // Устанавливаем Number и StateCalculatorId для всех найденных толлов

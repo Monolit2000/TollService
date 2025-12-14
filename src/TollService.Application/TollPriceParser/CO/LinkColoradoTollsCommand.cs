@@ -35,6 +35,13 @@ public record ColoradoPlaza(
     [property: JsonPropertyName("plaza_name")] string PlazaName,
     [property: JsonPropertyName("rates")] JsonElement? Rates);
 
+public record ColoradoPaymentMethods(
+    [property: JsonPropertyName("tag")] bool Tag,
+    [property: JsonPropertyName("plate")] bool Plate,
+    [property: JsonPropertyName("cash")] bool Cash,
+    [property: JsonPropertyName("card")] bool Card,
+    [property: JsonPropertyName("app")] bool App);
+
 public record LinkColoradoTollsCommand(string JsonPayload) : IRequest<LinkColoradoTollsResult>;
 
 public record ColoradoFoundTollInfo(
@@ -67,24 +74,51 @@ public class LinkColoradoTollsCommandHandler(
             return new LinkColoradoTollsResult(new(), new(), "JSON payload is empty");
         }
 
-        List<ColoradoPlaza>? plazas;
+        List<ColoradoPlaza>? plazas = null;
+        string? link = null;
+        PaymentMethod? paymentMethod = null;
+        var options = new JsonSerializerOptions
+        {
+            PropertyNameCaseInsensitive = true
+        };
+
         try
         {
-            var options = new JsonSerializerOptions
+            // Используем JsonDocument для обработки полей link и payment_methods
+            using (JsonDocument jsonDoc = JsonDocument.Parse(request.JsonPayload))
             {
-                PropertyNameCaseInsensitive = true
-            };
+                // Пробуем распарсить как объект с полем "plazas"
+                if (jsonDoc.RootElement.ValueKind == JsonValueKind.Object && jsonDoc.RootElement.TryGetProperty("plazas", out var plazasElement))
+                {
+                    plazas = JsonSerializer.Deserialize<List<ColoradoPlaza>>(plazasElement.GetRawText(), options);
+                }
+                else
+                {
+                    // Пробуем распарсить как массив напрямую
+                    plazas = JsonSerializer.Deserialize<List<ColoradoPlaza>>(request.JsonPayload, options);
+                }
 
-            // Пробуем распарсить как объект с полем "plazas"
-            var jsonDoc = JsonDocument.Parse(request.JsonPayload);
-            if (jsonDoc.RootElement.ValueKind == JsonValueKind.Object && jsonDoc.RootElement.TryGetProperty("plazas", out var plazasElement))
-            {
-                plazas = JsonSerializer.Deserialize<List<ColoradoPlaza>>(plazasElement.GetRawText(), options);
-            }
-            else
-            {
-                // Пробуем распарсить как массив напрямую
-                plazas = JsonSerializer.Deserialize<List<ColoradoPlaza>>(request.JsonPayload, options);
+                // Читаем link
+                if (jsonDoc.RootElement.TryGetProperty("link", out var linkElement) && linkElement.ValueKind == JsonValueKind.String)
+                {
+                    link = linkElement.GetString();
+                }
+
+                // Читаем payment_methods
+                if (jsonDoc.RootElement.TryGetProperty("payment_methods", out var paymentMethodsElement))
+                {
+                    var paymentMethods = JsonSerializer.Deserialize<ColoradoPaymentMethods>(paymentMethodsElement.GetRawText(), options);
+                    if (paymentMethods != null)
+                    {
+                        // Маппинг: plate -> NoPlate (обратная логика), card -> NoCard (обратная логика)
+                        paymentMethod = new PaymentMethod(
+                            tag: paymentMethods.Tag,
+                            noPlate: !paymentMethods.Plate,
+                            cash: paymentMethods.Cash,
+                            noCard: !paymentMethods.Card,
+                            app: paymentMethods.App);
+                    }
+                }
             }
         }
         catch (JsonException jsonEx)
@@ -124,8 +158,8 @@ public class LinkColoradoTollsCommandHandler(
             allPlazaNames,
             coBoundingBox,
             TollSearchOptions.NameOrKey,
-            websiteUrl: null,
-            paymentMethod: null,
+            websiteUrl: link,
+            paymentMethod: paymentMethod,
             ct);
 
         var foundTolls = new List<ColoradoFoundTollInfo>();

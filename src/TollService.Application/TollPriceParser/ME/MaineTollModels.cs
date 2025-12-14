@@ -53,3 +53,10 @@ public record MaineFullPricesResponse(
     [property: System.Text.Json.Serialization.JsonPropertyName("errors")] List<string>? Errors,
     [property: System.Text.Json.Serialization.JsonPropertyName("error")] string? Error);
 
+public record MainePaymentMethods(
+    [property: System.Text.Json.Serialization.JsonPropertyName("tag")] bool Tag,
+    [property: System.Text.Json.Serialization.JsonPropertyName("plate")] bool Plate,
+    [property: System.Text.Json.Serialization.JsonPropertyName("cash")] bool Cash,
+    [property: System.Text.Json.Serialization.JsonPropertyName("card")] bool Card,
+    [property: System.Text.Json.Serialization.JsonPropertyName("app")] bool App);
+

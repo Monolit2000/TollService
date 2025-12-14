@@ -30,6 +30,13 @@ public record NewJerseyTollResponse(
     [property: JsonPropertyName("total_checked")] int? TotalChecked,
     [property: JsonPropertyName("toll_rates")] List<NewJerseyTollRate>? TollRates);
 
+public record NewJerseyTollPricesPaymentMethods(
+    [property: JsonPropertyName("tag")] bool Tag,
+    [property: JsonPropertyName("plate")] bool Plate,
+    [property: JsonPropertyName("cash")] bool Cash,
+    [property: JsonPropertyName("card")] bool Card,
+    [property: JsonPropertyName("app")] bool App);
+
 public record ParseNewJerseyTollPricesResult(
     List<string> Lines,
     int UpdatedCount,
@@ -57,13 +64,44 @@ public class ParseNewJerseyTollPricesCommandHandler(
             return new ParseNewJerseyTollPricesResult(new(), 0, 0, new(), "JSON payload is empty");
         }
 
-        NewJerseyTollResponse? data;
+        NewJerseyTollResponse? data = null;
+        string? link = null;
+        PaymentMethod? paymentMethod = null;
+        var options = new JsonSerializerOptions
+        {
+            PropertyNameCaseInsensitive = true
+        };
+
         try
         {
-            data = JsonSerializer.Deserialize<NewJerseyTollResponse>(request.JsonPayload, new JsonSerializerOptions
+            // Используем JsonDocument для обработки полей link и payment_methods
+            using (JsonDocument doc = JsonDocument.Parse(request.JsonPayload))
             {
-                PropertyNameCaseInsensitive = true
-            });
+                // Десериализуем основные данные
+                data = JsonSerializer.Deserialize<NewJerseyTollResponse>(request.JsonPayload, options);
+
+                // Читаем link
+                if (doc.RootElement.TryGetProperty("link", out var linkElement) && linkElement.ValueKind == JsonValueKind.String)
+                {
+                    link = linkElement.GetString();
+                }
+
+                // Читаем payment_methods
+                if (doc.RootElement.TryGetProperty("payment_methods", out var paymentMethodsElement))
+                {
+                    var paymentMethods = JsonSerializer.Deserialize<NewJerseyTollPricesPaymentMethods>(paymentMethodsElement.GetRawText(), options);
+                    if (paymentMethods != null)
+                    {
+                        // Маппинг: plate -> NoPlate (обратная логика), card -> NoCard (обратная логика)
+                        paymentMethod = new PaymentMethod(
+                            tag: paymentMethods.Tag,
+                            noPlate: !paymentMethods.Plate,
+                            cash: paymentMethods.Cash,
+                            noCard: !paymentMethods.Card,
+                            app: paymentMethods.App);
+                    }
+                }
+            }
         }
         catch (JsonException jsonEx)
         {
@@ -95,6 +133,9 @@ public class ParseNewJerseyTollPricesCommandHandler(
         // Создаем словарь для кэширования найденных tolls по номеру плазы
         var tollCache = new Dictionary<string, List<Toll>>();
 
+        // Собираем все найденные толлы для обновления метаданных
+        var allFoundTolls = new HashSet<Toll>();
+
         // Обрабатываем каждый тариф
         foreach (var rate in data.TollRates)
         {
@@ -115,6 +156,12 @@ public class ParseNewJerseyTollPricesCommandHandler(
                 continue;
             }
 
+            // Добавляем найденные толлы в коллекцию для обновления метаданных
+            foreach (var toll in entryTolls)
+            {
+                allFoundTolls.Add(toll);
+            }
+
             // Находим все tolls для exit (может быть несколько)
             var exitTolls = await FindOrCacheTollsByNumber(exitNumber, tollCache, newJerseyCalculator.Id, njBoundingBox, ct);
             if (exitTolls.Count == 0)
@@ -122,6 +169,12 @@ public class ParseNewJerseyTollPricesCommandHandler(
                 notFoundPlazas.Add($"Exit: {exitNumber}");
                 resultLines.Add($"{entryNumber} -> {exitNumber} - НЕ НАЙДЕНО");
                 continue;
+            }
+
+            // Добавляем найденные толлы в коллекцию для обновления метаданных
+            foreach (var toll in exitTolls)
+            {
+                allFoundTolls.Add(toll);
             }
 
             var description = $"{entryNumber} -> {exitNumber}";
@@ -189,6 +242,33 @@ public class ParseNewJerseyTollPricesCommandHandler(
 
             // Добавляем строку в результат
             resultLines.Add($"{entryNumber} -> {exitNumber} - Cash: {rate.Cash:0.00}, EZPass Off-Peak: {rate.EzPassOffPeak:0.00}, EZPass Peak: {rate.EzPassPeak:0.00}");
+        }
+
+        // Обновляем метаданные для всех найденных толлов
+        if (allFoundTolls.Count > 0)
+        {
+            foreach (var toll in allFoundTolls)
+            {
+                // Обновляем WebsiteUrl, если указан
+                if (!string.IsNullOrWhiteSpace(link))
+                {
+                    toll.WebsiteUrl = link;
+                }
+
+                // Обновляем PaymentMethod, если указан
+                if (paymentMethod != null)
+                {
+                    if (toll.PaymentMethod == null)
+                    {
+                        toll.PaymentMethod = PaymentMethod.Default();
+                    }
+                    toll.PaymentMethod.Tag = paymentMethod.Tag;
+                    toll.PaymentMethod.NoPlate = paymentMethod.NoPlate;
+                    toll.PaymentMethod.Cash = paymentMethod.Cash;
+                    toll.PaymentMethod.NoCard = paymentMethod.NoCard;
+                    toll.PaymentMethod.App = paymentMethod.App;
+                }
+            }
         }
 
         // Батч-создание/обновление CalculatePrice с TollPrice

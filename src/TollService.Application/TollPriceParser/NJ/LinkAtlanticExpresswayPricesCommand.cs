@@ -23,6 +23,13 @@ public record AtlanticExpresswayPricesData(
     [property: JsonPropertyName("total_checked")] int? TotalChecked,
     [property: JsonPropertyName("toll_rates")] List<AtlanticExpresswayTollRate>? TollRates);
 
+public record AtlanticExpresswayPaymentMethods(
+    [property: JsonPropertyName("tag")] bool Tag,
+    [property: JsonPropertyName("plate")] bool Plate,
+    [property: JsonPropertyName("cash")] bool Cash,
+    [property: JsonPropertyName("card")] bool Card,
+    [property: JsonPropertyName("app")] bool App);
+
 public record AtlanticExpresswayTollPriceInfo(
     string PaymentType,
     double Amount);
@@ -67,13 +74,44 @@ public class LinkAtlanticExpresswayPricesCommandHandler(
                     "JSON payload is empty");
             }
 
-            AtlanticExpresswayPricesData? data;
+            AtlanticExpresswayPricesData? data = null;
+            string? link = null;
+            PaymentMethod? paymentMethod = null;
+            var options = new JsonSerializerOptions
+            {
+                PropertyNameCaseInsensitive = true
+            };
+
             try
             {
-                data = JsonSerializer.Deserialize<AtlanticExpresswayPricesData>(request.JsonPayload, new JsonSerializerOptions
+                // Используем JsonDocument для обработки полей link и payment_methods
+                using (JsonDocument doc = JsonDocument.Parse(request.JsonPayload))
                 {
-                    PropertyNameCaseInsensitive = true
-                });
+                    // Десериализуем основные данные
+                    data = JsonSerializer.Deserialize<AtlanticExpresswayPricesData>(request.JsonPayload, options);
+
+                    // Читаем link
+                    if (doc.RootElement.TryGetProperty("link", out var linkElement) && linkElement.ValueKind == JsonValueKind.String)
+                    {
+                        link = linkElement.GetString();
+                    }
+
+                    // Читаем payment_methods
+                    if (doc.RootElement.TryGetProperty("payment_methods", out var paymentMethodsElement))
+                    {
+                        var paymentMethods = JsonSerializer.Deserialize<AtlanticExpresswayPaymentMethods>(paymentMethodsElement.GetRawText(), options);
+                        if (paymentMethods != null)
+                        {
+                            // Маппинг: plate -> NoPlate (обратная логика), card -> NoCard (обратная логика)
+                            paymentMethod = new PaymentMethod(
+                                tag: paymentMethods.Tag,
+                                noPlate: !paymentMethods.Plate,
+                                cash: paymentMethods.Cash,
+                                noCard: !paymentMethods.Card,
+                                app: paymentMethods.App);
+                        }
+                    }
+                }
             }
             catch (JsonException jsonEx)
             {
@@ -118,8 +156,8 @@ public class LinkAtlanticExpresswayPricesCommandHandler(
                 allPlazaNames,
                 njBoundingBox,
                 TollSearchOptions.NameOrKey,
-                websiteUrl: null,
-                paymentMethod: null,
+                websiteUrl: link,
+                paymentMethod: paymentMethod,
                 ct);
 
             var linkedTolls = new List<AtlanticExpresswayLinkedTollInfo>();

@@ -25,6 +25,13 @@ public record NewHampshireTurnpikeSystem(
     [property: JsonPropertyName("toll_plazas")] List<NewHampshireTollPlaza>? TollPlazas,
     [property: JsonPropertyName("summary")] Dictionary<string, object>? Summary);
 
+public record NewHampshirePaymentMethods(
+    [property: JsonPropertyName("tag")] bool Tag,
+    [property: JsonPropertyName("plate")] bool Plate,
+    [property: JsonPropertyName("cash")] bool Cash,
+    [property: JsonPropertyName("card")] bool Card,
+    [property: JsonPropertyName("app")] bool App);
+
 public record LinkNewHampshireTollsCommand(string JsonPayload)
     : IRequest<LinkNewHampshireTollsResult>;
 
@@ -60,6 +67,8 @@ public class LinkNewHampshireTollsCommandHandler(
         }
 
         NewHampshirePricesData? data = null;
+        string? link = null;
+        PaymentMethod? paymentMethod = null;
         var options = new JsonSerializerOptions
         {
             PropertyNameCaseInsensitive = true
@@ -68,29 +77,63 @@ public class LinkNewHampshireTollsCommandHandler(
         try
         {
             await Task.Yield();
-            // Пробуем десериализовать как обернутый объект
-            data = JsonSerializer.Deserialize<NewHampshirePricesData>(request.JsonPayload, options);
-        }
-        catch (JsonException)
-        {
-            // Игнорируем, попробуем другой формат
-        }
 
-        // Если не удалось распарсить как обернутый объект, пробуем как прямой объект NewHampshireTurnpikeSystem
-        if (data?.NewHampshireTurnpikeSystemTolls == null)
-        {
-            try
+            // Используем JsonDocument для обработки полей link и payment_methods
+            using (JsonDocument doc = JsonDocument.Parse(request.JsonPayload))
             {
-                var directData = JsonSerializer.Deserialize<NewHampshireTurnpikeSystem>(request.JsonPayload, options);
-                if (directData != null)
+                // Пробуем десериализовать как обернутый объект
+                try
                 {
-                    data = new NewHampshirePricesData(directData);
+                    data = JsonSerializer.Deserialize<NewHampshirePricesData>(request.JsonPayload, options);
+                }
+                catch (JsonException)
+                {
+                    // Игнорируем, попробуем другой формат
+                }
+
+                // Если не удалось распарсить как обернутый объект, пробуем как прямой объект NewHampshireTurnpikeSystem
+                if (data?.NewHampshireTurnpikeSystemTolls == null)
+                {
+                    try
+                    {
+                        var directData = JsonSerializer.Deserialize<NewHampshireTurnpikeSystem>(request.JsonPayload, options);
+                        if (directData != null)
+                        {
+                            data = new NewHampshirePricesData(directData);
+                        }
+                    }
+                    catch (JsonException jsonEx)
+                    {
+                        return new LinkNewHampshireTollsResult(new(), new(), 0, $"Ошибка парсинга JSON: {jsonEx.Message}. Убедитесь, что JSON содержит поле 'new_hampshire_turnpike_system_tolls' с массивом 'toll_plazas'.");
+                    }
+                }
+
+                // Читаем link
+                if (doc.RootElement.TryGetProperty("link", out var linkElement) && linkElement.ValueKind == JsonValueKind.String)
+                {
+                    link = linkElement.GetString();
+                }
+
+                // Читаем payment_methods
+                if (doc.RootElement.TryGetProperty("payment_methods", out var paymentMethodsElement))
+                {
+                    var paymentMethods = JsonSerializer.Deserialize<NewHampshirePaymentMethods>(paymentMethodsElement.GetRawText(), options);
+                    if (paymentMethods != null)
+                    {
+                        // Маппинг: plate -> NoPlate (обратная логика), card -> NoCard (обратная логика)
+                        paymentMethod = new PaymentMethod(
+                            tag: paymentMethods.Tag,
+                            noPlate: !paymentMethods.Plate,
+                            cash: paymentMethods.Cash,
+                            noCard: !paymentMethods.Card,
+                            app: paymentMethods.App);
+                    }
                 }
             }
-            catch (JsonException jsonEx)
-            {
-                return new LinkNewHampshireTollsResult(new(), new(), 0, $"Ошибка парсинга JSON: {jsonEx.Message}. Убедитесь, что JSON содержит поле 'new_hampshire_turnpike_system_tolls' с массивом 'toll_plazas'.");
-            }
+        }
+        catch (JsonException jsonEx)
+        {
+            return new LinkNewHampshireTollsResult(new(), new(), 0, $"Ошибка парсинга JSON: {jsonEx.Message}");
         }
 
         if (data?.NewHampshireTurnpikeSystemTolls?.TollPlazas == null || data.NewHampshireTurnpikeSystemTolls.TollPlazas.Count == 0)
@@ -135,8 +178,8 @@ public class LinkNewHampshireTollsCommandHandler(
             allPlazaNames,
             nhBoundingBox,
             TollSearchOptions.Key,
-            websiteUrl: null,
-            paymentMethod: null,
+            websiteUrl: link,
+            paymentMethod: paymentMethod,
             ct);
 
         var foundTolls = new List<NewHampshireFoundTollInfo>();

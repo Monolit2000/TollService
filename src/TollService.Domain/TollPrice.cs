@@ -109,6 +109,7 @@ public enum TollPaymentType
     SunPass = 7,
     AccountToll = 8,
     NonAccountToll = 9,
+    PalPass = 10,
 }
 
 public enum TollPriceTimeOfDay

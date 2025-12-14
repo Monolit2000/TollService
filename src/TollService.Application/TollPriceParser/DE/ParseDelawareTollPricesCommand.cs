@@ -25,6 +25,13 @@ public record DelawareTollResponse(
     [property: System.Text.Json.Serialization.JsonPropertyName("time_period")] string? Time_Period,
     [property: System.Text.Json.Serialization.JsonPropertyName("routes")] List<DelawareTollRoute>? Routes);
 
+public record DelawarePaymentMethods(
+    [property: System.Text.Json.Serialization.JsonPropertyName("tag")] bool Tag,
+    [property: System.Text.Json.Serialization.JsonPropertyName("plate")] bool Plate,
+    [property: System.Text.Json.Serialization.JsonPropertyName("cash")] bool Cash,
+    [property: System.Text.Json.Serialization.JsonPropertyName("card")] bool Card,
+    [property: System.Text.Json.Serialization.JsonPropertyName("app")] bool App);
+
 public record ParseDelawareTollPricesResult(
     List<DelawareFoundTollInfo> FoundTolls,
     List<string> NotFoundPlazas,
@@ -57,14 +64,46 @@ public class ParseDelawareTollPricesCommandHandler(
             return new ParseDelawareTollPricesResult(new(), new(), "JSON payload is empty");
         }
 
-        DelawareTollResponse? data;
+        DelawareTollResponse? data = null;
+        string? link = null;
+        PaymentMethod? paymentMethod = null;
+        var options = new JsonSerializerOptions
+        {
+            PropertyNameCaseInsensitive = true
+        };
+
         try
         {
-            await Task.Yield(); // keep async signature
-            data = JsonSerializer.Deserialize<DelawareTollResponse>(request.JsonPayload, new JsonSerializerOptions
+            await Task.Yield();
+
+            // Используем JsonDocument для обработки полей link и payment_methods
+            using (JsonDocument doc = JsonDocument.Parse(request.JsonPayload))
             {
-                PropertyNameCaseInsensitive = true
-            });
+                // Десериализуем основные данные
+                data = JsonSerializer.Deserialize<DelawareTollResponse>(request.JsonPayload, options);
+
+                // Читаем link
+                if (doc.RootElement.TryGetProperty("link", out var linkElement) && linkElement.ValueKind == JsonValueKind.String)
+                {
+                    link = linkElement.GetString();
+                }
+
+                // Читаем payment_methods
+                if (doc.RootElement.TryGetProperty("payment_methods", out var paymentMethodsElement))
+                {
+                    var paymentMethods = JsonSerializer.Deserialize<DelawarePaymentMethods>(paymentMethodsElement.GetRawText(), options);
+                    if (paymentMethods != null)
+                    {
+                        // Маппинг: plate -> NoPlate (обратная логика), card -> NoCard (обратная логика)
+                        paymentMethod = new PaymentMethod(
+                            tag: paymentMethods.Tag,
+                            noPlate: !paymentMethods.Plate,
+                            cash: paymentMethods.Cash,
+                            noCard: !paymentMethods.Card,
+                            app: paymentMethods.App);
+                    }
+                }
+            }
         }
         catch (JsonException jsonEx)
         {
@@ -103,8 +142,8 @@ public class ParseDelawareTollPricesCommandHandler(
             allPlazaNumbers,
             delawareBoundingBox,
             TollSearchOptions.NameOrKey,
-            websiteUrl: null,
-            paymentMethod: null,
+            websiteUrl: link,
+            paymentMethod: paymentMethod,
             ct);
 
         // Фильтруем результаты: оставляем только точные совпадения по Key или Name

@@ -25,6 +25,13 @@ public record VirginiaAxleRates(
 public record VirginiaPricesData(
     [property: JsonPropertyName("toll_plazas")] List<VirginiaTollPlaza> TollPlazas);
 
+public record VirginiaPaymentMethods(
+    [property: JsonPropertyName("tag")] bool Tag,
+    [property: JsonPropertyName("plate")] bool Plate,
+    [property: JsonPropertyName("cash")] bool Cash,
+    [property: JsonPropertyName("card")] bool Card,
+    [property: JsonPropertyName("app")] bool App);
+
 public record VirginiaTollPriceInfo(
     string PaymentType,
     double Amount,
@@ -70,14 +77,16 @@ public class ParseVirginiaTollPricesCommandHandler(
                     "JSON payload is empty");
             }
 
-            VirginiaPricesData? data;
+            VirginiaPricesData? data = null;
+            string? link = null;
+            PaymentMethod? paymentMethod = null;
+            var options = new JsonSerializerOptions
+            {
+                PropertyNameCaseInsensitive = true
+            };
+
             try
             {
-                var options = new JsonSerializerOptions
-                {
-                    PropertyNameCaseInsensitive = true
-                };
-
                 // Используем JsonDocument для обработки новых полей link и payment_methods
                 using (JsonDocument doc = JsonDocument.Parse(request.JsonPayload))
                 {
@@ -97,6 +106,28 @@ public class ParseVirginiaTollPricesCommandHandler(
                     {
                         // Fallback: пробуем десериализовать напрямую
                         data = JsonSerializer.Deserialize<VirginiaPricesData>(request.JsonPayload, options);
+                    }
+
+                    // Читаем link
+                    if (doc.RootElement.TryGetProperty("link", out var linkElement) && linkElement.ValueKind == JsonValueKind.String)
+                    {
+                        link = linkElement.GetString();
+                    }
+
+                    // Читаем payment_methods
+                    if (doc.RootElement.TryGetProperty("payment_methods", out var paymentMethodsElement))
+                    {
+                        var paymentMethods = JsonSerializer.Deserialize<VirginiaPaymentMethods>(paymentMethodsElement.GetRawText(), options);
+                        if (paymentMethods != null)
+                        {
+                            // Маппинг: plate -> NoPlate (обратная логика), card -> NoCard (обратная логика)
+                            paymentMethod = new PaymentMethod(
+                                tag: paymentMethods.Tag,
+                                noPlate: !paymentMethods.Plate,
+                                cash: paymentMethods.Cash,
+                                noCard: !paymentMethods.Card,
+                                app: paymentMethods.App);
+                        }
                     }
                 }
             }
@@ -143,8 +174,8 @@ public class ParseVirginiaTollPricesCommandHandler(
                 allPlazaNames,
                 vaBoundingBox,
                 TollSearchOptions.NameOrKey,
-                websiteUrl: null,
-                paymentMethod: null,
+                websiteUrl: link,
+                paymentMethod: paymentMethod,
                 ct);
 
             var linkedTolls = new List<VirginiaLinkedTollInfo>();

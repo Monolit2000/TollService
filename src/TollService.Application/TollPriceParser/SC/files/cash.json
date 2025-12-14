@@ -1,0 +1,56 @@
+{
+  "toll_plazas": [
+    {
+      "name": "WEST PLAZA",
+      "rates": {
+        "5_axles": {
+          "toll_rate": 8.0
+        },
+        "6_axles": {
+          "toll_rate": 9.6
+        }
+      }
+    },
+    {
+      "name": "SC 20",
+      "rates": {
+        "5_axles": {
+          "toll_rate": 1.5
+        },
+        "6_axles": {
+          "toll_rate": 1.5
+        }
+      }
+    },
+    {
+      "name": "FORK SHOALS",
+      "rates": {
+        "5_axles": {
+          "toll_rate": 1.5
+        },
+        "6_axles": {
+          "toll_rate": 1.5
+        }
+      }
+    },
+    {
+      "name": "EAST PLAZA",
+      "rates": {
+        "5_axles": {
+          "toll_rate": 8.0
+        },
+        "6_axles": {
+          "toll_rate": 9.6
+        }
+      }
+    }
+  ],
+  "link": "https://southernconnector.com/rates-cash.html",
+  "payment_methods": {
+    "tag": true,
+    "plate": false,
+    "cash": true,
+    "card": true,
+    "app": false
+  }
+}

@@ -18,6 +18,13 @@ public record MarylandPriceData(
     List<MarylandPriceRate> Rates,
     List<string> Savings);
 
+public record MarylandPaymentMethods(
+    [property: System.Text.Json.Serialization.JsonPropertyName("tag")] bool Tag,
+    [property: System.Text.Json.Serialization.JsonPropertyName("plate")] bool Plate,
+    [property: System.Text.Json.Serialization.JsonPropertyName("cash")] bool Cash,
+    [property: System.Text.Json.Serialization.JsonPropertyName("card")] bool Card,
+    [property: System.Text.Json.Serialization.JsonPropertyName("app")] bool App);
+
 public record LinkMarylandTollsCommand(
     string PricesJson) : IRequest<LinkMarylandTollsResult>;
 
@@ -77,34 +84,59 @@ public class LinkMarylandTollsCommandHandler(
 
     public async Task<LinkMarylandTollsResult> Handle(LinkMarylandTollsCommand request, CancellationToken ct)
     {
+        string? link = null;
+        PaymentMethod? paymentMethod = null;
+        var pricesDict = new Dictionary<string, MarylandPriceData>();
+        var options = new JsonSerializerOptions
+        {
+            PropertyNameCaseInsensitive = true
+        };
+
         try
         {
-            // Парсим prices.json из строки, игнорируя поля link и payment_methods
-            var jsonDoc = JsonDocument.Parse(request.PricesJson);
-            var pricesDict = new Dictionary<string, MarylandPriceData>();
-
-            // Извлекаем только те свойства, которые являются объектами с ценами (игнорируем link и payment_methods)
-            foreach (var property in jsonDoc.RootElement.EnumerateObject())
+            // Парсим prices.json из строки, извлекая link и payment_methods
+            using (var jsonDoc = JsonDocument.Parse(request.PricesJson))
             {
-                if (property.Name == "link" || property.Name == "payment_methods")
+                // Извлекаем свойства, которые являются объектами с ценами, а также link и payment_methods
+                foreach (var property in jsonDoc.RootElement.EnumerateObject())
                 {
-                    continue; // Пропускаем эти поля
-                }
-
-                try
-                {
-                    var priceData = JsonSerializer.Deserialize<MarylandPriceData>(property.Value.GetRawText(), new JsonSerializerOptions
+                    if (property.Name == "link")
                     {
-                        PropertyNameCaseInsensitive = true
-                    });
-                    if (priceData != null)
-                    {
-                        pricesDict[property.Name] = priceData;
+                        if (property.Value.ValueKind == JsonValueKind.String)
+                        {
+                            link = property.Value.GetString();
+                        }
+                        continue;
                     }
-                }
-                catch
-                {
-                    // Игнорируем свойства, которые не являются объектами с ценами
+
+                    if (property.Name == "payment_methods")
+                    {
+                        var paymentMethods = JsonSerializer.Deserialize<MarylandPaymentMethods>(property.Value.GetRawText(), options);
+                        if (paymentMethods != null)
+                        {
+                            // Маппинг: plate -> NoPlate (обратная логика), card -> NoCard (обратная логика)
+                            paymentMethod = new PaymentMethod(
+                                tag: paymentMethods.Tag,
+                                noPlate: !paymentMethods.Plate,
+                                cash: paymentMethods.Cash,
+                                noCard: !paymentMethods.Card,
+                                app: paymentMethods.App);
+                        }
+                        continue;
+                    }
+
+                    try
+                    {
+                        var priceData = JsonSerializer.Deserialize<MarylandPriceData>(property.Value.GetRawText(), options);
+                        if (priceData != null)
+                        {
+                            pricesDict[property.Name] = priceData;
+                        }
+                    }
+                    catch
+                    {
+                        // Игнорируем свойства, которые не являются объектами с ценами
+                    }
                 }
             }
 
@@ -173,8 +205,8 @@ public class LinkMarylandTollsCommandHandler(
                 allPlazaLabels,
                 mdBoundingBox,
                 TollSearchOptions.NameOrKey,
-                websiteUrl: null,
-                paymentMethod: null,
+                websiteUrl: link,
+                paymentMethod: paymentMethod,
                 ct);
 
             // Обрабатываем цены
