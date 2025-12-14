@@ -46,6 +46,24 @@ public class CalculatePriceService
             : originalType;
     }
 
+    // ЗАКОММЕНТИРОВАНО: Умная логика поиска по старым типам оплаты для миграции
+    // Раскомментируйте, если нужно автоматически находить и обновлять старые типы (EZPass -> AccountToll, Cash -> NonAccountToll)
+    /*
+    /// <summary>
+    /// Получает список старых типов оплаты, которые могут соответствовать новому типу.
+    /// Используется для поиска существующих цен при миграции типов оплаты.
+    /// </summary>
+    private static List<TollPaymentType> GetPossibleOldPaymentTypes(TollPaymentType newType)
+    {
+        return newType switch
+        {
+            TollPaymentType.AccountToll => new List<TollPaymentType> { TollPaymentType.EZPass, TollPaymentType.IPass },
+            TollPaymentType.NonAccountToll => new List<TollPaymentType> { TollPaymentType.Cash, TollPaymentType.PayOnline },
+            _ => new List<TollPaymentType>()
+        };
+    }
+    */
+
     /// <summary>
     /// Получает или создает CalculatePrice для пары From -> To с указанным StateCalculatorId.
     /// </summary>
@@ -406,19 +424,99 @@ public class CalculatePriceService
                     // Применяем маппинг типа оплаты, если он указан
                     var mappedPaymentType = MapPaymentType(priceData.PaymentType, paymentTypeMapping);
 
-                    var tollPrice = SetTollPriceDirectly(
-                        toll,
-                        priceData.Amount,
+                    // Ищем существующую цену по указанному типу
+                    var existingPrice = toll.GetPriceByPaymentType(
                         mappedPaymentType,
                         priceData.AxelType,
                         priceData.DayOfWeekFrom,
                         priceData.DayOfWeekTo,
-                        priceData.TimeOfDay,
-                        priceData.Description,
-                        priceData.TimeFrom,
-                        priceData.TimeTo);
+                        priceData.TimeOfDay);
 
-                    createdPrices.Add(tollPrice);
+                    // ЗАКОММЕНТИРОВАНО: Умная логика поиска по старым типам для миграции
+                    // Раскомментируйте, если нужно автоматически находить и обновлять старые типы (EZPass -> AccountToll, Cash -> NonAccountToll)
+                    /*
+                    // Ищем существующую цену по приоритету:
+                    // 1. По исходному типу (до маппинга) - если маппинг указан
+                    // 2. По новому типу (после маппинга)
+                    // 3. По возможным старым типам (для обратной совместимости при миграции)
+                    TollPrice? existingPrice = null;
+
+                    // 1. Ищем по исходному типу, если маппинг указан
+                    if (paymentTypeMapping != null && paymentTypeMapping.ContainsKey(priceData.PaymentType))
+                    {
+                        existingPrice = toll.GetPriceByPaymentType(
+                            priceData.PaymentType,
+                            priceData.AxelType,
+                            priceData.DayOfWeekFrom,
+                            priceData.DayOfWeekTo,
+                            priceData.TimeOfDay);
+                    }
+
+                    // 2. Если не нашли, ищем по новому типу
+                    if (existingPrice == null)
+                    {
+                        existingPrice = toll.GetPriceByPaymentType(
+                            mappedPaymentType,
+                            priceData.AxelType,
+                            priceData.DayOfWeekFrom,
+                            priceData.DayOfWeekTo,
+                            priceData.TimeOfDay);
+                    }
+
+                    // 3. Если не нашли и это новый тип (AccountToll/NonAccountToll), ищем по возможным старым типам
+                    if (existingPrice == null)
+                    {
+                        var possibleOldTypes = GetPossibleOldPaymentTypes(mappedPaymentType);
+                        foreach (var oldType in possibleOldTypes)
+                        {
+                            existingPrice = toll.GetPriceByPaymentType(
+                                oldType,
+                                priceData.AxelType,
+                                priceData.DayOfWeekFrom,
+                                priceData.DayOfWeekTo,
+                                priceData.TimeOfDay);
+                            if (existingPrice != null)
+                                break;
+                        }
+                    }
+                    */
+
+                    if (existingPrice != null)
+                    {
+                        // Обновляем существующую цену: меняем PaymentType на новый и обновляем Amount
+                        existingPrice.PaymentType = mappedPaymentType;
+                        existingPrice.Amount = priceData.Amount;
+                        if (!string.IsNullOrWhiteSpace(priceData.Description))
+                        {
+                            existingPrice.Description = priceData.Description;
+                        }
+                        if (priceData.TimeFrom != default)
+                        {
+                            existingPrice.TimeFrom = priceData.TimeFrom;
+                        }
+                        if (priceData.TimeTo != default)
+                        {
+                            existingPrice.TimeTo = priceData.TimeTo;
+                        }
+                        createdPrices.Add(existingPrice);
+                    }
+                    else
+                    {
+                        // Создаем новую цену
+                        var tollPrice = SetTollPriceDirectly(
+                            toll,
+                            priceData.Amount,
+                            mappedPaymentType,
+                            priceData.AxelType,
+                            priceData.DayOfWeekFrom,
+                            priceData.DayOfWeekTo,
+                            priceData.TimeOfDay,
+                            priceData.Description,
+                            priceData.TimeFrom,
+                            priceData.TimeTo);
+
+                        createdPrices.Add(tollPrice);
+                    }
                 }
                 catch (Exception)
                 {

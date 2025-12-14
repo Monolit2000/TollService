@@ -30,6 +30,13 @@ public record CaliforniaPricesData(
     [property: System.Text.Json.Serialization.JsonPropertyName("description")] string? Description,
     [property: System.Text.Json.Serialization.JsonPropertyName("toll_points")] List<CaliforniaTollPoint>? TollPoints);
 
+public record CaliforniaPaymentMethods(
+    [property: System.Text.Json.Serialization.JsonPropertyName("tag")] bool Tag,
+    [property: System.Text.Json.Serialization.JsonPropertyName("plate")] bool Plate,
+    [property: System.Text.Json.Serialization.JsonPropertyName("cash")] bool Cash,
+    [property: System.Text.Json.Serialization.JsonPropertyName("card")] bool Card,
+    [property: System.Text.Json.Serialization.JsonPropertyName("app")] bool App);
+
 public record LinkCaliforniaTollsCommand(string JsonPayload) : IRequest<LinkCaliforniaTollsResult>;
 
 public record CaliforniaFoundTollInfo(
@@ -65,6 +72,8 @@ public class LinkCaliforniaTollsCommandHandler(
         }
 
         CaliforniaPricesData? data = null;
+        string? link = null;
+        PaymentMethod? paymentMethod = null;
         var options = new JsonSerializerOptions
         {
             PropertyNameCaseInsensitive = true
@@ -73,7 +82,35 @@ public class LinkCaliforniaTollsCommandHandler(
         try
         {
             await Task.Yield();
-            data = JsonSerializer.Deserialize<CaliforniaPricesData>(request.JsonPayload, options);
+
+            // Используем JsonDocument для обработки полей link и payment_methods
+            using (JsonDocument doc = JsonDocument.Parse(request.JsonPayload))
+            {
+                // Десериализуем основные данные
+                data = JsonSerializer.Deserialize<CaliforniaPricesData>(request.JsonPayload, options);
+
+                // Читаем link
+                if (doc.RootElement.TryGetProperty("link", out var linkElement) && linkElement.ValueKind == JsonValueKind.String)
+                {
+                    link = linkElement.GetString();
+                }
+
+                // Читаем payment_methods
+                if (doc.RootElement.TryGetProperty("payment_methods", out var paymentMethodsElement))
+                {
+                    var paymentMethods = JsonSerializer.Deserialize<CaliforniaPaymentMethods>(paymentMethodsElement.GetRawText(), options);
+                    if (paymentMethods != null)
+                    {
+                        // Маппинг: plate -> NoPlate (обратная логика), card -> NoCard (обратная логика)
+                        paymentMethod = new PaymentMethod(
+                            tag: paymentMethods.Tag,
+                            noPlate: !paymentMethods.Plate,
+                            cash: paymentMethods.Cash,
+                            noCard: !paymentMethods.Card,
+                            app: paymentMethods.App);
+                    }
+                }
+            }
         }
         catch (JsonException jsonEx)
         {
@@ -132,8 +169,8 @@ public class LinkCaliforniaTollsCommandHandler(
             allTollPointNames,
             caBoundingBox,
             TollSearchOptions.NameOrKey,
-            websiteUrl: null,
-            paymentMethod: null,
+            websiteUrl: link,
+            paymentMethod: paymentMethod,
             ct);
 
         var foundTolls = new List<CaliforniaFoundTollInfo>();
@@ -185,7 +222,7 @@ public class LinkCaliforniaTollsCommandHandler(
                             tollsToUpdatePrices[toll.Id].Add(new TollPriceData(
                                 TollId: toll.Id,
                                 Amount: rate.AccountToll,
-                                PaymentType: TollPaymentType.EZPass, // Будет автоматически преобразован в AccountToll для CA
+                                PaymentType: TollPaymentType.AccountToll,
                                 AxelType: axelType,
                                 DayOfWeekFrom: dayOfWeekFrom,
                                 DayOfWeekTo: dayOfWeekTo,
@@ -206,7 +243,7 @@ public class LinkCaliforniaTollsCommandHandler(
                             tollsToUpdatePrices[toll.Id].Add(new TollPriceData(
                                 TollId: toll.Id,
                                 Amount: rate.NonAccountToll,
-                                PaymentType: TollPaymentType.Cash, // Будет автоматически преобразован в NonAccountToll для CA
+                                PaymentType: TollPaymentType.NonAccountToll,
                                 AxelType: axelType,
                                 DayOfWeekFrom: dayOfWeekFrom,
                                 DayOfWeekTo: dayOfWeekTo,
@@ -229,16 +266,19 @@ public class LinkCaliforniaTollsCommandHandler(
                 kvp => kvp.Key,
                 kvp => (IEnumerable<TollPriceData>)kvp.Value);
 
-            // Маппинг типов оплаты для Калифорнии
+            // ЗАКОММЕНТИРОВАНО: Маппинг типов оплаты для Калифорнии
+            // Раскомментируйте, если нужно обновлять существующие цены со старых типов (EZPass/Cash) на новые (AccountToll/NonAccountToll)
+            /*
             var paymentTypeMapping = new Dictionary<TollPaymentType, TollPaymentType>
             {
                 { TollPaymentType.EZPass, TollPaymentType.AccountToll },
                 { TollPaymentType.Cash, TollPaymentType.NonAccountToll }
             };
+            */
 
             var updatedPricesResult = await _calculatePriceService.SetTollPricesDirectlyBatchAsync(
                 tollsToUpdatePricesEnumerable,
-                paymentTypeMapping,
+                paymentTypeMapping: null, // Маппинг закомментирован - используем типы напрямую
                 ct);
             updatedTollsCount = updatedPricesResult.Count;
         }

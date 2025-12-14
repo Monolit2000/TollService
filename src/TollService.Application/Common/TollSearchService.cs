@@ -138,7 +138,17 @@ public class TollSearchService
                 }
                 if (paymentMethod != null)
                 {
-                    toll.PaymentMethod = paymentMethod;
+                    // Убеждаемся, что PaymentMethod инициализирован перед присваиванием
+                    if (toll.PaymentMethod == null)
+                    {
+                        toll.PaymentMethod = PaymentMethod.Default();
+                    }
+                    // Обновляем все поля PaymentMethod
+                    toll.PaymentMethod.Tag = paymentMethod.Tag;
+                    toll.PaymentMethod.NoPlate = paymentMethod.NoPlate;
+                    toll.PaymentMethod.Cash = paymentMethod.Cash;
+                    toll.PaymentMethod.NoCard = paymentMethod.NoCard;
+                    toll.PaymentMethod.App = paymentMethod.App;
                 }
             }
         }
