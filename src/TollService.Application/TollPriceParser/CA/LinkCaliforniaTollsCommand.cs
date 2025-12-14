@@ -172,7 +172,7 @@ public class LinkCaliforniaTollsCommandHandler(
                         var (timeFrom, timeTo) = ParseTimeWindow(rate.TimeWindow);
                         var timeOfDay = DetermineTimeOfDay(timeFrom, timeTo);
 
-                        // Обрабатываем account_toll (EZPass)
+                        // Обрабатываем account_toll (будет автоматически преобразован в AccountToll для CA через маппинг в сервисе)
                         if (rate.AccountToll > 0)
                         {
                             if (!tollsToUpdatePrices.ContainsKey(toll.Id))
@@ -183,7 +183,7 @@ public class LinkCaliforniaTollsCommandHandler(
                             tollsToUpdatePrices[toll.Id].Add(new TollPriceData(
                                 TollId: toll.Id,
                                 Amount: rate.AccountToll,
-                                PaymentType: TollPaymentType.EZPass,
+                                PaymentType: TollPaymentType.EZPass, // Будет автоматически преобразован в AccountToll для CA
                                 AxelType: axelType,
                                 DayOfWeekFrom: dayOfWeekFrom,
                                 DayOfWeekTo: dayOfWeekTo,
@@ -193,7 +193,7 @@ public class LinkCaliforniaTollsCommandHandler(
                                 Description: $"{tollPoint.TollPointName} - {rate.Direction}"));
                         }
 
-                        // Обрабатываем non_account_toll (Cash)
+                        // Обрабатываем non_account_toll (будет автоматически преобразован в NonAccountToll для CA через маппинг в сервисе)
                         if (rate.NonAccountToll > 0)
                         {
                             if (!tollsToUpdatePrices.ContainsKey(toll.Id))
@@ -204,7 +204,7 @@ public class LinkCaliforniaTollsCommandHandler(
                             tollsToUpdatePrices[toll.Id].Add(new TollPriceData(
                                 TollId: toll.Id,
                                 Amount: rate.NonAccountToll,
-                                PaymentType: TollPaymentType.Cash,
+                                PaymentType: TollPaymentType.Cash, // Будет автоматически преобразован в NonAccountToll для CA
                                 AxelType: axelType,
                                 DayOfWeekFrom: dayOfWeekFrom,
                                 DayOfWeekTo: dayOfWeekTo,
@@ -227,8 +227,16 @@ public class LinkCaliforniaTollsCommandHandler(
                 kvp => kvp.Key,
                 kvp => (IEnumerable<TollPriceData>)kvp.Value);
 
+            // Маппинг типов оплаты для Калифорнии
+            var paymentTypeMapping = new Dictionary<TollPaymentType, TollPaymentType>
+            {
+                { TollPaymentType.EZPass, TollPaymentType.AccountToll },
+                { TollPaymentType.Cash, TollPaymentType.NonAccountToll }
+            };
+
             var updatedPricesResult = await _calculatePriceService.SetTollPricesDirectlyBatchAsync(
                 tollsToUpdatePricesEnumerable,
+                paymentTypeMapping,
                 ct);
             updatedTollsCount = updatedPricesResult.Count;
         }

@@ -107,6 +107,8 @@ public enum TollPaymentType
     OutOfStateEZPass = 5,
     VideoTolls = 6,
     SunPass = 7,
+    AccountToll = 8,
+    NonAccountToll = 9,
 }
 
 public enum TollPriceTimeOfDay

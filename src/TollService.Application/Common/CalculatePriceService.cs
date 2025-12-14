@@ -32,6 +32,21 @@ public class CalculatePriceService
     }
 
     /// <summary>
+    /// Применяет маппинг типа оплаты, если он указан
+    /// </summary>
+    private static TollPaymentType MapPaymentType(
+        TollPaymentType originalType,
+        Dictionary<TollPaymentType, TollPaymentType>? paymentTypeMapping)
+    {
+        if (paymentTypeMapping == null)
+            return originalType;
+
+        return paymentTypeMapping.TryGetValue(originalType, out var mappedType)
+            ? mappedType
+            : originalType;
+    }
+
+    /// <summary>
     /// Получает или создает CalculatePrice для пары From -> To с указанным StateCalculatorId.
     /// </summary>
     /// <param name="fromTollId">ID толла отправления</param>
@@ -346,10 +361,12 @@ public class CalculatePriceService
     /// Загружает Toll из базы данных, если они еще не загружены.
     /// </summary>
     /// <param name="tollPricesData">Словарь: ключ - TollId, значение - список TollPriceData для установки</param>
+    /// <param name="paymentTypeMapping">Опциональный маппинг типов оплаты: старый тип -> новый тип</param>
     /// <param name="ct">Токен отмены</param>
     /// <returns>Словарь: ключ - TollId, значение - список созданных или обновленных TollPrice</returns>
     public async Task<Dictionary<Guid, List<TollPrice>>> SetTollPricesDirectlyBatchAsync(
         Dictionary<Guid, IEnumerable<TollPriceData>> tollPricesData,
+        Dictionary<TollPaymentType, TollPaymentType>? paymentTypeMapping = null,
         CancellationToken ct = default)
     {
         if (tollPricesData.Count == 0)
@@ -386,10 +403,13 @@ public class CalculatePriceService
 
                 try
                 {
+                    // Применяем маппинг типа оплаты, если он указан
+                    var mappedPaymentType = MapPaymentType(priceData.PaymentType, paymentTypeMapping);
+
                     var tollPrice = SetTollPriceDirectly(
                         toll,
                         priceData.Amount,
-                        priceData.PaymentType,
+                        mappedPaymentType,
                         priceData.AxelType,
                         priceData.DayOfWeekFrom,
                         priceData.DayOfWeekTo,
@@ -432,10 +452,12 @@ public class CalculatePriceService
     /// Принимает уже готовые TollPrice объекты.
     /// </summary>
     /// <param name="tollPricesByTollId">Словарь: ключ - TollId, значение - список готовых TollPrice для установки</param>
+    /// <param name="paymentTypeMapping">Опциональный маппинг типов оплаты: старый тип -> новый тип</param>
     /// <param name="ct">Токен отмены</param>
     /// <returns>Словарь: ключ - TollId, значение - список созданных или обновленных TollPrice</returns>
     public async Task<Dictionary<Guid, List<TollPrice>>> SetTollPricesDirectlyBatchAsync(
         Dictionary<Guid, IEnumerable<TollPrice>> tollPricesByTollId,
+        Dictionary<TollPaymentType, TollPaymentType>? paymentTypeMapping = null,
         CancellationToken ct = default)
     {
         if (tollPricesByTollId.Count == 0)
@@ -470,6 +492,9 @@ public class CalculatePriceService
             {
                 if (tollPrice.Amount <= 0)
                     continue;
+
+                // Применяем маппинг типа оплаты, если он указан
+                tollPrice.PaymentType = MapPaymentType(tollPrice.PaymentType, paymentTypeMapping);
 
                 // Устанавливаем TollId, если он не установлен
                 if (tollPrice.TollId == Guid.Empty)
