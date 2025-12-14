@@ -257,6 +257,7 @@ public class ParseWestVirginiaTollPricesCommandHandler(
 
                     var result = await _calculatePriceService.SetTollPricesDirectlyBatchAsync(
                         tollPricesByTollIdEnumerable,
+                        null,
                         ct);
 
                     updatedTollsCount = result.Count;

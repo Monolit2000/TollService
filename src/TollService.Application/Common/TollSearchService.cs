@@ -67,12 +67,16 @@ public class TollSearchService
     /// <param name="searchNames">Список имен для поиска</param>
     /// <param name="boundingBox">Географические границы поиска</param>
     /// <param name="searchOptions">Опции поиска (по Name, Key или обоим)</param>
+    /// <param name="websiteUrl">Опциональный URL для обновления найденных толлов</param>
+    /// <param name="paymentMethod">Опциональный PaymentMethod для обновления найденных толлов</param>
     /// <param name="ct">Токен отмены</param>
     /// <returns>Словарь: ключ - имя для поиска, значение - список найденных толлов</returns>
     public async Task<Dictionary<string, List<Toll>>> FindMultipleTollsInBoundingBoxAsync(
         IEnumerable<string> searchNames,
         Polygon boundingBox,
         TollSearchOptions searchOptions = TollSearchOptions.NameOrKey,
+        string? websiteUrl = null,
+        PaymentMethod? paymentMethod = null,
         CancellationToken ct = default)
     {
         var searchNamesList = searchNames
@@ -89,6 +93,7 @@ public class TollSearchService
             .ToListAsync(ct);
 
         var result = new Dictionary<string, List<Toll>>();
+        var tollsToUpdate = new HashSet<Toll>(); // Уникальные толлы для обновления метаданных
 
         // Для каждого имени ищем совпадения в уже загруженной коллекции
         foreach (var searchName in searchNamesList)
@@ -111,6 +116,31 @@ public class TollSearchService
                 .ToList();
 
             result[searchName] = tolls;
+
+            // Добавляем найденные толлы в список для обновления метаданных
+            if (websiteUrl != null || paymentMethod != null)
+            {
+                foreach (var toll in tolls)
+                {
+                    tollsToUpdate.Add(toll);
+                }
+            }
+        }
+
+        // Обновляем метаданные для всех найденных толлов
+        if (tollsToUpdate.Count > 0)
+        {
+            foreach (var toll in tollsToUpdate)
+            {
+                if (websiteUrl != null)
+                {
+                    toll.WebsiteUrl = websiteUrl;
+                }
+                if (paymentMethod != null)
+                {
+                    toll.PaymentMethod = paymentMethod;
+                }
+            }
         }
 
         return result;

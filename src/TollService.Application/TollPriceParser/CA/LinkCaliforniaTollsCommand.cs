@@ -132,6 +132,8 @@ public class LinkCaliforniaTollsCommandHandler(
             allTollPointNames,
             caBoundingBox,
             TollSearchOptions.NameOrKey,
+            websiteUrl: null,
+            paymentMethod: null,
             ct);
 
         var foundTolls = new List<CaliforniaFoundTollInfo>();

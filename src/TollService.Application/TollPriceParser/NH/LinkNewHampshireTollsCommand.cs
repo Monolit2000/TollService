@@ -135,6 +135,8 @@ public class LinkNewHampshireTollsCommandHandler(
             allPlazaNames,
             nhBoundingBox,
             TollSearchOptions.Key,
+            websiteUrl: null,
+            paymentMethod: null,
             ct);
 
         var foundTolls = new List<NewHampshireFoundTollInfo>();
@@ -245,6 +247,7 @@ public class LinkNewHampshireTollsCommandHandler(
 
             var updatedPricesResult = await _calculatePriceService.SetTollPricesDirectlyBatchAsync(
                 tollsToUpdatePricesEnumerable,
+                null,
                 ct);
             updatedTollsCount = updatedPricesResult.Count;
         }

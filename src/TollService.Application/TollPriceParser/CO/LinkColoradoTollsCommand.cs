@@ -124,6 +124,8 @@ public class LinkColoradoTollsCommandHandler(
             allPlazaNames,
             coBoundingBox,
             TollSearchOptions.NameOrKey,
+            websiteUrl: null,
+            paymentMethod: null,
             ct);
 
         var foundTolls = new List<ColoradoFoundTollInfo>();
@@ -171,6 +173,7 @@ public class LinkColoradoTollsCommandHandler(
 
             var updatedPricesResult = await _calculatePriceService.SetTollPricesDirectlyBatchAsync(
                 tollsToUpdatePricesEnumerable,
+                null,
                 ct);
             updatedTollsCount = updatedPricesResult.Count;
         }

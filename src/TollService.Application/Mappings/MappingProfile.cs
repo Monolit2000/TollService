@@ -19,16 +19,9 @@ public class MappingProfile : Profile
             .ForCtorParam("IPass", opt => opt.MapFrom(src => src.IPass))
             .ForCtorParam("PayOnlineOvernight", opt => opt.MapFrom(src => src.PayOnlineOvernight))
             .ForCtorParam("PayOnline", opt => opt.MapFrom(src => src.PayOnline));
-        
-        CreateMap<TollPrice, TollWithPriceDto>()
-            .ForMember(dest => dest.PaymentMethod, opt => opt.MapFrom(src => new PaymentMethodDto
-            {
-                Tag = src.PaymentMethod.Tag,
-                NoPlate = src.PaymentMethod.NoPlate,
-                Cash = src.PaymentMethod.Cash,
-                NoCard = src.PaymentMethod.NoCard,
-                App = src.PaymentMethod.App
-            }));
+
+        CreateMap<TollPrice, TollWithPriceDto>();
+        // PaymentMethod теперь находится в Toll, а не в TollPrice
     }
 }
 

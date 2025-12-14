@@ -103,6 +103,8 @@ public class ParseDelawareTollPricesCommandHandler(
             allPlazaNumbers,
             delawareBoundingBox,
             TollSearchOptions.NameOrKey,
+            websiteUrl: null,
+            paymentMethod: null,
             ct);
 
         // Фильтруем результаты: оставляем только точные совпадения по Key или Name

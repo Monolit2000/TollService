@@ -146,6 +146,8 @@ public class LinkNorthCarolinaTollsCommandHandler(
                 allPlazaNames,
                 ncBoundingBox,
                 TollSearchOptions.NameOrKey,
+                websiteUrl: null,
+                paymentMethod: null,
                 ct);
 
             // Устанавливаем Number и StateCalculatorId для всех найденных толлов

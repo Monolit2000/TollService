@@ -14,6 +14,7 @@ public class Toll
     public string? Key { get; set; }
     public string? Comment { get; set; }
     public string? WebsiteUrl { get; set; }
+    public PaymentMethod PaymentMethod { get; set; } = PaymentMethod.Default();
     public bool isDynamic { get; set; } = false;
 
     //public List<Toll> TollsGoTo { get; set; }
@@ -70,7 +71,7 @@ public class Toll
         }
     }
 
-    
+
 
     public TollPrice? GetPriceByPaymentType(
         TollPaymentType paymentType,

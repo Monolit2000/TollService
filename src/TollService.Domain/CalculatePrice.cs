@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 
 namespace TollService.Domain
@@ -43,7 +43,6 @@ namespace TollService.Domain
                     calculatePriceId: this.Id,
                     amount: amount,
                     paymentType: paymentType,
-                    paymentMethod: null,
                     axelType: axelType,
                     dayOfWeekFrom: dayOfWeekFrom,
                     dayOfWeekTo: dayOfWeekTo,

@@ -19,6 +19,13 @@ public record SouthCarolinaRates(
 public record SouthCarolinaAxleRates(
     [property: JsonPropertyName("toll_rate")] double? TollRate);
 
+public record SouthCarolinaPaymentMethods(
+    [property: JsonPropertyName("tag")] bool Tag,
+    [property: JsonPropertyName("plate")] bool Plate,
+    [property: JsonPropertyName("cash")] bool Cash,
+    [property: JsonPropertyName("card")] bool Card,
+    [property: JsonPropertyName("app")] bool App);
+
 public record SouthCarolinaPricesData(
     [property: JsonPropertyName("toll_plazas")] List<SouthCarolinaTollPlaza> TollPlazas);
 
@@ -68,6 +75,9 @@ public class ParseSouthCarolinaTollPricesCommandHandler(
             }
 
             SouthCarolinaPricesData? data;
+            string? link = null;
+            PaymentMethod? paymentMethod = null;
+
             try
             {
                 var options = new JsonSerializerOptions
@@ -78,7 +88,7 @@ public class ParseSouthCarolinaTollPricesCommandHandler(
                 // Используем JsonDocument для обработки новых полей link и payment_methods
                 using (JsonDocument doc = JsonDocument.Parse(request.JsonPayload))
                 {
-                    // Извлекаем только поле toll_plazas для десериализации
+                    // Извлекаем поле toll_plazas для десериализации
                     if (doc.RootElement.TryGetProperty("toll_plazas", out var tollPlazasElement))
                     {
                         var tollPlazas = JsonSerializer.Deserialize<List<SouthCarolinaTollPlaza>>(tollPlazasElement.GetRawText(), options);
@@ -88,6 +98,28 @@ public class ParseSouthCarolinaTollPricesCommandHandler(
                     {
                         // Fallback: пробуем десериализовать напрямую
                         data = JsonSerializer.Deserialize<SouthCarolinaPricesData>(request.JsonPayload, options);
+                    }
+
+                    // Читаем link
+                    if (doc.RootElement.TryGetProperty("link", out var linkElement) && linkElement.ValueKind == JsonValueKind.String)
+                    {
+                        link = linkElement.GetString();
+                    }
+
+                    // Читаем payment_methods
+                    if (doc.RootElement.TryGetProperty("payment_methods", out var paymentMethodsElement))
+                    {
+                        var paymentMethods = JsonSerializer.Deserialize<SouthCarolinaPaymentMethods>(paymentMethodsElement.GetRawText(), options);
+                        if (paymentMethods != null)
+                        {
+                            // Маппинг: plate -> NoPlate (обратная логика), card -> NoCard (обратная логика)
+                            paymentMethod = new PaymentMethod(
+                                tag: paymentMethods.Tag,
+                                noPlate: !paymentMethods.Plate,
+                                cash: paymentMethods.Cash,
+                                noCard: !paymentMethods.Card,
+                                app: paymentMethods.App);
+                        }
                     }
                 }
             }
@@ -130,10 +162,13 @@ public class ParseSouthCarolinaTollPricesCommandHandler(
             }
 
             // Оптимизированный поиск tolls: один запрос к БД
+            // Передаём метаданные для автоматического обновления найденных толлов
             var tollsByPlazaName = await _tollSearchService.FindMultipleTollsInBoundingBoxAsync(
                 allPlazaNames,
                 scBoundingBox,
                 TollSearchOptions.NameOrKey,
+                websiteUrl: link,
+                paymentMethod: paymentMethod,
                 ct);
 
             var linkedTolls = new List<SouthCarolinaLinkedTollInfo>();
@@ -155,6 +190,7 @@ public class ParseSouthCarolinaTollPricesCommandHandler(
                 // Обрабатываем цены для каждой найденной плазы
                 foreach (var toll in foundTolls)
                 {
+
                     var prices = new List<SouthCarolinaTollPriceInfo>();
 
                     // Обрабатываем 5 осей
@@ -221,6 +257,7 @@ public class ParseSouthCarolinaTollPricesCommandHandler(
 
                 var updatedPricesResult = await _calculatePriceService.SetTollPricesDirectlyBatchAsync(
                     tollsToUpdatePricesEnumerable,
+                    null,
                     ct);
                 updatedTollsCount = updatedPricesResult.Count;
             }

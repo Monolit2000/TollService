@@ -282,23 +282,22 @@ public class ParseNewYorkTollPricesCommandHandler(
             calculatePriceId: calculatePriceId,
             amount: amount,
             paymentType: paymentType,
-            paymentMethod: null,
             axelType: axelType);
 
         tollPrice.TollId = tollId;
         return tollPrice;
     }
 
-public class NewYorkTollRate
-{
-    public string Entry { get; set; } = string.Empty;
-    public string Exit { get; set; } = string.Empty;
-    public decimal Ny { get; set; }
-    public decimal NonNy { get; set; }
-    public double Miles { get; set; }
-    public string? Error { get; set; }
-    public string Status { get; set; } = string.Empty;
-}
+    public class NewYorkTollRate
+    {
+        public string Entry { get; set; } = string.Empty;
+        public string Exit { get; set; } = string.Empty;
+        public decimal Ny { get; set; }
+        public decimal NonNy { get; set; }
+        public double Miles { get; set; }
+        public string? Error { get; set; }
+        public string Status { get; set; } = string.Empty;
+    }
 }
 
 

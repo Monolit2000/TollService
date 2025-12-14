@@ -231,6 +231,7 @@ public class ParseTexasTollPricesCommandHandler(
 
                 var updatedPricesResult = await _calculatePriceService.SetTollPricesDirectlyBatchAsync(
                     tollsToUpdatePricesEnumerable,
+                    null,
                     ct);
                 updatedTollsCount = updatedPricesResult.Count;
             }
@@ -374,6 +375,8 @@ public class ParseTexasTollPricesCommandHandler(
             allPlazaNames,
             boundingBox,
             TollSearchOptions.NameOrKey,
+            websiteUrl: null,
+            paymentMethod: null,
             ct);
 
         foreach (var plaza in data.TollLocations)
@@ -522,6 +525,8 @@ public class ParseTexasTollPricesCommandHandler(
             allPlazaNames,
             boundingBox,
             TollSearchOptions.NameOrKey,
+            websiteUrl: null,
+            paymentMethod: null,
             ct);
 
         foreach (var plaza in data.TollLocations)
@@ -680,6 +685,8 @@ public class ParseTexasTollPricesCommandHandler(
             allPlazaNames,
             boundingBox,
             TollSearchOptions.NameOrKey,
+            websiteUrl: null,
+            paymentMethod: null,
             ct);
 
         foreach (var plaza in data.TollRates.StandardTollRates)
@@ -784,6 +791,8 @@ public class ParseTexasTollPricesCommandHandler(
             allPlazaNames,
             boundingBox,
             TollSearchOptions.NameOrKey,
+            websiteUrl: null,
+            paymentMethod: null,
             ct);
 
         foreach (var plaza in data.TollLocations)
@@ -893,6 +902,8 @@ public class ParseTexasTollPricesCommandHandler(
             allPlazaNames,
             boundingBox,
             TollSearchOptions.NameOrKey,
+            websiteUrl: null,
+            paymentMethod: null,
             ct);
 
         foreach (var plaza in data.TollLocations)
@@ -1013,6 +1024,8 @@ public class ParseTexasTollPricesCommandHandler(
             allPlazaNames,
             boundingBox,
             TollSearchOptions.NameOrKey,
+            websiteUrl: null,
+            paymentMethod: null,
             ct);
 
         foreach (var plaza in data.TollLocations)
@@ -1198,6 +1211,8 @@ public class ParseTexasTollPricesCommandHandler(
             allPlazaNames,
             boundingBox,
             TollSearchOptions.NameOrKey,
+            websiteUrl: null,
+            paymentMethod: null,
             ct);
 
         foreach (var plaza in data.TollLocations)

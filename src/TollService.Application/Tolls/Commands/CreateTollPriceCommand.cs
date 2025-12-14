@@ -54,14 +54,11 @@ public class CreateTollPriceCommandHandler(
             }
         }
 
-        var paymentMethod = request.PaymentMethod ?? PaymentMethod.Default();
-
         var tollPrice = new TollPrice(
             tollId: request.TollId,
             calculatePriceId: request.CalculatePriceId,
             amount: request.Amount,
             paymentType: request.PaymentType,
-            paymentMethod: paymentMethod,
             axelType: request.AxelType,
             dayOfWeekFrom: request.DayOfWeekFrom,
             dayOfWeekTo: request.DayOfWeekTo,

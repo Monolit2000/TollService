@@ -123,6 +123,8 @@ public class LinkParkwayPricesCommandHandler(
                 allPlazaNames,
                 njBoundingBox,
                 TollSearchOptions.NameOrKey,
+                websiteUrl: null,
+                paymentMethod: null,
                 ct);
 
             var linkedTolls = new List<ParkwayLinkedTollInfo>();
@@ -233,6 +235,7 @@ public class LinkParkwayPricesCommandHandler(
 
                 var updatedPricesResult = await _calculatePriceService.SetTollPricesDirectlyBatchAsync(
                     tollsToUpdatePricesEnumerable,
+                    null,
                     ct);
                 updatedTollsCount = updatedPricesResult.Count;
             }

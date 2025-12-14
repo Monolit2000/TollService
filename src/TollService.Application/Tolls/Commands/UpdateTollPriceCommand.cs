@@ -38,14 +38,8 @@ public class UpdateTollPriceCommandHandler(
         if (request.PaymentType.HasValue)
             tollPrice.PaymentType = request.PaymentType.Value;
 
-        if (request.PaymentMethod != null)
-        {
-            tollPrice.PaymentMethod.Tag = request.PaymentMethod.Tag;
-            tollPrice.PaymentMethod.NoPlate = request.PaymentMethod.NoPlate;
-            tollPrice.PaymentMethod.Cash = request.PaymentMethod.Cash;
-            tollPrice.PaymentMethod.NoCard = request.PaymentMethod.NoCard;
-            tollPrice.PaymentMethod.App = request.PaymentMethod.App;
-        }
+        // PaymentMethod теперь находится в Toll, а не в TollPrice
+        // Обновление PaymentMethod должно происходить через UpdateTollCommand
 
         if (request.AxelType.HasValue)
             tollPrice.AxelType = request.AxelType.Value;

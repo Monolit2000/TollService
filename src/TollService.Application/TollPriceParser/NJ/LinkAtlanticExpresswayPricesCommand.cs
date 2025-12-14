@@ -118,6 +118,8 @@ public class LinkAtlanticExpresswayPricesCommandHandler(
                 allPlazaNames,
                 njBoundingBox,
                 TollSearchOptions.NameOrKey,
+                websiteUrl: null,
+                paymentMethod: null,
                 ct);
 
             var linkedTolls = new List<AtlanticExpresswayLinkedTollInfo>();
@@ -208,6 +210,7 @@ public class LinkAtlanticExpresswayPricesCommandHandler(
 
                 var updatedPricesResult = await _calculatePriceService.SetTollPricesDirectlyBatchAsync(
                     tollsToUpdatePricesEnumerable,
+                    null,
                     ct);
                 updatedTollsCount = updatedPricesResult.Count;
             }

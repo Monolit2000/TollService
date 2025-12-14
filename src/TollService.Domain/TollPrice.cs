@@ -11,8 +11,6 @@ public class TollPrice
 
     public TollPaymentType PaymentType { get; set; }
 
-    public PaymentMethod PaymentMethod { get; set; } = PaymentMethod.Default();
-
     /// <summary>
     /// Тип транспортного средства по количеству осей.
     /// </summary>
@@ -30,7 +28,6 @@ public class TollPrice
     // Пустой конструктор для EF Core
     public TollPrice()
     {
-        PaymentMethod = PaymentMethod.Default();
     }
 
     public TollPrice(
@@ -38,7 +35,6 @@ public class TollPrice
     Guid? calculatePriceId,
     double amount,
     TollPaymentType paymentType,
-    PaymentMethod? paymentMethod = null,
     AxelType axelType = AxelType._5L,
     TollPriceDayOfWeek dayOfWeekFrom = TollPriceDayOfWeek.Any,
     TollPriceDayOfWeek dayOfWeekTo = TollPriceDayOfWeek.Any,
@@ -58,7 +54,6 @@ public class TollPrice
         CalculatePriceId = calculatePriceId;
         Amount = amount;
         PaymentType = paymentType;
-        PaymentMethod = paymentMethod ?? PaymentMethod.Default();
         //IsCalculate = isCalculate;
         AxelType = axelType;
         DayOfWeekFrom = dayOfWeekFrom;
@@ -73,7 +68,6 @@ public class TollPrice
         Guid calculatePriceId,
         double amount,
         TollPaymentType paymentType,
-        PaymentMethod? paymentMethod = null,
         AxelType axelType = AxelType._5L,
         TollPriceDayOfWeek dayOfWeekFrom = TollPriceDayOfWeek.Any,
         TollPriceDayOfWeek dayOfWeekTo = TollPriceDayOfWeek.Any,
@@ -87,7 +81,6 @@ public class TollPrice
         CalculatePriceId = calculatePriceId;
         Amount = amount;
         PaymentType = paymentType;
-        PaymentMethod = paymentMethod ?? PaymentMethod.Default();
         //IsCalculate = isCalculate;
         AxelType = axelType;
         DayOfWeekFrom = dayOfWeekFrom;
