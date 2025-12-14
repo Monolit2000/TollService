@@ -18,7 +18,7 @@
     "name": "Lee",
     "coordinates": {
       "latitude": 42.29847,
-      "longitude": -73.23493
+      "longitude": -73.234934
     }
   },
   {
@@ -28,9 +28,9 @@
     "old_number": "03",
     "name": "Westfield",
     "coordinates": {
-      "latitude": 42.1330,
-      "longitude": -72.9000,
-      "note": "приблизительно"
+      "latitude": 42.144877,
+      "longitude": -72.735204,
+      "note": "note"
     }
   },
   {
@@ -40,8 +40,8 @@
     "old_number": "04",
     "name": "West Springfield (I-91)",
     "coordinates": {
-      "latitude": 42.15367,
-      "longitude": -72.63859
+      "latitude": 42.153666,
+      "longitude": -72.638588
     }
   },
   {
@@ -51,8 +51,8 @@
     "old_number": "05",
     "name": "Chicopee",
     "coordinates": {
-      "latitude": 42.16955,
-      "longitude": -72.58098
+      "latitude": 42.169547,
+      "longitude": -72.580975
     }
   },
   {
@@ -62,9 +62,9 @@
     "old_number": "06",
     "name": "Springfield (I-291)",
     "coordinates": {
-      "latitude": 42.1600,
-      "longitude": -72.5500,
-      "note": "приблизительно"
+      "latitude": 42.161994,
+      "longitude": -72.547348,
+      "note": "note"
     }
   },
   {
@@ -74,9 +74,9 @@
     "old_number": "07",
     "name": "Ludlow",
     "coordinates": {
-      "latitude": 42.1700,
-      "longitude": -72.4800,
-      "note": "приблизительно"
+      "latitude": 42.167957,
+      "longitude": -72.471908,
+      "note": "note"
     }
   },
   {
@@ -86,9 +86,9 @@
     "old_number": "08",
     "name": "Palmer",
     "coordinates": {
-      "latitude": 42.1500,
-      "longitude": -72.3200,
-      "note": "приблизительно"
+      "latitude": 42.17226,
+      "longitude": -72.331878,
+      "note": "note"
     }
   },
   {
@@ -109,8 +109,8 @@
     "old_number": "10",
     "name": "Auburn/Worcester (I-290/I-395)",
     "coordinates": {
-      "latitude": 42.1954,
-      "longitude": -71.8455
+      "latitude": 42.195412231,
+      "longitude": -71.845511517
     }
   },
   {
@@ -120,8 +120,8 @@
     "old_number": "10A",
     "name": "Worcester (Route 146)",
     "coordinates": {
-      "latitude": 42.2100,
-      "longitude": -71.7813
+      "latitude": 42.210029614,
+      "longitude": -71.781294316
     }
   },
   {
@@ -131,9 +131,9 @@
     "old_number": "11",
     "name": "Millbury/Worcester",
     "coordinates": {
-      "latitude": 42.2000,
-      "longitude": -71.7800,
-      "note": "приблизительно"
+      "latitude": 42.22250671,
+      "longitude": -71.740203388,
+      "note": "note"
     }
   },
   {
@@ -143,8 +143,8 @@
     "old_number": "11A",
     "name": "Westborough (I-495)",
     "coordinates": {
-      "latitude": 42.26664,
-      "longitude": -71.56436
+      "latitude": 42.266635625,
+      "longitude": -71.564360126
     }
   },
   {
@@ -154,8 +154,8 @@
     "old_number": "12",
     "name": "Framingham",
     "coordinates": {
-      "latitude": 42.29683,
-      "longitude": -71.47848
+      "latitude": 42.296832251,
+      "longitude": -71.478479273
     }
   },
   {
@@ -165,8 +165,8 @@
     "old_number": "13",
     "name": "Natick",
     "coordinates": {
-      "latitude": 42.31282,
-      "longitude": -71.38511
+      "latitude": 42.312823,
+      "longitude": -71.385111
     }
   },
   {
@@ -176,8 +176,8 @@
     "old_number": "14",
     "name": "Weston (Route 128/I-95/Route 30) (Westbound only)",
     "coordinates": {
-      "latitude": 42.33987,
-      "longitude": -71.26316
+      "latitude": 42.338829,
+      "longitude": -71.276492
     }
   },
   {
@@ -187,8 +187,8 @@
     "old_number": "15",
     "name": "Weston (Route 128/I-95/Route 30) (Eastbound only)",
     "coordinates": {
-      "latitude": 42.33987,
-      "longitude": -71.26316
+      "latitude": 42.339874,
+      "longitude": -71.263159
     }
   },
   {
@@ -198,8 +198,8 @@
     "old_number": "16",
     "name": "West Newton (Eastbound only)",
     "coordinates": {
-      "latitude": 42.34736,
-      "longitude": -71.23231
+      "latitude": 42.347359,
+      "longitude": -71.232314
     }
   },
   {
@@ -209,9 +209,9 @@
     "old_number": "17",
     "name": "Newton Corner",
     "coordinates": {
-      "latitude": 42.3500,
-      "longitude": -71.2500,
-      "note": "приблизительно"
+      "latitude": 42.355337,
+      "longitude": -71.190339,
+      "note": "note"
     }
   },
   {
@@ -221,9 +221,9 @@
     "old_number": "18",
     "name": "Allston/Brighton (Westbound only)",
     "coordinates": {
-      "latitude": 42.3600,
-      "longitude": -71.1300,
-      "note": "приблизительно"
+      "latitude": 42.356890021,
+      "longitude": -71.126681454,
+      "note": "note"
     }
   },
   {
@@ -233,9 +233,9 @@
     "old_number": "19",
     "name": "Beacon Park (No entry)",
     "coordinates": {
-      "latitude": 42.3600,
-      "longitude": -71.1300,
-      "note": "приблизительно"
+      "latitude": 42.356890021,
+      "longitude": -71.126681454,
+      "note": "note"
     }
   },
   {
@@ -245,9 +245,9 @@
     "old_number": "20",
     "name": "Brighton/Cambridge (Eastbound only)",
     "coordinates": {
-      "latitude": 42.3600,
-      "longitude": -71.1300,
-      "note": "приблизительно"
+      "latitude": 42.356890021,
+      "longitude": -71.126681454,
+      "note": "note"
     }
   },
   {
@@ -257,9 +257,9 @@
     "old_number": "21",
     "name": "Massachusetts Avenue (Westbound only)",
     "coordinates": {
-      "latitude": 42.3500,
-      "longitude": -71.0800,
-      "note": "приблизительно"
+      "latitude": 42.347974,
+      "longitude": -71.089853,
+      "note": "note"
     }
   },
   {
@@ -269,9 +269,9 @@
     "old_number": "22",
     "name": "Copley/Prudential (Westbound only)",
     "coordinates": {
-      "latitude": 42.3500,
-      "longitude": -71.0800,
-      "note": "приблизительно"
+      "latitude": 42.347974,
+      "longitude": -71.089853,
+      "note": "note"
     }
   },
   {
@@ -281,9 +281,9 @@
     "old_number": "22A",
     "name": "Clarendon St. (Westbound only)",
     "coordinates": {
-      "latitude": 42.3500,
-      "longitude": -71.0800,
-      "note": "приблизительно"
+      "latitude": 42.347974,
+      "longitude": -71.089853,
+      "note": "note"
     }
   },
   {
@@ -293,9 +293,9 @@
     "old_number": "23",
     "name": "Arlington St. (Westbound only)",
     "coordinates": {
-      "latitude": 42.3500,
-      "longitude": -71.0800,
-      "note": "приблизительно"
+      "latitude": 42.347974,
+      "longitude": -71.089853,
+      "note": "note"
     }
   },
   {
@@ -327,9 +327,9 @@
     "old_number": "26",
     "name": "Logan Airport / Ted Williams Tunnel",
     "coordinates": {
-      "latitude": 42.3600,
-      "longitude": -71.0200,
-      "note": "приблизительно"
+      "latitude": 42.36,
+      "longitude": -71.02,
+      "note": "note"
     }
   },
   {
@@ -351,7 +351,7 @@
     "name": "Lee",
     "coordinates": {
       "latitude": 42.29847,
-      "longitude": -73.23493
+      "longitude": -73.234934
     }
   },
   {
@@ -361,9 +361,9 @@
     "old_number": "03",
     "name": "Westfield",
     "coordinates": {
-      "latitude": 42.1330,
-      "longitude": -72.9000,
-      "note": "приблизительно"
+      "latitude": 42.144877,
+      "longitude": -72.735204,
+      "note": "note"
     }
   },
   {
@@ -373,8 +373,8 @@
     "old_number": "04",
     "name": "West Springfield (I-91)",
     "coordinates": {
-      "latitude": 42.15367,
-      "longitude": -72.63859
+      "latitude": 42.153666,
+      "longitude": -72.638588
     }
   },
   {
@@ -384,8 +384,8 @@
     "old_number": "05",
     "name": "Chicopee",
     "coordinates": {
-      "latitude": 42.16955,
-      "longitude": -72.58098
+      "latitude": 42.169547,
+      "longitude": -72.580975
     }
   },
   {
@@ -395,9 +395,9 @@
     "old_number": "06",
     "name": "Springfield (I-291)",
     "coordinates": {
-      "latitude": 42.1600,
-      "longitude": -72.5500,
-      "note": "приблизительно"
+      "latitude": 42.161994,
+      "longitude": -72.547348,
+      "note": "note"
     }
   },
   {
@@ -407,9 +407,9 @@
     "old_number": "07",
     "name": "Ludlow",
     "coordinates": {
-      "latitude": 42.1700,
-      "longitude": -72.4800,
-      "note": "приблизительно"
+      "latitude": 42.167957,
+      "longitude": -72.471908,
+      "note": "note"
     }
   },
   {
@@ -419,9 +419,9 @@
     "old_number": "08",
     "name": "Palmer",
     "coordinates": {
-      "latitude": 42.1500,
-      "longitude": -72.3200,
-      "note": "приблизительно"
+      "latitude": 42.17226,
+      "longitude": -72.331878,
+      "note": "note"
     }
   },
   {
@@ -442,8 +442,8 @@
     "old_number": "10",
     "name": "Auburn/Worcester (I-290/I-395)",
     "coordinates": {
-      "latitude": 42.1954,
-      "longitude": -71.8455
+      "latitude": 42.195412231,
+      "longitude": -71.845511517
     }
   },
   {
@@ -453,8 +453,8 @@
     "old_number": "10A",
     "name": "Worcester (Route 146)",
     "coordinates": {
-      "latitude": 42.2100,
-      "longitude": -71.7813
+      "latitude": 42.210029614,
+      "longitude": -71.781294316
     }
   },
   {
@@ -464,9 +464,9 @@
     "old_number": "11",
     "name": "Millbury/Worcester",
     "coordinates": {
-      "latitude": 42.2000,
-      "longitude": -71.7800,
-      "note": "приблизительно"
+      "latitude": 42.22250671,
+      "longitude": -71.740203388,
+      "note": "note"
     }
   },
   {
@@ -476,8 +476,8 @@
     "old_number": "11A",
     "name": "Westborough (I-495)",
     "coordinates": {
-      "latitude": 42.26664,
-      "longitude": -71.56436
+      "latitude": 42.266635625,
+      "longitude": -71.564360126
     }
   },
   {
@@ -487,8 +487,8 @@
     "old_number": "12",
     "name": "Framingham",
     "coordinates": {
-      "latitude": 42.29683,
-      "longitude": -71.47848
+      "latitude": 42.296832251,
+      "longitude": -71.478479273
     }
   },
   {
@@ -498,8 +498,8 @@
     "old_number": "13",
     "name": "Natick",
     "coordinates": {
-      "latitude": 42.31282,
-      "longitude": -71.38511
+      "latitude": 42.312823,
+      "longitude": -71.385111
     }
   },
   {
@@ -509,8 +509,8 @@
     "old_number": "14",
     "name": "Weston (Route 128/I-95/Route 30) (Eastbound only)",
     "coordinates": {
-      "latitude": 42.33987,
-      "longitude": -71.26316
+      "latitude": 42.338829,
+      "longitude": -71.276492
     }
   },
   {
@@ -520,8 +520,8 @@
     "old_number": "15",
     "name": "Weston (Route 128/I-95/Route 30) (Westbound only)",
     "coordinates": {
-      "latitude": 42.33987,
-      "longitude": -71.26316
+      "latitude": 42.339874,
+      "longitude": -71.263159
     }
   },
   {
@@ -531,8 +531,8 @@
     "old_number": "16",
     "name": "West Newton (Westbound only)",
     "coordinates": {
-      "latitude": 42.34736,
-      "longitude": -71.23231
+      "latitude": 42.347359,
+      "longitude": -71.232314
     }
   },
   {
@@ -542,9 +542,9 @@
     "old_number": "17",
     "name": "Newton Corner",
     "coordinates": {
-      "latitude": 42.3500,
-      "longitude": -71.2500,
-      "note": "приблизительно"
+      "latitude": 42.355337,
+      "longitude": -71.190339,
+      "note": "note"
     }
   },
   {
@@ -554,9 +554,9 @@
     "old_number": "18",
     "name": "Allston/Brighton (Eastbound only)",
     "coordinates": {
-      "latitude": 42.3600,
-      "longitude": -71.1300,
-      "note": "приблизительно"
+      "latitude": 42.356890021,
+      "longitude": -71.126681454,
+      "note": "note"
     }
   },
   {
@@ -566,9 +566,9 @@
     "old_number": "19",
     "name": "Beacon Park (No exit)",
     "coordinates": {
-      "latitude": 42.3600,
-      "longitude": -71.1300,
-      "note": "приблизительно"
+      "latitude": 42.356890021,
+      "longitude": -71.126681454,
+      "note": "note"
     }
   },
   {
@@ -578,9 +578,9 @@
     "old_number": "20",
     "name": "Brighton/Cambridge (Westbound only)",
     "coordinates": {
-      "latitude": 42.3600,
-      "longitude": -71.1300,
-      "note": "приблизительно"
+      "latitude": 42.356890021,
+      "longitude": -71.126681454,
+      "note": "note"
     }
   },
   {
@@ -590,9 +590,9 @@
     "old_number": "21",
     "name": "Massachusetts Avenue (No exit)",
     "coordinates": {
-      "latitude": 42.3500,
-      "longitude": -71.0800,
-      "note": "приблизительно"
+      "latitude": 42.347974,
+      "longitude": -71.089853,
+      "note": "note"
     }
   },
   {
@@ -602,9 +602,9 @@
     "old_number": "22",
     "name": "Copley/Prudential (Eastbound only)",
     "coordinates": {
-      "latitude": 42.3500,
-      "longitude": -71.0800,
-      "note": "приблизительно"
+      "latitude": 42.347974,
+      "longitude": -71.089853,
+      "note": "note"
     }
   },
   {
@@ -614,9 +614,9 @@
     "old_number": "22A",
     "name": "Clarendon St. (No exit)",
     "coordinates": {
-      "latitude": 42.3500,
-      "longitude": -71.0800,
-      "note": "приблизительно"
+      "latitude": 42.347974,
+      "longitude": -71.089853,
+      "note": "note"
     }
   },
   {
@@ -626,9 +626,9 @@
     "old_number": "23",
     "name": "Arlington St. (No exit)",
     "coordinates": {
-      "latitude": 42.3500,
-      "longitude": -71.0800,
-      "note": "приблизительно"
+      "latitude": 42.347974,
+      "longitude": -71.089853,
+      "note": "note"
     }
   },
   {
@@ -660,9 +660,9 @@
     "old_number": "26",
     "name": "Logan Airport / Ted Williams Tunnel",
     "coordinates": {
-      "latitude": 42.3600,
-      "longitude": -71.0200,
-      "note": "приблизительно"
+      "latitude": 42.36,
+      "longitude": -71.02,
+      "note": "note"
     }
   }
 ]

@@ -1092,6 +1092,43 @@ public class TollsController : ControllerBase
         }
     }
 
+    [HttpPost("parse-massachusetts-prices")]
+    [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(ParseMassachusettsTollPricesResult))]
+    [ProducesResponseType(StatusCodes.Status400BadRequest)]
+    public async Task<IActionResult> ParseMassachusettsTollPrices(
+        [FromBody] object payload,
+        CancellationToken ct = default)
+    {
+        if (payload == null)
+        {
+            return BadRequest("Payload cannot be null");
+        }
+
+        try
+        {
+            var json = payload switch
+            {
+                JsonElement element => element.GetRawText(),
+                string str => str,
+                _ => System.Text.Json.JsonSerializer.Serialize(payload)
+            };
+
+            var command = new ParseMassachusettsTollPricesCommand(json);
+            var result = await _mediator.Send(command, ct);
+
+            if (!string.IsNullOrWhiteSpace(result.Error))
+            {
+                return BadRequest(result.Error);
+            }
+
+            return Ok(result);
+        }
+        catch (Exception ex)
+        {
+            return BadRequest($"Error processing Massachusetts toll prices: {ex.Message}");
+        }
+    }
+
     [HttpPost("{tollId}/prices")]
     [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(TollWithPriceDto))]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
