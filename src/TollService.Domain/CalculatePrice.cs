@@ -39,7 +39,15 @@ namespace TollService.Domain
             else
             {
                 // Используем FromId как TollId для TollPrice
-                var newTollPrice = new TollPrice(this.Id, amount, paymentType, axelType, dayOfWeekFrom, dayOfWeekTo, timeOfDay);
+                var newTollPrice = new TollPrice(
+                    calculatePriceId: this.Id,
+                    amount: amount,
+                    paymentType: paymentType,
+                    paymentMethod: null,
+                    axelType: axelType,
+                    dayOfWeekFrom: dayOfWeekFrom,
+                    dayOfWeekTo: dayOfWeekTo,
+                    timeOfDay: timeOfDay);
                 TollPrices.Add(newTollPrice);
                 return newTollPrice;
             }

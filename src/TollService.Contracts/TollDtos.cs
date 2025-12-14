@@ -55,6 +55,7 @@ public class TollDto
     public Guid RoadId { get; set; }
     public string? Key { get; set; }
     public string? Comment { get; set; }
+    public string? WebsiteUrl { get; set; }
     public bool IsDynamic { get; set; }
     public double IPassOvernight { get; set; }
     public double IPass { get; set; }
@@ -78,6 +79,7 @@ public class TollDto
         Guid roadId,
         string? key,
         string? comment,
+        string? websiteUrl = null,
         bool isDynamic = false,
         double iPassOvernight = 0,
         double iPass = 0,
@@ -93,6 +95,7 @@ public class TollDto
         RoadId = roadId;
         Key = key;
         Comment = comment;
+        WebsiteUrl = websiteUrl;
         IsDynamic = isDynamic;
         IPassOvernight = iPassOvernight;
         IPass = iPass;
@@ -107,6 +110,7 @@ public class TollWithPriceDto
     public Guid? TollId { get; set; }
     public Guid? CalculatePriceId { get; set; }
     public TollPaymentType PaymentType { get; set; }
+    public PaymentMethodDto PaymentMethod { get; set; } = new PaymentMethodDto();
 
     public AxelType AxelType { get; set; } = AxelType.Unknown;
 
@@ -117,6 +121,15 @@ public class TollWithPriceDto
     public TimeOnly TimeTo { get; set; }
     public string? Description { get; set; }
     public double Amount { get; set; }
+}
+
+public class PaymentMethodDto
+{
+    public bool Tag { get; set; }
+    public bool NoPlate { get; set; }
+    public bool Cash { get; set; }
+    public bool NoCard { get; set; }
+    public bool App { get; set; }
 }
 
 public record IndianaTollPriceRequestDto(
@@ -172,3 +185,29 @@ public record KansasCalculatorRequestDto(
     List<KansasPlazaDto> Plazas,
     List<KansasCtsRateDto> CtsRates,
     KansasSampleResultDto? SampleResult);
+
+public record CreateTollPriceDto(
+    Guid? TollId,
+    Guid? CalculatePriceId,
+    double Amount,
+    TollPaymentType PaymentType,
+    PaymentMethodDto? PaymentMethod = null,
+    AxelType AxelType = AxelType._5L,
+    TollPriceDayOfWeek DayOfWeekFrom = TollPriceDayOfWeek.Any,
+    TollPriceDayOfWeek DayOfWeekTo = TollPriceDayOfWeek.Any,
+    TollPriceTimeOfDay TimeOfDay = TollPriceTimeOfDay.Any,
+    TimeOnly TimeFrom = default,
+    TimeOnly TimeTo = default,
+    string? Description = null);
+
+public record UpdateTollPriceDto(
+    double? Amount = null,
+    TollPaymentType? PaymentType = null,
+    PaymentMethodDto? PaymentMethod = null,
+    AxelType? AxelType = null,
+    TollPriceTimeOfDay? TimeOfDay = null,
+    TollPriceDayOfWeek? DayOfWeekFrom = null,
+    TollPriceDayOfWeek? DayOfWeekTo = null,
+    TimeOnly? TimeFrom = null,
+    TimeOnly? TimeTo = null,
+    string? Description = null);

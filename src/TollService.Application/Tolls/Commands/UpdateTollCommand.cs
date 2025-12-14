@@ -16,6 +16,7 @@ public record UpdateTollCommand(
     Guid? RoadId = null,
     string? Key = null,
     string? Comment = null,
+    string? WebsiteUrl = null,
     bool? IsDynamic = null,
     double? IPassOvernight = null,
     double? IPass = null,
@@ -50,6 +51,9 @@ public class UpdateTollCommandHandler(
 
         if (request.Comment != null)
             toll.Comment = request.Comment;
+
+        if (request.WebsiteUrl != null)
+            toll.WebsiteUrl = request.WebsiteUrl;
 
         if (request.IsDynamic.HasValue)
             toll.isDynamic = request.IsDynamic.Value;

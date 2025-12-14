@@ -16,6 +16,7 @@ public class TollConfiguration : IEntityTypeConfiguration<Toll>
         builder.HasIndex(x => x.Location).HasMethod("GIST");
         builder.Property(x => x.Key).IsRequired(false);
         builder.Property(x => x.Comment).IsRequired(false);
+        builder.Property(x => x.WebsiteUrl).HasMaxLength(512).IsRequired(false);
 
         builder.Property(x => x.IPassOvernight);
         builder.Property(x => x.IPass);

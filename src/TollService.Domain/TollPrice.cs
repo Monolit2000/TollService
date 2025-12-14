@@ -11,6 +11,8 @@ public class TollPrice
 
     public TollPaymentType PaymentType { get; set; }
 
+    public PaymentMethod PaymentMethod { get; set; } = PaymentMethod.Default();
+
     /// <summary>
     /// Тип транспортного средства по количеству осей.
     /// </summary>
@@ -28,6 +30,7 @@ public class TollPrice
     // Пустой конструктор для EF Core
     public TollPrice()
     {
+        PaymentMethod = PaymentMethod.Default();
     }
 
     public TollPrice(
@@ -35,6 +38,7 @@ public class TollPrice
     Guid? calculatePriceId,
     double amount,
     TollPaymentType paymentType,
+    PaymentMethod? paymentMethod = null,
     AxelType axelType = AxelType._5L,
     TollPriceDayOfWeek dayOfWeekFrom = TollPriceDayOfWeek.Any,
     TollPriceDayOfWeek dayOfWeekTo = TollPriceDayOfWeek.Any,
@@ -54,6 +58,7 @@ public class TollPrice
         CalculatePriceId = calculatePriceId;
         Amount = amount;
         PaymentType = paymentType;
+        PaymentMethod = paymentMethod ?? PaymentMethod.Default();
         //IsCalculate = isCalculate;
         AxelType = axelType;
         DayOfWeekFrom = dayOfWeekFrom;
@@ -68,6 +73,7 @@ public class TollPrice
         Guid calculatePriceId,
         double amount,
         TollPaymentType paymentType,
+        PaymentMethod? paymentMethod = null,
         AxelType axelType = AxelType._5L,
         TollPriceDayOfWeek dayOfWeekFrom = TollPriceDayOfWeek.Any,
         TollPriceDayOfWeek dayOfWeekTo = TollPriceDayOfWeek.Any,
@@ -81,6 +87,7 @@ public class TollPrice
         CalculatePriceId = calculatePriceId;
         Amount = amount;
         PaymentType = paymentType;
+        PaymentMethod = paymentMethod ?? PaymentMethod.Default();
         //IsCalculate = isCalculate;
         AxelType = axelType;
         DayOfWeekFrom = dayOfWeekFrom;
@@ -169,4 +176,57 @@ public enum AxelType
     _8L = 8,
 
     _9L = 9
+}
+
+/// <summary>
+/// ValueObject для методов оплаты с булевыми полями.
+/// </summary>
+public class PaymentMethod
+{
+    public bool Tag { get; set; }
+    public bool NoPlate { get; set; }
+    public bool Cash { get; set; }
+    public bool NoCard { get; set; }
+    public bool App { get; set; }
+
+    // Пустой конструктор для EF Core
+    public PaymentMethod()
+    {
+    }
+
+    public PaymentMethod(bool tag = false, bool noPlate = false, bool cash = false, bool noCard = false, bool app = false)
+    {
+        Tag = tag;
+        NoPlate = noPlate;
+        Cash = cash;
+        NoCard = noCard;
+        App = app;
+    }
+
+    /// <summary>
+    /// Создает PaymentMethod с только Tag = true (значение по умолчанию).
+    /// </summary>
+    public static PaymentMethod Default() => new PaymentMethod(tag: true);
+
+    /// <summary>
+    /// Проверяет, выбран ли хотя бы один метод оплаты.
+    /// </summary>
+    public bool HasAnyMethod() => Tag || NoPlate || Cash || NoCard || App;
+
+    public override bool Equals(object? obj)
+    {
+        if (obj is not PaymentMethod other)
+            return false;
+
+        return Tag == other.Tag &&
+               NoPlate == other.NoPlate &&
+               Cash == other.Cash &&
+               NoCard == other.NoCard &&
+               App == other.App;
+    }
+
+    public override int GetHashCode()
+    {
+        return HashCode.Combine(Tag, NoPlate, Cash, NoCard, App);
+    }
 }
