@@ -50,44 +50,44 @@ public class ParseMaineTollPricesCommandHandler(
         MaineTollPricesCollection? data = null;
         string? link = null;
         PaymentMethod? paymentMethod = null;
-        var options = new JsonSerializerOptions
-        {
-            PropertyNameCaseInsensitive = true
-        };
+            var options = new JsonSerializerOptions
+            {
+                PropertyNameCaseInsensitive = true
+            };
 
         try
         {
             // Используем JsonDocument для обработки полей link и payment_methods
             using (JsonDocument doc = JsonDocument.Parse(request.PricesJsonContent))
             {
-                // Сначала пытаемся распарсить полный ответ (как возвращает fetch-maine-prices)
-                // {
-                //   "prices": { ... MaineTollPricesCollection ... },
-                //   "totalCombinations": ...,
-                //   "successCount": ...,
-                //   "errorCount": ...,
-                //   "errors": [...],
+            // Сначала пытаемся распарсить полный ответ (как возвращает fetch-maine-prices)
+            // {
+            //   "prices": { ... MaineTollPricesCollection ... },
+            //   "totalCombinations": ...,
+            //   "successCount": ...,
+            //   "errorCount": ...,
+            //   "errors": [...],
                 //   "error": null,
                 //   "link": "...",
                 //   "payment_methods": {...}
-                // }
-                try
+            // }
+            try
+            {
+                var full = JsonSerializer.Deserialize<MaineFullPricesResponse>(request.PricesJsonContent, options);
+                if (full?.Prices != null)
                 {
-                    var full = JsonSerializer.Deserialize<MaineFullPricesResponse>(request.PricesJsonContent, options);
-                    if (full?.Prices != null)
-                    {
-                        data = full.Prices;
-                    }
+                    data = full.Prices;
                 }
-                catch (JsonException)
-                {
-                    // Игнорируем, попробуем распарсить как «чистый» MaineTollPricesCollection ниже
-                }
+            }
+            catch (JsonException)
+            {
+                // Игнорируем, попробуем распарсить как «чистый» MaineTollPricesCollection ниже
+            }
 
-                // Если не удалось распарсить как обёртку, пробуем как обычный MaineTollPricesCollection
-                if (data == null)
-                {
-                    data = JsonSerializer.Deserialize<MaineTollPricesCollection>(request.PricesJsonContent, options);
+            // Если не удалось распарсить как обёртку, пробуем как обычный MaineTollPricesCollection
+            if (data == null)
+            {
+                data = JsonSerializer.Deserialize<MaineTollPricesCollection>(request.PricesJsonContent, options);
                 }
 
                 // Читаем link

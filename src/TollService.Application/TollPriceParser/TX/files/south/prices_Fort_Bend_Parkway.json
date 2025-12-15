@@ -15,5 +15,12 @@
       }
     }
   ],
-  "link": "https://www.hctra.org/TollRates?tollRoad=Ft.+Bend+Extension"
+  "link": "https://www.hctra.org/TollRates?tollRoad=Ft.+Bend+Extension",
+  "payment_methods": {
+    "tag": true,
+    "plate": false,
+    "cash": false,
+    "card": false,
+    "app": true
+  }
 }

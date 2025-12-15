@@ -135,6 +135,13 @@ public record TexasLinkedTollInfo(
 public record ParseTexasTollPricesCommand(
     string JsonPayload) : IRequest<ParseTexasTollPricesResult>;
 
+public record TexasPaymentMethods(
+    [property: JsonPropertyName("tag")] bool Tag,
+    [property: JsonPropertyName("plate")] bool Plate,
+    [property: JsonPropertyName("cash")] bool Cash,
+    [property: JsonPropertyName("card")] bool Card,
+    [property: JsonPropertyName("app")] bool App);
+
 public record ParseTexasTollPricesResult(
     List<TexasLinkedTollInfo> LinkedTolls,
     List<string> NotFoundPlazas,
@@ -165,10 +172,39 @@ public class ParseTexasTollPricesCommandHandler(
                     "JSON payload is empty");
             }
 
+            string? link = null;
+            PaymentMethod? paymentMethod = null;
+            var options = new JsonSerializerOptions
+            {
+                PropertyNameCaseInsensitive = true
+            };
+
             JsonDocument? jsonDoc;
             try
             {
                 jsonDoc = JsonDocument.Parse(request.JsonPayload);
+
+                // Читаем link
+                if (jsonDoc.RootElement.TryGetProperty("link", out var linkElement) && linkElement.ValueKind == JsonValueKind.String)
+                {
+                    link = linkElement.GetString();
+                }
+
+                // Читаем payment_methods
+                if (jsonDoc.RootElement.TryGetProperty("payment_methods", out var paymentMethodsElement))
+                {
+                    var paymentMethods = JsonSerializer.Deserialize<TexasPaymentMethods>(paymentMethodsElement.GetRawText(), options);
+                    if (paymentMethods != null)
+                    {
+                        // Маппинг: plate -> NoPlate (обратная логика), card -> NoCard (обратная логика)
+                        paymentMethod = new PaymentMethod(
+                            tag: paymentMethods.Tag,
+                            noPlate: !paymentMethods.Plate,
+                            cash: paymentMethods.Cash,
+                            noCard: !paymentMethods.Card,
+                            app: paymentMethods.App);
+                    }
+                }
             }
             catch (JsonException jsonEx)
             {
@@ -193,25 +229,25 @@ public class ParseTexasTollPricesCommandHandler(
             switch (format)
             {
                 case TexasJsonFormat.Format1:
-                    await ProcessFormat1(jsonDoc, txBoundingBox, linkedTolls, notFoundPlazas, tollsToUpdatePrices, ct);
+                    await ProcessFormat1(jsonDoc, txBoundingBox, linkedTolls, notFoundPlazas, tollsToUpdatePrices, link, paymentMethod, ct);
                     break;
                 case TexasJsonFormat.Format2:
-                    await ProcessFormat2(jsonDoc, txBoundingBox, linkedTolls, notFoundPlazas, tollsToUpdatePrices, ct);
+                    await ProcessFormat2(jsonDoc, txBoundingBox, linkedTolls, notFoundPlazas, tollsToUpdatePrices, link, paymentMethod, ct);
                     break;
                 case TexasJsonFormat.Format3:
-                    await ProcessFormat3(jsonDoc, txBoundingBox, linkedTolls, notFoundPlazas, tollsToUpdatePrices, ct);
+                    await ProcessFormat3(jsonDoc, txBoundingBox, linkedTolls, notFoundPlazas, tollsToUpdatePrices, link, paymentMethod, ct);
                     break;
                 case TexasJsonFormat.Format4:
-                    await ProcessFormat4(jsonDoc, txBoundingBox, linkedTolls, notFoundPlazas, tollsToUpdatePrices, ct);
+                    await ProcessFormat4(jsonDoc, txBoundingBox, linkedTolls, notFoundPlazas, tollsToUpdatePrices, link, paymentMethod, ct);
                     break;
                 case TexasJsonFormat.Format5:
-                    await ProcessFormat5(jsonDoc, txBoundingBox, linkedTolls, notFoundPlazas, tollsToUpdatePrices, ct);
+                    await ProcessFormat5(jsonDoc, txBoundingBox, linkedTolls, notFoundPlazas, tollsToUpdatePrices, link, paymentMethod, ct);
                     break;
                 case TexasJsonFormat.Format6:
-                    await ProcessFormat6(jsonDoc, txBoundingBox, linkedTolls, notFoundPlazas, tollsToUpdatePrices, ct);
+                    await ProcessFormat6(jsonDoc, txBoundingBox, linkedTolls, notFoundPlazas, tollsToUpdatePrices, link, paymentMethod, ct);
                     break;
                 case TexasJsonFormat.Format7:
-                    await ProcessFormat7(jsonDoc, txBoundingBox, linkedTolls, notFoundPlazas, tollsToUpdatePrices, ct);
+                    await ProcessFormat7(jsonDoc, txBoundingBox, linkedTolls, notFoundPlazas, tollsToUpdatePrices, link, paymentMethod, ct);
                     break;
                 default:
                     return new ParseTexasTollPricesResult(
@@ -346,6 +382,8 @@ public class ParseTexasTollPricesCommandHandler(
         List<TexasLinkedTollInfo> linkedTolls,
         List<string> notFoundPlazas,
         Dictionary<Guid, List<TollPriceData>> tollsToUpdatePrices,
+        string? link,
+        PaymentMethod? paymentMethod,
         CancellationToken ct)
     {
         var data = JsonSerializer.Deserialize<TexasPricesDataV1>(jsonDoc.RootElement.GetRawText(), new JsonSerializerOptions
@@ -375,8 +413,8 @@ public class ParseTexasTollPricesCommandHandler(
             allPlazaNames,
             boundingBox,
             TollSearchOptions.NameOrKey,
-            websiteUrl: null,
-            paymentMethod: null,
+            websiteUrl: link,
+            paymentMethod: paymentMethod,
             ct);
 
         foreach (var plaza in data.TollLocations)
@@ -496,6 +534,8 @@ public class ParseTexasTollPricesCommandHandler(
         List<TexasLinkedTollInfo> linkedTolls,
         List<string> notFoundPlazas,
         Dictionary<Guid, List<TollPriceData>> tollsToUpdatePrices,
+        string? link,
+        PaymentMethod? paymentMethod,
         CancellationToken ct)
     {
         var data = JsonSerializer.Deserialize<TexasPricesDataV2>(jsonDoc.RootElement.GetRawText(), new JsonSerializerOptions
@@ -525,8 +565,8 @@ public class ParseTexasTollPricesCommandHandler(
             allPlazaNames,
             boundingBox,
             TollSearchOptions.NameOrKey,
-            websiteUrl: null,
-            paymentMethod: null,
+            websiteUrl: link,
+            paymentMethod: paymentMethod,
             ct);
 
         foreach (var plaza in data.TollLocations)
@@ -656,6 +696,8 @@ public class ParseTexasTollPricesCommandHandler(
         List<TexasLinkedTollInfo> linkedTolls,
         List<string> notFoundPlazas,
         Dictionary<Guid, List<TollPriceData>> tollsToUpdatePrices,
+        string? link,
+        PaymentMethod? paymentMethod,
         CancellationToken ct)
     {
         var data = JsonSerializer.Deserialize<TexasPricesDataV3>(jsonDoc.RootElement.GetRawText(), new JsonSerializerOptions
@@ -685,8 +727,8 @@ public class ParseTexasTollPricesCommandHandler(
             allPlazaNames,
             boundingBox,
             TollSearchOptions.NameOrKey,
-            websiteUrl: null,
-            paymentMethod: null,
+            websiteUrl: link,
+            paymentMethod: paymentMethod,
             ct);
 
         foreach (var plaza in data.TollRates.StandardTollRates)
@@ -762,6 +804,8 @@ public class ParseTexasTollPricesCommandHandler(
         List<TexasLinkedTollInfo> linkedTolls,
         List<string> notFoundPlazas,
         Dictionary<Guid, List<TollPriceData>> tollsToUpdatePrices,
+        string? link,
+        PaymentMethod? paymentMethod,
         CancellationToken ct)
     {
         var data = JsonSerializer.Deserialize<TexasPricesDataV4>(jsonDoc.RootElement.GetRawText(), new JsonSerializerOptions
@@ -791,8 +835,8 @@ public class ParseTexasTollPricesCommandHandler(
             allPlazaNames,
             boundingBox,
             TollSearchOptions.NameOrKey,
-            websiteUrl: null,
-            paymentMethod: null,
+            websiteUrl: link,
+            paymentMethod: paymentMethod,
             ct);
 
         foreach (var plaza in data.TollLocations)
@@ -873,6 +917,8 @@ public class ParseTexasTollPricesCommandHandler(
         List<TexasLinkedTollInfo> linkedTolls,
         List<string> notFoundPlazas,
         Dictionary<Guid, List<TollPriceData>> tollsToUpdatePrices,
+        string? link,
+        PaymentMethod? paymentMethod,
         CancellationToken ct)
     {
         var data = JsonSerializer.Deserialize<TexasPricesDataV5>(jsonDoc.RootElement.GetRawText(), new JsonSerializerOptions
@@ -902,8 +948,8 @@ public class ParseTexasTollPricesCommandHandler(
             allPlazaNames,
             boundingBox,
             TollSearchOptions.NameOrKey,
-            websiteUrl: null,
-            paymentMethod: null,
+            websiteUrl: link,
+            paymentMethod: paymentMethod,
             ct);
 
         foreach (var plaza in data.TollLocations)
@@ -995,6 +1041,8 @@ public class ParseTexasTollPricesCommandHandler(
         List<TexasLinkedTollInfo> linkedTolls,
         List<string> notFoundPlazas,
         Dictionary<Guid, List<TollPriceData>> tollsToUpdatePrices,
+        string? link,
+        PaymentMethod? paymentMethod,
         CancellationToken ct)
     {
         var data = JsonSerializer.Deserialize<TexasPricesDataV6>(jsonDoc.RootElement.GetRawText(), new JsonSerializerOptions
@@ -1024,8 +1072,8 @@ public class ParseTexasTollPricesCommandHandler(
             allPlazaNames,
             boundingBox,
             TollSearchOptions.NameOrKey,
-            websiteUrl: null,
-            paymentMethod: null,
+            websiteUrl: link,
+            paymentMethod: paymentMethod,
             ct);
 
         foreach (var plaza in data.TollLocations)
@@ -1182,6 +1230,8 @@ public class ParseTexasTollPricesCommandHandler(
         List<TexasLinkedTollInfo> linkedTolls,
         List<string> notFoundPlazas,
         Dictionary<Guid, List<TollPriceData>> tollsToUpdatePrices,
+        string? link,
+        PaymentMethod? paymentMethod,
         CancellationToken ct)
     {
         var data = JsonSerializer.Deserialize<TexasPricesDataV7>(jsonDoc.RootElement.GetRawText(), new JsonSerializerOptions
@@ -1211,8 +1261,8 @@ public class ParseTexasTollPricesCommandHandler(
             allPlazaNames,
             boundingBox,
             TollSearchOptions.NameOrKey,
-            websiteUrl: null,
-            paymentMethod: null,
+            websiteUrl: link,
+            paymentMethod: paymentMethod,
             ct);
 
         foreach (var plaza in data.TollLocations)

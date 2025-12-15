@@ -71,5 +71,12 @@
       }
     }
   ],
-  "link": "https://www.hctra.org/TollRates?tollRoad=Tomball+Tollway"
+  "link": "https://www.hctra.org/TollRates?tollRoad=Tomball+Tollway",
+  "payment_methods": {
+    "tag": true,
+    "plate": true,
+    "cash": false,
+    "card": false,
+    "app": true
+  }
 }

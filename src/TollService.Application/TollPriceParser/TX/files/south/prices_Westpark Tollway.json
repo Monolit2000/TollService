@@ -53,5 +53,12 @@
       }
     ]
   },
-  "link": "https://www.fbctra.com/toll-roads/"
+  "link": "https://www.fbctra.com/toll-roads/",
+  "payment_methods": {
+    "tag": true,
+    "plate": false,
+    "cash": false,
+    "card": false,
+    "app": true
+  }
 }

@@ -80,10 +80,10 @@ public class ParseVirginiaTollPricesCommandHandler(
             VirginiaPricesData? data = null;
             string? link = null;
             PaymentMethod? paymentMethod = null;
-            var options = new JsonSerializerOptions
-            {
-                PropertyNameCaseInsensitive = true
-            };
+                var options = new JsonSerializerOptions
+                {
+                    PropertyNameCaseInsensitive = true
+                };
 
             try
             {

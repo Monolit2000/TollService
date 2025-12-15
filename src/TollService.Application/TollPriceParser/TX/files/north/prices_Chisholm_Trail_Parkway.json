@@ -106,5 +106,12 @@
       }
     }
   ],
-  "link": "https://www.ntta.org/sites/default/files/2025-06/NTTAS_2025-2027_Toll%20Rate%20Tables.pdf"
+  "link": "https://www.ntta.org/sites/default/files/2025-06/NTTAS_2025-2027_Toll%20Rate%20Tables.pdf",
+  "payment_methods": {
+    "tag": false,
+    "plate": false,
+    "cash": false,
+    "card": false,
+    "app": false
+  }
 }

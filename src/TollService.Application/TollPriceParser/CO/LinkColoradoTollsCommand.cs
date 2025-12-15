@@ -77,25 +77,25 @@ public class LinkColoradoTollsCommandHandler(
         List<ColoradoPlaza>? plazas = null;
         string? link = null;
         PaymentMethod? paymentMethod = null;
-        var options = new JsonSerializerOptions
-        {
-            PropertyNameCaseInsensitive = true
-        };
+            var options = new JsonSerializerOptions
+            {
+                PropertyNameCaseInsensitive = true
+            };
 
         try
         {
             // Используем JsonDocument для обработки полей link и payment_methods
             using (JsonDocument jsonDoc = JsonDocument.Parse(request.JsonPayload))
             {
-                // Пробуем распарсить как объект с полем "plazas"
-                if (jsonDoc.RootElement.ValueKind == JsonValueKind.Object && jsonDoc.RootElement.TryGetProperty("plazas", out var plazasElement))
-                {
-                    plazas = JsonSerializer.Deserialize<List<ColoradoPlaza>>(plazasElement.GetRawText(), options);
-                }
-                else
-                {
-                    // Пробуем распарсить как массив напрямую
-                    plazas = JsonSerializer.Deserialize<List<ColoradoPlaza>>(request.JsonPayload, options);
+            // Пробуем распарсить как объект с полем "plazas"
+            if (jsonDoc.RootElement.ValueKind == JsonValueKind.Object && jsonDoc.RootElement.TryGetProperty("plazas", out var plazasElement))
+            {
+                plazas = JsonSerializer.Deserialize<List<ColoradoPlaza>>(plazasElement.GetRawText(), options);
+            }
+            else
+            {
+                // Пробуем распарсить как массив напрямую
+                plazas = JsonSerializer.Deserialize<List<ColoradoPlaza>>(request.JsonPayload, options);
                 }
 
                 // Читаем link
