@@ -100,7 +100,13 @@ public class GetTollsAlongPolylineSectionsQueryHandler(
                     PayOnlineOvernight = t.PayOnlineOvernight,
                     PayOnline = t.PayOnline,
                     Distance = distance,
-                    SerchRadiusInMeters = t.SerchRadiusInMeters
+                    SerchRadiusInMeters = t.SerchRadiusInMeters,
+                    WebsiteUrl = t.WebsiteUrl,
+                    Tag = t.Tag,
+                    NoPlate = t.NoPlate,
+                    Cash = t.Cash,
+                    NoCard = t.NoCard,
+                    App = t.App
                 };
             }).ToList();
 

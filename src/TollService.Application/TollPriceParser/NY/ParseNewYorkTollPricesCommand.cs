@@ -122,8 +122,8 @@ public class ParseNewYorkTollPricesCommandHandler(
                 if (!processedPairs.Add(pairKey))
                     continue;
 
-                var entryCode = BuildThruwayCode(entryNumber);
-                var exitCode = BuildThruwayCode(exitNumber);
+                var entryCode = entryNumber;
+                var exitCode = exitNumber;
 
                 if (entryCode == null || exitCode == null)
                 {

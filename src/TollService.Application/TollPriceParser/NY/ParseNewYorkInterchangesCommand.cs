@@ -107,12 +107,13 @@ public class ParseNewYorkInterchangesCommandHandler(
                     continue;
                 }
 
-                var exitId = (string?)interchange.Attribute("exitid");
+                // В NY используем interchange id (атрибут "id"), а не "exitid"
+                var interchangeId = (string?)interchange.Attribute("id");
                 var description = (string?)interchange.Attribute("description") ?? string.Empty;
 
                 var tollPoint = new Point(lon, lat) { SRID = 4326 };
 
-                if (exitId == "61")
+                if (interchangeId == "61")
                 {
 
                 }
@@ -129,7 +130,7 @@ public class ParseNewYorkInterchangesCommandHandler(
                     {
                         Id = Guid.NewGuid(),
                         Name = description,
-                        Number = string.IsNullOrWhiteSpace(exitId) ? null : exitId,
+                        Number = string.IsNullOrWhiteSpace(interchangeId) ? null : interchangeId,
                         Location = tollPoint,
                         Price = 0,
                         Key = description,
@@ -149,8 +150,8 @@ public class ParseNewYorkInterchangesCommandHandler(
 
                         }
 
-                        if (matchingToll.Key != null && !string.IsNullOrEmpty(matchingToll.Key))
-                            continue;
+                        //if (matchingToll.Key != null && !string.IsNullOrEmpty(matchingToll.Key))
+                        //    continue;
 
                         var changed = false;
 
@@ -161,14 +162,14 @@ public class ParseNewYorkInterchangesCommandHandler(
                             changed = true;
                         }
 
-                        if (!string.IsNullOrWhiteSpace(exitId) &&
-                            matchingToll.Number != exitId)
+                        if (!string.IsNullOrWhiteSpace(interchangeId) &&
+                            matchingToll.Number != interchangeId)
                         {
-                            matchingToll.Number = exitId;
+                            matchingToll.Number = interchangeId;
                             changed = true;
                         }
 
-                        if (matchingToll.Key != description)
+                        if (matchingToll.Key != null && !string.IsNullOrEmpty(matchingToll.Key) && matchingToll.Key != description)
                         {
                             matchingToll.Key = description;
                             changed = true;

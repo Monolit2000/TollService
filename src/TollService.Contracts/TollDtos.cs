@@ -40,6 +40,14 @@ public class TollWithRouteSectionDto
     public double PayOnline { get; set; }
     public double Distance { get; set; } = 0;
     public double OrderId { get; set; } = 0;
+
+    public string? WebsiteUrl { get; set; }
+
+    public bool Tag { get; set; }
+    public bool NoPlate { get; set; }
+    public bool Cash { get; set; }
+    public bool NoCard { get; set; }
+    public bool App { get; set; }
     // Радиус поиска (в метрах) для отображения на карте/поиска вокруг толла
     // NB: оставляем имя как в существующем контракте пользователя ("Serch" вместо "Search")
     public double SerchRadiusInMeters { get; set; } = 0;
@@ -58,8 +66,8 @@ public class TollDto
     public Guid RoadId { get; set; }
     public string? Key { get; set; }
     public string? Comment { get; set; }
-    public string? WebsiteUrl { get; set; }
     public bool IsDynamic { get; set; }
+    public string? WebsiteUrl { get; set; }
     public double IPassOvernight { get; set; }
     public double IPass { get; set; }
     public double PayOnlineOvernight { get; set; }

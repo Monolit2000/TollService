@@ -8,7 +8,9 @@
         "m00x", "m01x", "m02x", "m03x", "m04x", "m05x", "m06x", "m06a", "m07x", "m07a", "m08x", "m08a", "m09x", "m10x", "m11x", "m12x", "m13x", "m14x", "m14a", "m14b", "m15x", "m15a", "m16x", "m17x", "m18x", "m19x",
         "m20x", "m21x", "m21b", "b1x", "b2x", "b3x", "bxx", "m22x", "m23x", "m24x", "m25x", "m25a", "m26x", "m27x", "m28x", "m29x", "m29a", "m30x", "m31x", "m32x", "m33x", "m34x", "m34a", "m35x", "m36x", "m37x",
         "m38x", "m39x", "m40x", "m41x", "m42x", "m43x", "m44x", "m45x", "m46x", "m47x", "m48x", "m48a", "m49x", "m50x", "m50a", "m51x", "m52x", "m52a", "m53x", "m54x", "m55x", "m56x", "m57x", "m57a", "m58x",
-        "m59x", "m60x", "m61x", "mpax"
+        "m59x", "m60x", "m61x", "mpax", "ns01x", "ns02x", "ns03x", "ns04x", "ns05x", "ns06x", "ns07x", "ns08x", "ns09x", "ns11x", "ns12x", "ns13x",
+        "ns14x", "ns15x", "ns16x", "ns17x", "ns18a", "ns18b", "ns18x", "ns19x", "ns20x", "ns20a", "ns20b", "ns21x", "nsnex", "ne00x", "ne08x", "ne09x", "ne10x", "ne11x", "ne12x", "ne13x", "ne14x",
+        "ne15x", "ne16x", "ne17x", "ne18a", "ne18b", "ne19x", "ne20x", "ne21x", "ne22x", "nectx", "sub"
     ];
 
     // ---- GENERATE ALL ROUTES ----
