@@ -19,6 +19,7 @@ public class GetTollsAlongPolylineSectionsQueryHandler(
     ITollDbContext _context) : IRequestHandler<GetTollsAlongPolylineSectionsQuery, List<TollWithRouteSectionDto>>
 {
     private const double MetersPerDegree = 111_320.0;
+    private const double DefaultSearchRadiusMeters = 500.0;
 
     public async Task<List<TollWithRouteSectionDto>> Handle(GetTollsAlongPolylineSectionsQuery request, CancellationToken ct)
     {
@@ -43,13 +44,30 @@ public class GetTollsAlongPolylineSectionsQueryHandler(
 
             var polyline = new LineString(coordinates) { SRID = 4326 };
 
-            var meters = 20.0;
-            var degrees = meters / MetersPerDegree; // ~0.0000449 градусов
+            // Сначала выбираем кандидатов по "максимальному" радиусу, затем отфильтруем каждого toll
+            // по его SerchRadiusInMeters (в метрах) уже в памяти.
+            // Так мы не пытаемся делать per-row distance в EF.
+            var maxRadiusMeters = DefaultSearchRadiusMeters;
+            var degrees = maxRadiusMeters / MetersPerDegree;
 
             var tolls = await _context.Tolls
                 .Where(t => t.Location != null &&
                            t.Location.IsWithinDistance(polyline, degrees))
                 .ToListAsync(ct);
+
+            // Фильтруем кандидатов по индивидуальному радиусу каждого toll (в метрах)
+            tolls = tolls
+                .Where(t =>
+                {
+                    if (t.Location == null)
+                        return false;
+
+                    var tollRadius = t.SerchRadiusInMeters > 0 ? t.SerchRadiusInMeters : 20;
+                    var closest = FindClosestPointOnLine(polyline, t.Location);
+                    var distanceToLineMeters = CalculateHaversineDistance(t.Location.Coordinate, closest);
+                    return distanceToLineMeters <= tollRadius;
+                })
+                .ToList();
 
             // Создаем словарь для быстрого поиска toll по Id
             var tollsDict = tolls.ToDictionary(t => t.Id);

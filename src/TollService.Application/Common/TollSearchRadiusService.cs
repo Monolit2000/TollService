@@ -11,6 +11,7 @@ public class TollSearchRadiusService : ITollSearchRadiusService
 {
     // Небольшой зазор, чтобы окружности не "касались" из-за погрешностей расчёта
     private const double ClearanceMeters = 0.1;
+    private const int DuplicateCoordRoundDigits = 7; // ~ 1см, чтобы схлопывать "одинаковые" точки
 
     public void ApplyNonOverlappingRadii(IList<TollDto> tolls, double defaultRadiusMeters = 500.0)
     {
@@ -81,18 +82,29 @@ public class TollSearchRadiusService : ITollSearchRadiusService
                 t.SerchRadiusInMeters = 0;
         }
 
-        for (int i = 0; i < ordered.Count; i++)
+        // Исключаем дубли по координатам: считаем радиусы только на уникальных точках,
+        // затем присваиваем результат всем toll'ам в группе (иначе при одинаковом Location d=0 => радиусы схлопываются в 0).
+        var groupsByLocation = ordered
+            .Where(t => t.Location != null && IsValidLatLon(t.Location!.Y, t.Location!.X))
+            .GroupBy(t => BuildLocationKey(t.Location!))
+            .ToList();
+
+        var unique = groupsByLocation
+            .Select(g => g.First())
+            .ToList();
+
+        for (int i = 0; i < unique.Count; i++)
         {
-            var a = ordered[i];
+            var a = unique[i];
             if (a.SerchRadiusInMeters <= 0 || a.Location == null)
                 continue;
 
             var aLat = a.Location.Y;
             var aLon = a.Location.X;
 
-            for (int j = i + 1; j < ordered.Count; j++)
+            for (int j = i + 1; j < unique.Count; j++)
             {
-                var b = ordered[j];
+                var b = unique[j];
                 if (b.SerchRadiusInMeters <= 0 || b.Location == null)
                     continue;
 
@@ -113,10 +125,27 @@ public class TollSearchRadiusService : ITollSearchRadiusService
             }
         }
 
+        // Проставляем рассчитанный радиус всем дублям в группе
+        foreach (var group in groupsByLocation)
+        {
+            var r = group.First().SerchRadiusInMeters;
+            foreach (var t in group)
+                t.SerchRadiusInMeters = r;
+        }
+
+
         if (!isRecursivePass)
         {
             ApplyNonOverlappingRadii(tolls.Where(x => x.SerchRadiusInMeters < 2).ToList(), defaultRadiusMeters, true);
         }
+    }
+
+    private static string BuildLocationKey(NetTopologySuite.Geometries.Point p)
+    {
+        // Point.X = lon, Point.Y = lat
+        var lat = Math.Round(p.Y, DuplicateCoordRoundDigits);
+        var lon = Math.Round(p.X, DuplicateCoordRoundDigits);
+        return $"{lat}|{lon}";
     }
 
     private static void ReducePairToAllowedSum(Toll a, Toll b, double allowedSum)
