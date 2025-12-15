@@ -211,5 +211,12 @@
       }
     }
   ],
-  "link": "https://www.hctra.org/TollRates?tollRoad=Westpark+Tollway"
+  "link": "https://www.hctra.org/TollRates?tollRoad=Westpark+Tollway",
+  "payment_methods": {
+    "tag": true,
+    "plate": false,
+    "cash": false,
+    "card": false,
+    "app": true
+  }
 }

@@ -78,5 +78,12 @@
       }
     }
   ],
-  "link": "https://www.mobilityauthority.com/traveler-info/open-roads/290-toll/"
+  "link": "https://www.mobilityauthority.com/traveler-info/open-roads/290-toll/",
+  "payment_methods": {
+    "tag": true,
+    "plate": true,
+    "cash": false,
+    "card": false,
+    "app": false
+  }
 }

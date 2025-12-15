@@ -601,5 +601,12 @@
       ]
     }
   ],
-  "link": "https://www.txdot.gov/discover/toll-roads-managed-lanes/txdot-toll-roads.html"
+  "link": "https://www.txdot.gov/discover/toll-roads-managed-lanes/txdot-toll-roads.html",
+  "payment_methods": {
+    "tag": true,
+    "plate": true,
+    "cash": false,
+    "card": false,
+    "app": true
+  }
 }

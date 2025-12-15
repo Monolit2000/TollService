@@ -89,5 +89,12 @@
       }
     }
   ],
-  "link": "https://www.mysh130.com/about/toll-rates/"
+  "link": "https://www.mysh130.com/about/toll-rates/",
+  "payment_methods": {
+    "tag": true,
+    "plate": true,
+    "cash": false,
+    "card": false,
+    "app": false
+  }
 }

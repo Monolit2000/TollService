@@ -85,5 +85,12 @@
       }
     }
   ],
-  "link": "https://www.txdot.gov/content/dam/docs/division/pfd/toll-roads/2025-txdot-sh249-toll-rates.pdf"
+  "link": "https://www.txdot.gov/content/dam/docs/division/pfd/toll-roads/2025-txdot-sh249-toll-rates.pdf",
+  "payment_methods": {
+    "tag": true,
+    "plate": true,
+    "cash": false,
+    "card": false,
+    "app": false
+  }
 }

@@ -118,5 +118,12 @@
       }
     }
   ],
-  "link": "https://www.netrma.org/net-rma-policies/toll-rates/"
+  "link": "https://www.netrma.org/net-rma-policies/toll-rates/",
+  "payment_methods": {
+    "tag": true,
+    "plate": true,
+    "cash": false,
+    "card": false,
+    "app": true
+  }
 }

@@ -321,7 +321,7 @@ public class LinkOklahomaTollsCommandHandler(
 
     private static readonly Dictionary<int, string> TurnpikeNames = new()
     {
-        // {"turnpikeIds": [8]} json example 
+        // {"turnpikeIds": [1,2,3,4,5,6,7,8,9,10,11,12,13]} json example 
         { 1, "TURNER TURNPIKE" },
         { 2, "WILL ROGERS TURNPIKE" },
         { 3, "H.E.BAILEY TURNPIKE" },

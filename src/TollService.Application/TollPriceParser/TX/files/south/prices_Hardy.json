@@ -141,5 +141,12 @@
       }
     }
   ],
-  "link": "https://www.hctra.org/TollRates?tollRoad=Hardy+Toll+Road"
+  "link": "https://www.hctra.org/TollRates?tollRoad=Hardy+Toll+Road",
+  "payment_methods": {
+    "tag": true,
+    "plate": false,
+    "cash": false,
+    "card": false,
+    "app": true
+  }
 }
