@@ -87,7 +87,7 @@ public class LinkCaliforniaTollsCommandHandler(
             using (JsonDocument doc = JsonDocument.Parse(request.JsonPayload))
             {
                 // Десериализуем основные данные
-                data = JsonSerializer.Deserialize<CaliforniaPricesData>(request.JsonPayload, options);
+            data = JsonSerializer.Deserialize<CaliforniaPricesData>(request.JsonPayload, options);
 
                 // Читаем link
                 if (doc.RootElement.TryGetProperty("link", out var linkElement) && linkElement.ValueKind == JsonValueKind.String)

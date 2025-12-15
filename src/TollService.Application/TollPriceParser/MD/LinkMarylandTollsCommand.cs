@@ -98,8 +98,8 @@ public class LinkMarylandTollsCommandHandler(
             using (var jsonDoc = JsonDocument.Parse(request.PricesJson))
             {
                 // Извлекаем свойства, которые являются объектами с ценами, а также link и payment_methods
-                foreach (var property in jsonDoc.RootElement.EnumerateObject())
-                {
+            foreach (var property in jsonDoc.RootElement.EnumerateObject())
+            {
                     if (property.Name == "link")
                     {
                         if (property.Value.ValueKind == JsonValueKind.String)
@@ -110,7 +110,7 @@ public class LinkMarylandTollsCommandHandler(
                     }
 
                     if (property.Name == "payment_methods")
-                    {
+                {
                         var paymentMethods = JsonSerializer.Deserialize<MarylandPaymentMethods>(property.Value.GetRawText(), options);
                         if (paymentMethods != null)
                         {
@@ -123,19 +123,19 @@ public class LinkMarylandTollsCommandHandler(
                                 app: paymentMethods.App);
                         }
                         continue;
-                    }
+                }
 
-                    try
-                    {
+                try
+                {
                         var priceData = JsonSerializer.Deserialize<MarylandPriceData>(property.Value.GetRawText(), options);
-                        if (priceData != null)
-                        {
-                            pricesDict[property.Name] = priceData;
-                        }
-                    }
-                    catch
+                    if (priceData != null)
                     {
-                        // Игнорируем свойства, которые не являются объектами с ценами
+                        pricesDict[property.Name] = priceData;
+                    }
+                }
+                catch
+                {
+                    // Игнорируем свойства, которые не являются объектами с ценами
                     }
                 }
             }

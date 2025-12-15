@@ -503,19 +503,19 @@ public class CalculatePriceService
                     else
                     {
                         // Создаем новую цену
-                        var tollPrice = SetTollPriceDirectly(
-                            toll,
-                            priceData.Amount,
+                    var tollPrice = SetTollPriceDirectly(
+                        toll,
+                        priceData.Amount,
                             mappedPaymentType,
-                            priceData.AxelType,
-                            priceData.DayOfWeekFrom,
-                            priceData.DayOfWeekTo,
-                            priceData.TimeOfDay,
-                            priceData.Description,
-                            priceData.TimeFrom,
-                            priceData.TimeTo);
+                        priceData.AxelType,
+                        priceData.DayOfWeekFrom,
+                        priceData.DayOfWeekTo,
+                        priceData.TimeOfDay,
+                        priceData.Description,
+                        priceData.TimeFrom,
+                        priceData.TimeTo);
 
-                        createdPrices.Add(tollPrice);
+                    createdPrices.Add(tollPrice);
                     }
                 }
                 catch (Exception)

@@ -81,31 +81,31 @@ public class LinkNewHampshireTollsCommandHandler(
             // Используем JsonDocument для обработки полей link и payment_methods
             using (JsonDocument doc = JsonDocument.Parse(request.JsonPayload))
             {
-                // Пробуем десериализовать как обернутый объект
+            // Пробуем десериализовать как обернутый объект
                 try
                 {
-                    data = JsonSerializer.Deserialize<NewHampshirePricesData>(request.JsonPayload, options);
-                }
-                catch (JsonException)
-                {
-                    // Игнорируем, попробуем другой формат
-                }
+            data = JsonSerializer.Deserialize<NewHampshirePricesData>(request.JsonPayload, options);
+        }
+        catch (JsonException)
+        {
+            // Игнорируем, попробуем другой формат
+        }
 
-                // Если не удалось распарсить как обернутый объект, пробуем как прямой объект NewHampshireTurnpikeSystem
-                if (data?.NewHampshireTurnpikeSystemTolls == null)
+        // Если не удалось распарсить как обернутый объект, пробуем как прямой объект NewHampshireTurnpikeSystem
+        if (data?.NewHampshireTurnpikeSystemTolls == null)
+        {
+            try
+            {
+                var directData = JsonSerializer.Deserialize<NewHampshireTurnpikeSystem>(request.JsonPayload, options);
+                if (directData != null)
                 {
-                    try
-                    {
-                        var directData = JsonSerializer.Deserialize<NewHampshireTurnpikeSystem>(request.JsonPayload, options);
-                        if (directData != null)
-                        {
-                            data = new NewHampshirePricesData(directData);
-                        }
-                    }
-                    catch (JsonException jsonEx)
-                    {
-                        return new LinkNewHampshireTollsResult(new(), new(), 0, $"Ошибка парсинга JSON: {jsonEx.Message}. Убедитесь, что JSON содержит поле 'new_hampshire_turnpike_system_tolls' с массивом 'toll_plazas'.");
-                    }
+                    data = new NewHampshirePricesData(directData);
+                }
+            }
+            catch (JsonException jsonEx)
+            {
+                return new LinkNewHampshireTollsResult(new(), new(), 0, $"Ошибка парсинга JSON: {jsonEx.Message}. Убедитесь, что JSON содержит поле 'new_hampshire_turnpike_system_tolls' с массивом 'toll_plazas'.");
+            }
                 }
 
                 // Читаем link

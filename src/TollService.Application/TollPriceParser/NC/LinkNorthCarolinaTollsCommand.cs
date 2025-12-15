@@ -77,25 +77,25 @@ public class LinkNorthCarolinaTollsCommandHandler(
             List<NorthCarolinaTollRate>? tollRates = null;
             string? link = null;
             PaymentMethod? paymentMethod = null;
-            var options = new JsonSerializerOptions
-            {
-                PropertyNameCaseInsensitive = true
-            };
+                var options = new JsonSerializerOptions
+                {
+                    PropertyNameCaseInsensitive = true
+                };
 
             try
             {
                 // Используем JsonDocument для обработки полей link и payment_methods
                 using (var jsonDoc = JsonDocument.Parse(request.JsonPayload))
                 {
-                    // Пробуем распарсить как объект с полем "routes"
-                    if (jsonDoc.RootElement.ValueKind == JsonValueKind.Object && jsonDoc.RootElement.TryGetProperty("routes", out var routesElement))
-                    {
-                        tollRates = JsonSerializer.Deserialize<List<NorthCarolinaTollRate>>(routesElement.GetRawText(), options);
-                    }
-                    else
-                    {
-                        // Пробуем распарсить как массив напрямую
-                        tollRates = JsonSerializer.Deserialize<List<NorthCarolinaTollRate>>(request.JsonPayload, options);
+                // Пробуем распарсить как объект с полем "routes"
+                if (jsonDoc.RootElement.ValueKind == JsonValueKind.Object && jsonDoc.RootElement.TryGetProperty("routes", out var routesElement))
+                {
+                    tollRates = JsonSerializer.Deserialize<List<NorthCarolinaTollRate>>(routesElement.GetRawText(), options);
+                }
+                else
+                {
+                    // Пробуем распарсить как массив напрямую
+                    tollRates = JsonSerializer.Deserialize<List<NorthCarolinaTollRate>>(request.JsonPayload, options);
                     }
 
                     // Читаем link
