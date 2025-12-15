@@ -42,6 +42,7 @@ builder.Services.AddScoped<RoadRefService>();
 
 // Toll Price Parser Services
 builder.Services.AddScoped<TollSearchService>();
+builder.Services.AddScoped<ITollSearchRadiusService, TollSearchRadiusService>();
 builder.Services.AddScoped<StateCalculatorService>();
 builder.Services.AddScoped<TollNumberService>();
 builder.Services.AddScoped<TollMatchingService>();

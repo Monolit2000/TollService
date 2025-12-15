@@ -17,6 +17,10 @@ public class Toll
     public PaymentMethod PaymentMethod { get; set; } = PaymentMethod.Default();
     public bool isDynamic { get; set; } = false;
 
+    // Радиус поиска (в метрах), сохранённый в БД
+    // NB: оставляем имя как в контракте ("Serch" вместо "Search")
+    public double SerchRadiusInMeters { get; set; } = 0;
+
     //public List<Toll> TollsGoTo { get; set; }
 
     public string? Number { get; set; }

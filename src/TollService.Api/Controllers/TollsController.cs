@@ -52,6 +52,17 @@ public class TollsController : ControllerBase
         return Ok(result);
     }
 
+    /// <summary>
+    /// Пересчитывает SerchRadiusInMeters для всех tolls и сохраняет в БД.
+    /// </summary>
+    [HttpPost("update-search-radii")]
+    [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(int))]
+    public async Task<IActionResult> UpdateSearchRadii([FromQuery] double defaultRadiusMeters = 500.0, CancellationToken ct = default)
+    {
+        var updated = await _mediator.Send(new UpdateTollSearchRadiiCommand(defaultRadiusMeters), ct);
+        return Ok(updated);
+    }
+
     [HttpPost("import/state/{stateCode}")]
     public async Task<IActionResult> ImportState(string stateCode, CancellationToken ct)
     {

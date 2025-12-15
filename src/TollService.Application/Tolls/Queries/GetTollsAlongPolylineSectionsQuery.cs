@@ -81,7 +81,8 @@ public class GetTollsAlongPolylineSectionsQueryHandler(
                     IPass = t.IPass,
                     PayOnlineOvernight = t.PayOnlineOvernight,
                     PayOnline = t.PayOnline,
-                    Distance = distance
+                    Distance = distance,
+                    SerchRadiusInMeters = t.SerchRadiusInMeters
                 };
             }).ToList();
 
@@ -127,6 +128,7 @@ public class GetTollsAlongPolylineSectionsQueryHandler(
             payOnline: t.PayOnline
         )
         {
+            SerchRadiusInMeters = t.SerchRadiusInMeters,
             TollPrices = t.TollPrices.Select(tp => new TollWithPriceDto
             {
                 Id = tp.Id,

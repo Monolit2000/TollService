@@ -16,12 +16,12 @@ public static class BoundingBoxHelper
     /// <param name="maxLatitude">Максимальная широта (северная граница)</param>
     /// <returns>Polygon с SRID = 4326</returns>
     public static Polygon CreateBoundingBox(
-        double minLongitude,
-        double minLatitude,
-        double maxLongitude,
-        double maxLatitude)
+    double minLatitude,
+    double minLongitude,
+    double maxLatitude,
+    double maxLongitude)
     {
-        return new Polygon(new LinearRing(new[]
+        var boundingBox = new Polygon(new LinearRing(new[]
         {
             new Coordinate(minLongitude, minLatitude),
             new Coordinate(maxLongitude, minLatitude),
@@ -30,6 +30,8 @@ public static class BoundingBoxHelper
             new Coordinate(minLongitude, minLatitude)
         }))
         { SRID = 4326 };
+
+        return boundingBox;
     }
 }
 

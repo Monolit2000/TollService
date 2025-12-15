@@ -56,6 +56,7 @@ public class GetTollsByBoundingBoxQueryHandler(
             payOnline: t.PayOnline
         )
         {
+            SerchRadiusInMeters = t.SerchRadiusInMeters,
             TollPrices = t.TollPrices.Select(tp => new TollWithPriceDto
             {
                 Id = tp.Id,

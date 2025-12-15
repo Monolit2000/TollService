@@ -40,6 +40,9 @@ public class TollWithRouteSectionDto
     public double PayOnline { get; set; }
     public double Distance { get; set; } = 0;
     public double OrderId { get; set; } = 0;
+    // Радиус поиска (в метрах) для отображения на карте/поиска вокруг толла
+    // NB: оставляем имя как в существующем контракте пользователя ("Serch" вместо "Search")
+    public double SerchRadiusInMeters { get; set; } = 0;
 
     public List<TollPrice> TollPrices { get; set; } = [];
 }
@@ -63,6 +66,10 @@ public class TollDto
     public double PayOnline { get; set; }
 
     public List<TollWithPriceDto> TollPrices { get; set; } = [];
+
+    // Радиус поиска (в метрах) для отображения на карте/поиска вокруг толла
+    // NB: оставляем имя как в существующем контракте пользователя ("Serch" вместо "Search")
+    public double SerchRadiusInMeters { get; set; } = 0;
 
     public TollDto()
     {

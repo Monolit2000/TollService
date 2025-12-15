@@ -18,7 +18,8 @@ public class MappingProfile : Profile
             .ForCtorParam("IPassOvernight", opt => opt.MapFrom(src => src.IPassOvernight))
             .ForCtorParam("IPass", opt => opt.MapFrom(src => src.IPass))
             .ForCtorParam("PayOnlineOvernight", opt => opt.MapFrom(src => src.PayOnlineOvernight))
-            .ForCtorParam("PayOnline", opt => opt.MapFrom(src => src.PayOnline));
+            .ForCtorParam("PayOnline", opt => opt.MapFrom(src => src.PayOnline))
+            .ForMember(d => d.SerchRadiusInMeters, opt => opt.MapFrom(src => src.SerchRadiusInMeters));
 
         CreateMap<TollPrice, TollWithPriceDto>();
         // PaymentMethod теперь находится в Toll, а не в TollPrice

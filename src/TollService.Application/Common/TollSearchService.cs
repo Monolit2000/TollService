@@ -1,3 +1,4 @@
+using MediatR;
 using Microsoft.EntityFrameworkCore;
 using NetTopologySuite.Geometries;
 using TollService.Application.Common.Interfaces;
@@ -59,6 +60,35 @@ public class TollSearchService
 
         return tolls;
     }
+
+    public async Task<List<Toll>> FindTollsInBoundingBoxAsync(
+    double MinLatitude,
+    double MinLongitude,
+    double MaxLatitude,
+    double MaxLongitude,
+    TollSearchOptions searchOptions = TollSearchOptions.NameOrKey,
+    CancellationToken ct = default)
+    {
+        var boundingBox = new Polygon(new LinearRing(new[]
+        {
+            new Coordinate(MinLongitude, MinLatitude),
+            new Coordinate(MaxLongitude, MinLatitude),
+            new Coordinate(MaxLongitude,MaxLatitude),
+            new Coordinate(MinLongitude, MaxLatitude),
+            new Coordinate(MinLongitude, MinLatitude)
+        }))
+        { SRID = 4326 };
+
+        var tolls = await _context.Tolls
+            .Where(t => t.Location != null && boundingBox.Contains(t.Location))
+            .ToListAsync(ct);
+
+        return tolls;
+    }
+
+
+
+
 
     /// <summary>
     /// Находит толлы для множества имен в пределах bounding box одним запросом к БД.
