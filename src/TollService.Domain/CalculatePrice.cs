@@ -22,7 +22,7 @@ namespace TollService.Domain
 
         public List<TollPrice> TollPrices { get; set; } = [];
 
-        public TollPrice SetPriceByPaymentType(
+        public TollPrice SetPrice(
             double amount,
             TollPaymentType paymentType,
             AxelType axelType = AxelType._5L,
@@ -30,7 +30,7 @@ namespace TollService.Domain
             TollPriceDayOfWeek dayOfWeekTo = TollPriceDayOfWeek.Any,
             TollPriceTimeOfDay timeOfDay = TollPriceTimeOfDay.Any)
         {
-            var price = GetPriceByPaymentType(paymentType, axelType, dayOfWeekFrom, dayOfWeekTo, timeOfDay);
+            var price = GetPrice(paymentType, axelType, dayOfWeekFrom, dayOfWeekTo, timeOfDay);
             if (price != null)
             {
                 price.Amount = amount;
@@ -52,7 +52,7 @@ namespace TollService.Domain
             }
         }
 
-        public TollPrice? GetPriceByPaymentType(
+        public TollPrice? GetPrice(
             TollPaymentType paymentType,
             AxelType axelType = AxelType._5L,
             TollPriceDayOfWeek dayOfWeekFrom = TollPriceDayOfWeek.Any,
@@ -75,7 +75,7 @@ namespace TollService.Domain
             TollPriceDayOfWeek dayOfWeekTo = TollPriceDayOfWeek.Any,
             TollPriceTimeOfDay timeOfDay = TollPriceTimeOfDay.Any)
         {
-            var existingTollPrice = GetPriceByPaymentType(paymentType, axelType, dayOfWeekFrom, dayOfWeekTo, timeOfDay);
+            var existingTollPrice = GetPrice(paymentType, axelType, dayOfWeekFrom, dayOfWeekTo, timeOfDay);
             if (existingTollPrice == null)
             {
                 if (paymentType == TollPaymentType.EZPass || paymentType == TollPaymentType.IPass)

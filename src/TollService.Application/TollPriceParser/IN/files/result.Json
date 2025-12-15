@@ -1,0 +1,2282 @@
+[
+  {
+    "entry": "Westpoint",
+    "exit": "Calumet E/B Entry",
+    "cash_rate": "<!DOCTYPE html><html lang=en-US><head><title>Just a moment...</title><meta http-equiv=Content-Type content=text/html; charset=UTF-8><meta http-equiv=X-UA-Compatible content=IE=Edge><meta name=robots content=noindex,nofollow><meta name=viewport content=width=device-width,initial-scale=1><style>*{box-sizing:border-box;margin:0;padding:0}html{line-height:1.15;-webkit-text-size-adjust:100%;color:#313131;font-family:system-ui,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Arial,Noto Sans,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,Noto Color Emoji}body{display:flex;flex-direction:column;height:100vh;min-height:100vh}.main-content{margin:8rem auto;padding-left:1.5rem;max-width:60rem}@media (width <= 720px){.main-content{margin-top:4rem}}.h2{line-height:2.25rem;font-size:1.5rem;font-weight:500}@media (width <= 720px){.h2{line-height:1.5rem;font-size:1.25rem}}#challenge-error-text{background-image:url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMiIgaGVpZ2h0PSIzMiIgZmlsbD0ibm9uZSI+PHBhdGggZmlsbD0iI0IyMEYwMyIgZD0iTTE2IDNhMTMgMTMgMCAxIDAgMTMgMTNBMTMuMDE1IDEzLjAxNSAwIDAgMCAxNiAzbTAgMjRhMTEgMTEgMCAxIDEgMTEtMTEgMTEuMDEgMTEuMDEgMCAwIDEtMTEgMTEiLz48cGF0aCBmaWxsPSIjQjIwRjAzIiBkPSJNMTcuMDM4IDE4LjYxNUgxNC44N0wxNC41NjMgOS41aDIuNzgzem0tMS4wODQgMS40MjdxLjY2IDAgMS4wNTcuMzg4LjQwNy4zODkuNDA3Ljk5NCAwIC41OTYtLjQwNy45ODQtLjM5Ny4zOS0xLjA1Ny4zODktLjY1IDAtMS4wNTYtLjM4OS0uMzk4LS4zODktLjM5OC0uOTg0IDAtLjU5Ny4zOTgtLjk4NS40MDYtLjM5NyAxLjA1Ni0uMzk3Ii8+PC9zdmc+);background-repeat:no-repeat;background-size:contain;padding-left:34px}@media (prefers-color-scheme: dark){body{background-color:#222;color:#d9d9d9}}</style><meta http-equiv=refresh content=360></head><body><div class=main-wrapper role=main><div class=main-content><noscript><div class=h2><span id=challenge-error-text>Enable JavaScript and cookies to continue</span></div></noscript></div></div><script>(function(){window._cf_chl_opt = {cvId: '3',cZone: 'www.indianatollroad.org',cType: 'managed',cRay: '9a1af5f0fa6fe8c5',cH: '0_NxY.pBcXIfj2J9XstKfrChq1tfqaOc_Nfmp4JMdAU-1763673305-1.2.1.1-2C0m6ivqscvMN1lRpPFAlPIk2EuJEUR3kk2ii626ba64FSbx0vuGaRbE9aKbj0rK',cUPMDTk:\\/wp-admin\\/admin-ajax.php?__cf_chl_tk=n4oe9f_QHhkqY7JA.DkV.LdQvIySH0w.CybW_dPrFro-1763673305-1.0.1.1-BN0g9PLSuR97GK9X3hCtdk.oI.VbsPNGSdg.9onTgk0,cFPWv: 'g',cITimeS: '1763673305',cTplC:0,cTplV:5,cTplB: '0',fa:\\/wp-admin\\/admin-ajax.php?__cf_chl_f_tk=n4oe9f_QHhkqY7JA.DkV.LdQvIySH0w.CybW_dPrFro-1763673305-1.0.1.1-BN0g9PLSuR97GK9X3hCtdk.oI.VbsPNGSdg.9onTgk0,md: 'OEZC6SIFZk3ikW_xSiMbuzuokspTvupLiQhh1TPN.4Q-1763673305-1.2.1.1-eFLPyWPvk44y1xGgpVc7iAwqqE3qg645BysSdx6V9EtJq.kjwYmxAJmzOmob_0lGjAXilpNyvzGcn7ccOrq0ADyp6qJQv9rpOxW77GpUIm0k2C0G.puQFc3KoPbDZLBHJgb2RSliHEm3uqukXqmbmTG8ltftXpw9d4WQa_5qNM.RLY0bhYnDTcCIljAsXsUx4hReca7XcmNYLBm.CQWiGPg2jWgZZVHRc.2LelHUlBdTCzxoeQT4qcqDRIkDoZXv9AxSWXBh.7cWFL6izChfauym9Qcgz5DQ50IzPpfiTWbv2xVweY0P0LglWBtAL8RtZmPzPKEQgWkk3pJC_ZYgVOrHXksMphQjDaVpAkqZD5zHywp4wvxHOpxtwsTP9_5HYdtJ9ux9FDFKSAVgHzr1b7O758INn_KM5I2gGcBmuH9.7qxgkeMbSuqjbrhKS9eRHq8bAYMyMVk68iNg25SWrvyVRSIUsuTHyXcSZVg1LJpNXPShLZe5jkyztjK07MizyDltXdoOwcRS_d.vKVJuP62_pplvDgS7PNqs2rB3udnqwrexA7EgjVRaM7HGO7Wa4CC6B2FB3tgfIAo3DUEASpyQAGoS.IcT_MGcYXq3vkOEIioYnIdzYdnSiNvqGnzf8.Fb33aWNWrvaUAzdsdHbeidoKF0fiVu2ghMIkZ0Re4Qas8_OXH2a.spyTa.TzQ_FfXtDi3aKIorQ2C9srMmD0QBxzpNLvrcx8TcK8w240gZIzgKMfjExurmiY9zdePVqiFbTS2s0TUo_UjvUhXmfOAFnF9xWF4yI4Hg4v4AIUAdCDy7bqMgMFGs9zd_zds5GjzroUj0UpGrJDFGSSKjrDtl43B0vHaPq3t0oDsIeZ.wEx25kf427YFVXtbKP0_6BD5rntiei8o7yTMMLyI_cQoe6SrEJm_ORTmI17OTLOl2vH_y13RS8C9nDUnynIfwdLuu3ls8KTQAwuhPsSwgJgmrb15Ogv.9NHvBcx3J.5LMFRhsDbbvm3LEMrpdXCdFzuBypkhehT9eltMtySa6BJLuxdWqkV61qUxK38RjyTgITS_d7hYr1fbe16NlrZCJi7p3Da6xPHe1xyd_cw.5uQ',mdrd: '8eHcxgd1zF7gYvReqkzPezPXlhSb3KztDkAEH3yKzSs-1763673305-1.2.1.1-Y4xJJrC6SGRacH7xtlu5bVNgY_ggKqrXZzrcEYXPpXPw2DWWahJqY9yq4C1aYzd2txFgjL0jM5yu4AJAeBlKF6PbQSTXz4.49vrX9DuUJioGAkeIQ8Y7XJhTBV96lSwlkfZbMLGNHe4D_B70FUri5x.Hbg4xl2p4WCnFOAuTwPIm4nJq_UFsbMxRNAvN7T20IavVr2yzfgc2nZk2V_mzyg8s86D3bqNWckBUgcPRCeTIkDx3EOnIekhw25v82GrsCY4UU2H06T793txrdquTc01VW_VGKbS4dyHbhrqwq3qfTtS145rlUCGaMAVokRjzijMgqCluJvbjbxg0.AcdNQA3w28blK4Jve2To.AKi4n4qOse8DWCLhP12RwfYUgSXgQdEeE63UojPFLsQrg8faCkxHDq5a6cXi2yfjNBf4Tb8NkgyjpzyIf9cq.0PIv9YdXj3SrJxdOz5RxR_lpDBbsWxKw_GdTAKQthv6ucbZx29cqK9POHZ1jUZQQjOkJZC_cKVadcSwh8cdcaWD.XaQk_R18TbZHnAoa0We4INKDM_1neof0mGa29dt_sWqY_Zg8LIhLdeJPGdhVeiAmduk4bq_kTbg61eUwTVx6i762pTG5qdFWwHBoLIK.V.CiDz9AEULauigT7WZDZJHEZtrp6EQdPptCaEvQYfPTPycjy2ff5cH3MYlJAeutnoEHuDds5w68X_rLfmGQuK2bBQfxHCtNr2I6WUdOGqQAnIFtU58.yw3aAhQZLZaW9BsHC5RHGhzNqxt0jRb7sMfjVAt.ZRZxLOhj8R6ABRmEwUerxk_jAjn8GpJAdlRIKALJdrIiJDqDTPvAv7.QE8dbmOx8zzA0npvJ8tonZCqFQTA7HbLJIBBjLHc.ypzpULxygbrtwt6WYTSOy6cRPu5xfghoHh9Z8zUT8LrCFVHzPSSZ9epdkrzmT_S32kpnSXXou.eeL49jk1K_EZga9lnpUyvyobQkaoEMokeBCmfSLqa1HI4Nk1hWKAHJ9HB3_hqeI5V5zp3M120V6RDK8mBZXJSvXndqWaPxydtrqswP5Wu_T_xlTAOkBLSSTf0HSnf2HiwupISuJzpEEvwI55FkRil9m2fydNNhSlrS01Q6j0xwzHsbx1fHTQfN4MSOJE4Ubjgeyg5dNpHop2sormn2CAUznm1xjg8fPO4sLxKGyH6_E2WZe4Gk4ceng_Okaq0lL6qqaOuN87eAyZwFED4KFmTKh.7gS6viUAgaM8o13fpP7YHRyzmtJf5kdlVrP2lfunzYP0M0XHJ08u1qnUEkBLs7u5PcFL3HcX1YS9pCOVCQ5OL5OGLOCrL0gl57wR4yewVfnKJIPfvjOxb5IWj9kQMkFhBmDzhgYEKdmEQ2u9zopUTZ3StA5ZOkA7jgoyp7Dtuqovd2nHu5sCoVtgKOSooHMnPDm5TPlj6ynFRhdtUI3v.Jvx9GHyfZCqDReFm1S9_qfqb98ubfKQyu1Xy0URldzJkbkVBlpaJe7fI5Ukb8LiaXgzYDdpw1CDUVpNAUuV.b_ObkoPHYt_lMf9vSHqVA6n.07rrRokBdhhUvHa7E.IKM2Jlfbgs7pPiX.fT9_VH.DRk8Cu8Nj8_umjQaDo4aXkY3Qzn5xZi8bpoYDXxfdODXZzbsN9dTmZFG7dy3I7fU1_0lX_sirov.4aKF99p3Nf7aPx2_JidTyUM5EcqNvsp3vPEjAuOpjfyIo3I2IaEsK42DIVIKxKiISx_stKP4bmDHC3hfCrloROSqwrxxql11m8QaDBGkp1UaQ9kFhHLWUh6F8JoxA8yvnfCtDg0HL5U1M7h49rGo2DR226II06XORNNhRqE3zQ3NEqoVz2grdTvQNhrtMvCspnfqCpHhqpUPi_cwghdcT1QwrDolmfI.19RjarUPesZaDhbCTp.8kcBh8u.u_CulwDdQHPU3AtNGWzWmJ5sNe6JpfTJW5mbXkXS31OmScA1BkvcjiM2iJTyBbbFxql61LA5TOj_GDcLWQVBTX3EaNSqOivftW2YD0.U3U6F0nrL1c5NeF1UeBYbWnCEzSNu21BKR97FpvcfDe5gc2XEAwjPWeXPbYYghuHui8nK7uZKlYkDv0tuJ1ZfF18ucGpXAbHAwxLRdPokWgc43ztKMhmj3UMnV.lBbzdTXPa_hk5ETeZCk9jBMMjF7wXMiSCs9xhlkedb27TXRAevTEO9uUnOt5ZvJfzcNd7geB0KQxvY_8U2sb2xgQIoNtH0o8gRrZbXg2zlOk_hHcjd6R_eQwxurRegIVgRP4D0igJCUKGYrTep4Y.ST_FQ7kTX.mO_4WD0Taeh4fOzNCw6fcqqwRAvHZY1nu_pvhOUuUb6u6RgFSQkEnB640gdaYtfRIK.kqXGOaXtBJzMqJnokPxmkvdr1ihIa.fOnWCL1cLV6FUVJOOOAbe970avBFAIBfSd1UL_dJULFQ_iD5qV0QaZwOaxsQwILFQIcdqqiBd93JusJUn7kIbxyTC6kC6YBDTxdeGlagcOuQ50wy2.9tI_Lr_ih9MSUj4mKqGpt3CU4xhG9yXgAyT25K47w3I662ptoxg1bX1T9w4E98NtI1kevifO8vv.efL2j6kAo8Rn78ZM7Z3x9fJteckSBOtgfOIn3kQHvUNsu9yvpPBxdd9raQjZbf3PhXnBSCS0jIqWawDg0WVvmOPmbCWpKqsIQ1ODqrQzmLRati7P_hdYF4w1UTsogcUlcqF6ewLt9kl3SLuiucNq8SbSV_CZbwleuxzA1ARqCclU__8wuPjbIoLIYmDIguBBLVFMBv24dE4lnqmi02gNzbSHGOOVdvWC1oHy8tFDM9EjoOgVnfsIe53wmb.s0kU4weODgl4bsxG8X3umN9L.upoR_oCwOHi6NGM.0qa66Jw61tLQUOTBUtIauViBk2bFPMB.UPeIs7p2WsrSSuHU1BLrlHJA4T_hZiwmsnEYfs9SXNPEacEChtjiKLPTtCb85M5PkNBZjIgtDum.hUrmDGG5YwIBDIWGV5g3KBOlffdcnayjuqxPcjNcrQSAb.NQo27jIG.hVmgT6DjSbvil4QZgxFXmRKLmkN0g62ejRbyCKx6ON8iRc6JG_xBGt8dALVNxUP1WqUpnHAiyWqtHckYN7CozyzVo_.M2z_51h6XgtgDK8MUP7VNavoaJe9AmqQcM4qlXIN4.g3Y5fERcyKLwnlwzrMqJLiLoj5EZBTdR.tIST7JkXR2FBIQzMWS6NyqfD.7iUEjx8JK3kQXKF.Yyoyxga_tyM7uK3XTviFgudK6Mf0LgHOyBFfjQqXecFsYfPsB_1T4mw5RnAQE8o6nR949eEw_wQEdNR_zMTzuLuplrA4rQj3R.dUTFeGOsXWh1xq35UJKh5xpRbQPZyMno6Hhy9Ro_Lr1JYA0d3XtC_ycMC7cpUrN3y0.Gqh9bWI758Q_TEjWSm57cduBynuv50Q3KcygBaBUifOvPpKH.6W2cNhjn4a7YH.SYvWny43vB.FYH.CyEBC48KlBcRg4Tkj9N6yznxZKnF3zFvVNCOGeycW9YztScS.VoaHZ.VIMXSiNSoHk3gEZUCBW3Dxdr3ajLVPlq7FdfUjaFGbrads8nUZ7U3MBxK.nz0ufyGTawfz2OuVXZ9XLUUCXJbKndsYitrgDuHrtg.i9Nx5xb61GUD8ZF5mUj4dIJtUSOVtH6AhBrhSX9xODD81lWAJiVJIeraoL5__PfQfbjKj8IbGU1FZi1TgvxM.Ul3vYg7SvVIhGP7VaL6iUH5dsXuIOrpPPWTWn2i.zNLZixOclr__QpuRLmAnzMKdcvxcID4Sz48dFMYNTQi2VYo88QIU1L.m53kNsAvTTw5381xn_NGMBe91Kn_1OeIrUTowZRVc8nGYmGi9bVmwg8RZz45oPA4YHVE4YXBCrT_QWgM5VcDiD9eeErzwHAodR.GRwZnWhOypYYOY453gLVF2baB2BRzbOj.cloK7jvsvJqkncLfa_2uc3xrErsfpyOSLtFxU_.YLQR7L8oNNiLhTY0VK5JOqmxYa13abF1lg2IDXSXQdphMtzA1U0WRSa7beiqUGr0qwRKAzicMXzX122ko5RNvo_Mk1w45u5niistSTW5nZ2DuDgZB1wwM7IvFoWM5KiGo9HMndgbFo0Pq22o3V_4aFI7.Pe2pe_RhFdZCSqGor539sZ7il5VHTI8UfdGcZUVbDQfnthjUGSGVGKRzSqs4SpJS1rHVtiuqDS5e4us65Q4zVwU4M4I8RhQgSX5f7Fp60AJy8mj7u27WI9c6tzsfrwob.Amxjt5EFzdjRx1ClW7IdO4yGo1.UvIcsOPo5YskGNCmZno1NG7YIGT44y30PWRbkR_MFx9iunndb0WKYkmaG9gwegW.rAugZ.V7lAKKpQzCttxvdKzGHnpFESeLfC9XQNLsbV6zvWJrdQyFzUmpGY8N0q5RGdSmROzYYaE.JqGYGEXbCKRPPd_qeQvfK4CrjC4b_vgEOnjcZZx0CBSrz1bd2ypt_9mgKfVQYe6L5bWOvCQEEzog7Ce4DSigik6EoKYG6vffHSHaVO4F2pEqcWn3Ec7U0cRBMriY5.hNLp3bkc4ijCTo9GRhttckaEIsO8iqSEjKwBGkCQMGfjGNwMN.HUyTUEz15q2HB1xHd.__zX30_X1V6.40lVLxKkn70.qg3aL64p5Kss4tgaKs_vVRXDeFW1t_lnOdfN.cF2CIMBYREm2CUagB_tP1JuOr.pNrrOd9p8O9s8Wnd3Qag9E5.OG8qjaYgYWzYHQ853aKdLrLLNCBq63hX9JfsVUgAgdKX1DjeHIo8TJA4JX1US5o0aAlsJ9YVk9INbO2ouZgsY4bL8UdTcwQaeaRkSv97VQ4KqdIq5dg3sMIzI_fOdq0p9lefkGibSpfHFslvvxikk_IYOwfMM9agrzO2hP8HH.F8Ptu8Fc0V8ekVSKXMOVbCZdafyV65XShE6tXafQkJj.umYSPS2TNS4t7_PXJpY7ox_VctElTz2ZtgNv4S4GsZ2X8R3a9VRwXDI8aVlpic4k_bWseUOqUZSKJx0ZoFT.zF0lRGJYCc0aD6n7iB12s36AdvCp9rkcqLMfJjiUG0.HF8zXttLggu.uhFNR1G0N.4O0SPtGxI4u1d6eYjPphMplZZNvoLmiedXvU_katMbrxRjsB2jd8HRAG2vQjyQDYw.8iTm4iU_lKhZJwv5Puyyv_qez93kK5g0YGBIvaYgjX1sUETdHR3dM5YbP1Q4hbpXvYb4uLc6_EvvlrAB8QcPNMwFW_QBO10I3CWsnBdsjAyfBexqfPL.7dV47p93TzPVxnieyiQ_JUvKoYPezji4j7jkLi.27on9xkXYXrOU0yJrx68wAg1FmvdrukrYQIsGV5qP1PBZALxlBf9bYJ0qdgA183liceq.Tnq9ZDXbbpaaqV0PAUrDvWeEXXnUDb81wDPbSqUagGvGQqTMjJ0OhuVAZdXLjEYxtHO1F12rTm3qF7owFaqfaFrHVgeQ0Awt0_.10uCvhHEFyvmFyUzfB3ud2Tq3QB0qJHo1YYrtaNi1YkPbzQu8CZrJU17aAzKvX1QZnRpNBEgPl.FOqt.NcWu8DsSsSQXVWCROTyQxdIwBXu2HDaDjjYd9rgsmQn7UIqlhYo8EGUQxDdA6U90339n3WVk7C75YSHE._oDTEDMHl94NxXqOj0pkyfFqOj2o3uKN4pqiyUQNOWJP8C1INwNDC79_FweFVt5z09xGqVBEVBGrAeQo60aeBRf0vjsuuiTF2npTh4uYYrr6OWJMnIyC.r4.Kd1jPgUAgKZt7tVtqPxcKtvIzL2RY9q842rFwh.RapHPVtFd7y2W477t8IoG_P4kF0An_ak5KohpP2O3DjYr6X2e6YnPGR6ixVkYB611MUngOvWLvpUdmYWKI6n0Tn66Lf4xtL8KFqRCWw7kvkawAZnF3Z4heWP_ZH47v4g8P8b.jjdD9HQ99QPfJMlSNbhXcBpEQNBNcPdjXdGh5ukTg6s.Ro.4HFCgc1ahf.qtgEUmzeqMuUg_ZYzkrdM_dBqEtfYlLTiFh58JY3a_qNR7ChMa4YcPM4IcamQAjvsP6OtJdVcjXYUi7bQC1H45A04vTko2ljKHs707d2b.rusgb6WexFpJ5Myss0DPB.E78hDqtEDLHynXQwulWsJd1Tr.wibbdlw_A9v2QYdRUgNvJ1pOCY5LPSyGYRy61J7AH6w9gQLky9QGdNClDkD9BAZmXP..V6VYmLmt2jk4KySqjvukEY3LQBZ5KzgCUZrTmEfd.end9kJOTJU4O0TTYqsyDtgadDDSAMJRpKi7_7aq_dUwcvvfilNwAsaEcCmtmsWRFzphJLf6nfXA0KuiNNMD7r65s11YdT2S1ct.JVmYaluhyxXBiDe6ly7HkzRZ73Jm160x_GVm8ms2xmLeq2lPIw',};var a = document.createElement('script');a.src = '/cdn-cgi/challenge-platform/h/g/orchestrate/chl_page/v1?ray=9a1af5f0fa6fe8c5';window._cf_chl_opt.cOgUHash = location.hash === '' && location.href.indexOf('#') !== -1 ? '#' : location.hash;window._cf_chl_opt.cOgUQuery = location.search === '' && location.href.slice(0, location.href.length - window._cf_chl_opt.cOgUHash.length).indexOf('?') !== -1 ? '?' : location.search;if (window.history && window.history.replaceState) {var ogU = location.pathname + window._cf_chl_opt.cOgUQuery + window._cf_chl_opt.cOgUHash;history.replaceState(null, null,\\/wp-admin\\/admin-ajax.php?__cf_chl_rt_tk=n4oe9f_QHhkqY7JA.DkV.LdQvIySH0w.CybW_dPrFro-1763673305-1.0.1.1-BN0g9PLSuR97GK9X3hCtdk.oI.VbsPNGSdg.9onTgk0+ window._cf_chl_opt.cOgUHash);a.onload = function() {history.replaceState(null, null, ogU);}}document.getElementsByTagName('head')[0].appendChild(a);}());</script></body></html>",
+    "avi_rate": "<!DOCTYPE html><html lang=en-US><head><title>Just a moment...</title><meta http-equiv=Content-Type content=text/html; charset=UTF-8><meta http-equiv=X-UA-Compatible content=IE=Edge><meta name=robots content=noindex,nofollow><meta name=viewport content=width=device-width,initial-scale=1><style>*{box-sizing:border-box;margin:0;padding:0}html{line-height:1.15;-webkit-text-size-adjust:100%;color:#313131;font-family:system-ui,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Arial,Noto Sans,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,Noto Color Emoji}body{display:flex;flex-direction:column;height:100vh;min-height:100vh}.main-content{margin:8rem auto;padding-left:1.5rem;max-width:60rem}@media (width <= 720px){.main-content{margin-top:4rem}}.h2{line-height:2.25rem;font-size:1.5rem;font-weight:500}@media (width <= 720px){.h2{line-height:1.5rem;font-size:1.25rem}}#challenge-error-text{background-image:url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMiIgaGVpZ2h0PSIzMiIgZmlsbD0ibm9uZSI+PHBhdGggZmlsbD0iI0IyMEYwMyIgZD0iTTE2IDNhMTMgMTMgMCAxIDAgMTMgMTNBMTMuMDE1IDEzLjAxNSAwIDAgMCAxNiAzbTAgMjRhMTEgMTEgMCAxIDEgMTEtMTEgMTEuMDEgMTEuMDEgMCAwIDEtMTEgMTEiLz48cGF0aCBmaWxsPSIjQjIwRjAzIiBkPSJNMTcuMDM4IDE4LjYxNUgxNC44N0wxNC41NjMgOS41aDIuNzgzem0tMS4wODQgMS40MjdxLjY2IDAgMS4wNTcuMzg4LjQwNy4zODkuNDA3Ljk5NCAwIC41OTYtLjQwNy45ODQtLjM5Ny4zOS0xLjA1Ny4zODktLjY1IDAtMS4wNTYtLjM4OS0uMzk4LS4zODktLjM5OC0uOTg0IDAtLjU5Ny4zOTgtLjk4NS40MDYtLjM5NyAxLjA1Ni0uMzk3Ii8+PC9zdmc+);background-repeat:no-repeat;background-size:contain;padding-left:34px}@media (prefers-color-scheme: dark){body{background-color:#222;color:#d9d9d9}}</style><meta http-equiv=refresh content=360></head><body><div class=main-wrapper role=main><div class=main-content><noscript><div class=h2><span id=challenge-error-text>Enable JavaScript and cookies to continue</span></div></noscript></div></div><script>(function(){window._cf_chl_opt = {cvId: '3',cZone: 'www.indianatollroad.org',cType: 'managed',cRay: '9a1af5f0fa75e8c5',cH: 'FvX4wcUPdKZ.V5lpIIt9QtTZ.j.P2fUfpNjQqlXUq_Q-1763673305-1.2.1.1-_r_DFm4KU9s.gN0iurQrWI3krIP34u.6Tzaa_gZTTXm06ftbFStSdMmIVWDDZwfV',cUPMDTk:\\/wp-admin\\/admin-ajax.php?__cf_chl_tk=82OCCdl4iO9PAQ2vxBY.B7vJYdxwGxEc6o0qQVat.jI-1763673305-1.0.1.1-gqMKC9GCelFvtmHltDMOcy1Wy.6A.Mo7KomSjNpZzNM,cFPWv: 'g',cITimeS: '1763673305',cTplC:0,cTplV:5,cTplB: '0',fa:\\/wp-admin\\/admin-ajax.php?__cf_chl_f_tk=82OCCdl4iO9PAQ2vxBY.B7vJYdxwGxEc6o0qQVat.jI-1763673305-1.0.1.1-gqMKC9GCelFvtmHltDMOcy1Wy.6A.Mo7KomSjNpZzNM,md: 'D.fP8llpAwi8BcclmwvAfa3r.FyG3HzR7rVlzr019vg-1763673305-1.2.1.1-tjH3VGhZURWgwfAG4deU7HvdhbN3vK6phc6.7fmR8SRT48298moITrC47BRkYvkHGaPNAN8JmU6P8R0LX800mPGn23H.Ym2_JIarNwtQaRdqNeuRsypbYCtO2qNiwnXPSsPVmYUA_jU5D6yIy5Ls.vB9fqBj3g0OC2mg9yapyiFgmlYyat2xeGthHSr2PvgQ0vwQMpdWpiWV6_M_0P0eakOUa7h8noEy69S1xlUassT15bjmfcSo8tzdL2DoXMRPPjS9mYhD96qAq02qUA1okbhD2yIOcsO5LL3AYK4RUqftx.a3kpk50_xp_uA.QMYPOWH9ZxHoOhHUAyZvt5Ao7c.P3iSDZ8hKVn0oCy5j6JUuQVQPZQ9ealzEvC18VbrU6dD1vbp_NxYQ_GLTHu6GM.WW_cBCB.GsaDH79KR8jtfVHUEZ7MfMOAXVcMaAPMb6icl1W9rUpK9S8Etrt1kNzYvtCb8KRn3sYDMrUzH4hx4DGMpsXWnXRc0vasQx6nLkyBBMYJ7XKqpbE5PS93qb4pTk_648P7U4qjF1E_qRqUNJ.faFshOfDTzPWP5NT0PO4Bb29FCRg4ApZJ8EFS8KvK9nC59EqwLwYexeFaILPVwlNvSszOaBZredtinMBFu2srDBq3dL8RyGSnvxLEJ0WlAyMjAuOeePtThEpeyDhwMsMprD8vWxaIMKpi2xi1lZwAVgIYPHy9zP_7tqJA2t_Yl.RBAtHM8_cIHSJuZH4PZ0LLgWZy4wxzqeLEPiah3.hkqiTbKXQt66sXULs8wgjFqWH.jGS2RQfDnVXchMbfb9CxPqz7EVNe_215IfBtaM.Kj4LnT_tcqznnaW_lunmYUh5lj2cIo4.OlBFT0XEaJAuD1Q61ACt9QP6mxyMRhKtaCJwKzK5ydn4vEQrFd6tH8su6baR0OGtXD.3Mk0I0BLgya96Maod4fXNRSbvuRkYRj4dXM8.xEOpQ2lsrgtCk3L_tCh7C3rvaig3EbipoTw1J48iej77uTeUCQtpi9KkxhSb_RGgqhkDmhK.Hd1iO1Zoe.pJZ5VnAqT2_hBM5SX2BKdfxg1IixaNvXNbWFDDaxlle7JKFb_b0_WeUjl2A',mdrd: 'fBi3.nAWzY.C.Z3mWCvKlfItFW49BzKCcaPanL4PQNE-1763673305-1.2.1.1-9i9qTCUwjYqbv_GnvP9wIUCDXVIBu7ekxOWV3XkbWM35jYdP_CUOAOlW3f_re412H87PO2qFTpHWQ17lppf5fRK19kgGQXfXcBtJ.KF4v62s87meSCywje_6VjSN.igJsHZ6zxr1ci.Krk6Lse0Lpljvnzow7Mm3Svbidy_llnBwDkTbsQmV828LWdzQLIz2jdsum5clhwedjJc__ytIjzqDuEARWtzsTCN90iCjXyfAnxeyozdlJj4za.tAJMLZK.697qOYSqxprcyOFjw.cRDGJooMVE6hf29Jim5uLbLU39guxB3218wbzaO7FnGJEyzm7obU.L7qt6sDNx2tJQ4LfGZ_JgwsW9m97NVcjXVQF58611xEL3TtwkRfp9fZTnKskt6LrLC5.UUmcMYKksPyL1Rg1KC.QTEZAujecssebCuDYeFuAgaZJaxNECmVnp7dtbCDHVHbu0UssfmdrVANd9MZJeWF8X6AoO289ouM3Bg8gY64mSl7GWW74GWtiJsLSY192Oo1QRetNGtL_xzmmHMCyTgRgs5i.z9_d1SuLJcSiXon6cZ1rWmHK61qH49EzAVTexs9N0_SbWbShyo07fHo53dZQrVz0pON.nnyVHaqI0AXrqrOBS8VhshRFwxPRO3vJpTjYrhbOqfYxWIgM9EORwO0d55TRL0xjQBfxcMPEbqnoag4dw.vwnIsEDqBool.cIQ7PH52bz.DBw.86xr34ZeTLPGW5yiGtCEjKniVIb3ckJYSNFl1GiWtN2IqOBLnSvYjdnrVVQNTQqg9IZOIr3b1vnnCqzFFd40cZyWm6ckKerwk4opikM9PTBS4yMHub3_Jf5CFwOZidb6pgkf2l0dZhMJqAIuxGA.BV9a7fXtFtBeXtOOGIhzIFZ1HZ60cz2EuOXyIIaf.zdpQdHfjUFT8vgI4GwkTRBmk1KIfzp5YVluIfn.pJ4Md6pCGNCZc_H1.0lGZGM2JqWSH1EIy96gvheuJLuZcOVNleq8nbeNtqPZBf0UfxDyM7_.1p.Hnlo.uxo04vnUoTisJmROuOTB8Se25yvZetAP9iM8LV0gUhQW8fa9f0R7GDHQBPQAq_RlzoSGYKu7qJVdY_nOc.IO96xYduschnukOyfJSBrXGnSskopGPhmC7zhSrAd6g9TaDanbe.IiO.SKKXAgjPTtWTuf9.da6OwwchpXDDyfYJZ5.ZL9WbeqhJK8nwgORkLTqLbyLP4gyW7ynSuiycPYXzd_LRQPbt9vtNG..KGyYi98zmYOjBoTkR1_tYxdjYwjCD_Jd_aPYKomJ28tHqjIsni4qzmNFO7YsSIHLL1y0XC01zZNw0W5T0WSWxM3.mjN.znXsU.5Q2dPj9t4X5PC702ph6XCbOLvHcLWeUF6fjZnmHKcyglLPRFzVl1Z0QAgbFPaxtvKq73JjHVQguadY3sxHawxAGvQF9PH6yuL2WrxT7dT1jYdxMYufVRRahB5hr9uph_tTDnLVa97u4RQAgVETw7pvlcxAQVtLz_XWZZgpxoH_oK4BsD.3kZP0sCQROHT_CkqXjH0.wd_7cAAu8dKslavTq5Nw5.F4kzbFG50DPYfu8wHG70co1YKXQDBs4oZV6tT5th9g.cZ.CFVEpn4KfwKa.FJwANgRZhpMdPLFQLfce6AoRk80d_qjBC4lE6xQdEHFqz_rQUM7Zi9Fgir008reAU4g.TzkJoVCqzm7oqsU8mcrJnJyO3AqfZ307BO_1RMJ7N9hSzQYqm80ts6NCDwVtBouSZME14zjJ2j8VN0.n3FkrgtJr2RMwNOUxItWBJ6O9YJmODtiNa08TwZj4kodyz9hLE_5dkvVan7ajPbS.6hudK_cnFQJRFYNzKoxQVRp4BmL1FLFglKd6.QMikq0H5rYmtGF.jPTTZFXB6Gfn5tKBMft3JJh_EPTCvoirtlrur0WKKoLdEuxQ3O.r4h0ZN_85k74vvYwcE.wb5lvZ7OCLSSqIziEvvU_.1AYdrdG3l1s_7muQcymXFyPFC2gAvuK6oHHFTN5lyXMWBq6JAGf1XToIXdBlh3afzdirhIXjpPSDEaOFY.zF.cxtJR9myQelpVDSH2.gpykUT2wS3WvtZ6KAvzsCOabJBzhBckRhlq5BEDGKtqPP_IV05avHzRfachBfsUQokedEKoWKJp8AEEZLvWOf_8G.EDtsO3FOvwMtVkLNohqph2idNRRZp5RvX6k7aX9z3WuTf.gz6RyZyMUeUhyykg54Abzo4wT_8IK9iVRCCrxl3uiRVtp3YBJLLg4HczPEXmjg5h7oAFoIVh.pCMxjICGr3mRtZJoE3voxs2MnMU1b6d..F83HjMmtj6XXfdNk1x4bpjfvaEWdrknnjrS_zgpwYu86UZ4q_JuHR55pMXwQrInx_7lC_AO92QvUqIbhdqf_mGLSnufkmVytmLYLbH3PVDCuiImr8MJrRTU2adBuT.F5rafxBzAjLGju0UiN5hi7Nn3XiE7uF0KaDU_MHajcC4_SfnKWgPErS2nwGzpAC.lXyEPCO1SU8Bduz.eOxIfLOCle75O61aGQHa3.VTIY_933K026NR163cUBXPMz5.rQ3KADEivxJgqKKAg2dMgJnta4rZvr4DGrUv2GrCoBc0xq.X6pUAa2sUqA_gHYYkQbpIju_UW702JM41KvFctu6oX.PYtDtY80Y8lGT2OjPNMOLndBqq8h6Dlv_W9g65CSkegID._HLT5R_y1WBKXdr3pfEXW1wpy4hloxDm9JTHBcJxVe7sfoMNKtkinP4i7Inif_byh_u_4aAUe8fkci0qA_UiKwwWexofvu00DI1DjjlbEWGYLG2fbnH89w5Xxi2csMHOfgdrEuwOcztuLMRJIbhvcQpO0zAlWS0nidKDoH5qYx6I1tRUFjykjUe1xb46IiIGXPb0bCAO_uuuBjaXpw1hf6B0t7b7xpYmPPWPjK0pCnmZXsPGCs.__gSE5FnM.iyYB16JEovweFVpB0CVZgcsdGgYv8jfrWXbq3tRD81wTjwbmK8eIZepax_cOu3TiitKpu4v2JLLBuZcTXNQPfGzIep92BhIKlKbg5yFttQs74_.N_ESOQJ1IaA9LN9M8DgDvL5AeTUDRraZdnHD0EUhtGD4jB_bDg_IUkRMXs61uIOoVga04bFO9azcWuwuysF6eD6CEfZdldFY8xWudRtX7eR7ktZ9ARjGQz3gD8_lNLs_RRaVn5cJROjVXIItS79l2GCiha5FXeviDnxpHYO_.gp4_qVFxdIUIqR7o2566CEABfYHG.m0GM1QsmzQACaS_0BylWuQzHfx2LDN9DPVtP1_pR0OjCfWN3Lm_ekJR73MTGCGg7l_3a9R.cfS63JpZxOEs0vC2FKVrVu5J6VWI3QWPRcCQ8z3TbHj.q7gWClgplJQZJeDBsC6YG8buSFsEGG5udS91c4GFuuMaEYCX',};var a = document.createElement('script');a.src = '/cdn-cgi/challenge-platform/h/g/orchestrate/chl_page/v1?ray=9a1af5f0fa75e8c5';window._cf_chl_opt.cOgUHash = location.hash === '' && location.href.indexOf('#') !== -1 ? '#' : location.hash;window._cf_chl_opt.cOgUQuery = location.search === '' && location.href.slice(0, location.href.length - window._cf_chl_opt.cOgUHash.length).indexOf('?') !== -1 ? '?' : location.search;if (window.history && window.history.replaceState) {var ogU = location.pathname + window._cf_chl_opt.cOgUQuery + window._cf_chl_opt.cOgUHash;history.replaceState(null, null,\\/wp-admin\\/admin-ajax.php?__cf_chl_rt_tk=82OCCdl4iO9PAQ2vxBY.B7vJYdxwGxEc6o0qQVat.jI-1763673305-1.0.1.1-gqMKC9GCelFvtmHltDMOcy1Wy.6A.Mo7KomSjNpZzNM+ window._cf_chl_opt.cOgUHash);a.onload = function() {history.replaceState(null, null, ogU);}}document.getElementsByTagName('head')[0].appendChild(a);}());</script></body></html>"
+  },
+  {
+    "entry": "Westpoint",
+    "exit": "Calumet W/B",
+    "cash_rate": "$6.50",
+    "avi_rate": "$6.54"
+  },
+  {
+    "entry": "Westpoint",
+    "exit": "Cline (Gary) E/W",
+    "cash_rate": "$6.50",
+    "avi_rate": "$6.54"
+  },
+  {
+    "entry": "Westpoint",
+    "exit": "Gary East",
+    "cash_rate": "$12.40",
+    "avi_rate": "$12.44"
+  },
+  {
+    "entry": "Westpoint",
+    "exit": "Lake Station",
+    "cash_rate": "$12.40",
+    "avi_rate": "$12.44"
+  },
+  {
+    "entry": "Westpoint",
+    "exit": "Portage / Willow Creek",
+    "cash_rate": "$12.40",
+    "avi_rate": "$12.44"
+  }
+  {
+    "entry": "Westpoint",
+    "exit": "Valparaiso/Chesterton",
+    "cash_rate": "$14.80",
+    "avi_rate": "$14.81"
+  },
+  {
+    "entry": "Westpoint",
+    "exit": "Michigan City",
+    "cash_rate": "$18.30",
+    "avi_rate": "$18.29"
+  },
+  {
+    "entry": "Westpoint",
+    "exit": "LaPorte",
+    "cash_rate": "$25.30",
+    "avi_rate": "$25.34"
+  },
+  {
+    "entry": "Westpoint",
+    "exit": "South Bend West",
+    "cash_rate": "$43.10",
+    "avi_rate": "$43.14"
+  },
+  {
+    "entry": "Westpoint",
+    "exit": "South Bend Notre Dame",
+    "cash_rate": "$46.60",
+    "avi_rate": "$46.68"
+  },
+  {
+    "entry": "Westpoint",
+    "exit": "Mishawaka",
+    "cash_rate": "$50.20",
+    "avi_rate": "$50.21"
+  },
+  {
+    "entry": "Westpoint",
+    "exit": "Elkhart",
+    "cash_rate": "$57.30",
+    "avi_rate": "$57.32"
+  },
+  {
+    "entry": "Westpoint",
+    "exit": "Elkhart East",
+    "cash_rate": "$59.80",
+    "avi_rate": "$59.81"
+  },
+  {
+    "entry": "Westpoint",
+    "exit": "Bristol/Goshen",
+    "cash_rate": "$62.00",
+    "avi_rate": "$62.04"
+  },
+  {
+    "entry": "Westpoint",
+    "exit": "Middlebury",
+    "cash_rate": "$64.00",
+    "avi_rate": "$64.07"
+  },
+  {
+    "entry": "Westpoint",
+    "exit": "Howe/LaGrange",
+    "cash_rate": "$71.20",
+    "avi_rate": "$71.20"
+  },
+  {
+    "entry": "Westpoint",
+    "exit": "Angola",
+    "cash_rate": "$80.10",
+    "avi_rate": "$80.17"
+  },
+  {
+    "entry": "Westpoint",
+    "exit": "Eastpoint",
+    "cash_rate": "$87.40",
+    "avi_rate": "$87.49"
+  },
+  {
+    "entry": "Calumet E/B Entry",
+    "exit": "Westpoint",
+    "cash_rate": "$0.00",
+    "avi_rate": "$0.00"
+  },
+  {
+    "entry": "Calumet E/B Entry",
+    "exit": "Calumet W/B",
+    "cash_rate": "$0.00",
+    "avi_rate": "$0.00"
+  },
+  {
+    "entry": "Calumet E/B Entry",
+    "exit": "Cline (Gary) E/W",
+    "cash_rate": "$12.40",
+    "avi_rate": "$12.44"
+  },
+  {
+    "entry": "Calumet E/B Entry",
+    "exit": "Gary East",
+    "cash_rate": "$18.30",
+    "avi_rate": "$18.34"
+  },
+  {
+    "entry": "Calumet E/B Entry",
+    "exit": "Lake Station",
+    "cash_rate": "$18.30",
+    "avi_rate": "$18.34"
+  },
+  {
+    "entry": "Calumet E/B Entry",
+    "exit": "Portage / Willow Creek",
+    "cash_rate": "$18.30",
+    "avi_rate": "$18.34"
+  },
+  {
+    "entry": "Calumet E/B Entry",
+    "exit": "Valparaiso/Chesterton",
+    "cash_rate": "$20.70",
+    "avi_rate": "$20.71"
+  },
+  {
+    "entry": "Calumet E/B Entry",
+    "exit": "Michigan City",
+    "cash_rate": "$24.20",
+    "avi_rate": "$24.19"
+  },
+  {
+    "entry": "Calumet E/B Entry",
+    "exit": "LaPorte",
+    "cash_rate": "$31.20",
+    "avi_rate": "$31.24"
+  },
+  {
+    "entry": "Calumet E/B Entry",
+    "exit": "South Bend West",
+    "cash_rate": "$49.00",
+    "avi_rate": "$49.04"
+  },
+  {
+    "entry": "Calumet E/B Entry",
+    "exit": "South Bend Notre Dame",
+    "cash_rate": "$52.50",
+    "avi_rate": "$52.58"
+  },
+  {
+    "entry": "Calumet E/B Entry",
+    "exit": "Mishawaka",
+    "cash_rate": "$56.10",
+    "avi_rate": "$56.11"
+  },
+  {
+    "entry": "Calumet E/B Entry",
+    "exit": "Elkhart",
+    "cash_rate": "$63.20",
+    "avi_rate": "$63.22"
+  },
+  {
+    "entry": "Calumet E/B Entry",
+    "exit": "Elkhart East",
+    "cash_rate": "$65.70",
+    "avi_rate": "$65.71"
+  },
+  {
+    "entry": "Calumet E/B Entry",
+    "exit": "Bristol/Goshen",
+    "cash_rate": "$67.90",
+    "avi_rate": "$67.94"
+  },
+  {
+    "entry": "Calumet E/B Entry",
+    "exit": "Middlebury",
+    "cash_rate": "$69.90",
+    "avi_rate": "$69.97"
+  },
+  {
+    "entry": "Calumet E/B Entry",
+    "exit": "Howe/LaGrange",
+    "cash_rate": "$77.10",
+    "avi_rate": "$77.10"
+  },
+  {
+    "entry": "Calumet E/B Entry",
+    "exit": "Angola",
+    "cash_rate": "$86.00",
+    "avi_rate": "$86.07"
+  },
+  {
+    "entry": "Calumet E/B Entry",
+    "exit": "Eastpoint",
+    "cash_rate": "$93.30",
+    "avi_rate": "$93.39"
+  },
+  {
+    "entry": "Calumet W/B",
+    "exit": "Westpoint",
+    "cash_rate": "$6.50",
+    "avi_rate": "$6.54"
+  },
+  {
+    "entry": "Calumet W/B",
+    "exit": "Calumet E/B Entry",
+    "cash_rate": "$0.00",
+    "avi_rate": "$0.00"
+  },
+  {
+    "entry": "Calumet W/B",
+    "exit": "Cline (Gary) E/W",
+    "cash_rate": "$0.00",
+    "avi_rate": "$0.00"
+  },
+  {
+    "entry": "Calumet W/B",
+    "exit": "Gary East",
+    "cash_rate": "$0.00",
+    "avi_rate": "$0.00"
+  },
+  {
+    "entry": "Calumet W/B",
+    "exit": "Lake Station",
+    "cash_rate": "$0.00",
+    "avi_rate": "$0.00"
+  },
+  {
+    "entry": "Calumet W/B",
+    "exit": "Portage / Willow Creek",
+    "cash_rate": "$0.00",
+    "avi_rate": "$0.00"
+  },
+  {
+    "entry": "Calumet W/B",
+    "exit": "Valparaiso/Chesterton",
+    "cash_rate": "$0.00",
+    "avi_rate": "$0.00"
+  },
+  {
+    "entry": "Calumet W/B",
+    "exit": "Michigan City",
+    "cash_rate": "$0.00",
+    "avi_rate": "$0.00"
+  },
+  {
+    "entry": "Calumet W/B",
+    "exit": "LaPorte",
+    "cash_rate": "$0.00",
+    "avi_rate": "$0.00"
+  },
+  {
+    "entry": "Calumet W/B",
+    "exit": "South Bend West",
+    "cash_rate": "$0.00",
+    "avi_rate": "$0.00"
+  },
+  {
+    "entry": "Calumet W/B",
+    "exit": "South Bend Notre Dame",
+    "cash_rate": "$0.00",
+    "avi_rate": "$0.00"
+  },
+  {
+    "entry": "Calumet W/B",
+    "exit": "Mishawaka",
+    "cash_rate": "$0.00",
+    "avi_rate": "$0.00"
+  },
+  {
+    "entry": "Calumet W/B",
+    "exit": "Elkhart",
+    "cash_rate": "$0.00",
+    "avi_rate": "$0.00"
+  },
+  {
+    "entry": "Calumet W/B",
+    "exit": "Elkhart East",
+    "cash_rate": "$0.00",
+    "avi_rate": "$0.00"
+  },
+  {
+    "entry": "Calumet W/B",
+    "exit": "Bristol/Goshen",
+    "cash_rate": "$0.00",
+    "avi_rate": "$0.00"
+  },
+  {
+    "entry": "Calumet W/B",
+    "exit": "Middlebury",
+    "cash_rate": "$0.00",
+    "avi_rate": "$0.00"
+  },
+  {
+    "entry": "Calumet W/B",
+    "exit": "Howe/LaGrange",
+    "cash_rate": "$0.00",
+    "avi_rate": "$0.00"
+  },
+  {
+    "entry": "Calumet W/B",
+    "exit": "Angola",
+    "cash_rate": "$0.00",
+    "avi_rate": "$0.00"
+  },
+  {
+    "entry": "Calumet W/B",
+    "exit": "Eastpoint",
+    "cash_rate": "$0.00",
+    "avi_rate": "$0.00"
+  },
+  {
+    "entry": "Cline (Gary) E/W",
+    "exit": "Westpoint",
+    "cash_rate": "$6.50",
+    "avi_rate": "$6.54"
+  },
+  {
+    "entry": "Cline (Gary) E/W",
+    "exit": "Calumet E/B Entry",
+    "cash_rate": "$0.00",
+    "avi_rate": "$0.00"
+  },
+  {
+    "entry": "Cline (Gary) E/W",
+    "exit": "Calumet W/B",
+    "cash_rate": "$12.40",
+    "avi_rate": "$12.44"
+  },
+  {
+    "entry": "Cline (Gary) E/W",
+    "exit": "Gary East",
+    "cash_rate": "$15.20",
+    "avi_rate": "$15.23"
+  },
+  {
+    "entry": "Cline (Gary) E/W",
+    "exit": "Lake Station",
+    "cash_rate": "$15.20",
+    "avi_rate": "$15.23"
+  },
+  {
+    "entry": "Cline (Gary) E/W",
+    "exit": "Portage / Willow Creek",
+    "cash_rate": "$15.20",
+    "avi_rate": "$15.23"
+  },
+  {
+    "entry": "Cline (Gary) E/W",
+    "exit": "Valparaiso/Chesterton",
+    "cash_rate": "$17.60",
+    "avi_rate": "$17.60"
+  },
+  {
+    "entry": "Cline (Gary) E/W",
+    "exit": "Michigan City",
+    "cash_rate": "$21.10",
+    "avi_rate": "$21.08"
+  },
+  {
+    "entry": "Cline (Gary) E/W",
+    "exit": "LaPorte",
+    "cash_rate": "$28.10",
+    "avi_rate": "$28.13"
+  },
+  {
+    "entry": "Cline (Gary) E/W",
+    "exit": "South Bend West",
+    "cash_rate": "$45.90",
+    "avi_rate": "$45.93"
+  },
+  {
+    "entry": "Cline (Gary) E/W",
+    "exit": "South Bend Notre Dame",
+    "cash_rate": "$49.40",
+    "avi_rate": "$49.47"
+  },
+  {
+    "entry": "Cline (Gary) E/W",
+    "exit": "Mishawaka",
+    "cash_rate": "$53.00",
+    "avi_rate": "$53.00"
+  },
+  {
+    "entry": "Cline (Gary) E/W",
+    "exit": "Elkhart",
+    "cash_rate": "$60.10",
+    "avi_rate": "$60.11"
+  },
+  {
+    "entry": "Cline (Gary) E/W",
+    "exit": "Elkhart East",
+    "cash_rate": "$62.60",
+    "avi_rate": "$62.60"
+  },
+  {
+    "entry": "Cline (Gary) E/W",
+    "exit": "Bristol/Goshen",
+    "cash_rate": "$64.80",
+    "avi_rate": "$64.83"
+  },
+  {
+    "entry": "Cline (Gary) E/W",
+    "exit": "Middlebury",
+    "cash_rate": "$66.80",
+    "avi_rate": "$66.86"
+  },
+  {
+    "entry": "Cline (Gary) E/W",
+    "exit": "Howe/LaGrange",
+    "cash_rate": "$74.00",
+    "avi_rate": "$73.99"
+  },
+  {
+    "entry": "Cline (Gary) E/W",
+    "exit": "Angola",
+    "cash_rate": "$82.90",
+    "avi_rate": "$82.96"
+  },
+  {
+    "entry": "Cline (Gary) E/W",
+    "exit": "Eastpoint",
+    "cash_rate": "$90.20",
+    "avi_rate": "$90.28"
+  },
+  {
+    "entry": "Gary East",
+    "exit": "Westpoint",
+    "cash_rate": "$12.40",
+    "avi_rate": "$12.44"
+  },
+  {
+    "entry": "Gary East",
+    "exit": "Calumet E/B Entry",
+    "cash_rate": "$0.00",
+    "avi_rate": "$0.00"
+  },
+  {
+    "entry": "Gary East",
+    "exit": "Calumet W/B",
+    "cash_rate": "$18.30",
+    "avi_rate": "$18.34"
+  },
+  {
+    "entry": "Gary East",
+    "exit": "Cline (Gary) E/W",
+    "cash_rate": "$15.20",
+    "avi_rate": "$15.23"
+  },
+  {
+    "entry": "Gary East",
+    "exit": "Lake Station",
+    "cash_rate": "$5.90",
+    "avi_rate": "$5.90"
+  },
+  {
+    "entry": "Gary East",
+    "exit": "Portage / Willow Creek",
+    "cash_rate": "$5.90",
+    "avi_rate": "$5.90"
+  },
+  {
+    "entry": "Gary East",
+    "exit": "Valparaiso/Chesterton",
+    "cash_rate": "$8.30",
+    "avi_rate": "$8.27"
+  },
+  {
+    "entry": "Gary East",
+    "exit": "Michigan City",
+    "cash_rate": "$11.80",
+    "avi_rate": "$11.75"
+  },
+  {
+    "entry": "Gary East",
+    "exit": "LaPorte",
+    "cash_rate": "$18.80",
+    "avi_rate": "$18.80"
+  },
+  {
+    "entry": "Gary East",
+    "exit": "South Bend West",
+    "cash_rate": "$36.60",
+    "avi_rate": "$36.60"
+  },
+  {
+    "entry": "Gary East",
+    "exit": "South Bend Notre Dame",
+    "cash_rate": "$40.10",
+    "avi_rate": "$40.14"
+  },
+  {
+    "entry": "Gary East",
+    "exit": "Mishawaka",
+    "cash_rate": "$43.70",
+    "avi_rate": "$43.67"
+  },
+  {
+    "entry": "Gary East",
+    "exit": "Elkhart",
+    "cash_rate": "$50.80",
+    "avi_rate": "$50.78"
+  },
+  {
+    "entry": "Gary East",
+    "exit": "Elkhart East",
+    "cash_rate": "$53.30",
+    "avi_rate": "$53.27"
+  },
+  {
+    "entry": "Gary East",
+    "exit": "Bristol/Goshen",
+    "cash_rate": "$55.50",
+    "avi_rate": "$55.50"
+  },
+  {
+    "entry": "Gary East",
+    "exit": "Middlebury",
+    "cash_rate": "$57.50",
+    "avi_rate": "$57.53"
+  },
+  {
+    "entry": "Gary East",
+    "exit": "Howe/LaGrange",
+    "cash_rate": "$64.70",
+    "avi_rate": "$64.66"
+  },
+  {
+    "entry": "Gary East",
+    "exit": "Angola",
+    "cash_rate": "$73.60",
+    "avi_rate": "$73.63"
+  },
+  {
+    "entry": "Gary East",
+    "exit": "Eastpoint",
+    "cash_rate": "$80.90",
+    "avi_rate": "$80.95"
+  },
+  {
+    "entry": "Lake Station",
+    "exit": "Westpoint",
+    "cash_rate": "$12.40",
+    "avi_rate": "$12.44"
+  },
+  {
+    "entry": "Lake Station",
+    "exit": "Calumet E/B Entry",
+    "cash_rate": "$0.00",
+    "avi_rate": "$0.00"
+  },
+  {
+    "entry": "Lake Station",
+    "exit": "Calumet W/B",
+    "cash_rate": "$18.30",
+    "avi_rate": "$18.34"
+  },
+  {
+    "entry": "Lake Station",
+    "exit": "Cline (Gary) E/W",
+    "cash_rate": "$15.20",
+    "avi_rate": "$15.23"
+  },
+  {
+    "entry": "Lake Station",
+    "exit": "Gary East",
+    "cash_rate": "$5.90",
+    "avi_rate": "$5.90"
+  },
+  {
+    "entry": "Lake Station",
+    "exit": "Portage / Willow Creek",
+    "cash_rate": "$5.90",
+    "avi_rate": "$5.90"
+  },
+  {
+    "entry": "Lake Station",
+    "exit": "Valparaiso/Chesterton",
+    "cash_rate": "$8.30",
+    "avi_rate": "$8.27"
+  },
+  {
+    "entry": "Lake Station",
+    "exit": "Michigan City",
+    "cash_rate": "$11.80",
+    "avi_rate": "$11.75"
+  },
+  {
+    "entry": "Lake Station",
+    "exit": "LaPorte",
+    "cash_rate": "$18.80",
+    "avi_rate": "$18.80"
+  },
+  {
+    "entry": "Lake Station",
+    "exit": "South Bend West",
+    "cash_rate": "$36.60",
+    "avi_rate": "$36.60"
+  },
+  {
+    "entry": "Lake Station",
+    "exit": "South Bend Notre Dame",
+    "cash_rate": "$40.10",
+    "avi_rate": "$40.14"
+  },
+  {
+    "entry": "Lake Station",
+    "exit": "Mishawaka",
+    "cash_rate": "$43.70",
+    "avi_rate": "$43.67"
+  },
+  {
+    "entry": "Lake Station",
+    "exit": "Elkhart",
+    "cash_rate": "$50.80",
+    "avi_rate": "$50.78"
+  },
+  {
+    "entry": "Lake Station",
+    "exit": "Elkhart East",
+    "cash_rate": "$53.30",
+    "avi_rate": "$53.27"
+  },
+  {
+    "entry": "Lake Station",
+    "exit": "Bristol/Goshen",
+    "cash_rate": "$55.50",
+    "avi_rate": "$55.50"
+  },
+  {
+    "entry": "Lake Station",
+    "exit": "Middlebury",
+    "cash_rate": "$57.50",
+    "avi_rate": "$57.53"
+  },
+  {
+    "entry": "Lake Station",
+    "exit": "Howe/LaGrange",
+    "cash_rate": "$64.70",
+    "avi_rate": "$64.66"
+  },
+  {
+    "entry": "Lake Station",
+    "exit": "Angola",
+    "cash_rate": "$73.60",
+    "avi_rate": "$73.63"
+  },
+  {
+    "entry": "Lake Station",
+    "exit": "Eastpoint",
+    "cash_rate": "$80.90",
+    "avi_rate": "$80.95"
+  },
+  {
+    "entry": "Portage / Willow Creek",
+    "exit": "Westpoint",
+    "cash_rate": "$12.40",
+    "avi_rate": "$12.44"
+  },
+  {
+    "entry": "Portage / Willow Creek",
+    "exit": "Calumet E/B Entry",
+    "cash_rate": "$0.00",
+    "avi_rate": "$0.00"
+  },
+  {
+    "entry": "Portage / Willow Creek",
+    "exit": "Calumet W/B",
+    "cash_rate": "$18.30",
+    "avi_rate": "$18.34"
+  },
+  {
+    "entry": "Portage / Willow Creek",
+    "exit": "Cline (Gary) E/W",
+    "cash_rate": "$15.20",
+    "avi_rate": "$15.23"
+  },
+  {
+    "entry": "Portage / Willow Creek",
+    "exit": "Gary East",
+    "cash_rate": "$5.90",
+    "avi_rate": "$5.90"
+  },
+  {
+    "entry": "Portage / Willow Creek",
+    "exit": "Lake Station",
+    "cash_rate": "$5.90",
+    "avi_rate": "$5.90"
+  },
+  {
+    "entry": "Portage / Willow Creek",
+    "exit": "Valparaiso/Chesterton",
+    "cash_rate": "$8.30",
+    "avi_rate": "$8.27"
+  },
+  {
+    "entry": "Portage / Willow Creek",
+    "exit": "Michigan City",
+    "cash_rate": "$11.80",
+    "avi_rate": "$11.75"
+  },
+  {
+    "entry": "Portage / Willow Creek",
+    "exit": "LaPorte",
+    "cash_rate": "$18.80",
+    "avi_rate": "$18.80"
+  },
+  {
+    "entry": "Portage / Willow Creek",
+    "exit": "South Bend West",
+    "cash_rate": "$36.60",
+    "avi_rate": "$36.60"
+  },
+  {
+    "entry": "Portage / Willow Creek",
+    "exit": "South Bend Notre Dame",
+    "cash_rate": "$40.10",
+    "avi_rate": "$40.14"
+  },
+  {
+    "entry": "Portage / Willow Creek",
+    "exit": "Mishawaka",
+    "cash_rate": "$43.70",
+    "avi_rate": "$43.67"
+  },
+  {
+    "entry": "Portage / Willow Creek",
+    "exit": "Elkhart",
+    "cash_rate": "$50.80",
+    "avi_rate": "$50.78"
+  },
+  {
+    "entry": "Portage / Willow Creek",
+    "exit": "Elkhart East",
+    "cash_rate": "$53.30",
+    "avi_rate": "$53.27"
+  },
+  {
+    "entry": "Portage / Willow Creek",
+    "exit": "Bristol/Goshen",
+    "cash_rate": "$55.50",
+    "avi_rate": "$55.50"
+  },
+  {
+    "entry": "Portage / Willow Creek",
+    "exit": "Middlebury",
+    "cash_rate": "$57.50",
+    "avi_rate": "$57.53"
+  },
+  {
+    "entry": "Portage / Willow Creek",
+    "exit": "Howe/LaGrange",
+    "cash_rate": "$64.70",
+    "avi_rate": "$64.66"
+  },
+  {
+    "entry": "Portage / Willow Creek",
+    "exit": "Angola",
+    "cash_rate": "$73.60",
+    "avi_rate": "$73.63"
+  },
+  {
+    "entry": "Portage / Willow Creek",
+    "exit": "Eastpoint",
+    "cash_rate": "$80.90",
+    "avi_rate": "$80.95"
+  },
+  {
+    "entry": "Valparaiso/Chesterton",
+    "exit": "Westpoint",
+    "cash_rate": "$14.80",
+    "avi_rate": "$14.81"
+  },
+  {
+    "entry": "Valparaiso/Chesterton",
+    "exit": "Calumet E/B Entry",
+    "cash_rate": "$0.00",
+    "avi_rate": "$0.00"
+  },
+  {
+    "entry": "Valparaiso/Chesterton",
+    "exit": "Calumet W/B",
+    "cash_rate": "$20.70",
+    "avi_rate": "$20.71"
+  },
+  {
+    "entry": "Valparaiso/Chesterton",
+    "exit": "Cline (Gary) E/W",
+    "cash_rate": "$17.60",
+    "avi_rate": "$17.60"
+  },
+  {
+    "entry": "Valparaiso/Chesterton",
+    "exit": "Gary East",
+    "cash_rate": "$8.30",
+    "avi_rate": "$8.27"
+  },
+  {
+    "entry": "Valparaiso/Chesterton",
+    "exit": "Lake Station",
+    "cash_rate": "$8.30",
+    "avi_rate": "$8.27"
+  },
+  {
+    "entry": "Valparaiso/Chesterton",
+    "exit": "Portage / Willow Creek",
+    "cash_rate": "$8.30",
+    "avi_rate": "$8.27"
+  },
+  {
+    "entry": "Valparaiso/Chesterton",
+    "exit": "Michigan City",
+    "cash_rate": "$7.40",
+    "avi_rate": "$7.45"
+  },
+  {
+    "entry": "Valparaiso/Chesterton",
+    "exit": "LaPorte",
+    "cash_rate": "$14.50",
+    "avi_rate": "$14.47"
+  },
+  {
+    "entry": "Valparaiso/Chesterton",
+    "exit": "South Bend West",
+    "cash_rate": "$28.60",
+    "avi_rate": "$28.64"
+  },
+  {
+    "entry": "Valparaiso/Chesterton",
+    "exit": "South Bend Notre Dame",
+    "cash_rate": "$32.20",
+    "avi_rate": "$32.19"
+  },
+  {
+    "entry": "Valparaiso/Chesterton",
+    "exit": "Mishawaka",
+    "cash_rate": "$35.70",
+    "avi_rate": "$35.74"
+  },
+  {
+    "entry": "Valparaiso/Chesterton",
+    "exit": "Elkhart",
+    "cash_rate": "$42.80",
+    "avi_rate": "$42.85"
+  },
+  {
+    "entry": "Valparaiso/Chesterton",
+    "exit": "Elkhart East",
+    "cash_rate": "$45.40",
+    "avi_rate": "$45.38"
+  },
+  {
+    "entry": "Valparaiso/Chesterton",
+    "exit": "Bristol/Goshen",
+    "cash_rate": "$47.70",
+    "avi_rate": "$47.68"
+  },
+  {
+    "entry": "Valparaiso/Chesterton",
+    "exit": "Middlebury",
+    "cash_rate": "$49.80",
+    "avi_rate": "$49.81"
+  },
+  {
+    "entry": "Valparaiso/Chesterton",
+    "exit": "Howe/LaGrange",
+    "cash_rate": "$57.10",
+    "avi_rate": "$57.06"
+  },
+  {
+    "entry": "Valparaiso/Chesterton",
+    "exit": "Angola",
+    "cash_rate": "$69.20",
+    "avi_rate": "$69.23"
+  },
+  {
+    "entry": "Valparaiso/Chesterton",
+    "exit": "Eastpoint",
+    "cash_rate": "$73.60",
+    "avi_rate": "$73.59"
+  },
+  {
+    "entry": "Michigan City",
+    "exit": "Westpoint",
+    "cash_rate": "$18.30",
+    "avi_rate": "$18.29"
+  },
+  {
+    "entry": "Michigan City",
+    "exit": "Calumet E/B Entry",
+    "cash_rate": "$0.00",
+    "avi_rate": "$0.00"
+  },
+  {
+    "entry": "Michigan City",
+    "exit": "Calumet W/B",
+    "cash_rate": "$24.20",
+    "avi_rate": "$24.19"
+  },
+  {
+    "entry": "Michigan City",
+    "exit": "Cline (Gary) E/W",
+    "cash_rate": "$21.10",
+    "avi_rate": "$21.08"
+  },
+  {
+    "entry": "Michigan City",
+    "exit": "Gary East",
+    "cash_rate": "$11.80",
+    "avi_rate": "$11.75"
+  },
+  {
+    "entry": "Michigan City",
+    "exit": "Lake Station",
+    "cash_rate": "$11.80",
+    "avi_rate": "$11.75"
+  },
+  {
+    "entry": "Michigan City",
+    "exit": "Portage / Willow Creek",
+    "cash_rate": "$11.80",
+    "avi_rate": "$11.75"
+  },
+  {
+    "entry": "Michigan City",
+    "exit": "Valparaiso/Chesterton",
+    "cash_rate": "$7.40",
+    "avi_rate": "$7.45"
+  },
+  {
+    "entry": "Michigan City",
+    "exit": "LaPorte",
+    "cash_rate": "$7.10",
+    "avi_rate": "$7.07"
+  },
+  {
+    "entry": "Michigan City",
+    "exit": "South Bend West",
+    "cash_rate": "$24.80",
+    "avi_rate": "$24.82"
+  },
+  {
+    "entry": "Michigan City",
+    "exit": "South Bend Notre Dame",
+    "cash_rate": "$28.40",
+    "avi_rate": "$28.37"
+  },
+  {
+    "entry": "Michigan City",
+    "exit": "Mishawaka",
+    "cash_rate": "$31.90",
+    "avi_rate": "$31.92"
+  },
+  {
+    "entry": "Michigan City",
+    "exit": "Elkhart",
+    "cash_rate": "$39.00",
+    "avi_rate": "$39.02"
+  },
+  {
+    "entry": "Michigan City",
+    "exit": "Elkhart East",
+    "cash_rate": "$38.00",
+    "avi_rate": "$38.05"
+  },
+  {
+    "entry": "Michigan City",
+    "exit": "Bristol/Goshen",
+    "cash_rate": "$40.40",
+    "avi_rate": "$40.39"
+  },
+  {
+    "entry": "Michigan City",
+    "exit": "Middlebury",
+    "cash_rate": "$45.90",
+    "avi_rate": "$45.85"
+  },
+  {
+    "entry": "Michigan City",
+    "exit": "Howe/LaGrange",
+    "cash_rate": "$53.00",
+    "avi_rate": "$53.03"
+  },
+  {
+    "entry": "Michigan City",
+    "exit": "Angola",
+    "cash_rate": "$62.20",
+    "avi_rate": "$62.18"
+  },
+  {
+    "entry": "Michigan City",
+    "exit": "Eastpoint",
+    "cash_rate": "$69.50",
+    "avi_rate": "$69.50"
+  },
+  {
+    "entry": "LaPorte",
+    "exit": "Westpoint",
+    "cash_rate": "$25.30",
+    "avi_rate": "$25.34"
+  },
+  {
+    "entry": "LaPorte",
+    "exit": "Calumet E/B Entry",
+    "cash_rate": "$0.00",
+    "avi_rate": "$0.00"
+  },
+  {
+    "entry": "LaPorte",
+    "exit": "Calumet W/B",
+    "cash_rate": "$31.20",
+    "avi_rate": "$31.24"
+  },
+  {
+    "entry": "LaPorte",
+    "exit": "Cline (Gary) E/W",
+    "cash_rate": "$28.10",
+    "avi_rate": "$28.13"
+  },
+  {
+    "entry": "LaPorte",
+    "exit": "Gary East",
+    "cash_rate": "$18.80",
+    "avi_rate": "$18.80"
+  },
+  {
+    "entry": "LaPorte",
+    "exit": "Lake Station",
+    "cash_rate": "$18.80",
+    "avi_rate": "$18.80"
+  },
+  {
+    "entry": "LaPorte",
+    "exit": "Portage / Willow Creek",
+    "cash_rate": "$18.80",
+    "avi_rate": "$18.80"
+  },
+  {
+    "entry": "LaPorte",
+    "exit": "Valparaiso/Chesterton",
+    "cash_rate": "$14.50",
+    "avi_rate": "$14.47"
+  },
+  {
+    "entry": "LaPorte",
+    "exit": "Michigan City",
+    "cash_rate": "$7.10",
+    "avi_rate": "$7.07"
+  },
+  {
+    "entry": "LaPorte",
+    "exit": "South Bend West",
+    "cash_rate": "$17.80",
+    "avi_rate": "$17.75"
+  },
+  {
+    "entry": "LaPorte",
+    "exit": "South Bend Notre Dame",
+    "cash_rate": "$21.30",
+    "avi_rate": "$21.30"
+  },
+  {
+    "entry": "LaPorte",
+    "exit": "Mishawaka",
+    "cash_rate": "$24.90",
+    "avi_rate": "$24.85"
+  },
+  {
+    "entry": "LaPorte",
+    "exit": "Elkhart",
+    "cash_rate": "$32.00",
+    "avi_rate": "$31.95"
+  },
+  {
+    "entry": "LaPorte",
+    "exit": "Elkhart East",
+    "cash_rate": "$31.00",
+    "avi_rate": "$30.99"
+  },
+  {
+    "entry": "LaPorte",
+    "exit": "Bristol/Goshen",
+    "cash_rate": "$33.30",
+    "avi_rate": "$33.35"
+  },
+  {
+    "entry": "LaPorte",
+    "exit": "Middlebury",
+    "cash_rate": "$38.80",
+    "avi_rate": "$38.79"
+  },
+  {
+    "entry": "LaPorte",
+    "exit": "Howe/LaGrange",
+    "cash_rate": "$46.00",
+    "avi_rate": "$45.98"
+  },
+  {
+    "entry": "LaPorte",
+    "exit": "Angola",
+    "cash_rate": "$55.20",
+    "avi_rate": "$55.20"
+  },
+  {
+    "entry": "LaPorte",
+    "exit": "Eastpoint",
+    "cash_rate": "$62.50",
+    "avi_rate": "$62.53"
+  },
+  {
+    "entry": "South Bend West",
+    "exit": "Westpoint",
+    "cash_rate": "$43.10",
+    "avi_rate": "$43.14"
+  },
+  {
+    "entry": "South Bend West",
+    "exit": "Calumet E/B Entry",
+    "cash_rate": "$0.00",
+    "avi_rate": "$0.00"
+  },
+  {
+    "entry": "South Bend West",
+    "exit": "Calumet W/B",
+    "cash_rate": "$49.00",
+    "avi_rate": "$49.04"
+  },
+  {
+    "entry": "South Bend West",
+    "exit": "Cline (Gary) E/W",
+    "cash_rate": "$45.90",
+    "avi_rate": "$45.93"
+  },
+  {
+    "entry": "South Bend West",
+    "exit": "Gary East",
+    "cash_rate": "$36.60",
+    "avi_rate": "$36.60"
+  },
+  {
+    "entry": "South Bend West",
+    "exit": "Lake Station",
+    "cash_rate": "$36.60",
+    "avi_rate": "$36.60"
+  },
+  {
+    "entry": "South Bend West",
+    "exit": "Portage / Willow Creek",
+    "cash_rate": "$36.60",
+    "avi_rate": "$36.60"
+  },
+  {
+    "entry": "South Bend West",
+    "exit": "Valparaiso/Chesterton",
+    "cash_rate": "$28.60",
+    "avi_rate": "$28.64"
+  },
+  {
+    "entry": "South Bend West",
+    "exit": "Michigan City",
+    "cash_rate": "$24.80",
+    "avi_rate": "$24.82"
+  },
+  {
+    "entry": "South Bend West",
+    "exit": "LaPorte",
+    "cash_rate": "$17.80",
+    "avi_rate": "$17.75"
+  },
+  {
+    "entry": "South Bend West",
+    "exit": "South Bend Notre Dame",
+    "cash_rate": "$7.10",
+    "avi_rate": "$7.10"
+  },
+  {
+    "entry": "South Bend West",
+    "exit": "Mishawaka",
+    "cash_rate": "$7.10",
+    "avi_rate": "$7.10"
+  },
+  {
+    "entry": "South Bend West",
+    "exit": "Elkhart",
+    "cash_rate": "$14.20",
+    "avi_rate": "$14.20"
+  },
+  {
+    "entry": "South Bend West",
+    "exit": "Elkhart East",
+    "cash_rate": "$16.70",
+    "avi_rate": "$16.71"
+  },
+  {
+    "entry": "South Bend West",
+    "exit": "Bristol/Goshen",
+    "cash_rate": "$19.00",
+    "avi_rate": "$19.03"
+  },
+  {
+    "entry": "South Bend West",
+    "exit": "Middlebury",
+    "cash_rate": "$21.30",
+    "avi_rate": "$21.25"
+  },
+  {
+    "entry": "South Bend West",
+    "exit": "Howe/LaGrange",
+    "cash_rate": "$28.60",
+    "avi_rate": "$28.57"
+  },
+  {
+    "entry": "South Bend West",
+    "exit": "Angola",
+    "cash_rate": "$40.80",
+    "avi_rate": "$40.82"
+  },
+  {
+    "entry": "South Bend West",
+    "exit": "Eastpoint",
+    "cash_rate": "$45.40",
+    "avi_rate": "$45.43"
+  },
+  {
+    "entry": "South Bend Notre Dame",
+    "exit": "Westpoint",
+    "cash_rate": "$46.60",
+    "avi_rate": "$46.68"
+  },
+  {
+    "entry": "South Bend Notre Dame",
+    "exit": "Calumet E/B Entry",
+    "cash_rate": "$0.00",
+    "avi_rate": "$0.00"
+  },
+  {
+    "entry": "South Bend Notre Dame",
+    "exit": "Calumet W/B",
+    "cash_rate": "$52.50",
+    "avi_rate": "$52.58"
+  },
+  {
+    "entry": "South Bend Notre Dame",
+    "exit": "Cline (Gary) E/W",
+    "cash_rate": "$49.40",
+    "avi_rate": "$49.47"
+  },
+  {
+    "entry": "South Bend Notre Dame",
+    "exit": "Gary East",
+    "cash_rate": "$40.10",
+    "avi_rate": "$40.14"
+  },
+  {
+    "entry": "South Bend Notre Dame",
+    "exit": "Lake Station",
+    "cash_rate": "$40.10",
+    "avi_rate": "$40.14"
+  },
+  {
+    "entry": "South Bend Notre Dame",
+    "exit": "Portage / Willow Creek",
+    "cash_rate": "$40.10",
+    "avi_rate": "$40.14"
+  },
+  {
+    "entry": "South Bend Notre Dame",
+    "exit": "Valparaiso/Chesterton",
+    "cash_rate": "$32.20",
+    "avi_rate": "$32.19"
+  },
+  {
+    "entry": "South Bend Notre Dame",
+    "exit": "Michigan City",
+    "cash_rate": "$28.40",
+    "avi_rate": "$28.37"
+  },
+  {
+    "entry": "South Bend Notre Dame",
+    "exit": "LaPorte",
+    "cash_rate": "$21.30",
+    "avi_rate": "$21.30"
+  },
+  {
+    "entry": "South Bend Notre Dame",
+    "exit": "South Bend West",
+    "cash_rate": "$7.10",
+    "avi_rate": "$7.10"
+  },
+  {
+    "entry": "South Bend Notre Dame",
+    "exit": "Mishawaka",
+    "cash_rate": "$7.10",
+    "avi_rate": "$7.10"
+  },
+  {
+    "entry": "South Bend Notre Dame",
+    "exit": "Elkhart",
+    "cash_rate": "$10.70",
+    "avi_rate": "$10.65"
+  },
+  {
+    "entry": "South Bend Notre Dame",
+    "exit": "Elkhart East",
+    "cash_rate": "$13.20",
+    "avi_rate": "$13.16"
+  },
+  {
+    "entry": "South Bend Notre Dame",
+    "exit": "Bristol/Goshen",
+    "cash_rate": "$15.50",
+    "avi_rate": "$15.48"
+  },
+  {
+    "entry": "South Bend Notre Dame",
+    "exit": "Middlebury",
+    "cash_rate": "$17.70",
+    "avi_rate": "$17.74"
+  },
+  {
+    "entry": "South Bend Notre Dame",
+    "exit": "Howe/LaGrange",
+    "cash_rate": "$25.10",
+    "avi_rate": "$25.08"
+  },
+  {
+    "entry": "South Bend Notre Dame",
+    "exit": "Angola",
+    "cash_rate": "$37.30",
+    "avi_rate": "$37.33"
+  },
+  {
+    "entry": "South Bend Notre Dame",
+    "exit": "Eastpoint",
+    "cash_rate": "$42.00",
+    "avi_rate": "$41.98"
+  },
+  {
+    "entry": "Mishawaka",
+    "exit": "Westpoint",
+    "cash_rate": "$50.20",
+    "avi_rate": "$50.21"
+  },
+  {
+    "entry": "Mishawaka",
+    "exit": "Calumet E/B Entry",
+    "cash_rate": "$0.00",
+    "avi_rate": "$0.00"
+  },
+  {
+    "entry": "Mishawaka",
+    "exit": "Calumet W/B",
+    "cash_rate": "$56.10",
+    "avi_rate": "$56.11"
+  },
+  {
+    "entry": "Mishawaka",
+    "exit": "Cline (Gary) E/W",
+    "cash_rate": "$53.00",
+    "avi_rate": "$53.00"
+  },
+  {
+    "entry": "Mishawaka",
+    "exit": "Gary East",
+    "cash_rate": "$43.70",
+    "avi_rate": "$43.67"
+  },
+  {
+    "entry": "Mishawaka",
+    "exit": "Lake Station",
+    "cash_rate": "$43.70",
+    "avi_rate": "$43.67"
+  },
+  {
+    "entry": "Mishawaka",
+    "exit": "Portage / Willow Creek",
+    "cash_rate": "$43.70",
+    "avi_rate": "$43.67"
+  },
+  {
+    "entry": "Mishawaka",
+    "exit": "Valparaiso/Chesterton",
+    "cash_rate": "$35.70",
+    "avi_rate": "$35.74"
+  },
+  {
+    "entry": "Mishawaka",
+    "exit": "Michigan City",
+    "cash_rate": "$31.90",
+    "avi_rate": "$31.92"
+  },
+  {
+    "entry": "Mishawaka",
+    "exit": "LaPorte",
+    "cash_rate": "$24.90",
+    "avi_rate": "$24.85"
+  },
+  {
+    "entry": "Mishawaka",
+    "exit": "South Bend West",
+    "cash_rate": "$7.10",
+    "avi_rate": "$7.10"
+  },
+  {
+    "entry": "Mishawaka",
+    "exit": "South Bend Notre Dame",
+    "cash_rate": "$7.10",
+    "avi_rate": "$7.10"
+  },
+  {
+    "entry": "Mishawaka",
+    "exit": "Elkhart",
+    "cash_rate": "$7.10",
+    "avi_rate": "$7.10"
+  },
+  {
+    "entry": "Mishawaka",
+    "exit": "Elkhart East",
+    "cash_rate": "$9.50",
+    "avi_rate": "$9.52"
+  },
+  {
+    "entry": "Mishawaka",
+    "exit": "Bristol/Goshen",
+    "cash_rate": "$11.80",
+    "avi_rate": "$11.83"
+  },
+  {
+    "entry": "Mishawaka",
+    "exit": "Middlebury",
+    "cash_rate": "$14.10",
+    "avi_rate": "$14.11"
+  },
+  {
+    "entry": "Mishawaka",
+    "exit": "Howe/LaGrange",
+    "cash_rate": "$21.40",
+    "avi_rate": "$21.43"
+  },
+  {
+    "entry": "Mishawaka",
+    "exit": "Angola",
+    "cash_rate": "$31.10",
+    "avi_rate": "$31.08"
+  },
+  {
+    "entry": "Mishawaka",
+    "exit": "Eastpoint",
+    "cash_rate": "$38.40",
+    "avi_rate": "$38.38"
+  },
+  {
+    "entry": "Elkhart",
+    "exit": "Westpoint",
+    "cash_rate": "$57.30",
+    "avi_rate": "$57.32"
+  },
+  {
+    "entry": "Elkhart",
+    "exit": "Calumet E/B Entry",
+    "cash_rate": "$0.00",
+    "avi_rate": "$0.00"
+  },
+  {
+    "entry": "Elkhart",
+    "exit": "Calumet W/B",
+    "cash_rate": "$63.20",
+    "avi_rate": "$63.22"
+  },
+  {
+    "entry": "Elkhart",
+    "exit": "Cline (Gary) E/W",
+    "cash_rate": "$60.10",
+    "avi_rate": "$60.11"
+  },
+  {
+    "entry": "Elkhart",
+    "exit": "Gary East",
+    "cash_rate": "$50.80",
+    "avi_rate": "$50.78"
+  },
+  {
+    "entry": "Elkhart",
+    "exit": "Lake Station",
+    "cash_rate": "$50.80",
+    "avi_rate": "$50.78"
+  },
+  {
+    "entry": "Elkhart",
+    "exit": "Portage / Willow Creek",
+    "cash_rate": "$50.80",
+    "avi_rate": "$50.78"
+  },
+  {
+    "entry": "Elkhart",
+    "exit": "Valparaiso/Chesterton",
+    "cash_rate": "$42.80",
+    "avi_rate": "$42.85"
+  },
+  {
+    "entry": "Elkhart",
+    "exit": "Michigan City",
+    "cash_rate": "$39.00",
+    "avi_rate": "$39.02"
+  },
+  {
+    "entry": "Elkhart",
+    "exit": "LaPorte",
+    "cash_rate": "$32.00",
+    "avi_rate": "$31.95"
+  },
+  {
+    "entry": "Elkhart",
+    "exit": "South Bend West",
+    "cash_rate": "$14.20",
+    "avi_rate": "$14.20"
+  },
+  {
+    "entry": "Elkhart",
+    "exit": "South Bend Notre Dame",
+    "cash_rate": "$10.70",
+    "avi_rate": "$10.65"
+  },
+  {
+    "entry": "Elkhart",
+    "exit": "Mishawaka",
+    "cash_rate": "$7.10",
+    "avi_rate": "$7.10"
+  },
+  {
+    "entry": "Elkhart",
+    "exit": "Elkhart East",
+    "cash_rate": "$4.90",
+    "avi_rate": "$4.90"
+  },
+  {
+    "entry": "Elkhart",
+    "exit": "Bristol/Goshen",
+    "cash_rate": "$4.90",
+    "avi_rate": "$4.90"
+  },
+  {
+    "entry": "Elkhart",
+    "exit": "Middlebury",
+    "cash_rate": "$7.30",
+    "avi_rate": "$7.34"
+  },
+  {
+    "entry": "Elkhart",
+    "exit": "Howe/LaGrange",
+    "cash_rate": "$14.70",
+    "avi_rate": "$14.69"
+  },
+  {
+    "entry": "Elkhart",
+    "exit": "Angola",
+    "cash_rate": "$24.50",
+    "avi_rate": "$24.48"
+  },
+  {
+    "entry": "Elkhart",
+    "exit": "Eastpoint",
+    "cash_rate": "$31.70",
+    "avi_rate": "$31.74"
+  },
+  {
+    "entry": "Elkhart East",
+    "exit": "Westpoint",
+    "cash_rate": "$59.80",
+    "avi_rate": "$59.81"
+  },
+  {
+    "entry": "Elkhart East",
+    "exit": "Calumet E/B Entry",
+    "cash_rate": "$0.00",
+    "avi_rate": "$0.00"
+  },
+  {
+    "entry": "Elkhart East",
+    "exit": "Calumet W/B",
+    "cash_rate": "$65.70",
+    "avi_rate": "$65.71"
+  },
+  {
+    "entry": "Elkhart East",
+    "exit": "Cline (Gary) E/W",
+    "cash_rate": "$62.60",
+    "avi_rate": "$62.60"
+  },
+  {
+    "entry": "Elkhart East",
+    "exit": "Gary East",
+    "cash_rate": "$53.30",
+    "avi_rate": "$53.27"
+  },
+  {
+    "entry": "Elkhart East",
+    "exit": "Lake Station",
+    "cash_rate": "$53.30",
+    "avi_rate": "$53.27"
+  },
+  {
+    "entry": "Elkhart East",
+    "exit": "Portage / Willow Creek",
+    "cash_rate": "$53.30",
+    "avi_rate": "$53.27"
+  },
+  {
+    "entry": "Elkhart East",
+    "exit": "Valparaiso/Chesterton",
+    "cash_rate": "$45.40",
+    "avi_rate": "$45.38"
+  },
+  {
+    "entry": "Elkhart East",
+    "exit": "Michigan City",
+    "cash_rate": "$38.00",
+    "avi_rate": "$38.05"
+  },
+  {
+    "entry": "Elkhart East",
+    "exit": "LaPorte",
+    "cash_rate": "$31.00",
+    "avi_rate": "$30.99"
+  },
+  {
+    "entry": "Elkhart East",
+    "exit": "South Bend West",
+    "cash_rate": "$16.70",
+    "avi_rate": "$16.71"
+  },
+  {
+    "entry": "Elkhart East",
+    "exit": "South Bend Notre Dame",
+    "cash_rate": "$13.20",
+    "avi_rate": "$13.16"
+  },
+  {
+    "entry": "Elkhart East",
+    "exit": "Mishawaka",
+    "cash_rate": "$9.50",
+    "avi_rate": "$9.52"
+  },
+  {
+    "entry": "Elkhart East",
+    "exit": "Elkhart",
+    "cash_rate": "$4.90",
+    "avi_rate": "$4.90"
+  },
+  {
+    "entry": "Elkhart East",
+    "exit": "Bristol/Goshen",
+    "cash_rate": "$4.90",
+    "avi_rate": "$4.90"
+  },
+  {
+    "entry": "Elkhart East",
+    "exit": "Middlebury",
+    "cash_rate": "$4.90",
+    "avi_rate": "$4.90"
+  },
+  {
+    "entry": "Elkhart East",
+    "exit": "Howe/LaGrange",
+    "cash_rate": "$12.20",
+    "avi_rate": "$12.24"
+  },
+  {
+    "entry": "Elkhart East",
+    "exit": "Angola",
+    "cash_rate": "$24.50",
+    "avi_rate": "$24.48"
+  },
+  {
+    "entry": "Elkhart East",
+    "exit": "Eastpoint",
+    "cash_rate": "$29.30",
+    "avi_rate": "$29.29"
+  },
+  {
+    "entry": "Bristol/Goshen",
+    "exit": "Westpoint",
+    "cash_rate": "$62.00",
+    "avi_rate": "$62.04"
+  },
+  {
+    "entry": "Bristol/Goshen",
+    "exit": "Calumet E/B Entry",
+    "cash_rate": "$0.00",
+    "avi_rate": "$0.00"
+  },
+  {
+    "entry": "Bristol/Goshen",
+    "exit": "Calumet W/B",
+    "cash_rate": "$67.90",
+    "avi_rate": "$67.94"
+  },
+  {
+    "entry": "Bristol/Goshen",
+    "exit": "Cline (Gary) E/W",
+    "cash_rate": "$64.80",
+    "avi_rate": "$64.83"
+  },
+  {
+    "entry": "Bristol/Goshen",
+    "exit": "Gary East",
+    "cash_rate": "$55.50",
+    "avi_rate": "$55.50"
+  },
+  {
+    "entry": "Bristol/Goshen",
+    "exit": "Lake Station",
+    "cash_rate": "$55.50",
+    "avi_rate": "$55.50"
+  },
+  {
+    "entry": "Bristol/Goshen",
+    "exit": "Portage / Willow Creek",
+    "cash_rate": "$55.50",
+    "avi_rate": "$55.50"
+  },
+  {
+    "entry": "Bristol/Goshen",
+    "exit": "Valparaiso/Chesterton",
+    "cash_rate": "$47.70",
+    "avi_rate": "$47.68"
+  },
+  {
+    "entry": "Bristol/Goshen",
+    "exit": "Michigan City",
+    "cash_rate": "$40.40",
+    "avi_rate": "$40.39"
+  },
+  {
+    "entry": "Bristol/Goshen",
+    "exit": "LaPorte",
+    "cash_rate": "$33.30",
+    "avi_rate": "$33.35"
+  },
+  {
+    "entry": "Bristol/Goshen",
+    "exit": "South Bend West",
+    "cash_rate": "$19.00",
+    "avi_rate": "$19.03"
+  },
+  {
+    "entry": "Bristol/Goshen",
+    "exit": "South Bend Notre Dame",
+    "cash_rate": "$15.50",
+    "avi_rate": "$15.48"
+  },
+  {
+    "entry": "Bristol/Goshen",
+    "exit": "Mishawaka",
+    "cash_rate": "$11.80",
+    "avi_rate": "$11.83"
+  },
+  {
+    "entry": "Bristol/Goshen",
+    "exit": "Elkhart",
+    "cash_rate": "$4.90",
+    "avi_rate": "$4.90"
+  },
+  {
+    "entry": "Bristol/Goshen",
+    "exit": "Elkhart East",
+    "cash_rate": "$4.90",
+    "avi_rate": "$4.90"
+  },
+  {
+    "entry": "Bristol/Goshen",
+    "exit": "Middlebury",
+    "cash_rate": "$4.90",
+    "avi_rate": "$4.90"
+  },
+  {
+    "entry": "Bristol/Goshen",
+    "exit": "Howe/LaGrange",
+    "cash_rate": "$9.80",
+    "avi_rate": "$9.79"
+  },
+  {
+    "entry": "Bristol/Goshen",
+    "exit": "Angola",
+    "cash_rate": "$22.00",
+    "avi_rate": "$22.03"
+  },
+  {
+    "entry": "Bristol/Goshen",
+    "exit": "Eastpoint",
+    "cash_rate": "$26.80",
+    "avi_rate": "$26.85"
+  },
+  {
+    "entry": "Middlebury",
+    "exit": "Westpoint",
+    "cash_rate": "$64.00",
+    "avi_rate": "$64.07"
+  },
+  {
+    "entry": "Middlebury",
+    "exit": "Calumet E/B Entry",
+    "cash_rate": "$0.00",
+    "avi_rate": "$0.00"
+  },
+  {
+    "entry": "Middlebury",
+    "exit": "Calumet W/B",
+    "cash_rate": "$69.90",
+    "avi_rate": "$69.97"
+  },
+  {
+    "entry": "Middlebury",
+    "exit": "Cline (Gary) E/W",
+    "cash_rate": "$66.80",
+    "avi_rate": "$66.86"
+  },
+  {
+    "entry": "Middlebury",
+    "exit": "Gary East",
+    "cash_rate": "$57.50",
+    "avi_rate": "$57.53"
+  },
+  {
+    "entry": "Middlebury",
+    "exit": "Lake Station",
+    "cash_rate": "$57.50",
+    "avi_rate": "$57.53"
+  },
+  {
+    "entry": "Middlebury",
+    "exit": "Portage / Willow Creek",
+    "cash_rate": "$57.50",
+    "avi_rate": "$57.53"
+  },
+  {
+    "entry": "Middlebury",
+    "exit": "Valparaiso/Chesterton",
+    "cash_rate": "$49.80",
+    "avi_rate": "$49.81"
+  },
+  {
+    "entry": "Middlebury",
+    "exit": "Michigan City",
+    "cash_rate": "$45.90",
+    "avi_rate": "$45.85"
+  },
+  {
+    "entry": "Middlebury",
+    "exit": "LaPorte",
+    "cash_rate": "$38.80",
+    "avi_rate": "$38.79"
+  },
+  {
+    "entry": "Middlebury",
+    "exit": "South Bend West",
+    "cash_rate": "$21.30",
+    "avi_rate": "$21.25"
+  },
+  {
+    "entry": "Middlebury",
+    "exit": "South Bend Notre Dame",
+    "cash_rate": "$17.70",
+    "avi_rate": "$17.74"
+  },
+  {
+    "entry": "Middlebury",
+    "exit": "Mishawaka",
+    "cash_rate": "$14.10",
+    "avi_rate": "$14.11"
+  },
+  {
+    "entry": "Middlebury",
+    "exit": "Elkhart",
+    "cash_rate": "$7.30",
+    "avi_rate": "$7.34"
+  },
+  {
+    "entry": "Middlebury",
+    "exit": "Elkhart East",
+    "cash_rate": "$4.90",
+    "avi_rate": "$4.90"
+  },
+  {
+    "entry": "Middlebury",
+    "exit": "Bristol/Goshen",
+    "cash_rate": "$4.90",
+    "avi_rate": "$4.90"
+  },
+  {
+    "entry": "Middlebury",
+    "exit": "Howe/LaGrange",
+    "cash_rate": "$7.30",
+    "avi_rate": "$7.34"
+  },
+  {
+    "entry": "Middlebury",
+    "exit": "Angola",
+    "cash_rate": "$17.10",
+    "avi_rate": "$17.14"
+  },
+  {
+    "entry": "Middlebury",
+    "exit": "Eastpoint",
+    "cash_rate": "$24.40",
+    "avi_rate": "$24.40"
+  },
+  {
+    "entry": "Howe/LaGrange",
+    "exit": "Westpoint",
+    "cash_rate": "$71.20",
+    "avi_rate": "$71.20"
+  },
+  {
+    "entry": "Howe/LaGrange",
+    "exit": "Calumet E/B Entry",
+    "cash_rate": "$0.00",
+    "avi_rate": "$0.00"
+  },
+  {
+    "entry": "Howe/LaGrange",
+    "exit": "Calumet W/B",
+    "cash_rate": "$77.10",
+    "avi_rate": "$77.10"
+  },
+  {
+    "entry": "Howe/LaGrange",
+    "exit": "Cline (Gary) E/W",
+    "cash_rate": "$74.00",
+    "avi_rate": "$73.99"
+  },
+  {
+    "entry": "Howe/LaGrange",
+    "exit": "Gary East",
+    "cash_rate": "$64.70",
+    "avi_rate": "$64.66"
+  },
+  {
+    "entry": "Howe/LaGrange",
+    "exit": "Lake Station",
+    "cash_rate": "$64.70",
+    "avi_rate": "$64.66"
+  },
+  {
+    "entry": "Howe/LaGrange",
+    "exit": "Portage / Willow Creek",
+    "cash_rate": "$64.70",
+    "avi_rate": "$64.66"
+  },
+  {
+    "entry": "Howe/LaGrange",
+    "exit": "Valparaiso/Chesterton",
+    "cash_rate": "$57.10",
+    "avi_rate": "$57.06"
+  },
+  {
+    "entry": "Howe/LaGrange",
+    "exit": "Michigan City",
+    "cash_rate": "$53.00",
+    "avi_rate": "$53.03"
+  },
+  {
+    "entry": "Howe/LaGrange",
+    "exit": "LaPorte",
+    "cash_rate": "$46.00",
+    "avi_rate": "$45.98"
+  },
+  {
+    "entry": "Howe/LaGrange",
+    "exit": "South Bend West",
+    "cash_rate": "$28.60",
+    "avi_rate": "$28.57"
+  },
+  {
+    "entry": "Howe/LaGrange",
+    "exit": "South Bend Notre Dame",
+    "cash_rate": "$25.10",
+    "avi_rate": "$25.08"
+  },
+  {
+    "entry": "Howe/LaGrange",
+    "exit": "Mishawaka",
+    "cash_rate": "$21.40",
+    "avi_rate": "$21.43"
+  },
+  {
+    "entry": "Howe/LaGrange",
+    "exit": "Elkhart",
+    "cash_rate": "$14.70",
+    "avi_rate": "$14.69"
+  },
+  {
+    "entry": "Howe/LaGrange",
+    "exit": "Elkhart East",
+    "cash_rate": "$12.20",
+    "avi_rate": "$12.24"
+  },
+  {
+    "entry": "Howe/LaGrange",
+    "exit": "Bristol/Goshen",
+    "cash_rate": "$9.80",
+    "avi_rate": "$9.79"
+  },
+  {
+    "entry": "Howe/LaGrange",
+    "exit": "Middlebury",
+    "cash_rate": "$7.30",
+    "avi_rate": "$7.34"
+  },
+  {
+    "entry": "Howe/LaGrange",
+    "exit": "Angola",
+    "cash_rate": "$12.20",
+    "avi_rate": "$12.24"
+  },
+  {
+    "entry": "Howe/LaGrange",
+    "exit": "Eastpoint",
+    "cash_rate": "$17.10",
+    "avi_rate": "$17.05"
+  },
+  {
+    "entry": "Angola",
+    "exit": "Westpoint",
+    "cash_rate": "$80.10",
+    "avi_rate": "$80.17"
+  },
+  {
+    "entry": "Angola",
+    "exit": "Calumet E/B Entry",
+    "cash_rate": "$0.00",
+    "avi_rate": "$0.00"
+  },
+  {
+    "entry": "Angola",
+    "exit": "Calumet W/B",
+    "cash_rate": "$86.00",
+    "avi_rate": "$86.07"
+  },
+  {
+    "entry": "Angola",
+    "exit": "Cline (Gary) E/W",
+    "cash_rate": "$82.90",
+    "avi_rate": "$82.96"
+  },
+  {
+    "entry": "Angola",
+    "exit": "Gary East",
+    "cash_rate": "$73.60",
+    "avi_rate": "$73.63"
+  },
+  {
+    "entry": "Angola",
+    "exit": "Lake Station",
+    "cash_rate": "$73.60",
+    "avi_rate": "$73.63"
+  },
+  {
+    "entry": "Angola",
+    "exit": "Portage / Willow Creek",
+    "cash_rate": "$73.60",
+    "avi_rate": "$73.63"
+  },
+  {
+    "entry": "Angola",
+    "exit": "Valparaiso/Chesterton",
+    "cash_rate": "$69.20",
+    "avi_rate": "$69.23"
+  },
+  {
+    "entry": "Angola",
+    "exit": "Michigan City",
+    "cash_rate": "$62.20",
+    "avi_rate": "$62.18"
+  },
+  {
+    "entry": "Angola",
+    "exit": "LaPorte",
+    "cash_rate": "$55.20",
+    "avi_rate": "$55.20"
+  },
+  {
+    "entry": "Angola",
+    "exit": "South Bend West",
+    "cash_rate": "$40.80",
+    "avi_rate": "$40.82"
+  },
+  {
+    "entry": "Angola",
+    "exit": "South Bend Notre Dame",
+    "cash_rate": "$37.30",
+    "avi_rate": "$37.33"
+  },
+  {
+    "entry": "Angola",
+    "exit": "Mishawaka",
+    "cash_rate": "$31.10",
+    "avi_rate": "$31.08"
+  },
+  {
+    "entry": "Angola",
+    "exit": "Elkhart",
+    "cash_rate": "$24.50",
+    "avi_rate": "$24.48"
+  },
+  {
+    "entry": "Angola",
+    "exit": "Elkhart East",
+    "cash_rate": "$24.50",
+    "avi_rate": "$24.48"
+  },
+  {
+    "entry": "Angola",
+    "exit": "Bristol/Goshen",
+    "cash_rate": "$22.00",
+    "avi_rate": "$22.03"
+  },
+  {
+    "entry": "Angola",
+    "exit": "Middlebury",
+    "cash_rate": "$17.10",
+    "avi_rate": "$17.14"
+  },
+  {
+    "entry": "Angola",
+    "exit": "Howe/LaGrange",
+    "cash_rate": "$12.20",
+    "avi_rate": "$12.24"
+  },
+  {
+    "entry": "Angola",
+    "exit": "Eastpoint",
+    "cash_rate": "$7.20",
+    "avi_rate": "$7.24"
+  },
+  {
+    "entry": "Eastpoint",
+    "exit": "Westpoint",
+    "cash_rate": "$87.40",
+    "avi_rate": "$87.49"
+  },
+  {
+    "entry": "Eastpoint",
+    "exit": "Calumet E/B Entry",
+    "cash_rate": "$0.00",
+    "avi_rate": "$0.00"
+  },
+  {
+    "entry": "Eastpoint",
+    "exit": "Calumet W/B",
+    "cash_rate": "$93.30",
+    "avi_rate": "$93.39"
+  },
+  {
+    "entry": "Eastpoint",
+    "exit": "Cline (Gary) E/W",
+    "cash_rate": "$90.20",
+    "avi_rate": "$90.28"
+  },
+  {
+    "entry": "Eastpoint",
+    "exit": "Gary East",
+    "cash_rate": "$80.90",
+    "avi_rate": "$80.95"
+  },
+  {
+    "entry": "Eastpoint",
+    "exit": "Lake Station",
+    "cash_rate": "$80.90",
+    "avi_rate": "$80.95"
+  },
+  {
+    "entry": "Eastpoint",
+    "exit": "Portage / Willow Creek",
+    "cash_rate": "$80.90",
+    "avi_rate": "$80.95"
+  },
+  {
+    "entry": "Eastpoint",
+    "exit": "Valparaiso/Chesterton",
+    "cash_rate": "$73.60",
+    "avi_rate": "$73.59"
+  },
+  {
+    "entry": "Eastpoint",
+    "exit": "Michigan City",
+    "cash_rate": "$69.50",
+    "avi_rate": "$69.50"
+  },
+  {
+    "entry": "Eastpoint",
+    "exit": "LaPorte",
+    "cash_rate": "$62.50",
+    "avi_rate": "$62.53"
+  },
+  {
+    "entry": "Eastpoint",
+    "exit": "South Bend West",
+    "cash_rate": "$45.40",
+    "avi_rate": "$45.43"
+  },
+  {
+    "entry": "Eastpoint",
+    "exit": "South Bend Notre Dame",
+    "cash_rate": "$42.00",
+    "avi_rate": "$41.98"
+  },
+  {
+    "entry": "Eastpoint",
+    "exit": "Mishawaka",
+    "cash_rate": "$38.40",
+    "avi_rate": "$38.38"
+  },
+  {
+    "entry": "Eastpoint",
+    "exit": "Elkhart",
+    "cash_rate": "$31.70",
+    "avi_rate": "$31.74"
+  },
+  {
+    "entry": "Eastpoint",
+    "exit": "Elkhart East",
+    "cash_rate": "$29.30",
+    "avi_rate": "$29.29"
+  },
+  {
+    "entry": "Eastpoint",
+    "exit": "Bristol/Goshen",
+    "cash_rate": "$26.80",
+    "avi_rate": "$26.85"
+  },
+  {
+    "entry": "Eastpoint",
+    "exit": "Middlebury",
+    "cash_rate": "$24.40",
+    "avi_rate": "$24.40"
+  },
+  {
+    "entry": "Eastpoint",
+    "exit": "Howe/LaGrange",
+    "cash_rate": "$17.10",
+    "avi_rate": "$17.05"
+  },
+  {
+    "entry": "Eastpoint",
+    "exit": "Angola",
+    "cash_rate": "$7.20",
+    "avi_rate": "$7.24"
+  }
+]

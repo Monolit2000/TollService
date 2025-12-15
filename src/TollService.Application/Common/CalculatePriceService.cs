@@ -254,7 +254,7 @@ public class CalculatePriceService
     }
 
     /// <summary>
-    /// Создает или обновляет TollPrice через CalculatePrice.SetPriceByPaymentType.
+    /// Создает или обновляет TollPrice через CalculatePrice.SetPrice.
     /// Устанавливает TollId и Description для нового TollPrice.
     /// </summary>
     /// <param name="calculatePrice">CalculatePrice для работы</param>
@@ -281,8 +281,8 @@ public class CalculatePriceService
         if (amount <= 0)
             throw new ArgumentException("Amount must be greater than zero", nameof(amount));
 
-        // Используем SetPriceByPaymentType на CalculatePrice
-        var tollPrice = calculatePrice.SetPriceByPaymentType(
+        // Используем SetPrice на CalculatePrice
+        var tollPrice = calculatePrice.SetPrice(
             amount,
             paymentType,
             axelType,
@@ -303,9 +303,40 @@ public class CalculatePriceService
         return tollPrice;
     }
 
+    public TollPrice SetTollPrice(
+    CalculatePrice calculatePrice,
+    double amount,
+    TollPaymentType paymentType,
+    AxelType axelType = AxelType._5L,
+    TollPriceDayOfWeek dayOfWeekFrom = TollPriceDayOfWeek.Any,
+    TollPriceDayOfWeek dayOfWeekTo = TollPriceDayOfWeek.Any,
+    TollPriceTimeOfDay timeOfDay = TollPriceTimeOfDay.Any,
+    string? description = null)
+    {
+        if (amount <= 0)
+            throw new ArgumentException("Amount must be greater than zero", nameof(amount));
+
+        // Используем SetPrice на CalculatePrice
+        var tollPrice = calculatePrice.SetPrice(
+            amount,
+            paymentType,
+            axelType,
+            dayOfWeekFrom,
+            dayOfWeekTo,
+            timeOfDay);
+
+        // Если это новый TollPrice (TollId == Guid.Empty), настраиваем его
+        if (!string.IsNullOrWhiteSpace(description))
+        {
+            tollPrice.Description = description;
+        }
+
+        return tollPrice;
+    }
+
     /// <summary>
     /// Устанавливает TollPrice напрямую к Toll без использования CalculatePrice.
-    /// Использует метод Toll.SetPriceByPaymentType для создания или обновления цены.
+    /// Использует метод Toll.SetPrice для создания или обновления цены.
     /// </summary>
     /// <param name="toll">Toll для установки цены</param>
     /// <param name="amount">Сумма</param>
@@ -333,7 +364,7 @@ public class CalculatePriceService
         if (amount <= 0)
             throw new ArgumentException("Amount must be greater than zero", nameof(amount));
 
-        // Используем метод Toll.SetPriceByPaymentType
+        // Используем метод Toll.SetPrice
         toll.SetPriceByPaymentType(
             amount,
             paymentType,
@@ -444,7 +475,7 @@ public class CalculatePriceService
                     // 1. Ищем по исходному типу, если маппинг указан
                     if (paymentTypeMapping != null && paymentTypeMapping.ContainsKey(priceData.PaymentType))
                     {
-                        existingPrice = toll.GetPriceByPaymentType(
+                        existingPrice = toll.GetPrice(
                             priceData.PaymentType,
                             priceData.AxelType,
                             priceData.DayOfWeekFrom,
@@ -455,7 +486,7 @@ public class CalculatePriceService
                     // 2. Если не нашли, ищем по новому типу
                     if (existingPrice == null)
                     {
-                        existingPrice = toll.GetPriceByPaymentType(
+                        existingPrice = toll.GetPrice(
                             mappedPaymentType,
                             priceData.AxelType,
                             priceData.DayOfWeekFrom,
@@ -469,7 +500,7 @@ public class CalculatePriceService
                         var possibleOldTypes = GetPossibleOldPaymentTypes(mappedPaymentType);
                         foreach (var oldType in possibleOldTypes)
                         {
-                            existingPrice = toll.GetPriceByPaymentType(
+                            existingPrice = toll.GetPrice(
                                 oldType,
                                 priceData.AxelType,
                                 priceData.DayOfWeekFrom,

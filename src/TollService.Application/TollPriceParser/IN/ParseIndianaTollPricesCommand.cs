@@ -2,6 +2,7 @@ using MediatR;
 using Microsoft.EntityFrameworkCore;
 using System.Text.Json;
 using System.Text.Json.Serialization;
+using TollService.Application.Common;
 using TollService.Application.Common.Interfaces;
 using TollService.Domain;
 
@@ -17,7 +18,8 @@ public record IndianaTollPriceEntry(
     [property: JsonPropertyName("avi_rate")] string AviRate);
 
 public class ParseIndianaTollPricesCommandHandler(
-    ITollDbContext _context) : IRequestHandler<ParseIndianaTollPricesCommand, ParseTollPricesResult>
+    ITollDbContext _context,
+    CalculatePriceService calculatePriceService) : IRequestHandler<ParseIndianaTollPricesCommand, ParseTollPricesResult>
 {
     public async Task<ParseTollPricesResult> Handle(ParseIndianaTollPricesCommand request, CancellationToken ct)
     {
@@ -87,6 +89,7 @@ public class ParseIndianaTollPricesCommandHandler(
 
             // Проверяем, существует ли уже CalculatePrice для этой пары
             var existingPrice = await _context.CalculatePrices
+                .Include(cp => cp.TollPrices)
                 .FirstOrDefaultAsync(cp => 
                     cp.FromId == fromToll.Id && 
                     cp.ToId == toToll.Id && 
@@ -94,25 +97,24 @@ public class ParseIndianaTollPricesCommandHandler(
 
             if (existingPrice != null)
             {
-                // Обновляем существующую запись
-                existingPrice.Cash = cashPrice;
-                existingPrice.IPass = aviPrice; // AVI rate соответствует IPass/EZPass
-                existingPrice.Online = aviPrice; // Online также использует AVI rate
+                calculatePriceService.SetTollPrice(existingPrice, cashPrice, TollPaymentType.Cash);
+                calculatePriceService.SetTollPrice(existingPrice, aviPrice, TollPaymentType.EZPass);
             }
             else
             {
                 // Создаем новую запись
-                var calculatePrice = new CalculatePrice
+                existingPrice = new CalculatePrice
                 {
                     Id = Guid.NewGuid(),
                     StateCalculatorId = indianaCalculator.Id,
                     FromId = fromToll.Id,
                     ToId = toToll.Id,
-                    Cash = cashPrice,
-                    IPass = aviPrice,
-                    Online = aviPrice
                 };
-                _context.CalculatePrices.Add(calculatePrice);
+
+                calculatePriceService.SetTollPrice(existingPrice, cashPrice, TollPaymentType.Cash);
+                calculatePriceService.SetTollPrice(existingPrice, aviPrice, TollPaymentType.EZPass);
+
+                _context.CalculatePrices.Add(existingPrice);
             }
 
             updatedCount++;

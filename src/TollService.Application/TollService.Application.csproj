@@ -22,6 +22,14 @@
 
   <ItemGroup>
     <Folder Include="TollPriceParser\IL\" />
+    <Folder Include="TollPriceParser\IN\files\" />
+  </ItemGroup>
+
+  <!-- Illinois parsers were moved under TollPriceParser/IL.
+       These legacy root-level files are kept on disk but excluded from compilation to avoid duplicate type definitions. -->
+  <ItemGroup>
+    <Compile Remove="TollPriceParser\ParseExitPointsToPlazasCommand.cs" />
+    <Compile Remove="TollPriceParser\ParsePlazaNamesFromArcGisCommand.cs" />
   </ItemGroup>
 
 
