@@ -62,7 +62,7 @@ public class GetTollsAlongPolylineSectionsQueryHandler(
                     if (t.Location == null)
                         return false;
 
-                    var tollRadius = t.SerchRadiusInMeters > 0 ? t.SerchRadiusInMeters : 20;
+                    var tollRadius = t.SerchRadiusInMeters > 3 ? t.SerchRadiusInMeters : 20;
                     var closest = FindClosestPointOnLine(polyline, t.Location);
                     var distanceToLineMeters = CalculateHaversineDistance(t.Location.Coordinate, closest);
                     return distanceToLineMeters <= tollRadius;
