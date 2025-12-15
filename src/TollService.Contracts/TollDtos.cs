@@ -65,6 +65,12 @@ public class TollDto
     public double PayOnlineOvernight { get; set; }
     public double PayOnline { get; set; }
 
+    public bool Tag { get; set; }
+    public bool NoPlate { get; set; }
+    public bool Cash { get; set; }
+    public bool NoCard { get; set; }
+    public bool App { get; set; }
+
     public List<TollWithPriceDto> TollPrices { get; set; } = [];
 
     // Радиус поиска (в метрах) для отображения на карте/поиска вокруг толла

@@ -146,6 +146,12 @@ public class GetTollsAlongPolylineSectionsQueryHandler(
             payOnline: t.PayOnline
         )
         {
+            Tag = t.PaymentMethod.Tag,
+            NoPlate = t.PaymentMethod.NoPlate,
+            Cash = t.PaymentMethod.Cash,
+            NoCard = t.PaymentMethod.NoCard,
+            App = t.PaymentMethod.App,
+            WebsiteUrl = t.WebsiteUrl,
             SerchRadiusInMeters = t.SerchRadiusInMeters,
             TollPrices = t.TollPrices.Select(tp => new TollWithPriceDto
             {
