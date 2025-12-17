@@ -52,6 +52,10 @@ public class TollWithRouteSectionDto
     // NB: оставляем имя как в существующем контракте пользователя ("Serch" вместо "Search")
     public double SerchRadiusInMeters { get; set; } = 0;
 
+    public Guid EntryId { get; set; }
+
+    public Guid ExitId { get; set; }
+
     public List<TollPrice> TollPrices { get; set; } = [];
 }
 
@@ -78,6 +82,8 @@ public class TollDto
     public bool Cash { get; set; }
     public bool NoCard { get; set; }
     public bool App { get; set; }
+
+    public string Number { get; set; }
 
     public List<TollWithPriceDto> TollPrices { get; set; } = [];
 

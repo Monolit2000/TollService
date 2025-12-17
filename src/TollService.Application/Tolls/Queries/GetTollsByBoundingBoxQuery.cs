@@ -63,6 +63,7 @@ public class GetTollsByBoundingBoxQueryHandler(
             App = t.PaymentMethod.App,
             WebsiteUrl = t.WebsiteUrl,
             SerchRadiusInMeters = t.SerchRadiusInMeters,
+            Number = t.Number ?? "N/A",
             TollPrices = t.TollPrices.Select(tp => new TollWithPriceDto
             {
                 Id = tp.Id,

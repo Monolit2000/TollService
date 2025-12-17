@@ -114,16 +114,18 @@ public class GetTollsAlongPolylineSectionsQueryHandler(
             var tollWithPrice = await sender.Send(new CalculateRoutePriceCommand(tollsWithSection));
 
             // Обновляем цены для tolls этой секции
-            foreach (var priced in tollWithPrice)
+            foreach (var CalculatedToll in tollWithPrice)
             {
-                var localToll = tollsWithSection.FirstOrDefault(x => x.Id == priced.Toll.Id);
+                var localToll = tollsWithSection.FirstOrDefault(x => x.Id == CalculatedToll.Toll.Id);
                 if (localToll != null)
                 {
-                    localToll.IPass = priced.IPass;
-                    localToll.PayOnline = priced.PayOnline;
-                    localToll.IPassOvernight = priced.IPassOvernight;
-                    localToll.PayOnlineOvernight = priced.PayOnlineOvernight;
-                    localToll.TollPrices = priced.TollPrices;
+                    localToll.IPass = CalculatedToll.IPass;
+                    localToll.PayOnline = CalculatedToll.PayOnline;
+                    localToll.IPassOvernight = CalculatedToll.IPassOvernight;
+                    localToll.PayOnlineOvernight = CalculatedToll.PayOnlineOvernight;
+                    localToll.TollPrices = CalculatedToll.TollPrices;
+                    localToll.EntryId = CalculatedToll.EntryId;
+                    localToll.ExitId = CalculatedToll.ExitId;
                 }
             }
 

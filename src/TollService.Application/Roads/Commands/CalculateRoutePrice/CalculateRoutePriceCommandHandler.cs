@@ -59,6 +59,10 @@ namespace TollService.Application.Roads.Commands.CalculateRoutePrice
     {
         public Toll Toll { get; set; }
 
+        public Guid? EntryId { get; set; }
+
+        public Guid? ExitId { get; set; }
+
         public List<TollPrice> TollPrices { get; set; } = [];
         public double IPassOvernight { get; set; }
 

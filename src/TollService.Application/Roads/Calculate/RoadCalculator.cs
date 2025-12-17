@@ -113,6 +113,10 @@ public class RoadCalculator
                 tollPriceDtos.Add(new TollPriceDto
                 {
                     Toll = tollInfoTo.Toll,
+
+                    EntryId = price.FromId,
+                    ExitId = price.ToId,
+
                     PayOnline = price.GetAmmountByPaymentType(TollPaymentType.Cash),
                     IPass = price.GetAmmountByPaymentType(TollPaymentType.EZPass),
                     TollPrices = price.TollPrices

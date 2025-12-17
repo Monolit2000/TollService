@@ -113,7 +113,7 @@ public class ParseNewYorkInterchangesCommandHandler(
 
                 var tollPoint = new Point(lon, lat) { SRID = 4326 };
 
-                if (interchangeId == "61")
+                if (interchangeId == "ns20x")
                 {
 
                 }
