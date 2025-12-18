@@ -110,6 +110,7 @@ public enum TollPaymentType
     AccountToll = 8,
     NonAccountToll = 9,
     PalPass = 10,
+    KTAG = 11,
 }
 
 public enum TollPriceTimeOfDay

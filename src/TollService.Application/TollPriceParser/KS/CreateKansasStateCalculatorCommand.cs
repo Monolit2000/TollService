@@ -1,6 +1,5 @@
 using MediatR;
 using Microsoft.EntityFrameworkCore;
-using System.Runtime.CompilerServices;
 using TollService.Application.Common.Interfaces;
 using TollService.Contracts;
 using TollService.Domain;
@@ -41,6 +40,7 @@ public class CreateKansasStateCalculatorCommandHandler(
 
         // 2. Загружаем существующие CalculatePrice для этого калькулятора
         var existingPrices = await _context.CalculatePrices
+            .Include(cp => cp.TollPrices)
             .Where(cp => cp.StateCalculatorId == ksCalculator.Id)
             .ToListAsync(ct);
 
@@ -103,16 +103,7 @@ public class CreateKansasStateCalculatorCommandHandler(
                         continue;
                     }
 
-                    if(exit.Value == 217)
-                    {
-
-                    }
-                    
                     var toToll = tolls.FirstOrDefault(t => t.Number == exit.Value.ToString());
-                    if (toToll.Name == "Eastern Entrance")
-                    {
-
-                    }
                     if (toToll == null)
                     {
                         errors.Add($"To toll not found for plaza value {exit.Value}");
@@ -122,11 +113,23 @@ public class CreateKansasStateCalculatorCommandHandler(
                     var existingPrice = existingPrices
                         .FirstOrDefault(cp => cp.FromId == fromToll.Id && cp.ToId == toToll.Id);
 
+                    // Kansas калькулятор сейчас реально считает только для 5 осей,
+                    // но аккуратно маппим на enum, чтобы не ломаться при изменениях.
+                    var axelType = Enum.IsDefined(typeof(AxelType), vehicleClass.Axles)
+                        ? (AxelType)vehicleClass.Axles
+                        : AxelType._5L;
+
                     if (existingPrice != null)
                     {
                         existingPrice.IPass = (double)result.TBR;
                         existingPrice.Online = (double)result.TBR;
                         existingPrice.Cash = (double)result.IBR;
+
+                        // TollPrices по аналогии с другими штатами:
+                        // - EZPass: транспондерный тариф (TBR)
+                        // - Cash: тариф без транспондера (IBR)
+                        UpsertTollPrice(existingPrice, fromToll.Id, (double)result.TBR, TollPaymentType.KTAG, axelType);
+                        UpsertTollPrice(existingPrice, fromToll.Id, (double)result.IBR, TollPaymentType.Cash, axelType);
                         updated++;
                     }
                     else
@@ -139,8 +142,24 @@ public class CreateKansasStateCalculatorCommandHandler(
                             ToId = toToll.Id,
                             IPass = (double)result.TBR,
                             Online = (double)result.TBR,
-                            Cash = (double)result.IBR
+                            Cash = (double)result.IBR,
+                            TollPrices = []
                         };
+
+                        calculatePrice.TollPrices.Add(CreateTollPrice(
+                            calculatePrice.Id,
+                            fromToll.Id,
+                            (double)result.TBR,
+                            TollPaymentType.EZPass,
+                            axelType));
+
+                        calculatePrice.TollPrices.Add(CreateTollPrice(
+                            calculatePrice.Id,
+                            fromToll.Id,
+                            (double)result.IBR,
+                            TollPaymentType.Cash,
+                            axelType));
+
                         _context.CalculatePrices.Add(calculatePrice);
                         existingPrices.Add(calculatePrice);
                         created++;
@@ -213,6 +232,52 @@ public class CreateKansasStateCalculatorCommandHandler(
     }
 
     private readonly record struct KansasTollResult(decimal TBR, decimal IBR);
+
+    private static void UpsertTollPrice(
+        CalculatePrice calculatePrice,
+        Guid tollId,
+        double amount,
+        TollPaymentType paymentType,
+        AxelType axelType)
+    {
+        calculatePrice.TollPrices ??= [];
+
+        var tollPrice = calculatePrice.TollPrices.FirstOrDefault(tp =>
+            tp.PaymentType == paymentType &&
+            tp.AxelType == axelType);
+
+        if (tollPrice != null)
+        {
+            tollPrice.Amount = amount;
+            tollPrice.TollId = tollId;
+        }
+        else
+        {
+            calculatePrice.TollPrices.Add(CreateTollPrice(
+                calculatePrice.Id,
+                tollId,
+                amount,
+                paymentType,
+                axelType));
+        }
+    }
+
+    private static TollPrice CreateTollPrice(
+        Guid calculatePriceId,
+        Guid tollId,
+        double amount,
+        TollPaymentType paymentType,
+        AxelType axelType)
+    {
+        var tollPrice = new TollPrice(
+            calculatePriceId: calculatePriceId,
+            amount: amount,
+            paymentType: paymentType,
+            axelType: axelType);
+
+        tollPrice.TollId = tollId;
+        return tollPrice;
+    }
 }
 
 

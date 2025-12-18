@@ -117,8 +117,19 @@ public class GetTollsAlongPolylineSectionsQueryHandler(
             foreach (var CalculatedToll in tollWithPrice)
             {
                 var localToll = tollsWithSection.FirstOrDefault(x => x.Id == CalculatedToll.Toll.Id);
+
+                if(CalculatedToll.EntryId != null)
+                {
+                    var entry = tollsWithSection.FirstOrDefault(x => x.Id == CalculatedToll.EntryId);
+                    
+                    if (entry != null)
+                        entry.IsEntry = true;
+                }
+
+
                 if (localToll != null)
                 {
+                    localToll.IsExit = true;
                     localToll.IPass = CalculatedToll.IPass;
                     localToll.PayOnline = CalculatedToll.PayOnline;
                     localToll.IPassOvernight = CalculatedToll.IPassOvernight;

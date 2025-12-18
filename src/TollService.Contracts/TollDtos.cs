@@ -41,6 +41,8 @@ public class TollWithRouteSectionDto
     public double Distance { get; set; } = 0;
     public double OrderId { get; set; } = 0;
 
+    public bool IsEntry { get; set; } = false;
+    public bool IsExit { get; set; } = false;
     public string? WebsiteUrl { get; set; }
 
     public bool Tag { get; set; }
