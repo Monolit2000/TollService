@@ -26,21 +26,24 @@ public class ParseTollPricesCommandHandler(
 
     public async Task<ParseTollPricesResult> Handle(ParseTollPricesCommand request, CancellationToken ct)
     {
-        // Проверяем, является ли URL JS файлом Ohio Turnpike
-        if (request.Url.Contains("ohioturnpike.org") && request.Url.Contains(".js"))
-        {
+        // Ohio Turnpike (JS rate calculator)
+        //if (LooksLikeOhioTurnpikeJs(request.Url))
+        //{
             return await ParseOhioTurnpikeJs(request.Url, ct);
-        }
-        
-        // Оригинальный парсер для Illinois Tollway
-        var httpClient = _httpClientFactory.CreateClient();
-        return await IllinoisTollwayPriceParser.ParseAsync(request.Url, _context, httpClient, ct);
+        //}
+
+        // Illinois Tollway (original parser)
+        //var httpClient = _httpClientFactory.CreateClient();
+        //return await IllinoisTollwayPriceParser.ParseAsync(request.Url, _context, httpClient, ct);
     }
     
     private async Task<ParseTollPricesResult> ParseOhioTurnpikeJs(string url, CancellationToken ct)
     {
         var httpClient = _httpClientFactory.CreateClient();
-        var jsContent = await httpClient.GetStringAsync("https://www.ohioturnpike.org/js/rate_calculator_2025_combined.js?Modified=3426893245967234", ct);
+        var jsUrl = string.IsNullOrWhiteSpace(url)
+            ? "https://www.ohioturnpike.org/js/rate_calculator_2025_combined.js"
+            : url;
+        var jsContent = await httpClient.GetStringAsync(jsUrl, ct);
         
         var notFoundPlazas = new List<string>();
         int updatedCount = 0;
@@ -48,7 +51,7 @@ public class ParseTollPricesCommandHandler(
         // Парсим interchangesrate массив
         var interchanges = ParseInterchanges(jsContent);
         
-        // Парсим tolls[entrance][exit][5][3] записи
+        // Парсим tolls[entrance][exit][axleClass][tollIndex] записи (axleClass обычно 5/6, tollIndex 2/3)
         var tollPrices = ParseTollPrices(jsContent);
         
         // Получаем или создаем StateCalculator для Ohio
@@ -80,19 +83,21 @@ public class ParseTollPricesCommandHandler(
         
         foreach (var interchange in interchanges)
         {
- 
+            // Пытаемся найти toll по Name или по уже выставленному Number (milepost)
+            var normalizedName = interchange.Name?.Trim();
+            var milepostStr = interchange.Milepost.ToString();
 
             var tolls = ohioTolls
-                .Where(t => t.Location != null
-                            && t.Name != null
-                            && t.Name == interchange.Name)
+                .Where(t =>
+                    t.Location != null &&
+                    (
+                        (t.Name != null && normalizedName != null && t.Name.Trim() == normalizedName) ||
+                        (t.Number != null && t.Number.Trim() == milepostStr)
+                    ))
                 .ToList();
 
             Toll? toll = null;
             
-            if(tolls.Count < 0)
-                Console.WriteLine(interchange.Name);
-
             if (tolls.Count > 0)
             {
                 // Обрабатываем все найденные tolls
@@ -101,51 +106,34 @@ public class ParseTollPricesCommandHandler(
                     // Обновляем информацию о развязке для каждого toll
                     existingToll.Number = interchange.Milepost.ToString();
                     existingToll.Key = interchange.Name;
-                    //if (string.IsNullOrWhiteSpace(existingToll.Name))
-                    //{
-                    //    existingToll.Name = interchange.Name;
-                    //}
+                    if (string.IsNullOrWhiteSpace(existingToll.Name))
+                    {
+                        existingToll.Name = interchange.Name;
+                    }
                     existingToll.StateCalculatorId = ohioCalculator.Id;
                 }
                 
                 // Используем первый для карты (для обратной совместимости с логикой CalculatePrice)
                 toll = tolls.First();
             }
-            //else
-            //{
-            //    // Создаем новую запись Toll
-            //    toll = new Toll
-            //    {
-            //        Id = Guid.NewGuid(),
-            //        Name = interchange.Name,
-            //        Number = interchange.Milepost,
-            //        Key = interchange.Name,
-            //        StateCalculatorId = ohioCalculator.Id
-            //    };
-            //    _context.Tolls.Add(toll);
-            //    await _context.SaveChangesAsync(ct);
-            //}
-            if(toll != null)
+            else
+            {
+                // В рамках этого парсера мы НЕ создаем новые Toll без координат, чтобы не засорять БД.
+                notFoundPlazas.Add($"Interchange toll not found in DB: {interchange.Milepost} ({interchange.Name})");
+            }
+
+            if (toll != null)
                 milepostToTollMap[interchange.Milepost] = toll;
         }
 
-        var tollsId = ohioTolls.Select(t => t.Id);
-
         var existingPrices = await _context.CalculatePrices
-            .Where(cp =>
-                tollsId.Contains(cp.FromId) ||
-                tollsId.Contains(cp.ToId) &&
-                cp.StateCalculatorId == ohioCalculator.Id).ToListAsync(ct);
+            .Where(cp => cp.StateCalculatorId == ohioCalculator.Id)
+            .Include(cp => cp.TollPrices)
+            .ToListAsync(ct);
 
         // Создаем или обновляем CalculatePrice записи
         foreach (var priceEntry in tollPrices)
         {
-
-            if(priceEntry.EntranceMilepost == 0)
-            {
-
-            }
-
             if (!milepostToTollMap.TryGetValue(priceEntry.EntranceMilepost, out var fromToll) ||
                 !milepostToTollMap.TryGetValue(priceEntry.ExitMilepost, out var toToll))
             {
@@ -153,21 +141,36 @@ public class ParseTollPricesCommandHandler(
                 continue;
             }
 
+            // Маппим axleClass (из JS) в AxelType
+            if (!Enum.IsDefined(typeof(AxelType), priceEntry.AxleClass))
+            {
+                // Неизвестный класс — пропускаем
+                continue;
+            }
+            var axelType = (AxelType)priceEntry.AxleClass;
 
-            
-            // Проверяем, существует ли уже CalculatePrice для этой пары
+            // Проверяем, существует ли уже CalculatePrice для этой пары (без учета осей — оси идут в TollPrices)
             var existingPrice = existingPrices
-                .FirstOrDefault(cp => 
-                    cp.FromId == fromToll.Id && 
-                    cp.ToId == toToll.Id && 
-                    cp.StateCalculatorId == ohioCalculator.Id);
+                .FirstOrDefault(cp =>
+                    cp.FromId == fromToll.Id &&
+                    cp.ToId == toToll.Id);
             
             if (existingPrice != null)
             {
-                // Обновляем существующую запись
-                existingPrice.Online = priceEntry.Unpaid; // tollindex 3 = upt (online)
-                existingPrice.IPass = priceEntry.EZpass; // tollindex 2 = ezpass
-                existingPrice.Cash = priceEntry.Unpaid;
+                // Upsert детализацию по осям/методу оплаты
+                UpsertTollPrice(existingPrice, fromToll.Id, priceEntry.EZpass, TollPaymentType.EZPass, axelType);
+                UpsertTollPrice(existingPrice, fromToll.Id, priceEntry.Unpaid, TollPaymentType.PayOnline, axelType);
+                // В базе/контрактах часто используется Cash как "не транспондер", поэтому дублируем сюда Unpaid.
+                UpsertTollPrice(existingPrice, fromToll.Id, priceEntry.Unpaid, TollPaymentType.Cash, axelType);
+
+                // Поля CalculatePrice не поддерживают "по осям" — заполняем их по умолчанию классом 5,
+                // чтобы не ломать существующие сценарии чтения.
+                if (axelType == AxelType._5L)
+                {
+                    existingPrice.Online = priceEntry.Unpaid;
+                    existingPrice.IPass = priceEntry.EZpass;
+                    existingPrice.Cash = priceEntry.Unpaid;
+                }
             }
             else
             {
@@ -178,11 +181,35 @@ public class ParseTollPricesCommandHandler(
                     StateCalculatorId = ohioCalculator.Id,
                     FromId = fromToll.Id,
                     ToId = toToll.Id,
-                    Online = priceEntry.Unpaid,
-                    IPass = priceEntry.EZpass,
-                    Cash = priceEntry.Unpaid
+                    Online = axelType == AxelType._5L ? priceEntry.Unpaid : 0,
+                    // Эти поля считаем "дефолтными" (под класс 5); реальные цены лежат в TollPrices
+                    IPass = axelType == AxelType._5L ? priceEntry.EZpass : 0,
+                    Cash = axelType == AxelType._5L ? priceEntry.Unpaid : 0,
+                    TollPrices = []
                 };
+                calculatePrice.TollPrices.Add(CreateTollPrice(
+                    calculatePrice.Id,
+                    fromToll.Id,
+                    priceEntry.EZpass,
+                    TollPaymentType.EZPass,
+                    axelType));
+
+                calculatePrice.TollPrices.Add(CreateTollPrice(
+                    calculatePrice.Id,
+                    fromToll.Id,
+                    priceEntry.Unpaid,
+                    TollPaymentType.PayOnline,
+                    axelType));
+
+                calculatePrice.TollPrices.Add(CreateTollPrice(
+                    calculatePrice.Id,
+                    fromToll.Id,
+                    priceEntry.Unpaid,
+                    TollPaymentType.Cash,
+                    axelType));
+
                 _context.CalculatePrices.Add(calculatePrice);
+                existingPrices.Add(calculatePrice);
             }
             
             updatedCount++;
@@ -191,6 +218,17 @@ public class ParseTollPricesCommandHandler(
         await _context.SaveChangesAsync(ct);
         
         return new ParseTollPricesResult(updatedCount, notFoundPlazas.Distinct().ToList());
+    }
+
+    private static bool LooksLikeOhioTurnpikeJs(string? url)
+    {
+        if (string.IsNullOrWhiteSpace(url))
+            return false;
+
+        var u = url.Trim();
+        return u.Contains("ohioturnpike.org", StringComparison.OrdinalIgnoreCase) ||
+               u.Contains("rate_calculator", StringComparison.OrdinalIgnoreCase) ||
+               u.EndsWith(".js", StringComparison.OrdinalIgnoreCase);
     }
     
     private List<InterchangeInfo> ParseInterchanges(string jsContent)
@@ -223,28 +261,30 @@ public class ParseTollPricesCommandHandler(
     
     private List<TollPriceEntry> ParseTollPrices(string jsContent)
     {
-        var pricesDict = new Dictionary<(int entrance, int exit), TollPriceEntry>();
+        var pricesDict = new Dictionary<(int entrance, int exit, int axleClass), TollPriceEntry>();
         
-        // Парсим индекс 3 (Unpaid)
-        var patternUnpaid = @"tolls\[(\d+)\]\[(\d+)\]\[5\]\[3\]\s*=\s*([\d.]+)\s*;?";
+        // Парсим индекс 3 (Unpaid / Pay Online) для всех классов осей
+        var patternUnpaid = @"tolls\[(\d+)\]\[(\d+)\]\[(\d+)\]\[3\]\s*=\s*([\d.]+)\s*;?";
         var matchesUnpaid = Regex.Matches(jsContent, patternUnpaid);
         
         foreach (Match match in matchesUnpaid)
         {
-            if (match.Groups.Count >= 4)
+            if (match.Groups.Count >= 5)
             {
                 if (int.TryParse(match.Groups[1].Value, out var entrance) &&
                     int.TryParse(match.Groups[2].Value, out var exit) &&
-                    double.TryParse(match.Groups[3].Value, System.Globalization.NumberStyles.Any,
+                    int.TryParse(match.Groups[3].Value, out var axleClass) &&
+                    double.TryParse(match.Groups[4].Value, System.Globalization.NumberStyles.Any,
                         System.Globalization.CultureInfo.InvariantCulture, out var price))
                 {
-                    var key = (entrance, exit);
+                    var key = (entrance, exit, axleClass);
                     if (!pricesDict.ContainsKey(key))
                     {
                         pricesDict[key] = new TollPriceEntry
                         {
                             EntranceMilepost = entrance,
-                            ExitMilepost = exit
+                            ExitMilepost = exit,
+                            AxleClass = axleClass
                         };
                     }
                     pricesDict[key].Unpaid = price;
@@ -252,26 +292,28 @@ public class ParseTollPricesCommandHandler(
             }
         }
         
-        // Парсим индекс 2 (EZpass)
-        var patternEZpass = @"tolls\[(\d+)\]\[(\d+)\]\[5\]\[2\]\s*=\s*([\d.]+)\s*;?";
+        // Парсим индекс 2 (EZPass) для всех классов осей
+        var patternEZpass = @"tolls\[(\d+)\]\[(\d+)\]\[(\d+)\]\[2\]\s*=\s*([\d.]+)\s*;?";
         var matchesEZpass = Regex.Matches(jsContent, patternEZpass);
         
         foreach (Match match in matchesEZpass)
         {
-            if (match.Groups.Count >= 4)
+            if (match.Groups.Count >= 5)
             {
                 if (int.TryParse(match.Groups[1].Value, out var entrance) &&
                     int.TryParse(match.Groups[2].Value, out var exit) &&
-                    double.TryParse(match.Groups[3].Value, System.Globalization.NumberStyles.Any,
+                    int.TryParse(match.Groups[3].Value, out var axleClass) &&
+                    double.TryParse(match.Groups[4].Value, System.Globalization.NumberStyles.Any,
                         System.Globalization.CultureInfo.InvariantCulture, out var price))
                 {
-                    var key = (entrance, exit);
+                    var key = (entrance, exit, axleClass);
                     if (!pricesDict.ContainsKey(key))
                     {
                         pricesDict[key] = new TollPriceEntry
                         {
                             EntranceMilepost = entrance,
-                            ExitMilepost = exit
+                            ExitMilepost = exit,
+                            AxleClass = axleClass
                         };
                     }
                     pricesDict[key].EZpass = price;
@@ -283,6 +325,51 @@ public class ParseTollPricesCommandHandler(
     }
     
     // Illinois Tollway parsing logic moved to `TollPriceParser/IL/IllinoisTollwayPriceParser.cs`
+
+    private static void UpsertTollPrice(
+        CalculatePrice calculatePrice,
+        Guid tollId,
+        double amount,
+        TollPaymentType paymentType,
+        AxelType axelType)
+    {
+        calculatePrice.TollPrices ??= [];
+
+        var tollPrice = calculatePrice.TollPrices.FirstOrDefault(tp =>
+            tp.PaymentType == paymentType &&
+            tp.AxelType == axelType);
+
+        if (tollPrice != null)
+        {
+            tollPrice.Amount = amount;
+            tollPrice.TollId = tollId;
+        }
+        else
+        {
+            calculatePrice.TollPrices.Add(CreateTollPrice(
+                calculatePrice.Id,
+                tollId,
+                amount,
+                paymentType,
+                axelType));
+        }
+    }
+
+    private static TollPrice CreateTollPrice(
+        Guid calculatePriceId,
+        Guid tollId,
+        double amount,
+        TollPaymentType paymentType,
+        AxelType axelType)
+    {
+        var tollPrice = new TollPrice(
+            calculatePriceId: calculatePriceId,
+            amount: amount,
+            paymentType: paymentType,
+            axelType: axelType);
+        tollPrice.TollId = tollId;
+        return tollPrice;
+    }
 }
 
 // Вспомогательные классы для парсинга Ohio Turnpike
@@ -296,6 +383,7 @@ internal class TollPriceEntry
 {
     public int EntranceMilepost { get; set; }
     public int ExitMilepost { get; set; }
+    public int AxleClass { get; set; }
     public double Unpaid { get; set; } //inex 3
     public double EZpass { get; set; } //index 2
 }

@@ -100,6 +100,9 @@ public class LinkFloridaTollsCommandHandler(
                 new() { "Не найдены interchanges во входных данных Флориды" });
         }
 
+
+        data.Interchanges.ForEach(x => x.WebsiteUrl = "https://floridasturnpike.com/system-maps/");
+
         foreach (var interchange in data.Interchanges)
         {
             ct.ThrowIfCancellationRequested();
@@ -168,6 +171,7 @@ public class LinkFloridaTollsCommandHandler(
                 }
                 else
                 {
+
                     foreach (var existingToll in existingTolls)
                     {
                         var changed = false;
@@ -177,8 +181,14 @@ public class LinkFloridaTollsCommandHandler(
                         //    !string.Equals(existingToll.Name, newName, StringComparison.Ordinal))
                         //{
                         //}
+
                         existingToll.Name = exitKey /*newName*/;
                         changed = true;
+
+                        if(existingToll.WebsiteUrl != interchange.WebsiteUrl)
+                        {
+                            existingToll.WebsiteUrl = interchange.WebsiteUrl;
+                        }
 
                         var newNumber = string.IsNullOrWhiteSpace(interchange.ExitNum) ? null : interchange.ExitNum;
                         if (newNumber != null && existingToll.Number != newNumber)
@@ -375,6 +385,8 @@ internal sealed class FloridaInterchangeDto
 
     [JsonPropertyName("exitCoordinates")]
     public List<double> ExitCoordinates { get; set; } = new();
+
+    public string WebsiteUrl { get; set; }
 }
 
 internal sealed class FloridaAxlePriceDto

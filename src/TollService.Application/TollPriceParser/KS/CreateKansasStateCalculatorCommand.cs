@@ -113,7 +113,7 @@ public class CreateKansasStateCalculatorCommandHandler(
                     var existingPrice = existingPrices
                         .FirstOrDefault(cp => cp.FromId == fromToll.Id && cp.ToId == toToll.Id);
 
-                    // Kansas калькулятор сейчас реально считает только для 5 осей,
+                    // Kansas калькулятор сейчас реально считает только для 5 и 6 осей,
                     // но аккуратно маппим на enum, чтобы не ломаться при изменениях.
                     var axelType = Enum.IsDefined(typeof(AxelType), vehicleClass.Axles)
                         ? (AxelType)vehicleClass.Axles
@@ -125,8 +125,8 @@ public class CreateKansasStateCalculatorCommandHandler(
                         existingPrice.Online = (double)result.TBR;
                         existingPrice.Cash = (double)result.IBR;
 
-                        // TollPrices по аналогии с другими штатами:
-                        // - EZPass: транспондерный тариф (TBR)
+                        // TollPrices:
+                        // - KTAG: транспондерный тариф (TBR)
                         // - Cash: тариф без транспондера (IBR)
                         UpsertTollPrice(existingPrice, fromToll.Id, (double)result.TBR, TollPaymentType.KTAG, axelType);
                         UpsertTollPrice(existingPrice, fromToll.Id, (double)result.IBR, TollPaymentType.Cash, axelType);
@@ -150,7 +150,7 @@ public class CreateKansasStateCalculatorCommandHandler(
                             calculatePrice.Id,
                             fromToll.Id,
                             (double)result.TBR,
-                            TollPaymentType.EZPass,
+                            TollPaymentType.KTAG,
                             axelType));
 
                         calculatePrice.TollPrices.Add(CreateTollPrice(
@@ -184,7 +184,9 @@ public class CreateKansasStateCalculatorCommandHandler(
         KansasVehicleClassDto vehicleClass,
         List<KansasCtsRateDto> allRates)
     {
-        if (vehicleClass.Axles != 5)
+        // Kansas rates are provided per axle-class in request.CtsRates.
+        // Currently we support 5 and 6 axles; other classes are ignored.
+        if (vehicleClass.Axles is not (5 or 6))
             return new KansasTollResult(0m, 0m);
 
         // 1. Проверка на наличие всех данных

@@ -62,22 +62,25 @@ public class ParseIndianaTollPricesCommandHandler(
         }
 
         // Создаем словарь для кэширования найденных tolls
-        var tollCache = new Dictionary<string, Toll?>();
+        var tollCache = new Dictionary<string, List<Toll>>();
+
+        // Собираем цены в батч-словарь (FromId, ToId) -> TollPrice[]
+        var tollPairsWithPrices = new Dictionary<(Guid FromId, Guid ToId), List<TollPrice>>();
 
         // Обрабатываем каждую запись о цене
         foreach (var priceEntry in priceEntries)
         {
             // Находим toll для entry (точка входа)
-            var fromToll = await FindOrCacheToll(priceEntry.Entry, tollCache, indianaCalculator.Id, ct);
-            if (fromToll == null)
+            var fromTolls = await FindOrCacheTolls(priceEntry.Entry, tollCache, indianaCalculator.Id, ct);
+            if (fromTolls.Count == 0)
             {
                 notFoundPlazas.Add($"Entry: {priceEntry.Entry}");
                 continue;
             }
 
             // Находим toll для exit (точка выхода)
-            var toToll = await FindOrCacheToll(priceEntry.Exit, tollCache, indianaCalculator.Id, ct);
-            if (toToll == null)
+            var toTolls = await FindOrCacheTolls(priceEntry.Exit, tollCache, indianaCalculator.Id, ct);
+            if (toTolls.Count == 0)
             {
                 notFoundPlazas.Add($"Exit: {priceEntry.Exit}");
                 continue;
@@ -87,37 +90,70 @@ public class ParseIndianaTollPricesCommandHandler(
             var cashPrice = ParsePrice(priceEntry.CashRate);
             var aviPrice = ParsePrice(priceEntry.AviRate);
 
-            // Проверяем, существует ли уже CalculatePrice для этой пары
-            var existingPrice = await _context.CalculatePrices
-                .Include(cp => cp.TollPrices)
-                .FirstOrDefaultAsync(cp => 
-                    cp.FromId == fromToll.Id && 
-                    cp.ToId == toToll.Id && 
-                    cp.StateCalculatorId == indianaCalculator.Id, ct);
+            var description = $"{priceEntry.Entry} -> {priceEntry.Exit}";
 
-            if (existingPrice != null)
-            {
-                calculatePriceService.SetTollPrice(existingPrice, cashPrice, TollPaymentType.Cash);
-                calculatePriceService.SetTollPrice(existingPrice, aviPrice, TollPaymentType.EZPass);
-            }
-            else
-            {
-                // Создаем новую запись
-                existingPrice = new CalculatePrice
+            // Обрабатываем все комбинации entry -> exit толлов (как в других штатах)
+            var pairResults = TollPairProcessor.ProcessAllPairsToDictionaryList(
+                fromTolls,
+                toTolls,
+                (entryToll, exitToll) =>
                 {
-                    Id = Guid.NewGuid(),
-                    StateCalculatorId = indianaCalculator.Id,
-                    FromId = fromToll.Id,
-                    ToId = toToll.Id,
-                };
+                    var tollPrices = new List<TollPrice>();
 
-                calculatePriceService.SetTollPrice(existingPrice, cashPrice, TollPaymentType.Cash);
-                calculatePriceService.SetTollPrice(existingPrice, aviPrice, TollPaymentType.EZPass);
+                    if (cashPrice > 0)
+                    {
+                        tollPrices.Add(new TollPrice
+                        {
+                            TollId = entryToll.Id,
+                            PaymentType = TollPaymentType.Cash,
+                            AxelType = AxelType._5L,
+                            Amount = cashPrice,
+                            Description = description
+                        });
+                    }
 
-                _context.CalculatePrices.Add(existingPrice);
+                    // AVI в источнике используем как EZPass
+                    if (aviPrice > 0)
+                    {
+                        tollPrices.Add(new TollPrice
+                        {
+                            TollId = entryToll.Id,
+                            PaymentType = TollPaymentType.EZPass,
+                            AxelType = AxelType._5L,
+                            Amount = aviPrice,
+                            Description = $"{description} (AVI)"
+                        });
+                    }
+
+                    return tollPrices;
+                });
+
+            foreach (var kvp in pairResults)
+            {
+                if (!tollPairsWithPrices.TryGetValue(kvp.Key, out var existingList))
+                {
+                    existingList = new List<TollPrice>();
+                    tollPairsWithPrices[kvp.Key] = existingList;
+                }
+
+                existingList.AddRange(kvp.Value);
             }
 
-            updatedCount++;
+            updatedCount += pairResults.Count;
+        }
+
+        // Батч-создание/обновление CalculatePrice с TollPrice
+        if (tollPairsWithPrices.Count > 0)
+        {
+            var tollPairsWithPricesEnumerable = tollPairsWithPrices.ToDictionary(
+                kvp => kvp.Key,
+                kvp => (IEnumerable<TollPrice>?)kvp.Value);
+
+            await calculatePriceService.GetOrCreateCalculatePricesBatchAsync(
+                tollPairsWithPricesEnumerable,
+                indianaCalculator.Id,
+                includeTollPrices: true,
+                ct);
         }
 
         await _context.SaveChangesAsync(ct);
@@ -126,47 +162,56 @@ public class ParseIndianaTollPricesCommandHandler(
     }
 
     /// <summary>
-    /// Находит Toll по имени, используя кэш для оптимизации, и устанавливает StateCalculatorId
+    /// Находит Toll'ы по имени/ключу, используя кэш для оптимизации, и устанавливает StateCalculatorId.
+    /// Может вернуть несколько toll'ов (как в других штатах), поэтому возвращаем List&lt;Toll&gt;.
     /// </summary>
-    private async Task<Toll?> FindOrCacheToll(string name, Dictionary<string, Toll?> cache, Guid stateCalculatorId, CancellationToken ct)
+    private async Task<List<Toll>> FindOrCacheTolls(
+        string name,
+        Dictionary<string, List<Toll>> cache,
+        Guid stateCalculatorId,
+        CancellationToken ct)
     {
-        if (cache.TryGetValue(name, out var cachedToll))
+        var key = (name ?? string.Empty).Trim();
+        if (string.IsNullOrWhiteSpace(key))
+        {
+            return new List<Toll>();
+        }
+
+        var keyLower = key.ToLowerInvariant();
+
+        if (cache.TryGetValue(key, out var cachedTolls))
         {
             // Если toll уже найден, но StateCalculatorId не установлен, обновляем его
-            if (cachedToll != null && cachedToll.StateCalculatorId != stateCalculatorId)
+            foreach (var toll in cachedTolls)
             {
-                cachedToll.StateCalculatorId = stateCalculatorId;
+                if (toll.StateCalculatorId != stateCalculatorId)
+                {
+                    toll.StateCalculatorId = stateCalculatorId;
+                }
             }
-            return cachedToll;
+            return cachedTolls;
         }
 
-        // Ищем точное совпадение по имени (регистронезависимо)
-        var toll = await _context.Tolls
-            .FirstOrDefaultAsync(t => t.Name != null && t.Name == name, ct);
+        // Ищем точное совпадение по Name/Key (регистронезависимо).
+        // Не используем ILIKE, чтобы не зависеть от провайдера/extension-методов.
+        var tolls = await _context.Tolls
+            .Where(t =>
+                (t.Name != null && t.Name.ToLower() == keyLower) ||
+                (t.Key != null && t.Key.ToLower() == keyLower) ||
+                (t.Number != null && t.Number == key))
+            .ToListAsync(ct);
 
-        //// Если не найдено, пробуем поиск по Key
-        //if (toll == null)
-        //{
-        //    toll = await _context.Tolls
-        //        .FirstOrDefaultAsync(t => t.Key != null && EF.Functions.ILike(t.Key, name), ct);
-        //}
-
-        //// Если не найдено, пробуем частичное совпадение (содержит) используя ILike для PostgreSQL
-        //if (toll == null)
-        //{
-        //    toll = await _context.Tolls
-        //        .FirstOrDefaultAsync(t => (t.Name != null && EF.Functions.ILike(t.Name, $"%{name}%")) ||
-        //                                 (t.Key != null && EF.Functions.ILike(t.Key, $"%{name}%")), ct);
-        //}
-
-        // Если toll найден, устанавливаем StateCalculatorId
-        if (toll != null)
+        // Если toll'ы найдены, устанавливаем StateCalculatorId
+        if (tolls.Count > 0)
         {
-            toll.StateCalculatorId = stateCalculatorId;
+            foreach (var toll in tolls)
+            {
+                toll.StateCalculatorId = stateCalculatorId;
+            }
         }
 
-        cache[name] = toll;
-        return toll;
+        cache[key] = tolls;
+        return tolls;
     }
 
     /// <summary>

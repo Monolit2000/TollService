@@ -3,7 +3,7 @@
     const parser = new DOMParser();
 
     const AXLES = "5";        // 5 Axle
-    const PAYMETHOD = "4";    // E-Z Pass MA
+    const PAYMETHOD = "1";    // pay-by-plateMA
 
     /* ===============================
        ENTRY / EXIT LIST
@@ -24,7 +24,7 @@
     ];
 
     /* ===============================
-       LOAD INITIAL VIEWSTATE
+       LOAD VIEWSTATE
     =============================== */
 
     async function loadState() {
@@ -42,19 +42,18 @@
     }
 
     /* ===============================
-       PARSE RESULT TABLE
+       PARSE RESULT
     =============================== */
 
     function parseResult(html) {
         const doc = parser.parseFromString(html, "text/html");
-
         const get = id => doc.querySelector(`#${id}`)?.textContent.trim() || null;
 
         return {
-            entry: get("dnn_ctr1341_View_lblEntry"),
-            exit: get("dnn_ctr1341_View_lblExit"),
-            axles: get("dnn_ctr1341_View_lblAxles"),
-            payment: get("dnn_ctr1341_View_lblPaymentMethod"),
+            entryText: get("dnn_ctr1341_View_lblEntry"),
+            exitText: get("dnn_ctr1341_View_lblExit"),
+            axlesText: get("dnn_ctr1341_View_lblAxles"),
+            paymentText: get("dnn_ctr1341_View_lblPaymentMethod"),
 
             eastbound: {
                 toll: get("dnn_ctr1341_View_lblTollEB"),
@@ -95,13 +94,14 @@
     }
 
     /* ===============================
-       MAIN LOOP (BATCH = 100)
+       BUILD ROUTES
     =============================== */
 
     const routes = [];
     for (const e of ENTRIES)
         for (const x of EXITS)
-            if (e !== x) routes.push({ entry: e, exit: x });
+            if (e !== x)
+                routes.push({ entry: e, exit: x });
 
     console.log(`Routes to check: ${routes.length}`);
 
@@ -109,7 +109,11 @@
     const results = [];
 
     const BATCH = 100;
-    const DELAY_BETWEEN_BATCHES = 500; // ms
+    const DELAY_BETWEEN_BATCHES = 500;
+
+    /* ===============================
+       MAIN LOOP
+    =============================== */
 
     for (let i = 0; i < routes.length; i += BATCH) {
         const batch = routes.slice(i, i + BATCH);
@@ -117,9 +121,29 @@
         const jobs = batch.map(async r => {
             try {
                 const data = await fetchRoute(state, r.entry, r.exit);
-                return { ...r, ...data, status: "OK" };
+
+                return {
+                    EntryNumber: r.entry,
+                    ExitNumber: r.exit,
+
+                    entry: data.entryText,
+                    exit: data.exitText,
+
+                    axles: data.axlesText || "5 Axle",
+                    payment: data.paymentText || "pay-by-plate",
+
+                    eastbound: data.eastbound,
+                    westbound: data.westbound,
+
+                    status: "OK"
+                };
             } catch (e) {
-                return { ...r, error: e.message, status: "ERR" };
+                return {
+                    EntryNumber: r.entry,
+                    ExitNumber: r.exit,
+                    status: "ERR",
+                    error: e.message
+                };
             }
         });
 
@@ -127,11 +151,8 @@
         results.push(...out);
 
         console.log(`Progress ${results.length}/${routes.length}`);
-
-        // пауза между батчами, чтобы не словить 429 / бан
         await new Promise(r => setTimeout(r, DELAY_BETWEEN_BATCHES));
     }
-
 
     /* ===============================
        FINAL JSON
@@ -140,8 +161,6 @@
     const json = {
         state: "Massachusetts",
         road: "Massachusetts Turnpike",
-        axles: AXLES,
-        payment: "E-Z Pass MA",
         total: results.length,
         ok: results.filter(x => x.status === "OK").length,
         data: results

@@ -1,5 +1,5 @@
 (async function scrapeNYThruway() {
-    const vehicleClass = 5; // мен€й класс тут, если нужно
+    const vehicleClass = 6; // мен€й класс тут, если нужно
     const baseUrl = "https://tollcalculator.thruway.ny.gov/index.aspx";
     const parser = new DOMParser();
 

@@ -115,7 +115,7 @@ public class ParseMassachusettsTollPricesCommandHandler(
 
             // Создаем bounding box для Massachusetts
             var maBoundingBox = BoundingBoxHelper.CreateBoundingBox(
-                MaMinLongitude, MaMinLatitude, MaMaxLongitude, MaMaxLatitude);
+                MaMinLatitude, MaMinLongitude, MaMaxLatitude, MaMaxLongitude);
 
             // Получаем или создаем StateCalculator для Massachusetts
             var stateCalculator = await _context.StateCalculators
@@ -326,7 +326,7 @@ public class ParseMassachusettsTollPricesCommandHandler(
         var axlesLower = axles.ToLower();
         if (axlesLower.Contains("5") || axlesLower.Contains("5 axle"))
             return AxelType._5L;
-        if (axlesLower.Contains("6") || axlesLower.Contains("6 axle"))
+        if (axlesLower.Contains("7") || axlesLower.Contains("7 axle"))
             return AxelType._6L;
         if (axlesLower.Contains("4") || axlesLower.Contains("4 axle"))
             return AxelType._4L;

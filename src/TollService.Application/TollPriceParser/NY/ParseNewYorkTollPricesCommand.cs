@@ -165,7 +165,7 @@ public class ParseNewYorkTollPricesCommandHandler(
                         // Определяем тип осей по VehicleClass (по умолчанию _5L)
                         var axelType = Enum.IsDefined(typeof(AxelType), request.VehicleClass)
                             ? (AxelType)request.VehicleClass
-                            : AxelType._5L;
+                            : AxelType._6L;
 
                         if (existingPrice != null)
                         {
