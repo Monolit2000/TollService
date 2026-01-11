@@ -26,7 +26,7 @@ public class GetWeighStationsAlongPolylineQueryHandler(
             return result;
         }
 
-        var radiusMeters = _configuration.GetValue<double>("WeighStationSearch:RadiusMeters", 20.0);
+        var radiusMeters = _configuration.GetValue<double>("WeighStationSearch:RadiusMeters", 500.0);
         var radiusDegrees = radiusMeters / MetersPerDegree;
 
         foreach (var section in request.Sections)
