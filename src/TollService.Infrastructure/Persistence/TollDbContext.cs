@@ -1,6 +1,7 @@
 using Microsoft.EntityFrameworkCore;
 using TollService.Application.Common.Interfaces;
 using TollService.Domain;
+using TollService.Domain.WeighStations;
 
 namespace TollService.Infrastructure.Persistence;
 
@@ -13,6 +14,7 @@ public class TollDbContext : DbContext, ITollDbContext
     public DbSet<StateCalculator> StateCalculators { get; set; }
     public DbSet<CalculatePrice> CalculatePrices { get; set; }
     public DbSet<TollPrice> TollPrices { get; set; }
+    public DbSet<WeighStation> WeighStations { get; set; }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {

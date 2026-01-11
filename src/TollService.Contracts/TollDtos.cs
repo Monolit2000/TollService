@@ -253,3 +253,21 @@ public record MassachusettsCoordinatesDto(
     double latitude,
     double longitude,
     string? note);
+
+public record WeighStationRequestDto(
+    string Title,
+    string Address,
+    string Web,
+    List<double> Location);
+
+public record WeighStationDto(
+    Guid Id,
+    string Title,
+    string Address,
+    string Web,
+    double Latitude,
+    double Longitude);
+
+public record AddWeighStationsResult(
+    int AddedCount,
+    List<string> Errors);
