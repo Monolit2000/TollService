@@ -268,6 +268,14 @@ public record WeighStationDto(
     double Latitude,
     double Longitude);
 
+public record WeighStationSectionRequestDto(
+    List<List<double>> Coordinates,
+    string SectionId);
+
+public record WeighStationsBySectionDto(
+    List<WeighStationDto> WeighStations,
+    string SectionId);
+
 public record AddWeighStationsResult(
     int AddedCount,
     List<string> Errors);
