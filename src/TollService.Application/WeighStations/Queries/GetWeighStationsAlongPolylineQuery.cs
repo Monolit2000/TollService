@@ -39,7 +39,7 @@ public class GetWeighStationsAlongPolylineQueryHandler(
 
             var coordinates = section.Coordinates
                 .Where(c => c != null && c.Count >= 2)
-                .Select(c => new Coordinate(c[1], c[0])) // [0] = longitude, [1] = latitude
+                .Select(c => new Coordinate(c[0], c[1])) // [0] = longitude, [1] = latitude
                 .ToArray();
 
             if (coordinates.Length < 2)
